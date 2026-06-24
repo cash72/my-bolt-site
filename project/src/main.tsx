@@ -1,10 +1,28 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App.tsx';
+import { createRoot, hydrateRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { DarkModeProvider } from './context/DarkModeContext';
+import { initAnalytics } from './lib/analytics';
+import App from './App';
 import './index.css';
 
-createRoot(document.getElementById('root')!).render(
+initAnalytics();
+
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || undefined;
+
+const container = document.getElementById('root')!;
+const app = (
   <StrictMode>
-    <App />
+    <DarkModeProvider>
+      <BrowserRouter basename={basename}>
+        <App />
+      </BrowserRouter>
+    </DarkModeProvider>
   </StrictMode>
 );
+
+if (container.hasChildNodes()) {
+  hydrateRoot(container, app);
+} else {
+  createRoot(container).render(app);
+}
