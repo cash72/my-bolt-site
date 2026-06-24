@@ -47,14 +47,18 @@ const ResponsiveContainer = lazy(() =>
 interface PriceData {
   bitcoin: {
     usd: number;
+    usd_24h_change?: number;
     eur: number;
+    eur_24h_change?: number;
     gbp: number;
+    gbp_24h_change?: number;
     cad: number;
+    cad_24h_change?: number;
   };
 }
 
 const COINGECKO_URL =
-  'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,eur,gbp,cad';
+  'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,eur,gbp,cad&include_24hr_change=true';
 
 const COINGECKO_CHART_URL =
   'https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=10';
@@ -209,8 +213,12 @@ export default function App() {
     });
   };
 
-  const priceChange = 0;
-  const isUp = priceChange >= 0;
+  const priceChange = priceData?.bitcoin?.usd_24h_change ?? null;
+  const isUp = priceChange === null ? true : priceChange >= 0;
+  const priceChangeLabel =
+    priceChange === null
+      ? '24h'
+      : `${isUp ? '+' : ''}${priceChange.toFixed(2)}%`;
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
@@ -257,13 +265,25 @@ export default function App() {
                   </span>
                   <span
                     className={`inline-flex items-center gap-1 text-sm font-medium px-2.5 py-0.5 rounded-full ${
-                      isUp
-                        ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-400'
-                        : 'bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400'
+                      priceChange === null
+                        ? 'bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400'
+                        : isUp
+                          ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-400'
+                          : 'bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400'
                     }`}
+                    aria-label={
+                      priceChange === null
+                        ? '24 hour price change loading'
+                        : `24 hour price change ${priceChangeLabel}`
+                    }
                   >
-                    {isUp ? <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" /> : <ArrowDownRight className="w-3.5 h-3.5" aria-hidden="true" />}
-                    Live
+                    {priceChange !== null &&
+                      (isUp ? (
+                        <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+                      ) : (
+                        <ArrowDownRight className="w-3.5 h-3.5" aria-hidden="true" />
+                      ))}
+                    {priceChangeLabel}
                   </span>
                 </div>
               </div>
