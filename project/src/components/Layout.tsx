@@ -2,6 +2,7 @@ import { Outlet, Link, NavLink } from 'react-router-dom';
 import { Bitcoin, Moon, Sun } from 'lucide-react';
 import { useDarkMode } from '../context/DarkModeContext';
 import { CONTACT_EMAIL, SITE_NAME } from '../lib/site';
+import { FEATURED_LANDING_LINKS } from '../lib/landingPages';
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `text-sm transition-colors ${
@@ -67,7 +68,7 @@ export default function Layout() {
         role="contentinfo"
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6 text-sm">
             <div>
               <div className="flex items-center gap-2 mb-2 font-semibold text-slate-800 dark:text-slate-200">
                 <Bitcoin className="w-4 h-4 text-orange-500" aria-hidden="true" />
@@ -77,6 +78,21 @@ export default function Layout() {
                 Free live Satoshi to USD, EUR, GBP &amp; CAD converter. Prices refresh every 60 seconds from
                 CoinGecko.
               </p>
+            </div>
+            <div>
+              <p className="font-semibold text-slate-800 dark:text-slate-200 mb-2">Popular conversions</p>
+              <ul className="flex flex-col gap-2">
+                {FEATURED_LANDING_LINKS.map((page) => (
+                  <li key={page.slug}>
+                    <Link
+                      to={page.path}
+                      className="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400"
+                    >
+                      {page.breadcrumbLabel}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
             <div className="flex flex-col gap-2 sm:items-end">
               <Link to="/about" className="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400">

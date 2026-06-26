@@ -1,6 +1,14 @@
 import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import { useDarkMode } from '../context/DarkModeContext';
 import { usePageMeta } from '../hooks/usePageMeta';
+import {
+  COINGECKO_URL,
+  SATOSHI_PER_BTC,
+  formatCurrency,
+  formatNumber,
+  type PriceData,
+} from '../lib/conversion';
 import {
   ArrowRightLeft,
   TrendingUp,
@@ -44,26 +52,8 @@ const ResponsiveContainer = lazy(() =>
   import('recharts').then((m) => ({ default: m.ResponsiveContainer }))
 );
 
-interface PriceData {
-  bitcoin: {
-    usd: number;
-    usd_24h_change?: number;
-    eur: number;
-    eur_24h_change?: number;
-    gbp: number;
-    gbp_24h_change?: number;
-    cad: number;
-    cad_24h_change?: number;
-  };
-}
-
-const COINGECKO_URL =
-  'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,eur,gbp,cad&include_24hr_change=true';
-
 const COINGECKO_CHART_URL =
   'https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=10';
-
-const SATOSHI_PER_BTC = 100_000_000;
 
 const currencyIcons: Record<string, React.ReactNode> = {
   usd: <DollarSign className="w-4 h-4" aria-hidden="true" />,
@@ -71,22 +61,6 @@ const currencyIcons: Record<string, React.ReactNode> = {
   gbp: <PoundSterling className="w-4 h-4" aria-hidden="true" />,
   cad: <CircleDollarSign className="w-4 h-4" aria-hidden="true" />,
 };
-
-function formatCurrency(value: number, currency: string) {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: currency.toUpperCase(),
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 6,
-  }).format(value);
-}
-
-function formatNumber(value: number) {
-  return new Intl.NumberFormat('en-US', {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 8,
-  }).format(value);
-}
 
 export default function HomePage() {
   usePageMeta({
@@ -752,7 +726,14 @@ export default function HomePage() {
                       key={sats}
                       className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors"
                     >
-                      <td className="py-3 px-4 font-medium">{sats.toLocaleString()} sats</td>
+                      <td className="py-3 px-4 font-medium">
+                        <Link
+                          to={`/${sats}-satoshi-to-usd`}
+                          className="hover:text-orange-600 dark:hover:text-orange-400"
+                        >
+                          {sats.toLocaleString()} sats
+                        </Link>
+                      </td>
                       <td className="py-3 px-4 text-right">
                         {btcPriceUsd > 0 ? formatCurrency(sats * (btcPriceUsd / SATOSHI_PER_BTC), 'usd') : '--'}
                       </td>

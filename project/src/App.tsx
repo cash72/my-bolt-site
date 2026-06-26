@@ -5,6 +5,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPage from './pages/PrivacyPage';
 import DisclaimerPage from './pages/DisclaimerPage';
+import ConversionLandingPage from './pages/ConversionLandingPage';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="contact" element={<ContactPage />} />
         <Route path="privacy" element={<PrivacyPage />} />
         <Route path="disclaimer" element={<DisclaimerPage />} />
+        <Route path=":slug" element={<ConversionLandingPage />} />
       </Route>
     </Routes>
   );

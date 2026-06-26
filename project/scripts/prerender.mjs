@@ -10,7 +10,10 @@ const DIST = path.resolve(__dirname, '../dist');
 const BASE = (process.env.VITE_BASE_PATH || '/').replace(/\/$/, '');
 const PORT = Number(process.env.PRERENDER_PORT || 4173);
 
-const ROUTES = ['/', '/about', '/contact', '/privacy', '/disclaimer'];
+const routesJson = JSON.parse(
+  await fs.readFile(path.resolve(__dirname, '../seo/generated-routes.json'), 'utf8')
+);
+const ROUTES = routesJson.allRoutes;
 
 function routeToOutput(route) {
   if (route === '/') return path.join(DIST, 'index.html');

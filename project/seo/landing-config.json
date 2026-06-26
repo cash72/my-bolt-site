@@ -1,0 +1,5 @@
+{
+  "currencies": ["usd", "eur", "gbp", "cad"],
+  "satoshiAmounts": [1, 10, 100, 1000, 10000, 100000, 1000000],
+  "fiatAmounts": [1, 10, 100, 1000]
+}

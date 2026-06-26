@@ -32,6 +32,10 @@ jobs:
         working-directory: project
         run: npm ci
 
+      - name: Install Chrome for prerender
+        working-directory: project
+        run: npx puppeteer browsers install chrome
+
       - name: Build
         working-directory: project
         run: npm run build
