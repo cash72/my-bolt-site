@@ -4,6 +4,7 @@ import { useDarkMode } from '../context/DarkModeContext';
 import { CONTACT_EMAIL, SITE_NAME } from '../lib/site';
 import { FEATURED_LANDING_LINKS } from '../lib/landingPages';
 import { FEATURED_GUIDES } from '../lib/guides';
+import ScrollToTop from './ScrollToTop';
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `text-sm transition-colors ${
@@ -17,6 +18,7 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+      <ScrollToTop />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-orange-500 focus:text-white focus:rounded-lg"
