@@ -60,8 +60,38 @@ export default function PrivacyPage() {
           .
         </li>
         <li>
-          <strong>Advertising partners</strong> — if we display ads in the future, those networks may use cookies
-          per their own policies. We will update this page before enabling ads.
+          <strong>Google AdSense</strong> (optional) — display advertising when enabled. Google may use cookies
+          to serve personalized or non-personalized ads. See{' '}
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-600 dark:text-orange-400 hover:underline"
+          >
+            Google&apos;s privacy policy
+          </a>{' '}
+          and{' '}
+          <a
+            href="https://adssettings.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-600 dark:text-orange-400 hover:underline"
+          >
+            Google Ads Settings
+          </a>
+          .
+        </li>
+        <li>
+          <strong>A-Ads</strong> (optional) — crypto-friendly display ads when AdSense is not configured. See{' '}
+          <a
+            href="https://aads.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-600 dark:text-orange-400 hover:underline"
+          >
+            A-Ads privacy information
+          </a>
+          .
         </li>
       </ul>
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Cookies</h2>

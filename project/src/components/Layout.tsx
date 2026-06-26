@@ -5,6 +5,7 @@ import { CONTACT_EMAIL, SITE_NAME } from '../lib/site';
 import { FEATURED_LANDING_LINKS } from '../lib/landingPages';
 import { FEATURED_GUIDES } from '../lib/guides';
 import ScrollToTop from './ScrollToTop';
+import AdSlot from './AdSlot';
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `text-sm transition-colors ${
@@ -71,6 +72,10 @@ export default function Layout() {
       </header>
 
       <Outlet />
+
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <AdSlot placement="footer" />
+      </div>
 
       <footer
         className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"

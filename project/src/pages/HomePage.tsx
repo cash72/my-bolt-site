@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom';
 import { useDarkMode } from '../context/DarkModeContext';
 import { usePageMeta } from '../hooks/usePageMeta';
+import AdSlot from '../components/AdSlot';
 import {
   COINGECKO_URL,
   SATOSHI_PER_BTC,
@@ -531,6 +532,10 @@ export default function HomePage() {
             )}
           </div>
         </section>
+
+        <div className="max-w-5xl mx-auto">
+          <AdSlot placement="content" />
+        </div>
 
         {/* Info Section */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12" aria-label="About Satoshi and Conversion Guide">

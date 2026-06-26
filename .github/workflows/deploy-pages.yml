@@ -43,6 +43,11 @@ jobs:
           VITE_SITE_URL: https://satoshi-calc.com
           VITE_BASE_PATH: /
           VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
+          VITE_ADSENSE_CLIENT: ${{ secrets.VITE_ADSENSE_CLIENT }}
+          VITE_ADSENSE_SLOT_FOOTER: ${{ secrets.VITE_ADSENSE_SLOT_FOOTER }}
+          VITE_ADSENSE_SLOT_CONTENT: ${{ secrets.VITE_ADSENSE_SLOT_CONTENT }}
+          VITE_AADS_UNIT_ID: ${{ secrets.VITE_AADS_UNIT_ID }}
+          VITE_AADS_SIZE: ${{ secrets.VITE_AADS_SIZE }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
