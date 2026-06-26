@@ -1,6 +1,8 @@
 {
   "staticRoutes": [
     "/",
+    "/conversions",
+    "/guides",
     "/about",
     "/contact",
     "/privacy",
@@ -60,8 +62,18 @@
     "/100-cad-in-satoshi",
     "/1000-cad-in-satoshi"
   ],
+  "guidePaths": [
+    "/guides/what-is-a-satoshi",
+    "/guides/how-many-satoshis-in-a-bitcoin",
+    "/guides/usd-to-satoshi",
+    "/guides/how-to-store-bitcoin-safely",
+    "/guides/bitcoin-self-custody-basics",
+    "/guides/run-your-own-bitcoin-node"
+  ],
   "allRoutes": [
     "/",
+    "/conversions",
+    "/guides",
     "/about",
     "/contact",
     "/privacy",
@@ -117,6 +129,12 @@
     "/1-cad-in-satoshi",
     "/10-cad-in-satoshi",
     "/100-cad-in-satoshi",
-    "/1000-cad-in-satoshi"
+    "/1000-cad-in-satoshi",
+    "/guides/what-is-a-satoshi",
+    "/guides/how-many-satoshis-in-a-bitcoin",
+    "/guides/usd-to-satoshi",
+    "/guides/how-to-store-bitcoin-safely",
+    "/guides/bitcoin-self-custody-basics",
+    "/guides/run-your-own-bitcoin-node"
   ]
 }

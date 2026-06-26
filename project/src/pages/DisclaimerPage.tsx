@@ -37,8 +37,13 @@ export default function DisclaimerPage() {
       </p>
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Affiliate links &amp; advertising</h2>
       <p>
-        This site may display advertisements or affiliate links in the future. Such relationships will be disclosed
-        where required. We are not responsible for products or services advertised by third parties.
+        Some guides and product recommendations include <strong>affiliate links</strong>. If you purchase through
+        those links, {SITE_NAME} may earn a commission at no extra cost to you. We only link to products we believe
+        are relevant to Bitcoin education and self-custody.
+      </p>
+      <p>
+        Affiliate relationships do not change our obligation to provide accurate conversion data on the calculator.
+        Product opinions are our own. We are not responsible for third-party products, shipping, or support.
       </p>
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Limitation of liability</h2>
       <p>
