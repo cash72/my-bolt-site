@@ -15,7 +15,8 @@ export function loadAdSenseScript(): Promise<void> {
     return Promise.resolve();
   }
 
-  if (scriptLoaded) {
+  if (scriptLoaded || document.querySelector('script[src*="adsbygoogle.js"]')) {
+    scriptLoaded = true;
     return Promise.resolve();
   }
 
