@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useBitcoinPrice } from '../hooks/useBitcoinPrice';
+import AdSlot from '../components/AdSlot';
 import {
   CURRENCY_LABELS,
   CURRENCY_NAMES,
@@ -33,6 +34,7 @@ import {
   type LandingPageDef,
 } from '../lib/landingPages';
 import { SITE_URL } from '../lib/site';
+import { getGuidesForLanding } from '../lib/guides';
 
 const currencyIcons: Record<FiatCurrency, React.ReactNode> = {
   usd: <DollarSign className="w-4 h-4" aria-hidden="true" />,
@@ -95,6 +97,7 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
   const label = CURRENCY_LABELS[page.currency];
   const currencyName = CURRENCY_NAMES[page.currency];
   const related = getRelatedLandingPages(page);
+  const relatedGuides = getGuidesForLanding(page);
 
   const isSatoshiToFiat = page.direction === 'satoshi-to-fiat';
   const fiatResult = satoshiToFiat(page.amount, btcPrice);
@@ -302,6 +305,8 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
         </div>
       </section>
 
+      <AdSlot placement="content" />
+
       <section className="mb-10 prose prose-slate dark:prose-invert max-w-none">
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed">
           <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mt-0">
@@ -362,6 +367,24 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
           </div>
         </div>
       </section>
+
+      {relatedGuides.length > 0 && (
+        <section className="mb-10" aria-label="Related guides">
+          <h2 className="text-xl font-bold mb-4">Learn more</h2>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {relatedGuides.map((guide) => (
+              <li key={guide.slug}>
+                <Link
+                  to={guide.path}
+                  className="block rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-sm font-medium hover:border-orange-300 dark:hover:border-orange-700 transition-colors"
+                >
+                  {guide.breadcrumbLabel}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="mb-10" aria-label="Related conversions">
         <h2 className="text-xl font-bold mb-4">Related conversions</h2>

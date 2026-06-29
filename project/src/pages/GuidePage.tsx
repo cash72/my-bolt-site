@@ -9,11 +9,12 @@ import {
 } from '../components/AffiliateProductCard';
 import {
   getGuideBySlug,
-  GUIDES,
+  FEATURED_GUIDES,
   type GuideDef,
 } from '../lib/guides';
 import { LANDING_PAGE_BY_SLUG } from '../lib/landingPages';
 import { SITE_EDITOR, SITE_URL } from '../lib/site';
+import AdSlot from '../components/AdSlot';
 
 function formatDisplayDate(iso: string): string {
   return new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', {
@@ -54,6 +55,7 @@ function GuideContent({ guide }: { guide: GuideDef }) {
     title: guide.title,
     description: guide.description,
     path: guide.path,
+    ogType: 'article',
   });
 
   useEffect(() => {
@@ -97,9 +99,44 @@ function GuideContent({ guide }: { guide: GuideDef }) {
       publisher: { '@type': 'Organization', name: 'SatoshiCalc', url: SITE_URL },
     });
 
+    const breadcrumbId = 'guide-breadcrumb-schema';
+    let breadcrumbScript = document.getElementById(breadcrumbId) as HTMLScriptElement | null;
+    if (!breadcrumbScript) {
+      breadcrumbScript = document.createElement('script');
+      breadcrumbScript.id = breadcrumbId;
+      breadcrumbScript.type = 'application/ld+json';
+      document.head.appendChild(breadcrumbScript);
+    }
+
+    breadcrumbScript.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: `${SITE_URL}/`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Guides',
+          item: `${SITE_URL}/guides`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: guide.breadcrumbLabel,
+          item: `${SITE_URL}${guide.path}`,
+        },
+      ],
+    });
+
     return () => {
       document.getElementById(faqId)?.remove();
       document.getElementById(articleId)?.remove();
+      document.getElementById(breadcrumbId)?.remove();
     };
   }, [guide]);
 
@@ -154,6 +191,8 @@ function GuideContent({ guide }: { guide: GuideDef }) {
           );
         })}
       </article>
+
+      <AdSlot placement="content" />
 
       <section className="mt-12 mb-10" aria-label="FAQ">
         <h2 className="text-xl font-bold mb-4 text-slate-900 dark:text-slate-100">Frequently asked questions</h2>
@@ -255,9 +294,9 @@ function GuidePage({ slug }: { slug: string | undefined }) {
 
 export function GuidesIndexContent() {
   usePageMeta({
-    title: 'Bitcoin Guides — Satoshis, Storage & Sovereignty',
+    title: 'Bitcoin Guides — Buy, Convert & Store Safely',
     description:
-      'Free educational guides on Satoshis, USD conversion, hardware wallets, self-custody, and running your own Bitcoin node.',
+      'Free educational guides on buying Bitcoin, Satoshis, USD conversion, hardware wallets, self-custody, and running your own node.',
     path: '/guides',
   });
 
@@ -276,7 +315,7 @@ export function GuidesIndexContent() {
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {GUIDES.map((guide) => (
+        {FEATURED_GUIDES.map((guide) => (
           <article
             key={guide.slug}
             className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm hover:border-orange-200 dark:hover:border-orange-800/50 transition-colors"

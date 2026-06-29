@@ -80,3 +80,9 @@ export function trackPageView(path: string) {
 
   sendPageView(path);
 }
+
+/** Track custom engagement events (affiliate clicks, copy actions, etc.). */
+export function trackEvent(eventName: string, params: Record<string, string | number> = {}) {
+  if (!GA_ID || typeof window === 'undefined' || !window.gtag) return;
+  window.gtag('event', eventName, params);
+}

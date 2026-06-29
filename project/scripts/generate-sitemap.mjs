@@ -9,6 +9,10 @@ const TODAY = new Date().toISOString().slice(0, 10);
 const CONTENT_UPDATED = '2026-06-29';
 const LEGAL_LASTMOD = '2026-06-01';
 
+const landingConfig = JSON.parse(
+  await fs.readFile(path.join(ROOT, 'seo/landing-config.json'), 'utf8')
+);
+
 const STATIC_ROUTES = [
   { path: '/', changefreq: 'hourly', priority: '1.0', lastmod: TODAY },
   { path: '/conversions', changefreq: 'weekly', priority: '0.85', lastmod: CONTENT_UPDATED },
@@ -23,6 +27,8 @@ const GUIDE_SLUGS = [
   'what-is-a-satoshi',
   'how-many-satoshis-in-a-bitcoin',
   'usd-to-satoshi',
+  'how-to-buy-bitcoin',
+  'stacking-sats-dca',
   'how-to-store-bitcoin-safely',
   'bitcoin-self-custody-basics',
   'run-your-own-bitcoin-node',
@@ -32,14 +38,16 @@ const GUIDE_LASTMOD = {
   'what-is-a-satoshi': '2026-06-29',
   'how-many-satoshis-in-a-bitcoin': '2026-06-29',
   'usd-to-satoshi': '2026-06-29',
+  'how-to-buy-bitcoin': '2026-06-29',
+  'stacking-sats-dca': '2026-06-29',
   'how-to-store-bitcoin-safely': '2026-06-29',
   'bitcoin-self-custody-basics': '2026-06-29',
   'run-your-own-bitcoin-node': '2026-06-29',
 };
 
-const CURRENCIES = ['usd', 'eur', 'gbp', 'cad'];
-const SATOSHI_AMOUNTS = [1, 10, 100, 1000, 10000, 100000, 1000000];
-const FIAT_AMOUNTS = [1, 10, 100, 1000];
+const CURRENCIES = landingConfig.currencies;
+const SATOSHI_AMOUNTS = landingConfig.satoshiAmounts;
+const FIAT_AMOUNTS = landingConfig.fiatAmounts;
 
 const FIAT_SLUG_NAMES = {
   usd: 'dollars',

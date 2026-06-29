@@ -170,7 +170,9 @@ export const FEATURED_LANDING_LINKS: LandingPageDef[] = [
   'satoshi-to-gbp',
   'satoshi-to-cad',
   '1000-satoshi-to-usd',
-  '10000-satoshi-to-usd',
+  '50000-satoshi-to-usd',
+  '100000-satoshi-to-usd',
+  '10000000-satoshi-to-usd',
   'usd-to-satoshi',
   '100-dollars-in-satoshi',
 ]

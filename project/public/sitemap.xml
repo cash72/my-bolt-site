@@ -97,13 +97,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://satoshi-calc.com/50000-satoshi-to-usd</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://satoshi-calc.com/100000-satoshi-to-usd</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://satoshi-calc.com/500000-satoshi-to-usd</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://satoshi-calc.com/1000000-satoshi-to-usd</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://satoshi-calc.com/10000000-satoshi-to-usd</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -139,13 +157,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://satoshi-calc.com/50000-satoshi-to-eur</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://satoshi-calc.com/100000-satoshi-to-eur</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://satoshi-calc.com/500000-satoshi-to-eur</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://satoshi-calc.com/1000000-satoshi-to-eur</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://satoshi-calc.com/10000000-satoshi-to-eur</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -181,13 +217,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://satoshi-calc.com/50000-satoshi-to-gbp</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://satoshi-calc.com/100000-satoshi-to-gbp</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://satoshi-calc.com/500000-satoshi-to-gbp</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://satoshi-calc.com/1000000-satoshi-to-gbp</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://satoshi-calc.com/10000000-satoshi-to-gbp</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -223,13 +277,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://satoshi-calc.com/50000-satoshi-to-cad</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://satoshi-calc.com/100000-satoshi-to-cad</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://satoshi-calc.com/500000-satoshi-to-cad</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://satoshi-calc.com/1000000-satoshi-to-cad</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://satoshi-calc.com/10000000-satoshi-to-cad</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -368,6 +440,18 @@
   </url>
   <url>
     <loc>https://satoshi-calc.com/guides/usd-to-satoshi</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://satoshi-calc.com/guides/how-to-buy-bitcoin</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://satoshi-calc.com/guides/stacking-sats-dca</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>

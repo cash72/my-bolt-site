@@ -80,7 +80,7 @@ export const GUIDES: GuideDef[] = [
         a: 'Multiply your sats by the current BTC price in USD, then divide by 100,000,000. Use our live Satoshi to USD converter for instant results.',
       },
     ],
-    relatedGuideSlugs: ['how-many-satoshis-in-a-bitcoin', 'usd-to-satoshi', 'how-to-store-bitcoin-safely'],
+    relatedGuideSlugs: ['how-many-satoshis-in-a-bitcoin', 'usd-to-satoshi', 'how-to-buy-bitcoin'],
     relatedLandingPaths: ['/satoshi-to-usd', '/1000-satoshi-to-usd', '/100000-satoshi-to-usd'],
   },
   {
@@ -130,7 +130,7 @@ export const GUIDES: GuideDef[] = [
         a: 'It depends on the live BTC price. Divide $100 by the BTC/USD price, then multiply by 100,000,000. Try our 100 dollars in satoshi page for the current number.',
       },
     ],
-    relatedGuideSlugs: ['what-is-a-satoshi', 'usd-to-satoshi', 'how-to-store-bitcoin-safely'],
+    relatedGuideSlugs: ['what-is-a-satoshi', 'stacking-sats-dca', 'how-to-store-bitcoin-safely'],
     relatedLandingPaths: ['/100-dollars-in-satoshi', '/1000-satoshi-to-usd', '/usd-to-satoshi'],
   },
   {
@@ -180,7 +180,7 @@ export const GUIDES: GuideDef[] = [
         a: 'Yes — multiply sats by the BTC price and divide by 100,000,000. Use our Satoshi to USD converter for live values.',
       },
     ],
-    relatedGuideSlugs: ['what-is-a-satoshi', 'how-to-store-bitcoin-safely', 'bitcoin-self-custody-basics'],
+    relatedGuideSlugs: ['how-to-buy-bitcoin', 'stacking-sats-dca', 'what-is-a-satoshi', 'how-to-store-bitcoin-safely'],
     relatedLandingPaths: ['/usd-to-satoshi', '/100-dollars-in-satoshi', '/satoshi-to-usd'],
   },
   {
@@ -242,7 +242,7 @@ export const GUIDES: GuideDef[] = [
         a: 'We may earn a commission on some links, but we list multiple brands so you can compare. Always do your own research before buying.',
       },
     ],
-    relatedGuideSlugs: ['bitcoin-self-custody-basics', 'run-your-own-bitcoin-node', 'what-is-a-satoshi'],
+    relatedGuideSlugs: ['how-to-buy-bitcoin', 'bitcoin-self-custody-basics', 'run-your-own-bitcoin-node', 'what-is-a-satoshi'],
     relatedLandingPaths: ['/satoshi-to-usd', '/100000-satoshi-to-usd'],
   },
   {
@@ -298,7 +298,7 @@ export const GUIDES: GuideDef[] = [
         a: 'Operational security matters. The fewer people who know you hold significant Bitcoin, the smaller your target profile.',
       },
     ],
-    relatedGuideSlugs: ['how-to-store-bitcoin-safely', 'run-your-own-bitcoin-node', 'usd-to-satoshi'],
+    relatedGuideSlugs: ['how-to-buy-bitcoin', 'how-to-store-bitcoin-safely', 'run-your-own-bitcoin-node', 'usd-to-satoshi'],
     relatedLandingPaths: ['/100-dollars-in-satoshi', '/usd-to-satoshi'],
   },
   {
@@ -364,8 +364,212 @@ export const GUIDES: GuideDef[] = [
         a: 'No. Nodes validate blocks; miners compete to create them. You can run a node without mining.',
       },
     ],
-    relatedGuideSlugs: ['bitcoin-self-custody-basics', 'how-to-store-bitcoin-safely', 'what-is-a-satoshi'],
+    relatedGuideSlugs: ['bitcoin-self-custody-basics', 'how-to-store-bitcoin-safely', 'how-to-buy-bitcoin'],
     relatedLandingPaths: ['/satoshi-to-usd'],
+  },
+  {
+    slug: 'how-to-buy-bitcoin',
+    path: '/guides/how-to-buy-bitcoin',
+    title: 'How to Buy Bitcoin Safely (Beginner’s Guide)',
+    description:
+      'Step-by-step guide to buying your first Bitcoin: choose an exchange, understand fees, buy in sats, and withdraw to a wallet you control.',
+    h1: 'How to Buy Bitcoin',
+    intro:
+      'Buying Bitcoin is simpler than it looks — but the order of operations matters. This guide walks you from “how many sats can I get?” to holding keys yourself, without hype or financial advice.',
+    breadcrumbLabel: 'Buy Bitcoin',
+    hasAffiliateLinks: true,
+    readTimeMinutes: 12,
+    datePublished: '2026-06-29',
+    dateModified: '2026-06-29',
+    sections: [
+      {
+        heading: 'Before you buy: know what you’re getting',
+        paragraphs: [
+          'Bitcoin is sold in whole BTC on most exchanges, but you can buy any fraction — often displayed in Satoshis (sats). One Bitcoin = 100,000,000 sats. At today’s prices, most first purchases are hundreds of thousands of sats, not a full coin.',
+          'Use a live converter to see how many sats your budget buys before you check out. Our homepage and pages like /100-dollars-in-satoshi update every 60 seconds from CoinGecko.',
+        ],
+      },
+      {
+        heading: 'Step 1 — Choose a reputable exchange or app',
+        paragraphs: [
+          'For your first buy, pick a regulated platform available in your country with a track record of allowing withdrawals. Popular options include Coinbase, Kraken, and River (US-focused) — availability varies by region.',
+          'Avoid platforms that promise guaranteed returns, hide withdrawal fees, or pressure you to “act now.” If you cannot withdraw to your own wallet, you do not yet own Bitcoin — you have an IOU.',
+          'SatoshiCalc does not endorse a single exchange. Compare fees, supported payment methods, and withdrawal minimums for your currency (USD, EUR, GBP, or CAD).',
+        ],
+      },
+      {
+        heading: 'Step 2 — Verify your account and fund it',
+        paragraphs: [
+          'Most regulated exchanges require identity verification (KYC) before you can buy or withdraw. This is normal for fiat on-ramps — plan for a few minutes to upload ID.',
+          'Fund via bank transfer, debit card, or other methods your platform supports. Bank transfers often have lower fees than instant card buys; card purchases may include a premium.',
+          'Start with an amount you would be comfortable learning with — many people begin between $50 and $200 while they practice withdrawals.',
+        ],
+      },
+      {
+        heading: 'Step 3 — Place your buy order',
+        paragraphs: [
+          'Two common order types: market orders (buy immediately at the current price) and limit orders (buy only if the price hits your target). Beginners usually use market orders for simplicity.',
+          'Watch for trading fees (often 0.1%–1.5%) and spread — the gap between buy and sell prices. After fees, compare the sats you receive to our live calculator so you know what you paid per sat.',
+          'Some apps let you buy recurring amounts (DCA — dollar-cost averaging). Buying a fixed dollar amount weekly removes timing stress and matches how many people “stack sats” over time.',
+        ],
+      },
+      {
+        heading: 'Step 4 — Withdraw to a wallet you control',
+        paragraphs: [
+          'Leaving Bitcoin on an exchange is convenient but risky — hacks, freezes, and bankruptcies happen. Once you understand seed phrases, withdraw to self-custody.',
+          'Flow: set up a hardware or mobile wallet → generate a receive address → paste it into the exchange withdrawal form → send a **small test amount first** → confirm it arrived → then move the rest.',
+          'Always verify the receive address on your wallet’s screen (especially hardware wallets). Bitcoin transactions are irreversible; one wrong character sends funds to the wrong place.',
+        ],
+        productIds: ['jade', 'bitbox02'],
+      },
+      {
+        heading: 'Step 5 — Back up your seed phrase',
+        paragraphs: [
+          'When you create a wallet, you get a 12- or 24-word recovery phrase. That phrase IS your Bitcoin. Write it on paper during setup, then store a metal backup somewhere separate from the device.',
+          'Never photograph it, never store it in cloud notes, never type it into a website or “support chat.” Anyone who asks for your seed phrase is scamming you.',
+        ],
+        productIds: ['seedplate'],
+      },
+      {
+        heading: 'Fees, taxes, and realistic expectations',
+        paragraphs: [
+          'Total cost = exchange fee + payment method fee + network fee on withdrawal. Network fees spike during congestion; if you are not in a rush, wait for lower fee periods for on-chain withdrawals.',
+          'Tax treatment of Bitcoin varies by country. Many jurisdictions treat selling or spending BTC as a taxable event. SatoshiCalc is not tax advice — keep records and consult a professional if needed.',
+          'Bitcoin’s price moves 24/7. Short-term swings are normal. Many buyers focus on long-term holding and learning self-custody rather than daily price watching.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: 'How much money do I need to buy Bitcoin?',
+        a: 'Most exchanges allow purchases starting from roughly $10–$20, though minimums vary. You are buying a fraction of a Bitcoin (sats), not a whole coin. Use our converter to see how many sats your budget buys at the current price.',
+      },
+      {
+        q: 'Is buying Bitcoin safe?',
+        a: 'Buying on a regulated exchange and withdrawing to a wallet you control is the standard safe path. Risks include exchange counterparty risk (until you withdraw), phishing scams, and losing your seed phrase. Follow the steps above and start small.',
+      },
+      {
+        q: 'Should I leave Bitcoin on the exchange?',
+        a: 'Only for amounts you are actively trading or would not mind losing access to temporarily. For savings, withdraw to self-custody once you understand seed phrase backup.',
+      },
+      {
+        q: 'What is the difference between Bitcoin and Satoshis when buying?',
+        a: 'They are the same asset at different scales. Exchanges quote BTC; wallets often show sats for smaller amounts. 100,000 sats = 0.001 BTC. Our calculator converts between them instantly.',
+      },
+      {
+        q: 'Can I buy Bitcoin without ID?',
+        a: 'Regulated fiat on-ramps typically require ID verification. Peer-to-peer or Bitcoin ATMs may have different rules but often charge higher fees and carry more scam risk. Beginners should prefer well-known regulated platforms.',
+      },
+    ],
+    relatedGuideSlugs: ['stacking-sats-dca', 'usd-to-satoshi', 'how-to-store-bitcoin-safely'],
+    relatedLandingPaths: ['/100-dollars-in-satoshi', '/usd-to-satoshi', '/50000-satoshi-to-usd', '/1000-dollars-in-satoshi'],
+  },
+  {
+    slug: 'stacking-sats-dca',
+    path: '/guides/stacking-sats-dca',
+    title: 'Stacking Sats & DCA: A Practical Guide',
+    description:
+      'Learn dollar-cost averaging (DCA), why people stack Satoshis instead of timing the market, common sat targets, and when to move sats to self-custody.',
+    h1: 'Stacking Sats & Dollar-Cost Averaging',
+    intro:
+      '“Stacking sats” means accumulating Satoshis steadily over time — usually through small, repeated buys rather than one big bet. Dollar-cost averaging (DCA) is the simplest way to do it without trying to predict price.',
+    breadcrumbLabel: 'Stacking Sats & DCA',
+    hasAffiliateLinks: true,
+    readTimeMinutes: 10,
+    datePublished: '2026-06-29',
+    dateModified: '2026-06-29',
+    sections: [
+      {
+        heading: 'What “stacking sats” actually means',
+        paragraphs: [
+          'A Satoshi is the smallest unit of Bitcoin — 100,000,000 sats equal 1 BTC. Stacking sats is the habit of adding to your balance regularly, the way savers add to a bank account.',
+          'The phrase caught on because whole Bitcoins became expensive to discuss. Saying “I stacked 50,000 sats this week” is clearer than quoting tiny BTC fractions — and it keeps focus on accumulation, not lottery-ticket thinking.',
+        ],
+      },
+      {
+        heading: 'Dollar-cost averaging (DCA) in plain English',
+        paragraphs: [
+          'DCA means buying a fixed dollar (or euro, pound, loonie) amount on a schedule — weekly, biweekly, or monthly — regardless of whether Bitcoin is up or down that day.',
+          'You will not buy the exact bottom. You also will not put everything in at the exact top. Over time, your average purchase price smooths out volatility. Many stackers treat it like a subscription: set it, forget it, review quarterly.',
+          'Example: $25 every Friday. Some weeks you get more sats, some weeks fewer. After a year, you have a meaningful stack without ever timing the market.',
+        ],
+      },
+      {
+        heading: 'Common sat milestones (and what they’re worth live)',
+        paragraphs: [
+          'Stackers often set round sat targets — not because the numbers are magic, but because they make progress tangible. Check live fiat values on our amount pages:',
+          '50,000 sats (0.0005 BTC) · 100,000 sats (0.001 BTC) · 500,000 sats (0.005 BTC) · 1,000,000 sats (0.01 BTC) · 10,000,000 sats (0.1 BTC).',
+          'Use /50000-satoshi-to-usd, /100000-satoshi-to-usd, or /500000-satoshi-to-usd for current USD, EUR, GBP, and CAD equivalents — updated every 60 seconds.',
+        ],
+      },
+      {
+        heading: 'How to set up a DCA plan',
+        paragraphs: [
+          '1. Pick an amount you can sustain for 6–12 months without stress — $10, $25, or $100 per interval is common. 2. Choose a schedule (payday-aligned works well). 3. Use an exchange or app with recurring buys if available. 4. Track progress in sats, not just dollars.',
+          'Bank-funded recurring buys usually beat manual “I’ll buy when it dips” — dips are obvious only in hindsight. Automating removes emotion from the loop.',
+          'If you have not bought Bitcoin before, read our How to Buy Bitcoin guide first — then come back here to build the habit.',
+        ],
+      },
+      {
+        heading: 'Track sats, not just portfolio dollars',
+        paragraphs: [
+          'Your exchange shows a dollar balance that moves with price. Your real stack is the number of sats you own. A $500 balance might be 800,000 sats today and still 800,000 sats tomorrow — the dollar label changed, your stack did not.',
+          'SatoshiCalc’s reverse converter shows how many sats a fixed fiat amount buys at today’s price. Over time, your goal is rising sat count, not chasing green daily P&L screenshots.',
+        ],
+      },
+      {
+        heading: 'When to withdraw stacked sats to self-custody',
+        paragraphs: [
+          'DCA on an exchange is fine while you learn — but stacked sats left on a platform are still someone else’s IOU. A practical rule: batch-withdraw when your stack would hurt to lose, or when fees make sense relative to the amount.',
+          'Many stackers withdraw monthly or at round milestones (500k sats, 1M sats). Send a test transaction first, verify the address on a hardware wallet screen, then move the rest.',
+          'Once withdrawal becomes routine, a hardware wallet pays for itself in peace of mind.',
+        ],
+        productIds: ['jade', 'bitbox02'],
+      },
+      {
+        heading: 'Mistakes stackers learn the hard way',
+        paragraphs: [
+          'Stopping DCA during red weeks — that is often when each dollar buys more sats. Pausing defeats the purpose.',
+          'Checking price hourly — stacking is a multi-year habit; daily noise creates stress and bad decisions.',
+          'Leaving large stacks on exchanges for years — convenience is not free; self-custody is the end goal for savings.',
+          'Comparing your stack to influencers — everyone’s budget and timeline differ. Consistency beats heroics.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: 'What does stacking sats mean?',
+        a: 'Accumulating Satoshis over time through regular small purchases or earnings. It emphasizes steady growth in sats rather than trying to buy one whole Bitcoin at once.',
+      },
+      {
+        q: 'How much should I DCA into Bitcoin?',
+        a: 'Only an amount you can afford to hold for years without needing it for bills or emergencies. Many beginners start at $10–$50 per week and adjust after a few months.',
+      },
+      {
+        q: 'Is DCA better than buying a lump sum?',
+        a: 'Historically, lump sums invested early sometimes outperform DCA — but DCA reduces regret and timing risk, which helps most people actually stay in the market. The best plan is one you stick to.',
+      },
+      {
+        q: 'How many sats should I aim to stack?',
+        a: 'There is no universal target. Some stackers aim for 100,000 sats as a first milestone, then 1 million sats (0.01 BTC). Use live conversion pages to see what those amounts mean in your currency today.',
+      },
+      {
+        q: 'How often should I buy when stacking sats?',
+        a: 'Weekly or biweekly aligns with paychecks for many people. Monthly works too. More important than frequency is consistency over 12+ months.',
+      },
+      {
+        q: 'Should I stack sats on an exchange or in a wallet?',
+        a: 'Buy on an exchange, then withdraw to a wallet you control for amounts you are saving. Keep only spending money or active-trade balances on exchanges.',
+      },
+    ],
+    relatedGuideSlugs: ['how-to-buy-bitcoin', 'how-many-satoshis-in-a-bitcoin', 'how-to-store-bitcoin-safely'],
+    relatedLandingPaths: [
+      '/50000-satoshi-to-usd',
+      '/100000-satoshi-to-usd',
+      '/500000-satoshi-to-usd',
+      '/10000000-satoshi-to-usd',
+      '/100-dollars-in-satoshi',
+    ],
   },
 ];
 
@@ -378,6 +582,27 @@ export function getGuideBySlug(slug: string | undefined): GuideDef | undefined {
 
 export const GUIDE_PATHS = GUIDES.map((g) => g.path);
 
-export const FEATURED_GUIDES = GUIDES.filter((g) =>
-  ['what-is-a-satoshi', 'how-to-store-bitcoin-safely', 'run-your-own-bitcoin-node'].includes(g.slug)
-);
+export const FEATURED_GUIDES = [
+  'how-to-buy-bitcoin',
+  'stacking-sats-dca',
+  'what-is-a-satoshi',
+  'how-to-store-bitcoin-safely',
+  'usd-to-satoshi',
+  'how-many-satoshis-in-a-bitcoin',
+  'bitcoin-self-custody-basics',
+  'run-your-own-bitcoin-node',
+]
+  .map((slug) => getGuideBySlug(slug))
+  .filter((g): g is GuideDef => g !== undefined);
+
+export function getGuidesForLanding(page: { direction: 'satoshi-to-fiat' | 'fiat-to-satoshi' }): GuideDef[] {
+  if (page.direction === 'fiat-to-satoshi') {
+    return ['how-to-buy-bitcoin', 'stacking-sats-dca', 'usd-to-satoshi']
+      .map((slug) => getGuideBySlug(slug))
+      .filter((g): g is GuideDef => g !== undefined);
+  }
+
+  return ['stacking-sats-dca', 'how-many-satoshis-in-a-bitcoin', 'what-is-a-satoshi']
+    .map((slug) => getGuideBySlug(slug))
+    .filter((g): g is GuideDef => g !== undefined);
+}

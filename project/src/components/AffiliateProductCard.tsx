@@ -1,5 +1,6 @@
 import { ExternalLink } from 'lucide-react';
 import { AFFILIATE_DISCLOSURE, type AffiliateProduct } from '../lib/affiliates';
+import { trackEvent } from '../lib/analytics';
 
 export function AffiliateDisclosureBanner() {
   return (
@@ -36,6 +37,13 @@ export function AffiliateProductCard({ product }: AffiliateProductCardProps) {
           href={product.url}
           target="_blank"
           rel="sponsored noopener noreferrer"
+          onClick={() =>
+            trackEvent('affiliate_click', {
+              product_id: product.id,
+              product_name: product.name,
+              link_url: product.url,
+            })
+          }
           className="inline-flex items-center justify-center gap-2 shrink-0 px-4 py-2.5 rounded-lg bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-colors"
         >
           View {product.name}
