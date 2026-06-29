@@ -10,6 +10,8 @@ import {
   formatNumber,
   type PriceData,
 } from '../lib/conversion';
+import { FEATURED_LANDING_LINKS } from '../lib/landingPages';
+import { FEATURED_GUIDES } from '../lib/guides';
 import {
   ArrowRightLeft,
   TrendingUp,
@@ -185,8 +187,93 @@ export default function HomePage() {
       ? '24h'
       : `${isUp ? '+' : ''}${priceChange.toFixed(2)}%`;
 
+  useEffect(() => {
+    const faqId = 'homepage-faq-schema';
+    let faqScript = document.getElementById(faqId) as HTMLScriptElement | null;
+    if (!faqScript) {
+      faqScript = document.createElement('script');
+      faqScript.id = faqId;
+      faqScript.type = 'application/ld+json';
+      document.head.appendChild(faqScript);
+    }
+
+    const satsIn100Usd =
+      btcPriceUsd > 0 ? Math.floor((100 / btcPriceUsd) * SATOSHI_PER_BTC) : null;
+    const satsIn100Eur =
+      btcPriceEur > 0 ? Math.floor((100 / btcPriceEur) * SATOSHI_PER_BTC) : null;
+    const satsIn100Gbp =
+      btcPriceGbp > 0 ? Math.floor((100 / btcPriceGbp) * SATOSHI_PER_BTC) : null;
+    const satsIn100Cad =
+      btcPriceCad > 0 ? Math.floor((100 / btcPriceCad) * SATOSHI_PER_BTC) : null;
+
+    const thousandSatsUsd =
+      btcPriceUsd > 0 ? formatCurrency(1000 * (btcPriceUsd / SATOSHI_PER_BTC), 'usd') : null;
+    const thousandSatsEur =
+      btcPriceEur > 0 ? formatCurrency(1000 * (btcPriceEur / SATOSHI_PER_BTC), 'eur') : null;
+    const thousandSatsGbp =
+      btcPriceGbp > 0 ? formatCurrency(1000 * (btcPriceGbp / SATOSHI_PER_BTC), 'gbp') : null;
+    const thousandSatsCad =
+      btcPriceCad > 0 ? formatCurrency(1000 * (btcPriceCad / SATOSHI_PER_BTC), 'cad') : null;
+
+    const faqItems = [
+      {
+        q: 'How many Satoshis are in one Bitcoin?',
+        a: 'There are exactly 100,000,000 (one hundred million) Satoshis in one Bitcoin. This is why 1 Satoshi equals 0.00000001 BTC.',
+      },
+      {
+        q: 'How many Satoshis in 100 dollars?',
+        a:
+          satsIn100Usd !== null
+            ? `At current prices, 100 USD buys about ${satsIn100Usd.toLocaleString()} sats. 100 EUR buys about ${satsIn100Eur?.toLocaleString()} sats. 100 GBP buys about ${satsIn100Gbp?.toLocaleString()} sats. 100 CAD buys about ${satsIn100Cad?.toLocaleString()} sats.`
+            : 'Divide 100 by the current Bitcoin price in USD, then multiply by 100,000,000. SatoshiCalc shows live results for USD, EUR, GBP, and CAD in the FAQ section.',
+      },
+      {
+        q: 'How much is 1000 Satoshis in dollars?',
+        a:
+          thousandSatsUsd !== null
+            ? `At current prices, 1000 sats = ${thousandSatsUsd} USD, ${thousandSatsEur} EUR, ${thousandSatsGbp} GBP, ${thousandSatsCad} CAD.`
+            : 'Multiply 1000 by the current BTC price in USD, then divide by 100,000,000. Use the live converter on SatoshiCalc for up-to-date values in USD, EUR, GBP, and CAD.',
+      },
+      {
+        q: 'Why use Satoshis instead of Bitcoin?',
+        a: 'As Bitcoin price rises, whole Bitcoins become expensive. Satoshis let you buy, send, and track smaller amounts affordably. Most wallets and exchanges display balances in both BTC and sats.',
+      },
+      {
+        q: 'What currencies does SatoshiCalc support?',
+        a: 'SatoshiCalc supports conversion to and from USD, EUR, GBP, and CAD using live rates from CoinGecko.',
+      },
+      {
+        q: 'How often are prices updated?',
+        a: 'Prices refresh automatically every 60 seconds from the CoinGecko API to keep conversions as accurate as possible.',
+      },
+    ];
+
+    faqScript.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqItems.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
+    });
+
+    return () => {
+      document.getElementById(faqId)?.remove();
+    };
+  }, [btcPriceUsd, btcPriceEur, btcPriceGbp, btcPriceCad]);
+
   return (
       <main id="main-content" className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12" role="main">
+        <header className="mb-8 animate-fade-in">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2">
+            Satoshi to USD Converter
+          </h1>
+          <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+            Live Bitcoin prices in USD, EUR, GBP, and CAD. Convert satoshis instantly — updated every 60 seconds.
+          </p>
+        </header>
+
         {/* BTC Price Banner */}
         <section className="mb-10 animate-fade-in" aria-label="Live Bitcoin Price">
           <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm" itemScope itemType="https://schema.org/ExchangeRateSpecification">
@@ -196,7 +283,7 @@ export default function HomePage() {
               <div>
                 <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-1">
                   <TrendingUp className="w-4 h-4" aria-hidden="true" />
-                  <h1 className="text-sm font-normal">Live Bitcoin Price</h1>
+                  <p className="text-sm font-normal">Live Bitcoin Price</p>
                 </div>
                 <div className="flex items-baseline gap-3">
                   <span className="text-3xl sm:text-4xl font-bold tracking-tight" itemProp="value">
@@ -536,6 +623,63 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           <AdSlot placement="content" />
         </div>
+
+        {/* Internal links */}
+        <section className="mb-12 animate-slide-up" aria-labelledby="explore-heading">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+            <h2 id="explore-heading" className="text-xl font-bold mb-6">
+              Explore SatoshiCalc
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-3">
+                  Popular conversions
+                </h3>
+                <ul className="space-y-2 text-sm">
+                  {FEATURED_LANDING_LINKS.map((page) => (
+                    <li key={page.slug}>
+                      <Link
+                        to={page.path}
+                        className="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400"
+                      >
+                        {page.breadcrumbLabel}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  to="/conversions"
+                  className="inline-block mt-4 text-sm font-medium text-orange-600 dark:text-orange-400 hover:underline"
+                >
+                  All conversions →
+                </Link>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-3">
+                  Bitcoin guides
+                </h3>
+                <ul className="space-y-2 text-sm">
+                  {FEATURED_GUIDES.map((guide) => (
+                    <li key={guide.slug}>
+                      <Link
+                        to={guide.path}
+                        className="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400"
+                      >
+                        {guide.breadcrumbLabel}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  to="/guides"
+                  className="inline-block mt-4 text-sm font-medium text-orange-600 dark:text-orange-400 hover:underline"
+                >
+                  All guides →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Info Section */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12" aria-label="About Satoshi and Conversion Guide">
