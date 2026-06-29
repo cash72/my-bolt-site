@@ -35,6 +35,8 @@ on:
       - 'scripts/detect-changed-sites.mjs'
       - 'scripts/lib/**'
       - '.github/workflows/deploy-cloudflare-site.yml'
+      - 'package.json'
+      - 'package-lock.json'
 
 jobs:
   deploy-push:
