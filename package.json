@@ -9,6 +9,7 @@
     "deploy": "node scripts/deploy-cloudflare.mjs",
     "deploy:flooring": "node scripts/deploy-cloudflare.mjs flooringboxcalculator",
     "deploy:satoshi": "node scripts/deploy-cloudflare.mjs project --attach-domain",
+    "analytics:setup": "node scripts/setup-google-analytics.mjs",
     "deploy:paint": "node scripts/deploy-cloudflare.mjs paintcalculator --attach-domain",
     "deploy:mulch": "node scripts/deploy-cloudflare.mjs mulchcalculator --attach-domain",
     "deploy:drywall": "node scripts/deploy-cloudflare.mjs drywallcalculator --attach-domain",

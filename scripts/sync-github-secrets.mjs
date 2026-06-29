@@ -21,6 +21,7 @@ const required = {
 };
 
 const optional = {
+  VITE_GA_MEASUREMENT_ID: process.env.VITE_GA_MEASUREMENT_ID,
   VITE_ADSENSE_CLIENT: process.env.VITE_ADSENSE_CLIENT,
   VITE_ADSENSE_SLOT_FOOTER: process.env.VITE_ADSENSE_SLOT_FOOTER,
   VITE_ADSENSE_SLOT_CONTENT: process.env.VITE_ADSENSE_SLOT_CONTENT,
@@ -65,4 +66,4 @@ for (const [name, value] of Object.entries(optional)) {
   console.log(`✓ ${name}`);
 }
 
-console.log('\nDone. Push to main or run Deploy Cloudflare site workflow to rebuild with AdSense slots.');
+console.log('\nDone. Push to main or run Deploy Cloudflare site workflow to rebuild.');

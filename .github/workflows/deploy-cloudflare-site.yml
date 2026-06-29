@@ -77,6 +77,7 @@ jobs:
           VITE_ADSENSE_CLIENT: ${{ secrets.VITE_ADSENSE_CLIENT }}
           VITE_ADSENSE_SLOT_FOOTER: ${{ secrets.VITE_ADSENSE_SLOT_FOOTER }}
           VITE_ADSENSE_SLOT_CONTENT: ${{ secrets.VITE_ADSENSE_SLOT_CONTENT }}
+          VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
         run: |
           mapfile -t sites < <(node scripts/detect-changed-sites.mjs)
           if [ ${#sites[@]} -eq 0 ]; then
@@ -122,6 +123,7 @@ jobs:
           VITE_ADSENSE_CLIENT: ${{ secrets.VITE_ADSENSE_CLIENT }}
           VITE_ADSENSE_SLOT_FOOTER: ${{ secrets.VITE_ADSENSE_SLOT_FOOTER }}
           VITE_ADSENSE_SLOT_CONTENT: ${{ secrets.VITE_ADSENSE_SLOT_CONTENT }}
+          VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
         run: |
           if [ "${{ github.event.inputs.attach_domain }}" = "true" ]; then
             node scripts/deploy-cloudflare.mjs "${{ github.event.inputs.site }}" --attach-domain
