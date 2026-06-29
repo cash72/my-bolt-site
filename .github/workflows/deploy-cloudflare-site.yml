@@ -74,6 +74,9 @@ jobs:
           GITHUB_SHA: ${{ github.sha }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          VITE_ADSENSE_CLIENT: ${{ secrets.VITE_ADSENSE_CLIENT }}
+          VITE_ADSENSE_SLOT_FOOTER: ${{ secrets.VITE_ADSENSE_SLOT_FOOTER }}
+          VITE_ADSENSE_SLOT_CONTENT: ${{ secrets.VITE_ADSENSE_SLOT_CONTENT }}
         run: |
           mapfile -t sites < <(node scripts/detect-changed-sites.mjs)
           if [ ${#sites[@]} -eq 0 ]; then
@@ -116,6 +119,9 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          VITE_ADSENSE_CLIENT: ${{ secrets.VITE_ADSENSE_CLIENT }}
+          VITE_ADSENSE_SLOT_FOOTER: ${{ secrets.VITE_ADSENSE_SLOT_FOOTER }}
+          VITE_ADSENSE_SLOT_CONTENT: ${{ secrets.VITE_ADSENSE_SLOT_CONTENT }}
         run: |
           if [ "${{ github.event.inputs.attach_domain }}" = "true" ]; then
             node scripts/deploy-cloudflare.mjs "${{ github.event.inputs.site }}" --attach-domain

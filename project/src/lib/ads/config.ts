@@ -7,7 +7,7 @@ export const ADSENSE_CLIENT =
 
 /** AdSense ad unit slot IDs — create display units in AdSense, then set via env */
 export const ADSENSE_SLOTS = {
-  footer: import.meta.env.VITE_ADSENSE_SLOT_FOOTER?.trim() || '',
+  footer: import.meta.env.VITE_ADSENSE_SLOT_FOOTER?.trim() || '9490641503',
   content: import.meta.env.VITE_ADSENSE_SLOT_CONTENT?.trim() || '',
 } as const;
 
@@ -25,7 +25,7 @@ export const AD_PLACEMENTS: Record<
 > = {
   footer: {
     minHeightClass: 'min-h-[90px] sm:min-h-[100px]',
-    adFormat: 'horizontal',
+    adFormat: 'auto',
   },
   content: {
     minHeightClass: 'min-h-[250px]',
