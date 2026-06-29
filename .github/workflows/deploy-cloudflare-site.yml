@@ -66,6 +66,7 @@ jobs:
           mapfile -t sites < <(node scripts/detect-changed-sites.mjs)
           if [ ${#sites[@]} -eq 0 ]; then
             echo "No site folders changed; skipping deploy."
+            git diff --name-only HEAD~1 HEAD || true
             exit 0
           fi
           echo "Deploying: ${sites[*]}"

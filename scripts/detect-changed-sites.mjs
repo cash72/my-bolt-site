@@ -22,13 +22,13 @@ function listChangedFiles() {
   const zeroSha = '0000000000000000000000000000000000000000';
   const attempts = [];
 
+  if (isCI) {
+    attempts.push('HEAD~1 HEAD');
+  }
   if (before && before !== zeroSha) {
     attempts.push(`${before} ${after}`);
   }
   attempts.push(`${after}~1 ${after}`);
-  if (isCI) {
-    attempts.push('HEAD~1 HEAD');
-  }
 
   for (const range of attempts) {
     try {
