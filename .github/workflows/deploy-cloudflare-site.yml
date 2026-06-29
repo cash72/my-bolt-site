@@ -34,40 +34,17 @@ on:
       - 'scripts/setup-cloudflare-domain.mjs'
       - 'scripts/detect-changed-sites.mjs'
       - 'scripts/lib/**'
+      - '.github/workflows/deploy-cloudflare-site.yml'
 
 jobs:
-  detect:
+  deploy-push:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
-    outputs:
-      sites: ${{ steps.set.outputs.sites }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Detect changed sites
-        id: set
-        env:
-          GITHUB_BEFORE: ${{ github.event.before }}
-          GITHUB_SHA: ${{ github.sha }}
-        run: |
-          SITES=$(node scripts/detect-changed-sites.mjs | jq -R -s -c 'split("\n") | map(select(length > 0))')
-          echo "Detected sites: ${SITES:-[]}"
-          echo "sites=${SITES:-[]}" >> "$GITHUB_OUTPUT"
-
-  deploy-push:
-    if: github.event_name == 'push' && needs.detect.outputs.sites != '[]' && needs.detect.outputs.sites != ''
-    needs: detect
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        site: ${{ fromJson(needs.detect.outputs.sites) }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -77,11 +54,22 @@ jobs:
       - name: Install root wrangler
         run: npm ci
 
-      - name: Deploy site
+      - name: Deploy changed sites
         env:
+          GITHUB_BEFORE: ${{ github.event.before }}
+          GITHUB_SHA: ${{ github.sha }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: node scripts/deploy-cloudflare.mjs "${{ matrix.site }}"
+        run: |
+          mapfile -t sites < <(node scripts/detect-changed-sites.mjs)
+          if [ ${#sites[@]} -eq 0 ]; then
+            echo "No site folders changed; skipping deploy."
+            exit 0
+          fi
+          echo "Deploying: ${sites[*]}"
+          for site in "${sites[@]}"; do
+            node scripts/deploy-cloudflare.mjs "$site"
+          done
 
   deploy-manual:
     if: github.event_name == 'workflow_dispatch'
