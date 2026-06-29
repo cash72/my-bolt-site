@@ -49,6 +49,7 @@ if (!fs.existsSync(path.join(sitePath, 'package.json'))) {
 
 const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
 const apiToken = process.env.CLOUDFLARE_API_TOKEN;
+const isCI = process.env.GITHUB_ACTIONS === 'true';
 
 function run(cmd, opts = {}) {
   console.log(`\n> ${cmd}\n`);
@@ -81,6 +82,10 @@ const wranglerEnv = {
 };
 
 if (!apiToken || !accountId) {
+  if (isCI) {
+    console.error('\nError: CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID are required in CI.');
+    process.exit(1);
+  }
   console.warn('\nWarning: CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID missing in .env');
   console.warn('Wrangler may use cached OAuth login instead.\n');
 } else {

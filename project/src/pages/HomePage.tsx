@@ -1,6 +1,5 @@
-import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useDarkMode } from '../context/DarkModeContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import AdSlot from '../components/AdSlot';
 import {
@@ -27,36 +26,10 @@ import {
   Copy,
   Check,
   CircleDollarSign,
-  BarChart3,
   MessageCircleQuestion,
   Wallet,
   Pickaxe,
 } from 'lucide-react';
-
-const AreaChart = lazy(() =>
-  import('recharts').then((m) => ({ default: m.AreaChart }))
-);
-const Area = lazy(() =>
-  import('recharts').then((m) => ({ default: m.Area }))
-);
-const XAxis = lazy(() =>
-  import('recharts').then((m) => ({ default: m.XAxis }))
-);
-const YAxis = lazy(() =>
-  import('recharts').then((m) => ({ default: m.YAxis }))
-);
-const CartesianGrid = lazy(() =>
-  import('recharts').then((m) => ({ default: m.CartesianGrid }))
-);
-const Tooltip = lazy(() =>
-  import('recharts').then((m) => ({ default: m.Tooltip }))
-);
-const ResponsiveContainer = lazy(() =>
-  import('recharts').then((m) => ({ default: m.ResponsiveContainer }))
-);
-
-const COINGECKO_CHART_URL =
-  'https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=10';
 
 const currencyIcons: Record<string, React.ReactNode> = {
   usd: <DollarSign className="w-4 h-4" aria-hidden="true" />,
@@ -69,14 +42,11 @@ export default function HomePage() {
   usePageMeta({
     title: 'Satoshi to USD Converter | Live Bitcoin Price Calculator (2026)',
     description:
-      'Free Satoshi to USD, EUR, GBP & CAD converter with live Bitcoin prices. Convert satoshis instantly with real-time rates. 10-day price chart & quick reference table included.',
+      'Free Satoshi to USD, EUR, GBP & CAD converter with live Bitcoin prices. Convert satoshis instantly with real-time rates and a quick reference table.',
     path: '/',
   });
 
-  const { dark } = useDarkMode();
   const [priceData, setPriceData] = useState<PriceData | null>(null);
-  const [chartData, setChartData] = useState<{ date: string; price: number }[]>([]);
-  const [chartLoading, setChartLoading] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
@@ -108,35 +78,13 @@ export default function HomePage() {
     }
   }, []);
 
-  const fetchChart = useCallback(async () => {
-    setChartLoading(true);
-    try {
-      const res = await fetch(COINGECKO_CHART_URL);
-      if (!res.ok) throw new Error('Failed to fetch chart');
-      const data = await res.json();
-      const prices: [number, number][] = data.prices;
-      const daily = prices
-        .filter((_, i) => i % 24 === 0)
-        .map(([timestamp, price]) => ({
-          date: new Date(timestamp).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-          price: Math.round(price),
-        }));
-      setChartData(daily);
-    } catch {
-      setChartData([]);
-    } finally {
-      setChartLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
     fetchPrice();
-    fetchChart();
     intervalRef.current = setInterval(fetchPrice, 60000);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [fetchPrice, fetchChart]);
+  }, [fetchPrice]);
 
   useEffect(() => {
     countdownRef.current = setInterval(() => {
@@ -151,9 +99,6 @@ export default function HomePage() {
   const btcPriceEur = priceData?.bitcoin?.eur ?? 0;
   const btcPriceGbp = priceData?.bitcoin?.gbp ?? 0;
   const btcPriceCad = priceData?.bitcoin?.cad ?? 0;
-
-  const chartMin = chartData.length > 0 ? Math.min(...chartData.map((d) => d.price)) * 0.98 : 0;
-  const chartMax = chartData.length > 0 ? Math.max(...chartData.map((d) => d.price)) * 1.02 : 0;
 
   const satoshiValue = parseFloat(satoshiInput) || 0;
   const usdValue = satoshiValue * (btcPriceUsd / SATOSHI_PER_BTC);
@@ -535,88 +480,6 @@ export default function HomePage() {
                 </div>
               )}
             </div>
-          </div>
-        </section>
-
-        {/* 10-Day Price Chart */}
-        <section className="mb-12 animate-slide-up" aria-label="Bitcoin 10-Day Price Chart">
-          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                <BarChart3 className="w-5 h-5 text-blue-600 dark:text-blue-400" aria-hidden="true" />
-              </div>
-              <div>
-                <h2 className="text-xl font-bold">10-Day Price Trend</h2>
-                <p className="text-sm text-slate-500 dark:text-slate-400">Bitcoin price in USD</p>
-              </div>
-            </div>
-            {chartLoading ? (
-              <div className="h-44 sm:h-56 flex items-center justify-center text-slate-400">
-                <RefreshCw className="w-6 h-6 animate-spin mr-2" aria-hidden="true" />
-                Loading chart...
-              </div>
-            ) : chartData.length === 0 ? (
-              <div className="h-44 sm:h-56 flex items-center justify-center text-slate-400">Unable to load chart data.</div>
-            ) : (
-              <div className="h-44 sm:h-56">
-                <Suspense fallback={<div className="h-44 sm:h-56 flex items-center justify-center text-slate-400">Loading chart...</div>}>
-                  <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={chartData} margin={{ top: 5, right: 5, left: 5, bottom: 5 }}>
-                      <defs>
-                        <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor="#f97316" stopOpacity={0.3} />
-                          <stop offset="95%" stopColor="#f97316" stopOpacity={0} />
-                        </linearGradient>
-                      </defs>
-                      <CartesianGrid strokeDasharray="3 3" stroke={dark ? '#334155' : '#e2e8f0'} />
-                      <XAxis
-                        dataKey="date"
-                        tick={{ fill: dark ? '#94a3b8' : '#64748b', fontSize: 12 }}
-                        axisLine={{ stroke: dark ? '#475569' : '#cbd5e1' }}
-                        tickLine={false}
-                      />
-                      <YAxis
-                        domain={[chartMin, chartMax]}
-                        tick={{ fill: dark ? '#94a3b8' : '#64748b', fontSize: 12 }}
-                        axisLine={false}
-                        tickLine={false}
-                        tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`}
-                      />
-                      <Tooltip
-                        contentStyle={{
-                          backgroundColor: dark ? '#1e293b' : '#ffffff',
-                          border: `1px solid ${dark ? '#334155' : '#e2e8f0'}`,
-                          borderRadius: '12px',
-                          color: dark ? '#f1f5f9' : '#0f172a',
-                        }}
-                        formatter={(value) => {
-                          const n = typeof value === 'number' ? value : Number(value);
-                          return [
-                            new Intl.NumberFormat('en-US', {
-                              style: 'currency',
-                              currency: 'USD',
-                              minimumFractionDigits: 0,
-                              maximumFractionDigits: 0,
-                            }).format(n),
-                            'Price',
-                          ];
-                        }}
-                      />
-                      <Area
-                        type="monotone"
-                        dataKey="price"
-                        stroke="#f97316"
-                        strokeWidth={2.5}
-                        fillOpacity={1}
-                        fill="url(#colorPrice)"
-                        dot={{ r: 4, fill: '#f97316', strokeWidth: 0 }}
-                        activeDot={{ r: 6, fill: '#f97316', stroke: dark ? '#1e293b' : '#ffffff', strokeWidth: 2 }}
-                      />
-                    </AreaChart>
-                  </ResponsiveContainer>
-                </Suspense>
-              </div>
-            )}
           </div>
         </section>
 

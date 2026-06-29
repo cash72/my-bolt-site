@@ -12,7 +12,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
 const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'sites.registry.json'), 'utf8'));
-const siteDirs = registry.sites.map((s) => s.dir);
+const siteDirs = registry.sites
+  .map((s) => s.dir)
+  .filter((dir) => fs.existsSync(path.join(ROOT, dir, 'package.json')));
 
 const before = process.env.GITHUB_BEFORE;
 const after = process.env.GITHUB_SHA || 'HEAD';
@@ -48,8 +50,7 @@ function listChangedFiles() {
 const changedFiles = listChangedFiles();
 const changedSites = new Set();
 
-const sharedDeployPaths = ['scripts/deploy-cloudflare.mjs', 'scripts/setup-cloudflare-domain.mjs', 'sites.registry.json'];
-const sharedDeployPrefix = 'scripts/lib/';
+const sharedDeployPaths = ['sites.registry.json'];
 
 for (const file of changedFiles) {
   for (const dir of siteDirs) {
@@ -58,10 +59,7 @@ for (const file of changedFiles) {
     }
   }
 
-  if (
-    sharedDeployPaths.includes(file) ||
-    file.startsWith(sharedDeployPrefix)
-  ) {
+  if (sharedDeployPaths.includes(file)) {
     for (const dir of siteDirs) {
       changedSites.add(dir);
     }

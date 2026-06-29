@@ -1,8 +1,10 @@
-name: Deploy to GitHub Pages
+# Deprecated — satoshi-calc.com now deploys via Cloudflare Pages.
+# Use: npm run deploy -- project --attach-domain
+# Or GitHub Actions workflow: "Deploy Cloudflare site" → project
+
+name: Deploy to GitHub Pages (deprecated)
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -18,49 +20,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-          cache-dependency-path: project/package-lock.json
-
-      - name: Install dependencies
-        working-directory: project
-        run: npm ci
-
-      - name: Install Chrome for prerender
-        working-directory: project
-        run: npx puppeteer browsers install chrome
-
-      - name: Build
-        working-directory: project
-        run: npm run build
-        env:
-          VITE_SITE_URL: https://satoshi-calc.com
-          VITE_BASE_PATH: /
-          VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
-          VITE_ADSENSE_CLIENT: ${{ secrets.VITE_ADSENSE_CLIENT }}
-          VITE_ADSENSE_SLOT_FOOTER: ${{ secrets.VITE_ADSENSE_SLOT_FOOTER }}
-          VITE_ADSENSE_SLOT_CONTENT: ${{ secrets.VITE_ADSENSE_SLOT_CONTENT }}
-          VITE_AADS_UNIT_ID: ${{ secrets.VITE_AADS_UNIT_ID }}
-          VITE_AADS_SIZE: ${{ secrets.VITE_AADS_SIZE }}
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: project/dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Stop — use Cloudflare deploy instead
+        run: |
+          echo "satoshi-calc.com is deployed to Cloudflare Pages."
+          echo "Run: npm run deploy -- project --attach-domain"
+          exit 1

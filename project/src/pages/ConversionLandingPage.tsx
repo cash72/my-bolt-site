@@ -380,7 +380,7 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
           <ArrowRight className="w-4 h-4" aria-hidden="true" />
         </Link>
         <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
-          Convert any amount across USD, EUR, GBP, and CAD with charts and quick reference tables.
+          Convert any amount across USD, EUR, GBP, and CAD with live rates and quick reference tables.
         </p>
       </section>
     </main>

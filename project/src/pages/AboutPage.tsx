@@ -39,7 +39,7 @@ export default function AboutPage() {
         >
           CoinGecko API
         </a>{' '}
-        and refresh automatically every 60 seconds. Historical chart data covers the past 10 days in USD.
+        and refresh automatically every 60 seconds.
       </p>
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Supported currencies</h2>
       <ul className="list-disc pl-6 space-y-1">
