@@ -16,20 +16,33 @@ const siteDirs = registry.sites.map((s) => s.dir);
 
 const before = process.env.GITHUB_BEFORE;
 const after = process.env.GITHUB_SHA || 'HEAD';
+const isCI = process.env.GITHUB_ACTIONS === 'true';
 
 function listChangedFiles() {
   const zeroSha = '0000000000000000000000000000000000000000';
-  const base = !before || before === zeroSha ? `${after}~1` : before;
+  const attempts = [];
 
-  try {
-    const out = execSync(`git diff --name-only ${base} ${after}`, {
-      cwd: ROOT,
-      encoding: 'utf8',
-    }).trim();
-    return out ? out.split('\n') : [];
-  } catch {
-    return [];
+  if (before && before !== zeroSha) {
+    attempts.push(`${before} ${after}`);
   }
+  attempts.push(`${after}~1 ${after}`);
+  if (isCI) {
+    attempts.push('HEAD~1 HEAD');
+  }
+
+  for (const range of attempts) {
+    try {
+      const out = execSync(`git diff --name-only ${range}`, {
+        cwd: ROOT,
+        encoding: 'utf8',
+      }).trim();
+      if (out) return out.split('\n');
+    } catch {
+      // try next range
+    }
+  }
+
+  return [];
 }
 
 const changedFiles = listChangedFiles();

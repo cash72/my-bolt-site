@@ -54,11 +54,11 @@ jobs:
           GITHUB_SHA: ${{ github.sha }}
         run: |
           SITES=$(node scripts/detect-changed-sites.mjs | jq -R -s -c 'split("\n") | map(select(length > 0))')
+          echo "Detected sites: ${SITES:-[]}"
           echo "sites=${SITES:-[]}" >> "$GITHUB_OUTPUT"
-          echo "Deploying: ${SITES:-[]}"
 
   deploy-push:
-    if: github.event_name == 'push' && needs.detect.outputs.sites != '[]'
+    if: github.event_name == 'push' && needs.detect.outputs.sites != '[]' && needs.detect.outputs.sites != ''
     needs: detect
     runs-on: ubuntu-latest
     strategy:
