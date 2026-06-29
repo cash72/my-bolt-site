@@ -12,6 +12,7 @@ import {
   type AdPlacement,
 } from '../lib/ads/config';
 import { pushAdSenseUnit } from '../lib/ads/adsense';
+import { useInView } from '../hooks/useInView';
 
 interface AdSlotProps {
   placement: AdPlacement;
@@ -50,7 +51,7 @@ function AdSenseUnit({ placement, slotId }: { placement: AdPlacement; slotId: st
   useEffect(() => {
     if (pushed.current) return;
     pushed.current = true;
-    pushAdSenseUnit();
+    void pushAdSenseUnit();
   }, [slotId]);
 
   return (
@@ -99,6 +100,7 @@ function AAdsUnit({ placement }: { placement: AdPlacement }) {
 
 export default function AdSlot({ placement, allowAAdsFallback = true, className = '' }: AdSlotProps) {
   const location = useLocation();
+  const { ref, inView } = useInView(placement === 'footer' ? '400px 0px' : '200px 0px');
 
   if (!hasAdsensePublisher() && !isAAdsEnabled()) {
     return null;
@@ -107,9 +109,11 @@ export default function AdSlot({ placement, allowAAdsFallback = true, className 
   const adsenseSlot = getAdsenseSlot(placement);
   const showAdsense = isAdsenseSlotConfigured(placement);
   const showAAds = allowAAdsFallback && isAAdsEnabled() && !showAdsense;
+  const { minHeightClass } = AD_PLACEMENTS[placement];
 
   return (
     <aside
+      ref={ref}
       className={`ad-slot my-8 ${className}`.trim()}
       aria-label="Advertisement"
       data-ad-placement={placement}
@@ -117,7 +121,9 @@ export default function AdSlot({ placement, allowAAdsFallback = true, className 
     >
       <AdLabel />
       <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 p-3 overflow-hidden">
-        {showAdsense ? (
+        {!inView ? (
+          <div className={`${minHeightClass} w-full`} aria-hidden="true" />
+        ) : showAdsense ? (
           <AdSenseUnit placement={placement} slotId={adsenseSlot} />
         ) : showAAds ? (
           <AAdsUnit placement={placement} />

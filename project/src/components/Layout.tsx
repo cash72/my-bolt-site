@@ -7,6 +7,7 @@ import { FEATURED_LANDING_LINKS } from '../lib/landingPages';
 import { FEATURED_GUIDES } from '../lib/guides';
 import ScrollToTop from './ScrollToTop';
 import AdSlot from './AdSlot';
+import { useAnalyticsPageView } from '../hooks/useAnalyticsPageView';
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `text-sm transition-colors ${
@@ -34,6 +35,8 @@ export default function Layout() {
   const { dark, toggle } = useDarkMode();
   const { pathname } = useLocation();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  useAnalyticsPageView();
 
   useEffect(() => {
     setMobileNavOpen(false);

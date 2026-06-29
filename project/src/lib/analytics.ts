@@ -20,5 +20,15 @@ export function initAnalytics() {
     window.dataLayer?.push(args);
   };
   window.gtag('js', new Date());
-  window.gtag('config', GA_ID, { anonymize_ip: true });
+  window.gtag('config', GA_ID, { anonymize_ip: true, send_page_view: false });
+}
+
+/** Fire a GA4 page_view on SPA navigations (initial load + route changes). */
+export function trackPageView(path: string) {
+  if (!GA_ID || typeof window === 'undefined' || !window.gtag) return;
+
+  window.gtag('event', 'page_view', {
+    page_path: path,
+    page_location: `${window.location.origin}${path}`,
+  });
 }

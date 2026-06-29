@@ -45,6 +45,9 @@ try {
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: 'networkidle2', timeout: 90_000 });
     await page.waitForSelector('#main-content', { timeout: 15_000 });
+    await page.waitForFunction(() => !document.querySelector('[aria-busy="true"]'), {
+      timeout: 30_000,
+    });
     await new Promise((r) => setTimeout(r, 500));
     const html = await page.content();
     const outPath = routeToOutput(route);
