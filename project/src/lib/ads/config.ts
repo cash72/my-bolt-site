@@ -8,7 +8,7 @@ export const ADSENSE_CLIENT =
 /** AdSense ad unit slot IDs — create display units in AdSense, then set via env */
 export const ADSENSE_SLOTS = {
   footer: import.meta.env.VITE_ADSENSE_SLOT_FOOTER?.trim() || '9490641503',
-  content: import.meta.env.VITE_ADSENSE_SLOT_CONTENT?.trim() || '',
+  content: import.meta.env.VITE_ADSENSE_SLOT_CONTENT?.trim() || '8950595776',
 } as const;
 
 /** A-Ads (aads.com) ad unit ID — crypto-friendly network */
@@ -29,7 +29,7 @@ export const AD_PLACEMENTS: Record<
   },
   content: {
     minHeightClass: 'min-h-[250px]',
-    adFormat: 'rectangle',
+    adFormat: 'auto',
   },
 };
 
