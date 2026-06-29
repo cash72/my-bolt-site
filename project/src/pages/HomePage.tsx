@@ -132,6 +132,19 @@ export default function HomePage() {
       ? '24h'
       : `${isUp ? '+' : ''}${priceChange.toFixed(2)}%`;
 
+  const sats100kUsd = btcPriceUsd > 0 ? 100_000 * (btcPriceUsd / SATOSHI_PER_BTC) : null;
+  const sats100kEur = btcPriceEur > 0 ? 100_000 * (btcPriceEur / SATOSHI_PER_BTC) : null;
+  const sats1kUsd = btcPriceUsd > 0 ? 1000 * (btcPriceUsd / SATOSHI_PER_BTC) : null;
+  const satsIn100Usd = btcPriceUsd > 0 ? Math.floor((100 / btcPriceUsd) * SATOSHI_PER_BTC) : null;
+  const thousandSatsUsd = btcPriceUsd > 0 ? formatCurrency(1000 * (btcPriceUsd / SATOSHI_PER_BTC), 'usd') : null;
+  const thousandSatsEur =
+    btcPriceEur > 0 ? formatCurrency(1000 * (btcPriceEur / SATOSHI_PER_BTC), 'eur') : null;
+
+  const answerLead =
+    sats100kUsd !== null
+      ? `One Bitcoin equals exactly 100,000,000 Satoshis. At the current BTC price, 100,000 sats ≈ ${formatCurrency(sats100kUsd, 'usd')} USD (${formatCurrency(sats100kEur!, 'eur')} EUR), and 1,000 sats ≈ ${formatCurrency(sats1kUsd!, 'usd')} USD. Prices refresh every 60 seconds from CoinGecko.`
+      : 'One Bitcoin equals exactly 100,000,000 Satoshis. Use the live converter below for current USD, EUR, GBP, and CAD values — updated every 60 seconds from CoinGecko.';
+
   useEffect(() => {
     const faqId = 'homepage-faq-schema';
     let faqScript = document.getElementById(faqId) as HTMLScriptElement | null;
@@ -212,10 +225,13 @@ export default function HomePage() {
       <main id="main-content" className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12" role="main">
         <header className="mb-8 animate-fade-in">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2">
-            Satoshi to USD Converter
+            Satoshi to USD, EUR, GBP &amp; CAD Converter
           </h1>
-          <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+          <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base mb-3">
             Live Bitcoin prices in USD, EUR, GBP, and CAD. Convert satoshis instantly — updated every 60 seconds.
+          </p>
+          <p className="text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed border-l-4 border-orange-500 pl-4">
+            {answerLead}
           </p>
         </header>
 
@@ -655,6 +671,35 @@ export default function HomePage() {
               <h2 className="text-xl font-bold">Frequently Asked Questions</h2>
             </div>
             <div className="space-y-4">
+              <div className="rounded-xl border border-orange-100 dark:border-orange-900/40 bg-orange-50/50 dark:bg-orange-950/20 p-4 sm:p-5 space-y-4">
+                <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 uppercase tracking-wide">
+                  Quick answers
+                </p>
+                <div>
+                  <h3 className="font-semibold text-slate-900 dark:text-slate-100">
+                    How many Satoshis are in one Bitcoin?
+                  </h3>
+                  <p className="mt-1 text-slate-600 dark:text-slate-300 leading-relaxed">
+                    There are exactly 100,000,000 (one hundred million) Satoshis in one Bitcoin — 1 sat = 0.00000001 BTC.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-900 dark:text-slate-100">How many Satoshis in 100 dollars?</h3>
+                  <p className="mt-1 text-slate-600 dark:text-slate-300 leading-relaxed">
+                    {satsIn100Usd !== null
+                      ? `At current prices, 100 USD buys about ${satsIn100Usd.toLocaleString()} sats.`
+                      : 'Divide 100 by the live BTC/USD price, then multiply by 100,000,000.'}
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-900 dark:text-slate-100">How much is 1000 Satoshis?</h3>
+                  <p className="mt-1 text-slate-600 dark:text-slate-300 leading-relaxed">
+                    {thousandSatsUsd !== null
+                      ? `At current prices, 1,000 sats = ${thousandSatsUsd} USD (${thousandSatsEur} EUR).`
+                      : 'Multiply 1,000 by the current BTC price, then divide by 100,000,000.'}
+                  </p>
+                </div>
+              </div>
               {[
                 {
                   q: 'How many Satoshis are in one Bitcoin?',

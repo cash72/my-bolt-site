@@ -280,6 +280,14 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
           </div>
         </div>
 
+        {btcPrice > 0 && (
+          <p className="mt-5 text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed border-l-4 border-orange-500 pl-4">
+            {isSatoshiToFiat
+              ? `${formatSatoshiAmount(page.amount)} Satoshis = ${formatCurrency(fiatResult, page.currency)} ${label} at a Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
+              : `${formatCurrency(page.amount, page.currency)} = ${formatSatoshiAmount(satoshiResult)} Satoshis at a Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`}
+          </p>
+        )}
+
         <p className="mt-5 text-sm text-slate-500 dark:text-slate-400">
           Formula: {formulaText}
           {btcPrice === 0 && !loading ? ' (price unavailable)' : ''}

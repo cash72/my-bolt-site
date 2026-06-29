@@ -20,6 +20,8 @@ export interface GuideDef {
   breadcrumbLabel: string;
   hasAffiliateLinks: boolean;
   readTimeMinutes: number;
+  datePublished: string;
+  dateModified: string;
   sections: GuideSection[];
   faq: GuideFaq[];
   relatedGuideSlugs: string[];
@@ -39,6 +41,8 @@ export const GUIDES: GuideDef[] = [
     breadcrumbLabel: 'What Is a Satoshi?',
     hasAffiliateLinks: false,
     readTimeMinutes: 6,
+    datePublished: '2026-06-01',
+    dateModified: '2026-06-29',
     sections: [
       {
         heading: 'The basics: 100 million Satoshis in one Bitcoin',
@@ -91,6 +95,8 @@ export const GUIDES: GuideDef[] = [
     breadcrumbLabel: 'Satoshis in 1 Bitcoin',
     hasAffiliateLinks: false,
     readTimeMinutes: 5,
+    datePublished: '2026-06-01',
+    dateModified: '2026-06-29',
     sections: [
       {
         heading: 'The fixed ratio',
@@ -139,6 +145,8 @@ export const GUIDES: GuideDef[] = [
     breadcrumbLabel: 'USD to Satoshi',
     hasAffiliateLinks: false,
     readTimeMinutes: 5,
+    datePublished: '2026-06-10',
+    dateModified: '2026-06-29',
     sections: [
       {
         heading: 'The formula',
@@ -187,6 +195,8 @@ export const GUIDES: GuideDef[] = [
     breadcrumbLabel: 'Store Bitcoin Safely',
     hasAffiliateLinks: true,
     readTimeMinutes: 10,
+    datePublished: '2026-06-15',
+    dateModified: '2026-06-29',
     sections: [
       {
         heading: 'Hot wallets vs cold storage',
@@ -247,6 +257,8 @@ export const GUIDES: GuideDef[] = [
     breadcrumbLabel: 'Self-Custody Basics',
     hasAffiliateLinks: true,
     readTimeMinutes: 9,
+    datePublished: '2026-06-18',
+    dateModified: '2026-06-29',
     sections: [
       {
         heading: 'Not your keys, not your coins',
@@ -301,6 +313,8 @@ export const GUIDES: GuideDef[] = [
     breadcrumbLabel: 'Run a Bitcoin Node',
     hasAffiliateLinks: true,
     readTimeMinutes: 11,
+    datePublished: '2026-06-22',
+    dateModified: '2026-06-29',
     sections: [
       {
         heading: 'Why run a node?',

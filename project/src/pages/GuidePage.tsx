@@ -13,7 +13,15 @@ import {
   type GuideDef,
 } from '../lib/guides';
 import { LANDING_PAGE_BY_SLUG } from '../lib/landingPages';
-import { SITE_URL } from '../lib/site';
+import { SITE_EDITOR, SITE_URL } from '../lib/site';
+
+function formatDisplayDate(iso: string): string {
+  return new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
 
 function GuideBreadcrumbs({ page }: { page: GuideDef }) {
   return (
@@ -83,7 +91,9 @@ function GuideContent({ guide }: { guide: GuideDef }) {
       headline: guide.h1,
       description: guide.description,
       url: `${SITE_URL}${guide.path}`,
-      author: { '@type': 'Organization', name: 'SatoshiCalc' },
+      datePublished: guide.datePublished,
+      dateModified: guide.dateModified,
+      author: { '@type': 'Organization', name: SITE_EDITOR },
       publisher: { '@type': 'Organization', name: 'SatoshiCalc', url: SITE_URL },
     });
 
@@ -121,6 +131,8 @@ function GuideContent({ guide }: { guide: GuideDef }) {
               <span>Contains affiliate links</span>
             </>
           )}
+          <span aria-hidden="true">·</span>
+          <span>Updated {formatDisplayDate(guide.dateModified)}</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">{guide.h1}</h1>
         <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">{guide.intro}</p>
@@ -145,6 +157,15 @@ function GuideContent({ guide }: { guide: GuideDef }) {
 
       <section className="mt-12 mb-10" aria-label="FAQ">
         <h2 className="text-xl font-bold mb-4 text-slate-900 dark:text-slate-100">Frequently asked questions</h2>
+        {guide.faq[0] && (
+          <div className="mb-6 rounded-xl border border-orange-100 dark:border-orange-900/40 bg-orange-50/50 dark:bg-orange-950/20 p-4 sm:p-5">
+            <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 uppercase tracking-wide mb-3">
+              Quick answer
+            </p>
+            <h3 className="font-semibold text-slate-900 dark:text-slate-100">{guide.faq[0].q}</h3>
+            <p className="mt-1 text-slate-600 dark:text-slate-300 leading-relaxed">{guide.faq[0].a}</p>
+          </div>
+        )}
         <div className="space-y-3">
           {guide.faq.map((item) => (
             <details

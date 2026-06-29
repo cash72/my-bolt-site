@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import LegalPageLayout from '../components/LegalPageLayout';
 import { usePageMeta } from '../hooks/usePageMeta';
-import { CONTACT_EMAIL, SITE_NAME, SITE_URL } from '../lib/site';
+import { CONTACT_EMAIL, SITE_CONTENT_UPDATED, SITE_EDITOR, SITE_NAME, SITE_URL } from '../lib/site';
 
 export default function AboutPage() {
   usePageMeta({
@@ -24,9 +24,17 @@ export default function AboutPage() {
       </p>
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Who runs this site?</h2>
       <p>
-        {SITE_NAME} is operated by an independent publisher focused on practical Bitcoin tools. We are not a
-        financial institution, exchange, or investment advisor. Our goal is to provide accurate, fast conversions
-        with clear sourcing.
+        {SITE_NAME} is published by the <strong>{SITE_EDITOR}</strong>, an independent group focused on practical
+        Bitcoin tools and education. We are not a financial institution, exchange, or investment advisor. Our goal is
+        to provide accurate, fast conversions with clear sourcing.
+      </p>
+      <p className="text-sm text-slate-500 dark:text-slate-400">
+        Last updated:{' '}
+        {new Date(`${SITE_CONTENT_UPDATED}T12:00:00`).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
       </p>
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Where do prices come from?</h2>
       <p>

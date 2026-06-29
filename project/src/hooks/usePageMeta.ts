@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
-import { SITE_NAME, SITE_URL } from '../lib/site';
+import { SITE_NAME, SITE_URL, OG_IMAGE_URL } from '../lib/site';
 
 interface PageMeta {
   title: string;
   description: string;
   path?: string;
+  image?: string;
 }
 
 function upsertMeta(name: string, content: string, attr: 'name' | 'property' = 'name') {
@@ -27,7 +28,7 @@ function upsertCanonical(href: string) {
   el.href = href;
 }
 
-export function usePageMeta({ title, description, path = '' }: PageMeta) {
+export function usePageMeta({ title, description, path = '', image = OG_IMAGE_URL }: PageMeta) {
   useEffect(() => {
     const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
     const normalizedUrl = path === '' || path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
@@ -37,9 +38,11 @@ export function usePageMeta({ title, description, path = '' }: PageMeta) {
     upsertMeta('og:title', fullTitle, 'property');
     upsertMeta('og:description', description, 'property');
     upsertMeta('og:url', normalizedUrl, 'property');
+    upsertMeta('og:image', image, 'property');
     upsertMeta('twitter:title', fullTitle);
     upsertMeta('twitter:description', description);
     upsertMeta('twitter:url', normalizedUrl);
+    upsertMeta('twitter:image', image);
     upsertCanonical(normalizedUrl);
-  }, [title, description, path]);
+  }, [title, description, path, image]);
 }

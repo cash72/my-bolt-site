@@ -1,9 +1,11 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowRightLeft, BookOpen } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { CURRENCY_LABELS, CURRENCY_NAMES, FIAT_CURRENCIES, type FiatCurrency } from '../lib/conversion';
 import { FEATURED_GUIDES } from '../lib/guides';
 import { FEATURED_LANDING_LINKS, LANDING_PAGES } from '../lib/landingPages';
+import { SITE_URL } from '../lib/site';
 
 function AmountLinkGrid({ pages }: { pages: typeof LANDING_PAGES }) {
   return (
@@ -29,6 +31,35 @@ export default function ConversionsHubPage() {
       'Browse every SatoshiCalc conversion: currency hubs, common satoshi amounts, and reverse fiat-to-satoshi calculators with live Bitcoin prices.',
     path: '/conversions',
   });
+
+  useEffect(() => {
+    const scriptId = 'conversions-hub-itemlist-schema';
+    let script = document.getElementById(scriptId) as HTMLScriptElement | null;
+    if (!script) {
+      script = document.createElement('script');
+      script.id = scriptId;
+      script.type = 'application/ld+json';
+      document.head.appendChild(script);
+    }
+
+    script.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'SatoshiCalc conversion directory',
+      url: `${SITE_URL}/conversions`,
+      numberOfItems: LANDING_PAGES.length,
+      itemListElement: LANDING_PAGES.map((page, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: page.breadcrumbLabel,
+        url: `${SITE_URL}${page.path}`,
+      })),
+    });
+
+    return () => {
+      document.getElementById(scriptId)?.remove();
+    };
+  }, []);
 
   const satoshiHubs = LANDING_PAGES.filter((p) => p.kind === 'satoshi-to-fiat-hub');
   const fiatHubs = LANDING_PAGES.filter((p) => p.kind === 'fiat-to-satoshi-hub');
