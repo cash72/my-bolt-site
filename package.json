@@ -1,0 +1,24 @@
+{
+  "name": "project-bolt-micro-sites",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "node scripts/setup-once.mjs",
+    "validate": "node scripts/validate-cloudflare-token.mjs",
+    "diagnose": "node scripts/diagnose-sites.mjs",
+    "deploy": "node scripts/deploy-cloudflare.mjs",
+    "deploy:flooring": "node scripts/deploy-cloudflare.mjs flooringboxcalculator",
+    "deploy:satoshi": "node scripts/deploy-cloudflare.mjs project --attach-domain",
+    "deploy:paint": "node scripts/deploy-cloudflare.mjs paintcalculator --attach-domain",
+    "deploy:mulch": "node scripts/deploy-cloudflare.mjs mulchcalculator --attach-domain",
+    "deploy:drywall": "node scripts/deploy-cloudflare.mjs drywallcalculator --attach-domain",
+    "domain": "node scripts/setup-cloudflare-domain.mjs",
+    "google:verify": "node scripts/add-google-verification.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^3.114.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
