@@ -1,7 +1,11 @@
-/** AdSense publisher ID, e.g. ca-pub-1234567890123456 */
-export const ADSENSE_CLIENT = import.meta.env.VITE_ADSENSE_CLIENT?.trim() || '';
+/** Matches the publisher ID in index.html — public, not secret */
+export const ADSENSE_PUBLISHER_ID = 'ca-pub-1132338970019438';
 
-/** AdSense ad unit slot IDs (create units in AdSense dashboard) */
+/** AdSense publisher ID (env override for builds) */
+export const ADSENSE_CLIENT =
+  import.meta.env.VITE_ADSENSE_CLIENT?.trim() || ADSENSE_PUBLISHER_ID;
+
+/** AdSense ad unit slot IDs — create display units in AdSense, then set via env */
 export const ADSENSE_SLOTS = {
   footer: import.meta.env.VITE_ADSENSE_SLOT_FOOTER?.trim() || '',
   content: import.meta.env.VITE_ADSENSE_SLOT_CONTENT?.trim() || '',
@@ -15,8 +19,30 @@ export const AADS_SIZE = import.meta.env.VITE_AADS_SIZE?.trim() || '';
 
 export type AdPlacement = keyof typeof ADSENSE_SLOTS;
 
+export const AD_PLACEMENTS: Record<
+  AdPlacement,
+  { minHeightClass: string; adFormat: 'auto' | 'horizontal' | 'rectangle' }
+> = {
+  footer: {
+    minHeightClass: 'min-h-[90px] sm:min-h-[100px]',
+    adFormat: 'horizontal',
+  },
+  content: {
+    minHeightClass: 'min-h-[250px]',
+    adFormat: 'rectangle',
+  },
+};
+
+export function hasAdsensePublisher(): boolean {
+  return Boolean(ADSENSE_CLIENT);
+}
+
+export function isAdsenseSlotConfigured(placement: AdPlacement): boolean {
+  return Boolean(ADSENSE_CLIENT && ADSENSE_SLOTS[placement]);
+}
+
 export function isAdsenseEnabled(): boolean {
-  return Boolean(ADSENSE_CLIENT && (ADSENSE_SLOTS.footer || ADSENSE_SLOTS.content));
+  return isAdsenseSlotConfigured('footer') || isAdsenseSlotConfigured('content');
 }
 
 export function isAAdsEnabled(): boolean {
