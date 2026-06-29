@@ -1,5 +1,6 @@
-import { Outlet, Link, NavLink } from 'react-router-dom';
-import { Bitcoin, Moon, Sun } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Outlet, Link, NavLink, useLocation } from 'react-router-dom';
+import { Bitcoin, Menu, Moon, Sun, X } from 'lucide-react';
 import { useDarkMode } from '../context/DarkModeContext';
 import { CONTACT_EMAIL, SITE_NAME } from '../lib/site';
 import { FEATURED_LANDING_LINKS } from '../lib/landingPages';
@@ -14,8 +15,29 @@ const navLinkClass = ({ isActive }: { isActive: boolean }) =>
       : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'
   }`;
 
+const mobileNavLinkClass = ({ isActive }: { isActive: boolean }) =>
+  `block px-4 py-3 text-sm border-b border-slate-100 dark:border-slate-800 transition-colors ${
+    isActive
+      ? 'text-orange-600 dark:text-orange-400 font-medium bg-orange-50/50 dark:bg-orange-950/20'
+      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-850'
+  }`;
+
+const NAV_ITEMS = [
+  { to: '/', end: true, label: 'Converter' },
+  { to: '/conversions', label: 'Conversions' },
+  { to: '/guides', label: 'Guides' },
+  { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact' },
+] as const;
+
 export default function Layout() {
   const { dark, toggle } = useDarkMode();
+  const { pathname } = useLocation();
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  useEffect(() => {
+    setMobileNavOpen(false);
+  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
@@ -40,35 +62,62 @@ export default function Layout() {
           </Link>
 
           <nav className="hidden sm:flex items-center gap-5" aria-label="Site">
-            <NavLink to="/" end className={navLinkClass}>
-              Converter
-            </NavLink>
-            <NavLink to="/conversions" className={navLinkClass}>
-              Conversions
-            </NavLink>
-            <NavLink to="/guides" className={navLinkClass}>
-              Guides
-            </NavLink>
-            <NavLink to="/about" className={navLinkClass}>
-              About
-            </NavLink>
-            <NavLink to="/contact" className={navLinkClass}>
-              Contact
-            </NavLink>
+            {NAV_ITEMS.map((item) => (
+              <NavLink key={item.to} to={item.to} end={'end' in item ? item.end : undefined} className={navLinkClass}>
+                {item.label}
+              </NavLink>
+            ))}
           </nav>
 
-          <button
-            onClick={toggle}
-            className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-            aria-label="Toggle dark mode"
-          >
-            {dark ? (
-              <Sun className="w-4 h-4" aria-hidden="true" />
-            ) : (
-              <Moon className="w-4 h-4" aria-hidden="true" />
-            )}
-          </button>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={toggle}
+              className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              aria-label="Toggle dark mode"
+            >
+              {dark ? (
+                <Sun className="w-4 h-4" aria-hidden="true" />
+              ) : (
+                <Moon className="w-4 h-4" aria-hidden="true" />
+              )}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setMobileNavOpen((open) => !open)}
+              className="sm:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              aria-expanded={mobileNavOpen}
+              aria-controls="mobile-nav"
+              aria-label={mobileNavOpen ? 'Close menu' : 'Open menu'}
+            >
+              {mobileNavOpen ? (
+                <X className="w-5 h-5" aria-hidden="true" />
+              ) : (
+                <Menu className="w-5 h-5" aria-hidden="true" />
+              )}
+            </button>
+          </div>
         </div>
+
+        {mobileNavOpen && (
+          <nav
+            id="mobile-nav"
+            className="sm:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"
+            aria-label="Mobile site navigation"
+          >
+            {NAV_ITEMS.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={'end' in item ? item.end : undefined}
+                className={mobileNavLinkClass}
+                onClick={() => setMobileNavOpen(false)}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
+        )}
       </header>
 
       <Outlet />

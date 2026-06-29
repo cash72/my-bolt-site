@@ -1,12 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import {
   ArrowRight,
   Bitcoin,
+  ChevronDown,
   ChevronRight,
   CircleDollarSign,
   DollarSign,
   Euro,
+  MessageCircleQuestion,
   PoundSterling,
   RefreshCw,
   TrendingUp,
@@ -105,35 +107,39 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
     ? `${formatSatoshiAmount(page.amount)} sats × (${formatCurrency(btcPrice, page.currency)} BTC price ÷ 100,000,000)`
     : `${formatCurrency(page.amount, page.currency)} ÷ ${formatCurrency(btcPrice, page.currency)} × 100,000,000 sats`;
 
-  useEffect(() => {
-    const faqItems = isSatoshiToFiat
-      ? [
-          {
-            question: `How much is ${formatSatoshiAmount(page.amount)} Satoshi in ${label}?`,
-            answer:
-              btcPrice > 0
-                ? `${formatSatoshiAmount(page.amount)} Satoshis equals ${formatCurrency(fiatResult, page.currency)} ${label} at the current Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
-                : 'Live price loading — refresh in a moment for the current conversion.',
-          },
-          {
-            question: `How do you convert Satoshi to ${label}?`,
-            answer: `Multiply the Satoshi amount by the live BTC price in ${label}, then divide by 100,000,000 because there are 100 million Satoshis in one Bitcoin.`,
-          },
-        ]
-      : [
-          {
-            question: `How many Satoshis is ${page.amount} ${label}?`,
-            answer:
-              btcPrice > 0
-                ? `${page.amount} ${label} buys about ${formatSatoshiAmount(satoshiResult)} Satoshis at a Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
-                : 'Live price loading — refresh in a moment for the current conversion.',
-          },
-          {
-            question: `How do you convert ${label} to Satoshi?`,
-            answer: `Divide your ${label} amount by the live Bitcoin price, then multiply by 100,000,000 to get the Satoshi equivalent.`,
-          },
-        ];
+  const faqItems = useMemo(
+    () =>
+      isSatoshiToFiat
+        ? [
+            {
+              question: `How much is ${formatSatoshiAmount(page.amount)} Satoshi in ${label}?`,
+              answer:
+                btcPrice > 0
+                  ? `${formatSatoshiAmount(page.amount)} Satoshis equals ${formatCurrency(fiatResult, page.currency)} ${label} at the current Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
+                  : 'Live price loading — refresh in a moment for the current conversion.',
+            },
+            {
+              question: `How do you convert Satoshi to ${label}?`,
+              answer: `Multiply the Satoshi amount by the live BTC price in ${label}, then divide by 100,000,000 because there are 100 million Satoshis in one Bitcoin.`,
+            },
+          ]
+        : [
+            {
+              question: `How many Satoshis is ${page.amount} ${label}?`,
+              answer:
+                btcPrice > 0
+                  ? `${page.amount} ${label} buys about ${formatSatoshiAmount(satoshiResult)} Satoshis at a Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
+                  : 'Live price loading — refresh in a moment for the current conversion.',
+            },
+            {
+              question: `How do you convert ${label} to Satoshi?`,
+              answer: `Divide your ${label} amount by the live Bitcoin price, then multiply by 100,000,000 to get the Satoshi equivalent.`,
+            },
+          ],
+    [page.amount, page.currency, btcPrice, fiatResult, satoshiResult, isSatoshiToFiat, label]
+  );
 
+  useEffect(() => {
     const scriptId = 'landing-faq-schema';
     let script = document.getElementById(scriptId) as HTMLScriptElement | null;
     if (!script) {
@@ -188,7 +194,7 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
       document.getElementById(scriptId)?.remove();
       document.getElementById(breadcrumbId)?.remove();
     };
-  }, [page, btcPrice, fiatResult, satoshiResult, isSatoshiToFiat, label]);
+  }, [faqItems, page]);
 
   return (
     <main id="main-content" className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12" role="main">
@@ -316,6 +322,36 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
               </p>
             </>
           )}
+        </div>
+      </section>
+
+      <section className="mb-10" aria-labelledby="landing-faq-heading">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center">
+              <MessageCircleQuestion className="w-5 h-5 text-violet-600 dark:text-violet-400" aria-hidden="true" />
+            </div>
+            <h2 id="landing-faq-heading" className="text-xl font-bold">
+              Frequently asked questions
+            </h2>
+          </div>
+          <div className="space-y-4">
+            {faqItems.map((faq, i) => (
+              <details
+                key={i}
+                className="group border border-slate-200 dark:border-slate-800 rounded-xl open:bg-slate-50 dark:open:bg-slate-850 transition-colors"
+              >
+                <summary className="flex items-center justify-between cursor-pointer p-4 list-none select-none">
+                  <span className="font-medium text-slate-800 dark:text-slate-200 pr-4">{faq.question}</span>
+                  <ChevronDown
+                    className="w-4 h-4 text-slate-400 shrink-0 transition-transform group-open:rotate-180"
+                    aria-hidden="true"
+                  />
+                </summary>
+                <div className="px-4 pb-4 text-slate-600 dark:text-slate-300 leading-relaxed">{faq.answer}</div>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
