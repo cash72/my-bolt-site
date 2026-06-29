@@ -1,0 +1,40 @@
+{
+  "sites": [
+    {
+      "dir": "flooringboxcalculator",
+      "pagesProject": "flooringboxcalculator",
+      "domain": "flooringboxcalculator.com",
+      "siteUrl": "https://flooringboxcalculator.com"
+    },
+    {
+      "dir": "metaboliclowcarb",
+      "pagesProject": "metaboliclowcarb",
+      "domain": "metaboliclowcarb.com",
+      "siteUrl": "https://metaboliclowcarb.com"
+    },
+    {
+      "dir": "project",
+      "pagesProject": "satoshi-calc",
+      "domain": "satoshi-calc.com",
+      "siteUrl": "https://satoshi-calc.com"
+    },
+    {
+      "dir": "paintcalculator",
+      "pagesProject": "paintcalculator",
+      "domain": "paint-calculator.ca",
+      "siteUrl": "https://paint-calculator.ca"
+    },
+    {
+      "dir": "drywallcalculator",
+      "pagesProject": "drywallcalculator",
+      "domain": "drywallcalculator.com",
+      "siteUrl": "https://drywallcalculator.com"
+    },
+    {
+      "dir": "mulchcalculator",
+      "pagesProject": "mulchcalculator",
+      "domain": "mulchcalculator.com",
+      "siteUrl": "https://mulchcalculator.com"
+    }
+  ]
+}
