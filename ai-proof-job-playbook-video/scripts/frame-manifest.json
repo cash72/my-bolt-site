@@ -1,0 +1,21 @@
+[
+  { "segment": 0, "type": "scene", "scene": "hook-worried" },
+  { "segment": 1, "type": "scene", "scene": "hook-laptop", "weight": 0.5 },
+  { "segment": 1, "type": "scene", "scene": "hook-crowd", "weight": 0.5 },
+  { "segment": 2, "type": "scene", "scene": "hook-opportunity" },
+  { "segment": 3, "type": "pdf", "page": 1 },
+  { "segment": 4, "type": "pdf", "page": 8 },
+  { "segment": 5, "type": "pdf", "page": 10 },
+  { "segment": 5, "type": "pdf", "page": 13 },
+  { "segment": 6, "type": "scene", "scene": "manager-talk" },
+  { "segment": 6, "type": "pdf", "page": 16 },
+  { "segment": 7, "type": "pdf", "page": 17 },
+  { "segment": 8, "type": "pdf", "page": 18 },
+  { "segment": 8, "type": "pdf", "page": 20 },
+  { "segment": 8, "type": "pdf", "page": 21 },
+  { "segment": 9, "type": "pdf", "page": 22 },
+  { "segment": 10, "type": "scene", "scene": "audience-lineup" },
+  { "segment": 11, "type": "scene", "scene": "action-start" },
+  { "segment": 12, "type": "scene", "scene": "cta-point" },
+  { "segment": 12, "type": "pdf", "page": 1 }
+]

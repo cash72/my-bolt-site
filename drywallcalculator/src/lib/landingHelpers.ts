@@ -1,0 +1,79 @@
+import { getGuideBySlug } from './guides/guides';
+import type { Guide } from './guides/types';
+import { LANDING_PAGES, type LandingPage } from './landingPages';
+
+const PLANNING_GUIDES = [
+  'how-much-drywall-for-a-room',
+  'drywall-sheet-sizes-explained',
+  'how-much-drywall-waste-to-add',
+] as const;
+
+const INSTALL_GUIDES = [
+  'how-to-hang-drywall-step-by-step',
+  'hanging-drywall-on-ceiling',
+  'drywall-screw-spacing-and-pattern',
+] as const;
+
+export const FEATURED_HOME_GUIDES = [
+  'how-much-drywall-for-a-room',
+  'how-to-hang-drywall-step-by-step',
+  'drywall-taping-and-mudding-guide',
+] as const;
+
+export function getGuidesForLanding(page: LandingPage): Guide[] {
+  if (page.slug === 'drywall-for-ceiling-calculator') {
+    return ['hanging-drywall-on-ceiling', 'how-much-drywall-waste-to-add', 'half-inch-vs-five-eighth-drywall']
+      .map((slug) => getGuideBySlug(slug))
+      .filter((g): g is Guide => g !== undefined);
+  }
+  if (page.slug === 'how-many-drywall-sheets') {
+    return ['drywall-sheet-sizes-explained', 'estimating-drywall-screws-and-compound', 'how-much-drywall-waste-to-add']
+      .map((slug) => getGuideBySlug(slug))
+      .filter((g): g is Guide => g !== undefined);
+  }
+  if (page.slug === 'basement-drywall-calculator') {
+    return ['drywall-for-basement-renovation', 'how-much-drywall-for-a-room', 'half-inch-vs-five-eighth-drywall']
+      .map((slug) => getGuideBySlug(slug))
+      .filter((g): g is Guide => g !== undefined);
+  }
+  if (page.slug === 'garage-drywall-calculator') {
+    return ['how-much-drywall-for-a-room', 'how-much-drywall-waste-to-add', 'drywall-screw-spacing-and-pattern']
+      .map((slug) => getGuideBySlug(slug))
+      .filter((g): g is Guide => g !== undefined);
+  }
+  return [...PLANNING_GUIDES, ...INSTALL_GUIDES]
+    .map((slug) => getGuideBySlug(slug))
+    .filter((g): g is Guide => g !== undefined)
+    .slice(0, 3);
+}
+
+const P0_CROSS_LINK_SLUGS: Partial<Record<string, string[]>> = {
+  'drywall-calculator': ['how-many-drywall-sheets', 'drywall-for-ceiling-calculator'],
+  'how-many-drywall-sheets': ['drywall-calculator', 'drywall-for-ceiling-calculator'],
+  'drywall-for-ceiling-calculator': ['drywall-calculator', 'how-many-drywall-sheets'],
+  'basement-drywall-calculator': ['drywall-calculator', 'how-many-drywall-sheets'],
+  'garage-drywall-calculator': ['drywall-calculator', 'drywall-for-ceiling-calculator'],
+};
+
+export function getRelatedLandingPages(page: LandingPage, limit = 4): LandingPage[] {
+  const p0Slugs = P0_CROSS_LINK_SLUGS[page.slug] ?? [];
+  const p0Pages = p0Slugs
+    .map((slug) => LANDING_PAGES.find((p) => p.slug === slug))
+    .filter((p): p is LandingPage => p !== undefined && p.slug !== page.slug);
+
+  const rest = LANDING_PAGES.filter(
+    (p) => p.slug !== page.slug && !p0Pages.some((pp) => pp.slug === p.slug)
+  );
+
+  return [...p0Pages, ...rest].slice(0, limit);
+}
+
+export function getRelatedSlugsForLanding(page: LandingPage): string[] {
+  return getRelatedLandingPages(page, 3).map((p) => p.slug);
+}
+
+export function getFeaturedHomeGuides(): Guide[] {
+  return FEATURED_HOME_GUIDES.map((slug) => getGuideBySlug(slug)).filter(
+    (g): g is Guide => g !== undefined
+  );
+}

@@ -1,0 +1,48 @@
+{
+  "allRoutes": [
+    "/",
+    "/guides",
+    "/about",
+    "/contact",
+    "/privacy",
+    "/disclaimer",
+    "/drywall-calculator",
+    "/how-many-drywall-sheets",
+    "/drywall-for-ceiling-calculator",
+    "/basement-drywall-calculator",
+    "/garage-drywall-calculator",
+    "/guides/how-much-drywall-for-a-room",
+    "/guides/drywall-sheet-sizes-explained",
+    "/guides/how-much-drywall-waste-to-add",
+    "/guides/how-to-hang-drywall-step-by-step",
+    "/guides/hanging-drywall-on-ceiling",
+    "/guides/drywall-taping-and-mudding-guide",
+    "/guides/how-many-coats-drywall-mud",
+    "/guides/drywall-screw-spacing-and-pattern",
+    "/guides/half-inch-vs-five-eighth-drywall",
+    "/guides/how-to-patch-drywall-holes",
+    "/guides/drywall-for-basement-renovation",
+    "/guides/estimating-drywall-screws-and-compound"
+  ],
+  "landingPaths": [
+    "/drywall-calculator",
+    "/how-many-drywall-sheets",
+    "/drywall-for-ceiling-calculator",
+    "/basement-drywall-calculator",
+    "/garage-drywall-calculator"
+  ],
+  "guidePaths": [
+    "/guides/how-much-drywall-for-a-room",
+    "/guides/drywall-sheet-sizes-explained",
+    "/guides/how-much-drywall-waste-to-add",
+    "/guides/how-to-hang-drywall-step-by-step",
+    "/guides/hanging-drywall-on-ceiling",
+    "/guides/drywall-taping-and-mudding-guide",
+    "/guides/how-many-coats-drywall-mud",
+    "/guides/drywall-screw-spacing-and-pattern",
+    "/guides/half-inch-vs-five-eighth-drywall",
+    "/guides/how-to-patch-drywall-holes",
+    "/guides/drywall-for-basement-renovation",
+    "/guides/estimating-drywall-screws-and-compound"
+  ]
+}

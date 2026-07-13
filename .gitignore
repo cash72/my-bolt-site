@@ -1,7 +1,14 @@
-# Dependencies and build output (app lives in project/)
+# Dependencies and build output
 project/node_modules/
 project/dist/
 project/dist-ssr/
+flooringboxcalculator/node_modules/
+flooringboxcalculator/dist/
+node_modules/
+
+# Secrets
+.env
+.env.local
 
 # OS / editor
 .DS_Store

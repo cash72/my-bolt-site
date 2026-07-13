@@ -1,0 +1,5 @@
+node_modules/
+scripts/.youtube-token.json
+scripts/client_secret.json
+scripts/youtube-upload-result.json
+.env

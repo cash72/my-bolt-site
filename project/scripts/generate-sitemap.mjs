@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://satoshi-calc.com';
 const TODAY = new Date().toISOString().slice(0, 10);
-const CONTENT_UPDATED = '2026-06-29';
+const CONTENT_UPDATED = '2026-07-07';
 const LEGAL_LASTMOD = '2026-06-01';
 
 const landingConfig = JSON.parse(
@@ -24,22 +24,19 @@ const STATIC_ROUTES = [
 ];
 
 const GUIDE_SLUGS = [
-  'what-is-a-satoshi',
-  'how-many-satoshis-in-a-bitcoin',
-  'usd-to-satoshi',
-  'how-to-buy-bitcoin',
-  'stacking-sats-dca',
-  'how-to-store-bitcoin-safely',
-  'bitcoin-self-custody-basics',
-  'run-your-own-bitcoin-node',
+  ...new Set(
+    [...(await fs.readFile(path.join(ROOT, 'src/lib/guides.ts'), 'utf8')).matchAll(/slug: '([^']+)'/g)].map(
+      (m) => m[1]
+    )
+  ),
 ];
 
 const GUIDE_LASTMOD = {
   'what-is-a-satoshi': '2026-06-29',
   'how-many-satoshis-in-a-bitcoin': '2026-06-29',
   'usd-to-satoshi': '2026-06-29',
-  'how-to-buy-bitcoin': '2026-06-29',
-  'stacking-sats-dca': '2026-06-29',
+  'how-to-buy-bitcoin': '2026-07-07',
+  'stacking-sats-dca': '2026-07-07',
   'how-to-store-bitcoin-safely': '2026-06-29',
   'bitcoin-self-custody-basics': '2026-06-29',
   'run-your-own-bitcoin-node': '2026-06-29',
@@ -82,6 +79,11 @@ function buildLandingPaths() {
   return paths;
 }
 
+function sitemapLoc(route) {
+  if (route === '/') return `${SITE_URL}/`;
+  return `${SITE_URL}${route}/`;
+}
+
 function urlEntry(loc, changefreq, priority, lastmod) {
   return `  <url>
     <loc>${loc}</loc>
@@ -98,17 +100,17 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${STATIC_ROUTES.map((route) =>
   urlEntry(
-    `${SITE_URL}${route.path === '/' ? '/' : route.path}`,
+    sitemapLoc(route.path),
     route.changefreq,
     route.priority,
     route.lastmod
   )
 ).join('\n')}
-${landingPaths.map((route) => urlEntry(`${SITE_URL}${route}`, 'daily', '0.8', TODAY)).join('\n')}
+${landingPaths.map((route) => urlEntry(sitemapLoc(route), 'daily', '0.8', TODAY)).join('\n')}
 ${guidePaths
   .map((route) => {
     const slug = route.replace('/guides/', '');
-    return urlEntry(`${SITE_URL}${route}`, 'weekly', '0.75', GUIDE_LASTMOD[slug] ?? CONTENT_UPDATED);
+    return urlEntry(sitemapLoc(route), 'weekly', '0.75', GUIDE_LASTMOD[slug] ?? CONTENT_UPDATED);
   })
   .join('\n')}
 </urlset>
@@ -124,7 +126,12 @@ const seoConfig = {
 await fs.writeFile(path.join(ROOT, 'public/sitemap.xml'), sitemap);
 await fs.writeFile(path.join(ROOT, 'seo/generated-routes.json'), JSON.stringify(seoConfig, null, 2));
 
+const allPaths = seoConfig.allRoutes.filter((r) => r !== '/');
+const redirects = allPaths.map((route) => `${route} ${route}/ 308`).join('\n');
+await fs.writeFile(path.join(ROOT, 'public/_redirects'), `${redirects}\n`);
+
 console.log(`Generated sitemap with ${seoConfig.allRoutes.length} URLs`);
 console.log(`  Static: ${seoConfig.staticRoutes.length}`);
 console.log(`  Landing: ${landingPaths.length}`);
 console.log(`  Guides: ${guidePaths.length}`);
+console.log(`  Redirects: ${allPaths.length} (non-slash → trailing slash)`);

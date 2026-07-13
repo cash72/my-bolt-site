@@ -1,4 +1,4 @@
-import { ADSENSE_CLIENT } from './config';
+import { ADSENSE_CLIENT, ADSENSE_ENABLED } from './config';
 
 declare global {
   interface Window {
@@ -11,7 +11,7 @@ let scriptLoading = false;
 const loadQueue: Array<() => void> = [];
 
 export function loadAdSenseScript(): Promise<void> {
-  if (typeof window === 'undefined' || !ADSENSE_CLIENT) {
+  if (typeof window === 'undefined' || !ADSENSE_ENABLED || !ADSENSE_CLIENT) {
     return Promise.resolve();
   }
 

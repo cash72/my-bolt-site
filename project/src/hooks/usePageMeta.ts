@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { SITE_NAME, SITE_URL, OG_IMAGE_URL } from '../lib/site';
+import { SITE_NAME, OG_IMAGE_URL, canonicalUrl } from '../lib/site';
 
 interface PageMeta {
   title: string;
@@ -29,10 +29,10 @@ function upsertCanonical(href: string) {
   el.href = href;
 }
 
-export function usePageMeta({ title, description, path = '', image = OG_IMAGE_URL, ogType = 'website' }: PageMeta) {
+export function usePageMeta({ title, description, path = '/', image = OG_IMAGE_URL, ogType = 'website' }: PageMeta) {
   useEffect(() => {
     const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
-    const normalizedUrl = path === '' || path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
+    const normalizedUrl = canonicalUrl(path);
 
     document.title = fullTitle;
     upsertMeta('description', description);

@@ -1,0 +1,50 @@
+{
+  "allRoutes": [
+    "/",
+    "/guides",
+    "/about",
+    "/contact",
+    "/privacy",
+    "/disclaimer",
+    "/mulch-calculator",
+    "/gravel-calculator",
+    "/cubic-yards-calculator",
+    "/playground-mulch-calculator",
+    "/topsoil-calculator",
+    "/stone-mulch-calculator",
+    "/guides/how-much-mulch-do-i-need",
+    "/guides/mulch-depth-how-deep",
+    "/guides/cubic-yards-mulch-explained",
+    "/guides/mulch-vs-bark-vs-compost",
+    "/guides/how-much-gravel-for-driveway",
+    "/guides/gravel-types-pea-crushed",
+    "/guides/topsoil-calculator-guide",
+    "/guides/how-many-mulch-bags-per-yard",
+    "/guides/spring-mulch-application-guide",
+    "/guides/rubber-mulch-vs-wood-mulch",
+    "/guides/edging-and-prepping-beds-before-mulch",
+    "/guides/delivery-vs-bags-bulk-mulch"
+  ],
+  "landingPaths": [
+    "/mulch-calculator",
+    "/gravel-calculator",
+    "/cubic-yards-calculator",
+    "/playground-mulch-calculator",
+    "/topsoil-calculator",
+    "/stone-mulch-calculator"
+  ],
+  "guidePaths": [
+    "/guides/how-much-mulch-do-i-need",
+    "/guides/mulch-depth-how-deep",
+    "/guides/cubic-yards-mulch-explained",
+    "/guides/mulch-vs-bark-vs-compost",
+    "/guides/how-much-gravel-for-driveway",
+    "/guides/gravel-types-pea-crushed",
+    "/guides/topsoil-calculator-guide",
+    "/guides/how-many-mulch-bags-per-yard",
+    "/guides/spring-mulch-application-guide",
+    "/guides/rubber-mulch-vs-wood-mulch",
+    "/guides/edging-and-prepping-beds-before-mulch",
+    "/guides/delivery-vs-bags-bulk-mulch"
+  ]
+}

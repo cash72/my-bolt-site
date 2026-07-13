@@ -15,7 +15,8 @@ import {
 } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useBitcoinPrice } from '../hooks/useBitcoinPrice';
-import AdSlot from '../components/AdSlot';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import { renderEditorialText } from '../lib/renderEditorialText';
 import {
   CURRENCY_LABELS,
   CURRENCY_NAMES,
@@ -33,8 +34,9 @@ import {
   getRelatedLandingPages,
   type LandingPageDef,
 } from '../lib/landingPages';
-import { SITE_URL } from '../lib/site';
+import { canonicalUrl } from '../lib/site';
 import { getGuidesForLanding } from '../lib/guides';
+import { getLandingEditorial } from '../lib/landingEditorial';
 
 const currencyIcons: Record<FiatCurrency, React.ReactNode> = {
   usd: <DollarSign className="w-4 h-4" aria-hidden="true" />,
@@ -98,6 +100,8 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
   const currencyName = CURRENCY_NAMES[page.currency];
   const related = getRelatedLandingPages(page);
   const relatedGuides = getGuidesForLanding(page);
+  const editorial = getLandingEditorial(page.slug);
+  const pageIntro = editorial?.intro ?? page.intro;
 
   const isSatoshiToFiat = page.direction === 'satoshi-to-fiat';
   const fiatResult = satoshiToFiat(page.amount, btcPrice);
@@ -182,13 +186,13 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: `${SITE_URL}/`,
+          item: canonicalUrl('/'),
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: page.breadcrumbLabel,
-          item: `${SITE_URL}${page.path}`,
+          item: canonicalUrl(page.path),
         },
       ],
     });
@@ -205,7 +209,7 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
 
       <header className="mb-8 animate-fade-in">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">{page.h1}</h1>
-        <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">{page.intro}</p>
+        <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">{pageIntro}</p>
       </header>
 
       {error && (
@@ -305,34 +309,51 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
         </div>
       </section>
 
-      <AdSlot placement="content" />
+      <ContentMonetizationSlot placement="content" guides={relatedGuides} />
 
       <section className="mb-10 prose prose-slate dark:prose-invert max-w-none">
-        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed">
-          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mt-0">
-            About this conversion
-          </h2>
-          {isSatoshiToFiat ? (
-            <>
-              <p>
-                One Bitcoin equals exactly {formatSatoshiAmount(SATOSHI_PER_BTC)} Satoshis. To convert sats to{' '}
-                {label}, multiply your Satoshi count by the current BTC/{label} price, then divide by 100 million.
-              </p>
-              <p>
-                Because Bitcoin trades 24/7, the {label} value of {formatSatoshiAmount(page.amount)} sats changes
-                with the market. SatoshiCalc refreshes prices every 60 seconds so you always see a current estimate.
-              </p>
-            </>
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed">
+          {editorial ? (
+            editorial.sections.map((section) => (
+              <div key={section.heading}>
+                <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mt-0 mb-3">
+                  {section.heading}
+                </h2>
+                {section.paragraphs.map((paragraph, i) => (
+                  <p key={i} className={i > 0 ? 'mt-3' : undefined}>
+                    {renderEditorialText(paragraph)}
+                  </p>
+                ))}
+              </div>
+            ))
           ) : (
             <>
-              <p>
-                To buy Bitcoin with {label}, exchanges quote a BTC/{label} price. Dividing your {label} budget by
-                that price gives the BTC amount; multiply by 100,000,000 for Satoshis.
-              </p>
-              <p>
-                {page.amount} {label} is a practical amount for estimating stack sizes, tips, or small purchases.
-                Use the full converter on the homepage to try other amounts and currencies.
-              </p>
+              <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mt-0">
+                About this conversion
+              </h2>
+              {isSatoshiToFiat ? (
+                <>
+                  <p>
+                    One Bitcoin equals exactly {formatSatoshiAmount(SATOSHI_PER_BTC)} Satoshis. To convert sats to{' '}
+                    {label}, multiply your Satoshi count by the current BTC/{label} price, then divide by 100 million.
+                  </p>
+                  <p>
+                    Because Bitcoin trades 24/7, the {label} value of {formatSatoshiAmount(page.amount)} sats changes
+                    with the market. SatoshiCalc refreshes prices every 60 seconds so you always see a current estimate.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p>
+                    To buy Bitcoin with {label}, exchanges quote a BTC/{label} price. Dividing your {label} budget by
+                    that price gives the BTC amount; multiply by 100,000,000 for Satoshis.
+                  </p>
+                  <p>
+                    {page.amount} {label} is a practical amount for estimating stack sizes, tips, or small purchases.
+                    Use the full converter on the homepage to try other amounts and currencies.
+                  </p>
+                </>
+              )}
             </>
           )}
         </div>

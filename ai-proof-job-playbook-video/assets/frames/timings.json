@@ -1,0 +1,184 @@
+{
+  "frames": [
+    {
+      "duration": 2.6127863505206372,
+      "segment": 0,
+      "type": "scene",
+      "media": "image",
+      "motion": "static",
+      "scene": "hook-worried",
+      "file": "frame-01.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/scenes-ai/hook-worried.png"
+    },
+    {
+      "duration": 5.236369338853343,
+      "segment": 1,
+      "type": "scene",
+      "media": "image",
+      "motion": "static",
+      "scene": "hook-laptop",
+      "file": "frame-02.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/scenes-ai/hook-laptop.png"
+    },
+    {
+      "duration": 5.236369338853343,
+      "segment": 1,
+      "type": "scene",
+      "media": "image",
+      "motion": "static",
+      "scene": "hook-crowd",
+      "file": "frame-03.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/scenes-ai/hook-crowd.png"
+    },
+    {
+      "duration": 2.5372098858361563,
+      "segment": 2,
+      "type": "scene",
+      "media": "image",
+      "motion": "static",
+      "scene": "hook-opportunity",
+      "file": "frame-04.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/scenes-ai/hook-opportunity.png"
+    },
+    {
+      "duration": 9.976093338351525,
+      "segment": 3,
+      "type": "pdf",
+      "media": "image",
+      "motion": "static",
+      "file": "frame-05.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/frames/frame-05.png"
+    },
+    {
+      "duration": 6.942238113160206,
+      "segment": 4,
+      "type": "pdf",
+      "media": "image",
+      "motion": "static",
+      "file": "frame-06.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/frames/frame-06.png"
+    },
+    {
+      "duration": 4.3132568059214655,
+      "segment": 5,
+      "type": "pdf",
+      "media": "image",
+      "motion": "static",
+      "file": "frame-07.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/frames/frame-07.png"
+    },
+    {
+      "duration": 4.3132568059214655,
+      "segment": 5,
+      "type": "pdf",
+      "media": "image",
+      "motion": "static",
+      "file": "frame-08.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/frames/frame-08.png"
+    },
+    {
+      "duration": 2.925888847070631,
+      "segment": 6,
+      "type": "scene",
+      "media": "image",
+      "motion": "static",
+      "scene": "manager-talk",
+      "file": "frame-09.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/scenes-ai/manager-talk.png"
+    },
+    {
+      "duration": 2.925888847070631,
+      "segment": 6,
+      "type": "pdf",
+      "media": "image",
+      "motion": "static",
+      "file": "frame-10.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/frames/frame-10.png"
+    },
+    {
+      "duration": 6.240456655375738,
+      "segment": 7,
+      "type": "pdf",
+      "media": "image",
+      "motion": "static",
+      "file": "frame-11.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/frames/frame-11.png"
+    },
+    {
+      "duration": 2.832317986032702,
+      "segment": 8,
+      "type": "pdf",
+      "media": "image",
+      "motion": "static",
+      "file": "frame-12.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/frames/frame-12.png"
+    },
+    {
+      "duration": 2.832317986032702,
+      "segment": 8,
+      "type": "pdf",
+      "media": "image",
+      "motion": "static",
+      "file": "frame-13.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/frames/frame-13.png"
+    },
+    {
+      "duration": 2.832317986032702,
+      "segment": 8,
+      "type": "pdf",
+      "media": "image",
+      "motion": "static",
+      "file": "frame-14.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/frames/frame-14.png"
+    },
+    {
+      "duration": 4.351045038263707,
+      "segment": 9,
+      "type": "pdf",
+      "media": "image",
+      "motion": "static",
+      "file": "frame-15.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/frames/frame-15.png"
+    },
+    {
+      "duration": 8.8100564546481,
+      "segment": 10,
+      "type": "scene",
+      "media": "image",
+      "motion": "static",
+      "scene": "audience-lineup",
+      "file": "frame-16.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/scenes-ai/audience-lineup.png"
+    },
+    {
+      "duration": 7.460476728139507,
+      "segment": 11,
+      "type": "scene",
+      "media": "image",
+      "motion": "static",
+      "scene": "action-start",
+      "file": "frame-17.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/scenes-ai/action-start.png"
+    },
+    {
+      "duration": 1.840826746957722,
+      "segment": 12,
+      "type": "scene",
+      "media": "image",
+      "motion": "static",
+      "scene": "cta-point",
+      "file": "frame-18.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/scenes-ai/cta-point.png"
+    },
+    {
+      "duration": 1.840826746957722,
+      "segment": 12,
+      "type": "pdf",
+      "media": "image",
+      "motion": "static",
+      "file": "frame-19.png",
+      "source": "/home/tiny/Downloads/project-bolt-update/ai-proof-job-playbook-video/assets/frames/frame-19.png"
+    }
+  ],
+  "totalDuration": 86.06
+}

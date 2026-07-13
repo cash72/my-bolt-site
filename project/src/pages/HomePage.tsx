@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
-import AdSlot from '../components/AdSlot';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import {
   COINGECKO_URL,
   SATOSHI_PER_BTC,
@@ -11,6 +11,7 @@ import {
 } from '../lib/conversion';
 import { FEATURED_LANDING_LINKS } from '../lib/landingPages';
 import { FEATURED_GUIDES } from '../lib/guides';
+import { trackEvent } from '../lib/analytics';
 import {
   ArrowRightLeft,
   TrendingUp,
@@ -39,13 +40,6 @@ const currencyIcons: Record<string, React.ReactNode> = {
 };
 
 export default function HomePage() {
-  usePageMeta({
-    title: 'Satoshi to USD Converter | Live Bitcoin Price Calculator (2026)',
-    description:
-      'Free Satoshi to USD, EUR, GBP & CAD converter with live Bitcoin prices. Convert satoshis instantly with real-time rates and a quick reference table.',
-    path: '/',
-  });
-
   const [priceData, setPriceData] = useState<PriceData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -121,6 +115,7 @@ export default function HomePage() {
   const copyToClipboard = (text: string, key: string) => {
     navigator.clipboard.writeText(text).then(() => {
       setCopied(key);
+      trackEvent('copy_conversion', { copy_key: key });
       setTimeout(() => setCopied(null), 1500);
     });
   };
@@ -132,6 +127,7 @@ export default function HomePage() {
       ? '24h'
       : `${isUp ? '+' : ''}${priceChange.toFixed(2)}%`;
 
+  const sats50kUsd = btcPriceUsd > 0 ? 50_000 * (btcPriceUsd / SATOSHI_PER_BTC) : null;
   const sats100kUsd = btcPriceUsd > 0 ? 100_000 * (btcPriceUsd / SATOSHI_PER_BTC) : null;
   const sats100kEur = btcPriceEur > 0 ? 100_000 * (btcPriceEur / SATOSHI_PER_BTC) : null;
   const sats1kUsd = btcPriceUsd > 0 ? 1000 * (btcPriceUsd / SATOSHI_PER_BTC) : null;
@@ -144,6 +140,28 @@ export default function HomePage() {
     sats100kUsd !== null
       ? `One Bitcoin equals exactly 100,000,000 Satoshis. At the current BTC price, 100,000 sats ≈ ${formatCurrency(sats100kUsd, 'usd')} USD (${formatCurrency(sats100kEur!, 'eur')} EUR), and 1,000 sats ≈ ${formatCurrency(sats1kUsd!, 'usd')} USD. Prices refresh every 60 seconds from CoinGecko.`
       : 'One Bitcoin equals exactly 100,000,000 Satoshis. Use the live converter below for current USD, EUR, GBP, and CAD values — updated every 60 seconds from CoinGecko.';
+
+  const homepageDescription =
+    sats50kUsd !== null
+      ? `Convert satoshis to USD, EUR, GBP & CAD instantly. 50,000 sats ≈ ${formatCurrency(sats50kUsd, 'usd')} USD at today's live BTC price. Free calculator — updated every 60 seconds.`
+      : 'Convert satoshis to USD, EUR, GBP & CAD instantly with live Bitcoin prices. Free calculator — updated every 60 seconds.';
+
+  usePageMeta({
+    title:
+      sats50kUsd !== null
+        ? `Satoshi to USD Calculator — 50,000 Sats ≈ ${formatCurrency(sats50kUsd, 'usd')} Today`
+        : 'Satoshi to USD Calculator — Live Bitcoin Price in EUR, GBP & CAD',
+    description: homepageDescription,
+    path: '/',
+  });
+
+  const popularConversions = [
+    { to: '/50000-satoshi-to-usd', label: '50,000 sats → USD' },
+    { to: '/100000-satoshi-to-usd', label: '100,000 sats → USD' },
+    { to: '/100-dollars-in-satoshi', label: '100 USD → sats' },
+    { to: '/satoshi-to-usd', label: 'Satoshi → USD' },
+    { to: '/usd-to-satoshi', label: 'USD → Satoshi' },
+  ] as const;
 
   useEffect(() => {
     const faqId = 'homepage-faq-schema';
@@ -234,6 +252,29 @@ export default function HomePage() {
             {answerLead}
           </p>
         </header>
+
+        <section className="mb-8 animate-fade-in" aria-label="Popular conversions">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400 mb-2">
+            Popular conversions
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {popularConversions.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="inline-flex items-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-1.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:border-orange-300 dark:hover:border-orange-700 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              to="/conversions"
+              className="inline-flex items-center rounded-lg px-3 py-1.5 text-sm font-medium text-orange-600 dark:text-orange-400 hover:underline"
+            >
+              All conversions →
+            </Link>
+          </div>
+        </section>
 
         {/* BTC Price Banner */}
         <section className="mb-10 animate-fade-in" aria-label="Live Bitcoin Price">
@@ -499,9 +540,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <div className="max-w-5xl mx-auto">
-          <AdSlot placement="content" />
-        </div>
+        <ContentMonetizationSlot placement="content" guides={FEATURED_GUIDES.slice(0, 3)} />
 
         {/* Internal links */}
         <section className="mb-12 animate-slide-up" aria-labelledby="explore-heading">
@@ -603,7 +642,11 @@ export default function HomePage() {
                   Bitcoin is stored in a <strong>digital wallet</strong>, which holds your private keys — the cryptographic proof that you own your coins. There are several types of wallets, each with different trade-offs between security and convenience.
                 </p>
                 <p>
-                  <strong>Hardware wallets</strong> (like Ledger or Trezor) are physical devices that keep your keys offline, making them the most secure option for long-term storage. They are immune to online hacking attempts.
+                  <strong>Hardware wallets</strong> (like{' '}
+                  <Link to="/guides/how-to-store-bitcoin-safely" className="text-orange-600 dark:text-orange-400 hover:underline">
+                    Blockstream Jade, BitBox02, or Coldcard
+                  </Link>
+                  ) are physical devices that keep your keys offline — the standard for long-term savings. They are immune to online hacking attempts.
                 </p>
                 <p>
                   <strong>Software wallets</strong> (mobile or desktop apps) are convenient for everyday use but are connected to the internet, so they carry more risk. Always download wallets from official sources and enable two-factor authentication where possible.
@@ -741,8 +784,8 @@ export default function HomePage() {
                   q: 'How often are prices updated?',
                   a: 'Prices refresh automatically every 60 seconds from the CoinGecko API to keep conversions as accurate as possible.',
                 },
-              ].map((faq, i) => {
-                const id = `faq-${i}`;
+              ].slice(3).map((faq, i) => {
+                const id = `faq-${i + 3}`;
                 return (
                   <details
                     key={id}

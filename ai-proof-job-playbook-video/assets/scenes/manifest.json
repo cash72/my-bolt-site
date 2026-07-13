@@ -1,0 +1,13 @@
+{
+  "style": "stickman-named",
+  "scenes": [
+    "hook-worried",
+    "hook-laptop",
+    "hook-crowd",
+    "hook-opportunity",
+    "manager-talk",
+    "audience-lineup",
+    "action-start",
+    "cta-point"
+  ]
+}

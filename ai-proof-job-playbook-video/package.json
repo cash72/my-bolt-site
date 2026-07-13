@@ -1,0 +1,30 @@
+{
+  "name": "ai-proof-job-playbook-video",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "voice": "node scripts/generate-voiceover.mjs",
+    "slides": "node scripts/generate-slides.mjs",
+    "scenes": "node scripts/generate-stickman-scenes.mjs",
+    "animate": "node scripts/animate-stickman-scenes.mjs",
+    "frames": "node scripts/compose-frames.mjs",
+    "video": "node scripts/build-video.mjs",
+    "video:preview": "node scripts/build-video-stickman.mjs",
+    "video:short": "node scripts/build-video-short.mjs",
+    "pdf": "node scripts/extract-pdf-pages.mjs",
+    "all": "npm run voice && npm run pdf && npm run frames && npm run video:preview",
+    "all:preview": "npm run voice && npm run pdf && npm run frames && npm run video:preview",
+    "upload:youtube": "node scripts/upload-youtube.mjs",
+    "upload:open": "bash scripts/open-youtube-upload.sh",
+    "pin:comment": "bash scripts/pin-youtube-comment.sh",
+    "upload:short": "bash scripts/open-youtube-short-upload.sh"
+  },
+  "dependencies": {
+    "canvas": "^3.1.0",
+    "edge-tts-universal": "^1.4.0",
+    "ffmpeg-static": "^5.2.0",
+    "googleapis": "^148.0.0",
+    "pdfjs-dist": "^4.10.38"
+  }
+}

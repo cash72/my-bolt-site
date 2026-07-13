@@ -156,12 +156,12 @@ export async function ensurePagesProject(cf, projectName) {
 }
 
 export async function setupCustomDomain(cf, { pagesProject, domain }) {
-  const pagesTarget = `${pagesProject}.pages.dev`;
+  const projectInfo = await ensurePagesProject(cf, pagesProject);
+  const pagesTarget = projectInfo.project?.subdomain || `${pagesProject}.pages.dev`;
   const results = { pagesTarget, steps: [] };
 
-  const project = await ensurePagesProject(cf, pagesProject);
   results.steps.push(
-    project.created ? `Created Pages project "${pagesProject}"` : `Pages project "${pagesProject}" exists`
+    projectInfo.created ? `Created Pages project "${pagesProject}"` : `Pages project "${pagesProject}" exists`
   );
 
   for (const name of [domain, `www.${domain}`]) {
@@ -216,10 +216,151 @@ export async function setupCustomDomain(cf, { pagesProject, domain }) {
   return results;
 }
 
+const REDIRECT_PHASE = 'http_request_dynamic_redirect';
+
+function wwwRedirectRule(domain) {
+  return {
+    description: `Redirect www.${domain} → ${domain} (301)`,
+    expression: `(http.host eq "www.${domain}")`,
+    action: 'redirect',
+    action_parameters: {
+      from_value: {
+        target_url: {
+          expression: `concat("https://${domain}", http.request.uri.path)`,
+        },
+        status_code: 301,
+        preserve_query_string: true,
+      },
+    },
+    enabled: true,
+  };
+}
+
+function hasWwwRedirectRule(rules, domain) {
+  const needle = `www.${domain}`;
+  return rules.some(
+    (rule) =>
+      rule.action === 'redirect' &&
+      (rule.expression?.includes(needle) || rule.description?.includes(needle))
+  );
+}
+
+function hasWwwPageRule(pageRules, domain) {
+  const wwwHost = `www.${domain}`;
+  return pageRules.some(
+    (rule) =>
+      rule.status === 'active' &&
+      rule.actions?.some(
+        (a) =>
+          a.id === 'forwarding_url' &&
+          typeof a.value?.url === 'string' &&
+          a.value.url.startsWith(`https://${domain}`)
+      ) &&
+      rule.targets?.some(
+        (t) =>
+          t.target === 'url' &&
+          (t.constraint?.value?.includes(wwwHost) || t.constraint?.value?.includes(`*${wwwHost}*`))
+      )
+  );
+}
+
+async function ensureWwwToApexPageRule(cf, zoneId, domain) {
+  const list = await cf.api('GET', `/zones/${zoneId}/pagerules`);
+  const pageRules = list.result ?? [];
+
+  if (hasWwwPageRule(pageRules, domain)) {
+    return { status: 'exists', zoneId, domain, method: 'page_rule' };
+  }
+
+  await cf.api('POST', `/zones/${zoneId}/pagerules`, {
+    targets: [
+      {
+        target: 'url',
+        constraint: {
+          operator: 'matches',
+          value: `*www.${domain}/*`,
+        },
+      },
+    ],
+    actions: [
+      {
+        id: 'forwarding_url',
+        value: {
+          url: `https://${domain}/$1`,
+          status_code: 301,
+        },
+      },
+    ],
+    priority: 1,
+    status: 'active',
+  });
+
+  return { status: 'created', zoneId, domain, method: 'page_rule' };
+}
+
+async function ensureWwwToApexDynamicRedirect(cf, zoneId, domain) {
+  const rule = wwwRedirectRule(domain);
+
+  try {
+    const entry = await cf.api('GET', `/zones/${zoneId}/rulesets/phases/${REDIRECT_PHASE}/entrypoint`);
+    const ruleset = entry.result;
+    const rules = [...(ruleset.rules ?? [])];
+
+    if (hasWwwRedirectRule(rules, domain)) {
+      return { status: 'exists', zoneId, domain, method: 'dynamic_redirect' };
+    }
+
+    rules.push(rule);
+    await cf.api('PUT', `/zones/${zoneId}/rulesets/${ruleset.id}`, { rules });
+    return { status: 'created', zoneId, domain, method: 'dynamic_redirect' };
+  } catch (err) {
+    if (!/not found|8000007|8100404/i.test(err.message)) {
+      throw err;
+    }
+
+    await cf.api('POST', `/zones/${zoneId}/rulesets`, {
+      name: 'WWW to apex redirects',
+      kind: 'zone',
+      phase: REDIRECT_PHASE,
+      rules: [rule],
+    });
+    return { status: 'created', zoneId, domain, method: 'dynamic_redirect' };
+  }
+}
+
+/** 301 redirect www.example.com → https://example.com (path + query preserved). */
+export async function ensureWwwToApexRedirect(cf, domain) {
+  const zone = await cf.getZone(domain);
+  if (!zone) {
+    return { status: 'skipped', reason: `No Cloudflare zone found for ${domain}` };
+  }
+
+  try {
+    return await ensureWwwToApexDynamicRedirect(cf, zone.id, domain);
+  } catch (err) {
+    if (!/Authentication error|10000|403|Forbidden|Unauthorized|9109/i.test(err.message)) {
+      throw err;
+    }
+    try {
+      return await ensureWwwToApexPageRule(cf, zone.id, domain);
+    } catch (pageErr) {
+      if (/9109|Unauthorized/i.test(pageErr.message)) {
+        const e = new Error(
+          'Token lacks redirect write permission. Add Zone → Page Rules → Edit (or Single Redirect → Edit) for all zones, then re-run.'
+        );
+        e.code = 9109;
+        throw e;
+      }
+      throw pageErr;
+    }
+  }
+}
+
 export function dashboardLinks(accountId, site) {
   return {
     account: `https://dash.cloudflare.com/${accountId}`,
     zoneDns: `https://dash.cloudflare.com/${accountId}/${site.domain}/dns/records`,
+    zoneRules: `https://dash.cloudflare.com/${accountId}/${site.domain}/rules/overview`,
     pagesDomains: `https://dash.cloudflare.com/${accountId}/pages/view/${site.pagesProject}/domains`,
     apiTokens: 'https://dash.cloudflare.com/profile/api-tokens',
   };

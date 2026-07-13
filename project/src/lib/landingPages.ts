@@ -42,8 +42,8 @@ function buildSatoshiHubPage(currency: FiatCurrency): LandingPageDef {
     direction: 'satoshi-to-fiat',
     amount: DEFAULT_SATOSHI_HUB_AMOUNT,
     currency,
-    title: `Satoshi to ${label} Converter | Live Bitcoin Price`,
-    description: `Convert Satoshis to ${label} (${name}) at the live Bitcoin price. Free calculator with rates updated every 60 seconds from CoinGecko.`,
+    title: `Satoshi to ${label} Converter — Live Price Today`,
+    description: `Convert Satoshis to ${label} (${name}) at the live Bitcoin price. Free calculator — updated every 60 seconds from CoinGecko.`,
     h1: `Satoshi to ${label} Converter`,
     intro: `See how many ${label} your Satoshis are worth at today's Bitcoin price. Enter any amount in sats and get an instant ${label} value using live market data.`,
     breadcrumbLabel: `Satoshi to ${label}`,
@@ -52,7 +52,6 @@ function buildSatoshiHubPage(currency: FiatCurrency): LandingPageDef {
 
 function buildSatoshiAmountPage(amount: number, currency: FiatCurrency): LandingPageDef {
   const label = CURRENCY_LABELS[currency];
-  const name = CURRENCY_NAMES[currency];
   const slug = `${amount}-satoshi-to-${currency}`;
   const formatted = formatSatoshiAmount(amount);
 
@@ -63,8 +62,8 @@ function buildSatoshiAmountPage(amount: number, currency: FiatCurrency): Landing
     direction: 'satoshi-to-fiat',
     amount,
     currency,
-    title: `${formatted} Satoshi to ${label} | Live Price`,
-    description: `How much is ${formatted} Satoshis in ${label}? Live conversion at the current Bitcoin price in ${name}. Updated every 60 seconds.`,
+    title: `${formatted} Satoshi to ${label} — Live Price Today`,
+    description: `How much is ${formatted} Satoshis in ${label}? See the live ${label} value at today's Bitcoin price. Free calculator — updated every 60 seconds.`,
     h1: `${formatted} Satoshi to ${label}`,
     intro: `${formatted} Satoshis (sats) is a common amount people look up when Bitcoin is priced in whole coins. This page shows the live ${label} value for exactly ${formatted} sats.`,
     breadcrumbLabel: `${formatted} sats → ${label}`,
@@ -76,6 +75,16 @@ function buildFiatHubPage(currency: FiatCurrency): LandingPageDef {
   const name = CURRENCY_NAMES[currency];
   const slug = `${currency}-to-satoshi`;
 
+  const title =
+    currency === 'usd'
+      ? 'USD to Satoshi — How Many Sats per Dollar? (Live 2026)'
+      : `${label} to Satoshi Converter — Live Sats Calculator`;
+
+  const description =
+    currency === 'usd'
+      ? 'How many Satoshis is $100 USD? Convert any dollar amount to sats at the live BTC price. Free calculator — updated every 60 seconds.'
+      : `Convert ${label} (${name}) to Satoshis at the live Bitcoin price. Free reverse calculator — updated every 60 seconds.`;
+
   return {
     slug,
     path: `/${slug}`,
@@ -83,8 +92,8 @@ function buildFiatHubPage(currency: FiatCurrency): LandingPageDef {
     direction: 'fiat-to-satoshi',
     amount: DEFAULT_FIAT_HUB_AMOUNT,
     currency,
-    title: `${label} to Satoshi Converter | Live Bitcoin Price`,
-    description: `Convert ${label} (${name}) to Satoshis at the live Bitcoin price. Free reverse calculator with rates updated every 60 seconds.`,
+    title,
+    description,
     h1: `${label} to Satoshi Converter`,
     intro: `Find out how many Satoshis you can buy for any ${label} amount at the current Bitcoin price. SatoshiCalc uses live CoinGecko rates for accurate results.`,
     breadcrumbLabel: `${label} to Satoshi`,
@@ -104,8 +113,8 @@ function buildFiatAmountPage(amount: number, currency: FiatCurrency): LandingPag
     direction: 'fiat-to-satoshi',
     amount,
     currency,
-    title: `${amount} ${label} in Satoshi | Live Price`,
-    description: `How many Satoshis is ${amount} ${label}? Live conversion at the current Bitcoin price in ${name}. Updated every 60 seconds.`,
+    title: `${amount} ${label} in Satoshi — Live Sats Calculator`,
+    description: `How many Satoshis is ${amount} ${label}? See the live sats equivalent at today's Bitcoin price in ${name}. Updated every 60 seconds.`,
     h1: `${amount} ${label} in Satoshi`,
     intro: `At today's Bitcoin price, ${amount} ${label} equals a specific number of Satoshis. This page shows the live sats equivalent for exactly ${amount} ${label}.`,
     breadcrumbLabel: `${amount} ${label} → sats`,
@@ -152,6 +161,23 @@ export function getLandingPageBySlug(slug: string | undefined): LandingPageDef |
 }
 
 export function getRelatedLandingPages(page: LandingPageDef, limit = 8): LandingPageDef[] {
+  const hubPriorityAmounts = [1_000, 10_000, 50_000, 100_000, 1_000_000];
+
+  if (page.kind === 'satoshi-to-fiat-hub') {
+    const priority = hubPriorityAmounts
+      .map((amount) => LANDING_PAGE_BY_SLUG.get(`${amount}-satoshi-to-${page.currency}`))
+      .filter((p): p is LandingPageDef => p !== undefined);
+    const reverse = LANDING_PAGE_BY_SLUG.get(`${page.currency}-to-satoshi`);
+    const rest = LANDING_PAGES.filter(
+      (p) =>
+        p.slug !== page.slug &&
+        !priority.some((pr) => pr.slug === p.slug) &&
+        p.direction === page.direction
+    );
+    const merged = [...priority, ...(reverse ? [reverse] : []), ...rest];
+    return merged.slice(0, limit);
+  }
+
   const sameDirection = LANDING_PAGES.filter(
     (p) => p.direction === page.direction && p.slug !== page.slug
   );
@@ -169,6 +195,8 @@ export const FEATURED_LANDING_LINKS: LandingPageDef[] = [
   'satoshi-to-eur',
   'satoshi-to-gbp',
   'satoshi-to-cad',
+  '500-satoshi-to-usd',
+  '5000-satoshi-to-usd',
   '1000-satoshi-to-usd',
   '50000-satoshi-to-usd',
   '100000-satoshi-to-usd',

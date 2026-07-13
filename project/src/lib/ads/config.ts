@@ -1,5 +1,11 @@
-/** Matches the publisher ID in index.html — public, not secret */
+/** Matches the publisher ID in ads.txt — public, not secret */
 export const ADSENSE_PUBLISHER_ID = 'ca-pub-1132338970019438';
+
+/**
+ * Master switch for AdSense ad units and script loading.
+ * Keep false until AdSense approves satoshi-calc.com — set VITE_ADSENSE_ENABLED=true to re-enable.
+ */
+export const ADSENSE_ENABLED = import.meta.env.VITE_ADSENSE_ENABLED === 'true';
 
 /** AdSense publisher ID (env override for builds) */
 export const ADSENSE_CLIENT =
@@ -34,11 +40,11 @@ export const AD_PLACEMENTS: Record<
 };
 
 export function hasAdsensePublisher(): boolean {
-  return Boolean(ADSENSE_CLIENT);
+  return ADSENSE_ENABLED && Boolean(ADSENSE_CLIENT);
 }
 
 export function isAdsenseSlotConfigured(placement: AdPlacement): boolean {
-  return Boolean(ADSENSE_CLIENT && ADSENSE_SLOTS[placement]);
+  return ADSENSE_ENABLED && Boolean(ADSENSE_CLIENT && ADSENSE_SLOTS[placement]);
 }
 
 export function isAdsenseEnabled(): boolean {

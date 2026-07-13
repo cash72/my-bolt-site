@@ -8,7 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { loadRepoEnv } from './lib/env.mjs';
-import { createClient, setupCustomDomain, dashboardLinks } from './lib/cloudflare.mjs';
+import { createClient, ensureWwwToApexRedirect, setupCustomDomain, dashboardLinks } from './lib/cloudflare.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -35,7 +35,9 @@ const links = dashboardLinks(accountId, site);
 
 try {
   const cf = createClient(accountId, apiToken);
-  console.log(`\nSetting up ${site.domain} → ${site.pagesProject}.pages.dev\n`);
+  const project = await cf.getPagesProject(site.pagesProject);
+  const pagesPreview = project?.subdomain || `${site.pagesProject}.pages.dev`;
+  console.log(`\nSetting up ${site.domain} → ${pagesPreview}\n`);
 
   const result = await setupCustomDomain(cf, {
     pagesProject: site.pagesProject,
@@ -74,9 +76,22 @@ try {
     }
   }
 
+  try {
+    const redirect = await ensureWwwToApexRedirect(cf, site.domain);
+    if (redirect.status === 'created') {
+      console.log(`  • Created www → apex redirect (301)`);
+    } else if (redirect.status === 'exists') {
+      console.log(`  • www → apex redirect already configured`);
+    }
+  } catch (redirectErr) {
+    console.log(`  ⚠ www redirect not set: ${redirectErr.message}`);
+    console.log(`    Run: npm run redirects:www -- ${siteDir}`);
+  }
+
   console.log('\n✓ DNS automation complete.');
   console.log(`  Custom:  https://${site.domain}`);
-  console.log(`  Preview: https://${site.pagesProject}.pages.dev`);
+  console.log(`  www:     https://www.${site.domain} → https://${site.domain}`);
+  console.log(`  Preview: https://${pagesPreview}`);
   console.log(`  Check:   ${links.pagesDomains}\n`);
   console.log('If status is still "pending", wait 5–15 minutes for SSL.\n');
 } catch (err) {

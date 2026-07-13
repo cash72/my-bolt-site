@@ -12,9 +12,11 @@ import {
   FEATURED_GUIDES,
   type GuideDef,
 } from '../lib/guides';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { LANDING_PAGE_BY_SLUG } from '../lib/landingPages';
-import { SITE_EDITOR, SITE_URL } from '../lib/site';
-import AdSlot from '../components/AdSlot';
+import { getGuideImagePath, getGuideImageUrl } from '../lib/guideImages';
+import { renderEditorialText } from '../lib/renderEditorialText';
+import { SITE_EDITOR, SITE_URL, canonicalUrl } from '../lib/site';
 
 function formatDisplayDate(iso: string): string {
   return new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', {
@@ -55,6 +57,7 @@ function GuideContent({ guide }: { guide: GuideDef }) {
     title: guide.title,
     description: guide.description,
     path: guide.path,
+    image: getGuideImageUrl(guide),
     ogType: 'article',
   });
 
@@ -92,9 +95,10 @@ function GuideContent({ guide }: { guide: GuideDef }) {
       '@type': 'Article',
       headline: guide.h1,
       description: guide.description,
-      url: `${SITE_URL}${guide.path}`,
+      url: canonicalUrl(guide.path),
       datePublished: guide.datePublished,
       dateModified: guide.dateModified,
+      image: [getGuideImageUrl(guide)],
       author: { '@type': 'Organization', name: SITE_EDITOR },
       publisher: { '@type': 'Organization', name: 'SatoshiCalc', url: SITE_URL },
     });
@@ -116,19 +120,19 @@ function GuideContent({ guide }: { guide: GuideDef }) {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: `${SITE_URL}/`,
+          item: canonicalUrl('/'),
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Guides',
-          item: `${SITE_URL}/guides`,
+          item: canonicalUrl('/guides'),
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: guide.breadcrumbLabel,
-          item: `${SITE_URL}${guide.path}`,
+          item: canonicalUrl(guide.path),
         },
       ],
     });
@@ -175,6 +179,18 @@ function GuideContent({ guide }: { guide: GuideDef }) {
         <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">{guide.intro}</p>
       </header>
 
+      <figure className="mb-8 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800">
+        <img
+          src={getGuideImagePath(guide)}
+          alt={`${guide.h1} — Bitcoin guide`}
+          width={1200}
+          height={630}
+          className="w-full aspect-[40/21] object-cover"
+          loading="eager"
+          decoding="async"
+        />
+      </figure>
+
       {guide.hasAffiliateLinks && <AffiliateDisclosureBanner />}
 
       <article className="prose prose-slate dark:prose-invert max-w-none">
@@ -183,16 +199,23 @@ function GuideContent({ guide }: { guide: GuideDef }) {
           return (
             <section key={section.heading} className="mb-10">
               <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">{section.heading}</h2>
-              {section.paragraphs.map((p, i) => (
-                <p key={i}>{p}</p>
+              {section.paragraphs?.map((p, i) => (
+                <p key={i}>{renderEditorialText(p)}</p>
               ))}
+              {section.bullets && (
+                <ul className="list-disc list-inside space-y-2 text-sm">
+                  {section.bullets.map((b, i) => (
+                    <li key={i}>{renderEditorialText(b)}</li>
+                  ))}
+                </ul>
+              )}
               {products.length > 0 && <AffiliateProductGrid products={products} />}
             </section>
           );
         })}
       </article>
 
-      <AdSlot placement="content" />
+      <ContentMonetizationSlot placement="content" />
 
       <section className="mt-12 mb-10" aria-label="FAQ">
         <h2 className="text-xl font-bold mb-4 text-slate-900 dark:text-slate-100">Frequently asked questions</h2>
@@ -206,7 +229,7 @@ function GuideContent({ guide }: { guide: GuideDef }) {
           </div>
         )}
         <div className="space-y-3">
-          {guide.faq.map((item) => (
+          {guide.faq.slice(1).map((item) => (
             <details
               key={item.q}
               className="group border border-slate-200 dark:border-slate-800 rounded-xl open:bg-slate-50 dark:open:bg-slate-850"
@@ -313,6 +336,8 @@ export function GuidesIndexContent() {
           .
         </p>
       </header>
+
+      <ContentMonetizationSlot placement="content" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {FEATURED_GUIDES.map((guide) => (

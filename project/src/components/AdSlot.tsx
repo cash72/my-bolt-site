@@ -102,7 +102,10 @@ export default function AdSlot({ placement, allowAAdsFallback = true, className 
   const location = useLocation();
   const { ref, inView } = useInView(placement === 'footer' ? '400px 0px' : '200px 0px');
 
-  if (!hasAdsensePublisher() && !isAAdsEnabled()) {
+  if (
+    (typeof window !== 'undefined' && (window as Window & { __PRERENDER__?: boolean }).__PRERENDER__) ||
+    (!hasAdsensePublisher() && !isAAdsEnabled())
+  ) {
     return null;
   }
 

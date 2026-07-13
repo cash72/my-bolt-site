@@ -1,0 +1,45 @@
+{
+  "name": "hvaccalculator",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/generate-sitemap.mjs && node scripts/download-guide-images.mjs && node scripts/generate-ads-txt.mjs && vite build && node scripts/prerender.mjs",
+    "build:app": "node scripts/generate-sitemap.mjs && node scripts/download-guide-images.mjs && node scripts/generate-ads-txt.mjs && vite build",
+    "postinstall": "npx puppeteer browsers install chrome || true",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
+    "deploy": "node ../scripts/deploy-cloudflare.mjs hvaccalculator",
+    "deploy:domain": "node ../scripts/deploy-cloudflare.mjs hvaccalculator --attach-domain"
+  },
+  "dependencies": {
+    "lucide-react": "^0.344.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@types/node": "^26.0.0",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.18",
+    "eslint": "^9.9.1",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.11",
+    "globals": "^15.9.0",
+    "postcss": "^8.4.35",
+    "puppeteer": "^22.15.0",
+    "serve-handler": "^6.1.7",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.3.0",
+    "vite": "^5.4.2"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "style": "KnowSense / AI4Next stickman — white background, black line art, large expressive characters, one scene per voiceover beat. Paste into Gemini image generation, then optional Grok frame-to-video.",
+  "scenes": {
+    "hook-worried": "Worried office worker stick figure at desk facing AI robot. Speech bubble: Will AI replace my job? Large figures, white bg, black lines.",
+    "hook-laptop": "Overwhelmed stick figure at laptop, inbox overload. Thought bubble: Too much. Cannot start.",
+    "hook-crowd": "Five confused office workers, one on phone with AI app. Text: Zero training from employer.",
+    "hook-opportunity": "Celebrating stick figure, lightbulb, text: THE GAP = YOUR OPPORTUNITY.",
+    "manager-talk": "Two stick figures at desk. Bubbles: Can we use AI tools? / Smart question.",
+    "audience-lineup": "Five workers (admin, marketing, CS, PM, you). Text: This playbook is for you.",
+    "action-start": "Running stick figure, calendar Day 1 to Day 30. Text: Plan, not panic.",
+    "cta-point": "Stick figure pointing at AI-PROOF JOB PLAYBOOK book. Link in description."
+  },
+  "pdfMapping": {
+    "segment3": "page 1 — cover",
+    "segment4": "page 8 — role audit",
+    "segment5": "pages 10, 13 — skills + prompts",
+    "segment6": "scene + page 16 — manager scripts",
+    "segment7": "page 17 — upskilling sprint",
+    "segment8": "pages 18, 20, 21 — LinkedIn, calendar, layoff plan",
+    "segment9": "page 22 — team AI guide",
+    "segment12": "scene + page 1 — CTA + cover"
+  }
+}

@@ -5,7 +5,8 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { CURRENCY_LABELS, CURRENCY_NAMES, FIAT_CURRENCIES, type FiatCurrency } from '../lib/conversion';
 import { FEATURED_GUIDES } from '../lib/guides';
 import { FEATURED_LANDING_LINKS, LANDING_PAGES } from '../lib/landingPages';
-import { SITE_URL } from '../lib/site';
+import { canonicalUrl } from '../lib/site';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 
 function AmountLinkGrid({ pages }: { pages: typeof LANDING_PAGES }) {
   return (
@@ -46,13 +47,13 @@ export default function ConversionsHubPage() {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
       name: 'SatoshiCalc conversion directory',
-      url: `${SITE_URL}/conversions`,
+      url: canonicalUrl('/conversions'),
       numberOfItems: LANDING_PAGES.length,
       itemListElement: LANDING_PAGES.map((page, index) => ({
         '@type': 'ListItem',
         position: index + 1,
         name: page.breadcrumbLabel,
-        url: `${SITE_URL}${page.path}`,
+        url: canonicalUrl(page.path),
       })),
     });
 
@@ -95,6 +96,8 @@ export default function ConversionsHubPage() {
           .
         </p>
       </header>
+
+      <ContentMonetizationSlot placement="content" guides={FEATURED_GUIDES.slice(0, 3)} />
 
       <section className="mb-12" aria-labelledby="currency-hubs-heading">
         <h2 id="currency-hubs-heading" className="text-xl font-bold mb-4">

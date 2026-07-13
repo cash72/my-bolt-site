@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mulch-calculators.com/sitemap.xml

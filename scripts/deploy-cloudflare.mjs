@@ -76,6 +76,13 @@ if (!fs.existsSync(distPath)) {
   process.exit(1);
 }
 
+const functionsDir = path.join(sitePath, 'functions');
+const middlewareTemplate = path.join(ROOT, 'scripts/templates/pages-www-redirect-middleware.js');
+const middlewareDest = path.join(functionsDir, '_middleware.js');
+fs.mkdirSync(functionsDir, { recursive: true });
+fs.copyFileSync(middlewareTemplate, middlewareDest);
+console.log('  • www → apex middleware copied to functions/_middleware.js');
+
 const wranglerEnv = {
   CLOUDFLARE_ACCOUNT_ID: accountId,
   CLOUDFLARE_API_TOKEN: apiToken,

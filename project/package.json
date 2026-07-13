@@ -8,8 +8,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-sitemap.mjs && node scripts/generate-ads-txt.mjs && vite build && node scripts/prerender.mjs",
-    "build:app": "node scripts/generate-sitemap.mjs && node scripts/generate-ads-txt.mjs && vite build",
+    "build": "node scripts/download-guide-images.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-ads-txt.mjs && vite build && node scripts/prerender.mjs",
+    "build:app": "node scripts/download-guide-images.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-ads-txt.mjs && vite build",
     "postinstall": "npx puppeteer browsers install chrome || true",
     "lint": "eslint .",
     "preview": "vite preview",

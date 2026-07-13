@@ -27,14 +27,26 @@
     {
       "dir": "drywallcalculator",
       "pagesProject": "drywallcalculator",
-      "domain": "drywallcalculator.com",
-      "siteUrl": "https://drywallcalculator.com"
+      "domain": "drywall-calculator.com",
+      "siteUrl": "https://drywall-calculator.com"
     },
     {
       "dir": "mulchcalculator",
       "pagesProject": "mulchcalculator",
-      "domain": "mulchcalculator.com",
-      "siteUrl": "https://mulchcalculator.com"
+      "domain": "mulch-calculators.com",
+      "siteUrl": "https://mulch-calculators.com"
+    },
+    {
+      "dir": "landscapetoolsguide",
+      "pagesProject": "landscapetoolsguide",
+      "domain": "landscapetoolsguide.com",
+      "siteUrl": "https://landscapetoolsguide.com"
+    },
+    {
+      "dir": "hvaccalculator",
+      "pagesProject": "hvaccalculator",
+      "domain": "hvaccalculators.net",
+      "siteUrl": "https://hvaccalculators.net"
     }
   ]
 }

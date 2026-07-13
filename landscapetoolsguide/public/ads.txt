@@ -1,0 +1,2 @@
+# Auto-generated at build time from VITE_ADSENSE_CLIENT
+google.com, pub-1132338970019438, DIRECT, f08e47fec0942fa0

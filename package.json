@@ -7,14 +7,22 @@
     "validate": "node scripts/validate-cloudflare-token.mjs",
     "diagnose": "node scripts/diagnose-sites.mjs",
     "deploy": "node scripts/deploy-cloudflare.mjs",
-    "deploy:flooring": "node scripts/deploy-cloudflare.mjs flooringboxcalculator",
+    "deploy:flooring": "node scripts/deploy-cloudflare.mjs flooringboxcalculator --attach-domain",
     "deploy:satoshi": "node scripts/deploy-cloudflare.mjs project --attach-domain",
     "analytics:setup": "node scripts/setup-google-analytics.mjs",
     "deploy:paint": "node scripts/deploy-cloudflare.mjs paintcalculator --attach-domain",
     "deploy:mulch": "node scripts/deploy-cloudflare.mjs mulchcalculator --attach-domain",
     "deploy:drywall": "node scripts/deploy-cloudflare.mjs drywallcalculator --attach-domain",
+    "deploy:hvac": "node scripts/deploy-cloudflare.mjs hvaccalculator --attach-domain",
+    "deploy:landscape": "node scripts/deploy-cloudflare.mjs landscapetoolsguide --attach-domain",
+    "deploy:metabolic": "node scripts/deploy-cloudflare.mjs metaboliclowcarb --attach-domain",
     "domain": "node scripts/setup-cloudflare-domain.mjs",
-    "google:verify": "node scripts/add-google-verification.mjs"
+    "redirects:www": "node scripts/setup-www-redirects.mjs",
+    "redirects:check": "node scripts/check-redirect-permissions.mjs",
+    "google:verify": "node scripts/add-google-verification.mjs",
+    "sitemaps:ping": "node scripts/ping-sitemaps.mjs --all",
+    "sitemaps:ping:legacy": "node scripts/ping-sitemaps.mjs --legacy",
+    "gsc:checklist": "node scripts/ping-sitemaps.mjs --checklist-only --all"
   },
   "devDependencies": {
     "wrangler": "^3.114.0"

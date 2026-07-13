@@ -1,0 +1,80 @@
+{
+  "allRoutes": [
+    "/",
+    "/tools",
+    "/compare",
+    "/guides",
+    "/about",
+    "/contact",
+    "/privacy",
+    "/disclaimer",
+    "/tools/jobber",
+    "/tools/housecall-pro",
+    "/tools/lmn",
+    "/tools/service-autopilot",
+    "/tools/aspire",
+    "/tools/gorilladesk",
+    "/tools/fieldpulse",
+    "/tools/singleops",
+    "/compare/jobber-vs-housecall-pro-landscaping",
+    "/compare/lmn-vs-jobber-landscaping",
+    "/compare/jobber-vs-gorilladesk-landscaping",
+    "/compare/housecall-pro-vs-service-autopilot-landscaping",
+    "/compare/aspire-vs-lmn-landscaping",
+    "/alternatives/jobber-alternatives-landscaping",
+    "/alternatives/housecall-pro-alternatives",
+    "/best/best-software-solo-landscaper",
+    "/best/best-lawn-care-route-software",
+    "/guides/how-to-choose-lawn-care-software",
+    "/guides/landscaping-software-pricing-guide",
+    "/guides/when-to-upgrade-to-lmn",
+    "/guides/route-optimization-lawn-care-software",
+    "/guides/quickbooks-integration-landscape-software",
+    "/guides/mobile-app-landscape-crew-management",
+    "/guides/recurring-billing-lawn-care-software",
+    "/guides/design-build-estimating-software-landscape",
+    "/guides/lawn-treatment-chemical-tracking",
+    "/guides/solo-landscaper-software-checklist",
+    "/guides/migrating-landscape-business-software",
+    "/guides/field-service-software-evaluation-checklist"
+  ],
+  "toolPaths": [
+    "/tools/jobber",
+    "/tools/housecall-pro",
+    "/tools/lmn",
+    "/tools/service-autopilot",
+    "/tools/aspire",
+    "/tools/gorilladesk",
+    "/tools/fieldpulse",
+    "/tools/singleops"
+  ],
+  "comparePaths": [
+    "/compare/jobber-vs-housecall-pro-landscaping",
+    "/compare/lmn-vs-jobber-landscaping",
+    "/compare/jobber-vs-gorilladesk-landscaping",
+    "/compare/housecall-pro-vs-service-autopilot-landscaping",
+    "/compare/aspire-vs-lmn-landscaping"
+  ],
+  "alternativesPaths": [
+    "/alternatives/jobber-alternatives-landscaping",
+    "/alternatives/housecall-pro-alternatives"
+  ],
+  "bestPaths": [
+    "/best/best-software-solo-landscaper",
+    "/best/best-lawn-care-route-software"
+  ],
+  "guidePaths": [
+    "/guides/how-to-choose-lawn-care-software",
+    "/guides/landscaping-software-pricing-guide",
+    "/guides/when-to-upgrade-to-lmn",
+    "/guides/route-optimization-lawn-care-software",
+    "/guides/quickbooks-integration-landscape-software",
+    "/guides/mobile-app-landscape-crew-management",
+    "/guides/recurring-billing-lawn-care-software",
+    "/guides/design-build-estimating-software-landscape",
+    "/guides/lawn-treatment-chemical-tracking",
+    "/guides/solo-landscaper-software-checklist",
+    "/guides/migrating-landscape-business-software",
+    "/guides/field-service-software-evaluation-checklist"
+  ]
+}

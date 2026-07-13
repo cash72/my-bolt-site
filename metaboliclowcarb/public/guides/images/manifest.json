@@ -1,0 +1,23 @@
+{
+  "fasting": {
+    "path": "/guides/images/fasting.jpg",
+    "source": "Pexels",
+    "photoId": "4056535",
+    "photographer": "MART PRODUCTION",
+    "url": "https://www.pexels.com/photo/4056535/"
+  },
+  "insulin-resistance": {
+    "path": "/guides/images/insulin-resistance.jpg",
+    "source": "Pexels",
+    "photoId": "1640777",
+    "photographer": "Ella Olsson",
+    "url": "https://www.pexels.com/photo/1640777/"
+  },
+  "metabolic-health": {
+    "path": "/guides/images/metabolic-health.jpg",
+    "source": "Pexels",
+    "photoId": "1095550",
+    "photographer": "Dana Tentis",
+    "url": "https://www.pexels.com/photo/1095550/"
+  }
+}
