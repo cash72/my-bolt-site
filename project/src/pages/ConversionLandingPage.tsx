@@ -100,8 +100,8 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
   const currencyName = CURRENCY_NAMES[page.currency];
   const related = getRelatedLandingPages(page);
   const relatedGuides = getGuidesForLanding(page);
-  const editorial = getLandingEditorial(page.slug);
-  const pageIntro = editorial?.intro ?? page.intro;
+  const editorial = getLandingEditorial(page);
+  const pageIntro = editorial.intro ?? page.intro;
 
   const isSatoshiToFiat = page.direction === 'satoshi-to-fiat';
   const fiatResult = satoshiToFiat(page.amount, btcPrice);
@@ -313,49 +313,18 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
 
       <section className="mb-10 prose prose-slate dark:prose-invert max-w-none">
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed">
-          {editorial ? (
-            editorial.sections.map((section) => (
-              <div key={section.heading}>
-                <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mt-0 mb-3">
-                  {section.heading}
-                </h2>
-                {section.paragraphs.map((paragraph, i) => (
-                  <p key={i} className={i > 0 ? 'mt-3' : undefined}>
-                    {renderEditorialText(paragraph)}
-                  </p>
-                ))}
-              </div>
-            ))
-          ) : (
-            <>
-              <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mt-0">
-                About this conversion
+          {editorial.sections.map((section) => (
+            <div key={section.heading}>
+              <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mt-0 mb-3">
+                {section.heading}
               </h2>
-              {isSatoshiToFiat ? (
-                <>
-                  <p>
-                    One Bitcoin equals exactly {formatSatoshiAmount(SATOSHI_PER_BTC)} Satoshis. To convert sats to{' '}
-                    {label}, multiply your Satoshi count by the current BTC/{label} price, then divide by 100 million.
-                  </p>
-                  <p>
-                    Because Bitcoin trades 24/7, the {label} value of {formatSatoshiAmount(page.amount)} sats changes
-                    with the market. SatoshiCalc refreshes prices every 60 seconds so you always see a current estimate.
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p>
-                    To buy Bitcoin with {label}, exchanges quote a BTC/{label} price. Dividing your {label} budget by
-                    that price gives the BTC amount; multiply by 100,000,000 for Satoshis.
-                  </p>
-                  <p>
-                    {page.amount} {label} is a practical amount for estimating stack sizes, tips, or small purchases.
-                    Use the full converter on the homepage to try other amounts and currencies.
-                  </p>
-                </>
-              )}
-            </>
-          )}
+              {section.paragraphs.map((paragraph, i) => (
+                <p key={i} className={i > 0 ? 'mt-3' : undefined}>
+                  {renderEditorialText(paragraph)}
+                </p>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 

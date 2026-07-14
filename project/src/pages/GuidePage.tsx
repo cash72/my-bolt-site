@@ -328,13 +328,37 @@ export function GuidesIndexContent() {
       <header className="mb-10">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Bitcoin Guides</h1>
         <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
-          Educational articles on Satoshis, converting to fiat, and Bitcoin sovereignty — plus honest hardware
-          wallet and node recommendations. Pair these with our{' '}
+          Educational articles on Satoshis, converting to fiat, and Bitcoin sovereignty — organized from beginner
+          basics through self-custody and running your own node. Pair these with our{' '}
           <Link to="/" className="text-orange-600 dark:text-orange-400 hover:underline">
             live converter
+          </Link>{' '}
+          and{' '}
+          <Link to="/conversions" className="text-orange-600 dark:text-orange-400 hover:underline">
+            conversion directory
           </Link>
           .
         </p>
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl text-sm">
+          <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <h2 className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Beginner</h2>
+            <p className="text-slate-600 dark:text-slate-400">
+              What is a Satoshi, how many sats in a Bitcoin, USD conversion math, and how to buy your first stack.
+            </p>
+          </div>
+          <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <h2 className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Self-custody</h2>
+            <p className="text-slate-600 dark:text-slate-400">
+              Storing Bitcoin safely, hardware wallets, seed phrase backup, and sovereignty habits.
+            </p>
+          </div>
+          <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+            <h2 className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Advanced</h2>
+            <p className="text-slate-600 dark:text-slate-400">
+              Running your own node, verifying balances, and reducing trust in third parties.
+            </p>
+          </div>
+        </div>
       </header>
 
       <ContentMonetizationSlot placement="content" />

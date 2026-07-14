@@ -29,7 +29,6 @@ import {
   CircleDollarSign,
   MessageCircleQuestion,
   Wallet,
-  Pickaxe,
 } from 'lucide-react';
 
 const currencyIcons: Record<string, React.ReactNode> = {
@@ -159,7 +158,8 @@ export default function HomePage() {
     { to: '/50000-satoshi-to-usd', label: '50,000 sats → USD' },
     { to: '/100000-satoshi-to-usd', label: '100,000 sats → USD' },
     { to: '/100-dollars-in-satoshi', label: '100 USD → sats' },
-    { to: '/satoshi-to-usd', label: 'Satoshi → USD' },
+    { to: '/satoshi-to-eur', label: 'Satoshi → EUR' },
+    { to: '/satoshi-to-gbp', label: 'Satoshi → GBP' },
     { to: '/usd-to-satoshi', label: 'USD → Satoshi' },
   ] as const;
 
@@ -658,19 +658,40 @@ export default function HomePage() {
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm h-full">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
-                  <Pickaxe className="w-5 h-5 text-amber-600 dark:text-amber-400" aria-hidden="true" />
+                  <TrendingUp className="w-5 h-5 text-amber-600 dark:text-amber-400" aria-hidden="true" />
                 </div>
-                <h2 className="text-xl font-bold">What is Bitcoin Mining?</h2>
+                <h2 className="text-xl font-bold">Stacking Sats & DCA</h2>
               </div>
               <div className="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed">
                 <p>
-                  <strong>Bitcoin mining</strong> is the process by which new bitcoins are created and transactions are confirmed on the network. Miners use specialized computers to solve complex mathematical puzzles, securing the blockchain in the process.
+                  <strong>Stacking sats</strong> means accumulating small amounts of Bitcoin over time instead of
+                  trying to time the market. Dollar-cost averaging (DCA) — buying a fixed{' '}
+                  <Link to="/100-dollars-in-satoshi" className="text-orange-600 dark:text-orange-400 hover:underline">
+                    $100
+                  </Link>{' '}
+                  or €100 weekly — smooths out volatility and builds a position in Satoshis.
                 </p>
                 <p>
-                  When a miner successfully solves a puzzle, they add a new block of transactions to the blockchain and receive a reward in newly minted bitcoins. This reward halves approximately every four years in an event called the <strong>halving</strong>.
+                  Track progress in sats, not dollars:{' '}
+                  <Link to="/50000-satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                    50,000 sats
+                  </Link>
+                  ,{' '}
+                  <Link to="/100000-satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                    100,000 sats
+                  </Link>
+                  , and{' '}
+                  <Link to="/1000000-satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                    1,000,000 sats
+                  </Link>{' '}
+                  are common milestones. Your sat count is fixed; only the fiat label changes with BTC price.
                 </p>
                 <p>
-                  Mining ensures Bitcoin remains decentralized — no single entity controls the network. However, it requires significant electricity and hardware investment, leading to debates about its environmental impact.
+                  Read our{' '}
+                  <Link to="/guides/stacking-sats-dca" className="text-orange-600 dark:text-orange-400 hover:underline">
+                    stacking sats and DCA guide
+                  </Link>{' '}
+                  for a repeatable plan, then withdraw to a wallet you control once the stack size justifies it.
                 </p>
               </div>
             </div>

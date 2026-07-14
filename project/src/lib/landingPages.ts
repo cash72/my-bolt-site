@@ -30,10 +30,56 @@ export interface LandingPageDef {
 const DEFAULT_SATOSHI_HUB_AMOUNT = 100_000;
 const DEFAULT_FIAT_HUB_AMOUNT = 100;
 
+function satoshiAmountIntro(amount: number, label: string, formatted: string): string {
+  if (amount <= 10) {
+    return `${formatted} Satoshis is a dust-level amount — useful for learning Bitcoin's divisibility and Lightning micro-payments. See the live ${label} value below.`;
+  }
+  if (amount <= 1_000) {
+    return `${formatted} Satoshis is a common Lightning tip and zap size. This page shows the live ${label} equivalent at today's Bitcoin price.`;
+  }
+  if (amount <= 10_000) {
+    return `${formatted} Satoshis is a round figure for small Bitcoin payments and budgeting in ${label}. Live conversion below — updated every 60 seconds.`;
+  }
+  if (amount <= 100_000) {
+    return `${formatted} Satoshis is a stacking milestone many holders track. See the live ${label} value for exactly ${formatted} sats at the current BTC price.`;
+  }
+  if (amount <= 1_000_000) {
+    return `${formatted} Satoshis (${(amount / 100_000_000).toFixed(amount >= 100_000 ? 4 : 6)} BTC) is a serious stack. This page shows the live ${label} equivalent at today's market price.`;
+  }
+  return `${formatted} Satoshis (${amount / 100_000_000} BTC) is a major Bitcoin position. See the live ${label} value below using real-time CoinGecko data.`;
+}
+
+function fiatAmountIntro(amount: number, label: string, name: string): string {
+  if (amount <= 1) {
+    return `How many Satoshis is ${amount} ${label}? See the live sats equivalent at today's Bitcoin price — useful for wallet tests and first transactions.`;
+  }
+  if (amount <= 10) {
+    return `${amount} ${label} is a popular first-buy size on mobile apps. This page shows exactly how many sats that equals at the live BTC/${label} price.`;
+  }
+  if (amount <= 100) {
+    return `${amount} ${label} is one of the most searched fiat amounts for Bitcoin buyers. See the live satoshi equivalent at today's ${name.toLowerCase()} rate.`;
+  }
+  return `${amount} ${label} converts to a large satoshi stack at the live Bitcoin price. Exact sats equivalent below — updated every 60 seconds.`;
+}
+
 function buildSatoshiHubPage(currency: FiatCurrency): LandingPageDef {
   const label = CURRENCY_LABELS[currency];
   const name = CURRENCY_NAMES[currency];
   const slug = `satoshi-to-${currency}`;
+
+  const title =
+    currency === 'usd'
+      ? 'Satoshi to USD Converter — Live Price Today'
+      : currency === 'eur'
+        ? 'Satoshi to EUR — Live Euro Conversion (2026)'
+        : currency === 'gbp'
+          ? 'Satoshi to GBP — Live Pound Conversion Today'
+          : 'Satoshi to CAD — Live Canadian Dollar Price';
+
+  const description =
+    currency === 'usd'
+      ? 'Convert Satoshis to USD at the live Bitcoin price. Free calculator — updated every 60 seconds from CoinGecko.'
+      : `Convert Satoshis to ${label} (${name}) at the live Bitcoin price. Free ${label} calculator for stackers — updated every 60 seconds.`;
 
   return {
     slug,
@@ -42,10 +88,10 @@ function buildSatoshiHubPage(currency: FiatCurrency): LandingPageDef {
     direction: 'satoshi-to-fiat',
     amount: DEFAULT_SATOSHI_HUB_AMOUNT,
     currency,
-    title: `Satoshi to ${label} Converter — Live Price Today`,
-    description: `Convert Satoshis to ${label} (${name}) at the live Bitcoin price. Free calculator — updated every 60 seconds from CoinGecko.`,
+    title,
+    description,
     h1: `Satoshi to ${label} Converter`,
-    intro: `See how many ${label} your Satoshis are worth at today's Bitcoin price. Enter any amount in sats and get an instant ${label} value using live market data.`,
+    intro: `See how many ${label} your Satoshis are worth at today's Bitcoin price. Enter any amount in sats for an instant ${label} value — or jump to fixed amounts like 50,000 and 100,000 sats.`,
     breadcrumbLabel: `Satoshi to ${label}`,
   };
 }
@@ -65,7 +111,7 @@ function buildSatoshiAmountPage(amount: number, currency: FiatCurrency): Landing
     title: `${formatted} Satoshi to ${label} — Live Price Today`,
     description: `How much is ${formatted} Satoshis in ${label}? See the live ${label} value at today's Bitcoin price. Free calculator — updated every 60 seconds.`,
     h1: `${formatted} Satoshi to ${label}`,
-    intro: `${formatted} Satoshis (sats) is a common amount people look up when Bitcoin is priced in whole coins. This page shows the live ${label} value for exactly ${formatted} sats.`,
+    intro: satoshiAmountIntro(amount, label, formatted),
     breadcrumbLabel: `${formatted} sats → ${label}`,
   };
 }
@@ -78,12 +124,24 @@ function buildFiatHubPage(currency: FiatCurrency): LandingPageDef {
   const title =
     currency === 'usd'
       ? 'USD to Satoshi — How Many Sats per Dollar? (Live 2026)'
-      : `${label} to Satoshi Converter — Live Sats Calculator`;
+      : currency === 'eur'
+        ? 'EUR to Satoshi — How Many Sats per Euro? (Live 2026)'
+        : currency === 'gbp'
+          ? 'GBP to Satoshi — How Many Sats per Pound? (Live 2026)'
+          : currency === 'cad'
+            ? 'CAD to Satoshi — How Many Sats per Dollar? (Live 2026)'
+            : `${label} to Satoshi Converter — Live Sats Calculator`;
 
   const description =
     currency === 'usd'
       ? 'How many Satoshis is $100 USD? Convert any dollar amount to sats at the live BTC price. Free calculator — updated every 60 seconds.'
-      : `Convert ${label} (${name}) to Satoshis at the live Bitcoin price. Free reverse calculator — updated every 60 seconds.`;
+      : currency === 'eur'
+        ? 'How many Satoshis is €100 EUR? Convert any euro amount to sats at the live BTC price. Free calculator — updated every 60 seconds.'
+        : currency === 'gbp'
+          ? 'How many Satoshis is £100 GBP? Convert any pound amount to sats at the live BTC price. Free calculator — updated every 60 seconds.'
+          : currency === 'cad'
+            ? 'How many Satoshis is $100 CAD? Convert any Canadian dollar amount to sats at the live BTC price. Free calculator — updated every 60 seconds.'
+            : `Convert ${label} (${name}) to Satoshis at the live Bitcoin price. Free reverse calculator — updated every 60 seconds.`;
 
   return {
     slug,
@@ -116,7 +174,7 @@ function buildFiatAmountPage(amount: number, currency: FiatCurrency): LandingPag
     title: `${amount} ${label} in Satoshi — Live Sats Calculator`,
     description: `How many Satoshis is ${amount} ${label}? See the live sats equivalent at today's Bitcoin price in ${name}. Updated every 60 seconds.`,
     h1: `${amount} ${label} in Satoshi`,
-    intro: `At today's Bitcoin price, ${amount} ${label} equals a specific number of Satoshis. This page shows the live sats equivalent for exactly ${amount} ${label}.`,
+    intro: fiatAmountIntro(amount, label, name),
     breadcrumbLabel: `${amount} ${label} → sats`,
   };
 }

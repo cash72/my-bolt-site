@@ -231,6 +231,209 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
     ],
   },
 
+  '500-satoshi-to-usd': {
+    intro:
+      'Five hundred Satoshis (500 sats) is the meme-friendly “coffee tip” amount in Bitcoin culture — small enough to send over Lightning, large enough to mean something. Here is the live US Dollar value at today’s Bitcoin price.',
+    sections: [
+      {
+        heading: 'The 500-sats tipping sweet spot',
+        paragraphs: [
+          'Nostr zaps, podcast boosts, and Lightning tips often land between 100 and 5,000 sats. Five hundred is a round, memorable figure — easier to quote than odd decimals of BTC.',
+          'Converting 500 sats to USD helps you sanity-check whether a tip was generous, symbolic, or roughly the price of an actual coffee (spoiler: coffee usually costs more sats than 500 at today’s prices).',
+        ],
+      },
+      {
+        heading: 'Lightning makes 500 sats practical',
+        paragraphs: [
+          'On-chain fees can exceed 500 sats during congestion. Lightning settles sub-dollar payments in seconds with fees often under a cent — why micro-tipping culture exists at all.',
+          'If you only hold a few hundred sats, a custodial Lightning wallet is fine for experiments. Our [what is a Satoshi guide](/guides/what-is-a-satoshi) explains the unit before you graduate to larger stacks.',
+        ],
+      },
+    ],
+  },
+
+  '5000-satoshi-to-usd': {
+    intro:
+      'Five thousand Satoshis (5,000 sats) is a common Lightning payment size — big enough for a small digital purchase, small enough to send without overthinking fees. See the live USD value below.',
+    sections: [
+      {
+        heading: 'Real-world scale for 5,000 sats',
+        paragraphs: [
+          'Five thousand sats sits between “tip” and “purchase” territory. Podcasters, creators, and merchants on Lightning often price digital goods in this range because settlement is instant and fees stay low.',
+          'Converting to USD puts 5,000 sats next to familiar price tags — app subscriptions, ebook downloads, or a fast-food meal depending on BTC price and your city.',
+        ],
+      },
+      {
+        heading: 'Growing from 5k toward stack milestones',
+        paragraphs: [
+          'Five thousand sats is 5% of the popular [50,000 sat](/50000-satoshi-to-usd) milestone and half of [10,000 sats](/10000-satoshi-to-usd). Tracking these round numbers keeps stacking motivating.',
+          'If you are buying rather than receiving, see how many sats [100 USD](/100-dollars-in-satoshi) buys today — then compare against your Lightning balance.',
+        ],
+      },
+    ],
+  },
+
+  '10000-satoshi-to-usd': {
+    intro:
+      'Ten thousand Satoshis (10,000 sats) equals 0.0001 BTC — a round figure that appears in Lightning invoices, faucet rewards, and beginner stacking goals. Here is the live USD equivalent.',
+    sections: [
+      {
+        heading: 'Why 10,000 sats shows up everywhere',
+        paragraphs: [
+          'Ten thousand is the first “four-digit sat” milestone that still feels achievable in a single week of small DCA buys. Wallets and games sometimes use it as a demo balance.',
+          'In USD terms, 10,000 sats helps you compare against everyday purchases without pulling out a calculator — the live result above updates every 60 seconds.',
+        ],
+      },
+      {
+        heading: 'From 10k sats toward serious stacks',
+        paragraphs: [
+          'Ten thousand sats is one-fifth of [50,000 sats](/50000-satoshi-to-usd) and one-tenth of [100,000 sats](/100000-satoshi-to-usd). Many stackers bookmark these pages to watch progress in familiar dollar terms.',
+          'Ready to add more? [100 dollars in satoshi](/100-dollars-in-satoshi) shows how a typical buy translates at today’s price, and our [stacking sats guide](/guides/stacking-sats-dca) covers repeatable plans.',
+        ],
+      },
+    ],
+  },
+
+  '1000000-satoshi-to-usd': {
+    intro:
+      'One million Satoshis (1,000,000 sats) equals 0.01 BTC — one hundredth of a whole Bitcoin. This page shows the live US Dollar value and what that stack size means for custody and planning.',
+    sections: [
+      {
+        heading: 'The 0.01 BTC milestone',
+        paragraphs: [
+          'Whole-coin scarcity makes 1 BTC feel distant. One million sats reframes progress: you own one percent of a bitcoin — a concrete, shareable achievement in stacking communities.',
+          'At this level, the USD figure is large enough that exchange custody becomes uncomfortable for many holders. Hardware wallet research tends to start here.',
+        ],
+      },
+      {
+        heading: 'Moving and securing one million sats',
+        paragraphs: [
+          'On-chain withdrawal fees vary with mempool congestion. Batch moves when fees are low, or practice with a test send before transferring the full stack.',
+          'Our [storage guide](/guides/how-to-store-bitcoin-safely) compares Blockstream Jade, BitBox02, and Coldcard. The recovery phrase — not the device — is your Bitcoin.',
+        ],
+      },
+      {
+        heading: 'Context among other milestones',
+        paragraphs: [
+          'One million sats is double [500,000 sats](/500000-satoshi-to-usd) and one-tenth of [10,000,000 sats](/10000000-satoshi-to-usd) (0.1 BTC). Each milestone page includes live USD and stacking context.',
+          'Buying your way here? [1,000 dollars in satoshi](/1000-dollars-in-satoshi) shows the reverse math for lump-sum planners.',
+        ],
+      },
+    ],
+  },
+
+  '100-euros-in-satoshi': {
+    intro:
+      'One hundred euros buys a specific number of Satoshis at the live Bitcoin price — the answer shifts every minute with the market. This page calculates exactly how many sats €100 equals right now.',
+    sections: [
+      {
+        heading: 'Why €100 is a common Eurozone entry point',
+        paragraphs: [
+          'SEPA transfers on EU exchanges make €50–€200 weekly DCA practical. One hundred euros is large enough to learn withdrawals and wallet backup, small enough for tuition if something goes wrong.',
+          'Apps like Relai and Bitvavo popularized round-euro recurring buys. This page answers the reverse question: how many sats does your €100 budget buy today?',
+        ],
+      },
+      {
+        heading: 'Fees and SEPA timing',
+        paragraphs: [
+          'Card buys in the Eurozone often carry a premium. SEPA bank transfer is cheaper for recurring stacks but may take 1–2 business days to settle.',
+          'The sat count shown here assumes spot price — your fill may differ after trading fees and spread.',
+        ],
+      },
+      {
+        heading: 'Compare milestones in EUR',
+        paragraphs: [
+          'See how €100 maps to popular sat checkpoints: [50,000 sats in EUR](/50000-satoshi-to-eur), [100,000 sats](/100000-satoshi-to-eur), and the [Satoshi → EUR hub](/satoshi-to-eur).',
+          'Our [stacking sats guide](/guides/stacking-sats-dca) applies equally to euro DCA — budget in EUR, hold in sats.',
+        ],
+      },
+    ],
+  },
+
+  '100-pounds-in-satoshi': {
+    intro:
+      'One hundred British pounds converts to a specific satoshi count at the live BTC/GBP price. This page shows exactly how many sats £100 buys using real-time market data.',
+    sections: [
+      {
+        heading: '£100 as a UK stacking starting point',
+        paragraphs: [
+          'UK holders often begin with £50–£200 to learn FCA-regulated exchanges, Faster Payments funding, and first withdrawals. One hundred pounds is a natural round number for that experiment.',
+          'Revolut, Coinbase UK, and Kraken all quote BTC in GBP — this page flips the math so you can think in sats after buying.',
+        ],
+      },
+      {
+        heading: 'GBP volatility and spot price',
+        paragraphs: [
+          'Both BTC/GBP and BTC/USD move continuously. Your sat count after £100 is fixed once bought; only the pound label changes with the market.',
+          'SatoshiCalc refreshes every 60 seconds from CoinGecko. Use the live figure for planning, not tax reporting — we provide estimates only.',
+        ],
+      },
+      {
+        heading: 'Related GBP tools',
+        paragraphs: [
+          'Check sat milestones in pounds: [50,000 sats](/50000-satoshi-to-gbp), [100,000 sats](/100000-satoshi-to-gbp), and [GBP → Satoshi](/gbp-to-satoshi).',
+          'New to the unit? [What is a Satoshi](/guides/what-is-a-satoshi) explains why UK stackers count in sats instead of 0.00XXXX BTC.',
+        ],
+      },
+    ],
+  },
+
+  '100-cad-in-satoshi': {
+    intro:
+      'One hundred Canadian dollars buys a specific number of Satoshis at today’s live BTC/CAD price. See the exact sat equivalent for $100 CAD — updated every 60 seconds.',
+    sections: [
+      {
+        heading: 'Why $100 CAD is popular in Canada',
+        paragraphs: [
+          'Interac e-Transfer dominates Canadian Bitcoin on-ramps. One hundred dollars is a common first buy on Bull Bitcoin, Newton, or Kraken — enough to practice withdrawal without oversized risk.',
+          'Canadian stackers often DCA with round CAD amounts while tracking progress in sats. This page bridges both units.',
+        ],
+      },
+      {
+        heading: 'CAD spread and withdrawal planning',
+        paragraphs: [
+          'Smaller CAD buys sometimes face wider spread. Larger Interac transfers often improve the effective sat-per-dollar rate — compare before committing.',
+          'Plan your wallet destination before buying. At $100 CAD equivalent, a software wallet may suffice initially; larger stacks warrant hardware — see [storage guide](/guides/how-to-store-bitcoin-safely).',
+        ],
+      },
+      {
+        heading: 'More CAD conversion pages',
+        paragraphs: [
+          'Milestone lookups: [50,000 sats in CAD](/50000-satoshi-to-cad), [100,000 sats](/100000-satoshi-to-cad), and the [Satoshi → CAD hub](/satoshi-to-cad).',
+          'Full directory: [all SatoshiCalc conversions](/conversions).',
+        ],
+      },
+    ],
+  },
+
+  '10-dollars-in-satoshi': {
+    intro:
+      'Ten US dollars buys a modest satoshi stack at the live Bitcoin price — a common “first tap” amount on mobile apps. This page shows exactly how many sats $10 equals right now.',
+    sections: [
+      {
+        heading: 'Why $10 is a practical first buy',
+        paragraphs: [
+          'Strike, Cash App, and Coinbase all allow small first purchases. Ten dollars is enough to receive sats, practice a send, and learn that Bitcoin is divisible — without risking rent money.',
+          'Many DCA plans start at $10–$25 weekly. Knowing the sat equivalent helps you see compounding in Bitcoin’s native unit.',
+        ],
+      },
+      {
+        heading: 'Card fees on small buys',
+        paragraphs: [
+          'Debit and card purchases often include a flat or percentage fee that hurts more on $10 than on $100. Bank transfer (ACH) is cheaper for recurring stacks if you can wait for settlement.',
+          'Spot price here is pre-fee. Expect slightly fewer sats in your exchange balance after costs.',
+        ],
+      },
+      {
+        heading: 'Grow from $10 toward milestones',
+        paragraphs: [
+          'Compare this buy to [50,000](/50000-satoshi-to-usd) and [100,000 sat](/100000-satoshi-to-usd) milestones — how many $10 buys until you hit them?',
+          'Our [stacking sats and DCA guide](/guides/stacking-sats-dca) explains why consistency beats timing for most people.',
+        ],
+      },
+    ],
+  },
+
   '1000-dollars-in-satoshi': {
     intro:
       'One thousand US dollars converts to a large satoshi stack at today’s Bitcoin price. This page shows the exact sats equivalent for $1,000 using live market data.',
@@ -253,6 +456,9 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
   },
 };
 
-export function getLandingEditorial(slug: string): LandingEditorial | undefined {
-  return LANDING_EDITORIAL[slug];
+import type { LandingPageDef } from './landingPages';
+import { buildGeneratedLandingEditorial } from './landingEditorialGenerated';
+
+export function getLandingEditorial(page: LandingPageDef): LandingEditorial {
+  return LANDING_EDITORIAL[page.slug] ?? buildGeneratedLandingEditorial(page);
 }

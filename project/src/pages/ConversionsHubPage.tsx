@@ -87,14 +87,26 @@ export default function ConversionsHubPage() {
           <span>All conversion tools</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Satoshi Conversion Directory</h1>
-        <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
-          Every live calculator on SatoshiCalc in one place. Prices refresh every 60 seconds from CoinGecko. For
-          deeper explanations, see our{' '}
-          <Link to="/guides" className="text-orange-600 dark:text-orange-400 hover:underline">
-            Bitcoin guides
-          </Link>
-          .
+        <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl mb-6">
+          Every live calculator on SatoshiCalc in one place — 72 conversion pages across USD, EUR, GBP, and CAD.
+          Prices refresh every 60 seconds from CoinGecko.
         </p>
+        <div className="max-w-3xl space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+          <p>
+            <strong className="text-slate-800 dark:text-slate-200">Satoshi → fiat</strong> pages answer “how much
+            money is X sats worth?” — from Lightning tips (500–5,000 sats) to stacking milestones (50,000–1,000,000
+            sats). <strong className="text-slate-800 dark:text-slate-200">Fiat → Satoshi</strong> pages flip the
+            question for buyers: “how many sats does $100 buy?”
+          </p>
+          <p>
+            Start with a currency hub for any amount, or jump to a fixed-amount page when you know the exact number.
+            Each page includes live conversion, context on what that amount means, and links to related{' '}
+            <Link to="/guides" className="text-orange-600 dark:text-orange-400 hover:underline">
+              Bitcoin guides
+            </Link>{' '}
+            on buying, stacking, and self-custody.
+          </p>
+        </div>
       </header>
 
       <ContentMonetizationSlot placement="content" guides={FEATURED_GUIDES.slice(0, 3)} />
