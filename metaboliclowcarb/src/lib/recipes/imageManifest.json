@@ -159,5 +159,40 @@
     "photoId": "38166368",
     "photographer": "Ann H",
     "url": "https://www.pexels.com/photo/38166368/"
+  },
+  "shakshuka-spinach-feta": {
+    "path": "/recipes/images/shakshuka-spinach-feta.jpg",
+    "source": "Pexels",
+    "photoId": "35672951",
+    "photographer": "Valeria Boltneva",
+    "url": "https://www.pexels.com/photo/35672951/"
+  },
+  "lettuce-wrap-burger-bowl": {
+    "path": "/recipes/images/lettuce-wrap-burger-bowl.jpg",
+    "source": "Pexels",
+    "photoId": "32536642",
+    "photographer": "Calvin Seng",
+    "url": "https://www.pexels.com/photo/32536642/"
+  },
+  "ginger-chicken-bone-broth-soup": {
+    "path": "/recipes/images/ginger-chicken-bone-broth-soup.jpg",
+    "source": "Pexels",
+    "photoId": "37183920",
+    "photographer": "Caio Niceas",
+    "url": "https://www.pexels.com/photo/37183920/"
+  },
+  "salmon-avocado-poke-bowl": {
+    "path": "/recipes/images/salmon-avocado-poke-bowl.jpg",
+    "source": "Pexels",
+    "photoId": "5864586",
+    "photographer": "Rachel Claire",
+    "url": "https://www.pexels.com/photo/5864586/"
+  },
+  "sheet-pan-chicken-thighs-cabbage": {
+    "path": "/recipes/images/sheet-pan-chicken-thighs-cabbage.jpg",
+    "source": "Pexels",
+    "photoId": "24902945",
+    "photographer": "FOX",
+    "url": "https://www.pexels.com/photo/24902945/"
   }
 }

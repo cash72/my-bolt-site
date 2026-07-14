@@ -61,7 +61,7 @@ export function getBreakFastGuide(elapsedHours: number, goalHours: number): Brea
           tip: 'After a long fast, prioritize protein and fat to keep insulin stable. Avoid breaking ketosis with a sugar load.',
         },
       ],
-      recipeSlugs: ['scrambled-eggs-spinach', 'cottage-cheese-cucumber', 'chicken-salad-lettuce-cups'],
+      recipeSlugs: ['scrambled-eggs-spinach', 'cottage-cheese-cucumber', 'chicken-salad-lettuce-cups', 'ginger-chicken-bone-broth-soup'],
     };
   }
 
@@ -102,6 +102,7 @@ export function getBreakFastGuide(elapsedHours: number, goalHours: number): Brea
         'chicken-salad-lettuce-cups',
         'baked-salmon-broccoli',
         'egg-muffins',
+        'ginger-chicken-bone-broth-soup',
       ],
     };
   }
@@ -143,6 +144,8 @@ export function getBreakFastGuide(elapsedHours: number, goalHours: number): Brea
       'greek-yogurt-berries',
       'zucchini-noodles-meat-sauce',
       'sheet-pan-sausage-peppers',
+      'lettuce-wrap-burger-bowl',
+      'shakshuka-spinach-feta',
     ],
   };
 }

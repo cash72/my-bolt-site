@@ -42,6 +42,11 @@ RECIPE_PHOTOS: dict[str, dict[str, str]] = {
     "break-fast-bone-broth-eggs": {"id": "37183920", "photographer": "Caio Niceas"},
     "chia-pudding-coconut": {"id": "5589030", "photographer": "AI25 Studio"},
     "cobb-salad-jar": {"id": "38166368", "photographer": "Ann H"},
+    "shakshuka-spinach-feta": {"id": "35672951", "photographer": "Valeria Boltneva"},
+    "lettuce-wrap-burger-bowl": {"id": "32536642", "photographer": "Calvin Seng"},
+    "ginger-chicken-bone-broth-soup": {"id": "37183920", "photographer": "Caio Niceas"},
+    "salmon-avocado-poke-bowl": {"id": "5864586", "photographer": "Rachel Claire"},
+    "sheet-pan-chicken-thighs-cabbage": {"id": "24902945", "photographer": "FOX"},
 }
 
 PEXELS_URL = (

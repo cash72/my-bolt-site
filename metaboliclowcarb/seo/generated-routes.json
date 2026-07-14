@@ -59,7 +59,12 @@
     "/recipes/cheese-olive-nut-plate",
     "/recipes/break-fast-bone-broth-eggs",
     "/recipes/chia-pudding-coconut",
-    "/recipes/cobb-salad-jar"
+    "/recipes/cobb-salad-jar",
+    "/recipes/shakshuka-spinach-feta",
+    "/recipes/lettuce-wrap-burger-bowl",
+    "/recipes/ginger-chicken-bone-broth-soup",
+    "/recipes/salmon-avocado-poke-bowl",
+    "/recipes/sheet-pan-chicken-thighs-cabbage"
   ],
   "landingPaths": [
     "/net-carb-calculator",
@@ -118,6 +123,11 @@
     "/recipes/cheese-olive-nut-plate",
     "/recipes/break-fast-bone-broth-eggs",
     "/recipes/chia-pudding-coconut",
-    "/recipes/cobb-salad-jar"
+    "/recipes/cobb-salad-jar",
+    "/recipes/shakshuka-spinach-feta",
+    "/recipes/lettuce-wrap-burger-bowl",
+    "/recipes/ginger-chicken-bone-broth-soup",
+    "/recipes/salmon-avocado-poke-bowl",
+    "/recipes/sheet-pan-chicken-thighs-cabbage"
   ]
 }

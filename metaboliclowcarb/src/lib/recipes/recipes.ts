@@ -86,6 +86,7 @@ export const RECIPES: Recipe[] = [
       'Bake 15–18 minutes until salmon flakes and broccoli is tender.',
     ],
     tips: 'Wild-caught salmon is optional. Keep broccoli portions modest for strict keto days.',
+    relatedGuideSlugs: ['fatty-liver-low-carb', 'net-carbs-for-insulin-resistance'],
   },
   {
     slug: 'cauliflower-rice-stir-fry',
@@ -636,6 +637,166 @@ export const RECIPES: Recipe[] = [
     ],
     tips: 'Keeping dressing on the bottom prevents soggy lettuce.',
   },
+  {
+    slug: 'shakshuka-spinach-feta',
+    title: 'Shakshuka with Spinach & Feta',
+    description:
+      'One-skillet eggs in spiced tomato sauce with wilted spinach — about 5g net carbs, high protein, and a satisfying break-fast or weekend brunch.',
+    category: 'breakfast',
+    fitsPlans: ['strict_keto', 'low_carb_ir'],
+    netCarbsPerServing: 5,
+    proteinPerServing: 20,
+    servings: 2,
+    prepMinutes: 10,
+    cookMinutes: 18,
+    ingredients: [
+      '4 large eggs',
+      '1 cup crushed tomatoes (no sugar added)',
+      '1 cup fresh spinach',
+      '1/2 small onion, diced',
+      '1 tbsp olive oil',
+      '1 tsp cumin',
+      '1/2 tsp paprika',
+      '2 oz feta, crumbled',
+      'Salt, pepper, and fresh parsley',
+    ],
+    steps: [
+      'Sauté onion in olive oil over medium heat until soft, 4–5 minutes.',
+      'Stir in cumin, paprika, tomatoes, salt, and pepper. Simmer 5 minutes.',
+      'Add spinach; stir until wilted. Make four wells in the sauce.',
+      'Crack an egg into each well. Cover and cook until whites set, 6–8 minutes.',
+      'Top with feta and parsley. Serve from the skillet.',
+    ],
+    tips: 'Check tomato labels — some brands add sugar. Pair with black coffee, not juice, after a fast.',
+    relatedGuideSlugs: ['best-first-meal-after-fasting', 'getting-started-keto-low-carb', 'how-to-break-a-24-hour-fast'],
+  },
+  {
+    slug: 'lettuce-wrap-burger-bowl',
+    title: 'Lettuce Wrap Burger Bowl',
+    description:
+      'Deconstructed burger with seasoned beef, cheese, pickles, and sauce over greens — about 4g net carbs, ideal for insulin resistance lunches.',
+    category: 'lunch',
+    fitsPlans: ['strict_keto', 'low_carb_ir'],
+    netCarbsPerServing: 4,
+    proteinPerServing: 28,
+    servings: 2,
+    prepMinutes: 12,
+    cookMinutes: 10,
+    ingredients: [
+      '12 oz ground beef (80/20 or leaner)',
+      '4 cups romaine or butter lettuce, chopped',
+      '1/2 cup cherry tomatoes, halved',
+      '1/4 cup dill pickles, diced',
+      '2 oz cheddar, shredded',
+      '2 tbsp mayonnaise',
+      '1 tbsp sugar-free ketchup or mustard',
+      '1 tsp Worcestershire sauce (check carbs)',
+      'Salt, pepper, and onion powder',
+    ],
+    steps: [
+      'Brown beef in a skillet over medium-high heat, breaking it up. Season with salt, pepper, and onion powder.',
+      'Drain excess fat if needed. Stir in Worcestershire; remove from heat.',
+      'Divide lettuce between bowls. Top with warm beef, tomatoes, pickles, and cheese.',
+      'Mix mayo and ketchup/mustard; drizzle over bowls and toss lightly.',
+    ],
+    tips: 'Use our net carb calculator on condiments — “sugar-free” labels still vary by brand.',
+    relatedGuideSlugs: ['net-carbs-for-insulin-resistance', 'how-to-read-nutrition-labels-net-carbs', 'getting-started-keto-low-carb'],
+  },
+  {
+    slug: 'ginger-chicken-bone-broth-soup',
+    title: 'Ginger Chicken Bone Broth Soup',
+    description:
+      'Light refeed soup with collagen-rich broth, shredded chicken, and ginger — about 3g net carbs. Dr. Westman–style assisted fasting support.',
+    category: 'lunch',
+    fitsPlans: ['strict_keto', 'low_carb_ir'],
+    netCarbsPerServing: 3,
+    proteinPerServing: 18,
+    servings: 2,
+    prepMinutes: 10,
+    cookMinutes: 15,
+    ingredients: [
+      '4 cups chicken bone broth (low sodium)',
+      '1 cup cooked chicken, shredded',
+      '1 tbsp fresh ginger, grated',
+      '2 green onions, sliced',
+      '1 cup bok choy or spinach',
+      '1 tbsp coconut aminos or tamari',
+      '1 tsp sesame oil',
+      'Salt, white pepper, and lime wedge',
+    ],
+    steps: [
+      'Bring broth to a gentle simmer in a pot. Add ginger and chicken.',
+      'Stir in bok choy; cook 2 minutes until just tender.',
+      'Remove from heat. Add coconut aminos, sesame oil, and green onions.',
+      'Ladle into mugs or bowls. Finish with lime and white pepper.',
+    ],
+    tips: 'Sip slowly when breaking extended fasts — broth first, then solids. See our electrolytes guide for sodium needs.',
+    relatedGuideSlugs: ['electrolytes-during-fasting', 'how-to-break-a-24-hour-fast', 'water-fast-vs-assisted-fast', 'best-first-meal-after-fasting'],
+  },
+  {
+    slug: 'salmon-avocado-poke-bowl',
+    title: 'Salmon Avocado Poke Bowl',
+    description:
+      'Omega-3-rich salmon with avocado and cucumber — about 7g net carbs. A PCOS- and fatty-liver-friendly dinner with steady protein and healthy fats.',
+    category: 'dinner',
+    fitsPlans: ['strict_keto', 'low_carb_ir', 'moderate_low_carb'],
+    netCarbsPerServing: 7,
+    proteinPerServing: 32,
+    servings: 2,
+    prepMinutes: 15,
+    cookMinutes: 0,
+    ingredients: [
+      '12 oz sushi-grade or previously frozen salmon, cubed',
+      '1 avocado, diced',
+      '1 cucumber, diced',
+      '2 cups mixed greens',
+      '2 tbsp coconut aminos',
+      '1 tbsp rice vinegar (1g carb per tbsp — use sparingly)',
+      '1 tsp sesame oil',
+      '1 tbsp mayonnaise',
+      'Sesame seeds and nori strips (optional)',
+    ],
+    steps: [
+      'Whisk coconut aminos, vinegar, sesame oil, and mayo for dressing.',
+      'Toss salmon cubes with half the dressing; rest 5 minutes.',
+      'Divide greens between bowls. Top with salmon, avocado, and cucumber.',
+      'Drizzle remaining dressing. Garnish with sesame and nori if using.',
+    ],
+    tips: 'Use previously frozen salmon for home raw preparations. Women with PCOS often do well with omega-3–rich dinners — discuss targets with your provider.',
+    relatedGuideSlugs: ['pcos-and-low-carb', 'fatty-liver-low-carb', 'net-carbs-for-insulin-resistance'],
+  },
+  {
+    slug: 'sheet-pan-chicken-thighs-cabbage',
+    title: 'Sheet Pan Chicken Thighs & Cabbage',
+    description:
+      'One-pan OMAD-friendly dinner with crispy thighs and roasted cabbage — about 6g net carbs per serving, makes 4 portions for meal prep.',
+    category: 'dinner',
+    fitsPlans: ['strict_keto', 'low_carb_ir'],
+    netCarbsPerServing: 6,
+    proteinPerServing: 30,
+    servings: 4,
+    prepMinutes: 15,
+    cookMinutes: 35,
+    ingredients: [
+      '4 bone-in chicken thighs (skin on)',
+      '1 small green cabbage, cut into wedges',
+      '3 tbsp olive oil',
+      '2 tsp smoked paprika',
+      '1 tsp garlic powder',
+      '1/2 tsp caraway seeds (optional)',
+      'Salt and black pepper',
+      'Lemon wedges for serving',
+    ],
+    steps: [
+      'Preheat oven to 425°F (220°C). Line a large sheet pan.',
+      'Toss cabbage wedges with 1 tbsp oil, salt, and pepper. Arrange on pan.',
+      'Pat thighs dry. Rub with remaining oil, paprika, garlic powder, salt, and pepper.',
+      'Nestle thighs among cabbage. Roast 32–38 minutes until skin is crisp and 165°F internal.',
+      'Rest 5 minutes. Serve with lemon and pan juices.',
+    ],
+    tips: 'A full plate of this works as a single OMAD meal — protein, fat, and fiber in one sitting. Refrigerate leftovers up to 4 days.',
+    relatedGuideSlugs: ['getting-started-keto-low-carb', 'atkins-phases-explained', 'best-first-meal-after-fasting'],
+  },
 ];
 
 export function getRecipeBySlug(slug: string): Recipe | undefined {
@@ -647,3 +808,19 @@ export function getRecipesByCategory(category: Recipe['category']): Recipe[] {
 }
 
 export const RECIPE_SLUGS = RECIPES.map((r) => r.slug);
+
+/** Curated homepage and hub cross-links — not array-order dependent */
+export const FEATURED_RECIPE_SLUGS = [
+  'scrambled-eggs-spinach',
+  'salmon-avocado-poke-bowl',
+  'sheet-pan-chicken-thighs-cabbage',
+  'shakshuka-spinach-feta',
+  'ginger-chicken-bone-broth-soup',
+  'lettuce-wrap-burger-bowl',
+] as const;
+
+export function getFeaturedRecipes(): Recipe[] {
+  return FEATURED_RECIPE_SLUGS.map((slug) => getRecipeBySlug(slug)).filter(
+    (r): r is Recipe => r != null
+  );
+}

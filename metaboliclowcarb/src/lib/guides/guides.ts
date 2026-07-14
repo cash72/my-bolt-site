@@ -10,7 +10,7 @@ export const GUIDES: Guide[] = [
     readMinutes: 9,
     toolPath: '/fasting-clock',
     toolLabel: 'Fasting clock',
-    relatedRecipeSlugs: ['scrambled-eggs-spinach', 'chicken-salad-lettuce-cups', 'cottage-cheese-cucumber'],
+    relatedRecipeSlugs: ['scrambled-eggs-spinach', 'chicken-salad-lettuce-cups', 'cottage-cheese-cucumber', 'ginger-chicken-bone-broth-soup'],
     relatedGuideSlugs: ['best-first-meal-after-fasting', 'water-fast-vs-assisted-fast'],
     sections: [
       {
@@ -334,7 +334,7 @@ export const GUIDES: Guide[] = [
     readMinutes: 9,
     toolPath: '/net-carb-calculator',
     toolLabel: 'Net carb calculator',
-    relatedRecipeSlugs: ['cauliflower-rice-stir-fry', 'baked-salmon-broccoli', 'taco-bowl-no-tortilla'],
+    relatedRecipeSlugs: ['cauliflower-rice-stir-fry', 'baked-salmon-broccoli', 'taco-bowl-no-tortilla', 'lettuce-wrap-burger-bowl', 'salmon-avocado-poke-bowl'],
     relatedGuideSlugs: ['fasting-with-insulin-resistance', 'dr-boz-ratio-explained'],
     sections: [
       {
@@ -398,7 +398,7 @@ export const GUIDES: Guide[] = [
     readMinutes: 8,
     toolPath: '/fasting-clock',
     toolLabel: 'Fasting clock',
-    relatedRecipeSlugs: ['scrambled-eggs-spinach', 'egg-muffins', 'greek-yogurt-berries', 'taco-bowl-no-tortilla', 'chicken-salad-lettuce-cups'],
+    relatedRecipeSlugs: ['scrambled-eggs-spinach', 'egg-muffins', 'greek-yogurt-berries', 'taco-bowl-no-tortilla', 'chicken-salad-lettuce-cups', 'shakshuka-spinach-feta'],
     relatedGuideSlugs: ['how-to-break-a-24-hour-fast', 'intermittent-fasting-16-8-vs-18-6'],
     sections: [
       {
@@ -510,6 +510,7 @@ export const GUIDES: Guide[] = [
     toolPath: '/low-carb-macro-calculator',
     toolLabel: 'Low carb macro calculator',
     relatedGuideSlugs: ['visceral-fat-metabolic-health', 'net-carbs-for-insulin-resistance'],
+    relatedRecipeSlugs: ['salmon-avocado-poke-bowl', 'baked-salmon-broccoli', 'ginger-chicken-bone-broth-soup'],
     sections: [
       {
         heading: 'What is fatty liver (NAFLD)?',
@@ -572,6 +573,7 @@ export const GUIDES: Guide[] = [
     toolPath: '/keto-macro-calculator',
     toolLabel: 'Keto macro calculator',
     relatedGuideSlugs: ['net-carbs-for-insulin-resistance', 'atkins-phases-explained', 'how-to-read-nutrition-labels-net-carbs'],
+    relatedRecipeSlugs: ['scrambled-eggs-spinach', 'lettuce-wrap-burger-bowl', 'sheet-pan-chicken-thighs-cabbage', 'egg-muffins'],
     sections: [
       {
         heading: 'Week 1: remove the obvious carbs',
@@ -665,6 +667,7 @@ export const GUIDES: Guide[] = [
     toolPath: '/pcos-low-carb-calculator',
     toolLabel: 'PCOS calculator',
     relatedGuideSlugs: ['net-carbs-for-insulin-resistance', 'intermittent-fasting-16-8-vs-18-6'],
+    relatedRecipeSlugs: ['salmon-avocado-poke-bowl', 'sheet-pan-chicken-thighs-cabbage', 'scrambled-eggs-spinach'],
     sections: [
       {
         heading: 'Insulin and PCOS',
@@ -758,6 +761,7 @@ export const GUIDES: Guide[] = [
     toolPath: '/extended-fasting-clock',
     toolLabel: 'Extended fasting clock',
     relatedGuideSlugs: ['water-fast-vs-assisted-fast', 'how-to-break-a-24-hour-fast'],
+    relatedRecipeSlugs: ['break-fast-bone-broth-eggs', 'ginger-chicken-bone-broth-soup'],
     sections: [
       {
         heading: 'Why electrolytes drop',

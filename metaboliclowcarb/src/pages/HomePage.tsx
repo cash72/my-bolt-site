@@ -6,7 +6,7 @@ import FastingClock from '../components/FastingClock';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { RecipeCard } from '../components/RecipeCard';
 import { GuideCard } from '../components/GuideCard';
-import { RECIPES } from '../lib/recipes/recipes';
+import { getFeaturedRecipes } from '../lib/recipes/recipes';
 import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 import { LANDING_PAGES } from '../lib/landingPages';
 import type { ToolId } from '../lib/metabolic/types';
@@ -174,7 +174,7 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {RECIPES.slice(0, 6).map((recipe) => (
+          {getFeaturedRecipes().map((recipe) => (
             <RecipeCard key={recipe.slug} recipe={recipe} />
           ))}
         </div>

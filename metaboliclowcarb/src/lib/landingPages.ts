@@ -421,7 +421,7 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'What should my one meal include?',
         answer:
-          'Protein, healthy fats, and low-starch vegetables — enough calories to meet your needs in one sitting. See our break-fast guide and recipes.',
+          'Protein, healthy fats, and low-starch vegetables — enough calories to meet your needs in one sitting. Good OMAD plates include sheet pan chicken with cabbage or a salmon avocado poke bowl (see Recipes). Pair with our break-fast guide for refeed timing.',
       },
     ],
     relatedGuideSlugs: ['best-first-meal-after-fasting', 'intermittent-fasting-16-8-vs-18-6', 'electrolytes-during-fasting'],

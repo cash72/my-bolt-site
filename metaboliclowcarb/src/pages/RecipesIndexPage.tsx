@@ -14,6 +14,8 @@ const FEATURED_GUIDE_SLUGS = [
   'getting-started-keto-low-carb',
   'best-first-meal-after-fasting',
   'net-carbs-for-insulin-resistance',
+  'pcos-and-low-carb',
+  'fatty-liver-low-carb',
   'how-to-read-nutrition-labels-net-carbs',
 ];
 
@@ -46,7 +48,7 @@ export default function RecipesIndexPage() {
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2">Low carb recipes</h1>
         <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl">
           {RECIPES.length} blood-sugar-friendly low carb and keto recipes with estimated net carbs per serving — for
-          metabolic health and insulin resistance. Use our{' '}
+          metabolic health, insulin resistance, PCOS, and fasting refeeds. Use our{' '}
           <Link to="/" className="text-teal-600 dark:text-teal-400 hover:underline">
             calculators
           </Link>{' '}
@@ -54,7 +56,15 @@ export default function RecipesIndexPage() {
           <Link to="/guides/best-first-meal-after-fasting" className="text-teal-600 dark:text-teal-400 hover:underline">
             break-fast guide
           </Link>{' '}
-          for refeeding after fasts.
+          for refeeding after fasts, or{' '}
+          <Link to="/guides/pcos-and-low-carb" className="text-teal-600 dark:text-teal-400 hover:underline">
+            PCOS
+          </Link>{' '}
+          and{' '}
+          <Link to="/guides/fatty-liver-low-carb" className="text-teal-600 dark:text-teal-400 hover:underline">
+            fatty liver
+          </Link>{' '}
+          guides for condition-specific context.
         </p>
         <p className="text-xs text-slate-500 dark:text-slate-500 mt-3">
           Estimates only — not medical or dietary advice. Consult your healthcare provider before changing your diet.
