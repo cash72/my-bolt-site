@@ -270,12 +270,12 @@ export const GUIDES: Guide[] = [
   {
     slug: 'dr-boz-ratio-explained',
     category: 'insulin-resistance',
-    title: 'Dr. Boz Ratio Explained — Glucose ÷ Ketones',
+    title: 'Dr. Boz Ratio Explained — Calculator, Formula & Target Numbers',
     description:
-      'How to calculate and interpret the Dr. Boz Ratio for fasting and keto. Targets for weight loss, autophagy, and insulin resistance.',
+      'What is the Dr. Boz Ratio? Learn the glucose ÷ ketones formula, target numbers for weight loss and autophagy, and use our free Dr. Boz ratio calculator.',
     readMinutes: 9,
-    toolPath: '/fasting-clock',
-    toolLabel: 'Fasting clock (ratio tracker)',
+    toolPath: '/dr-boz-ratio-calculator',
+    toolLabel: 'Dr. Boz ratio calculator',
     relatedGuideSlugs: ['fasting-with-insulin-resistance', 'net-carbs-for-insulin-resistance'],
     sections: [
       {
@@ -322,6 +322,11 @@ export const GUIDES: Guide[] = [
         question: 'What ratio should I target for weight loss?',
         answer:
           'Many people aim to get consistently under 80. Below 40 is often associated with deeper fat burning — but individual targets vary. Discuss with your provider if you have diabetes.',
+      },
+      {
+        question: 'Where is the Dr. Boz ratio calculator?',
+        answer:
+          'Use our free Dr. Boz ratio calculator to log glucose and ketones during fasts. It pairs with the fasting clock if you also track fast duration.',
       },
     ],
   },

@@ -22,18 +22,23 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'net-carb-calculator',
     path: '/net-carb-calculator',
     tool: 'net-carb',
-    title: 'Net Carb Calculator — Food Label Math for Keto & Low Carb',
+    title: 'Net Carb Calculator — How to Calculate Net Carbs (Free)',
     h1: 'Net Carb Calculator',
     description:
-      'Free net carb calculator for nutrition labels. Subtract fiber and sugar alcohols to find net carbs per serving for keto and insulin resistance diets.',
+      'Free net carb calculator for food labels. Enter total carbs, fiber, and sugar alcohols — get net carbs per serving for keto, Atkins, and insulin resistance diets.',
     breadcrumbLabel: 'Net carb calculator',
     intro:
-      'Enter total carbs, fiber, and sugar alcohols from any food label. Get net carbs per serving for keto, Atkins, and blood-sugar-friendly eating.',
+      'How do you calculate net carbs? Enter numbers from any nutrition label — we subtract fiber and sugar alcohols so you get net carbs per serving for keto and blood-sugar-friendly eating.',
     faqs: [
       {
         question: 'How do you calculate net carbs?',
         answer:
           'For most US labels: net carbs = total carbohydrates minus dietary fiber minus sugar alcohols (often erythritol). Always check the product label rules for your diet.',
+      },
+      {
+        question: 'How to calculate net carbs from a food label?',
+        answer:
+          'Find total carbohydrates, dietary fiber, and sugar alcohols on the label. Subtract fiber and sugar alcohols from total carbs. Our calculator does the math — enter each line and get net carbs per serving instantly.',
       },
       {
         question: 'What net carbs are good for insulin resistance?',
@@ -45,6 +50,11 @@ export const LANDING_PAGES: LandingPage[] = [
         answer:
           'Erythritol is usually subtracted fully. Other sugar alcohols may affect blood sugar — some people count half. This calculator subtracts the full amount you enter.',
       },
+      {
+        question: 'Is this net carb calculator free?',
+        answer:
+          'Yes. No signup required. Use it for every packaged food you log — see our net carbs for insulin resistance guide for daily targets.',
+      },
     ],
     relatedGuideSlugs: ['net-carbs-for-insulin-resistance', 'how-to-read-nutrition-labels-net-carbs'],
   },
@@ -53,18 +63,28 @@ export const LANDING_PAGES: LandingPage[] = [
     path: '/keto-macro-calculator',
     tool: 'macro',
     defaultPlan: 'strict_keto',
-    title: 'Keto Macro Calculator — Daily Protein, Fat & Net Carbs',
+    title: 'Free Keto Macro Calculator — Daily Carbs, Protein & Fat',
     h1: 'Keto Macro Calculator',
     description:
-      'Free keto macro calculator. Enter age, weight, height, and activity to get daily calories, protein, fat, and 20g net carb targets.',
+      'Free keto macro calculator for weight loss and strict keto. Enter age, weight, height, and activity — get daily calories, protein, fat, and 20g net carb targets.',
     breadcrumbLabel: 'Keto macro calculator',
     intro:
-      'Estimate your daily keto macros using the Mifflin-St Jeor equation. Default plan targets about 20g net carbs for strict keto.',
+      'How many carbs, protein, and fat on keto? Enter your stats and get daily macro targets — about 20g net carbs for strict keto, with calories from the Mifflin-St Jeor equation.',
     faqs: [
       {
         question: 'How many carbs on strict keto?',
         answer:
           'Strict keto typically keeps net carbs at or below 20–25g per day. This calculator defaults to 20g net carbs for the carb macro.',
+      },
+      {
+        question: 'How many carbs should I eat on keto per day?',
+        answer:
+          'Most strict keto plans target 20–25g net carbs daily. Moderate low-carb allows more — use our low carb macro calculator if you are not in induction.',
+      },
+      {
+        question: 'Is there a free keto macro calculator?',
+        answer:
+          'Yes — this tool is free with no signup. Enter height, weight, age, sex, and activity level to get protein, fat, and net carb grams per day.',
       },
       {
         question: 'How much protein on keto?',
@@ -115,18 +135,23 @@ export const LANDING_PAGES: LandingPage[] = [
     path: '/low-carb-macro-calculator',
     tool: 'macro',
     defaultPlan: 'moderate_low_carb',
-    title: 'Low Carb Macro Calculator — Metabolic & Atkins-Friendly Targets',
+    title: 'Low Carb Macro Calculator — Daily Net Carbs & Macros (Free)',
     h1: 'Low Carb Macro Calculator',
     description:
-      'Free low carb macro calculator for metabolic dysfunction and Atkins-style eating. Daily calories, protein, fat, and net carb estimates.',
+      'Free low carb macro calculator for metabolic health and Atkins-style eating. Daily calories, protein, fat, and ~100g net carb targets — less strict than keto.',
     breadcrumbLabel: 'Low carb macro calculator',
     intro:
-      'Moderate low-carb plan with about 100g net carbs per day — useful for metabolic health transitions or maintenance after stricter phases.',
+      'Not ready for strict keto? This moderate low-carb calculator targets about 100g net carbs per day — useful for metabolic health, Atkins maintenance, or transitioning off induction.',
     faqs: [
       {
         question: 'How is this different from keto?',
         answer:
           'Keto usually stays under 20–25g net carbs. This moderate low-carb plan uses about 100g net carbs — still lower than a typical diet but more flexible.',
+      },
+      {
+        question: 'How many net carbs on a low carb diet?',
+        answer:
+          'Moderate low carb is often 75–130g net carbs per day. This calculator defaults to about 100g — stricter than standard diets, more flexible than strict keto.',
       },
       {
         question: 'Does this work for Atkins?',
@@ -137,6 +162,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'What about metabolic dysfunction?',
         answer:
           'Metabolic dysfunction often responds to reducing refined carbs and prioritizing protein and fiber. Pair these macros with whole foods and medical guidance.',
+      },
+      {
+        question: 'Is this low carb macro calculator free?',
+        answer:
+          'Yes. Enter your body stats and activity level to get daily protein, fat, and net carb grams — no account required.',
       },
     ],
     relatedGuideSlugs: ['atkins-phases-explained', 'fatty-liver-low-carb'],
