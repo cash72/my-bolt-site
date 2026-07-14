@@ -131,9 +131,9 @@ export const GUIDES: Guide[] = [
   {
     slug: 'paint-coverage-per-gallon',
     category: 'paint',
-    title: 'Paint Coverage Per Gallon — What the Label Really Means',
+    title: 'How Many Square Feet Does a Gallon of Paint Cover?',
     description:
-      'How to read sq ft per gallon on a paint can, adjust for texture and porosity, and avoid under-buying on your project.',
+      'How many sq ft per gallon on interior latex, primer, and Behr cans. Read your label, adjust for texture, and use our free coverage calculator to avoid under-buying.',
     readMinutes: 8,
     toolPath: '/paint-coverage-calculator',
     toolLabel: 'Paint coverage calculator',
@@ -171,12 +171,46 @@ export const GUIDES: Guide[] = [
           'Use the [coverage calculator](/paint-coverage-calculator) with your measured sq ft and realistic coverage number — not the marketing maximum.',
         ],
       },
+      {
+        heading: 'Behr paint coverage per gallon (typical ranges)',
+        paragraphs: [
+          'Behr does not publish one coverage number for all products — each can lists its own sq ft per gallon. These ranges help you sanity-check the label before you enter the number in our calculator.',
+        ],
+        bullets: [
+          'Behr Premium Plus Interior (walls): often up to 400 sq ft/gallon on smooth, primed drywall',
+          'Behr Premium Plus Ultra / Marquee: similar on flat walls; deep colours may need more product',
+          'Behr ceiling flat: commonly 350–400 sq ft/gallon',
+          'Behr primer: typically 250–350 sq ft/gallon — lower than finish paint',
+          'Behr exterior: often 200–300 sq ft/gallon on wood siding',
+        ],
+      },
+      {
+        heading: 'Use Behr label numbers in our calculator',
+        paragraphs: [
+          'If you searched “Behr paint coverage calculator,” enter your room dimensions in the [paint coverage calculator](/paint-coverage-calculator) and set sq ft per gallon to the exact figure on your Behr can. That matches what a brand-specific tool would do — without tying you to one manufacturer.',
+        ],
+      },
     ],
     faqs: [
+      {
+        question: 'How many square feet does a gallon of paint cover?',
+        answer:
+          'Most interior latex covers 350–400 sq ft per gallon on smooth, primed walls for one coat. Two coats means dividing your total area by a lower effective rate — many DIYers plan 300–350 sq ft per gallon per coat in practice.',
+      },
       {
         question: 'Is 400 sq ft per gallon realistic?',
         answer:
           'On smooth, primed drywall with a quality roller and one coat — yes, for many premium paints. Real-world DIY projects with two coats plan closer to 350 sq ft per gallon per coat.',
+      },
+      {
+        question: 'What is Behr paint coverage per gallon?',
+        answer:
+          'Check your specific Behr product label. Premium Plus Interior often lists up to 400 sq ft/gallon on ideal surfaces; primer and exterior lines are lower. Enter that number in our calculator with your room size for gallons to buy.',
+      },
+      {
+        question: 'Does Behr have an online paint calculator?',
+        answer:
+          'Behr focuses on product specs and colour tools rather than a room gallon estimator. Use our free calculator with your wall measurements and the sq ft/gallon from your Behr can — the math is the same for any brand.',
       },
     ],
   },

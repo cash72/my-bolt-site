@@ -34,6 +34,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
           'Flat and ceiling paints often cover more than high-gloss trim. Textured walls and deep colours cover less — the 10% waste setting helps, but add extra for orange peel or knockdown texture.',
         ],
       },
+      {
+        heading: 'Behr gallon counts — quick examples',
+        paragraphs: [
+          'A 12×12 room with 8 ft ceilings has about 384 sq ft of wall area. Two coats at Behr’s 400 sq ft/gallon label rate = 768 ÷ 400 ≈ 1.9 gallons — buy 2 gallons if walls are smooth and primed. Real-world texture or colour change? Use 350 sq ft/gallon and buy 3.',
+          'For coverage-only math without room dimensions, use our [paint coverage calculator](/paint-coverage-calculator). For a full shopping list with waste and quarts, stay on this page and adjust coats in project settings.',
+        ],
+      },
     ],
   },
 
@@ -148,8 +155,16 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'paint-coverage-calculator': {
     intro:
-      'The number on your paint can — square feet per gallon — is the single biggest variable in any estimate. Enter your room size and that coverage figure to see exactly how many gallons your walls need per coat.',
+      'How many square feet does a gallon of paint cover? It depends on your can label — not a single universal number. Enter your room dimensions and the sq ft per gallon from Behr, Benjamin Moore, or any brand to get an accurate gallon count per coat.',
     sections: [
+      {
+        heading: 'Behr paint coverage — use your label number',
+        paragraphs: [
+          'Searching for a “Behr paint coverage calculator” usually means you have a Behr can and need gallons for your room. Behr prints coverage on every product — look for “Coverage” on the back label.',
+          'Typical Behr interior ranges (one coat, smooth primed drywall): Premium Plus Interior up to ~400 sq ft/gallon; Premium Plus Ultra and Marquee similar on flat walls; ceiling flat often 350–400 sq ft/gallon. Exterior and primer lines list lower numbers — always use your exact can.',
+          'This calculator is brand-neutral: enter your measured room size, set “sq ft per gallon” to the Behr figure on your can, choose coat count, and we round up to store quantities. Same workflow for Sherwin-Williams, Benjamin Moore, or store brands at Home Depot Canada.',
+        ],
+      },
       {
         heading: 'Why coverage varies more than people expect',
         paragraphs: [
