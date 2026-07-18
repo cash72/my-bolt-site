@@ -2,8 +2,9 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { ToolCard } from '../components/ToolCard';
-import AdSlot from '../components/AdSlot';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { getAlternativesBySlug } from '../lib/alternatives/alternatives';
+import { GUIDES } from '../lib/guides/guides';
 import { getToolBySlug } from '../lib/tools/tools';
 import { breadcrumbSchema } from '../lib/schema/jsonLd';
 
@@ -79,7 +80,7 @@ export default function AlternativesPage() {
         ))}
       </div>
 
-      <AdSlot placement="content" className="mb-8" />
+      <ContentMonetizationSlot placement="content" guides={GUIDES.slice(0, 4)} className="mb-8" />
 
       <section aria-labelledby="alt-faq">
         <h2 id="alt-faq" className="text-lg font-semibold mb-4">

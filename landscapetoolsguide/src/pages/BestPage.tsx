@@ -2,8 +2,9 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { AffiliateButton } from '../components/ToolCard';
-import AdSlot from '../components/AdSlot';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { getBestPageBySlug } from '../lib/best/bestPages';
+import { GUIDES } from '../lib/guides/guides';
 import { getToolBySlug } from '../lib/tools/tools';
 import { breadcrumbSchema } from '../lib/schema/jsonLd';
 
@@ -88,7 +89,7 @@ export default function BestPage() {
         ))}
       </ol>
 
-      <AdSlot placement="content" className="mb-8" />
+      <ContentMonetizationSlot placement="content" guides={GUIDES.slice(0, 4)} className="mb-8" />
 
       <section aria-labelledby="best-faq">
         <h2 id="best-faq" className="text-lg font-semibold mb-4">

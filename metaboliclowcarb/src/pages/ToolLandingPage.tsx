@@ -4,16 +4,20 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import MetabolicTools from '../components/MetabolicTools';
 import FastingClock from '../components/FastingClock';
-import AdSlot from '../components/AdSlot';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { GuideCard } from '../components/GuideCard';
 import { getGuideBySlug } from '../lib/guides/guides';
+import { getLandingEditorial } from '../lib/landingEditorial';
 import { FEATURED_LANDING_LINKS, getLandingPageBySlug } from '../lib/landingPages';
+import { renderEditorialText } from '../lib/renderEditorialText';
 import { breadcrumbSchema } from '../lib/schema/jsonLd';
 import { OG_IMAGE_URL, SITE_NAME, SITE_URL } from '../lib/site';
 
 export default function ToolLandingPage() {
   const { slug } = useParams<{ slug: string }>();
   const page = slug ? getLandingPageBySlug(slug) : undefined;
+  const editorial = slug ? getLandingEditorial(slug) : undefined;
+  const pageIntro = editorial?.intro ?? page?.intro;
 
   usePageMeta({
     title: page?.title ?? 'Calculator',
@@ -106,7 +110,7 @@ export default function ToolLandingPage() {
       {page.tool === 'fasting-clock' ? (
         <FastingClock
           heading={page.h1}
-          subheading={page.intro}
+          subheading={pageIntro ?? page.intro}
           defaultGoal={page.defaultFastingGoal}
           defaultMode={page.defaultFastingMode}
         />
@@ -116,11 +120,11 @@ export default function ToolLandingPage() {
           showTabs={false}
           macroPlan={page.defaultPlan}
           heading={page.h1}
-          subheading={page.intro}
+          subheading={pageIntro ?? page.intro}
         />
       )}
 
-      <AdSlot placement="content" />
+      <ContentMonetizationSlot placement="content" guides={relatedGuides} />
 
       {relatedGuides.length > 0 && (
         <section className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800" aria-labelledby="related-guides">
@@ -130,6 +134,23 @@ export default function ToolLandingPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {relatedGuides.map((guide) => (
               <GuideCard key={guide.slug} guide={guide} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {editorial && (
+        <section className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed">
+            {editorial.sections.map((section) => (
+              <div key={section.heading}>
+                <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">{section.heading}</h2>
+                {section.paragraphs.map((paragraph, i) => (
+                  <p key={i} className={i > 0 ? 'mt-3' : undefined}>
+                    {renderEditorialText(paragraph)}
+                  </p>
+                ))}
+              </div>
             ))}
           </div>
         </section>

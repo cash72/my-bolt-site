@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { ToolCard } from '../components/ToolCard';
 import { GuideCard } from '../components/GuideCard';
@@ -16,6 +17,17 @@ const FEATURED_GUIDE_SLUGS = [
   'landscaping-software-pricing-guide',
 ] as const;
 
+const HOMEPAGE_FAQ = [
+  {
+    q: 'What is the best software for a solo landscaper?',
+    a: 'Most solos start with Jobber or FieldPulse — see our best software for solo landscaper guide for pricing and feature comparisons.',
+  },
+  {
+    q: 'When should I use LMN instead of Jobber?',
+    a: 'When you do design-build estimating and job costing, not just recurring mowing routes. Read our LMN vs Jobber comparison for crew-size guidance.',
+  },
+] as const;
+
 export default function HomePage() {
   usePageMeta({
     title: `Best Landscaping & Lawn Care Software (2026)`,
@@ -23,6 +35,31 @@ export default function HomePage() {
       'Compare Jobber, Housecall Pro, LMN, and more for lawn care and landscape companies — pricing, features, and honest picks by crew size.',
     path: '/',
   });
+
+  useEffect(() => {
+    const faqId = 'homepage-faq-schema';
+    let faqScript = document.getElementById(faqId) as HTMLScriptElement | null;
+    if (!faqScript) {
+      faqScript = document.createElement('script');
+      faqScript.id = faqId;
+      faqScript.type = 'application/ld+json';
+      document.head.appendChild(faqScript);
+    }
+
+    faqScript.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: HOMEPAGE_FAQ.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
+    });
+
+    return () => {
+      document.getElementById(faqId)?.remove();
+    };
+  }, []);
 
   const featured = TOOLS.filter((t) => ['jobber', 'housecall-pro', 'lmn', 'gorilladesk'].includes(t.slug));
 

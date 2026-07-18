@@ -19,10 +19,10 @@ export const LANDING_PAGES: LandingPage[] = [
     path: '/mulch-calculator',
     materialType: 'mulch',
     depthIn: 3,
-    title: 'Mulch Calculator — Cubic Yards & Bags',
+    title: 'Mulch Calculator — How Much Mulch Do I Need? (Free)',
     h1: 'Mulch Calculator',
     description:
-      'Free mulch calculator for garden beds. Enter bed dimensions and depth to estimate cubic yards and bag counts.',
+      'Free mulch calculator for garden beds. Enter bed length, width, and depth — get cubic yards and bag counts. Default 3-inch depth.',
     breadcrumbLabel: 'Mulch calculator',
     intro:
       'Measure each garden bed in feet and inches. Default depth is 3 inches — the standard for decorative mulch around shrubs and trees.',
@@ -48,10 +48,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'gravel-calculator',
     path: '/gravel-calculator',
     materialType: 'gravel',
-    title: 'Gravel Calculator — Cubic Yards for Paths & Driveways',
+    title: 'Gravel Calculator — Cubic Yards & Tons (Free)',
     h1: 'Gravel Calculator',
     description:
-      'Calculate gravel cubic yards for paths, driveways, and drainage beds. Enter area dimensions and depth for bulk or bag estimates.',
+      'Free gravel calculator for paths and driveways. Enter area dimensions and depth — get cubic yards, tons, and bag counts for bulk gravel.',
     breadcrumbLabel: 'Gravel calculator',
     intro:
       'Enter the length and width of your gravel area. Adjust depth for paths (2–3"), driveways (4–6"), or drainage projects.',

@@ -86,10 +86,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'flooring-square-footage-calculator',
     path: '/flooring-square-footage-calculator',
     material: 'laminate',
-    title: 'Flooring Square Footage Calculator — Room Size & Waste',
+    title: 'Flooring Square Footage Calculator — How Much Flooring? (Free)',
     h1: 'Flooring Square Footage Calculator',
     description:
-      'Calculate total flooring square footage for one or more rooms, including waste allowance, before you buy boxes or rolls.',
+      'Free flooring square footage calculator. Enter room dimensions — get total sq ft with waste for laminate, vinyl, tile, or carpet before you buy boxes.',
     breadcrumbLabel: 'Sq ft calculator',
     intro:
       'Start with accurate square footage — then convert to boxes using coverage per carton. This calculator totals all rooms and adds your waste percentage.',

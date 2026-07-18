@@ -15,10 +15,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'drywall-calculator',
     path: '/drywall-calculator',
     includeCeiling: false,
-    title: 'Drywall Calculator — Room Size, Sheets & Waste',
+    title: 'Free Drywall Calculator — How Many Sheets for Your Room?',
     h1: 'Drywall Calculator',
     description:
-      'Free drywall calculator. Enter room dimensions and ceiling height to estimate wall area, sheet counts, and waste for your project.',
+      'Free drywall calculator for DIY projects. Enter room length, width, and ceiling height — get wall area, sheet counts, and waste for 4×8 or 4×12 sheets.',
     breadcrumbLabel: 'Drywall calculator',
     intro:
       'Measure a rectangular room in feet and inches. We calculate wall area from perimeter × height, deduct doors and windows, and round up to whole sheets.',
@@ -44,10 +44,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'how-many-drywall-sheets',
     path: '/how-many-drywall-sheets',
     includeCeiling: false,
-    title: 'How Many Drywall Sheets Do I Need?',
+    title: 'How Many Drywall Sheets Do I Need? Free Sheet Calculator',
     h1: 'How Many Drywall Sheets Do I Need?',
     description:
-      'Calculate how many drywall sheets to buy for your room. Enter dimensions, sheet size, and waste for an accurate count.',
+      'Free drywall sheet calculator. Enter room dimensions, sheet size, and waste — see how many 4×8 or 4×12 sheets to buy for walls or ceiling.',
     breadcrumbLabel: 'Sheet count',
     intro:
       'The lumber yard sells by the sheet — this tool converts your wall area into a sheet count rounded up so you do not run short.',

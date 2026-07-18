@@ -17,10 +17,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'btu-calculator',
     path: '/btu-calculator',
     applicationType: 'standard_room',
-    title: 'BTU Calculator — Room Cooling & Heating Load',
+    title: 'Free BTU Calculator — Room Size & AC Heating Load',
     h1: 'BTU Calculator',
     description:
-      'Free BTU calculator for rooms and small spaces. Enter dimensions, insulation, and climate to estimate cooling and heating load.',
+      'Free BTU calculator for room cooling and heating. Enter dimensions, insulation, and climate — get recommended BTU for window AC, mini-split, or portable units.',
     breadcrumbLabel: 'BTU calculator',
     intro:
       'Measure your space in feet and inches. Pick the application type that matches your building — standard room, tiny home, RV, shed, or cottage — for accurate BTU estimates.',
@@ -103,10 +103,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'what-size-ac-do-i-need',
     path: '/what-size-ac-do-i-need',
     applicationType: 'living_room',
-    title: 'What Size AC Do I Need? — BTU by Room Size',
+    title: 'What Size AC Do I Need? Free BTU Calculator by Room',
     h1: 'What Size AC Do I Need?',
     description:
-      'Answer “what size AC do I need” with room dimensions, occupants, kitchen load, and sun exposure. BTU and mini-split tonnage results.',
+      'Free AC size calculator — enter room sq ft, ceiling height, sun exposure, and occupants to get recommended BTU for window units and mini-splits.',
     breadcrumbLabel: 'What size AC',
     intro:
       'Living rooms and open areas need more BTU per sq ft than bedrooms because of windows, electronics, and people. Toggle kitchen load if the space includes cooking appliances.',

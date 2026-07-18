@@ -3,8 +3,9 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { AffiliateButton } from '../components/ToolCard';
 import { ToolCard } from '../components/ToolCard';
-import AdSlot from '../components/AdSlot';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { getToolBySlug } from '../lib/tools/tools';
+import { getGuideBySlug } from '../lib/guides/guides';
 import { CREW_SIZE_LABEL, TOOL_CATEGORY_LABEL } from '../lib/tools/types';
 import { breadcrumbSchema, pageUrl } from '../lib/schema/jsonLd';
 import { SITE_NAME } from '../lib/site';
@@ -47,6 +48,10 @@ export default function ToolPage() {
   const relatedTools = (tool.relatedToolSlugs ?? [])
     .map((s) => getToolBySlug(s))
     .filter((t): t is NonNullable<typeof t> => t != null);
+
+  const relatedGuides = (tool.relatedGuideSlugs ?? [])
+    .map((s) => getGuideBySlug(s))
+    .filter((g): g is NonNullable<typeof g> => g != null);
 
   return (
     <main id="main-content" className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12" role="main">
@@ -134,7 +139,7 @@ export default function ToolPage() {
         <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">{tool.verdict}</p>
       </section>
 
-      <AdSlot placement="content" className="mb-8" />
+      <ContentMonetizationSlot placement="content" guides={relatedGuides} className="mb-8" />
 
       {relatedTools.length > 0 && (
         <section className="mb-8">

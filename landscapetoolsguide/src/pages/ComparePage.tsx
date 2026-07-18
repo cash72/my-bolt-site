@@ -2,8 +2,9 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { AffiliateButton } from '../components/ToolCard';
-import AdSlot from '../components/AdSlot';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { getComparisonBySlug, COMPARISONS } from '../lib/comparisons/comparisons';
+import { GUIDES } from '../lib/guides/guides';
 import { getToolBySlug } from '../lib/tools/tools';
 import { breadcrumbSchema } from '../lib/schema/jsonLd';
 
@@ -104,7 +105,7 @@ export default function ComparePage() {
         ))}
       </article>
 
-      <AdSlot placement="content" className="mb-8" />
+      <ContentMonetizationSlot placement="content" guides={GUIDES.slice(0, 4)} className="mb-8" />
 
       <section aria-labelledby="compare-faq">
         <h2 id="compare-faq" className="text-lg font-semibold mb-4">
