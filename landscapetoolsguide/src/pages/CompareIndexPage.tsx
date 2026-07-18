@@ -1,10 +1,21 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
-import AdSlot from '../components/AdSlot';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import { getGuideBySlug } from '../lib/guides/guides';
 import { COMPARISONS } from '../lib/comparisons/comparisons';
 import { ALTERNATIVES } from '../lib/alternatives/alternatives';
 
+const COMPARE_INDEX_GUIDE_SLUGS = [
+  'how-to-choose-lawn-care-software',
+  'when-to-upgrade-to-lmn',
+  'landscaping-software-pricing-guide',
+];
+
 export default function CompareIndexPage() {
+  const featuredGuides = COMPARE_INDEX_GUIDE_SLUGS.map((slug) => getGuideBySlug(slug)).filter(
+    (g): g is NonNullable<ReturnType<typeof getGuideBySlug>> => g != null
+  );
+
   usePageMeta({
     title: 'Landscaping Software Comparisons',
     description:
@@ -49,7 +60,7 @@ export default function CompareIndexPage() {
         </ul>
       </section>
 
-      <AdSlot placement="content" className="mt-10" />
+      <ContentMonetizationSlot placement="content" guides={featuredGuides} className="mt-10" />
     </main>
   );
 }

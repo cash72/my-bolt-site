@@ -5,7 +5,7 @@ import { GUIDES } from '../lib/guides/guides';
 import { GUIDE_CATEGORY_LABEL, type GuideCategory } from '../lib/guides/types';
 import { FEATURED_LANDING_LINKS } from '../lib/landingPages';
 import { GuideCard } from '../components/GuideCard';
-import AdSlot from '../components/AdSlot';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { itemListSchema, pageUrl } from '../lib/schema/jsonLd';
 
 const CATEGORIES: (GuideCategory | 'all')[] = [
@@ -15,7 +15,18 @@ const CATEGORIES: (GuideCategory | 'all')[] = [
   'metabolic-health',
 ];
 
+const FEATURED_GUIDE_SLUGS = [
+  'protein-on-keto-and-low-carb',
+  'keto-flu-and-electrolytes',
+  'getting-started-keto-low-carb',
+  'dr-boz-ratio-explained',
+];
+
 export default function GuidesIndexPage() {
+  const featuredGuides = FEATURED_GUIDE_SLUGS.map((slug) => GUIDES.find((g) => g.slug === slug)).filter(
+    (g): g is NonNullable<(typeof GUIDES)[number]> => g != null
+  );
+
   usePageMeta({
     title: 'Low Carb & Fasting Guides — Insulin Resistance, Metabolic Health',
     description:
@@ -59,7 +70,7 @@ export default function GuidesIndexPage() {
         );
       })}
 
-      <AdSlot placement="content" />
+      <ContentMonetizationSlot placement="content" guides={featuredGuides} />
 
       <section className="mt-12 pt-10 border-t border-slate-200 dark:border-slate-800" aria-labelledby="guide-calcs">
         <h2 id="guide-calcs" className="text-lg font-semibold mb-3">

@@ -5,7 +5,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import DrywallCalculator from '../components/DrywallCalculator';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { getLandingEditorial } from '../lib/landingEditorial';
-import { getGuidesForLanding, getRelatedLandingPages } from '../lib/landingHelpers';
+import { getGuidesForLanding, getRelatedLandingPages, getRelatedSlugsForLanding } from '../lib/landingHelpers';
 import { getLandingPageBySlug } from '../lib/landingPages';
 import { renderEditorialText } from '../lib/renderEditorialText';
 import { canonicalUrl, SITE_NAME } from '../lib/site';
@@ -34,6 +34,7 @@ export default function MaterialLandingPage() {
   const editorial = slug ? getLandingEditorial(slug) : undefined;
   const relatedPages = page ? getRelatedLandingPages(page) : [];
   const relatedGuides = page ? getGuidesForLanding(page) : [];
+  const relatedSlugs = page ? getRelatedSlugsForLanding(page) : [];
   const pageIntro = editorial?.intro ?? page?.intro;
 
   usePageMeta({
@@ -115,7 +116,7 @@ export default function MaterialLandingPage() {
         subheading={pageIntro ?? page.intro}
       />
 
-      <ContentMonetizationSlot placement="content" guides={relatedGuides} />
+      <ContentMonetizationSlot placement="content" guides={relatedGuides} relatedSlugs={relatedSlugs} />
 
       {relatedGuides.length > 0 && (
         <section className="mt-12" aria-label="Related guides">

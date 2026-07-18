@@ -1,16 +1,40 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { useJsonLd } from '../hooks/useJsonLd';
 import { GuideCard } from '../components/GuideCard';
-import AdSlot from '../components/AdSlot';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { GUIDES } from '../lib/guides/guides';
+import { itemListSchema, pageUrl } from '../lib/schema/jsonLd';
+
+const INDEX_GUIDE_SLUGS = [
+  'how-to-choose-lawn-care-software',
+  'landscaping-software-pricing-guide',
+  'snow-removal-billing-software',
+  'job-costing-landscape-install-projects',
+];
 
 export default function GuidesIndexPage() {
+  const featuredGuides = INDEX_GUIDE_SLUGS.map((slug) => GUIDES.find((g) => g.slug === slug)).filter(
+    (g): g is NonNullable<(typeof GUIDES)[number]> => g != null
+  );
+
   usePageMeta({
     title: 'Landscaping Software Buying Guides',
     description:
       'How to choose lawn care and landscaping business software — pricing, routing, QuickBooks sync, crew apps, and 12 in-depth buying guides.',
     path: '/guides',
   });
+
+  useJsonLd(
+    'guides-index-list-schema',
+    itemListSchema(
+      'Landscaping software buying guides',
+      GUIDES.map((guide) => ({
+        name: guide.title,
+        url: pageUrl(`/guides/${guide.slug}`),
+      }))
+    )
+  );
 
   return (
     <main id="main-content" className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12" role="main">
@@ -26,7 +50,7 @@ export default function GuidesIndexPage() {
         ))}
       </div>
 
-      <AdSlot placement="content" className="mt-10" />
+      <ContentMonetizationSlot placement="content" guides={featuredGuides} className="mt-10" />
 
       <p className="text-sm mt-8">
         <Link to="/tools" className="text-emerald-600 dark:text-emerald-400 hover:underline">

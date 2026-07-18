@@ -8,7 +8,7 @@ import { RECIPE_CATEGORY_LABEL } from '../lib/recipes/types';
 import { PlanBadges } from '../components/RecipeCard';
 import { GuideCard } from '../components/GuideCard';
 import { RecipeCard } from '../components/RecipeCard';
-import AdSlot from '../components/AdSlot';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { getRecipeImagePath, getRecipeImageUrl } from '../lib/recipes/images';
 import imageManifest from '../lib/recipes/imageManifest.json';
 import { breadcrumbSchema } from '../lib/schema/jsonLd';
@@ -196,7 +196,7 @@ export default function RecipePage() {
         </section>
       )}
 
-      <AdSlot placement="content" />
+      <ContentMonetizationSlot placement="content" guides={relatedGuides} />
 
       {relatedGuides.length > 0 && (
         <section className="mb-8" aria-labelledby="related-guides">

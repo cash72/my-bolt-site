@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { ToolCard } from '../components/ToolCard';
-import AdSlot from '../components/AdSlot';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import { getGuideBySlug } from '../lib/guides/guides';
 import { TOOLS, getToolsByCategory } from '../lib/tools/tools';
 import { TOOL_CATEGORY_LABEL, type ToolCategory } from '../lib/tools/types';
 
@@ -12,7 +13,17 @@ const CATEGORY_ORDER: ToolCategory[] = [
   'design-build',
 ];
 
+const TOOLS_INDEX_GUIDE_SLUGS = [
+  'how-to-choose-lawn-care-software',
+  'solo-landscaper-software-checklist',
+  'field-service-software-evaluation-checklist',
+];
+
 export default function ToolsIndexPage() {
+  const featuredGuides = TOOLS_INDEX_GUIDE_SLUGS.map((slug) => getGuideBySlug(slug)).filter(
+    (g): g is NonNullable<ReturnType<typeof getGuideBySlug>> => g != null
+  );
+
   usePageMeta({
     title: 'Landscaping & Lawn Care Software Directory',
     description:
@@ -51,7 +62,7 @@ export default function ToolsIndexPage() {
         );
       })}
 
-      <AdSlot placement="content" className="mt-8" />
+      <ContentMonetizationSlot placement="content" guides={featuredGuides} className="mt-8" />
     </main>
   );
 }

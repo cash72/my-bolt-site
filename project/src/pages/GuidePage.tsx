@@ -215,7 +215,10 @@ function GuideContent({ guide }: { guide: GuideDef }) {
         })}
       </article>
 
-      <ContentMonetizationSlot placement="content" />
+      <ContentMonetizationSlot
+        placement="content"
+        guides={relatedGuides.length ? relatedGuides : FEATURED_GUIDES.slice(0, 4)}
+      />
 
       <section className="mt-12 mb-10" aria-label="FAQ">
         <h2 className="text-xl font-bold mb-4 text-slate-900 dark:text-slate-100">Frequently asked questions</h2>
@@ -361,7 +364,7 @@ export function GuidesIndexContent() {
         </div>
       </header>
 
-      <ContentMonetizationSlot placement="content" />
+      <ContentMonetizationSlot placement="content" guides={FEATURED_GUIDES.slice(0, 5)} />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {FEATURED_GUIDES.map((guide) => (

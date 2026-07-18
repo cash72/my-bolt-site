@@ -5,7 +5,7 @@ import { RECIPES } from '../lib/recipes/recipes';
 import { RECIPE_CATEGORY_LABEL, type RecipeCategory } from '../lib/recipes/types';
 import { GUIDES } from '../lib/guides/guides';
 import { RecipeCard } from '../components/RecipeCard';
-import AdSlot from '../components/AdSlot';
+import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { itemListSchema, pageUrl } from '../lib/schema/jsonLd';
 
 const CATEGORIES: RecipeCategory[] = ['breakfast', 'lunch', 'dinner', 'snack'];
@@ -87,7 +87,7 @@ export default function RecipesIndexPage() {
         );
       })}
 
-      <AdSlot placement="content" />
+      <ContentMonetizationSlot placement="content" guides={featuredGuides} />
 
       <section className="mt-12 pt-10 border-t border-slate-200 dark:border-slate-800" aria-labelledby="recipe-guides">
         <h2 id="recipe-guides" className="text-lg font-semibold mb-3">
