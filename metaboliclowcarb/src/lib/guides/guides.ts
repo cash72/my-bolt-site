@@ -628,7 +628,7 @@ export const GUIDES: Guide[] = [
     readMinutes: 8,
     toolPath: '/atkins-macro-calculator',
     toolLabel: 'Atkins macro calculator',
-    relatedGuideSlugs: ['getting-started-keto-low-carb', 'low-carb-macro-calculator'],
+    relatedGuideSlugs: ['getting-started-keto-low-carb', 'net-carbs-for-insulin-resistance'],
     sections: [
       {
         heading: 'The four phases',
@@ -839,6 +839,138 @@ export const GUIDES: Guide[] = [
         question: 'Do I subtract all fiber?',
         answer:
           'On US labels, dietary fiber is subtracted from total carbs for net carb counting on most keto plans. Soluble fiber still has minimal impact for some people.',
+      },
+    ],
+  },
+  {
+    slug: 'protein-on-keto-and-low-carb',
+    category: 'metabolic-health',
+    title: 'How Much Protein on Keto and Low Carb?',
+    description:
+      'Protein targets for strict keto, moderate low carb, and fasting — grams per pound, kidney considerations, and how to set macros without overthinking.',
+    readMinutes: 9,
+    toolPath: '/keto-macro-calculator',
+    toolLabel: 'Keto macro calculator',
+    relatedGuideSlugs: ['getting-started-keto-low-carb', 'net-carbs-for-insulin-resistance'],
+    sections: [
+      {
+        heading: 'Why protein matters on low carb',
+        paragraphs: [
+          'Carb restriction lowers insulin, but protein preserves muscle during weight loss and keeps meals satisfying. Too little protein on aggressive deficits can cost lean mass; extremely high protein is rarely needed for most people.',
+          'Our [keto macro calculator](/keto-macro-calculator) defaults to about 0.8g protein per pound of body weight — a common starting point used in many low-carb programs.',
+        ],
+      },
+      {
+        heading: 'Adjusting for activity and medical history',
+        bullets: [
+          'Resistance training: stay at upper end of protein range',
+          'Sedentary weight loss: moderate protein often sufficient',
+          'Kidney disease: medical team sets limits — do not self-prescribe high protein',
+          'Older adults: slightly higher protein may help preserve muscle',
+        ],
+        paragraphs: [
+          'Re-run macros when weight drops 10–15 lbs — protein grams can scale with current body weight.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can too much protein kick me out of ketosis?',
+        answer:
+          'For most people, moderate protein does not prevent ketosis the way carbs do. Individual response varies — track ketones if you are experimenting, not guessing.',
+      },
+      {
+        question: 'Should I eat protein during a fast?',
+        answer:
+          'A true fast means no calories — protein breaks the fast. Break fasts with protein-forward meals; see [best first meal after fasting](/guides/best-first-meal-after-fasting).',
+      },
+    ],
+  },
+  {
+    slug: 'keto-flu-and-electrolytes',
+    category: 'metabolic-health',
+    title: 'Keto Flu — Symptoms, Electrolytes & Fixes',
+    description:
+      'Why headaches and fatigue happen in the first week of low carb, which electrolytes to replenish, and when symptoms need medical attention.',
+    readMinutes: 8,
+    toolPath: '/keto-macro-calculator',
+    toolLabel: 'Keto macro calculator',
+    relatedGuideSlugs: ['electrolytes-during-fasting', 'getting-started-keto-low-carb'],
+    sections: [
+      {
+        heading: 'What “keto flu” usually is',
+        paragraphs: [
+          'The first 3–7 days of strict low carb often bring headaches, fatigue, irritability, and muscle cramps. Much of this is sodium and water shift — insulin drops, kidneys excrete sodium, and volume depletes.',
+          'It is not an infection. It usually improves with electrolytes, sleep, and consistent low-carb meals — not with going back to high sugar.',
+        ],
+      },
+      {
+        heading: 'Electrolyte fixes that help',
+        bullets: [
+          'Sodium: bouillon, pickle juice, or salt on food — especially if you feel dizzy standing up',
+          'Potassium: leafy greens, avocado, supplement only if provider approves',
+          'Magnesium: glycinate or citrate at night for cramps and sleep',
+          'Water: drink to thirst — chugging plain water without sodium can worsen cramps',
+        ],
+        paragraphs: [
+          'Fasters use similar fixes — see [electrolytes during fasting](/guides/electrolytes-during-fasting) for overlap with assisted fasts.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How long does keto flu last?',
+        answer:
+          'Most people feel better within a week if electrolytes are addressed. Persistent severe symptoms warrant talking to a clinician — especially on blood pressure medication.',
+      },
+      {
+        question: 'Should I quit keto if I feel awful day two?',
+        answer:
+          'Try sodium and magnesium first. If symptoms are severe, chest pain, or confusion — seek medical care immediately, not internet advice.',
+      },
+    ],
+  },
+  {
+    slug: 'mindful-macro-tracking-low-carb',
+    category: 'metabolic-health',
+    title: 'Macro Tracking Without Obsession — Low Carb Habits',
+    description:
+      'When to count macros, when to use plate method, and how to transition from calculator numbers to sustainable eating.',
+    readMinutes: 7,
+    toolPath: '/low-carb-macro-calculator',
+    toolLabel: 'Low carb macro calculator',
+    relatedGuideSlugs: ['getting-started-keto-low-carb', 'protein-on-keto-and-low-carb'],
+    sections: [
+      {
+        heading: 'Track long enough to learn, not forever',
+        paragraphs: [
+          'Two to four weeks of logging teaches portion sizes and hidden carbs in sauces, drinks, and snacks. Many people then shift to a simple rule: protein at each meal, vegetables, healthy fat to satiety.',
+          'Use our calculators for initial targets — [keto](/keto-macro-calculator), [low carb](/low-carb-macro-calculator), or [insulin resistance macros](/insulin-resistance-macro-calculator) — then adjust based on energy, hunger, and labs with your provider.',
+        ],
+      },
+      {
+        heading: 'Plate method when counting stops',
+        bullets: [
+          'Half plate non-starchy vegetables',
+          'Palm-sized protein',
+          'Thumb of added fat (oil, nuts, cheese)',
+          'Carbs from berries, legumes, or starchy veg only if your plan allows',
+        ],
+        paragraphs: [
+          'Revisit numbers if weight stalls for 6+ weeks or you change activity level significantly.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do I need a food scale forever?',
+        answer:
+          'No. Scales help early accuracy. Most maintainers estimate portions after learning what 30g nuts or 4 oz chicken looks like on their plate.',
+      },
+      {
+        question: 'What if tracking increases anxiety?',
+        answer:
+          'Stop counting and work with a dietitian on hunger-fullness cues. Low carb should reduce obsession for many people — if it increases it, change approach.',
       },
     ],
   },

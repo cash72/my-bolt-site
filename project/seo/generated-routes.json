@@ -90,7 +90,12 @@
     "/guides/bitcoin-self-custody-basics",
     "/guides/run-your-own-bitcoin-node",
     "/guides/how-to-buy-bitcoin",
-    "/guides/stacking-sats-dca"
+    "/guides/stacking-sats-dca",
+    "/guides/lightning-network-basics",
+    "/guides/bitcoin-transaction-fees-explained",
+    "/guides/bitcoin-wallet-types-compared",
+    "/guides/how-to-send-bitcoin-first-time",
+    "/guides/understanding-bitcoin-price-volatility"
   ],
   "allRoutes": [
     "/",
@@ -179,6 +184,11 @@
     "/guides/bitcoin-self-custody-basics",
     "/guides/run-your-own-bitcoin-node",
     "/guides/how-to-buy-bitcoin",
-    "/guides/stacking-sats-dca"
+    "/guides/stacking-sats-dca",
+    "/guides/lightning-network-basics",
+    "/guides/bitcoin-transaction-fees-explained",
+    "/guides/bitcoin-wallet-types-compared",
+    "/guides/how-to-send-bitcoin-first-time",
+    "/guides/understanding-bitcoin-price-volatility"
   ]
 }

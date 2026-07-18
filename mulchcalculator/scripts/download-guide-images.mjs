@@ -21,6 +21,12 @@ const GUIDE_PHOTOS = {
   'rubber-mulch-vs-wood-mulch': '1179228',
   'edging-and-prepping-beds-before-mulch': '1179223',
   'delivery-vs-bags-bulk-mulch': '4056535',
+  'fall-mulch-application-timing': '376464',
+  'mulch-for-vegetable-gardens': '280222',
+  'calculating-mulch-for-tree-rings': '271743',
+  'colored-mulch-fade-and-refresh': '1179223',
+  'landscape-fabric-under-mulch': '6676298',
+  'playground-mulch-safety-standards': '5538616',
 };
 
 const FALLBACK_POOL = [

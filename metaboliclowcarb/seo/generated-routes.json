@@ -37,6 +37,9 @@
     "/guides/fasting-on-diabetes-medications",
     "/guides/electrolytes-during-fasting",
     "/guides/how-to-read-nutrition-labels-net-carbs",
+    "/guides/protein-on-keto-and-low-carb",
+    "/guides/keto-flu-and-electrolytes",
+    "/guides/mindful-macro-tracking-low-carb",
     "/recipes/scrambled-eggs-spinach",
     "/recipes/chicken-salad-lettuce-cups",
     "/recipes/baked-salmon-broccoli",
@@ -98,7 +101,10 @@
     "/guides/pcos-and-low-carb",
     "/guides/fasting-on-diabetes-medications",
     "/guides/electrolytes-during-fasting",
-    "/guides/how-to-read-nutrition-labels-net-carbs"
+    "/guides/how-to-read-nutrition-labels-net-carbs",
+    "/guides/protein-on-keto-and-low-carb",
+    "/guides/keto-flu-and-electrolytes",
+    "/guides/mindful-macro-tracking-low-carb"
   ],
   "recipePaths": [
     "/recipes/scrambled-eggs-spinach",

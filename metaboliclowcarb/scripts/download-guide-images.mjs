@@ -24,6 +24,9 @@ const GUIDE_PHOTOS = {
   'fasting-on-diabetes-medications': '1640770',
   'electrolytes-during-fasting': '1640769',
   'how-to-read-nutrition-labels-net-carbs': '1640768',
+  'protein-on-keto-and-low-carb': '1640767',
+  'keto-flu-and-electrolytes': '6802045',
+  'mindful-macro-tracking-low-carb': '8293774',
 };
 
 const FALLBACK_POOL = [

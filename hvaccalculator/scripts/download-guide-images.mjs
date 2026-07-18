@@ -28,6 +28,9 @@ const GUIDE_PHOTOS = {
   'common-mini-split-sizing-mistakes': '234527',
   'how-to-size-ac-for-open-floor-plan': '280222',
   'mini-split-for-garage-workshop': '271743',
+  'window-ac-btu-sizing': '6195301',
+  'heat-pump-vs-air-conditioner': '442579',
+  'portable-ac-vs-window-ac': '1575986',
 };
 
 /** Verified fallback pool (never assign an unverified ID). */

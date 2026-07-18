@@ -670,6 +670,372 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+{
+    slug: 'green-board-purple-board-bathrooms',
+    category: 'materials',
+    title: 'Green Board vs Purple Board for Bathrooms — Where Each Goes',
+    description:
+      'Moisture-resistant gypsum in bathrooms: green board, purple board, cement backer, and code zones. What to hang on wet walls vs dry vanity walls and how it affects your sheet count.',
+    readMinutes: 9,
+    toolPath: '/drywall-calculator',
+    toolLabel: 'Drywall calculator',
+    relatedGuideSlugs: [
+      'half-inch-vs-five-eighth-drywall',
+      'drywall-for-basement-renovation',
+      'how-much-drywall-for-a-room',
+    ],
+    sections: [
+      {
+        heading: 'What green and purple board actually are',
+        paragraphs: [
+          'Green board and purple board are paper-faced gypsum with moisture-resistant additives — not waterproof. Green board was the traditional “wet area” drywall; purple board (often branded Mold Tough or equivalent) adds mold inhibitors and tighter paper.',
+          'Both are fine on bathroom walls outside direct shower spray — vanity walls, toilet walls, ceilings. Neither belongs as the sole tile substrate inside a shower — use cement board or fiber-cement tile backer there.',
+        ],
+        bullets: [
+          'Shower/tub surround tile: cement or fiber-cement backer',
+          'Bathroom walls outside shower: purple or green 1/2 inch',
+          'Ceilings: same MR board or standard 1/2 inch per code',
+          'Paint with bathroom-rated primer — board is not the finish',
+        ],
+      },
+      {
+        heading: 'Code zones and practical layout',
+        paragraphs: [
+          'Many jurisdictions treat the shower interior as a wet zone requiring non-gypsum backer. The rest of the bath is “ damp ” — MR gypsum is acceptable when finished with tile or moisture-rated paint.',
+          'Plan sheet breaks at the shower curb or glass line so you do not mix backer and gypsum mid-field. Order MR board only for bath rooms — standard drywall elsewhere keeps costs down.',
+        ],
+      },
+      {
+        heading: 'Estimating sheets for a bathroom',
+        paragraphs: [
+          'Measure each wall plane; MR board comes in same 4×8 and 4×12 sizes as standard. A typical 8×5 bath with 8 ft ceilings might need 6–8 sheets for walls plus 2–3 for ceiling before waste — less if a shower niche removes one full plane.',
+          'Enter room dimensions in our [drywall calculator](/drywall-calculator) and note MR sheets on your pickup list separately from standard board.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I use green board inside a shower?',
+        answer:
+          'No — not as tile backer. Use cement board or equivalent rated for shower wet areas. MR gypsum behind tile in shower walls fails when grout cracks and water penetrates.',
+      },
+      {
+        question: 'Is purple board worth the extra cost?',
+        answer:
+          'For bathrooms with poor ventilation or history of mold, yes. For a powder room with no shower, standard drywall plus good paint is often enough.',
+      },
+      {
+        question: 'Same thickness as regular drywall?',
+        answer:
+          'Yes — 1/2 inch is standard for residential bath walls. Match thickness to adjoining rooms so jambs and tile transitions stay flush.',
+      },
+    ],
+  },
+  {
+    slug: 'drywall-finish-levels-explained',
+    category: 'finishing',
+    title: 'Drywall Finish Levels Explained — Level 0 Through Level 5',
+    description:
+      'GA finish levels for walls and ceilings: when Level 4 is enough, why kitchens and gloss paint need Level 5, and what each level means for mud coats and sanding.',
+    readMinutes: 10,
+    toolPath: '/drywall-calculator',
+    toolLabel: 'Drywall calculator',
+    relatedGuideSlugs: [
+      'how-many-coats-drywall-mud',
+      'drywall-taping-and-mudding-guide',
+      'how-much-drywall-for-a-room',
+    ],
+    sections: [
+      {
+        heading: 'What finish levels mean',
+        paragraphs: [
+          'Gypsum Association levels describe how much joint compound and sanding a surface gets before decoration. Level 0 is hung board only; Level 5 is skim-coated for the flattest paint-ready surface.',
+          'Most residential bedrooms and living rooms finish at Level 4 — taped seams, three coats on joints, screws coated, sanded, primer. Garages and concealed areas may stop at Level 3.',
+        ],
+        bullets: [
+          'Level 3: tape + two coats — texture or tile backer',
+          'Level 4: three coats, sanded — flat or light texture paint',
+          'Level 5: Level 4 + skim coat — gloss, semi-gloss, critical light',
+          'Level 0–2: commercial/concealed — not typical DIY living space',
+        ],
+      },
+      {
+        heading: 'Choosing the right level for each room',
+        paragraphs: [
+          'Level 4 fits walls with eggshell or matte paint and some natural shadow. Bathrooms and kitchens with semi-gloss on walls benefit from Level 5 or very careful Level 4 plus high-build primer — gloss reveals every seam telegraph.',
+          'Ceilings with recessed cans create raking light that shows imperfections — consider Level 5 on main ceiling planes or use flat paint after meticulous Level 4 sanding.',
+        ],
+      },
+      {
+        heading: 'Impact on compound and labor',
+        paragraphs: [
+          'Level 5 adds a thin skim coat over the entire surface — often one extra 5-gallon bucket per 400–600 sq ft of wall/ceiling depending on technique (roll skim vs trowel).',
+          'Budget mud and sand time when estimating the job. Sheet count from our [drywall calculator](/drywall-calculator) drives compound estimates — see [screws and compound guide](/guides/estimating-drywall-screws-and-compound) for Level 4 baselines, then add skim material for Level 5 rooms.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is Level 4 enough for most homes?',
+        answer:
+          'Yes for standard matte or eggshell walls in bedrooms, halls, and living rooms with normal lighting. Upgrade visible ceilings and gloss-painted areas to Level 5.',
+      },
+      {
+        question: 'What is a Level 5 skim coat?',
+        answer:
+          'A thin all-over coat of joint compound (or dedicated skim product) applied after Level 4 is sanded — eliminates porosity difference between seams and field so paint sheen looks uniform.',
+      },
+      {
+        question: 'Do I need Level 5 before tile?',
+        answer:
+          'No — tile sets on Level 3 or better substrate. Finish level matters most for painted gypsum surfaces.',
+      },
+    ],
+  },
+  {
+    slug: 'drywall-around-windows-and-doors',
+    category: 'installation',
+    title: 'Drywall Around Windows & Doors — Gaps, Reveals & Cuts',
+    description:
+      'Hang drywall at rough openings: reveal gaps for trim, cut accuracy, screw placement near jambs, and ordering extra sheet waste for window-heavy walls.',
+    readMinutes: 9,
+    toolPath: '/drywall-calculator',
+    toolLabel: 'Drywall calculator',
+    relatedGuideSlugs: [
+      'how-to-hang-drywall-step-by-step',
+      'how-much-drywall-for-a-room',
+      'drywall-screw-spacing-and-pattern',
+    ],
+    sections: [
+      {
+        heading: 'Reveal gap at openings',
+        paragraphs: [
+          'Leave a consistent 1/8–1/4 inch gap between drywall edge and door/window jamb or framing — not tight to the buck. Trim casings cover the gap; tight fits crack when framing shrinks.',
+          'At rough sills, stop drywall above the sill plate or notch around built-in bucks per your window manufacturer detail. Caulk paint-grade gaps after trim — do not mud against window flanges.',
+        ],
+      },
+      {
+        heading: 'Cutting and hanging order',
+        paragraphs: [
+          'Measure each opening; subtract twice your reveal from the stud-to-stud cut size. Use a rotary cutout tool for precision or score-and-snap with a jigsaw finish at corners.',
+          'Hang top sheets first on walls with headers — fewer butt joints at lintels. Screw within 8 inches of openings but avoid blowing out fragile corner beads on metal bucks.',
+        ],
+        bullets: [
+          'Mark openings from floor with laser or story pole',
+          'Pre-cut window holes slightly small — rasp to fit',
+          'Back-block oversized window returns if needed',
+          'Use paper tape on stress corners near tall windows',
+        ],
+      },
+      {
+        heading: 'Openings and your material estimate',
+        paragraphs: [
+          'Window-heavy walls generate more scrap — bump waste from 10% to 12–15% on rooms with four or more openings. Deductions in area math help sheet count, but cut loss around each opening still adds up.',
+          'List each room with opening count in our [drywall calculator](/drywall-calculator) and use custom deductions for large picture windows so you do not over-order full sheets.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How big should the gap be between drywall and door frame?',
+        answer:
+          'About 1/8 inch is typical — enough for minor movement, small enough for casing to cover. Consistency matters more than exact width.',
+      },
+      {
+        question: 'Do I hang drywall over window bucks?',
+        answer:
+          'Drywall stops at the rough opening edge unless your trim detail calls for returns. Never sandwich unsealed drywall against exterior window flanges — flash per window instructions.',
+      },
+      {
+        question: 'Should I deduct windows when calculating sheets?',
+        answer:
+          'Yes for large openings — each 3×4 window saves ~12 sq ft. Keep small deductions conservative; waste from cuts often balances tiny openings.',
+      },
+    ],
+  },
+  {
+    slug: 'garage-drywall-fire-separation',
+    category: 'materials',
+    title: 'Garage Drywall Fire Separation — Type X & Code Basics',
+    description:
+      'Fire-rated drywall between garage and house: 1/2 vs 5/8 Type X, which walls and ceilings need it, penetration rules, and sheet counts for attached garages.',
+    readMinutes: 10,
+    toolPath: '/drywall-calculator',
+    toolLabel: 'Drywall calculator',
+    relatedGuideSlugs: [
+      'half-inch-vs-five-eighth-drywall',
+      'how-much-drywall-for-a-room',
+      'drywall-for-basement-renovation',
+    ],
+    sections: [
+      {
+        heading: 'Where fire separation is required',
+        paragraphs: [
+          'Attached garages typically need gypsum separation on walls and ceilings shared with living space — commonly 1/2 inch Type X on garage side of house walls and ceiling under habitable rooms. Local code may require 5/8 inch on certain boundaries or fire-rated assemblies.',
+          'Check your jurisdiction — IRC and local amendments vary on garage-to-bedroom walls, breezeways, and detached garages with living space above. Permits often trigger inspection of labeled Type X board.',
+        ],
+        bullets: [
+          'House wall facing garage: Type X gypsum',
+          'Ceiling under finished room above garage: often 5/8 Type X',
+          'Doors to house: self-closing, solid wood or rated',
+          'Penetrations: fire caulk at boxes and pipes per code',
+        ],
+      },
+      {
+        heading: 'Type X vs regular drywall',
+        paragraphs: [
+          'Type X board has glass fibers and core additives for fire resistance — it is heavier and slightly harder to snap. It is not a substitute for a full rated assembly if code calls for a specific UL design.',
+          'Use Type X only where required — it costs more. Standard 1/2 inch is fine on exterior garage walls not shared with the house.',
+        ],
+      },
+      {
+        heading: 'Calculating garage separation sheets',
+        paragraphs: [
+          'Measure only separating surfaces — not all four garage walls if two are exterior cladding. A 22×24 ft two-car garage sharing one 24-ft house wall and 22-ft ceiling band under a bedroom might need 15–20 sheets of Type X depending on height and door openings.',
+          'Enter separating walls and ceiling as separate calculator rooms in our [drywall calculator](/drywall-calculator). Label Type X on your order — suppliers stock it separately from standard board.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is 1/2 inch Type X enough for garage walls?',
+        answer:
+          'Often yes on garage-to-house walls in IRC jurisdictions — verify locally. Ceilings under living space frequently require 5/8 inch Type X.',
+      },
+      {
+        question: 'Do I need fire tape or special mud?',
+        answer:
+          'Standard taping materials work. Fire stopping is about board type, penetration sealant, and door requirements — not special joint compound.',
+      },
+      {
+        question: 'What about garage attic access holes?',
+        answer:
+          'Maintain continuity of separation. Use rated attic hatches or build framed access details that preserve the fire boundary — ask your inspector before cutting.',
+      },
+    ],
+  },
+  {
+    slug: 'soundproof-drywall-basics',
+    category: 'materials',
+    title: 'Soundproof Drywall Basics — STC, Layers & When It Helps',
+    description:
+      'Reduce noise between rooms: mass, damping, decoupling, 5/8 board, double layers, Green Glue, and realistic expectations for DIY bedroom and home office walls.',
+    readMinutes: 10,
+    toolPath: '/drywall-calculator',
+    toolLabel: 'Drywall calculator',
+    relatedGuideSlugs: [
+      'half-inch-vs-five-eighth-drywall',
+      'how-much-drywall-for-a-room',
+      'drywall-for-basement-renovation',
+    ],
+    sections: [
+      {
+        heading: 'How drywall blocks sound',
+        paragraphs: [
+          'STC (Sound Transmission Class) rises with mass, damping, and decoupling. A single 1/2 inch wall might rate STC 33–38 — normal speech transfers. Adding mass (5/8 inch or double layer), damping compound between layers, or resilient channel decoupling improves results more than “soundproof” marketing alone.',
+          'Specialty boards ( laminated viscoelastic gypsum ) add damping in one product — effective but pricey. DIY often doubles 5/8 inch with Green Glue or similar between layers on one side of the wall.',
+        ],
+      },
+      {
+        heading: 'Practical upgrades for bedrooms and offices',
+        paragraphs: [
+          'Minimum meaningful upgrade: 5/8 inch Type X or standard on both sides, insulated cavity, caulk perimeter gaps, and airtight outlets. Better: staggered studs or resilient channel with double drywall on one side.',
+          'Ceilings need treatment too — sound flanks over plates and through joist bays. One heavy ceiling layer plus insulation helps home theaters under bedrooms.',
+        ],
+        bullets: [
+          'Insulate cavity — big STC gain for little cost',
+          'Seal electrical boxes and plate gaps with acoustic caulk',
+          'Double 5/8 with damping compound on one side',
+          'Solid core door and weatherstrip — weak link if wall is heavy',
+        ],
+      },
+      {
+        heading: 'Ordering extra material for double layers',
+        paragraphs: [
+          'Double-layer sound walls double gypsum on at least one side — multiply that side’s sheet count by two plus 10% waste. Damping tubes cover roughly 16 sq ft per tube depending on product — budget two tubes per 4×8 sheet pair.',
+          'Run base sheet math in our [drywall calculator](/drywall-calculator), then duplicate one-side sheets for the second layer. See [5/8 vs 1/2 guide](/guides/half-inch-vs-five-eighth-drywall) for weight and screw length changes.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Does soundproof drywall work by itself?',
+        answer:
+          'One specialty board helps modestly — STC gains of a few points. Best results combine mass, insulation, sealing, and often double layers or decoupling.',
+      },
+      {
+        question: 'What screw length for double 5/8 drywall?',
+        answer:
+          'Use 1-5/8 inch coarse screws into studs — long enough for both layers without punching through. First layer can use 1-1/4 inch if you stagger second layer screws.',
+      },
+      {
+        question: 'Is resilient channel worth it for DIY?',
+        answer:
+          'Yes on critical walls (bedroom under home theater) if you follow install details — short screws that do not bridge to studs. Skip on closets where STC 45 is enough with insulated double drywall.',
+      },
+    ],
+  },
+  {
+    slug: 'repairing-water-damaged-drywall',
+    category: 'repair',
+    title: 'Repairing Water-Damaged Drywall — Dry Out, Cut & Patch',
+    description:
+      'Fix wet drywall after leaks: when to dry vs replace, stain vs swell, mold checks, patch sizing, matching thickness, and finishing to blend with existing texture.',
+    readMinutes: 10,
+    toolPath: '/drywall-calculator',
+    toolLabel: 'Drywall calculator',
+    relatedGuideSlugs: [
+      'how-to-patch-drywall-holes',
+      'drywall-for-basement-renovation',
+      'half-inch-vs-five-eighth-drywall',
+    ],
+    sections: [
+      {
+        heading: 'Assess damage before patching',
+        paragraphs: [
+          'Stop the water source first. Surface stains on paint-only moisture may dry and repaint — if gypsum core is firm and not delaminated, seal stain with primer and touch up paint.',
+          'Replace board that is swollen, soft, crumbling, or moldy behind the face paper. Probe with a screwdriver — mushy core means cut back to solid gypsum and dry framing.',
+        ],
+        bullets: [
+          'Dry cavity with fans/dehumidifier before close-in',
+          'Cut square beyond all soft material',
+          'Treat framing with mold cleaner if growth present',
+          'Verify leak repair — new drywall fails if moisture returns',
+        ],
+      },
+      {
+        heading: 'Cut-out and patch steps',
+        paragraphs: [
+          'Mark a rectangle spanning studs; cut along center of studs so patch screws land on solid framing. Add backing if hole falls mid-bay. Hang matching thickness — 1/2 inch most common; garages may be 5/8.',
+          'Tape with paper on flat repairs; mesh only on small patches. Feather mud wider than usual (12–16 inches) to hide humps under existing orange peel or knockdown.',
+        ],
+      },
+      {
+        heading: 'Material for repairs',
+        paragraphs: [
+          'Small ceiling patches may need one sheet shared across several jobs — buy one 4×8 and cut studs accordingly. Match MR board in baths if the wet zone was MR.',
+          'For multi-room flood work, tally all cut-out areas and run our [drywall calculator](/drywall-calculator) with a custom small-room entry — add 15% waste on irregular cutouts. See [patching holes guide](/guides/how-to-patch-drywall-holes) for backer and tape detail on small openings.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can wet drywall dry out without replacing?',
+        answer:
+          'If only surface-wet and core stays hard, yes — dry thoroughly and prime. Once core swells or paper bubbles, replacement is required — it will not return to flat.',
+      },
+      {
+        question: 'How much to cut out around water damage?',
+        answer:
+          'Remove all soft gypsum plus 6–12 inches into firm board if staining suggests wicking. Better a larger patch now than a bubble later.',
+      },
+      {
+        question: 'Do I need mold-resistant board on repairs?',
+        answer:
+          'Use purple or green MR board in bathrooms and basements after verified dry framing. Standard board is fine on dry living-area walls once the leak is fixed.',
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {

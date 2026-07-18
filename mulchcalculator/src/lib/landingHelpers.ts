@@ -32,7 +32,7 @@ export function getGuidesForLanding(page: LandingPage): Guide[] {
       .filter((g): g is Guide => g !== undefined);
   }
   if (page.slug === 'playground-mulch-calculator') {
-    return ['mulch-depth-how-deep', 'how-much-mulch-do-i-need', 'rubber-mulch-vs-wood-mulch']
+    return ['playground-mulch-safety-standards', 'mulch-depth-how-deep', 'rubber-mulch-vs-wood-mulch']
       .map((slug) => getGuideBySlug(slug))
       .filter((g): g is Guide => g !== undefined);
   }

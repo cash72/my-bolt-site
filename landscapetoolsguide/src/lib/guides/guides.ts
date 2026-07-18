@@ -777,6 +777,173 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+{
+    slug: 'snow-removal-billing-software',
+    category: 'operations',
+    title: 'Snow Removal Billing Software: Per-Push, Seasonal & Event Invoicing',
+    description:
+      'How landscape and snow contractors automate per-push billing, seasonal contracts, salt logs, and QuickBooks sync — without double-entering every storm.',
+    readMinutes: 9,
+    relatedToolSlugs: ['lmn', 'aspire', 'service-autopilot', 'jobber'],
+    relatedGuideSlugs: ['recurring-billing-lawn-care-software', 'quickbooks-integration-landscape-software', 'how-to-choose-lawn-care-software'],
+    sections: [
+      {
+        heading: 'Snow billing models that break spreadsheets',
+        paragraphs: [
+          'Per-push, per-inch tiers, seasonal flat rates, and time-and-materials salt runs rarely fit one invoice template. Software should trigger billing from completed visits — not a Sunday night CSV export after every storm.',
+          'Hybrid shops running summer maintenance and winter snow need separate contract types in one customer record. See [recurring billing for lawn care](/guides/recurring-billing-lawn-care-software) for shared autopay patterns that carry into snow season.',
+        ],
+        bullets: [
+          'Per-push auto-invoice on job complete',
+          'Seasonal contract with included pushes + overage rates',
+          'Multi-property commercial with site-specific pricing',
+          'Salt/material pass-through line items',
+        ],
+      },
+      {
+        heading: 'Platform fit for snow-heavy contractors',
+        paragraphs: [
+          '[LMN](/tools/lmn) and [Aspire](/tools/aspire) handle commercial snow with division-level reporting — strong when plow and landscape share one P&L. [Service Autopilot](/tools/service-autopilot) automates high-volume residential per-push billing.',
+          '[Jobber](/tools/jobber) works for smaller mixed shops if you configure visit-based invoicing and storm-day dispatch — verify per-event billing in a live trial before peak season.',
+        ],
+      },
+      {
+        heading: 'Storm-day workflow and QuickBooks',
+        paragraphs: [
+          'Crew completes push in mobile app → GPS timestamp and photos attach → invoice rules fire by contract type → deposit syncs to QuickBooks overnight. Breaks happen when snow visits are logged but billing rules still reference summer mowing cycles.',
+          'Test one fake storm in November: dispatch, complete, invoice, payment, QBO deposit. Full sync checklist in [QuickBooks integration for landscape companies](/guides/quickbooks-integration-landscape-software).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can Jobber handle snow removal billing?',
+        answer:
+          'Yes for per-visit and seasonal contracts at smaller scale. Commercial multi-site snow with complex tiers often needs LMN or Aspire.',
+      },
+      {
+        question: 'How do I bill per-inch snowfall automatically?',
+        answer:
+          'Few platforms measure inches automatically — most owners select tier in office or crew picks tier in app after service. Define tiers in contract templates before first storm.',
+      },
+      {
+        question: 'Should snow and mowing use separate software?',
+        answer:
+          'One system is ideal if billing models coexist cleanly. Dual systems create double entry unless divisions are truly separate entities.',
+      },
+    ],
+  },
+  {
+    slug: 'job-costing-landscape-install-projects',
+    category: 'operations',
+    title: 'Job Costing for Landscape Install Projects',
+    description:
+      'Track budget vs actual on patios, plantings, and hardscape — labor, materials, subs, and when maintenance-first software stops answering “did we make money?”',
+    readMinutes: 10,
+    relatedToolSlugs: ['lmn', 'singleops', 'aspire'],
+    relatedGuideSlugs: ['design-build-estimating-software-landscape', 'when-to-upgrade-to-lmn', 'quickbooks-integration-landscape-software'],
+    sections: [
+      {
+        heading: 'Why job costing matters on install work',
+        paragraphs: [
+          'Maintenance profit is route density. Install profit is estimate accuracy — labor overruns, material waste, and missed sub costs erode margin one job at a time. If you cannot see budget vs actual until month-end QuickBooks, you are flying blind on active jobs.',
+          'Start with structured estimates — [design-build estimating software](/guides/design-build-estimating-software-landscape) — then carry the same budget into field time and purchasing.',
+        ],
+        bullets: [
+          'Labor hours budgeted vs crew time clocked',
+          'Materials estimated vs vendor invoices received',
+          'Subcontractor PO vs actual bill',
+          'Change orders tracked against original margin',
+        ],
+      },
+      {
+        heading: 'Software that closes the loop',
+        paragraphs: [
+          '[LMN](/tools/lmn) is the reference for landscape job costing — estimate templates become job budgets, foreman time feeds earned revenue. [SingleOps](/tools/singleops) offers strong proposal-to-job tracking for mid-size design-build.',
+          '[Aspire](/tools/aspire) scales job costing across branches. Maintenance tools like Jobber handle basic line-item quotes but rarely answer WIP questions — see [when to upgrade to LMN](/guides/when-to-upgrade-to-lmn).',
+        ],
+      },
+      {
+        heading: 'Weekly job review habit',
+        paragraphs: [
+          'Every Friday: open active install jobs, compare % complete to % budget consumed. Flag jobs over 110% on labor before closeout surprises. Sync earned revenue to QuickBooks via [QuickBooks integration](/guides/quickbooks-integration-landscape-software) so your CPA sees WIP, not just cash deposits.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I job cost in spreadsheets?',
+        answer:
+          'Works under ~10 concurrent installs if someone updates daily. Past that, stale spreadsheets hide overruns until the job is unprofitable and closed.',
+      },
+      {
+        question: 'When is LMN worth it for job costing alone?',
+        answer:
+          'When average install tickets exceed $5,000 and you track labor, materials, and subs separately. One underbid patio often costs more than a year of software.',
+      },
+      {
+        question: 'Does job costing require foremen to clock time?',
+        answer:
+          'Yes — garbage in, garbage out. Mobile clock-in per job or phase is non-negotiable. Pair with [mobile apps for crew management](/guides/mobile-app-landscape-crew-management) rollout best practices.',
+      },
+    ],
+  },
+  {
+    slug: 'customer-portal-lawn-care-software',
+    category: 'buying-guide',
+    title: 'Customer Portals for Lawn Care & Landscape Companies',
+    description:
+      'What client portals should offer — pay invoices, approve quotes, request service, and view visit history — and which FSM platforms deliver without a custom website.',
+    readMinutes: 8,
+    relatedToolSlugs: ['jobber', 'housecall-pro', 'service-autopilot', 'lmn'],
+    relatedGuideSlugs: ['how-to-choose-lawn-care-software', 'recurring-billing-lawn-care-software', 'solo-landscaper-software-checklist'],
+    sections: [
+      {
+        heading: 'What clients actually use portals for',
+        paragraphs: [
+          'Residential clients want pay-by-link, card update, and service history — not a full project dashboard. Commercial clients may need PO entry, multi-site billing, and photo proof exports.',
+          'A good portal reduces “did you mow yesterday?” calls and speeds quote approvals. Tie portal payments to [recurring billing setup](/guides/recurring-billing-lawn-care-software) so autopay failures self-serve.',
+        ],
+        bullets: [
+          'View/pay open invoices and stored cards',
+          'Approve or decline quotes digitally',
+          'Request add-on service or report issue',
+          'Download visit photos and service dates',
+        ],
+      },
+      {
+        heading: 'Portal quality by platform',
+        paragraphs: [
+          '[Housecall Pro](/tools/housecall-pro) emphasizes consumer-friendly pay links and financing — strong for residential maintenance. [Jobber](/tools/jobber) offers clean client hubs with quote approval on mid tiers.',
+          '[Service Autopilot](/tools/service-autopilot) automates portal emails for high-volume routes. [LMN](/tools/lmn) portals skew toward commercial and design-build with document sharing — evaluate if residential UX matters more.',
+        ],
+      },
+      {
+        heading: 'Rollout without confusing existing clients',
+        paragraphs: [
+          'Email one clear announcement: new payment link, same services, optional password setup. Run portal-only autopay for new signups first; migrate legacy check payers slowly.',
+          'Solos launching portals for the first time should verify mobile UX on a client’s phone — see [solo landscaper software checklist](/guides/solo-landscaper-software-checklist). Score portal flows in your [software evaluation checklist](/guides/field-service-software-evaluation-checklist) demo script.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do lawn care clients use portals or just pay email links?',
+        answer:
+          'Most residential clients click pay links without logging in. Portals matter more for quote approval, service history, and commercial accounts with multiple authorized payers.',
+      },
+      {
+        question: 'Is a customer portal included or an add-on?',
+        answer:
+          'Varies by vendor and tier. Jobber and Housecall Pro include client hubs on common plans; confirm quote-approval and card-update features on your exact subscription before signing.',
+      },
+      {
+        question: 'Can I replace my website with a software portal?',
+        answer:
+          'Portals complement marketing sites — they are not SEO landing pages. Keep your public site for leads; use the portal for authenticated clients only.',
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {

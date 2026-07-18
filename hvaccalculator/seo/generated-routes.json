@@ -33,7 +33,10 @@
     "/guides/diy-mini-split-installation-basics",
     "/guides/common-mini-split-sizing-mistakes",
     "/guides/how-to-size-ac-for-open-floor-plan",
-    "/guides/mini-split-for-garage-workshop"
+    "/guides/mini-split-for-garage-workshop",
+    "/guides/window-ac-btu-sizing",
+    "/guides/heat-pump-vs-air-conditioner",
+    "/guides/portable-ac-vs-window-ac"
   ],
   "landingPaths": [
     "/btu-calculator",
@@ -65,6 +68,9 @@
     "/guides/diy-mini-split-installation-basics",
     "/guides/common-mini-split-sizing-mistakes",
     "/guides/how-to-size-ac-for-open-floor-plan",
-    "/guides/mini-split-for-garage-workshop"
+    "/guides/mini-split-for-garage-workshop",
+    "/guides/window-ac-btu-sizing",
+    "/guides/heat-pump-vs-air-conditioner",
+    "/guides/portable-ac-vs-window-ac"
   ]
 }

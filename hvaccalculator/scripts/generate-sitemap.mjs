@@ -49,6 +49,9 @@ const GUIDE_SLUGS = [
   'common-mini-split-sizing-mistakes',
   'how-to-size-ac-for-open-floor-plan',
   'mini-split-for-garage-workshop',
+  'window-ac-btu-sizing',
+  'heat-pump-vs-air-conditioner',
+  'portable-ac-vs-window-ac',
 ];
 
 function toSitemapLoc(routePath) {

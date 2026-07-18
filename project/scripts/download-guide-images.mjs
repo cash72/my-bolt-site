@@ -17,6 +17,11 @@ const GUIDE_PHOTOS = {
   'run-your-own-bitcoin-node': '6771549',
   'how-to-buy-bitcoin': '6771550',
   'stacking-sats-dca': '6771551',
+  'lightning-network-basics': '6771552',
+  'bitcoin-transaction-fees-explained': '8445345',
+  'bitcoin-wallet-types-compared': '8465441',
+  'how-to-send-bitcoin-first-time': '8439098',
+  'understanding-bitcoin-price-volatility': '730565',
 };
 
 const FALLBACK_POOL = [

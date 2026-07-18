@@ -711,6 +711,375 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+{
+    slug: 'fall-mulch-application-timing',
+    category: 'mulch',
+    title: 'Fall Mulch Application — Timing, Depth & Winter Prep',
+    description:
+      'When to mulch in fall, how late is too late, ideal depth before frost, protecting perennials and shrubs, and how autumn top-ups affect your cubic yard order.',
+    readMinutes: 9,
+    toolPath: '/mulch-calculator',
+    toolLabel: 'Mulch calculator',
+    relatedGuideSlugs: [
+      'spring-mulch-application-guide',
+      'mulch-depth-how-deep',
+      'how-much-mulch-do-i-need',
+    ],
+    sections: [
+      {
+        heading: 'Best window for fall mulching',
+        paragraphs: [
+          'Fall mulch goes down after a few light frosts but before the ground freezes hard — typically late September through November in temperate zones. Soil is still workable, weeds slow down, and plants enter dormancy.',
+          'Avoid heavy new mulch on warm wet soil in early fall — that can keep roots too moist and invite crown rot on perennials. Wait until top growth slows and you have pulled summer weeds.',
+        ],
+        bullets: [
+          'Northern zones: aim before consistent hard freeze',
+          'Mild climates: mulch after peak heat, before heavy rain season',
+          'New plantings: mulch same season as install once watered in',
+          'Skip dyed mulch on frozen ground — it will not knit until spring',
+        ],
+      },
+      {
+        heading: 'Fall depth and winter protection',
+        paragraphs: [
+          'A 2–3 inch refresh is enough for most beds going into winter. Do not exceed 4 inches total — deep piles against woody stems trap moisture and invite rodents to nest.',
+          'For marginally hardy plants, mulch insulates roots but does not replace proper hardiness zone selection. Pull mulch back from crowns in early spring so new growth is not delayed.',
+          'On slopes, fall is a good time to top up before winter washout. Shredded hardwood or pine fines interlock better than nuggets on grade.',
+        ],
+      },
+      {
+        heading: 'Calculating your fall order',
+        paragraphs: [
+          'Measure only the depth you need to restore — not full new-bed depth if 1–2 inches of mulch remains. Subtract existing depth from your 3-inch target before running numbers.',
+          'Fall projects often combine several beds after leaf cleanup. Use our [mulch calculator](/mulch-calculator) for cubic yards and bag counts, or see [how much mulch do I need](/guides/how-much-mulch-do-i-need) for manual math on irregular beds.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is fall or spring better for mulching?',
+        answer:
+          'Both work. Spring mulch supports weed suppression during active growth; fall mulch protects soil over winter and reduces heaving on shallow-rooted plants. Many gardeners do a light fall touch-up and a fuller spring refresh.',
+      },
+      {
+        question: 'Can I mulch over fallen leaves?',
+        answer:
+          'Shred leaves lightly into the bed or remove thick mats first. Whole wet leaves under mulch can mat and block air — rake or mow-in before spreading wood mulch.',
+      },
+      {
+        question: 'How much mulch for a fall top-up on 200 sq ft?',
+        answer:
+          'At 2 inches new depth: 200 × (2/12) = 33 cu ft ≈ 1.2 cubic yards. Add 10% waste and round up. That is roughly 17–18 standard 2 cu ft bags.',
+      },
+    ],
+  },
+  {
+    slug: 'mulch-for-vegetable-gardens',
+    category: 'mulch',
+    title: 'Mulch for Vegetable Gardens — Straw, Chips & Compost',
+    description:
+      'Best mulch types for vegetable beds and paths. Straw vs wood chips, nitrogen tie-up, slug risks, and how much to order for raised beds and row paths.',
+    readMinutes: 10,
+    toolPath: '/mulch-calculator',
+    toolLabel: 'Mulch calculator',
+    relatedGuideSlugs: [
+      'mulch-vs-bark-vs-compost',
+      'mulch-depth-how-deep',
+      'how-much-mulch-do-i-need',
+    ],
+    sections: [
+      {
+        heading: 'Mulch types that work in food gardens',
+        paragraphs: [
+          'Vegetable gardens favor fast-decomposing, weed-free materials: straw (not hay — hay carries weed seeds), shredded leaves, compost, and partially aged wood chips on paths only.',
+          'Avoid fresh wood mulch directly against young seedlings — as it breaks down at the soil line it can temporarily tie up nitrogen. Compost or straw around transplants is the safer default.',
+        ],
+        bullets: [
+          'Straw: paths and mature tomatoes/peppers — 2–3 inches',
+          'Compost mulch: rich beds, cool soil — 1–2 inches',
+          'Shredded leaves: free, excellent after partial composting',
+          'Wood chips: walkways between rows, not seed rows',
+        ],
+      },
+      {
+        heading: 'Where to mulch and where to skip',
+        paragraphs: [
+          'Mulch paths to keep mud off shoes and reduce compaction. Around established plants, keep mulch 2–3 inches from stems to limit slug hiding and stem rot.',
+          'Direct-seeded beds (carrots, lettuce) often stay unmulched until plants are 4–6 inches tall — then side-dress with thin straw. Raised beds drain fast; 2 inches is usually enough.',
+        ],
+      },
+      {
+        heading: 'Estimating volume for beds and paths',
+        paragraphs: [
+          'Treat each raised bed and path as a separate rectangle. A 4 ft × 8 ft bed at 2 inches depth needs about 5.3 cu ft — roughly four 2 cu ft bags.',
+          'Add path length × width for total project volume. Our [mulch calculator](/mulch-calculator) handles multiple areas; set depth to 2 inches for most vegetable applications.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is cedar mulch safe for vegetable gardens?',
+        answer:
+          'Aged cedar on paths is fine. Avoid thick fresh cedar against young vegetable roots — use straw or compost in planting zones instead.',
+      },
+      {
+        question: 'Does mulch attract slugs in vegetable beds?',
+        answer:
+          'Yes, especially in cool wet weather. Keep mulch thin near seedlings, use drier straw, and hand-pick or trap if slugs become a problem.',
+      },
+      {
+        question: 'How deep should mulch be on garden paths?',
+        answer:
+          '2–3 inches of straw or chips on firm soil. Refresh when bare patches appear — path mulch compacts faster than ornamental beds.',
+      },
+    ],
+  },
+  {
+    slug: 'calculating-mulch-for-tree-rings',
+    category: 'planning',
+    title: 'Calculating Mulch for Tree Rings — Area & Volume',
+    description:
+      'Measure tree ring area with inner and outer radius, convert to cubic yards, avoid volcano mulching, and worked examples for young trees and mature shade trees.',
+    readMinutes: 8,
+    toolPath: '/mulch-calculator',
+    toolLabel: 'Mulch calculator',
+    relatedGuideSlugs: [
+      'how-much-mulch-do-i-need',
+      'mulch-depth-how-deep',
+      'cubic-yards-mulch-explained',
+    ],
+    sections: [
+      {
+        heading: 'Tree ring area formula',
+        paragraphs: [
+          'A tree ring is an annulus — a circle with a hole. Area = π × (R² − r²), where R is outer radius and r is inner radius (keep mulch off the trunk).',
+          'Example: mulch from 1 ft from trunk to 5 ft from trunk. Outer R = 5 ft, inner r = 1 ft. Area = 3.14 × (25 − 1) = 75.4 sq ft. At 3 inches depth: 75.4 × 0.25 = 18.9 cu ft ≈ 0.7 cubic yards.',
+          'For quick estimates when the trunk zone is small, use π × R² if R is measured to the drip line — error is modest on large rings.',
+        ],
+      },
+      {
+        heading: 'Multiple trees and odd shapes',
+        paragraphs: [
+          'Calculate each ring separately, then add cubic yards for one delivery. Oval rings: use average radius or split into two half-ovals.',
+          'Grouped plantings under one canopy can be one large circle instead of individual rings — simpler math and a healthier root zone mulch blanket.',
+        ],
+        bullets: [
+          'Young tree: 3–4 ft outer radius is common',
+          'Mature shade tree: extend to drip line when feasible',
+          'Keep 3–6 inches bare around trunk flare',
+          'Flat 2–4 inch depth — never mounded against bark',
+        ],
+      },
+      {
+        heading: 'From square feet to bags or bulk',
+        paragraphs: [
+          'Divide cubic feet by 27 for yards; multiply yards by ~13.5 for standard 2 cu ft bags (half-bags do not exist — round up).',
+          'Three 6-ft-diameter rings at 3 inches total about 0.8 cubic yards — often cheaper as bags than a bulk minimum. Run all rings in our [mulch calculator](/mulch-calculator) with custom bed dimensions.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How big should a tree ring be?',
+        answer:
+          'At minimum, 3–4 ft radius on new trees. On mature trees, mulch to the drip line where practical — that mirrors where feeder roots absorb water and nutrients.',
+      },
+      {
+        question: 'How much mulch for a 8 ft diameter ring at 3 inches?',
+        answer:
+          'If mulching the full circle (64 sq ft): 64 × 0.25 = 16 cu ft ≈ 0.59 cu yd — about 8 bags. Subtract inner trunk zone if you leave bare soil at the base.',
+      },
+      {
+        question: 'Can I use the calculator for tree rings?',
+        answer:
+          'Yes — enter the outer length and width of a square that contains the ring, or use a circular bed entry if your calculator supports diameter. For precision on donut shapes, use the annulus formula above.',
+      },
+    ],
+  },
+  {
+    slug: 'colored-mulch-fade-and-refresh',
+    category: 'mulch',
+    title: 'Colored Mulch Fade & Refresh — When to Reapply',
+    description:
+      'Why dyed mulch fades, how long color lasts, refresh vs full replacement, stain risks on pavement, and volume for a cosmetic top-up layer.',
+    readMinutes: 8,
+    toolPath: '/mulch-calculator',
+    toolLabel: 'Mulch calculator',
+    relatedGuideSlugs: [
+      'rubber-mulch-vs-wood-mulch',
+      'spring-mulch-application-guide',
+      'delivery-vs-bags-bulk-mulch',
+    ],
+    sections: [
+      {
+        heading: 'Why colored mulch fades',
+        paragraphs: [
+          'Dyed mulch gets color from water-based iron oxide or carbon pigments applied to shredded bark or wood. UV light, rain, and microbial breakdown fade the surface color within 6–18 months — faster in sunny front yards, slower in shade.',
+          'Fade is cosmetic — the mulch still suppresses weeds and retains moisture. Fading does not mean the material failed; the top 1/2 inch weathers first while lower layers stay darker until you rake.',
+        ],
+      },
+      {
+        heading: 'Refresh strategy without over-mulching',
+        paragraphs: [
+          'Fluff existing mulch with a hard rake to expose fresher material underneath — often enough for back beds. For front curb appeal, add 1–2 inches of new dyed mulch to restore color.',
+          'Do not stack year after year without checking total depth. If mulch is already 4+ inches, remove old matted layers or skip a year before refreshing — deep mulch harms woody plants.',
+        ],
+        bullets: [
+          'Rake first — free color boost from turnover',
+          'Top-up: 1–2 inches max for fade refresh',
+          'Match dye batch when possible — reds and browns vary by supplier',
+          'Water lightly after spread to set dye dust',
+        ],
+      },
+      {
+        heading: 'Ordering the right amount for refresh',
+        paragraphs: [
+          'Refresh volume is smaller than initial install. A 150 sq ft front bed at 1.5 inches new depth needs 150 × 0.125 = 18.75 cu ft ≈ 0.7 cubic yards — about 9–10 bags.',
+          'Calculate refresh depth separately from total bed depth. Use our [mulch calculator](/mulch-calculator) with a 1–2 inch depth entry for cosmetic top-ups only.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How long does colored mulch stay red or black?',
+        answer:
+          'Expect noticeable fade in one season in full sun; 12–24 months before a 1–2 inch refresh looks best on display beds. Brown dyes often fade more gracefully than bright red.',
+      },
+      {
+        question: 'Does dyed mulch harm plants or soil?',
+        answer:
+          'Iron oxide and carbon-based dyes used by reputable suppliers are generally considered safe for landscape use. Avoid unknown cheap dyes near vegetable beds — use natural mulch in food gardens.',
+      },
+      {
+        question: 'Will fresh dyed mulch stain my driveway?',
+        answer:
+          'Yes, when wet. Keep piles on tarp, avoid spreading in rain, and rinse pavement promptly. Let mulch dry slightly after delivery if staining is a concern.',
+      },
+    ],
+  },
+  {
+    slug: 'landscape-fabric-under-mulch',
+    category: 'mulch',
+    title: 'Landscape Fabric Under Mulch — Pros, Cons & Install',
+    description:
+      'When landscape fabric helps, when to skip it, weed barrier vs wood mulch decomposition, proper install steps, and how fabric affects long-term bed maintenance.',
+    readMinutes: 9,
+    toolPath: '/mulch-calculator',
+    toolLabel: 'Mulch calculator',
+    relatedGuideSlugs: [
+      'edging-and-prepping-beds-before-mulch',
+      'mulch-depth-how-deep',
+      'spring-mulch-application-guide',
+    ],
+    sections: [
+      {
+        heading: 'When fabric makes sense',
+        paragraphs: [
+          'Non-woven geotextile fabric under stone or under mulch can slow persistent weeds on paths, commercial plantings, and beds converted from lawn. It is not a permanent weed cure — organic matter and wind-blown seeds accumulate on top.',
+          'Skip fabric in perennial borders where you divide and replant often. Roots and earthworms work best with direct soil contact; fabric creates a barrier that complicates planting and soil improvement.',
+        ],
+        bullets: [
+          'Good: stone paths, parking strips, severe weed pressure',
+          'Skip: vegetable gardens, active perennial beds',
+          'Use woven fabric under gravel; non-woven under mulch',
+          'Never use solid plastic — blocks air and water',
+        ],
+      },
+      {
+        heading: 'Installation steps',
+        paragraphs: [
+          'Remove weeds, smooth soil, and install edging first. Roll fabric shiny-side down (if marked), overlap seams 6–12 inches, and pin edges every few feet. Cut Xs for existing plants; slit lines for new rows.',
+          'Cover with 2–4 inches of mulch immediately — UV destroys exposed fabric in one season. Mulch hides fabric and holds it against wind.',
+        ],
+      },
+      {
+        heading: 'Fabric and your mulch depth estimate',
+        paragraphs: [
+          'Fabric does not change volume math — depth and area stay the same. You may need slightly more mulch the first year as fabric prevents some settling into soil.',
+          'Plan for future refresh without adding fabric layers — double layers trap debris and roots. Calculate top-up mulch with our [mulch calculator](/mulch-calculator) at normal 2–3 inch depth.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Does landscape fabric stop weeds completely?',
+        answer:
+          'No. Weeds can grow in mulch above the fabric and through cut holes. It reduces weed pressure from below — especially grass rhizomes — but maintenance is still required.',
+      },
+      {
+        question: 'Can I put new fabric over old mulch?',
+        answer:
+          'Not recommended. Remove or rake old mulch flat, pull weeds, then fabric and fresh mulch. Layering creates a soggy mat and makes planting impossible.',
+      },
+      {
+        question: 'How long does landscape fabric last under mulch?',
+        answer:
+          'Quality non-woven fabric often lasts 5–10 years under 3 inches of mulch before breakdown and weed breakthrough. Cheaper thin fabric fails sooner — invest in 3–4 oz weight for longevity.',
+      },
+    ],
+  },
+  {
+    slug: 'playground-mulch-safety-standards',
+    category: 'mulch',
+    title: 'Playground Mulch Safety — Depth, Materials & Standards',
+    description:
+      'ASTM mulch depth for fall height, engineered wood fiber vs rubber mulch, critical fall height tables, and how to calculate cubic yards for play areas.',
+    readMinutes: 10,
+    toolPath: '/mulch-calculator',
+    toolLabel: 'Mulch calculator',
+    relatedGuideSlugs: [
+      'rubber-mulch-vs-wood-mulch',
+      'mulch-depth-how-deep',
+      'how-much-mulch-do-i-need',
+    ],
+    sections: [
+      {
+        heading: 'Critical fall height and depth',
+        paragraphs: [
+          'Playground surfacing is sized to equipment fall height — the highest designated play surface to the protective ground cover. Engineered wood fiber (EWF) and rubber mulch are tested to ASTM F1292 and F2075 standards when labeled for playground use.',
+          'Depth is much deeper than landscape beds. A 8-ft fall height may require 9–12 inches of compacted EWF or 6 inches of rubber mulch — check the manufacturer certificate for your product. Landscape bark at 3 inches is not playground-safe.',
+        ],
+        bullets: [
+          'Measure fall height from highest walkable surface',
+          'Use only certified playground surfacing products',
+          'Install to compacted depth, not fluffy pile height',
+          'Extend surfacing zone per equipment footprint guidelines',
+        ],
+      },
+      {
+        heading: 'Material choices for residential playsets',
+        paragraphs: [
+          'Engineered wood fiber knits when compacted and is economical for large zones. Rubber mulch lasts longer, needs less depth, and drains well but costs more per cubic yard and gets hot in direct sun.',
+          'Pea gravel and landscape mulch are poor impact surfaces — avoid them under swings and climbing structures. Maintain borders so surfacing does not migrate into lawn.',
+        ],
+      },
+      {
+        heading: 'Volume math for play areas',
+        paragraphs: [
+          'Play zones are often rectangular fall zones under swings or full use zones around composite structures. Area × depth in feet = cubic feet ÷ 27 = cubic yards.',
+          'Example: 20 ft × 15 ft use zone at 9 inches (0.75 ft) depth = 300 × 0.75 = 225 cu ft ≈ 8.3 cubic yards before compaction allowance. Add 10–15% for settle and rake maintenance.',
+          'Run your fall zone dimensions through our [mulch calculator](/mulch-calculator) — enter depth in inches per manufacturer spec, not standard 3-inch landscape depth.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How deep should mulch be under a swing set?',
+        answer:
+          'Depends on fall height and product certification — often 9–12 inches of engineered wood fiber for residential sets with 8–10 ft platforms. Read the surfacing chart shipped with your playset or mulch supplier.',
+      },
+      {
+        question: 'Is rubber mulch safer than wood for playgrounds?',
+        answer:
+          'Both can meet standards when certified and installed to required depth. Rubber needs less depth and lasts longer; EWF is cooler under bare feet and lower cost but needs periodic rake and top-up.',
+      },
+      {
+        question: 'How often should playground mulch be topped up?',
+        answer:
+          'Rake monthly in high-use areas; top up 1–2 times per year as compaction and displacement occur under swings and slide exits. Re-check depth with a probe after heavy use seasons.',
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {

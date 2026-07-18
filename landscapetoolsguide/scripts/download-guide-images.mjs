@@ -21,6 +21,9 @@ const GUIDE_PHOTOS = {
   'solo-landscaper-software-checklist': '1179225',
   'migrating-landscape-business-software': '1179229',
   'field-service-software-evaluation-checklist': '1179228',
+  'snow-removal-billing-software': '1179223',
+  'job-costing-landscape-install-projects': '376464',
+  'customer-portal-lawn-care-software': '4056535',
 };
 
 const FALLBACK_POOL = [

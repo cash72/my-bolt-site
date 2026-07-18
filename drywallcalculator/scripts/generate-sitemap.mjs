@@ -38,6 +38,12 @@ const GUIDE_SLUGS = [
   'how-to-patch-drywall-holes',
   'drywall-for-basement-renovation',
   'estimating-drywall-screws-and-compound',
+  'green-board-purple-board-bathrooms',
+  'drywall-finish-levels-explained',
+  'drywall-around-windows-and-doors',
+  'garage-drywall-fire-separation',
+  'soundproof-drywall-basics',
+  'repairing-water-damaged-drywall',
 ];
 
 function toSitemapLoc(routePath) {

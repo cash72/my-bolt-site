@@ -39,6 +39,12 @@ const GUIDE_SLUGS = [
   'rubber-mulch-vs-wood-mulch',
   'edging-and-prepping-beds-before-mulch',
   'delivery-vs-bags-bulk-mulch',
+  'fall-mulch-application-timing',
+  'mulch-for-vegetable-gardens',
+  'calculating-mulch-for-tree-rings',
+  'colored-mulch-fade-and-refresh',
+  'landscape-fabric-under-mulch',
+  'playground-mulch-safety-standards',
 ];
 
 function toSitemapLoc(routePath) {

@@ -1082,6 +1082,132 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: 'window-ac-btu-sizing',
+    category: 'sizing',
+    title: 'Window AC BTU Sizing — Room Dimensions & Plug-In Units',
+    description:
+      'How to size window and portable AC units by BTU, minimum unit sizes, and when a mini-split is worth the upgrade.',
+    readMinutes: 8,
+    toolPath: '/window-ac-calculator',
+    toolLabel: 'Window AC calculator',
+    relatedGuideSlugs: ['mini-split-vs-window-ac', 'btu-per-square-foot-explained'],
+    sections: [
+      {
+        heading: 'Window unit BTU basics',
+        paragraphs: [
+          'Retail window ACs sell in 5,000, 8,000, 10,000, 12,000, and 15,000+ BTU steps. Calculate load first — then buy the next size up, not down. A 150 sq ft bedroom often lands near 5,000–6,000 BTU calculated; retail minimum is often 8,000 BTU.',
+          'Oversizing window units cycles on/off without dehumidifying well — sticky feeling despite cold air. Right-sizing matters more in humid climates.',
+        ],
+      },
+      {
+        heading: 'When to skip window AC',
+        paragraphs: [
+          'Large open rooms, sunrooms, and additions with poor insulation may need 12,000+ BTU window units that are loud and block egress windows. Compare [mini-split vs window AC](/guides/mini-split-vs-window-ac) before buying the biggest box at the store.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What size window AC for a 12×12 room?',
+        answer:
+          'About 144 sq ft at 25 BTU/sq ft ≈ 3,600 BTU calculated — but retail units start at 5,000–8,000 BTU. An 8,000 BTU unit is common; ensure good insulation or it may short-cycle.',
+      },
+      {
+        question: 'Do window ACs heat too?',
+        answer:
+          'Some models include heat mode — lower capacity than dedicated heat. Cold-climate primary heat needs a different solution.',
+      },
+    ],
+  },
+  {
+    slug: 'heat-pump-vs-air-conditioner',
+    category: 'mini_split',
+    title: 'Heat Pump vs Air Conditioner — What Homeowners Should Know',
+    description:
+      'Cooling-only AC vs heat pumps that heat and cool. Efficiency labels, climate limits, and sizing overlap with mini-splits.',
+    readMinutes: 9,
+    toolPath: '/mini-split-calculator',
+    toolLabel: 'Mini-split calculator',
+    relatedGuideSlugs: ['seer-ratings-explained', 'mini-split-vs-window-ac'],
+    sections: [
+      {
+        heading: 'Same cooling math, different heating story',
+        paragraphs: [
+          'For cooling, heat pumps and AC units are sized by BTU removal load — our [BTU calculator](/btu-calculator) applies to both. Heat pumps add reverse operation for winter; efficiency drops as outdoor temperature falls.',
+          'Mini-splits are almost always heat pumps today — one outdoor unit heats and cools a zone.',
+        ],
+      },
+      {
+        heading: 'Climate and backup heat',
+        bullets: [
+          'Mild climates: heat pump often replaces furnace for moderate loads',
+          'Cold climates: auxiliary heat strips or furnace backup may run below ~20°F',
+          'Cooling-only window units: no heat — cheapest upfront, no winter value',
+          'HSPF and SEER: read both on heat pump labels',
+        ],
+        paragraphs: [
+          'See [SEER ratings explained](/guides/seer-ratings-explained) for efficiency shopping — higher SEER saves kWh over years, not first-season comfort.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is a mini-split a heat pump?',
+        answer:
+          'Most ductless mini-splits are heat pumps — they heat and cool. Confirm on the spec sheet before buying cooling-only listings.',
+      },
+      {
+        question: 'Do heat pumps work in cold winters?',
+        answer:
+          'Modern cold-climate models operate below 0°F with reduced output. Sizing must account for design heating load — not cooling BTU alone.',
+      },
+    ],
+  },
+  {
+    slug: 'portable-ac-vs-window-ac',
+    category: 'mini_split',
+    title: 'Portable AC vs Window AC — Noise, BTU & Efficiency',
+    description:
+      'Compare portable roll-around units to window AC for bedrooms, rentals, and HOA restrictions. Dual-hose vs single-hose efficiency.',
+    readMinutes: 8,
+    toolPath: '/room-ac-calculator',
+    toolLabel: 'Room AC calculator',
+    relatedGuideSlugs: ['window-ac-btu-sizing', 'mini-split-vs-window-ac'],
+    sections: [
+      {
+        heading: 'Efficiency and hose setup',
+        paragraphs: [
+          'Single-hose portable ACs pull conditioned air from the room to exhaust heat — they fight themselves and use more kWh per BTU. Dual-hose models separate intake and exhaust — better, still less efficient than window units.',
+          'Window units mount half inside, half outside — heat leaves directly. Same BTU rating, window units usually cool faster and cheaper to run.',
+        ],
+      },
+      {
+        heading: 'When portable still makes sense',
+        bullets: [
+          'Rental leases banning window brackets',
+          'HOA rules on visible window units',
+          'Temporary cooling one season in a home office',
+          'Rooms where drilling is impossible',
+        ],
+        paragraphs: [
+          'Size portables with the same room BTU math — then expect to buy a higher nominal BTU than a window unit for the same room.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Are portable ACs louder?',
+        answer:
+          'Usually yes — the compressor sits in the room. Window units put compressor mass outside the living space.',
+      },
+      {
+        question: 'Do I need to empty water from portable ACs?',
+        answer:
+          'Humidity condenses into a tank or drains via hose depending on model. High-humidity days mean more maintenance than window units.',
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {

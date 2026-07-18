@@ -21,6 +21,12 @@ const GUIDE_PHOTOS = {
   'how-to-patch-drywall-holes': '376464',
   'drywall-for-basement-renovation': '280222',
   'estimating-drywall-screws-and-compound': '271743',
+  'green-board-purple-board-bathrooms': '3760263',
+  'drywall-finish-levels-explained': '6802045',
+  'drywall-around-windows-and-doors': '8293774',
+  'garage-drywall-fire-separation': '3990359',
+  'soundproof-drywall-basics': '8866770',
+  'repairing-water-damaged-drywall': '4239123',
 };
 
 const FALLBACK_POOL = [
