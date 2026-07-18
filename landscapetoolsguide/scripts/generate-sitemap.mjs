@@ -55,6 +55,9 @@ const GUIDE_SLUGS = [
   'solo-landscaper-software-checklist',
   'migrating-landscape-business-software',
   'field-service-software-evaluation-checklist',
+  'snow-removal-billing-software',
+  'job-costing-landscape-install-projects',
+  'customer-portal-lawn-care-software',
 ];
 
 function toSitemapLoc(routePath) {

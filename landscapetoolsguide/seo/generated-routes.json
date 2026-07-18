@@ -36,7 +36,10 @@
     "/guides/lawn-treatment-chemical-tracking",
     "/guides/solo-landscaper-software-checklist",
     "/guides/migrating-landscape-business-software",
-    "/guides/field-service-software-evaluation-checklist"
+    "/guides/field-service-software-evaluation-checklist",
+    "/guides/snow-removal-billing-software",
+    "/guides/job-costing-landscape-install-projects",
+    "/guides/customer-portal-lawn-care-software"
   ],
   "toolPaths": [
     "/tools/jobber",
@@ -75,6 +78,9 @@
     "/guides/lawn-treatment-chemical-tracking",
     "/guides/solo-landscaper-software-checklist",
     "/guides/migrating-landscape-business-software",
-    "/guides/field-service-software-evaluation-checklist"
+    "/guides/field-service-software-evaluation-checklist",
+    "/guides/snow-removal-billing-software",
+    "/guides/job-costing-landscape-install-projects",
+    "/guides/customer-portal-lawn-care-software"
   ]
 }
