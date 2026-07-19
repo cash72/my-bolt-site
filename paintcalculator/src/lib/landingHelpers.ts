@@ -36,7 +36,12 @@ export function getGuidesForLanding(page: LandingPage): Guide[] {
       .filter((g): g is Guide => g !== undefined);
   }
 
-  return ['how-much-paint-for-a-room', 'primer-before-painting', 'how-to-paint-a-room-step-by-step']
+  return [
+    'interior-painting-project-guide',
+    'identify-oil-vs-latex-paint-on-walls',
+    'how-to-choose-primer-interior-walls',
+    'how-to-paint-a-room-step-by-step',
+  ]
     .map((slug) => getGuideBySlug(slug))
     .filter((g): g is Guide => g !== undefined);
 }
@@ -73,9 +78,10 @@ export function getRelatedLandingPages(page: LandingPage, limit = 4): LandingPag
 }
 
 export const FEATURED_HOME_GUIDES = [
-  'primer-before-painting',
+  'interior-painting-project-guide',
+  'identify-oil-vs-latex-paint-on-walls',
+  'how-to-choose-primer-interior-walls',
   'how-to-paint-a-room-step-by-step',
-  'how-much-paint-for-a-room',
 ] as const;
 
 export function getFeaturedHomeGuides(): Guide[] {

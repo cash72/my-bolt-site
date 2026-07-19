@@ -26,6 +26,12 @@ const GUIDE_PHOTOS = {
   'how-much-fence-stain-do-i-need': '1571447',
   'deck-stain-coverage': '1571448',
   'exterior-stain-two-coats': '1571449',
+  'interior-painting-project-guide': '1571450',
+  'identify-oil-vs-latex-paint-on-walls': '1571451',
+  'how-to-choose-primer-interior-walls': '1571452',
+  'interior-painting-tools-and-supplies-list': '1571411',
+  'how-long-between-paint-coats': '1571432',
+  'painting-over-oil-based-paint': '1571435',
 };
 
 const FALLBACK_POOL = [

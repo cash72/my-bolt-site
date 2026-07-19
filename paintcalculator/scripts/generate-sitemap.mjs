@@ -52,6 +52,12 @@ const GUIDE_SLUGS = [
   'how-much-fence-stain-do-i-need',
   'deck-stain-coverage',
   'exterior-stain-two-coats',
+  'interior-painting-project-guide',
+  'identify-oil-vs-latex-paint-on-walls',
+  'how-to-choose-primer-interior-walls',
+  'interior-painting-tools-and-supplies-list',
+  'how-long-between-paint-coats',
+  'painting-over-oil-based-paint',
 ];
 
 function toSitemapLoc(routePath) {

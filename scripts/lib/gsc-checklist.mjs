@@ -63,6 +63,8 @@ export const P0_INDEX_BY_DIR = {
       { path: '/exterior-paint-calculator/', isNew: true },
       { path: '/ceiling-paint-calculator/', isNew: true },
       { path: '/paint-cost-estimator/', isNew: true },
+      { path: '/guides/interior-painting-project-guide/', isNew: true },
+      { path: '/guides/identify-oil-vs-latex-paint-on-walls/', isNew: true },
       { path: '/guides/how-much-paint-for-a-room/' },
     ],
   },

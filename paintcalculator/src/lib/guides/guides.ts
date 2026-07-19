@@ -73,7 +73,12 @@ export const GUIDES: Guide[] = [
     readMinutes: 8,
     toolPath: '/how-much-paint-do-i-need',
     toolLabel: 'Paint gallon calculator',
-    relatedGuideSlugs: ['primer-before-painting', 'how-much-paint-for-a-room', 'paint-coverage-per-gallon'],
+    relatedGuideSlugs: [
+      'how-long-between-paint-coats',
+      'primer-before-painting',
+      'how-much-paint-for-a-room',
+      'paint-coverage-per-gallon',
+    ],
     sections: [
       {
         heading: 'The default: two coats for walls',
@@ -224,10 +229,10 @@ export const GUIDES: Guide[] = [
     toolPath: '/how-much-paint-do-i-need',
     toolLabel: 'How much paint calculator',
     relatedGuideSlugs: [
+      'how-to-choose-primer-interior-walls',
+      'identify-oil-vs-latex-paint-on-walls',
       'how-to-prep-walls-for-painting',
-      'how-to-repair-walls-before-painting',
       'painting-over-dark-colors',
-      'how-many-coats-of-paint',
     ],
     sections: [
       {
@@ -449,8 +454,9 @@ export const GUIDES: Guide[] = [
     toolPath: '/how-much-paint-do-i-need',
     toolLabel: 'How much paint calculator',
     relatedGuideSlugs: [
+      'identify-oil-vs-latex-paint-on-walls',
       'how-to-repair-walls-before-painting',
-      'primer-before-painting',
+      'how-to-choose-primer-interior-walls',
       'how-to-paint-a-room-step-by-step',
     ],
     sections: [
@@ -528,9 +534,10 @@ export const GUIDES: Guide[] = [
     toolPath: '/how-much-paint-do-i-need',
     toolLabel: 'How much paint calculator',
     relatedGuideSlugs: [
+      'interior-painting-tools-and-supplies-list',
       'how-to-prep-walls-for-painting',
-      'interior-paint-sheen-guide',
-      'how-many-coats-of-paint',
+      'how-long-between-paint-coats',
+      'interior-painting-project-guide',
     ],
     sections: [
       {
@@ -1086,6 +1093,454 @@ export const GUIDES: Guide[] = [
         question: 'Paint vs stain on exterior — same calculator?',
         answer:
           'Our tool handles both paint and stain products. Enter the coverage from your can — stain values are usually lower than exterior paint.',
+      },
+    ],
+  },
+  {
+    slug: 'interior-painting-project-guide',
+    category: 'paint',
+    title: 'Interior Painting Project Guide — Room Redo Start to Finish',
+    description:
+      'Complete DIY roadmap for painting a room: assess oil vs latex, choose primer, prep walls, gather tools, cut in and roll, and time your coats. Links every step to free calculators.',
+    readMinutes: 12,
+    toolPath: '/how-much-paint-do-i-need',
+    toolLabel: 'How much paint calculator',
+    relatedGuideSlugs: [
+      'identify-oil-vs-latex-paint-on-walls',
+      'how-to-choose-primer-interior-walls',
+      'interior-painting-tools-and-supplies-list',
+      'how-to-paint-a-room-step-by-step',
+    ],
+    sections: [
+      {
+        heading: 'Why paint projects fail mid-way',
+        paragraphs: [
+          'Most DIY paint jobs go wrong before the roller hits the wall: wrong primer over oil, skipping prep, buying too little paint, or recoating while the first coat is still soft. This guide is your project map — each phase links to a deeper article and the [how much paint calculator](/how-much-paint-do-i-need) so you buy once.',
+          'Use this as a checklist. Jump to the phase that matches where you are today, then follow the next-step links at the end of each article.',
+        ],
+      },
+      {
+        heading: 'The 7-phase interior paint flow',
+        bullets: [
+          'Phase 1 — Estimate gallons: measure walls and run the [paint calculator](/how-much-paint-do-i-need)',
+          'Phase 2 — Identify what is on the wall: oil vs latex (alcohol wipe test)',
+          'Phase 3 — Choose primer: drywall, stain-block, bonding, or tinted',
+          'Phase 4 — Prep and repair: clean, patch, sand, tape',
+          'Phase 5 — Gather tools: rollers, brushes, trays, drop cloths',
+          'Phase 6 — Apply: cut in, roll, maintain a wet edge',
+          'Phase 7 — Recoat timing: hours between coats, when to stop for the night',
+        ],
+        paragraphs: [
+          'Phase 2 and 3 are the most searched — and the most skipped. If you paint latex over glossy oil without bonding primer, you get peeling in months. Start with [how to tell oil vs latex paint](/guides/identify-oil-vs-latex-paint-on-walls) before you buy finish paint.',
+        ],
+      },
+      {
+        heading: 'Phase-by-phase deep links',
+        bullets: [
+          'Estimate: [How much paint for a room](/guides/how-much-paint-for-a-room) · [Coverage per gallon](/guides/paint-coverage-per-gallon)',
+          'Identify: [Oil vs latex on walls](/guides/identify-oil-vs-latex-paint-on-walls) · [Painting over dark colors](/guides/painting-over-dark-colors)',
+          'Primer: [How to choose primer](/guides/how-to-choose-primer-interior-walls) · [Should I use primer?](/guides/primer-before-painting)',
+          'Prep: [Prep walls for painting](/guides/how-to-prep-walls-for-painting) · [Repair walls](/guides/how-to-repair-walls-before-painting)',
+          'Tools: [Painting tools and supplies list](/guides/interior-painting-tools-and-supplies-list)',
+          'Apply: [Paint a room step by step](/guides/how-to-paint-a-room-step-by-step) · [How many coats](/guides/how-many-coats-of-paint)',
+          'Timing: [How long between paint coats](/guides/how-long-between-paint-coats) · [Sheen guide](/guides/interior-paint-sheen-guide)',
+        ],
+        paragraphs: [
+          'Ceilings, exteriors, and wallpaper follow the same prep logic but different products — use the [ceiling paint calculator](/ceiling-paint-calculator) or [exterior paint calculator](/exterior-paint-calculator) when those surfaces are in scope.',
+        ],
+      },
+      {
+        heading: 'One-weekend room plan',
+        paragraphs: [
+          'Friday evening: test for oil paint, buy primer and tools, patch and sand small repairs. Saturday morning: clean, tape, prime. Saturday afternoon / Sunday: first finish coat. Sunday afternoon or Monday: second coat after full dry time from the can.',
+          'Cold or humid weather stretches dry times — see [how long between paint coats](/guides/how-long-between-paint-coats) before you schedule guests or furniture back into the room.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the correct order for painting a room?',
+        answer:
+          'Ceiling first (if painting), then walls, then trim and doors last. Prep and primer always come before finish paint. Estimate gallons before you shop so you buy matching batch numbers.',
+      },
+      {
+        question: 'Do I need primer on every paint job?',
+        answer:
+          'Not always — clean latex over latex in a similar color can skip primer. New drywall, oil paint, stains, patches, and dark-to-light color changes almost always need the right primer first.',
+      },
+      {
+        question: 'How do I calculate how much paint to buy?',
+        answer:
+          'Measure wall length × height for each wall, subtract large windows and doors, multiply by coats, divide by coverage on the can (often ~350–400 sq ft/gallon). Our free calculator does the math for you.',
+      },
+    ],
+  },
+  {
+    slug: 'identify-oil-vs-latex-paint-on-walls',
+    category: 'prep',
+    title: 'How to Tell If Paint Is Oil or Latex — Quick Wall Tests',
+    description:
+      'Alcohol wipe test and other DIY methods to identify oil-based vs water-based paint before you prime or repaint. Avoid peeling by matching the right primer.',
+    readMinutes: 9,
+    toolPath: '/how-much-paint-do-i-need',
+    toolLabel: 'How much paint calculator',
+    relatedGuideSlugs: [
+      'how-to-choose-primer-interior-walls',
+      'primer-before-painting',
+      'painting-over-oil-based-paint',
+      'interior-painting-project-guide',
+    ],
+    sections: [
+      {
+        heading: 'Why this test matters before you buy paint',
+        paragraphs: [
+          'Latex (water-based) paint will not stick reliably over glossy oil-based enamel without sanding and a bonding primer. Oil over latex can also crack. Guessing wrong is the #1 cause of peeling DIY wall paint within a year.',
+          'Homes painted before the 1990s often still have oil enamel on trim, kitchens, and bathrooms. Newer rooms are usually latex — but landlords, flippers, and mystery coats mean you should always test.',
+        ],
+      },
+      {
+        heading: 'Alcohol wipe test (most reliable DIY method)',
+        bullets: [
+          'Clean a small area with mild soap and water; dry completely',
+          'Dip a cotton ball or cloth in rubbing alcohol (isopropyl 70%+)',
+          'Rub hard for 10–15 seconds on an inconspicuous spot',
+          'Latex / water-based: color transfers onto the cotton; film softens',
+          'Oil-based / alkyd: little or no color transfer; surface stays hard',
+        ],
+        paragraphs: [
+          'Test more than one wall if rooms were painted at different times. Trim and doors are often oil even when walls are latex — test both.',
+        ],
+      },
+      {
+        heading: 'Other clues (use with the wipe test)',
+        bullets: [
+          'Oil enamel: harder, glossier sheen that feels slick; yellows slightly with age',
+          'Latex: more flexible, chalks slightly when rubbed dry with a finger',
+          'Smell: oil solvents smell stronger when sanded; latex is milder',
+          'Sanding: oil dust feels finer and powdery; latex can gum a bit',
+        ],
+        paragraphs: [
+          'Clues alone are not enough — always confirm with alcohol before you skip bonding primer.',
+        ],
+      },
+      {
+        heading: 'What to do next based on the result',
+        paragraphs: [
+          'If the wipe test shows latex and walls are sound: clean, spot-prime patches, then finish paint. Follow [how to choose primer](/guides/how-to-choose-primer-interior-walls) only if you have stains, new drywall, or a big color change.',
+          'If the wipe test shows oil (or you are unsure): light sand (120–150 grit) to dull gloss, wipe dust, apply bonding primer, then latex finish. Full steps in [painting over oil-based paint](/guides/painting-over-oil-based-paint).',
+          'Still planning gallons? Run wall measurements through the [how much paint calculator](/how-much-paint-do-i-need) after you know coats and primer needs.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I paint latex over oil without primer?',
+        answer:
+          'Not safely on glossy oil. Dull the surface with sanding and use a bonding primer labeled for oil-to-latex conversions. Skipping this step is a common cause of peeling.',
+      },
+      {
+        question: 'Does the alcohol test work on ceilings and trim?',
+        answer:
+          'Yes. Test each surface type — ceilings are often flat latex while trim may be oil enamel in older homes.',
+      },
+      {
+        question: 'What if nothing transfers but the wall feels soft?',
+        answer:
+          'You may have a failing film or heavy dirt. Clean thoroughly and retest. If the coating remains soft or chalky after cleaning, scrape loose paint and prime with a bonding or chalk-sealing primer before finishing.',
+      },
+    ],
+  },
+  {
+    slug: 'how-to-choose-primer-interior-walls',
+    category: 'prep',
+    title: 'How to Choose Primer for Interior Walls — Decision Guide',
+    description:
+      'Pick the right interior primer: PVA for new drywall, stain-blocking for marks, bonding for oil and gloss, tinted for dark-to-light. Decision table for DIY painters.',
+    readMinutes: 10,
+    toolPath: '/how-much-paint-do-i-need',
+    toolLabel: 'How much paint calculator',
+    relatedGuideSlugs: [
+      'identify-oil-vs-latex-paint-on-walls',
+      'primer-before-painting',
+      'painting-over-dark-colors',
+      'interior-painting-tools-and-supplies-list',
+    ],
+    sections: [
+      {
+        heading: 'Primer picker — match the problem, not the brand',
+        paragraphs: [
+          'Primer is a tool with a job: seal porous drywall, block stains, stick to slick oil, or hide a dark color. Buying any white primer wastes money when you need stain-block or bonding chemistry.',
+          'First identify what is on the wall with the [oil vs latex test](/guides/identify-oil-vs-latex-paint-on-walls). Then use the table below.',
+        ],
+      },
+      {
+        heading: 'Which primer for which wall',
+        bullets: [
+          'New drywall / large mud patches → PVA or drywall primer (cheap, high coverage)',
+          'Water stains, smoke, nicotine, crayon → stain-blocking primer (shellac or labeled water-based stain blocker)',
+          'Glossy oil enamel or hard slick surfaces → bonding / adhesion primer after light sanding',
+          'Dark red, navy, black → light → tinted primer (gray or toward finish color)',
+          'Clean latex, similar color refresh → often skip primer; spot-prime patches only',
+          'Bare wood trim before wall paint → wood primer on trim; walls still get their own product',
+        ],
+        paragraphs: [
+          'More context on when to skip primer lives in [Should I use primer before painting?](/guides/primer-before-painting).',
+        ],
+      },
+      {
+        heading: 'How much primer to buy',
+        paragraphs: [
+          'Interior primers often cover 200–300 sq ft per gallon — less than finish paint. Count one full coat over every wall you will prime. Large color changes or porous new drywall may need a second primer coat.',
+          'Estimate finish paint separately in the [how much paint calculator](/how-much-paint-do-i-need). Add primer gallons as a second pass of the same wall area at ~250 sq ft/gallon if your can does not list coverage.',
+        ],
+      },
+      {
+        heading: 'Apply primer like finish paint',
+        bullets: [
+          'Stir thoroughly; do not thin unless the label allows',
+          'Cut in edges, then roll; keep a wet edge',
+          'Sand lightly with 220 grit if grain raises on drywall primer',
+          'Recheck stain bleed — second coat of stain-blocker if marks show through',
+          'Topcoat within the recoat window on the can (often same day for latex primers)',
+        ],
+        paragraphs: [
+          'Next: gather [tools and supplies](/guides/interior-painting-tools-and-supplies-list), then follow [how to paint a room step by step](/guides/how-to-paint-a-room-step-by-step).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is paint-and-primer-in-one enough?',
+        answer:
+          'On clean latex walls with a small color change, often yes. On new drywall, oil paint, heavy stains, or dramatic color shifts, use a dedicated primer first — paint-and-primer blends are not true stain blockers or bonding primers.',
+      },
+      {
+        question: 'Shellac vs water-based stain-blocking primer?',
+        answer:
+          'Shellac (alcohol-based) seals severe smoke and water stains best but has strong odor and cleanup with denatured alcohol. Water-based stain blockers are easier for most DIY rooms with light-to-moderate stains.',
+      },
+      {
+        question: 'Do I need tinted primer for dark walls?',
+        answer:
+          'Tinted primer (gray or toward your new light color) reduces the number of finish coats when going from dark to light. See our [painting over dark colors](/guides/painting-over-dark-colors) guide for coat planning.',
+      },
+    ],
+  },
+  {
+    slug: 'interior-painting-tools-and-supplies-list',
+    category: 'paint',
+    title: 'Interior Painting Tools and Supplies List — What You Actually Need',
+    description:
+      'DIY checklist of rollers, brushes, trays, tape, drop cloths, and prep tools for painting a room — what to buy, what to skip, and how to match nap to wall texture.',
+    readMinutes: 9,
+    toolPath: '/how-much-paint-do-i-need',
+    toolLabel: 'How much paint calculator',
+    relatedGuideSlugs: [
+      'how-to-paint-a-room-step-by-step',
+      'how-to-prep-walls-for-painting',
+      'how-to-choose-primer-interior-walls',
+      'interior-painting-project-guide',
+    ],
+    sections: [
+      {
+        heading: 'Buy once, paint better',
+        paragraphs: [
+          'Cheap foam brushes and overloaded trays cause drips and texture. A short, solid kit costs less than a wasted gallon of finish paint. Use this list before you shop — then calculate gallons with the [paint calculator](/how-much-paint-do-i-need).',
+        ],
+      },
+      {
+        heading: 'Must-have painting tools',
+        bullets: [
+          '9-inch roller frame + quality covers (3/8" nap for smooth walls; 1/2–3/4" for light texture)',
+          '2–2.5 inch angled sash brush for cutting in (buy one good brush, not three cheap ones)',
+          'Paint tray + liners (or a 5-gallon bucket with roller screen for larger rooms)',
+          'Extension pole for walls and ceilings',
+          'Painter’s tape (blue or green) + plastic or canvas drop cloths',
+          'Putty knife, sandpaper (120–220), caulk for trim gaps',
+          'Screwdriver for outlet covers; ladder or sturdy step stool',
+        ],
+        paragraphs: [
+          'Optional but worth it: paint edger for ceilings, microfiber cloths, TSP substitute for cleaning, and a roller spinner for cleanup.',
+        ],
+      },
+      {
+        heading: 'Match roller nap to the surface',
+        bullets: [
+          'Smooth drywall / light orange peel → 3/8 inch nap',
+          'Medium texture / popcorn touch-ups → 1/2 to 3/4 inch',
+          'Ceilings → often same nap as walls; use a dedicated cover to avoid lint transfer',
+          'Trim → brush only, or mini foam rollers for flat door panels',
+        ],
+        paragraphs: [
+          'Worn covers leave fuzz in the film. Replace covers when they mat or shed — one spare cover per color is cheap insurance.',
+        ],
+      },
+      {
+        heading: 'Prep supplies before the paint aisle',
+        paragraphs: [
+          'Cleaning solution, patch compound, and primer are prep — buy them before finish paint so you are not stuck mid-project. See [how to prep walls for painting](/guides/how-to-prep-walls-for-painting) and [how to choose primer](/guides/how-to-choose-primer-interior-walls).',
+          'Ready to roll? Follow [how to paint a room step by step](/guides/how-to-paint-a-room-step-by-step) for cut-in and rolling technique.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What brush size for cutting in walls?',
+        answer:
+          'A 2 to 2.5 inch angled sash brush is the DIY standard for walls and ceilings. Larger brushes hold more paint but are harder to control along trim.',
+      },
+      {
+        question: 'Do I need an expensive roller frame?',
+        answer:
+          'A sturdy metal frame that locks the cover matters more than brand prestige. Spend on covers — they control texture and coverage.',
+      },
+      {
+        question: 'Canvas or plastic drop cloths?',
+        answer:
+          'Canvas stays put and absorbs drips on floors. Plastic is fine for furniture and for covering carpet when taped carefully — it can be slippery underfoot on hard floors.',
+      },
+    ],
+  },
+  {
+    slug: 'how-long-between-paint-coats',
+    category: 'paint',
+    title: 'How Long Between Paint Coats? Dry Time Guide for DIY',
+    description:
+      'Recoat times for latex and oil paint, how humidity and temperature change dry time, and when a second coat is safe — so you avoid peeling and lap marks.',
+    readMinutes: 8,
+    toolPath: '/how-much-paint-do-i-need',
+    toolLabel: 'How much paint calculator',
+    relatedGuideSlugs: [
+      'how-many-coats-of-paint',
+      'how-to-paint-a-room-step-by-step',
+      'interior-painting-project-guide',
+      'paint-coverage-per-gallon',
+    ],
+    sections: [
+      {
+        heading: 'Follow the can — then adjust for your room',
+        paragraphs: [
+          'Label recoat times assume ~70°F (21°C) and moderate humidity. Cold, damp basements and closed rooms with no airflow need more hours. Touch-dry is not recoat-ready — the film can still be soft underneath.',
+          'Typical latex interior: recoat in 2–4 hours; full cure in days. Oil / alkyd: often 8–24 hours between coats. Always prefer the longer wait if the wall feels cool or tacky.',
+        ],
+      },
+      {
+        heading: 'Signs the first coat is ready',
+        bullets: [
+          'No tack when you press a knuckle lightly in a corner',
+          'Sheen looks even (wet spots look glossier)',
+          'Label recoat window has passed for your temperature',
+          'If you sand lightly for dust nibs, dust is powdery — not gummy',
+        ],
+        paragraphs: [
+          'Recoating too soon can cause peeling, wrinkling, or dragging the first coat into the roller. Waiting overnight between coats is safer for beginners.',
+        ],
+      },
+      {
+        heading: 'Humidity, heat, and fans',
+        paragraphs: [
+          'High humidity slows evaporation — add hours, not minutes. A box fan in a doorway (not aimed hard at the wet wall) improves air exchange. Dehumidifiers help in basements.',
+          'Very hot, dry air can skin the surface too fast and leave lap marks — work smaller sections and keep a wet edge. See technique notes in [paint a room step by step](/guides/how-to-paint-a-room-step-by-step).',
+        ],
+      },
+      {
+        heading: 'How many coats vs how long between them',
+        paragraphs: [
+          'Most interior latex jobs need two finish coats for even color — especially color changes. Dark-to-light may need primer plus two finish coats. Plan gallons with [how many coats of paint](/guides/how-many-coats-of-paint) and the [coverage guide](/guides/paint-coverage-per-gallon).',
+          'Back to the full roadmap: [interior painting project guide](/guides/interior-painting-project-guide).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I paint a second coat after 1 hour?',
+        answer:
+          'Only if the label says so and conditions are ideal. Most latex needs 2–4 hours. If the film feels tacky, wait — rushing causes adhesion problems.',
+      },
+      {
+        question: 'How long before furniture can go back?',
+        answer:
+          'Light use after 24 hours for many latex paints; wait several days before sliding heavy furniture or hanging art that presses the wall. Full hardness can take up to 30 days.',
+      },
+      {
+        question: 'Do I wait longer between primer and paint?',
+        answer:
+          'Use the primer can’s topcoat time — often 1–2 hours for latex primers. Stain-blocking and oil primers may need longer. Sand lightly if the primer raised the grain on drywall.',
+      },
+    ],
+  },
+  {
+    slug: 'painting-over-oil-based-paint',
+    category: 'prep',
+    title: 'Painting Over Oil-Based Paint with Latex — Prep That Sticks',
+    description:
+      'How to repaint oil enamel walls and trim with latex: sanding, bonding primer, clean-up, and common peeling mistakes. Pair with the oil vs latex wall test.',
+    readMinutes: 9,
+    toolPath: '/how-much-paint-do-i-need',
+    toolLabel: 'How much paint calculator',
+    relatedGuideSlugs: [
+      'identify-oil-vs-latex-paint-on-walls',
+      'how-to-choose-primer-interior-walls',
+      'how-to-prep-walls-for-painting',
+      'primer-before-painting',
+    ],
+    sections: [
+      {
+        heading: 'Oil enamel under latex is a bonding problem',
+        paragraphs: [
+          'Oil-based (alkyd) paint cures to a hard, slick film. Water-based latex sits on top unless you dull the gloss and use a bonding primer. Skipping either step is why DIY kitchen and trim paint peels in sheets.',
+          'Confirm you actually have oil with the [alcohol wipe test](/guides/identify-oil-vs-latex-paint-on-walls) before you buy primer.',
+        ],
+      },
+      {
+        heading: 'Prep steps that make latex stick',
+        bullets: [
+          'Clean grease and soap film (TSP substitute) — especially kitchens and bathrooms',
+          'Sand to dull sheen (120–150 grit); you do not need to strip to bare wall',
+          'Vacuum and wipe dust with a damp microfiber cloth',
+          'Caulk trim gaps; spot-fill dents; sand patches smooth',
+          'Apply bonding primer labeled for glossy / oil surfaces — full coat, not spotty',
+          'Topcoat with quality latex after the primer recoat window',
+        ],
+        paragraphs: [
+          'Full room sequence: [prep walls](/guides/how-to-prep-walls-for-painting) → [choose primer](/guides/how-to-choose-primer-interior-walls) → [paint step by step](/guides/how-to-paint-a-room-step-by-step).',
+        ],
+      },
+      {
+        heading: 'Trim and doors vs wall fields',
+        paragraphs: [
+          'Trim is often oil while walls are latex. Paint walls and trim as separate systems: bond-prime oil trim, then finish with latex enamel or acrylic trim paint for durability.',
+          'Estimate wall gallons separately from trim — trim uses less area but more brush work. Wall totals still come from the [how much paint calculator](/how-much-paint-do-i-need).',
+        ],
+      },
+      {
+        heading: 'Mistakes that cause peeling',
+        bullets: [
+          'Latex straight over glossy oil with no sanding or bonding primer',
+          'Painting over chalky or peeling oil without scraping loose film first',
+          'Recoating primer or finish while still soft — see [recoat timing](/guides/how-long-between-paint-coats)',
+          'Heavy grease left on kitchen walls under primer',
+        ],
+        paragraphs: [
+          'If paint is already peeling, scrape to a firm edge, sand, prime bare spots with bonding primer, then finish. See also [how to fix peeling paint](/guides/how-to-fix-peeling-paint).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I use oil paint over latex?',
+        answer:
+          'Technically yes with proper prep, but most DIYers switch to latex for easier cleanup and lower VOCs. If you keep oil, follow the oil product’s label for priming and ventilation.',
+      },
+      {
+        question: 'Do I need to strip all the oil paint?',
+        answer:
+          'Usually no. Dull the surface, clean, and bond-prime. Strip only if the old film is failing everywhere or you need a bare substrate for another reason.',
+      },
+      {
+        question: 'What primer brand should I buy?',
+        answer:
+          'Buy any quality bonding primer that explicitly lists adhesion over glossy or oil-based coatings. Read the label for interior use and recoat times rather than chasing a brand name.',
       },
     ],
   },
