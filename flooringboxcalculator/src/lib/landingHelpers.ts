@@ -3,9 +3,10 @@ import type { Guide } from './guides/types';
 import { LANDING_PAGES, type LandingPage } from './landingPages';
 
 const DEFAULT_GUIDES = [
+  'diy-flooring-installation-roadmap',
   'how-to-measure-rooms-for-flooring',
-  'how-much-flooring-waste-to-buy',
-  'how-many-flooring-boxes-guide',
+  'laminate-flooring-tools-you-need',
+  'how-to-install-laminate-flooring-beginners',
 ];
 
 export function getGuidesForLanding(page: LandingPage): Guide[] {
@@ -54,9 +55,10 @@ export function getRelatedLandingPages(page: LandingPage, limit = 4): LandingPag
 }
 
 export const FEATURED_HOME_GUIDES = [
-  'how-many-flooring-boxes-guide',
-  'how-to-measure-rooms-for-flooring',
-  'how-much-flooring-waste-to-buy',
+  'diy-flooring-installation-roadmap',
+  'laminate-flooring-tools-you-need',
+  'first-row-laminate-flooring-layout',
+  'how-to-install-laminate-flooring-beginners',
 ] as const;
 
 export function getFeaturedHomeGuides(): Guide[] {

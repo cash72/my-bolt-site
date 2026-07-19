@@ -49,6 +49,12 @@ const GUIDE_SLUGS = [
   'large-format-tile-tips',
   'carpet-pad-guide',
   'how-to-choose-carpet-for-rooms',
+  'diy-flooring-installation-roadmap',
+  'laminate-flooring-tools-you-need',
+  'first-row-laminate-flooring-layout',
+  'stagger-pattern-laminate-planks',
+  'install-flooring-around-door-jambs',
+  'when-not-to-diy-flooring',
 ];
 
 function toSitemapLoc(routePath) {

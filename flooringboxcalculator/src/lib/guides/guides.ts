@@ -12,9 +12,10 @@ export const GUIDES: Guide[] = [
     toolPath: '/how-many-flooring-boxes',
     toolLabel: 'Flooring box calculator',
     relatedGuideSlugs: [
+      'diy-flooring-installation-roadmap',
       'how-much-flooring-waste-to-buy',
-      'how-to-prep-subfloor-before-installing-flooring',
       'how-many-flooring-boxes-guide',
+      'when-not-to-diy-flooring',
     ],
     sections: [
       {
@@ -75,8 +76,9 @@ export const GUIDES: Guide[] = [
     toolPath: '/laminate-flooring-calculator',
     toolLabel: 'Laminate calculator',
     relatedGuideSlugs: [
+      'diy-flooring-installation-roadmap',
       'do-i-need-underlay-for-laminate',
-      'tile-underlayment-membrane-guide',
+      'when-not-to-diy-flooring',
       'how-to-remove-old-flooring',
     ],
     sections: [
@@ -518,9 +520,10 @@ export const GUIDES: Guide[] = [
     toolPath: '/laminate-flooring-calculator',
     toolLabel: 'Laminate calculator',
     relatedGuideSlugs: [
-      'do-i-need-underlay-for-laminate',
-      'flooring-transition-strips-and-trim',
-      'flooring-acclimation-before-install',
+      'laminate-flooring-tools-you-need',
+      'first-row-laminate-flooring-layout',
+      'stagger-pattern-laminate-planks',
+      'install-flooring-around-door-jambs',
     ],
     sections: [
       {
@@ -968,6 +971,464 @@ export const GUIDES: Guide[] = [
         question: 'Patterned carpet and waste',
         answer:
           'Pattern match needs extra material — add 15% or more waste in the calculator and confirm roll width with the store.',
+      },
+    ],
+  },
+  {
+    slug: 'diy-flooring-installation-roadmap',
+    category: 'planning',
+    title: 'DIY Flooring Installation Roadmap — Room Redo Start to Finish',
+    description:
+      'Complete DIY flooring project map: choose material, measure boxes, remove old floor, prep subfloor, acclimate, underlay, install, and trim. Links every phase to free calculators and how-to guides.',
+    readMinutes: 12,
+    toolPath: '/how-many-flooring-boxes',
+    toolLabel: 'Flooring boxes calculator',
+    relatedGuideSlugs: [
+      'laminate-vs-tile-vs-carpet-comparison',
+      'how-to-measure-rooms-for-flooring',
+      'laminate-flooring-tools-you-need',
+      'how-to-install-laminate-flooring-beginners',
+    ],
+    sections: [
+      {
+        heading: 'Why flooring projects stall mid-room',
+        paragraphs: [
+          'DIY floors fail less from bad clicking technique and more from skipped planning: wrong box count, wavy first row, no expansion gap, or door jambs that were never undercut. This roadmap is your project checklist — each phase links deeper, and the [how many flooring boxes](/how-many-flooring-boxes) calculator keeps you from running out on the last row.',
+          'Jump to the phase that matches where you are. Laminate and vinyl plank share most install steps; tile and carpet branch off after subfloor prep.',
+        ],
+      },
+      {
+        heading: 'The 8-phase DIY flooring flow',
+        bullets: [
+          'Phase 1 — Choose material: laminate vs vinyl vs tile vs carpet',
+          'Phase 2 — Measure and order: square feet, waste %, boxes or yards',
+          'Phase 3 — Decide DIY vs pro: stairs, tile wet areas, uneven slabs',
+          'Phase 4 — Demo: remove old flooring and fasteners',
+          'Phase 5 — Prep: flatten subfloor, moisture check, underlay or membrane',
+          'Phase 6 — Acclimate floating floors; gather tools',
+          'Phase 7 — Install: first row, stagger, door jambs, last row',
+          'Phase 8 — Finish: transitions, baseboard or quarter round',
+        ],
+        paragraphs: [
+          'Phases 6–7 are where DIYers search mid-project. Deep dives: [tools list](/guides/laminate-flooring-tools-you-need), [first row layout](/guides/first-row-laminate-flooring-layout), [stagger pattern](/guides/stagger-pattern-laminate-planks), [door jambs](/guides/install-flooring-around-door-jambs).',
+        ],
+      },
+      {
+        heading: 'Phase-by-phase deep links',
+        bullets: [
+          'Choose: [Laminate vs tile vs carpet](/guides/laminate-vs-tile-vs-carpet-comparison) · [Laminate vs vinyl](/guides/laminate-vs-vinyl-plank-which-to-buy) · [Choose laminate](/guides/how-to-choose-laminate-flooring)',
+          'Measure: [Measure rooms](/guides/how-to-measure-rooms-for-flooring) · [Waste %](/guides/how-much-flooring-waste-to-buy) · [Boxes guide](/guides/how-many-flooring-boxes-guide)',
+          'DIY decision: [When not to DIY flooring](/guides/when-not-to-diy-flooring)',
+          'Demo / prep: [Remove old flooring](/guides/how-to-remove-old-flooring) · [Prep subfloor](/guides/how-to-prep-subfloor-before-installing-flooring)',
+          'Underlay: [Underlay for laminate](/guides/do-i-need-underlay-for-laminate) · [Acclimation](/guides/flooring-acclimation-before-install)',
+          'Install: [Laminate install beginners](/guides/how-to-install-laminate-flooring-beginners) · [Tools](/guides/laminate-flooring-tools-you-need) · [First row](/guides/first-row-laminate-flooring-layout)',
+          'Detail: [Stagger pattern](/guides/stagger-pattern-laminate-planks) · [Door jambs](/guides/install-flooring-around-door-jambs) · [Transitions](/guides/flooring-transition-strips-and-trim)',
+          'Tile branch: [Choose tile](/guides/how-to-choose-floor-tile) · [Prep for tile](/guides/how-to-prep-for-tile-floor) · [Tile calculator](/tile-flooring-calculator)',
+          'Carpet branch: [Choose carpet](/guides/how-to-choose-carpet-for-rooms) · [Carpet pad](/guides/carpet-pad-guide) · [Carpet calculator](/carpet-calculator)',
+        ],
+        paragraphs: [
+          'Material-specific calculators: [laminate](/laminate-flooring-calculator), [vinyl plank](/vinyl-plank-calculator), [tile](/tile-flooring-calculator), [carpet](/carpet-calculator).',
+        ],
+      },
+      {
+        heading: 'One-weekend floating floor plan',
+        paragraphs: [
+          'Thursday: measure, order boxes with waste, buy underlay and install kit. Friday: remove old floor and baseboard, patch subfloor, start acclimation. Saturday: underlay and first half of room. Sunday: finish rows, undercut door jambs, transitions, reinstall trim.',
+          'Cold or humid rooms need longer acclimation — see [flooring acclimation before install](/guides/flooring-acclimation-before-install) before you open cartons on install day.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the correct order for a DIY flooring project?',
+        answer:
+          'Choose product, measure and order, remove old flooring, prep and flatten the subfloor, acclimate (floating floors), install underlay, lay flooring with expansion gaps, then transitions and trim. Never nail trim into a floating floor.',
+      },
+      {
+        question: 'How much waste should I buy?',
+        answer:
+          'Most rooms need about 10% extra. Complex layouts, diagonals, and pattern-match tile or carpet need 15% or more. Use our waste and boxes calculators before checkout.',
+      },
+      {
+        question: 'Is laminate or vinyl easier for beginners?',
+        answer:
+          'Both click-lock floating floors are DIY-friendly. Waterproof vinyl (LVP) handles spills better in kitchens and baths. Compare options in our laminate vs vinyl guide, then size boxes with the matching calculator.',
+      },
+    ],
+  },
+  {
+    slug: 'laminate-flooring-tools-you-need',
+    category: 'laminate',
+    title: 'Laminate Flooring Tools You Need — DIY Install Kit Checklist',
+    description:
+      'Must-have tools for installing laminate or vinyl plank: pull bar, tapping block, spacers, saws, and underlay supplies. What to buy, rent, or skip.',
+    readMinutes: 9,
+    toolPath: '/laminate-flooring-calculator',
+    toolLabel: 'Laminate calculator',
+    relatedGuideSlugs: [
+      'how-to-install-laminate-flooring-beginners',
+      'first-row-laminate-flooring-layout',
+      'install-flooring-around-door-jambs',
+      'diy-flooring-installation-roadmap',
+    ],
+    sections: [
+      {
+        heading: 'Buy the kit once — finish the room',
+        paragraphs: [
+          'A cheap foam block and missing pull bar turn the last row into a fight. Spend on a proper floating-floor kit and one decent saw; it costs less than an extra box of planks wasted on bad cuts. Calculate boxes first with the [laminate calculator](/laminate-flooring-calculator).',
+        ],
+      },
+      {
+        heading: 'Must-have install tools',
+        bullets: [
+          'Pull bar + tapping block + rubber mallet (laminate / LVP install kit)',
+          'Spacers (or scrap blocks) for 1/4–3/8 inch expansion gap at walls',
+          'Tape measure, pencil, speed square',
+          'Utility knife and straightedge for underlay and scoring vinyl',
+          'Jigsaw or circular / table saw for crosscuts and rip cuts',
+          'Handsawn for undercutting door jambs (or oscillating multi-tool)',
+          'Knee pads, safety glasses, dust mask for cutting',
+        ],
+        paragraphs: [
+          'Optional: moisture meter for concrete, floor scraper for demo, crowbar for baseboard, shop vac for dust under underlay.',
+        ],
+      },
+      {
+        heading: 'Saws — what beginners actually use',
+        bullets: [
+          'Jigsaw: notches around vents and door casings; slower crosscuts',
+          'Circular saw or miter saw: fast square crosscuts on a workbench',
+          'Table saw: clean rip cuts for the last row width',
+          'Guillotine / laminate cutter: quiet crosscuts for LVP; check thickness rating',
+        ],
+        paragraphs: [
+          'Cut outdoors or in a garage when possible — laminate dust is fine and sticky. Support the plank fully so the locking edge does not chip.',
+        ],
+      },
+      {
+        heading: 'What you do not need',
+        bullets: [
+          'Glue for most click-lock floating floors (unless the manufacturer requires it)',
+          'Carpet pad or foam not rated for laminate / LVP',
+          'Nails through the floating floor into the subfloor',
+          'Cheap plastic spacers that crush — wood scraps work better',
+        ],
+        paragraphs: [
+          'Next: [first row layout](/guides/first-row-laminate-flooring-layout), then full [install steps](/guides/how-to-install-laminate-flooring-beginners). Undercut jambs with tips in [flooring around door jambs](/guides/install-flooring-around-door-jambs).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I install laminate with only a utility knife?',
+        answer:
+          'Some thin LVP scores and snaps; most laminate needs a saw for clean cuts. Plan on at least a jigsaw or circular saw for doorways and the last row.',
+      },
+      {
+        question: 'Is a tapping block required?',
+        answer:
+          'Yes for most click systems. Hitting the locking edge with a hammer alone damages the joint. Use the block between the mallet and the plank.',
+      },
+      {
+        question: 'Do I need a moisture meter?',
+        answer:
+          'Smart on concrete slabs and below-grade rooms. Excess moisture voids many warranties. Pair with the right underlay — see our underlay guide.',
+      },
+    ],
+  },
+  {
+    slug: 'first-row-laminate-flooring-layout',
+    category: 'laminate',
+    title: 'First Row Laminate Flooring Layout — Straight Start Guide',
+    description:
+      'How to start laminate or vinyl plank: which wall, tongue direction, expansion spacers, and checking square so the whole room stays straight.',
+    readMinutes: 9,
+    toolPath: '/laminate-flooring-calculator',
+    toolLabel: 'Laminate calculator',
+    relatedGuideSlugs: [
+      'stagger-pattern-laminate-planks',
+      'how-to-install-laminate-flooring-beginners',
+      'laminate-flooring-tools-you-need',
+      'do-i-need-underlay-for-laminate',
+    ],
+    sections: [
+      {
+        heading: 'The first row sets every row after it',
+        paragraphs: [
+          'A crooked first row shows up as tapered gaps at the far wall and broken locks mid-room. Take twenty extra minutes here — chalk line, spacers, and a dry fit — before you commit the second row.',
+          'Underlay should already be down and taped. Confirm expansion gap size on your carton (often 1/4–3/8 inch / 6–10 mm).',
+        ],
+      },
+      {
+        heading: 'Which wall to start against',
+        bullets: [
+          'Longest wall or the wall most visible from the main doorway',
+          'Run planks parallel to the main light from windows when possible',
+          'Match plank direction to adjacent rooms for continuous flow',
+          'Avoid starting on the most out-of-square wall without a chalk line',
+        ],
+        paragraphs: [
+          'If walls are out of square, snap a chalk line parallel to the starting wall and align the first row to the line — not the drywall. Trim the last row later to absorb the error.',
+        ],
+      },
+      {
+        heading: 'Tongue, groove, and spacers',
+        bullets: [
+          'Manufacturer diagrams win — usually tongue faces the wall or groove faces the room',
+          'Place spacers every 2–3 feet along the starting wall and at ends',
+          'Dry-fit 3–4 planks; check the face edge with a straightedge or laser',
+          'Cut the last plank of row 1 to leave the expansion gap at the end wall',
+          'Save the cut-off if it is longer than the minimum stagger for row 2',
+        ],
+        paragraphs: [
+          'Pull the first row tight as you go — a loose start multiplies. Use the tapping block lightly on the groove side per the install sheet.',
+        ],
+      },
+      {
+        heading: 'Before you start row two',
+        paragraphs: [
+          'Measure from the first-row face to the opposite wall in a few places. If the last row would be under ~2–3 inches wide, rip a few inches off the first row so the last row stays a workable width.',
+          'Next: [stagger pattern for laminate planks](/guides/stagger-pattern-laminate-planks), then keep going with the [beginner install guide](/guides/how-to-install-laminate-flooring-beginners). Still short on material? Recheck the [laminate calculator](/laminate-flooring-calculator).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Should the tongue face the wall?',
+        answer:
+          'Follow your product diagram. Many systems place the tongue toward the wall so you can angle the next row into the groove facing the room. Mixing this up makes locking painful.',
+      },
+      {
+        question: 'Can I start in the middle of the room?',
+        answer:
+          'Some pros do for very large spaces, but beginners should start at a wall with a straight chalk line. Mid-room starts need two working directions and more experience.',
+      },
+      {
+        question: 'What if the starting wall bows?',
+        answer:
+          'Use a chalk line for a straight first edge. You may need to scribe or rip the first row to follow a bowed wall while keeping the room-facing edge straight.',
+      },
+    ],
+  },
+  {
+    slug: 'stagger-pattern-laminate-planks',
+    category: 'laminate',
+    title: 'Stagger Pattern for Laminate Planks — Joint Rules That Hold',
+    description:
+      'How to stagger laminate and vinyl plank end joints: minimum offset, H-pattern to avoid, random look tips, and why short staggers fail.',
+    readMinutes: 8,
+    toolPath: '/laminate-flooring-calculator',
+    toolLabel: 'Laminate calculator',
+    relatedGuideSlugs: [
+      'first-row-laminate-flooring-layout',
+      'how-to-install-laminate-flooring-beginners',
+      'how-much-flooring-waste-to-buy',
+      'diy-flooring-installation-roadmap',
+    ],
+    sections: [
+      {
+        heading: 'Why stagger matters',
+        paragraphs: [
+          'End joints stacked in a ladder or H pattern look cheap and create weak rows that telegraph movement. A proper stagger spreads stress across the floor and reads like real wood.',
+          'Most makers require at least 6–12 inches (150–300 mm) between end joints on adjacent rows — check your carton. When in doubt, use 12 inches minimum.',
+        ],
+      },
+      {
+        heading: 'Simple stagger method for DIYers',
+        bullets: [
+          'Start row 1 with a full plank',
+          'Start row 2 with a plank cut to about 1/3 or 1/2 length (keep offcut ≥ minimum stagger)',
+          'Start row 3 with a different length than row 2 — avoid repeating every other row',
+          'Never let end joints line up on neighboring rows',
+          'Avoid H joints: end joints that form a column across three rows',
+        ],
+        paragraphs: [
+          'Randomize cut lengths as you go. Pull from multiple cartons if dye lots vary slightly — mix boxes for color blend as you stagger.',
+        ],
+      },
+      {
+        heading: 'Using offcuts without wasting boxes',
+        paragraphs: [
+          'The leftover from the end of a row often starts the next row if it meets the minimum length. Too short? Cut a fresh starter and save the scrap for closet cuts or under-appliance fill.',
+          'Heavy waste from bad stagger planning is why we recommend ~10% extra in the [waste guide](/guides/how-much-flooring-waste-to-buy) and [boxes calculator](/how-many-flooring-boxes).',
+        ],
+      },
+      {
+        heading: 'Visual checks every few rows',
+        bullets: [
+          'Step back — do end joints form a stair-step or a brick pattern? Adjust',
+          'Photo the floor from the doorway; patterns jump out on camera',
+          'Keep expansion spacers in until trim goes on',
+        ],
+        paragraphs: [
+          'Continue with [door jamb undercuts](/guides/install-flooring-around-door-jambs) when you reach openings. Full sequence: [install laminate for beginners](/guides/how-to-install-laminate-flooring-beginners).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the minimum stagger for laminate?',
+        answer:
+          'Follow the manufacturer — commonly 6 to 12 inches. Using less can void the warranty and weaken the floor. Twelve inches is a safe DIY default when the sheet is unclear.',
+      },
+      {
+        question: 'Should I use a repeating brick pattern?',
+        answer:
+          'A strict half-brick repeat can look artificial. Slightly random offsets (still above the minimum) look more like hardwood and hide manufacturing length variation.',
+      },
+      {
+        question: 'Do vinyl planks use the same stagger rules?',
+        answer:
+          'Yes for click-lock LVP/LVT. Some products specify larger minimums — read the insert. Waterproof vinyl still needs expansion gaps and proper stagger.',
+      },
+    ],
+  },
+  {
+    slug: 'install-flooring-around-door-jambs',
+    category: 'prep',
+    title: 'How to Install Flooring Around Door Jambs — Undercut Guide',
+    description:
+      'Undercut door casings so laminate or vinyl slides under for a clean finish. Tool setup, scrap-plank height trick, and transitions at doorways.',
+    readMinutes: 9,
+    toolPath: '/how-many-flooring-boxes',
+    toolLabel: 'Flooring boxes calculator',
+    relatedGuideSlugs: [
+      'how-to-install-laminate-flooring-beginners',
+      'flooring-transition-strips-and-trim',
+      'laminate-flooring-tools-you-need',
+      'first-row-laminate-flooring-layout',
+    ],
+    sections: [
+      {
+        heading: 'Slide under the jamb — do not caulk a gap',
+        paragraphs: [
+          'Leaving a chewed gap beside the door casing and filling it with caulk looks like a DIY tell. Pros undercut the jamb and casing so the plank slides underneath with a tight shadow line.',
+          'Do this before or as you reach each doorway — fighting a finished row into a square casing wastes planks.',
+        ],
+      },
+      {
+        heading: 'Undercut height trick',
+        bullets: [
+          'Lay a scrap of your flooring + underlay against the jamb',
+          'Rest a handsaw or oscillating tool flat on the scrap',
+          'Cut through casing and jamb stop until the scrap slides under',
+          'Vacuum dust; test-fit a plank before locking the row',
+          'Leave the expansion gap at the wall — the jamb covers the cut edge',
+        ],
+        paragraphs: [
+          'A fine-tooth handsaw on the scrap works in tight closets. An oscillating multi-tool is faster on oak casings. Protect the finished floor with cardboard when cutting above installed planks.',
+        ],
+      },
+      {
+        heading: 'Doorways between rooms',
+        paragraphs: [
+          'Where flooring meets a different height or material, plan a T-molding, reducer, or doorway threshold — see [transition strips and trim](/guides/flooring-transition-strips-and-trim). Undercut both sides if the same floating floor continues through.',
+          'Do not pinch a floating floor under a heavy door stop without the required gap. The floor must still expand.',
+        ],
+      },
+      {
+        heading: 'Notching vs undercutting',
+        bullets: [
+          'Undercut: preferred at casings — plank disappears under wood',
+          'Notch: around metal door frames or tile returns that cannot be cut',
+          'Mark notch with the plank in place; cut slightly oversized, then sneak up',
+          'Keep factory edges toward the room when you can',
+        ],
+        paragraphs: [
+          'Need tools? [Laminate tools checklist](/guides/laminate-flooring-tools-you-need). Still ordering? [Boxes calculator](/how-many-flooring-boxes).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Should I remove the door to undercut jambs?',
+        answer:
+          'Usually no. Lift the door off pins only if the swing blocks your saw. Most casing cuts happen with the door open or removed temporarily for the last few inches.',
+      },
+      {
+        question: 'What if I cut the jamb too high?',
+        answer:
+          'A slightly high cut still hides under casing. If you gouge the face of the casing, touch up stain/paint or add a thin shoe molding — better than a wide caulk joint at the floor.',
+      },
+      {
+        question: 'Do tile installs undercut jambs the same way?',
+        answer:
+          'Similar idea with a different stack height — use tile + thinset + underlayment thickness as your spacer under the saw. Many tile jobs also use case molding returns instead.',
+      },
+    ],
+  },
+  {
+    slug: 'when-not-to-diy-flooring',
+    category: 'planning',
+    title: 'When Not to DIY Flooring — Hire vs Install Yourself',
+    description:
+      'Honest DIY vs pro guide: stairs, large-format tile, wet slabs, radiant heat, and uneven subfloors. Still measure and price materials with free calculators.',
+    readMinutes: 9,
+    toolPath: '/how-many-flooring-boxes',
+    toolLabel: 'Flooring boxes calculator',
+    relatedGuideSlugs: [
+      'diy-flooring-installation-roadmap',
+      'how-to-prep-subfloor-before-installing-flooring',
+      'laminate-vs-tile-vs-carpet-comparison',
+      'how-to-install-laminate-flooring-beginners',
+    ],
+    sections: [
+      {
+        heading: 'DIY wins on simple floating floors',
+        paragraphs: [
+          'Click-lock laminate or rigid vinyl in a rectangular room on a flat, dry subfloor is a classic weekend DIY. You will spend more time on prep and cuts than on clicking planks together.',
+          'Use the [DIY flooring roadmap](/guides/diy-flooring-installation-roadmap) and [boxes calculator](/how-many-flooring-boxes) even if you hire install — knowing quantities keeps bids honest.',
+        ],
+      },
+      {
+        heading: 'Strong reasons to hire a pro',
+        bullets: [
+          'Stairs and landings — stretch carpet or stair noses done wrong are unsafe',
+          'Large-format tile or shower floors — lippage and waterproofing skill',
+          'Slabs with moisture issues or failing adhesive from old vinyl',
+          'Radiant heat systems with strict manufacturer rules',
+          'Out-of-level floors needing grinding, sistering, or sister joists',
+          'Heritage wide-plank hardwood nail-down or glue-down',
+        ],
+        paragraphs: [
+          'If the subfloor fails a straightedge or moisture test, fix structure first — see [prep subfloor](/guides/how-to-prep-subfloor-before-installing-flooring). Installing pretty plank over a bad base wastes the material.',
+        ],
+      },
+      {
+        heading: 'Middle ground — DIY materials, pro labor',
+        paragraphs: [
+          'Many homeowners buy boxes themselves (you control grade and dye lot) and pay labor only. Measure twice with our [measure guide](/guides/how-to-measure-rooms-for-flooring) and [waste guide](/guides/how-much-flooring-waste-to-buy) so you do not under-order.',
+          'Tile wet zones and carpet stairs are the usual labor-only hires; floating LVP in bedrooms stays DIY.',
+        ],
+      },
+      {
+        heading: 'Still DIY? Sequence that protects the warranty',
+        bullets: [
+          'Acclimate per carton — [acclimation guide](/guides/flooring-acclimation-before-install)',
+          'Underlay rated for your product — [underlay guide](/guides/do-i-need-underlay-for-laminate)',
+          'Expansion gaps everywhere — including under trim',
+          'Keep leftover boxes for repairs; same dye lot matters',
+        ],
+        paragraphs: [
+          'Beginner install walkthrough: [how to install laminate flooring](/guides/how-to-install-laminate-flooring-beginners). Compare materials first: [laminate vs tile vs carpet](/guides/laminate-vs-tile-vs-carpet-comparison).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can a beginner install laminate alone?',
+        answer:
+          'Yes for a single flat room if you have a helper for long planks and door cuts. Budget a full weekend including demo and trim. Stairs and multi-room patterns raise the difficulty fast.',
+      },
+      {
+        question: 'Is waterproof vinyl easier than laminate?',
+        answer:
+          'Install motion is similar. Vinyl is more forgiving around spills and some products score-and-snap. Subfloor flatness and expansion gaps still matter for both.',
+      },
+      {
+        question: 'Should I DIY removal of old flooring?',
+        answer:
+          'Often yes for carpet and floating laminate. Glued vinyl, thinset tile, and asbestos-era materials are hire-or-test territory — see our remove old flooring guide and local disposal rules.',
       },
     ],
   },

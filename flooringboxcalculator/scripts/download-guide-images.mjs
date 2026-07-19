@@ -30,6 +30,12 @@ const GUIDE_PHOTOS = {
   'large-format-tile-tips': '276534',
   'carpet-pad-guide': '276583',
   'how-to-choose-carpet-for-rooms': '191800',
+  'diy-flooring-installation-roadmap': '1571453',
+  'laminate-flooring-tools-you-need': '1571468',
+  'first-row-laminate-flooring-layout': '1571465',
+  'stagger-pattern-laminate-planks': '1571469',
+  'install-flooring-around-door-jambs': '1571462',
+  'when-not-to-diy-flooring': '1571458',
 };
 
 const FALLBACK_POOL = [
