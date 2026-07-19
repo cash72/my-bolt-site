@@ -52,6 +52,12 @@ const GUIDE_SLUGS = [
   'window-ac-btu-sizing',
   'heat-pump-vs-air-conditioner',
   'portable-ac-vs-window-ac',
+  'diy-mini-split-project-roadmap',
+  'mini-split-electrical-requirements',
+  'mini-split-indoor-outdoor-placement',
+  'precharged-diy-mini-split-kits-explained',
+  'when-to-hire-mini-split-installer',
+  'how-to-install-window-ac-safely',
 ];
 
 function toSitemapLoc(routePath) {

@@ -6,7 +6,7 @@ import { LANDING_PAGES, type LandingPage } from './landingPages';
 const APPLICATION_GUIDES: Partial<Record<ApplicationType, string[]>> = {
   rv: ['what-size-mini-split-for-rv', 'rv-mini-split-installation-options', 'mini-split-vs-window-ac'],
   tiny_home: ['mini-split-sizing-for-tiny-homes', 'insulating-tiny-home-for-hvac', 'common-mini-split-sizing-mistakes'],
-  she_shed: ['she-shed-heating-and-cooling', 'mini-split-for-garage-workshop', 'diy-mini-split-installation-basics'],
+  she_shed: ['she-shed-heating-and-cooling', 'diy-mini-split-project-roadmap', 'diy-mini-split-installation-basics'],
   cottage: ['cottage-mini-split-guide', 'seer-ratings-explained', 'single-zone-vs-multi-zone-mini-split'],
   bedroom: ['how-many-btu-for-bedroom', 'btu-per-square-foot-explained', 'mini-split-vs-window-ac'],
   living_room: ['how-to-size-ac-for-open-floor-plan', 'btu-per-square-foot-explained', 'how-many-btu-for-bedroom'],
@@ -14,14 +14,14 @@ const APPLICATION_GUIDES: Partial<Record<ApplicationType, string[]>> = {
 };
 
 const DEFAULT_GUIDES = [
-  'btu-per-square-foot-explained',
+  'diy-mini-split-project-roadmap',
   'common-mini-split-sizing-mistakes',
   'diy-mini-split-installation-basics',
 ];
 
 export function getGuidesForLanding(page: LandingPage): Guide[] {
   if (page.slug === 'window-ac-calculator') {
-    return ['mini-split-vs-window-ac', 'how-many-btu-for-bedroom', 'btu-per-square-foot-explained']
+    return ['window-ac-btu-sizing', 'how-to-install-window-ac-safely', 'mini-split-vs-window-ac']
       .map((slug) => getGuideBySlug(slug))
       .filter((g): g is Guide => g !== undefined);
   }
@@ -70,9 +70,10 @@ export function getRelatedLandingPages(page: LandingPage, limit = 4): LandingPag
 }
 
 export const FEATURED_HOME_GUIDES = [
+  'diy-mini-split-project-roadmap',
+  'mini-split-electrical-requirements',
+  'how-to-install-window-ac-safely',
   'btu-per-square-foot-explained',
-  'what-size-mini-split-for-rv',
-  'mini-split-sizing-for-tiny-homes',
 ] as const;
 
 export function getFeaturedHomeGuides(): Guide[] {

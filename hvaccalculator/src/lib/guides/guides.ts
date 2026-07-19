@@ -797,9 +797,10 @@ export const GUIDES: Guide[] = [
     toolPath: '/mini-split-calculator',
     toolLabel: 'Mini-split calculator',
     relatedGuideSlugs: [
-      'rv-mini-split-installation-options',
-      'mini-split-for-garage-workshop',
-      'common-mini-split-sizing-mistakes',
+      'diy-mini-split-project-roadmap',
+      'mini-split-electrical-requirements',
+      'precharged-diy-mini-split-kits-explained',
+      'when-to-hire-mini-split-installer',
     ],
     sections: [
       {
@@ -811,7 +812,7 @@ export const GUIDES: Guide[] = [
           'Check local code: permits, condenser setbacks, noise ordinances',
         ],
         paragraphs: [
-          'DIY mini-split videos skip code and refrigerant law — verify what is legal in your jurisdiction before purchasing.',
+          'Start with the full [DIY mini-split project roadmap](/guides/diy-mini-split-project-roadmap) if you are sequencing size → wire → mount. DIY videos skip code and refrigerant law — verify what is legal in your jurisdiction before purchasing.',
         ],
       },
       {
@@ -1205,6 +1206,444 @@ export const GUIDES: Guide[] = [
         question: 'Do I need to empty water from portable ACs?',
         answer:
           'Humidity condenses into a tank or drains via hose depending on model. High-humidity days mean more maintenance than window units.',
+      },
+    ],
+  },
+  {
+    slug: 'diy-mini-split-project-roadmap',
+    category: 'diy',
+    title: 'DIY Mini-Split Project Roadmap — Size, Wire, Mount & Start Up',
+    description:
+      'Complete DIY ductless mini-split project map: BTU sizing, single vs multi-zone, electrical, placement, pre-charged kits, install basics, and when to hire. Links every phase to free calculators.',
+    readMinutes: 12,
+    toolPath: '/mini-split-calculator',
+    toolLabel: 'Mini-split calculator',
+    relatedGuideSlugs: [
+      'common-mini-split-sizing-mistakes',
+      'mini-split-electrical-requirements',
+      'diy-mini-split-installation-basics',
+      'when-to-hire-mini-split-installer',
+    ],
+    sections: [
+      {
+        heading: 'Why DIY mini-splits fail before first cool day',
+        paragraphs: [
+          'Wrong BTU, undersized wire, outdoor units stuffed in a corner, or opening refrigerant valves without a leak check are the usual failure modes — not the brand on the box. This roadmap is your size-to-startup checklist with calculator links so you buy the right matched set once.',
+          'Jump to the phase that matches today. Window and portable AC stay a separate DIY branch when a wall penetration is not an option.',
+        ],
+      },
+      {
+        heading: 'The 8-phase DIY mini-split flow',
+        bullets: [
+          'Phase 1 — Size BTU load (room, shed, RV, tiny home, garage)',
+          'Phase 2 — Choose single-zone vs multi-zone and heat-pump features',
+          'Phase 3 — Confirm electrical service, breaker, disconnect, and whip',
+          'Phase 4 — Plan indoor head and outdoor condenser placement',
+          'Phase 5 — Decide pre-charged DIY kit vs pro vacuum/charge',
+          'Phase 6 — Mount, line set, drain, and electrical (follow the manual)',
+          'Phase 7 — Leak check, open valves or vacuum, test heat and cool',
+          'Phase 8 — Know when to stop and hire a licensed tech',
+        ],
+        paragraphs: [
+          'Deep dives: [electrical requirements](/guides/mini-split-electrical-requirements), [placement](/guides/mini-split-indoor-outdoor-placement), [DIY kits](/guides/precharged-diy-mini-split-kits-explained), [install basics](/guides/diy-mini-split-installation-basics), [hire vs DIY](/guides/when-to-hire-mini-split-installer). Window units: [install window AC safely](/guides/how-to-install-window-ac-safely).',
+        ],
+      },
+      {
+        heading: 'Phase-by-phase deep links',
+        bullets: [
+          'Size: [BTU per sq ft](/guides/btu-per-square-foot-explained) · [Bedroom BTU](/guides/how-many-btu-for-bedroom) · [Sizing mistakes](/guides/common-mini-split-sizing-mistakes) · [Open floor plans](/guides/how-to-size-ac-for-open-floor-plan)',
+          'Choose: [Single vs multi-zone](/guides/single-zone-vs-multi-zone-mini-split) · [Heat pump vs AC](/guides/heat-pump-vs-air-conditioner) · [Mini-split vs window](/guides/mini-split-vs-window-ac) · [SEER](/guides/seer-ratings-explained)',
+          'Spaces: [Tiny home](/guides/mini-split-sizing-for-tiny-homes) · [RV](/guides/what-size-mini-split-for-rv) · [Shed](/guides/she-shed-heating-and-cooling) · [Cottage](/guides/cottage-mini-split-guide) · [Garage](/guides/mini-split-for-garage-workshop)',
+          'DIY: [Electrical](/guides/mini-split-electrical-requirements) · [Placement](/guides/mini-split-indoor-outdoor-placement) · [Pre-charged kits](/guides/precharged-diy-mini-split-kits-explained) · [Install basics](/guides/diy-mini-split-installation-basics)',
+          'Hire: [When to hire](/guides/when-to-hire-mini-split-installer)',
+          'Alt DIY: [Window AC sizing](/guides/window-ac-btu-sizing) · [Install window AC](/guides/how-to-install-window-ac-safely) · [Portable vs window](/guides/portable-ac-vs-window-ac)',
+        ],
+        paragraphs: [
+          'Calculators: [mini-split](/mini-split-calculator), [BTU](/btu-calculator), [window AC](/window-ac-calculator), [RV](/mini-split-for-rv), [tiny home](/mini-split-for-tiny-home), [shed](/mini-split-for-shed), [garage heater](/garage-heater-btu-calculator).',
+        ],
+      },
+      {
+        heading: 'One-weekend single-zone plan (experienced DIY)',
+        paragraphs: [
+          'Week before: size with the calculator, order matched kit, schedule electrician if you are not comfortable with 220V, pull permit if required. Saturday: mount outdoor pad/bracket and indoor head, drill penetration, run line set and drain. Sunday: electrical disconnect, leak check, open valves or vacuum, test modes. Complex multi-zone or long line sets are rarely a weekend DIY.',
+          'This roadmap is planning information — always follow the manufacturer manual and local code. Refrigerant work may require a license where you live.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can a homeowner install a mini-split themselves?',
+        answer:
+          'Many jurisdictions allow pre-charged DIY kits within line-length limits if electrical and mounting meet code. Vacuum/charge work and multi-zone systems often need a licensed tech. Check local rules before you buy.',
+      },
+      {
+        question: 'What size mini-split do I need?',
+        answer:
+          'Start with room square footage and climate factors in our BTU or mini-split calculator, then avoid common oversizing mistakes. Match indoor and outdoor units from the same series.',
+      },
+      {
+        question: 'Is a mini-split better than a window AC?',
+        answer:
+          'For year-round comfort, quieter operation, and heating, yes for many rooms. Window units win on upfront cost and simple rental installs — compare in our mini-split vs window AC guide.',
+      },
+    ],
+  },
+  {
+    slug: 'mini-split-electrical-requirements',
+    category: 'diy',
+    title: 'Mini-Split Electrical Requirements — Breaker, Wire & Disconnect',
+    description:
+      'DIY electrical planning for ductless mini-splits: 110V vs 220V, breaker size, wire gauge, outdoor disconnect, and when to hire an electrician.',
+    readMinutes: 9,
+    toolPath: '/mini-split-calculator',
+    toolLabel: 'Mini-split calculator',
+    relatedGuideSlugs: [
+      'diy-mini-split-project-roadmap',
+      'diy-mini-split-installation-basics',
+      'precharged-diy-mini-split-kits-explained',
+      'when-to-hire-mini-split-installer',
+    ],
+    sections: [
+      {
+        heading: 'Read the nameplate before you buy wire',
+        paragraphs: [
+          'Every outdoor unit lists minimum circuit ampacity (MCA) and maximum overcurrent protection (MOCP). Those numbers — not a YouTube guess — set breaker size and wire gauge. Undersized wire is a fire risk; oversized breakers that ignore the label are a code failure.',
+          'Size the equipment with the [mini-split calculator](/mini-split-calculator) first, then match electrical to that model’s installation sheet.',
+        ],
+      },
+      {
+        heading: 'Common DIY electrical checklist',
+        bullets: [
+          'Dedicated circuit — do not share with shop tools or a dryer',
+          'Correct voltage: many 12k–24k units need 208/230V; some small kits are 115V',
+          'Breaker size at or below MOCP on the nameplate',
+          'Copper conductors sized for MCA and run length (voltage drop)',
+          'Outdoor disconnect within sight of the condenser (local code)',
+          'Whip / conduit from disconnect to unit per manufacturer',
+          'Proper grounding and bonding',
+        ],
+        paragraphs: [
+          'If your panel is full or you are unsure about load calculations, hire a licensed electrician for the circuit even if you mount the heads yourself.',
+        ],
+      },
+      {
+        heading: 'Indoor power and communication',
+        paragraphs: [
+          'Most ductless systems power the outdoor unit and send low-voltage or manufacturer communication cable to the indoor head — follow the wiring diagram exactly. Mixing thermostat wire gauges or skipping the disconnect “to finish Saturday” causes warranty and inspection problems.',
+        ],
+      },
+      {
+        heading: 'Next steps in the project',
+        paragraphs: [
+          'Plan clearances in [indoor and outdoor placement](/guides/mini-split-indoor-outdoor-placement), choose a kit type in [pre-charged DIY kits](/guides/precharged-diy-mini-split-kits-explained), then follow [install basics](/guides/diy-mini-split-installation-basics). Full map: [DIY mini-split roadmap](/guides/diy-mini-split-project-roadmap).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What size breaker for a 12,000 BTU mini-split?',
+        answer:
+          'It depends on the model MCA/MOCP — often a 15A or 20A double-pole on 230V for smaller units, larger for higher BTU. Always use the installation manual for that SKU.',
+      },
+      {
+        question: 'Can I plug a mini-split into a regular outlet?',
+        answer:
+          'Only if the manufacturer provides a corded 115V unit rated for that receptacle. Most permanent installs require hardwired dedicated circuits.',
+      },
+      {
+        question: 'Do I need a permit for mini-split electrical?',
+        answer:
+          'Often yes for new 230V circuits. Check your city or county before you open the panel.',
+      },
+    ],
+  },
+  {
+    slug: 'mini-split-indoor-outdoor-placement',
+    category: 'diy',
+    title: 'Mini-Split Indoor and Outdoor Placement — Clearances That Work',
+    description:
+      'Where to mount the indoor head and outdoor condenser: airflow, noise, line-set length, sun, snow, and drainage for DIY ductless installs.',
+    readMinutes: 9,
+    toolPath: '/mini-split-calculator',
+    toolLabel: 'Mini-split calculator',
+    relatedGuideSlugs: [
+      'diy-mini-split-installation-basics',
+      'mini-split-electrical-requirements',
+      'single-zone-vs-multi-zone-mini-split',
+      'diy-mini-split-project-roadmap',
+    ],
+    sections: [
+      {
+        heading: 'Indoor head — throw air, not into a corner',
+        paragraphs: [
+          'Mount high on an exterior wall when you can so the line set is short. Leave manufacturer clearances above, below, and beside the head. Avoid pointing supply air at a bed pillow or into a soffit that blocks the louvers.',
+          'Keep the unit away from heat sources and do not install where curtains will cover the return. Confirm BTU size with the [mini-split calculator](/mini-split-calculator) before you cut the wall.',
+        ],
+      },
+      {
+        heading: 'Outdoor condenser — airflow and service access',
+        bullets: [
+          'Level pad or wall bracket rated for the unit weight',
+          'Clearances on coil sides and rear — no stuffing into a fence corner',
+          'Elevate above typical snow; leave melt and defrost drainage path',
+          'Shade helps efficiency but never block airflow with a solid box',
+          'Keep noise away from bedroom windows and neighbor property lines',
+          'Plan disconnect location within sight of the unit',
+        ],
+        paragraphs: [
+          'Wall brackets are popular for sheds and tiny homes where slab space is tight — still respect vibration isolation and clearances.',
+        ],
+      },
+      {
+        heading: 'Line-set path and drain',
+        paragraphs: [
+          'Drill the penetration with a slight downward slope to the outside so condensate does not drain into the wall. Hide lines with a cover kit if appearance matters. Stay within the pre-charged kit’s maximum length — longer runs change charge requirements (see [DIY kits](/guides/precharged-diy-mini-split-kits-explained)).',
+          'Never trap the drain hose in a loop that holds water. Test drain flow on startup.',
+        ],
+      },
+      {
+        heading: 'Multi-zone placement notes',
+        paragraphs: [
+          'Each head needs its own good wall — a hallway dump does not cool bedrooms well. Branch boxes and longer total pipe length push many projects into [hire a pro](/guides/when-to-hire-mini-split-installer) territory. Compare [single vs multi-zone](/guides/single-zone-vs-multi-zone-mini-split) before you buy.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I put the outdoor unit on a roof?',
+        answer:
+          'Only with proper structure, vibration pads, service access, and local approval. Ground or wall mounts are simpler for DIY.',
+      },
+      {
+        question: 'How high should the indoor head be?',
+        answer:
+          'Follow the manual — typically high on the wall for cooling throw, with required clearance from the ceiling. Too close to the ceiling chokes return air.',
+      },
+      {
+        question: 'Can the condenser sit under a deck?',
+        answer:
+          'Only if clearances and airflow are met and leaves/debris will not choke the coil. Restricted airflow kills efficiency and can trip the unit.',
+      },
+    ],
+  },
+  {
+    slug: 'precharged-diy-mini-split-kits-explained',
+    category: 'diy',
+    title: 'Pre-Charged DIY Mini-Split Kits Explained — When They Work',
+    description:
+      'How pre-charged ductless kits differ from traditional vacuum-and-charge installs, line-length limits, flaring tips, and when DIY stops being a good idea.',
+    readMinutes: 9,
+    toolPath: '/mini-split-calculator',
+    toolLabel: 'Mini-split calculator',
+    relatedGuideSlugs: [
+      'diy-mini-split-installation-basics',
+      'mini-split-electrical-requirements',
+      'when-to-hire-mini-split-installer',
+      'diy-mini-split-project-roadmap',
+    ],
+    sections: [
+      {
+        heading: 'What “pre-charged” actually means',
+        paragraphs: [
+          'DIY-oriented kits ship with refrigerant already in the outdoor unit (and sometimes lines). If you keep the line set within the rated length and make leak-free flares, you open service valves after assembly — no vacuum pump in the best-case kit instructions.',
+          'Cut a line, extend beyond the rating, or use a non-kit outdoor unit and you are back to vacuum, micron gauge, and often a license. Size the match set with the [mini-split calculator](/mini-split-calculator) before ordering a kit BTU tier.',
+        ],
+      },
+      {
+        heading: 'DIY kit success checklist',
+        bullets: [
+          'Indoor and outdoor are a matched pair from the same kit series',
+          'Line length and lift within the sticker limits',
+          'Flares cut square, deburred, torqued to spec — not “snug with channel locks”',
+          'Leak check before opening valves',
+          'Electrical and disconnect already correct',
+          'Drain slopes out; wall hole sealed against weather',
+        ],
+        paragraphs: [
+          'Install overview: [DIY mini-split installation basics](/guides/diy-mini-split-installation-basics). Placement: [indoor/outdoor placement](/guides/mini-split-indoor-outdoor-placement).',
+        ],
+      },
+      {
+        heading: 'When pre-charged kits are the wrong buy',
+        bullets: [
+          'Multi-zone with long total pipe — charge and branch complexity',
+          'Need to splice or heavily customize line sets',
+          'Local code forbids homeowner refrigerant work',
+          'No comfort with flaring or torque specs',
+        ],
+        paragraphs: [
+          'Hiring for vacuum and charge while you hang brackets can still save money — see [when to hire](/guides/when-to-hire-mini-split-installer).',
+        ],
+      },
+      {
+        heading: 'Warranty and realism',
+        paragraphs: [
+          'Register the kit, keep photos of clearances and torque, and do not skip the leak check to “get cool air tonight.” Early compressor failures from air and moisture in the lines are expensive DIY lessons.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do I need EPA certification for a DIY mini-split kit?',
+        answer:
+          'Rules vary. Handling refrigerants often requires certification for technicians; some pre-charged kits are marketed to homeowners. Verify your local and national rules before purchase.',
+      },
+      {
+        question: 'Can I add line-set length to a pre-charged kit?',
+        answer:
+          'Usually not without adjusting charge. Exceeding the kit length is a common reason to hire a tech with scales and a vacuum pump.',
+      },
+      {
+        question: 'Are DIY mini-splits as efficient as pro brands?',
+        answer:
+          'Look at SEER2/HSPF2 on the sheet, not marketing. Mid-tier DIY kits can be efficient when sized and installed correctly — see our SEER guide.',
+      },
+    ],
+  },
+  {
+    slug: 'when-to-hire-mini-split-installer',
+    category: 'diy',
+    title: 'When to Hire a Mini-Split Installer — DIY vs Pro',
+    description:
+      'Honest guide to DIY vs professional ductless install: multi-zone, long line sets, electrical, permits, and warranties. Still size BTU yourself with free calculators.',
+    readMinutes: 9,
+    toolPath: '/mini-split-calculator',
+    toolLabel: 'Mini-split calculator',
+    relatedGuideSlugs: [
+      'diy-mini-split-project-roadmap',
+      'precharged-diy-mini-split-kits-explained',
+      'diy-mini-split-installation-basics',
+      'common-mini-split-sizing-mistakes',
+    ],
+    sections: [
+      {
+        heading: 'DIY wins on simple single-zone kits',
+        paragraphs: [
+          'A single head, short line set, accessible exterior wall, and clear electrical path is the sweet spot for experienced homeowners using a pre-charged kit. You should still size the load yourself with the [mini-split calculator](/mini-split-calculator) so the contractor or kit BTU is not a guess.',
+        ],
+      },
+      {
+        heading: 'Strong reasons to hire',
+        bullets: [
+          'Multi-zone systems with branch boxes or long total piping',
+          'Line sets longer than DIY kit ratings — weigh-in charge required',
+          'Panel upgrades, long 230V runs, or unsure electrical work',
+          'Two-story line routing, brick cores, or finished interiors you cannot risk',
+          'Warranty that requires licensed startup',
+          'Commercial or permit inspections that expect a licensed HVAC contractor',
+        ],
+        paragraphs: [
+          'Hybrid approach: you hang the pad and indoor bracket; the tech flares, vacuums, and starts up. That still beats paying for a wrong-sized unit.',
+        ],
+      },
+      {
+        heading: 'What to ask a pro before you sign',
+        bullets: [
+          'Manual J or load calculation — or will they use your room measurements?',
+          'SEER2 / HSPF2 equipment options and line-set materials',
+          'Who pulls the permit and electrical',
+          'Warranty labor vs parts, and startup checklist',
+        ],
+        paragraphs: [
+          'Avoid [common sizing mistakes](/guides/common-mini-split-sizing-mistakes) even when hiring — oversized heads short-cycle and feel clammy.',
+        ],
+      },
+      {
+        heading: 'Still DIY? Follow the full map',
+        paragraphs: [
+          'Roadmap: [DIY mini-split project](/guides/diy-mini-split-project-roadmap). Electrical: [requirements](/guides/mini-split-electrical-requirements). Kits: [pre-charged explained](/guides/precharged-diy-mini-split-kits-explained). Install overview: [basics](/guides/diy-mini-split-installation-basics).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is DIY mini-split cheaper than a pro?',
+        answer:
+          'Equipment can be cheaper DIY, but mistakes (leaks, wrong wire, wrong BTU) erase the savings. Factor permit, electrical, and your time.',
+      },
+      {
+        question: 'Can I buy equipment online and hire install only?',
+        answer:
+          'Sometimes — many pros prefer to sell matched equipment they warranty. Ask before you order a random online kit.',
+      },
+      {
+        question: 'Do I need a pro for a shed or garage mini-split?',
+        answer:
+          'Simple single-zone shed kits are common DIY projects if electrical is correct. Garages with dust and long runs still benefit from pro line work — see our garage mini-split guide.',
+      },
+    ],
+  },
+  {
+    slug: 'how-to-install-window-ac-safely',
+    category: 'diy',
+    title: 'How to Install a Window AC Safely — Support, Seal & Power',
+    description:
+      'DIY window air conditioner install: sash support, brackets, sealing gaps, correct outlet circuit, and tipping hazards. Size BTU before you buy.',
+    readMinutes: 9,
+    toolPath: '/window-ac-calculator',
+    toolLabel: 'Window AC calculator',
+    relatedGuideSlugs: [
+      'window-ac-btu-sizing',
+      'mini-split-vs-window-ac',
+      'portable-ac-vs-window-ac',
+      'diy-mini-split-project-roadmap',
+    ],
+    sections: [
+      {
+        heading: 'Size first — then mount',
+        paragraphs: [
+          'A unit that is too large short-cycles; too small never catches up. Use the [window AC calculator](/window-ac-calculator) and [window AC BTU sizing](/guides/window-ac-btu-sizing) before you haul a 70 lb chassis up a ladder.',
+          'If you want quiet year-round heat and cool, compare [mini-split vs window AC](/guides/mini-split-vs-window-ac) before cutting foam side panels.',
+        ],
+      },
+      {
+        heading: 'Safe mounting checklist',
+        bullets: [
+          'Window and sill in good condition — rotten wood cannot hold the unit',
+          'Exterior bracket or sash support rated for the unit weight (many cities require brackets)',
+          'Unit tilts slightly down toward outdoors for drainage',
+          'Side accordion panels sealed; no big air gaps',
+          'Sash locked or security bar so the unit cannot fall inward',
+          'Never support the chassis with only thin plastic side panels',
+        ],
+        paragraphs: [
+          'Two-person lift for anything over small 5k–8k units. Falling window ACs are a real injury and liability risk.',
+        ],
+      },
+      {
+        heading: 'Power and condensation',
+        bullets: [
+          'Plug into a proper grounded outlet on a circuit that is not overloaded',
+          'Avoid cheap extension cords — heat and voltage drop kill compressors',
+          'Follow the manual for drip vs drain-plug setups',
+          'Keep furniture and curtains off the front grille',
+        ],
+        paragraphs: [
+          'Portable units avoid the window chassis but bring hose and efficiency tradeoffs — see [portable vs window](/guides/portable-ac-vs-window-ac).',
+        ],
+      },
+      {
+        heading: 'When a window unit is the wrong DIY',
+        paragraphs: [
+          'Upper-story installs without proper brackets, casement windows without kits, HOA bans, or rooms that need heat in winter are better served by a ductless plan — start at the [DIY mini-split roadmap](/guides/diy-mini-split-project-roadmap).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do I need a bracket for a window AC?',
+        answer:
+          'Many manufacturers and local codes say yes for safety. Side panels alone are not a structural support. Use an approved bracket or support kit.',
+      },
+      {
+        question: 'Can I install a window AC in a sliding window?',
+        answer:
+          'Only with a kit designed for horizontal sliders or casements. Forcing a vertical-sash unit sideways is unsafe.',
+      },
+      {
+        question: 'Why does my window AC drip inside?',
+        answer:
+          'Usually wrong tilt (should drain outdoors), clogged drain, or extreme humidity. Check the install angle and clean the base per the manual.',
       },
     ],
   },

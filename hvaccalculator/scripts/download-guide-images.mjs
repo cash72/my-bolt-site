@@ -31,6 +31,12 @@ const GUIDE_PHOTOS = {
   'window-ac-btu-sizing': '6195301',
   'heat-pump-vs-air-conditioner': '442579',
   'portable-ac-vs-window-ac': '1575986',
+  'diy-mini-split-project-roadmap': '3760263',
+  'mini-split-electrical-requirements': '6802045',
+  'mini-split-indoor-outdoor-placement': '8293774',
+  'precharged-diy-mini-split-kits-explained': '3990359',
+  'when-to-hire-mini-split-installer': '8866770',
+  'how-to-install-window-ac-safely': '4239123',
 };
 
 /** Verified fallback pool (never assign an unverified ID). */
