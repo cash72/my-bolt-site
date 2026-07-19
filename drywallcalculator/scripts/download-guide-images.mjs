@@ -27,6 +27,12 @@ const GUIDE_PHOTOS = {
   'garage-drywall-fire-separation': '3990359',
   'soundproof-drywall-basics': '8866770',
   'repairing-water-damaged-drywall': '4239123',
+  'drywall-project-from-framing-to-paint': '3760263',
+  'drywall-tools-for-hanging-and-finishing': '3990359',
+  'drywall-sanding-tips-dust-control': '2090652',
+  'priming-new-drywall-before-paint': '3991874',
+  'when-to-hire-a-drywall-finisher': '6802045',
+  'basement-drywall-moisture-checklist': '280222',
 };
 
 const FALLBACK_POOL = [

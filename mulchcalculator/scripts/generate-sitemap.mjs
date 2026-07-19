@@ -45,6 +45,12 @@ const GUIDE_SLUGS = [
   'colored-mulch-fade-and-refresh',
   'landscape-fabric-under-mulch',
   'playground-mulch-safety-standards',
+  'mulch-bed-project-from-scratch',
+  'weeding-before-mulch-how-to',
+  'how-to-spread-mulch-evenly',
+  'refresh-mulch-without-removing-old',
+  'mulch-too-close-to-house-foundation',
+  'edging-options-for-mulch-beds',
 ];
 
 function toSitemapLoc(routePath) {

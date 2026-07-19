@@ -11,8 +11,9 @@ export const GUIDES: Guide[] = [
     toolPath: '/mulch-calculator',
     toolLabel: 'Mulch calculator',
     relatedGuideSlugs: [
+      'mulch-bed-project-from-scratch',
       'mulch-depth-how-deep',
-      'cubic-yards-mulch-explained',
+      'how-to-spread-mulch-evenly',
       'how-many-mulch-bags-per-yard',
     ],
     sections: [
@@ -496,9 +497,10 @@ export const GUIDES: Guide[] = [
     toolPath: '/mulch-calculator',
     toolLabel: 'Mulch calculator',
     relatedGuideSlugs: [
-      'mulch-depth-how-deep',
-      'edging-and-prepping-beds-before-mulch',
-      'how-much-mulch-do-i-need',
+      'weeding-before-mulch-how-to',
+      'how-to-spread-mulch-evenly',
+      'refresh-mulch-without-removing-old',
+      'mulch-bed-project-from-scratch',
     ],
     sections: [
       {
@@ -601,9 +603,10 @@ export const GUIDES: Guide[] = [
       'Install plastic, steel, or trench edging to contain mulch. Weed barriers, slope tips, and prep checklist so your cubic yard estimate matches a clean finished bed.',
     readMinutes: 9,
     relatedGuideSlugs: [
-      'spring-mulch-application-guide',
-      'mulch-depth-how-deep',
-      'how-much-mulch-do-i-need',
+      'edging-options-for-mulch-beds',
+      'weeding-before-mulch-how-to',
+      'mulch-too-close-to-house-foundation',
+      'mulch-bed-project-from-scratch',
     ],
     sections: [
       {
@@ -1077,6 +1080,422 @@ export const GUIDES: Guide[] = [
         question: 'How often should playground mulch be topped up?',
         answer:
           'Rake monthly in high-use areas; top up 1–2 times per year as compaction and displacement occur under swings and slide exits. Re-check depth with a probe after heavy use seasons.',
+      },
+    ],
+  },
+  {
+    slug: 'mulch-bed-project-from-scratch',
+    category: 'planning',
+    title: 'Mulch Bed Project From Scratch — DIY Landscaping Roadmap',
+    description:
+      'Complete DIY mulch project map: measure cubic yards, choose material, weed and edge beds, fabric decisions, spread depth, and yearly refresh. Links every phase to free calculators.',
+    readMinutes: 12,
+    toolPath: '/mulch-calculator',
+    toolLabel: 'Mulch calculator',
+    relatedGuideSlugs: [
+      'how-much-mulch-do-i-need',
+      'weeding-before-mulch-how-to',
+      'how-to-spread-mulch-evenly',
+      'edging-and-prepping-beds-before-mulch',
+    ],
+    sections: [
+      {
+        heading: 'Why mulch jobs look patchy by midsummer',
+        paragraphs: [
+          'Thin spots, volcanoes at tree trunks, fabric poking through, and mulch piled against siding all come from skipped planning — not from the brand of bark. This roadmap walks bed refresh from measure to maintain with calculator links so you order yards once.',
+          'Jump to the phase you need. Vegetable beds, playgrounds, and gravel paths branch after you estimate volume.',
+        ],
+      },
+      {
+        heading: 'The 8-phase mulch bed flow',
+        bullets: [
+          'Phase 1 — Measure area and depth; convert to cubic yards',
+          'Phase 2 — Choose material (bark, wood, rubber, compost blends)',
+          'Phase 3 — Decide bags vs bulk delivery',
+          'Phase 4 — Weed and edge beds; keep mulch off the foundation',
+          'Phase 5 — Fabric yes/no under mulch',
+          'Phase 6 — Spread evenly to target depth',
+          'Phase 7 — Tree rings and special zones',
+          'Phase 8 — Refresh next season without stripping everything',
+        ],
+        paragraphs: [
+          'Mid-project deep dives: [weeding before mulch](/guides/weeding-before-mulch-how-to), [spread evenly](/guides/how-to-spread-mulch-evenly), [foundation clearance](/guides/mulch-too-close-to-house-foundation), [edging options](/guides/edging-options-for-mulch-beds), [refresh without removing](/guides/refresh-mulch-without-removing-old).',
+        ],
+      },
+      {
+        heading: 'Phase-by-phase deep links',
+        bullets: [
+          'Measure: [How much mulch](/guides/how-much-mulch-do-i-need) · [Depth](/guides/mulch-depth-how-deep) · [Cubic yards](/guides/cubic-yards-mulch-explained) · [Bags per yard](/guides/how-many-mulch-bags-per-yard)',
+          'Choose: [Mulch vs bark vs compost](/guides/mulch-vs-bark-vs-compost) · [Rubber vs wood](/guides/rubber-mulch-vs-wood-mulch) · [Colored mulch](/guides/colored-mulch-fade-and-refresh)',
+          'Buy: [Delivery vs bags](/guides/delivery-vs-bags-bulk-mulch)',
+          'Prep: [Edge and prep beds](/guides/edging-and-prepping-beds-before-mulch) · [Weed first](/guides/weeding-before-mulch-how-to) · [Edging options](/guides/edging-options-for-mulch-beds)',
+          'Fabric: [Landscape fabric under mulch](/guides/landscape-fabric-under-mulch)',
+          'Apply: [Spread evenly](/guides/how-to-spread-mulch-evenly) · [Spring timing](/guides/spring-mulch-application-guide) · [Fall timing](/guides/fall-mulch-application-timing)',
+          'Special: [Tree rings](/guides/calculating-mulch-for-tree-rings) · [Vegetable gardens](/guides/mulch-for-vegetable-gardens) · [Playground](/guides/playground-mulch-safety-standards)',
+          'Maintain: [Refresh without removing](/guides/refresh-mulch-without-removing-old) · [Keep off foundation](/guides/mulch-too-close-to-house-foundation)',
+        ],
+        paragraphs: [
+          'Calculators: [mulch](/mulch-calculator), [cubic yards](/cubic-yards-calculator), [topsoil](/topsoil-calculator), [gravel](/gravel-calculator), [playground](/playground-mulch-calculator).',
+        ],
+      },
+      {
+        heading: 'One-weekend bed refresh',
+        paragraphs: [
+          'Saturday morning: measure and order bulk or buy bags; weed and edge. Saturday afternoon: fabric if using, then spread to depth. Sunday: tree rings, blow debris off lawn, wash sidewalks. Schedule delivery early — bulk piles dry out and are harder to move in afternoon sun.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How deep should mulch be in flower beds?',
+        answer:
+          'Usually 2–3 inches for most bark and wood mulches after settling. More than 4 inches can smother roots and hold too much moisture. Use our depth guide and calculator.',
+      },
+      {
+        question: 'Do I need landscape fabric under mulch?',
+        answer:
+          'Not always. Fabric can help with aggressive weeds but makes planting harder and can look exposed as mulch thins. See our fabric guide before you staple a whole bed.',
+      },
+      {
+        question: 'How do I calculate cubic yards of mulch?',
+        answer:
+          'Area in square feet × depth in feet ÷ 27. Example: 300 sq ft at 3 inches (0.25 ft) ≈ 2.8 cubic yards. The mulch calculator does this from length, width, and depth.',
+      },
+    ],
+  },
+  {
+    slug: 'weeding-before-mulch-how-to',
+    category: 'installation',
+    title: 'Weeding Before Mulch — How to Prep Beds So Weeds Stay Down',
+    description:
+      'How to clear weeds before mulching: hand pull vs smother vs herbicide, roots that regrow, and why mulch alone will not kill established weeds.',
+    readMinutes: 8,
+    toolPath: '/mulch-calculator',
+    toolLabel: 'Mulch calculator',
+    relatedGuideSlugs: [
+      'edging-and-prepping-beds-before-mulch',
+      'landscape-fabric-under-mulch',
+      'how-to-spread-mulch-evenly',
+      'mulch-bed-project-from-scratch',
+    ],
+    sections: [
+      {
+        heading: 'Mulch suppresses — it does not erase roots',
+        paragraphs: [
+          'Covering living weeds with two inches of bark often creates pale, stretched weeds that push through. Spend an hour weeding before you dump yards. Then calculate volume with the [mulch calculator](/mulch-calculator).',
+        ],
+      },
+      {
+        heading: 'Clear method by weed type',
+        bullets: [
+          'Annual seedlings: hoe or scrape, then mulch same day',
+          'Dandelion / taproots: dig full root; broken pieces regrow',
+          'Bermuda / quackgrass: remove runners; consider fabric or repeated clearing',
+          'Beds being redesigned: smother with cardboard then mulch (sheet mulching)',
+        ],
+        paragraphs: [
+          'Water the bed lightly the day before — roots slide out easier. Avoid tilling weed seeds to the surface right before mulch day.',
+        ],
+      },
+      {
+        heading: 'Herbicide notes for DIYers',
+        paragraphs: [
+          'If you use a non-selective product on empty beds, follow the label wait time before planting or heavy mulching. Keep spray off lawn edges and desirable shrubs. Many beds do fine with mechanical weeding only.',
+        ],
+      },
+      {
+        heading: 'After weeds are gone',
+        paragraphs: [
+          'Edge the bed, decide on fabric, then spread. Continue with [edging and prep](/guides/edging-and-prepping-beds-before-mulch), [fabric guide](/guides/landscape-fabric-under-mulch), and [how to spread mulch evenly](/guides/how-to-spread-mulch-evenly).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I mulch over weeds if I make it thicker?',
+        answer:
+          'Thicker mulch helps seedlings but established perennials often push through. Pull or smother first for a cleaner season.',
+      },
+      {
+        question: 'Should I put cardboard under mulch?',
+        answer:
+          'Cardboard sheet mulching works for converting lawn to beds. Overlap seams, wet it, then mulch on top. Cut holes for plants. Avoid piling cardboard against tree trunks.',
+      },
+      {
+        question: 'Do I weed again after mulching?',
+        answer:
+          'Yes — spot pull anything that germinates in the mulch surface. It is much faster than weeding bare soil.',
+      },
+    ],
+  },
+  {
+    slug: 'how-to-spread-mulch-evenly',
+    category: 'installation',
+    title: 'How to Spread Mulch Evenly — Depth, Rake, and Finish Tips',
+    description:
+      'DIY technique for spreading bulk or bagged mulch to a consistent 2–3 inch depth: staging piles, rake patterns, slopes, and cleanup.',
+    readMinutes: 8,
+    toolPath: '/mulch-calculator',
+    toolLabel: 'Mulch calculator',
+    relatedGuideSlugs: [
+      'mulch-depth-how-deep',
+      'weeding-before-mulch-how-to',
+      'calculating-mulch-for-tree-rings',
+      'mulch-bed-project-from-scratch',
+    ],
+    sections: [
+      {
+        heading: 'Stage small piles — do not bury one corner',
+        paragraphs: [
+          'Dump or wheelbarrow mulch in small mounds along the bed, then rake out. One giant pile at the driveway end means the far border gets starved. Order enough with the [mulch calculator](/mulch-calculator) using your target depth from [how deep mulch should be](/guides/mulch-depth-how-deep).',
+        ],
+      },
+      {
+        heading: 'Spread technique',
+        bullets: [
+          'Wear gloves; bark dyes stain skin and sidewalks',
+          'Use a flat bow rake or mulch fork to pull material to depth',
+          'Check depth with a scrap stick marked at 2 and 3 inches',
+          'Keep mulch pulled back from plant crowns and tree trunks',
+          'On slopes, work uphill so loose bark does not avalanche',
+          'Blow or sweep mulch off lawn and hardscape the same day',
+        ],
+        paragraphs: [
+          'Bagged mulch: open bags in the bed where they will be used so you are not double-handling.',
+        ],
+      },
+      {
+        heading: 'Even depth checkpoints',
+        paragraphs: [
+          'Walk the bed after the first pass — thin spots show as dark soil. Add a second light pass rather than dumping thick patches that smother roots. Tree rings need a donut, not a volcano — see [mulch for tree rings](/guides/calculating-mulch-for-tree-rings).',
+        ],
+      },
+      {
+        heading: 'Finish and foundation clearance',
+        paragraphs: [
+          'Leave a clean gap at the house — details in [mulch too close to the foundation](/guides/mulch-too-close-to-house-foundation). Edge lines look sharp when you redefine the cut with a spade or [edging options](/guides/edging-options-for-mulch-beds).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How do I know I have 3 inches of mulch?',
+        answer:
+          'Push a stick to the soil, mark the mulch surface, and measure. Check several spots — edges thin out first.',
+      },
+      {
+        question: 'Should mulch be compacted?',
+        answer:
+          'Rake to settle but do not stomp it into a hard mat. It will settle slightly after rain — that is expected.',
+      },
+      {
+        question: 'Can I use a blower to spread mulch?',
+        answer:
+          'Blowers help clean hardscape and move light chips. Heavy bulk bark is still a rake-and-fork job for even depth.',
+      },
+    ],
+  },
+  {
+    slug: 'refresh-mulch-without-removing-old',
+    category: 'mulch',
+    title: 'Refresh Mulch Without Removing Old — Top-Up Guide',
+    description:
+      'How to top up faded mulch beds without hauling everything out: when to fluff, when to add an inch, and when old mulch should be removed.',
+    readMinutes: 8,
+    toolPath: '/mulch-calculator',
+    toolLabel: 'Mulch calculator',
+    relatedGuideSlugs: [
+      'colored-mulch-fade-and-refresh',
+      'mulch-depth-how-deep',
+      'how-to-spread-mulch-evenly',
+      'spring-mulch-application-guide',
+    ],
+    sections: [
+      {
+        heading: 'Most years you top up — you do not strip',
+        paragraphs: [
+          'Mulch decomposes and fades. A spring refresh is usually 1 inch over existing material after you fluff compacted areas — not a full tear-out. Measure thin spots and order less than a new install with the [mulch calculator](/mulch-calculator).',
+        ],
+      },
+      {
+        heading: 'Refresh steps',
+        bullets: [
+          'Rake and fluff old mulch to restore color and break crust',
+          'Pull weeds that germinated in the surface',
+          'Check total depth — stay near 2–3 inches after top-up',
+          'Add fresh mulch in thin layers; blend edges into old',
+          'Keep trunks and siding clear',
+        ],
+        paragraphs: [
+          'Dyed mulch fade tips: [colored mulch fade and refresh](/guides/colored-mulch-fade-and-refresh). Timing: [spring mulch guide](/guides/spring-mulch-application-guide).',
+        ],
+      },
+      {
+        heading: 'When to remove old mulch',
+        bullets: [
+          'Sour, slimy, or anaerobic smell after being piled too deep',
+          'Heavy weed rhizomes matted through the layer',
+          'Switching to a totally different material (e.g. rubber over rotting bark)',
+          'Grade changes or edging rebuild that needs a clean bed',
+        ],
+        paragraphs: [
+          'Compost spent bark into garden beds if it is clean, or dispose per local green-waste rules.',
+        ],
+      },
+      {
+        heading: 'How much for a top-up',
+        paragraphs: [
+          'If beds still have ~2 inches and you want 3, order about one-third of a full re-mulch volume. Example: a bed that needed 3 yards new might need ~1 yard refresh. Spread with [even spreading tips](/guides/how-to-spread-mulch-evenly).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I put new mulch over old fabric?',
+        answer:
+          'Yes if fabric is still flat and buried. Exposed fabric should be cut back or recovered — see our landscape fabric guide.',
+      },
+      {
+        question: 'Will mixing old and new mulch look patchy?',
+        answer:
+          'Fluff and blend edges. Fresh dyed mulch will be brighter at first; it evens out after sun and rain.',
+      },
+      {
+        question: 'How often should I refresh mulch?',
+        answer:
+          'Many beds need a light top-up every 1–2 years. High-sun dyed mulch may need color refresh sooner.',
+      },
+    ],
+  },
+  {
+    slug: 'mulch-too-close-to-house-foundation',
+    category: 'installation',
+    title: 'Mulch Too Close to House Foundation — Clearance Guide',
+    description:
+      'How far to keep mulch from siding and foundations: moisture, pests, and termite inspection gaps. Safe edges for DIY bed layouts.',
+    readMinutes: 8,
+    toolPath: '/mulch-calculator',
+    toolLabel: 'Mulch calculator',
+    relatedGuideSlugs: [
+      'edging-and-prepping-beds-before-mulch',
+      'edging-options-for-mulch-beds',
+      'how-to-spread-mulch-evenly',
+      'mulch-bed-project-from-scratch',
+    ],
+    sections: [
+      {
+        heading: 'Mulch against siding is a moisture sandwich',
+        paragraphs: [
+          'Bark piled against wood, fiber cement, or stucco holds water and hides pests. Inspectors and termite companies look for soil or mulch contacting siding. Leave a clear inspection gap at the foundation when you spread.',
+        ],
+      },
+      {
+        heading: 'Practical clearance rules',
+        bullets: [
+          'Keep mulch several inches below the bottom of siding / stucco weep screed',
+          'Do not bury siding, brick ledges, or hose bibs',
+          'Pull mulch back from wood steps and deck posts',
+          'Use rock or bare soil strips against the foundation if you want a neat edge',
+          'Slope grade away from the house under the mulch layer',
+        ],
+        paragraphs: [
+          'Local termite practices vary — when in doubt, leave a visible band of foundation clear. Edge the bed with [edging options](/guides/edging-options-for-mulch-beds) so bark stays put.',
+        ],
+      },
+      {
+        heading: 'How this changes your yardage',
+        paragraphs: [
+          'A clearance strip slightly reduces bed area — measure the planting bed, not the entire strip to the wall. Recalculate in the [mulch calculator](/mulch-calculator) if you carve out a rock border along the house.',
+        ],
+      },
+      {
+        heading: 'Fixing beds that are already piled high',
+        paragraphs: [
+          'Rake mulch down and away from siding; check for soft wood or mud tubes. Refresh the bed with [even spreading](/guides/how-to-spread-mulch-evenly) and proper depth from [mulch depth](/guides/mulch-depth-how-deep).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many inches of gap from the foundation?',
+        answer:
+          'Enough to see the foundation and keep mulch below siding — often a clear band of several inches to a foot depending on cladding and local pest guidance. Never bury siding.',
+      },
+      {
+        question: 'Is gravel better against the house?',
+        answer:
+          'A narrow rock strip drains faster and stays put for inspections. You can still mulch the outer planting bed. Use the gravel calculator if that strip is wide.',
+      },
+      {
+        question: 'Can mulch cause termites?',
+        answer:
+          'Mulch does not create termites, but constant moisture and hidden wood contact help pests go unnoticed. Clearance and dry detailing matter more than mulch brand.',
+      },
+    ],
+  },
+  {
+    slug: 'edging-options-for-mulch-beds',
+    category: 'installation',
+    title: 'Edging Options for Mulch Beds — Metal, Plastic, Stone, Trench',
+    description:
+      'Compare mulch bed edging: spade-cut trench, steel, plastic, brick, and stone. Cost, look, and how edging changes mulch volume.',
+    readMinutes: 9,
+    toolPath: '/mulch-calculator',
+    toolLabel: 'Mulch calculator',
+    relatedGuideSlugs: [
+      'edging-and-prepping-beds-before-mulch',
+      'mulch-too-close-to-house-foundation',
+      'how-to-spread-mulch-evenly',
+      'mulch-bed-project-from-scratch',
+    ],
+    sections: [
+      {
+        heading: 'Edging keeps depth honest',
+        paragraphs: [
+          'Without an edge, mulch migrates into lawn and you overspread forever. Choose an edge before you order yards so the bed area is final — then run the [mulch calculator](/mulch-calculator).',
+        ],
+      },
+      {
+        heading: 'Option comparison',
+        bullets: [
+          'Spade-cut trench (natural edge): cheap, clean look, needs recutting',
+          'Steel / aluminum landscape edging: thin profile, durable, higher material cost',
+          'Plastic edging: budget, can heave in frost if not staked well',
+          'Brick / paver restraint: heavy, formal, good near patios',
+          'Stone or boulder edge: informal, uses more bed space',
+        ],
+        paragraphs: [
+          'Prep steps overlap [edging and prepping beds](/guides/edging-and-prepping-beds-before-mulch). Keep foundation clearance per [mulch and foundation guide](/guides/mulch-too-close-to-house-foundation).',
+        ],
+      },
+      {
+        heading: 'Install tips that save mulch',
+        bullets: [
+          'Set edge height so finished mulch sits slightly below the lawn for mowing clearance',
+          'Stake steel/plastic firmly — floppy edges spill bark',
+          'Recut trench edges each spring if you skip hard edging',
+          'Measure inside the edge for square footage',
+        ],
+        paragraphs: [
+          'After edging: weed, optional fabric, then [spread mulch evenly](/guides/how-to-spread-mulch-evenly). Full project map: [mulch bed from scratch](/guides/mulch-bed-project-from-scratch).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the cheapest mulch edge?',
+        answer:
+          'A sharp spade-cut trench costs only labor. Recut when grass creeps in. Hard edging costs more up front and less yearly maintenance.',
+      },
+      {
+        question: 'Does edging change how much mulch I buy?',
+        answer:
+          'Slightly — a precise edge defines area. Soft, overgrown beds are larger than you think until you cut them back. Remeasure after edging.',
+      },
+      {
+        question: 'Can I edge after mulching?',
+        answer:
+          'Yes, but you will spill and re-rake. Edge first when you can.',
       },
     ],
   },

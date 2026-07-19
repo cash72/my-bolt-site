@@ -27,6 +27,12 @@ const GUIDE_PHOTOS = {
   'colored-mulch-fade-and-refresh': '1179223',
   'landscape-fabric-under-mulch': '6676298',
   'playground-mulch-safety-standards': '5538616',
+  'mulch-bed-project-from-scratch': '1084199',
+  'weeding-before-mulch-how-to': '450061',
+  'how-to-spread-mulch-evenly': '1179229',
+  'refresh-mulch-without-removing-old': '1179228',
+  'mulch-too-close-to-house-foundation': '2808337',
+  'edging-options-for-mulch-beds': '574258',
 };
 
 const FALLBACK_POOL = [

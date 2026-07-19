@@ -2,22 +2,11 @@ import { getGuideBySlug } from './guides/guides';
 import type { Guide } from './guides/types';
 import { LANDING_PAGES, type LandingPage } from './landingPages';
 
-const PLANNING_GUIDES = [
-  'how-much-drywall-for-a-room',
-  'drywall-sheet-sizes-explained',
-  'how-much-drywall-waste-to-add',
-] as const;
-
-const INSTALL_GUIDES = [
-  'how-to-hang-drywall-step-by-step',
-  'hanging-drywall-on-ceiling',
-  'drywall-screw-spacing-and-pattern',
-] as const;
-
 export const FEATURED_HOME_GUIDES = [
-  'how-much-drywall-for-a-room',
-  'how-to-hang-drywall-step-by-step',
-  'drywall-taping-and-mudding-guide',
+  'drywall-project-from-framing-to-paint',
+  'drywall-tools-for-hanging-and-finishing',
+  'drywall-sanding-tips-dust-control',
+  'priming-new-drywall-before-paint',
 ] as const;
 
 export function getGuidesForLanding(page: LandingPage): Guide[] {
@@ -41,10 +30,14 @@ export function getGuidesForLanding(page: LandingPage): Guide[] {
       .map((slug) => getGuideBySlug(slug))
       .filter((g): g is Guide => g !== undefined);
   }
-  return [...PLANNING_GUIDES, ...INSTALL_GUIDES]
+  return [
+    'drywall-project-from-framing-to-paint',
+    'how-much-drywall-for-a-room',
+    'drywall-tools-for-hanging-and-finishing',
+    'how-to-hang-drywall-step-by-step',
+  ]
     .map((slug) => getGuideBySlug(slug))
-    .filter((g): g is Guide => g !== undefined)
-    .slice(0, 3);
+    .filter((g): g is Guide => g !== undefined);
 }
 
 const P0_CROSS_LINK_SLUGS: Partial<Record<string, string[]>> = {

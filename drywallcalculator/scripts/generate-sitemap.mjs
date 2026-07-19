@@ -44,6 +44,12 @@ const GUIDE_SLUGS = [
   'garage-drywall-fire-separation',
   'soundproof-drywall-basics',
   'repairing-water-damaged-drywall',
+  'drywall-project-from-framing-to-paint',
+  'drywall-tools-for-hanging-and-finishing',
+  'drywall-sanding-tips-dust-control',
+  'priming-new-drywall-before-paint',
+  'when-to-hire-a-drywall-finisher',
+  'basement-drywall-moisture-checklist',
 ];
 
 function toSitemapLoc(routePath) {

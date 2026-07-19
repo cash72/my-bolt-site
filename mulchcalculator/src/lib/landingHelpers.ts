@@ -3,9 +3,10 @@ import type { Guide } from './guides/types';
 import { LANDING_PAGES, type LandingPage } from './landingPages';
 
 const MULCH_GUIDES = [
+  'mulch-bed-project-from-scratch',
   'how-much-mulch-do-i-need',
-  'mulch-depth-how-deep',
-  'how-many-mulch-bags-per-yard',
+  'how-to-spread-mulch-evenly',
+  'weeding-before-mulch-how-to',
 ] as const;
 
 const GRAVEL_GUIDES = [
@@ -15,9 +16,10 @@ const GRAVEL_GUIDES = [
 ] as const;
 
 export const FEATURED_HOME_GUIDES = [
+  'mulch-bed-project-from-scratch',
+  'weeding-before-mulch-how-to',
+  'how-to-spread-mulch-evenly',
   'how-much-mulch-do-i-need',
-  'mulch-depth-how-deep',
-  'cubic-yards-mulch-explained',
 ] as const;
 
 export function getGuidesForLanding(page: LandingPage): Guide[] {

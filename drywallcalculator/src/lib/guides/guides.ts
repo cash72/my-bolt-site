@@ -11,9 +11,10 @@ export const GUIDES: Guide[] = [
     toolPath: '/drywall-calculator',
     toolLabel: 'Drywall calculator',
     relatedGuideSlugs: [
+      'drywall-project-from-framing-to-paint',
       'drywall-sheet-sizes-explained',
       'how-much-drywall-waste-to-add',
-      'estimating-drywall-screws-and-compound',
+      'drywall-tools-for-hanging-and-finishing',
     ],
     sections: [
       {
@@ -188,9 +189,10 @@ export const GUIDES: Guide[] = [
     toolPath: '/drywall-calculator',
     toolLabel: 'Drywall calculator',
     relatedGuideSlugs: [
+      'drywall-tools-for-hanging-and-finishing',
       'drywall-screw-spacing-and-pattern',
-      'hanging-drywall-on-ceiling',
       'drywall-taping-and-mudding-guide',
+      'drywall-project-from-framing-to-paint',
     ],
     sections: [
       {
@@ -311,9 +313,10 @@ export const GUIDES: Guide[] = [
     toolPath: '/drywall-calculator',
     toolLabel: 'Drywall calculator',
     relatedGuideSlugs: [
+      'drywall-sanding-tips-dust-control',
       'how-many-coats-drywall-mud',
-      'how-to-hang-drywall-step-by-step',
-      'estimating-drywall-screws-and-compound',
+      'priming-new-drywall-before-paint',
+      'when-to-hire-a-drywall-finisher',
     ],
     sections: [
       {
@@ -1033,6 +1036,456 @@ export const GUIDES: Guide[] = [
         question: 'Do I need mold-resistant board on repairs?',
         answer:
           'Use purple or green MR board in bathrooms and basements after verified dry framing. Standard board is fine on dry living-area walls once the leak is fixed.',
+      },
+    ],
+  },
+  {
+    slug: 'drywall-project-from-framing-to-paint',
+    category: 'planning',
+    title: 'Drywall Project From Framing to Paint — DIY Roadmap',
+    description:
+      'Complete DIY drywall project map: estimate sheets, pick thickness, hang, tape and mud, sand, finish level, and prime for paint. Links every phase to free calculators and how-to guides.',
+    readMinutes: 12,
+    toolPath: '/drywall-calculator',
+    toolLabel: 'Drywall calculator',
+    relatedGuideSlugs: [
+      'how-much-drywall-for-a-room',
+      'drywall-tools-for-hanging-and-finishing',
+      'how-to-hang-drywall-step-by-step',
+      'drywall-taping-and-mudding-guide',
+    ],
+    sections: [
+      {
+        heading: 'Why drywall projects stall before paint',
+        paragraphs: [
+          'Most DIY drywall fails at finishing — not hanging. Wrong sheet count, skipped screw patterns, muddy sanding, or painting raw mud without primer shows every ridge under light. This roadmap is your hang-to-paint checklist with calculator links so you buy sheets and compound once.',
+          'Jump to the phase that matches today. Bathrooms and basements branch into moisture-rated board after estimating.',
+        ],
+      },
+      {
+        heading: 'The 8-phase drywall flow',
+        bullets: [
+          'Phase 1 — Estimate sheets, waste, screws, and compound',
+          'Phase 2 — Choose thickness and specialty board (bath, garage, sound)',
+          'Phase 3 — Gather hang and finish tools',
+          'Phase 4 — Hang walls, then ceilings; correct screw spacing',
+          'Phase 5 — Tape and mud coats to the finish level you need',
+          'Phase 6 — Sand with dust control between coats',
+          'Phase 7 — Decide DIY Level 4 vs hiring a finisher for Level 5',
+          'Phase 8 — Prime new drywall, then paint',
+        ],
+        paragraphs: [
+          'Deep dives for mid-project searches: [tools](/guides/drywall-tools-for-hanging-and-finishing), [sanding](/guides/drywall-sanding-tips-dust-control), [hire vs DIY finish](/guides/when-to-hire-a-drywall-finisher), [priming before paint](/guides/priming-new-drywall-before-paint).',
+        ],
+      },
+      {
+        heading: 'Phase-by-phase deep links',
+        bullets: [
+          'Estimate: [How much drywall](/guides/how-much-drywall-for-a-room) · [Sheet sizes](/guides/drywall-sheet-sizes-explained) · [Waste](/guides/how-much-drywall-waste-to-add) · [Screws & compound](/guides/estimating-drywall-screws-and-compound)',
+          'Materials: [1/2 vs 5/8](/guides/half-inch-vs-five-eighth-drywall) · [Green/purple board](/guides/green-board-purple-board-bathrooms) · [Garage fire](/guides/garage-drywall-fire-separation)',
+          'Hang: [Hang step-by-step](/guides/how-to-hang-drywall-step-by-step) · [Ceilings](/guides/hanging-drywall-on-ceiling) · [Screw pattern](/guides/drywall-screw-spacing-and-pattern) · [Windows & doors](/guides/drywall-around-windows-and-doors)',
+          'Finish: [Tape & mud](/guides/drywall-taping-and-mudding-guide) · [How many coats](/guides/how-many-coats-drywall-mud) · [Finish levels](/guides/drywall-finish-levels-explained)',
+          'Sand / prime: [Sanding tips](/guides/drywall-sanding-tips-dust-control) · [Prime new drywall](/guides/priming-new-drywall-before-paint)',
+          'Repair: [Patch holes](/guides/how-to-patch-drywall-holes) · [Water damage](/guides/repairing-water-damaged-drywall)',
+          'Basement: [Basement drywall](/guides/drywall-for-basement-renovation) · [Moisture checklist](/guides/basement-drywall-moisture-checklist)',
+        ],
+        paragraphs: [
+          'Run room dimensions through the [drywall calculator](/drywall-calculator) or [how many sheets](/how-many-drywall-sheets) before you schedule the hang day.',
+        ],
+      },
+      {
+        heading: 'Weekend room plan (one room, walls only)',
+        paragraphs: [
+          'Friday: estimate, buy sheets and compound, gather tools. Saturday: hang walls. Sunday morning: tape and first coat; afternoon second coat if dry. Next weekend: third coat, sand, prime. Ceilings add a helper and a full extra day.',
+          'Cold or damp basements slow mud dry times — see [basement moisture checklist](/guides/basement-drywall-moisture-checklist) before you close the room in.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the correct order for a drywall project?',
+        answer:
+          'Estimate materials, hang ceilings then walls (or walls then ceilings per your preference and help), tape, mud coats with dry time between, sand, prime, then paint. Never paint raw joint compound without primer.',
+      },
+      {
+        question: 'How many sheets do I need for a room?',
+        answer:
+          'Divide wall (and ceiling) square footage by the sheet size you buy — usually 32 sq ft for 4×8 — then add waste. Our drywall calculator does the math from room dimensions.',
+      },
+      {
+        question: 'Can beginners tape and mud themselves?',
+        answer:
+          'Yes for Level 3–4 finishes under flat paint with practice. Smooth Level 5 under gloss or critical light is often worth hiring — see our hire vs DIY finishing guide.',
+      },
+    ],
+  },
+  {
+    slug: 'drywall-tools-for-hanging-and-finishing',
+    category: 'installation',
+    title: 'Drywall Tools for Hanging and Finishing — DIY Checklist',
+    description:
+      'Must-have tools for hanging and finishing drywall: T-square, screw gun, knives, mud pan, pole sander, and dust control. What to buy, rent, or skip.',
+    readMinutes: 9,
+    toolPath: '/drywall-calculator',
+    toolLabel: 'Drywall calculator',
+    relatedGuideSlugs: [
+      'how-to-hang-drywall-step-by-step',
+      'drywall-taping-and-mudding-guide',
+      'drywall-sanding-tips-dust-control',
+      'drywall-project-from-framing-to-paint',
+    ],
+    sections: [
+      {
+        heading: 'Hang tools vs finish tools',
+        paragraphs: [
+          'Hanging needs lifting and fastening gear. Finishing needs knives, pans, and sanding. Buy or borrow both before mud day — driving to the store with wet mud on the walls wastes coats. Estimate sheets first with the [drywall calculator](/drywall-calculator).',
+        ],
+      },
+      {
+        heading: 'Must-have hanging tools',
+        bullets: [
+          'Drywall T-square (48 inch) and utility knife with spare blades',
+          'Screw gun or dimpler bit — sinks screws without breaking paper',
+          'Drywall lift (rent) for ceilings — safer than ladders alone',
+          'Panel carrier or helper for 4×8 and 4×12 sheets',
+          'Keyhole saw or jab saw for outlets and switches',
+          'Tape measure, chalk line, pencil, hammer for plates',
+        ],
+        paragraphs: [
+          'Optional: router with drywall bit for outlets after hang, deadman T-brace for ceilings if no lift.',
+        ],
+      },
+      {
+        heading: 'Must-have finishing tools',
+        bullets: [
+          '6 inch, 10 inch, and 12 inch taping knives (flexible)',
+          'Mud pan or hawk; mixing paddle for drill',
+          'Paper tape (preferred for flats) and corner bead tools',
+          'Pole sander + 120–220 grit screens or paper; sanding sponge for corners',
+          'Shop vac with drywall dust bag or HEPA; plastic sheeting',
+          'Corner trowel for inside corners if you finish many rooms',
+        ],
+        paragraphs: [
+          'Banjo tapers speed long runs but beginners often get cleaner flats with hand tape. See [tape and mud guide](/guides/drywall-taping-and-mudding-guide).',
+        ],
+      },
+      {
+        heading: 'What you can skip at first',
+        bullets: [
+          'Full auto taper (bazooka) — pro rental, steep learning curve',
+          'Texture sprayer until walls are flat and primed',
+          'Cheap knives that leave ridges — one good 10–12 inch knife beats three bent ones',
+        ],
+        paragraphs: [
+          'Next: [hang step-by-step](/guides/how-to-hang-drywall-step-by-step), then [sanding with dust control](/guides/drywall-sanding-tips-dust-control).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do I need a drywall lift for walls?',
+        answer:
+          'No for walls if you have a helper. Lifts shine on ceilings and solo installs. Rent for a weekend rather than buying for one room.',
+      },
+      {
+        question: 'What knife sizes for a first room?',
+        answer:
+          'A 6 inch for embedding tape, 10 inch for second coat, and 12 inch for skim/feather coats covers most DIY rooms.',
+      },
+      {
+        question: 'Can I sand with a regular orbital sander?',
+        answer:
+          'Use drywall screens on a pole or hand sander. Aggressive orbital pads dig hollows in soft mud. Dust control matters — see our sanding guide.',
+      },
+    ],
+  },
+  {
+    slug: 'drywall-sanding-tips-dust-control',
+    category: 'finishing',
+    title: 'Drywall Sanding Tips and Dust Control for DIY',
+    description:
+      'How to sand drywall between coats without destroying the room: grit sequence, pole sanding, wet sanding options, and dust containment.',
+    readMinutes: 9,
+    toolPath: '/drywall-calculator',
+    toolLabel: 'Drywall calculator',
+    relatedGuideSlugs: [
+      'drywall-taping-and-mudding-guide',
+      'how-many-coats-drywall-mud',
+      'priming-new-drywall-before-paint',
+      'drywall-finish-levels-explained',
+    ],
+    sections: [
+      {
+        heading: 'Sand to flatten — not to carve',
+        paragraphs: [
+          'The goal is feathered edges and flush fasteners, not glass-smooth gypsum. Over-sanding cuts into tape and creates waves that show under paint. Light pressure, long strokes, and a work light angled across the wall reveal ridges.',
+          'Mud must be fully dry before sanding — cool damp rooms need overnight or longer between coats. See [how many coats of mud](/guides/how-many-coats-drywall-mud).',
+        ],
+      },
+      {
+        heading: 'Grit and tool sequence',
+        bullets: [
+          'After embed / first coat: knock high ridges with 120 grit if needed — often knife scrape is enough',
+          'After fill coats: 150 grit pole sand for flats',
+          'Before primer: 180–220 grit touch-up on visible scratches',
+          'Corners: sanding sponge folded — keep from rounding the corner bead face',
+          'Never sand through paper tape — stop and skim another coat instead',
+        ],
+        paragraphs: [
+          'Shop-vac pole sanders with shrouds cut dust dramatically. Hand pole sanding still needs plastic on floors and a sealed doorway.',
+        ],
+      },
+      {
+        heading: 'Dust control that actually works',
+        bullets: [
+          'Plastic zipper door on the room; cover HVAC returns',
+          'Negative air: box fan blowing out a window if weather allows',
+          'HEPA or drywall-rated vac — household bags clog and blow dust',
+          'Wear a proper dust mask; drywall dust is fine and persistent',
+          'Vacuum between coats before the next mud pass',
+        ],
+        paragraphs: [
+          'Wet sponging can reduce dust on small patches but is slower on whole rooms and can raise the nap of paper. Use for repairs more than full hangs.',
+        ],
+      },
+      {
+        heading: 'When sanding is done',
+        paragraphs: [
+          'Wipe or vacuum dust, then check under raking light. Skim remaining hollows, dry, final light sand. Next: [prime new drywall before paint](/guides/priming-new-drywall-before-paint). Finish level targets: [finish levels explained](/guides/drywall-finish-levels-explained).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Should I sand between every coat?',
+        answer:
+          'Knock down ridges and fasteners as needed. Heavy sanding every coat wastes mud and paper. Many pros scrape with a knife between coats and save serious sanding for the end.',
+      },
+      {
+        question: 'Why do I still see seams after sanding?',
+        answer:
+          'Usually not enough feather width or coats — not more sanding. Add a wider skim coat, dry, then sand lightly. Primer and paint make remaining flaws obvious.',
+      },
+      {
+        question: 'Can I paint the same day I sand?',
+        answer:
+          'Only after dust is fully removed and the surface is dry. Primer goes on clean board and mud — leftover dust causes fisheyes and poor adhesion.',
+      },
+    ],
+  },
+  {
+    slug: 'priming-new-drywall-before-paint',
+    category: 'finishing',
+    title: 'Priming New Drywall Before Paint — Why PVA Matters',
+    description:
+      'Why new drywall needs primer before finish paint, which PVA or drywall primer to use, how much to buy, and when tinted primer helps.',
+    readMinutes: 9,
+    toolPath: '/drywall-calculator',
+    toolLabel: 'Drywall calculator',
+    relatedGuideSlugs: [
+      'drywall-sanding-tips-dust-control',
+      'drywall-finish-levels-explained',
+      'drywall-project-from-framing-to-paint',
+      'how-much-drywall-for-a-room',
+    ],
+    sections: [
+      {
+        heading: 'Raw drywall drinks paint unevenly',
+        paragraphs: [
+          'Face paper, joint compound, and patches all absorb at different rates. Finish paint alone flashes dull over mud and shiny over paper — the classic DIY blotchy wall. A dedicated drywall / PVA primer seals the surface so topcoats look even.',
+          'Paint-and-primer-in-one is not a substitute for real drywall primer on a new hang. Use it later for color coats if you want.',
+        ],
+      },
+      {
+        heading: 'Which primer to buy',
+        bullets: [
+          'New drywall / large mud jobs → PVA or labeled drywall primer (high coverage, cheap)',
+          'Stains from water repairs → stain-blocking primer on those spots first, then PVA field',
+          'Dark finish color planned → ask the store to tint primer gray or toward the color',
+          'Bathrooms after MR board → moisture-tolerant primer per paint system',
+        ],
+        paragraphs: [
+          'Coverage is often 200–300+ sq ft per gallon on new board — more than finish paint. Count one full coat over every new surface.',
+        ],
+      },
+      {
+        heading: 'Apply and inspect',
+        bullets: [
+          'Vacuum dust completely after final sand',
+          'Cut in and roll primer; keep a wet edge',
+          'After dry, raking light reveals missed ridges — spot skim, re-prime those areas',
+          'Then apply finish coats per your paint label',
+        ],
+        paragraphs: [
+          'Sheet counts for the hang still come from the [drywall calculator](/drywall-calculator). Primer gallons are a separate purchase based on wall area.',
+        ],
+      },
+      {
+        heading: 'Cross-check finish level before you prime',
+        paragraphs: [
+          'Priming seals flaws in place. If you still see tape lines under raking light, fix mud first. Level targets: [drywall finish levels](/guides/drywall-finish-levels-explained). Full project map: [framing to paint roadmap](/guides/drywall-project-from-framing-to-paint).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I skip primer on new drywall?',
+        answer:
+          'You can, but expect flashing and uneven sheen — especially over joints. Primer is cheaper than a third finish coat trying to hide blotches.',
+      },
+      {
+        question: 'Is PVA the same as regular primer?',
+        answer:
+          'PVA drywall primer is formulated to seal porous paper and mud. Bonding or stain-blocking primers solve different problems. Match the product to new drywall unless you have stains or glossy repairs.',
+      },
+      {
+        question: 'How long after primer can I paint?',
+        answer:
+          'Most latex drywall primers recoat in 1–2 hours. Follow the can. Cold basements need longer.',
+      },
+    ],
+  },
+  {
+    slug: 'when-to-hire-a-drywall-finisher',
+    category: 'finishing',
+    title: 'When to Hire a Drywall Finisher — Level 4 vs Level 5',
+    description:
+      'DIY vs pro drywall finishing: which finish levels beginners can hit, when Level 5 and critical light need a finisher, and how to still estimate sheets yourself.',
+    readMinutes: 9,
+    toolPath: '/drywall-calculator',
+    toolLabel: 'Drywall calculator',
+    relatedGuideSlugs: [
+      'drywall-finish-levels-explained',
+      'drywall-taping-and-mudding-guide',
+      'drywall-project-from-framing-to-paint',
+      'priming-new-drywall-before-paint',
+    ],
+    sections: [
+      {
+        heading: 'Hang yourself, finish selectively',
+        paragraphs: [
+          'Many DIYers hang successfully and hire finishing for skim and texture. Labor for Level 5 under gloss paint often costs less than redoing a blotchy DIY job. Still estimate sheets with the [drywall calculator](/drywall-calculator) so material bids stay honest.',
+        ],
+      },
+      {
+        heading: 'DIY-friendly vs hire-friendly',
+        bullets: [
+          'DIY OK: closets, garages, Level 3–4 under flat/eggshell paint',
+          'Hire recommended: open living rooms with grazing light, Level 5, heavy texture match',
+          'Hire recommended: large ceilings, stairwells, historic plaster blend-ins',
+          'Hire or specialist: fire-rated assemblies and soundboard systems that need inspection',
+        ],
+        paragraphs: [
+          'Understand targets in [finish levels explained](/guides/drywall-finish-levels-explained) before you quote a finisher.',
+        ],
+      },
+      {
+        heading: 'What to ask a finisher',
+        bullets: [
+          'Finish level included and paint sheen assumed',
+          'Who sands and who primes',
+          'Number of coats and dry time between visits',
+          'Responsibility for screw pops after heat season',
+        ],
+        paragraphs: [
+          'If you DIY mud: follow [tape and mud](/guides/drywall-taping-and-mudding-guide) and [sanding tips](/guides/drywall-sanding-tips-dust-control), then [prime](/guides/priming-new-drywall-before-paint).',
+        ],
+      },
+      {
+        heading: 'Hybrid approach',
+        paragraphs: [
+          'Hang and tape embeds yourself; hire skim and texture. Or hire the whole finish after you hang. Full sequence: [project roadmap](/guides/drywall-project-from-framing-to-paint).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What finish level do most living rooms need?',
+        answer:
+          'Level 4 is common under flat or eggshell paint. Level 5 (skim coat) is for gloss, dark colors, or walls washed with strong side light.',
+      },
+      {
+        question: 'Is DIY taping obvious to buyers?',
+        answer:
+          'Under flat paint with careful feathering, often no. Under semi-gloss or window light, ridges show. Match finish level to lighting and sheen.',
+      },
+      {
+        question: 'Should I buy the mud if I hire finishing?',
+        answer:
+          'Pros usually bring preferred compound. You can supply board; confirm before delivery day.',
+      },
+    ],
+  },
+  {
+    slug: 'basement-drywall-moisture-checklist',
+    category: 'materials',
+    title: 'Basement Drywall Moisture Checklist — Before You Hang',
+    description:
+      'Moisture and mold checks before basement drywall: leaks, humidity, insulation, mold-resistant board, and when to wait. Pair with basement sheet estimates.',
+    readMinutes: 9,
+    toolPath: '/basement-drywall-calculator',
+    toolLabel: 'Basement drywall calculator',
+    relatedGuideSlugs: [
+      'drywall-for-basement-renovation',
+      'green-board-purple-board-bathrooms',
+      'repairing-water-damaged-drywall',
+      'drywall-project-from-framing-to-paint',
+    ],
+    sections: [
+      {
+        heading: 'Drywall does not fix a wet basement',
+        paragraphs: [
+          'Closing damp walls into gypsum traps moisture and feeds mold. Run this checklist before you order sheets. Estimating still happens in the [basement drywall calculator](/basement-drywall-calculator) — only after the space passes moisture basics.',
+        ],
+      },
+      {
+        heading: 'Pre-hang checklist',
+        bullets: [
+          'No active leaks at walls, windows, or slab seams for a full wet season if possible',
+          'Relative humidity manageable with dehumidifier (often under ~60% when closed)',
+          'Framing dry to the touch; no musty smell behind plastic',
+          'Exterior grading and gutters directing water away from foundation',
+          'Insulation strategy decided — rigid foam vs mineral wool per local code and moisture plan',
+          'Choose mold-resistant board where codes or conditions require it',
+        ],
+        paragraphs: [
+          'Purple/green MR board resists moisture better than standard but is not a waterproofing system. Details: [green vs purple board](/guides/green-board-purple-board-bathrooms) and [basement renovation guide](/guides/drywall-for-basement-renovation).',
+        ],
+      },
+      {
+        heading: 'Red flags — wait or remediate',
+        bullets: [
+          'Efflorescence or repeated water stains on block',
+          'Prior mold that was never professionally addressed',
+          'Dirt floors or missing vapor strategy on cold walls',
+          'Plan to bury poly tight against cold concrete without drying path — get local best practice first',
+        ],
+        paragraphs: [
+          'If you are repairing flood damage upstairs or down, see [repairing water-damaged drywall](/guides/repairing-water-damaged-drywall) before rehanging.',
+        ],
+      },
+      {
+        heading: 'After you pass the checklist',
+        paragraphs: [
+          'Estimate sheets, hang, finish, and prime using the [full drywall roadmap](/guides/drywall-project-from-framing-to-paint). Keep a dehumidifier running during mud dry times in cool basements.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I hang drywall on basement concrete?',
+        answer:
+          'Not directly. Use framed walls or furring with a moisture strategy appropriate to your climate and code. Board needs a dry, even substrate.',
+      },
+      {
+        question: 'Is green board enough for basements?',
+        answer:
+          'MR board helps but does not replace leak repair and humidity control. Many basements use standard board on dry framed walls with good vapor management — follow local practice.',
+      },
+      {
+        question: 'How long should a wet basement dry before drywall?',
+        answer:
+          'Until finishes stay dry through wet weather and humidity is controlled. That can mean weeks of remediation — not a weekend.',
       },
     ],
   },
