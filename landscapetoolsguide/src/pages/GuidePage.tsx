@@ -1,6 +1,7 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
+import AdSlot from '../components/AdSlot';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { ToolCard } from '../components/ToolCard';
 import { GuideCard } from '../components/GuideCard';
@@ -117,24 +118,29 @@ export default function GuidePage() {
       )}
 
       <article className="space-y-8">
-        {guide.sections.map((section) => (
-          <section key={section.heading}>
-            <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">{section.heading}</h2>
-            {section.paragraphs?.map((p) => (
-              <p key={p} className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-3">
-                {renderEditorialText(p)}
-              </p>
-            ))}
-            {section.bullets && (
-              <ul className="list-disc list-inside space-y-2 text-sm text-slate-700 dark:text-slate-300">
-                {section.bullets.map((b) => (
-                  <li key={b} className="leading-relaxed">
-                    {renderEditorialText(b)}
-                  </li>
-                ))}
-              </ul>
+        {guide.sections.map((section, sectionIndex) => (
+          <div key={section.heading}>
+            <section>
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">{section.heading}</h2>
+              {section.paragraphs?.map((p) => (
+                <p key={p} className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-3">
+                  {renderEditorialText(p)}
+                </p>
+              ))}
+              {section.bullets && (
+                <ul className="list-disc list-inside space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                  {section.bullets.map((b) => (
+                    <li key={b} className="leading-relaxed">
+                      {renderEditorialText(b)}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+            {sectionIndex === 1 && guide.sections.length > 2 && (
+              <AdSlot placement="midGuide" className="my-8" />
             )}
-          </section>
+          </div>
         ))}
       </article>
 

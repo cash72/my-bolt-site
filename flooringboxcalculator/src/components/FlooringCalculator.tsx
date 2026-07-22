@@ -1,7 +1,6 @@
 import RoomForm from './RoomForm';
 import ProjectSettingsForm from './ProjectSettingsForm';
 import ResultsPanel from './ResultsPanel';
-import AdSlot from './AdSlot';
 import { useFlooringEstimate } from '../hooks/useFlooringEstimate';
 import type { MaterialType } from '../lib/flooring/types';
 
@@ -64,7 +63,6 @@ export default function FlooringCalculator({
       <div className="lg:col-span-2">
         <div className="lg:sticky lg:top-20 space-y-6">
           <ResultsPanel estimate={estimate} settings={settings} />
-          <AdSlot placement="sidebar" className="my-0 hidden lg:block" />
         </div>
       </div>
     </div>

@@ -3,6 +3,8 @@ import MacroResults from './MacroResults';
 import ToolGuide from './ToolGuide';
 import FieldHint from './FieldHint';
 import AdSlot from './AdSlot';
+import SessionDeepener from './SessionDeepener';
+import { CALCULATOR_NEXT_STEPS } from '../lib/sessionNextSteps';
 import { useNetCarbCalc } from '../hooks/useNetCarbCalc';
 import { useMacroCalc } from '../hooks/useMacroCalc';
 import type { DietPlan, ToolId } from '../lib/metabolic/types';
@@ -295,8 +297,8 @@ export default function MetabolicTools({
             ) : (
               <MacroResults result={macro.result} />
             )}
-            <AdSlot placement="sidebar" className="my-0 hidden lg:block" />
-            <AdSlot placement="content" className="my-0 lg:hidden" />
+            <SessionDeepener links={CALCULATOR_NEXT_STEPS} />
+            <AdSlot placement="results" className="my-0" />
           </div>
         </div>
       </div>

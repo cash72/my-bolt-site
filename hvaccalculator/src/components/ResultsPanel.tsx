@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import AdSlot from './AdSlot';
+import SessionDeepener from './SessionDeepener';
+import { CALCULATOR_NEXT_STEPS } from '../lib/sessionNextSteps';
 import { Check, Copy } from 'lucide-react';
 import {
   buildSizingSummary,
@@ -83,6 +86,10 @@ export default function ResultsPanel({ estimate, settings }: ResultsPanelProps) 
               </ul>
             </div>
           )}
+
+          <SessionDeepener links={CALCULATOR_NEXT_STEPS} />
+
+          <AdSlot placement="results" className="my-3" />
 
           <button
             type="button"

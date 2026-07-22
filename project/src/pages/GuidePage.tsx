@@ -13,6 +13,7 @@ import {
   type GuideDef,
 } from '../lib/guides';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import AdSlot from '../components/AdSlot';
 import { LANDING_PAGE_BY_SLUG } from '../lib/landingPages';
 import { getGuideImagePath, getGuideImageUrl } from '../lib/guideImages';
 import { renderEditorialText } from '../lib/renderEditorialText';
@@ -194,23 +195,28 @@ function GuideContent({ guide }: { guide: GuideDef }) {
       {guide.hasAffiliateLinks && <AffiliateDisclosureBanner />}
 
       <article className="prose prose-slate dark:prose-invert max-w-none">
-        {guide.sections.map((section) => {
+        {guide.sections.map((section, sectionIndex) => {
           const products = section.productIds ? getAffiliateProducts(section.productIds) : [];
           return (
-            <section key={section.heading} className="mb-10">
-              <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">{section.heading}</h2>
-              {section.paragraphs?.map((p, i) => (
-                <p key={i}>{renderEditorialText(p)}</p>
-              ))}
-              {section.bullets && (
-                <ul className="list-disc list-inside space-y-2 text-sm">
-                  {section.bullets.map((b, i) => (
-                    <li key={i}>{renderEditorialText(b)}</li>
-                  ))}
-                </ul>
+            <div key={section.heading}>
+              <section className="mb-10">
+                <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">{section.heading}</h2>
+                {section.paragraphs?.map((p, i) => (
+                  <p key={i}>{renderEditorialText(p)}</p>
+                ))}
+                {section.bullets && (
+                  <ul className="list-disc list-inside space-y-2 text-sm">
+                    {section.bullets.map((b, i) => (
+                      <li key={i}>{renderEditorialText(b)}</li>
+                    ))}
+                  </ul>
+                )}
+                {products.length > 0 && <AffiliateProductGrid products={products} />}
+              </section>
+              {sectionIndex === 1 && guide.sections.length > 2 && (
+                <AdSlot placement="midGuide" className="my-8 not-prose" />
               )}
-              {products.length > 0 && <AffiliateProductGrid products={products} />}
-            </section>
+            </div>
           );
         })}
       </article>

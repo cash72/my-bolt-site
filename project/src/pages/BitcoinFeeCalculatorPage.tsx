@@ -12,6 +12,9 @@ import {
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useBitcoinPrice } from '../hooks/useBitcoinPrice';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import AdSlot from '../components/AdSlot';
+import SessionDeepener from '../components/SessionDeepener';
+import { FEE_NEXT_STEPS } from '../lib/sessionNextSteps';
 import {
   formatCurrency,
   formatNumber,
@@ -238,6 +241,11 @@ export default function BitcoinFeeCalculatorPage() {
             <span>{lastUpdated ? `Price updated ${lastUpdated.toLocaleTimeString()}` : 'Loading price…'}</span>
           </div>
           <span>Next update in {countdown}s · USD from CoinGecko</span>
+        </div>
+
+        <div className="mt-4 space-y-3">
+          <SessionDeepener links={FEE_NEXT_STEPS} />
+          <AdSlot placement="results" className="my-0" />
         </div>
       </section>
 

@@ -1,4 +1,7 @@
 import { useMemo, useState } from 'react';
+import AdSlot from './AdSlot';
+import SessionDeepener from './SessionDeepener';
+import { TDEE_NEXT_STEPS } from '../lib/sessionNextSteps';
 import { calcTdeeTarget, formatCalories } from '../lib/metabolic/calculate';
 import type { ActivityLevel, Sex, TdeeInput } from '../lib/metabolic/types';
 
@@ -160,36 +163,33 @@ export default function TdeeCalculator({
           {!result ? (
             <p className="text-sm text-slate-500">Enter age, weight, and height to calculate.</p>
           ) : (
-            <dl className="space-y-3 text-sm">
-              <div>
-                <dt className="text-slate-500">BMR (at rest)</dt>
-                <dd className="text-xl font-semibold">{formatCalories(result.bmr)}</dd>
-              </div>
-              <div>
-                <dt className="text-slate-500">TDEE (maintenance)</dt>
-                <dd className="text-xl font-semibold">{formatCalories(result.tdee)}</dd>
-              </div>
-              <div>
-                <dt className="text-slate-500">
-                  Target{result.deficitPct > 0 ? ` (−${result.deficitPct}%)` : ''}
-                </dt>
-                <dd className="text-3xl font-bold text-teal-700 dark:text-teal-400">
-                  {formatCalories(result.targetCalories)}
-                </dd>
-              </div>
-              {result.deficitKcal > 0 && (
-                <p className="text-xs text-slate-500">
-                  About {formatCalories(result.deficitKcal)} below maintenance. Target is floored at BMR.
-                </p>
-              )}
-              <p className="text-xs text-slate-500">
-                Next: set protein/fat/carbs with the{' '}
-                <a href="/keto-macro-calculator" className="text-teal-700 dark:text-teal-400 underline">
-                  keto macro calculator
-                </a>
-                .
-              </p>
-            </dl>
+            <>
+              <dl className="space-y-3 text-sm">
+                <div>
+                  <dt className="text-slate-500">BMR (at rest)</dt>
+                  <dd className="text-xl font-semibold">{formatCalories(result.bmr)}</dd>
+                </div>
+                <div>
+                  <dt className="text-slate-500">TDEE (maintenance)</dt>
+                  <dd className="text-xl font-semibold">{formatCalories(result.tdee)}</dd>
+                </div>
+                <div>
+                  <dt className="text-slate-500">
+                    Target{result.deficitPct > 0 ? ` (−${result.deficitPct}%)` : ''}
+                  </dt>
+                  <dd className="text-3xl font-bold text-teal-700 dark:text-teal-400">
+                    {formatCalories(result.targetCalories)}
+                  </dd>
+                </div>
+                {result.deficitKcal > 0 && (
+                  <p className="text-xs text-slate-500">
+                    About {formatCalories(result.deficitKcal)} below maintenance. Target is floored at BMR.
+                  </p>
+                )}
+              </dl>
+              <SessionDeepener links={TDEE_NEXT_STEPS} />
+              <AdSlot placement="results" className="my-3" />
+            </>
           )}
         </div>
       </div>

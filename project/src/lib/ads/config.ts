@@ -15,6 +15,8 @@ export const ADSENSE_CLIENT =
 export const ADSENSE_SLOTS = {
   footer: import.meta.env.VITE_ADSENSE_SLOT_FOOTER?.trim() || '9490641503',
   content: import.meta.env.VITE_ADSENSE_SLOT_CONTENT?.trim() || '8950595776',
+  results: import.meta.env.VITE_ADSENSE_SLOT_RESULTS?.trim() || '',
+  midGuide: import.meta.env.VITE_ADSENSE_SLOT_MID?.trim() || '',
 } as const;
 
 /** A-Ads (aads.com) ad unit ID — crypto-friendly network */
@@ -37,18 +39,35 @@ export const AD_PLACEMENTS: Record<
     minHeightClass: 'min-h-[250px]',
     adFormat: 'auto',
   },
+  results: {
+    minHeightClass: 'min-h-[120px]',
+    adFormat: 'auto',
+  },
+  midGuide: {
+    minHeightClass: 'min-h-[120px]',
+    adFormat: 'auto',
+  },
 };
 
 export function hasAdsensePublisher(): boolean {
   return ADSENSE_ENABLED && Boolean(ADSENSE_CLIENT);
 }
 
+export function getAdsenseSlot(placement: AdPlacement): string {
+  const direct = ADSENSE_SLOTS[placement];
+  if (direct) return direct;
+  if (placement === 'results' || placement === 'midGuide') {
+    return ADSENSE_SLOTS.content;
+  }
+  return '';
+}
+
 export function isAdsenseSlotConfigured(placement: AdPlacement): boolean {
-  return ADSENSE_ENABLED && Boolean(ADSENSE_CLIENT && ADSENSE_SLOTS[placement]);
+  return ADSENSE_ENABLED && Boolean(ADSENSE_CLIENT && getAdsenseSlot(placement));
 }
 
 export function isAdsenseEnabled(): boolean {
-  return isAdsenseSlotConfigured('footer') || isAdsenseSlotConfigured('content');
+  return (Object.keys(ADSENSE_SLOTS) as AdPlacement[]).some((p) => isAdsenseSlotConfigured(p));
 }
 
 export function isAAdsEnabled(): boolean {
@@ -57,8 +76,4 @@ export function isAAdsEnabled(): boolean {
 
 export function isAnyAdEnabled(): boolean {
   return isAdsenseEnabled() || isAAdsEnabled();
-}
-
-export function getAdsenseSlot(placement: AdPlacement): string {
-  return ADSENSE_SLOTS[placement];
 }

@@ -1,4 +1,7 @@
 import { useMemo, useState } from 'react';
+import AdSlot from './AdSlot';
+import SessionDeepener from './SessionDeepener';
+import { CALCULATOR_NEXT_STEPS } from '../lib/sessionNextSteps';
 import {
   DEFAULT_SEER_COST_INPUTS,
   calculateSeerCost,
@@ -190,6 +193,8 @@ export default function SeerCostCalculator({
               <p className="text-xs text-slate-500">
                 Formula: kWh ≈ (BTU/hr × hours) ÷ (SEER × 1,000). Planning estimate only — not a utility bill.
               </p>
+              <SessionDeepener links={CALCULATOR_NEXT_STEPS} />
+              <AdSlot placement="results" className="my-3" />
             </>
           )}
         </div>
