@@ -10,9 +10,9 @@ import { LANDING_PAGES } from '../lib/landingPages';
 
 const POPULAR_CALCULATORS = [
   { to: '/btu-calculator', label: 'BTU calculator' },
-  { to: '/window-ac-calculator', label: 'Window AC' },
+  { to: '/ac-cost-to-run-calculator', label: 'AC cost to run' },
   { to: '/mini-split-calculator', label: 'Mini-split sizing' },
-  { to: '/mini-split-for-rv', label: 'RV mini-split' },
+  { to: '/window-ac-calculator', label: 'Window AC' },
   { to: '/garage-heater-btu-calculator', label: 'Garage heater' },
 ] as const;
 

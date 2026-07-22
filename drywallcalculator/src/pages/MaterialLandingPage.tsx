@@ -117,6 +117,25 @@ export default function MaterialLandingPage() {
         subheading={pageIntro ?? page.intro}
       />
 
+      {editorial && (
+        <section className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed">
+            {editorial.sections.map((section) => (
+              <div key={section.heading}>
+                <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">
+                  {section.heading}
+                </h2>
+                {section.paragraphs.map((paragraph, i) => (
+                  <p key={i} className={i > 0 ? 'mt-3' : undefined}>
+                    {renderEditorialText(paragraph)}
+                  </p>
+                ))}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <ContentMonetizationSlot
         placement="content"
         guides={relatedGuides}
@@ -149,25 +168,6 @@ export default function MaterialLandingPage() {
               </li>
             ))}
           </ul>
-        </section>
-      )}
-
-      {editorial && (
-        <section className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800">
-          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed">
-            {editorial.sections.map((section) => (
-              <div key={section.heading}>
-                <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">
-                  {section.heading}
-                </h2>
-                {section.paragraphs.map((paragraph, i) => (
-                  <p key={i} className={i > 0 ? 'mt-3' : undefined}>
-                    {renderEditorialText(paragraph)}
-                  </p>
-                ))}
-              </div>
-            ))}
-          </div>
         </section>
       )}
 

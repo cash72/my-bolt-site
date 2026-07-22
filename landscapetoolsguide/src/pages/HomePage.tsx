@@ -102,8 +102,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ContentMonetizationSlot placement="content" guides={GUIDES} />
-
       <section className="mt-12">
         <h2 className="text-xl font-semibold mb-4">Featured tools</h2>
         <div className="grid sm:grid-cols-2 gap-4">
@@ -117,6 +115,8 @@ export default function HomePage() {
           </Link>
         </p>
       </section>
+
+      <ContentMonetizationSlot placement="content" guides={GUIDES} />
 
       <section className="mt-12 pt-10 border-t border-slate-200 dark:border-slate-800">
         <h2 className="text-xl font-semibold mb-4">Popular comparisons</h2>

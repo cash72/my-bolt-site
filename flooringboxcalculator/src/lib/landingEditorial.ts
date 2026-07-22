@@ -280,6 +280,33 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       },
     ],
   },
+
+  'flooring-cost-estimator': {
+    intro:
+      'Turn square footage into a materials-plus-install budget. Enter area, product $/sq ft, and labor rate — we estimate total project cost before you shop boxes or book an installer.',
+    sections: [
+      {
+        heading: 'Material vs installed cost',
+        paragraphs: [
+          'Box labels show coverage and often a per-sq-ft material price. Installed quotes add labor, underlay, transitions, and disposal. This estimator keeps those line items separate so you can compare DIY vs pro.',
+          'Get an accurate area first with the [flooring square footage calculator](/flooring-square-footage-calculator), then convert to boxes with [how many flooring boxes](/how-many-flooring-boxes).',
+        ],
+      },
+      {
+        heading: 'Waste and extras in the budget',
+        paragraphs: [
+          'Add 10–15% waste into the square footage you price — short boxes mid-install cost more than leftover cartons. Budget separately for underlay, trim, and threshold strips; they are rarely in the plank price.',
+          'For the full DIY sequence after you know cost, follow the [DIY flooring installation roadmap](/guides/diy-flooring-installation-roadmap).',
+        ],
+      },
+      {
+        heading: 'When quotes differ wildly',
+        paragraphs: [
+          'Big gaps between store DIY totals and contractor quotes usually come from subfloor prep, furniture moving, or tear-out — ask what is included. Use this page as a materials baseline, not a final bid.',
+        ],
+      },
+    ],
+  },
 };
 
 export function getLandingEditorial(slug: string): LandingEditorial | undefined {

@@ -3,9 +3,11 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { AffiliateButton } from '../components/ToolCard';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import SessionDeepener from '../components/SessionDeepener';
 import { getComparisonBySlug, COMPARISONS } from '../lib/comparisons/comparisons';
 import { GUIDES } from '../lib/guides/guides';
 import { getToolBySlug } from '../lib/tools/tools';
+import { COMPARE_NEXT_STEPS } from '../lib/sessionNextSteps';
 import { breadcrumbSchema } from '../lib/schema/jsonLd';
 
 export default function ComparePage() {
@@ -106,6 +108,8 @@ export default function ComparePage() {
       </article>
 
       <ContentMonetizationSlot placement="content" guides={GUIDES.slice(0, 4)} className="mb-8" />
+
+      <SessionDeepener links={COMPARE_NEXT_STEPS} className="mb-8" />
 
       <section aria-labelledby="compare-faq">
         <h2 id="compare-faq" className="text-lg font-semibold mb-4">

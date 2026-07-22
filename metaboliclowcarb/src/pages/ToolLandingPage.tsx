@@ -128,21 +128,6 @@ export default function ToolLandingPage() {
         />
       )}
 
-      <ContentMonetizationSlot placement="content" guides={relatedGuides} showAd={!hasResultsAdUnit()} />
-
-      {relatedGuides.length > 0 && (
-        <section className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800" aria-labelledby="related-guides">
-          <h2 id="related-guides" className="text-xl font-semibold mb-4">
-            Related guides
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {relatedGuides.map((guide) => (
-              <GuideCard key={guide.slug} guide={guide} />
-            ))}
-          </div>
-        </section>
-      )}
-
       {editorial && (
         <section className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800">
           <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -155,6 +140,21 @@ export default function ToolLandingPage() {
                   </p>
                 ))}
               </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <ContentMonetizationSlot placement="content" guides={relatedGuides} showAd={!hasResultsAdUnit()} />
+
+      {relatedGuides.length > 0 && (
+        <section className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800" aria-labelledby="related-guides">
+          <h2 id="related-guides" className="text-xl font-semibold mb-4">
+            Related guides
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {relatedGuides.map((guide) => (
+              <GuideCard key={guide.slug} guide={guide} />
             ))}
           </div>
         </section>

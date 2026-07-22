@@ -289,6 +289,33 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       },
     ],
   },
+
+  'ac-cost-to-run-calculator': {
+    intro:
+      'Estimate what it costs to run an air conditioner from SEER (or EER), capacity, hours, and your electric rate. Useful for comparing window units, portable ACs, and mini-splits before you buy.',
+    sections: [
+      {
+        heading: 'How SEER turns into a bill estimate',
+        paragraphs: [
+          'Cooling energy use scales with BTU capacity and hours of operation, then divides by efficiency (SEER/EER). Higher SEER means fewer kWh for the same cooling — enter your utility $/kWh for a local monthly estimate.',
+          'Size the unit first with the [BTU calculator](/btu-calculator) or [mini-split calculator](/mini-split-calculator); an oversized short-cycling unit can cost more than a right-sized efficient one.',
+        ],
+      },
+      {
+        heading: 'Hours and climate matter more than sticker SEER',
+        paragraphs: [
+          'A high-SEER unit in a mild climate with short cooling seasons may cost less annually than a mid-SEER unit run 12 hours a day in a hot region. Use realistic daily hours for your home, not nameplate maximum.',
+          'Planning a ductless install? Walk electrical, placement, and kit choices in the [DIY mini-split project roadmap](/guides/diy-mini-split-project-roadmap).',
+        ],
+      },
+      {
+        heading: 'What this estimate leaves out',
+        paragraphs: [
+          'We model compressor energy for planning — not standby power, fans on other equipment, or time-of-use rate tiers. Treat the result as a comparison tool between units, not a utility bill guarantee.',
+        ],
+      },
+    ],
+  },
 };
 
 export function getLandingEditorial(slug: string): LandingEditorial | undefined {

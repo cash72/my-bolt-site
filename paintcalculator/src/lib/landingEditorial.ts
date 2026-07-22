@@ -330,6 +330,33 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       },
     ],
   },
+
+  'cabinet-trim-paint-calculator': {
+    intro:
+      'Cabinets and trim are piece counts and linear feet — not room wall area. Enter door/drawer fronts and baseboard length; we estimate gallons (or quarts) with waste for enamel and trim paint.',
+    sections: [
+      {
+        heading: 'Why cabinets need a different paint math',
+        paragraphs: [
+          'A kitchen remodel is dozens of faces, not one big rectangle. Count doors and drawer fronts separately, then add linear feet of baseboard, casing, and crown. Our [cabinet & trim paint calculator](/cabinet-trim-paint-calculator) totals coverage for both.',
+          'Cabinet enamel often covers less per gallon than wall latex — enter the label sq ft/gallon (often 300–350) so you do not under-buy mid-project.',
+        ],
+      },
+      {
+        heading: 'Primer, coats, and sheen',
+        paragraphs: [
+          'Bare wood and stained cabinets usually need bonding primer plus two topcoats. Semi-gloss or satin enamel hides fingerprints better than flat. For full-room walls after cabinets, switch to the [how much paint do I need](/how-much-paint-do-i-need) tool.',
+          'Walk the whole job in our [interior painting project guide](/guides/interior-painting-project-guide) — prep, prime, and cut-in order matter as much as gallons.',
+        ],
+      },
+      {
+        heading: 'Quarts vs gallons',
+        paragraphs: [
+          'Small trim jobs often finish under one gallon — buy quarts when the estimate is well under a gallon to avoid waste and colour-match issues later. Keep leftover for touch-ups in a labelled jar.',
+        ],
+      },
+    ],
+  },
 };
 
 export function getLandingEditorial(slug: string): LandingEditorial | undefined {

@@ -9,10 +9,10 @@ import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 
 const POPULAR_CALCULATORS = [
   { to: '/how-much-paint-do-i-need', label: 'How much paint?' },
-  { to: '/exterior-paint-calculator', label: 'Exterior paint' },
-  { to: '/ceiling-paint-calculator', label: 'Ceiling paint' },
+  { to: '/cabinet-trim-paint-calculator', label: 'Cabinet & trim' },
   { to: '/paint-cost-estimator', label: 'Paint cost' },
-  { to: '/wallpaper-calculator', label: 'Wallpaper rolls' },
+  { to: '/ceiling-paint-calculator', label: 'Ceiling paint' },
+  { to: '/exterior-paint-calculator', label: 'Exterior paint' },
 ] as const;
 
 const HOMEPAGE_FAQ = [

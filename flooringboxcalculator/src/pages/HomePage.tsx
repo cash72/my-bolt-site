@@ -10,8 +10,8 @@ import { FEATURED_LANDING_LINKS } from '../lib/landingPages';
 
 const POPULAR_CALCULATORS = [
   { to: '/how-many-flooring-boxes', label: 'Box calculator' },
+  { to: '/flooring-cost-estimator', label: 'Cost estimator' },
   { to: '/laminate-flooring-calculator', label: 'Laminate calculator' },
-  { to: '/stair-carpet-calculator', label: 'Stair carpet' },
   { to: '/tile-flooring-calculator', label: 'Tile calculator' },
   { to: '/carpet-calculator', label: 'Carpet calculator' },
 ] as const;

@@ -4,10 +4,12 @@ import { useJsonLd } from '../hooks/useJsonLd';
 import { AffiliateButton } from '../components/ToolCard';
 import { ToolCard } from '../components/ToolCard';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import SessionDeepener from '../components/SessionDeepener';
 import { getToolBySlug } from '../lib/tools/tools';
 import { getGuideBySlug } from '../lib/guides/guides';
 import { CREW_SIZE_LABEL, TOOL_CATEGORY_LABEL } from '../lib/tools/types';
 import { breadcrumbSchema, pageUrl } from '../lib/schema/jsonLd';
+import { TOOL_NEXT_STEPS } from '../lib/sessionNextSteps';
 import { SITE_NAME } from '../lib/site';
 
 const FEATURE_LABELS: { key: keyof import('../lib/tools/types').ToolFeatures; label: string }[] = [
@@ -151,6 +153,8 @@ export default function ToolPage() {
           </div>
         </section>
       )}
+
+      <SessionDeepener links={TOOL_NEXT_STEPS} className="mb-8" />
 
       <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-200 dark:border-slate-800 pt-6">
         {SITE_NAME} — independent review. Pricing verified from public sources; confirm on{' '}

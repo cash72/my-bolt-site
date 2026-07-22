@@ -13,9 +13,9 @@ export const CALCULATOR_NEXT_STEPS: NextStepLink[] = [
     hint: 'Protein, fat, and net carbs',
   },
   {
-    to: '/fasting-clock',
-    label: 'Fasting clock',
-    hint: 'Track IF windows after macros',
+    to: '/guides/getting-started-keto-low-carb',
+    label: 'Getting started with keto',
+    hint: 'First two weeks on low carb',
   },
 ];
 

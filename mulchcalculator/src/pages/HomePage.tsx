@@ -11,6 +11,7 @@ const POPULAR_CALCULATORS = [
   { to: '/mulch-calculator', label: 'Mulch calculator' },
   { to: '/mulch-cost-estimator', label: 'Cost estimator' },
   { to: '/sod-calculator', label: 'Sod calculator' },
+  { to: '/gravel-calculator', label: 'Gravel calculator' },
   { to: '/topsoil-calculator', label: 'Topsoil calculator' },
 ] as const;
 

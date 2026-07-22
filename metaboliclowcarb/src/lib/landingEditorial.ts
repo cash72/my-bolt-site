@@ -306,6 +306,33 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       },
     ],
   },
+
+  'tdee-calorie-calculator': {
+    intro:
+      'TDEE (Total Daily Energy Expenditure) estimates how many calories you burn in a day — BMR plus activity. Use it as the baseline for weight loss, maintenance, or muscle-gain targets.',
+    sections: [
+      {
+        heading: 'From TDEE to a deficit or surplus',
+        paragraphs: [
+          'A common fat-loss starting point is TDEE minus 300–500 calories. Aggressive cuts below that raise hunger and muscle-loss risk. For a protein-forward cut plan, open the [weight-loss macro calculator](/weight-loss-macro-calculator) with the same stats.',
+          'Building muscle usually needs a small surplus (about 200–300 above TDEE) plus resistance training — macros still matter more than eating “clean” without enough protein.',
+        ],
+      },
+      {
+        heading: 'Activity multipliers are estimates',
+        paragraphs: [
+          'Desk jobs with light walking differ from construction or daily training. If weight stalls for 2–3 weeks, adjust calories rather than trusting the multiplier forever — track weekly averages, not day-to-day scale noise.',
+          'New to low carb? Pair calorie targets with our [getting started keto guide](/guides/getting-started-keto-low-carb), then split macros in the [keto macro calculator](/keto-macro-calculator).',
+        ],
+      },
+      {
+        heading: 'When to talk to a clinician',
+        paragraphs: [
+          'Very low calorie targets, diabetes medications, pregnancy, and eating-disorder history need professional guidance. This tool is educational — not medical advice.',
+        ],
+      },
+    ],
+  },
 };
 
 export function getLandingEditorial(slug: string): LandingEditorial | undefined {
