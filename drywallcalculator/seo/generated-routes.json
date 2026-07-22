@@ -11,6 +11,7 @@
     "/drywall-for-ceiling-calculator",
     "/basement-drywall-calculator",
     "/garage-drywall-calculator",
+    "/drywall-cost-estimator",
     "/guides/how-much-drywall-for-a-room",
     "/guides/drywall-sheet-sizes-explained",
     "/guides/how-much-drywall-waste-to-add",
@@ -41,7 +42,8 @@
     "/how-many-drywall-sheets",
     "/drywall-for-ceiling-calculator",
     "/basement-drywall-calculator",
-    "/garage-drywall-calculator"
+    "/garage-drywall-calculator",
+    "/drywall-cost-estimator"
   ],
   "guidePaths": [
     "/guides/how-much-drywall-for-a-room",

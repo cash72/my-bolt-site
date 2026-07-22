@@ -2,6 +2,7 @@
   "allRoutes": [
     "/",
     "/tools",
+    "/pricing",
     "/compare",
     "/guides",
     "/about",

@@ -12,6 +12,8 @@
     "/playground-mulch-calculator",
     "/topsoil-calculator",
     "/stone-mulch-calculator",
+    "/mulch-cost-estimator",
+    "/sod-calculator",
     "/guides/how-much-mulch-do-i-need",
     "/guides/mulch-depth-how-deep",
     "/guides/cubic-yards-mulch-explained",
@@ -43,7 +45,9 @@
     "/cubic-yards-calculator",
     "/playground-mulch-calculator",
     "/topsoil-calculator",
-    "/stone-mulch-calculator"
+    "/stone-mulch-calculator",
+    "/mulch-cost-estimator",
+    "/sod-calculator"
   ],
   "guidePaths": [
     "/guides/how-much-mulch-do-i-need",
