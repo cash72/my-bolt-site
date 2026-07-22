@@ -8,9 +8,9 @@ import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 
 const POPULAR_CALCULATORS = [
   { to: '/drywall-calculator', label: 'Drywall calculator' },
+  { to: '/drywall-cost-estimator', label: 'Cost estimator' },
   { to: '/how-many-drywall-sheets', label: 'Sheet count' },
   { to: '/basement-drywall-calculator', label: 'Basement drywall' },
-  { to: '/garage-drywall-calculator', label: 'Garage drywall' },
 ] as const;
 
 const HOMEPAGE_FAQ = [

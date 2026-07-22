@@ -82,13 +82,39 @@ export default function ResultsPanel({ estimate, settings }: ResultsPanelProps) 
           {estimate.screwsEstimate !== null && (
             <p className="text-xs text-slate-500 dark:text-slate-400">
               Screws estimate (rough): {estimate.screwsEstimate.toLocaleString('en-US')}
+              {estimate.screwBoxes !== null ? ` (~${estimate.screwBoxes} box${estimate.screwBoxes === 1 ? '' : 'es'})` : ''}
+            </p>
+          )}
+
+          {estimate.mudBuckets > 0 && (
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              Joint compound (rough): {estimate.mudBuckets} five-gallon bucket
+              {estimate.mudBuckets === 1 ? '' : 's'} for Level 4 finish
             </p>
           )}
 
           {estimate.totalCost !== null && (
-            <div className="pt-3 border-t border-orange-200/60 dark:border-orange-900/40 text-sm">
+            <div className="pt-3 border-t border-orange-200/60 dark:border-orange-900/40 text-sm space-y-1">
+              {estimate.sheetCost !== null && (
+                <p>
+                  <span className="text-slate-500 dark:text-slate-400">Sheets: </span>
+                  <span className="font-semibold">{formatCurrency(estimate.sheetCost)}</span>
+                </p>
+              )}
+              {estimate.mudCost !== null && (
+                <p>
+                  <span className="text-slate-500 dark:text-slate-400">Mud: </span>
+                  <span className="font-semibold">{formatCurrency(estimate.mudCost)}</span>
+                </p>
+              )}
+              {estimate.screwCost !== null && (
+                <p>
+                  <span className="text-slate-500 dark:text-slate-400">Screws: </span>
+                  <span className="font-semibold">{formatCurrency(estimate.screwCost)}</span>
+                </p>
+              )}
               <p>
-                <span className="text-slate-500 dark:text-slate-400">Estimated cost: </span>
+                <span className="text-slate-500 dark:text-slate-400">Estimated total: </span>
                 <span className="font-semibold">{formatCurrency(estimate.totalCost)}</span>
               </p>
             </div>

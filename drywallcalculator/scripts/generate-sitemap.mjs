@@ -22,6 +22,7 @@ const LANDING_SLUGS = [
   'drywall-for-ceiling-calculator',
   'basement-drywall-calculator',
   'garage-drywall-calculator',
+  'drywall-cost-estimator',
 ];
 
 /** Keep in sync with src/lib/guides/guides.ts */

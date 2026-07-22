@@ -127,6 +127,27 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       },
     ],
   },
+
+  'drywall-cost-estimator': {
+    intro:
+      'Sheet count alone does not finish a budget. Add local prices for drywall panels, joint compound, and screw boxes to get a materials-only total before labor or texture.',
+    sections: [
+      {
+        heading: 'What this estimator includes',
+        paragraphs: [
+          'We convert room dimensions into sheets (with waste), rough screw counts (~32 per sheet), and five-gallon mud buckets (~1 per 200 sq ft for Level 4). Enter store prices and we sum sheets + mud + screws.',
+          'Tape, corner bead, primer, and sanding supplies are small add-ons — budget them separately. See [estimating screws and compound](/guides/estimating-drywall-screws-and-compound) for Level 4 baselines.',
+        ],
+      },
+      {
+        heading: 'Labor is separate',
+        paragraphs: [
+          'Hang-and-tape labor varies widely by market. Use this materials total to compare lumber-yard quotes, then get a pro bid if you are not finishing yourself.',
+          'Need sheet count only? Use the main [drywall calculator](/drywall-calculator) or [how many sheets](/how-many-drywall-sheets).',
+        ],
+      },
+    ],
+  },
 };
 
 export function getLandingEditorial(slug: string): LandingEditorial | undefined {

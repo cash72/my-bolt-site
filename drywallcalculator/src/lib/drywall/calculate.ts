@@ -1,10 +1,12 @@
 import type { EstimateResult, ProjectSettings, RoomInput } from './types';
 import {
+  DEFAULT_SCREWS_PER_BOX,
   DEFAULT_SHEET_HEIGHT,
   DEFAULT_SHEET_WIDTH,
   DEFAULT_WASTE,
   DOOR_DEDUCTION_SQFT,
   SCREWS_PER_SHEET,
+  SQ_FT_PER_MUD_BUCKET,
   WINDOW_DEDUCTION_SQFT,
 } from './types';
 
@@ -71,8 +73,33 @@ export function calculateEstimate(rooms: RoomInput[], settings: ProjectSettings)
   const screwsEstimate =
     settings.estimateScrews && sheetsNeeded > 0 ? sheetsNeeded * SCREWS_PER_SHEET : null;
 
+  const mudBuckets =
+    totalWithWasteSqFt > 0 ? Math.ceil(totalWithWasteSqFt / SQ_FT_PER_MUD_BUCKET) : 0;
+
+  const screwsPerBox =
+    parseNonNegative(settings.screwsPerBox) || DEFAULT_SCREWS_PER_BOX;
+  const screwBoxes =
+    screwsEstimate !== null && screwsPerBox > 0
+      ? Math.ceil(screwsEstimate / screwsPerBox)
+      : null;
+
   const pricePerSheet = parseNonNegative(settings.pricePerSheet);
-  const totalCost = pricePerSheet > 0 && sheetsNeeded > 0 ? sheetsNeeded * pricePerSheet : null;
+  const pricePerMudBucket = parseNonNegative(settings.pricePerMudBucket);
+  const pricePerScrewBox = parseNonNegative(settings.pricePerScrewBox);
+
+  const sheetCost =
+    pricePerSheet > 0 && sheetsNeeded > 0 ? sheetsNeeded * pricePerSheet : null;
+  const mudCost =
+    pricePerMudBucket > 0 && mudBuckets > 0 ? mudBuckets * pricePerMudBucket : null;
+  const screwCost =
+    pricePerScrewBox > 0 && screwBoxes !== null && screwBoxes > 0
+      ? screwBoxes * pricePerScrewBox
+      : null;
+
+  let totalCost: number | null = null;
+  if (sheetCost !== null || mudCost !== null || screwCost !== null) {
+    totalCost = (sheetCost ?? 0) + (mudCost ?? 0) + (screwCost ?? 0);
+  }
 
   return {
     rooms: roomResults,
@@ -89,6 +116,11 @@ export function calculateEstimate(rooms: RoomInput[], settings: ProjectSettings)
     sheetSqFt,
     sheetsNeeded,
     screwsEstimate,
+    mudBuckets,
+    screwBoxes,
+    sheetCost,
+    mudCost,
+    screwCost,
     totalCost,
   };
 }
@@ -140,12 +172,30 @@ export function buildShoppingList(settings: ProjectSettings, estimate: EstimateR
     `Drywall sheets to buy: ${estimate.sheetsNeeded}`,
   );
 
-  if (estimate.screwsEstimate !== null) {
-    lines.push(`Screws estimate (rough): ${estimate.screwsEstimate.toLocaleString('en-US')}`);
+  if (estimate.mudBuckets > 0) {
+    lines.push(
+      `Joint compound (rough): ${estimate.mudBuckets} five-gallon bucket${estimate.mudBuckets === 1 ? '' : 's'}`,
+    );
   }
 
+  if (estimate.screwsEstimate !== null) {
+    lines.push(`Screws estimate (rough): ${estimate.screwsEstimate.toLocaleString('en-US')}`);
+    if (estimate.screwBoxes !== null) {
+      lines.push(`Screw boxes to buy: ${estimate.screwBoxes}`);
+    }
+  }
+
+  if (estimate.sheetCost !== null) {
+    lines.push(`Sheet cost: ${formatCurrency(estimate.sheetCost)}`);
+  }
+  if (estimate.mudCost !== null) {
+    lines.push(`Mud cost: ${formatCurrency(estimate.mudCost)}`);
+  }
+  if (estimate.screwCost !== null) {
+    lines.push(`Screw cost: ${formatCurrency(estimate.screwCost)}`);
+  }
   if (estimate.totalCost !== null) {
-    lines.push(`Estimated cost: ${formatCurrency(estimate.totalCost)}`);
+    lines.push(`Estimated total: ${formatCurrency(estimate.totalCost)}`);
   }
 
   lines.push('', `Generated at ${SITE_DOMAIN}`);

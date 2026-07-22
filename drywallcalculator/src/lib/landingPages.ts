@@ -156,10 +156,40 @@ export const LANDING_PAGES: LandingPage[] = [
       },
     ],
   },
+  {
+    slug: 'drywall-cost-estimator',
+    path: '/drywall-cost-estimator',
+    includeCeiling: false,
+    title: 'Drywall Cost Estimator — Sheets, Mud & Screws',
+    h1: 'Drywall Cost Estimator',
+    description:
+      'Estimate drywall project cost: sheet price, joint compound buckets, and screw boxes. Enter room dimensions and local prices for a materials total.',
+    breadcrumbLabel: 'Cost estimator',
+    intro:
+      'Enter room size, then optional prices for sheets, five-gallon mud buckets, and screw boxes. We estimate quantities and add up a materials-only total before labor.',
+    faqs: [
+      {
+        question: 'How much does drywall cost for a room?',
+        answer:
+          'Materials are sheets + mud + screws (and tape). Price sheets per panel, mud per five-gallon bucket (~1 bucket per 200 sq ft hung for Level 4), and screws by the box. Labor and texture are separate.',
+      },
+      {
+        question: 'Does this include labor?',
+        answer:
+          'No — this estimator covers hang-and-finish materials only. Pro hanging and taping rates vary widely by market; use the materials total to compare store quotes.',
+      },
+      {
+        question: 'How do you estimate mud and screws?',
+        answer:
+          'Screws use ~32 per sheet. Mud uses roughly one five-gallon bucket per 200 sq ft of hung area for a standard three-coat Level 4 finish — bump up for Level 5 skim coats.',
+      },
+    ],
+  },
 ];
 
 export const FEATURED_LANDING_SLUGS = [
   'drywall-calculator',
+  'drywall-cost-estimator',
   'how-many-drywall-sheets',
   'basement-drywall-calculator',
   'garage-drywall-calculator',

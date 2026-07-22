@@ -15,6 +15,9 @@ export interface ProjectSettings {
   sheetHeight: string;
   wastePercent: string;
   pricePerSheet: string;
+  pricePerMudBucket: string;
+  pricePerScrewBox: string;
+  screwsPerBox: string;
   doors: string;
   windows: string;
   estimateScrews: boolean;
@@ -43,6 +46,11 @@ export interface EstimateResult {
   sheetSqFt: number;
   sheetsNeeded: number;
   screwsEstimate: number | null;
+  mudBuckets: number;
+  screwBoxes: number | null;
+  sheetCost: number | null;
+  mudCost: number | null;
+  screwCost: number | null;
   totalCost: number | null;
 }
 
@@ -57,6 +65,11 @@ export const DOOR_DEDUCTION_SQFT = 20;
 export const WINDOW_DEDUCTION_SQFT = 15;
 
 export const SCREWS_PER_SHEET = 32;
+
+/** Rough Level 4 finish: ~1 five-gallon bucket per 200 sq ft hung. */
+export const SQ_FT_PER_MUD_BUCKET = 200;
+
+export const DEFAULT_SCREWS_PER_BOX = 1000;
 
 export function createEmptyRoom(index: number): RoomInput {
   return {
@@ -78,6 +91,9 @@ export function defaultProjectSettings(includeCeiling = false): ProjectSettings 
     sheetHeight: String(DEFAULT_SHEET_HEIGHT),
     wastePercent: String(DEFAULT_WASTE),
     pricePerSheet: '',
+    pricePerMudBucket: '',
+    pricePerScrewBox: '',
+    screwsPerBox: String(DEFAULT_SCREWS_PER_BOX),
     doors: '1',
     windows: '1',
     estimateScrews: true,

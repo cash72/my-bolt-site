@@ -123,6 +123,58 @@ export default function DrywallSettingsForm({ settings, onUpdate }: DrywallSetti
             />
           </div>
         </div>
+        <div>
+          <label htmlFor="price-mud" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+            Price / mud bucket <span className="font-normal">(optional)</span>
+          </label>
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">$</span>
+            <input
+              id="price-mud"
+              type="number"
+              min="0"
+              step="0.01"
+              value={settings.pricePerMudBucket}
+              onChange={(e) => onUpdate({ pricePerMudBucket: e.target.value })}
+              placeholder="0"
+              className="w-full pl-7 pr-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/40"
+            />
+          </div>
+          <p className="text-[10px] text-slate-400 mt-1">5-gal bucket; ~1 per 200 sq ft</p>
+        </div>
+        <div>
+          <label htmlFor="price-screw-box" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+            Price / screw box <span className="font-normal">(optional)</span>
+          </label>
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">$</span>
+            <input
+              id="price-screw-box"
+              type="number"
+              min="0"
+              step="0.01"
+              value={settings.pricePerScrewBox}
+              onChange={(e) => onUpdate({ pricePerScrewBox: e.target.value })}
+              placeholder="0"
+              className="w-full pl-7 pr-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/40"
+            />
+          </div>
+        </div>
+        <div>
+          <label htmlFor="screws-per-box" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+            Screws per box
+          </label>
+          <input
+            id="screws-per-box"
+            type="number"
+            min="1"
+            step="1"
+            value={settings.screwsPerBox}
+            onChange={(e) => onUpdate({ screwsPerBox: e.target.value })}
+            className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/40"
+          />
+          <p className="text-[10px] text-slate-400 mt-1">Default 1,000</p>
+        </div>
       </div>
 
       <label className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300 cursor-pointer">

@@ -30,6 +30,11 @@ export function getGuidesForLanding(page: LandingPage): Guide[] {
       .map((slug) => getGuideBySlug(slug))
       .filter((g): g is Guide => g !== undefined);
   }
+  if (page.slug === 'drywall-cost-estimator') {
+    return ['estimating-drywall-screws-and-compound', 'how-much-drywall-for-a-room', 'drywall-project-from-framing-to-paint']
+      .map((slug) => getGuideBySlug(slug))
+      .filter((g): g is Guide => g !== undefined);
+  }
   return [
     'drywall-project-from-framing-to-paint',
     'how-much-drywall-for-a-room',
@@ -41,11 +46,12 @@ export function getGuidesForLanding(page: LandingPage): Guide[] {
 }
 
 const P0_CROSS_LINK_SLUGS: Partial<Record<string, string[]>> = {
-  'drywall-calculator': ['how-many-drywall-sheets', 'drywall-for-ceiling-calculator'],
-  'how-many-drywall-sheets': ['drywall-calculator', 'drywall-for-ceiling-calculator'],
-  'drywall-for-ceiling-calculator': ['drywall-calculator', 'how-many-drywall-sheets'],
-  'basement-drywall-calculator': ['drywall-calculator', 'how-many-drywall-sheets'],
-  'garage-drywall-calculator': ['drywall-calculator', 'drywall-for-ceiling-calculator'],
+  'drywall-calculator': ['drywall-cost-estimator', 'how-many-drywall-sheets'],
+  'drywall-cost-estimator': ['drywall-calculator', 'how-many-drywall-sheets'],
+  'how-many-drywall-sheets': ['drywall-calculator', 'drywall-cost-estimator'],
+  'drywall-for-ceiling-calculator': ['drywall-calculator', 'drywall-cost-estimator'],
+  'basement-drywall-calculator': ['drywall-calculator', 'drywall-cost-estimator'],
+  'garage-drywall-calculator': ['drywall-calculator', 'drywall-cost-estimator'],
 };
 
 export function getRelatedLandingPages(page: LandingPage, limit = 4): LandingPage[] {

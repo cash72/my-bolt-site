@@ -18,6 +18,7 @@ export const P0_INDEX_BY_DIR = {
     label: 'Drywall Calculator',
     paths: [
       { path: '/drywall-calculator/' },
+      { path: '/drywall-cost-estimator/', isNew: true },
       { path: '/how-many-drywall-sheets/' },
       { path: '/basement-drywall-calculator/', isNew: true },
       { path: '/garage-drywall-calculator/', isNew: true },
