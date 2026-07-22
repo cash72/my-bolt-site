@@ -20,6 +20,11 @@ const DEFAULT_GUIDES = [
 ];
 
 export function getGuidesForLanding(page: LandingPage): Guide[] {
+  if (page.slug === 'ac-cost-to-run-calculator' || page.kind === 'cost') {
+    return ['seer-ratings-explained', 'btu-per-square-foot-explained', 'mini-split-vs-window-ac']
+      .map((slug) => getGuideBySlug(slug))
+      .filter((g): g is Guide => g !== undefined);
+  }
   if (page.slug === 'window-ac-calculator') {
     return ['window-ac-btu-sizing', 'how-to-install-window-ac-safely', 'mini-split-vs-window-ac']
       .map((slug) => getGuideBySlug(slug))
@@ -49,6 +54,7 @@ const P0_CROSS_LINK_SLUGS: Partial<Record<string, string[]>> = {
   'window-ac-calculator': ['ac-size-calculator', 'room-ac-calculator', 'what-size-ac-do-i-need'],
   'garage-heater-btu-calculator': ['btu-calculator', 'mini-split-for-shed', 'tonnage-calculator'],
   'whole-house-btu-calculator': ['btu-calculator', 'what-size-ac-do-i-need', 'tonnage-calculator'],
+  'ac-cost-to-run-calculator': ['btu-calculator', 'mini-split-calculator', 'tonnage-calculator'],
 };
 
 export function getRelatedLandingPages(page: LandingPage, limit = 4): LandingPage[] {

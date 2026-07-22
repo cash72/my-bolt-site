@@ -30,6 +30,7 @@ const LANDING_SLUGS = [
   'window-ac-calculator',
   'garage-heater-btu-calculator',
   'whole-house-btu-calculator',
+  'ac-cost-to-run-calculator',
 ];
 
 /** Keep in sync with src/lib/guides/guides.ts */

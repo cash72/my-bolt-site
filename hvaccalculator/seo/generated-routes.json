@@ -19,6 +19,7 @@
     "/window-ac-calculator",
     "/garage-heater-btu-calculator",
     "/whole-house-btu-calculator",
+    "/ac-cost-to-run-calculator",
     "/guides/btu-per-square-foot-explained",
     "/guides/how-many-btu-for-bedroom",
     "/guides/mini-split-vs-window-ac",
@@ -57,7 +58,8 @@
     "/tonnage-calculator",
     "/window-ac-calculator",
     "/garage-heater-btu-calculator",
-    "/whole-house-btu-calculator"
+    "/whole-house-btu-calculator",
+    "/ac-cost-to-run-calculator"
   ],
   "guidePaths": [
     "/guides/btu-per-square-foot-explained",

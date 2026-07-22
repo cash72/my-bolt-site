@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import HvacCalculator from '../components/HvacCalculator';
+import SeerCostCalculator from '../components/SeerCostCalculator';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { getLandingEditorial } from '../lib/landingEditorial';
 import { getGuidesForLanding, getRelatedLandingPages } from '../lib/landingHelpers';
@@ -101,11 +102,15 @@ export default function MaterialLandingPage() {
     <main id="main-content" className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12" role="main">
       <Breadcrumbs label={page.breadcrumbLabel} />
 
-      <HvacCalculator
-        initialApplication={page.applicationType}
-        heading={page.h1}
-        subheading={pageIntro ?? page.intro}
-      />
+      {page.kind === 'cost' ? (
+        <SeerCostCalculator heading={page.h1} subheading={pageIntro ?? page.intro} />
+      ) : (
+        <HvacCalculator
+          initialApplication={page.applicationType}
+          heading={page.h1}
+          subheading={pageIntro ?? page.intro}
+        />
+      )}
 
       <ContentMonetizationSlot placement="content" guides={relatedGuides} />
 

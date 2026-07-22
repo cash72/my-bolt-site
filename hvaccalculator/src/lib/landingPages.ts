@@ -4,6 +4,8 @@ export interface LandingPage {
   slug: string;
   path: string;
   applicationType: ApplicationType;
+  /** Default 'btu'. Cost landings use SeerCostCalculator instead of HvacCalculator. */
+  kind?: 'btu' | 'cost';
   title: string;
   h1: string;
   description: string;
@@ -387,10 +389,41 @@ export const LANDING_PAGES: LandingPage[] = [
       },
     ],
   },
+  {
+    slug: 'ac-cost-to-run-calculator',
+    path: '/ac-cost-to-run-calculator',
+    applicationType: 'standard_room',
+    kind: 'cost',
+    title: 'AC Cost to Run Calculator — SEER Electricity Estimate',
+    h1: 'AC Cost to Run Calculator',
+    description:
+      'Estimate how much it costs to run an air conditioner or mini-split. Enter BTU or tons, SEER, hours per day, and $/kWh for monthly and seasonal cost — free SEER savings tool.',
+    breadcrumbLabel: 'AC cost to run',
+    intro:
+      'Higher SEER uses less electricity for the same cooling output. Enter your unit capacity, SEER rating, typical run hours, and your electric rate to estimate daily, monthly, and seasonal cost — and compare two SEER levels.',
+    faqs: [
+      {
+        question: 'How do you calculate AC electricity cost?',
+        answer:
+          'Rough planning formula: kWh = (BTU/hr × hours) ÷ (SEER × 1,000). Multiply kWh by your $/kWh rate. Real bills vary with outdoor temperature, thermostat setpoints, and cycling.',
+      },
+      {
+        question: 'Is SEER the same as SEER2?',
+        answer:
+          'No — SEER2 uses updated test conditions and usually reads lower than old SEER for the same hardware. Enter the number on your equipment label; do not mix SEER and SEER2 in one comparison without converting.',
+      },
+      {
+        question: 'Does a higher SEER always save money?',
+        answer:
+          'Higher SEER cuts run cost for the same hours and capacity, but the upgrade premium may take years to recover. Use the compare SEER field to see monthly savings before you buy.',
+      },
+    ],
+  },
 ];
 
 export const FEATURED_LANDING_SLUGS = [
   'btu-calculator',
+  'ac-cost-to-run-calculator',
   'mini-split-calculator',
   'window-ac-calculator',
   'garage-heater-btu-calculator',
