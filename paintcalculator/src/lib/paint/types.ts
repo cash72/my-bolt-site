@@ -6,7 +6,7 @@ export type PaintType =
   | 'house_stain'
   | 'deck_stain';
 
-export type SurfaceType = 'walls' | 'ceiling' | 'both' | 'fence' | 'deck';
+export type SurfaceType = 'walls' | 'ceiling' | 'both' | 'fence' | 'deck' | 'trim';
 
 export interface RoomInput {
   id: string;
@@ -29,6 +29,11 @@ export interface ProjectSettings {
   pricePerGallon: string;
   doors: string;
   windows: string;
+  /** Cabinets & trim mode — piece counts (not wall deductions). */
+  cabinetDoors: string;
+  trimDoors: string;
+  trimLinearFt: string;
+  trimHeightIn: string;
 }
 
 export interface RoomResult {
@@ -83,9 +88,19 @@ export const DEFAULT_SQFT_PER_GALLON: Record<PaintType, number> = {
 
 export const DOOR_DEDUCTION_SQFT = 20;
 export const WINDOW_DEDUCTION_SQFT = 15;
+/** Average painted face for a kitchen cabinet door / drawer front. */
+export const CABINET_DOOR_SQFT = 5;
+/** One face of a standard interior door (bothSides doubles). */
+export const TRIM_DOOR_FACE_SQFT = 20;
+export const DEFAULT_TRIM_HEIGHT_IN = 3.5;
+export const DEFAULT_TRIM_WASTE = 15;
 
 export function isStainType(paintType: PaintType): boolean {
   return paintType === 'fence_stain' || paintType === 'house_stain' || paintType === 'deck_stain';
+}
+
+export function isTrimSurface(surface: SurfaceType): boolean {
+  return surface === 'trim';
 }
 
 export function defaultSurfaceForPaintType(paintType: PaintType): SurfaceType {
@@ -111,6 +126,7 @@ export function paintTypeDefaults(paintType: PaintType): Partial<ProjectSettings
 export function createEmptyRoom(index: number, surface: SurfaceType = 'both'): RoomInput {
   const isFence = surface === 'fence';
   const isDeck = surface === 'deck';
+  const isTrim = surface === 'trim';
   return {
     id: crypto.randomUUID(),
     name: isFence
@@ -121,14 +137,16 @@ export function createEmptyRoom(index: number, surface: SurfaceType = 'both'): R
         ? index === 0
           ? 'Deck area 1'
           : `Deck area ${index + 1}`
-        : index === 0
-          ? 'Room 1'
-          : `Room ${index + 1}`,
+        : isTrim
+          ? 'Cabinets & trim'
+          : index === 0
+            ? 'Room 1'
+            : `Room ${index + 1}`,
     lengthFt: '',
     lengthIn: '',
     widthFt: '',
     widthIn: '',
-    heightFt: isFence ? '6' : isDeck ? '' : '8',
+    heightFt: isFence ? '6' : isDeck || isTrim ? '' : '8',
     heightIn: '',
   };
 }
@@ -144,5 +162,9 @@ export function defaultProjectSettings(paintType: PaintType = 'interior'): Proje
     pricePerGallon: '',
     doors: isStainType(paintType) ? '0' : '1',
     windows: isStainType(paintType) ? '0' : '1',
+    cabinetDoors: '12',
+    trimDoors: '2',
+    trimLinearFt: '80',
+    trimHeightIn: String(DEFAULT_TRIM_HEIGHT_IN),
   };
 }

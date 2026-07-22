@@ -33,7 +33,9 @@ export default function ResultsPanel({ estimate, settings }: ResultsPanelProps) 
 
       {!hasInput ? (
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          Enter room dimensions to see paintable area and gallon counts.
+          {settings.surface === 'trim'
+            ? 'Enter cabinet doors, interior doors, and trim length to see gallons.'
+            : 'Enter room dimensions to see paintable area and gallon counts.'}
         </p>
       ) : (
         <>

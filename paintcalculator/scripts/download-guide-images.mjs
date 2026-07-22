@@ -32,6 +32,7 @@ const GUIDE_PHOTOS = {
   'interior-painting-tools-and-supplies-list': '1571411',
   'how-long-between-paint-coats': '1571432',
   'painting-over-oil-based-paint': '1571435',
+  'how-to-paint-cabinets-and-trim': '1571440',
 };
 
 const FALLBACK_POOL = [

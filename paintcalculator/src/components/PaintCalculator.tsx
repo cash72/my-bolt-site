@@ -43,16 +43,24 @@ export default function PaintCalculator({
               ? 'Fence sections'
               : settings.surface === 'deck'
                 ? 'Deck areas'
-                : 'Rooms'}
+                : settings.surface === 'trim'
+                  ? 'Cabinets, doors & trim'
+                  : 'Rooms'}
           </h2>
-          <RoomForm
-            rooms={rooms}
-            surface={settings.surface}
-            canAddRoom={canAddRoom}
-            onUpdate={updateRoom}
-            onAdd={addRoom}
-            onRemove={removeRoom}
-          />
+          {settings.surface === 'trim' ? (
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">
+              Enter piece counts in project settings below — no room dimensions needed for cabinets and trim.
+            </p>
+          ) : (
+            <RoomForm
+              rooms={rooms}
+              surface={settings.surface}
+              canAddRoom={canAddRoom}
+              onUpdate={updateRoom}
+              onAdd={addRoom}
+              onRemove={removeRoom}
+            />
+          )}
         </section>
 
         <section aria-labelledby="settings-heading">

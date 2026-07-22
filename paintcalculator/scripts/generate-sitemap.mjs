@@ -30,6 +30,7 @@ const LANDING_SLUGS = [
   'exterior-paint-calculator',
   'ceiling-paint-calculator',
   'paint-cost-estimator',
+  'cabinet-trim-paint-calculator',
 ];
 
 /** Keep in sync with src/lib/guides/guides.ts */
@@ -58,6 +59,7 @@ const GUIDE_SLUGS = [
   'interior-painting-tools-and-supplies-list',
   'how-long-between-paint-coats',
   'painting-over-oil-based-paint',
+  'how-to-paint-cabinets-and-trim',
 ];
 
 function toSitemapLoc(routePath) {

@@ -19,6 +19,7 @@
     "/exterior-paint-calculator",
     "/ceiling-paint-calculator",
     "/paint-cost-estimator",
+    "/cabinet-trim-paint-calculator",
     "/guides/primer-before-painting",
     "/guides/how-to-repair-walls-before-painting",
     "/guides/how-to-patch-drywall-holes",
@@ -42,7 +43,8 @@
     "/guides/how-to-choose-primer-interior-walls",
     "/guides/interior-painting-tools-and-supplies-list",
     "/guides/how-long-between-paint-coats",
-    "/guides/painting-over-oil-based-paint"
+    "/guides/painting-over-oil-based-paint",
+    "/guides/how-to-paint-cabinets-and-trim"
   ],
   "landingPaths": [
     "/room-paint-calculator",
@@ -57,7 +59,8 @@
     "/accent-wall-wallpaper-calculator",
     "/exterior-paint-calculator",
     "/ceiling-paint-calculator",
-    "/paint-cost-estimator"
+    "/paint-cost-estimator",
+    "/cabinet-trim-paint-calculator"
   ],
   "guidePaths": [
     "/guides/primer-before-painting",
@@ -83,6 +86,7 @@
     "/guides/how-to-choose-primer-interior-walls",
     "/guides/interior-painting-tools-and-supplies-list",
     "/guides/how-long-between-paint-coats",
-    "/guides/painting-over-oil-based-paint"
+    "/guides/painting-over-oil-based-paint",
+    "/guides/how-to-paint-cabinets-and-trim"
   ]
 }

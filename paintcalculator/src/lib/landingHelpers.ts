@@ -30,6 +30,17 @@ export function getGuidesForLanding(page: LandingPage): Guide[] {
       .filter((g): g is Guide => g !== undefined);
   }
 
+  if (page.slug === 'cabinet-trim-paint-calculator') {
+    return [
+      'how-to-paint-cabinets-and-trim',
+      'identify-oil-vs-latex-paint-on-walls',
+      'how-to-choose-primer-interior-walls',
+      'interior-paint-sheen-guide',
+    ]
+      .map((slug) => getGuideBySlug(slug))
+      .filter((g): g is Guide => g !== undefined);
+  }
+
   if (page.slug === 'paint-cost-estimator') {
     return ['how-much-paint-for-a-room', 'paint-coverage-calculator', 'primer-before-painting']
       .map((slug) => getGuideBySlug(slug))
@@ -59,6 +70,11 @@ const P0_CROSS_LINK_SLUGS: Partial<Record<string, string[]>> = {
   'exterior-paint-calculator': ['how-much-paint-do-i-need', 'paint-coverage-calculator', 'interior-paint-calculator'],
   'ceiling-paint-calculator': ['how-much-paint-do-i-need', 'room-paint-calculator', 'interior-paint-calculator'],
   'paint-cost-estimator': ['how-much-paint-do-i-need', 'paint-coverage-calculator', 'room-paint-calculator'],
+  'cabinet-trim-paint-calculator': [
+    'how-much-paint-do-i-need',
+    'interior-paint-calculator',
+    'paint-cost-estimator',
+  ],
 };
 
 export function getRelatedLandingPages(page: LandingPage, limit = 4): LandingPage[] {

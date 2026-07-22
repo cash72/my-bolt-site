@@ -449,10 +449,42 @@ export const LANDING_PAGES: LandingPage[] = [
       },
     ],
   },
+  {
+    slug: 'cabinet-trim-paint-calculator',
+    path: '/cabinet-trim-paint-calculator',
+    kind: 'paint',
+    paintType: 'interior',
+    surface: 'trim',
+    title: 'Cabinet & Trim Paint Calculator — Doors, Drawers & Baseboards',
+    h1: 'Cabinet & Trim Paint Calculator',
+    description:
+      'Estimate paint gallons for kitchen cabinets, interior doors, and trim. Enter door counts and linear feet — free DIY calculator (Canada).',
+    breadcrumbLabel: 'Cabinet & trim paint',
+    intro:
+      'Cabinets and trim are piece work, not room walls. Count cabinet doors and drawer fronts, interior doors, and baseboard/casing linear feet — we convert to square footage, add waste, and estimate gallons.',
+    faqs: [
+      {
+        question: 'How much paint for kitchen cabinets?',
+        answer:
+          'A typical cabinet door or drawer front is about 5 sq ft. Twelve doors ≈ 60 sq ft before coats and waste. Two coats with 15% waste often lands near half a gallon to one gallon — buy a gallon for touch-ups.',
+      },
+      {
+        question: 'Do I paint both sides of doors?',
+        answer:
+          'Yes for swinging interior doors if both faces show. Toggle “both faces” in settings. Closet doors sometimes get one face only.',
+      },
+      {
+        question: 'How do I measure trim?',
+        answer:
+          'Add linear feet of baseboard, casing, and chair rail. Default height is 3.5 inches for baseboards — raise it for taller trim or crown.',
+      },
+    ],
+  },
 ];
 
 export const FEATURED_LANDING_SLUGS = [
   'how-much-paint-do-i-need',
+  'cabinet-trim-paint-calculator',
   'exterior-paint-calculator',
   'ceiling-paint-calculator',
   'paint-cost-estimator',

@@ -23,6 +23,7 @@ const INTERIOR_SURFACES: { value: SurfaceType; label: string }[] = [
   { value: 'walls', label: 'Walls' },
   { value: 'ceiling', label: 'Ceiling' },
   { value: 'both', label: 'Both' },
+  { value: 'trim', label: 'Cabinets & trim' },
 ];
 
 export default function ProjectSettingsForm({
@@ -31,8 +32,10 @@ export default function ProjectSettingsForm({
   onUpdate,
 }: ProjectSettingsFormProps) {
   const stainLocked = isStainType(settings.paintType);
-  const showBothSides = settings.surface === 'fence';
-  const showOpenings = !stainLocked && settings.surface !== 'fence' && settings.surface !== 'deck';
+  const showBothSides = settings.surface === 'fence' || settings.surface === 'trim';
+  const isTrim = settings.surface === 'trim';
+  const showOpenings =
+    !stainLocked && !isTrim && settings.surface !== 'fence' && settings.surface !== 'deck';
 
   return (
     <div className="space-y-4">
@@ -79,13 +82,20 @@ export default function ProjectSettingsForm({
       {!stainLocked && (
         <fieldset>
           <legend className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Surface</legend>
-          <div className="flex gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
             {INTERIOR_SURFACES.map(({ value, label }) => (
               <button
                 key={value}
                 type="button"
-                onClick={() => onUpdate({ surface: value })}
-                className={`flex-1 px-3 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
+                onClick={() =>
+                  onUpdate({
+                    surface: value,
+                    ...(value === 'trim'
+                      ? { wastePercent: '15', bothSides: true, doors: '0', windows: '0' }
+                      : {}),
+                  })
+                }
+                className={`px-3 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
                   settings.surface === value
                     ? 'bg-blue-600 text-white border-blue-600'
                     : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-blue-300'
@@ -96,6 +106,72 @@ export default function ProjectSettingsForm({
             ))}
           </div>
         </fieldset>
+      )}
+
+      {isTrim && (
+        <div className="grid sm:grid-cols-2 gap-4 p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50">
+          <p className="sm:col-span-2 text-xs text-slate-500 dark:text-slate-400">
+            Count cabinet doors and drawer fronts (~5 sq ft each), interior doors (~20 sq ft per face), and
+            baseboard/casing linear feet × height.
+          </p>
+          <div>
+            <label htmlFor="cabinet-doors" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+              Cabinet doors / drawers
+            </label>
+            <input
+              id="cabinet-doors"
+              type="number"
+              min="0"
+              step="1"
+              value={settings.cabinetDoors}
+              onChange={(e) => onUpdate({ cabinetDoors: e.target.value })}
+              className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/40"
+            />
+          </div>
+          <div>
+            <label htmlFor="trim-doors" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+              Interior doors to paint
+            </label>
+            <input
+              id="trim-doors"
+              type="number"
+              min="0"
+              step="1"
+              value={settings.trimDoors}
+              onChange={(e) => onUpdate({ trimDoors: e.target.value })}
+              className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/40"
+            />
+          </div>
+          <div>
+            <label htmlFor="trim-lf" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+              Trim linear feet
+            </label>
+            <input
+              id="trim-lf"
+              type="number"
+              min="0"
+              step="1"
+              value={settings.trimLinearFt}
+              onChange={(e) => onUpdate({ trimLinearFt: e.target.value })}
+              className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/40"
+            />
+          </div>
+          <div>
+            <label htmlFor="trim-height" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+              Trim height (inches)
+            </label>
+            <input
+              id="trim-height"
+              type="number"
+              min="0"
+              step="0.25"
+              value={settings.trimHeightIn}
+              onChange={(e) => onUpdate({ trimHeightIn: e.target.value })}
+              className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/40"
+            />
+            <p className="text-[10px] text-slate-400 mt-1">Default 3.5″ for baseboards</p>
+          </div>
+        </div>
       )}
 
       {stainLocked && (
@@ -111,11 +187,13 @@ export default function ProjectSettingsForm({
 
       {showBothSides && (
         <fieldset>
-          <legend className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Fence faces</legend>
+          <legend className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+            {isTrim ? 'Door faces' : 'Fence faces'}
+          </legend>
           <div className="flex gap-2">
             {[
-              { value: false, label: 'One side' },
-              { value: true, label: 'Both sides' },
+              { value: false, label: isTrim ? 'One face' : 'One side' },
+              { value: true, label: isTrim ? 'Both faces' : 'Both sides' },
             ].map(({ value, label }) => (
               <button
                 key={label}
@@ -123,8 +201,10 @@ export default function ProjectSettingsForm({
                 onClick={() => onUpdate({ bothSides: value })}
                 className={`flex-1 px-3 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
                   settings.bothSides === value
-                    ? 'bg-amber-700 text-white border-amber-700'
-                    : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-amber-400'
+                    ? isTrim
+                      ? 'bg-blue-600 text-white border-blue-600'
+                      : 'bg-amber-700 text-white border-amber-700'
+                    : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-blue-300'
                 }`}
               >
                 {label}
@@ -164,7 +244,9 @@ export default function ProjectSettingsForm({
             onChange={(e) => onUpdate({ wastePercent: e.target.value })}
             className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/40"
           />
-          <p className="text-[10px] text-slate-400 mt-1">Default 10% for touch-ups</p>
+          <p className="text-[10px] text-slate-400 mt-1">
+            {isTrim ? 'Default 15% for cutting in' : 'Default 10% for touch-ups'}
+          </p>
         </div>
         <div>
           <label htmlFor="sqft-gallon" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">

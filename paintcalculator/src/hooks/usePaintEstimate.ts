@@ -17,7 +17,18 @@ export function usePaintEstimate(initialPaintType: PaintType = 'interior', initi
   ]);
   const [settings, setSettings] = useState<ProjectSettings>(() => {
     const defaults = defaultProjectSettings(initialPaintType);
-    return initialSurface ? { ...defaults, surface: initialSurface } : defaults;
+    if (!initialSurface) return defaults;
+    if (initialSurface === 'trim') {
+      return {
+        ...defaults,
+        surface: 'trim',
+        wastePercent: '15',
+        bothSides: true,
+        doors: '0',
+        windows: '0',
+      };
+    }
+    return { ...defaults, surface: initialSurface };
   });
 
   const estimate = useMemo(() => calculateEstimate(rooms, settings), [rooms, settings]);

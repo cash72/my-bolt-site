@@ -1544,6 +1544,73 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: 'how-to-paint-cabinets-and-trim',
+    category: 'paint',
+    title: 'How to Paint Cabinets and Trim — Prep, Primer & Coats',
+    description:
+      'DIY guide to painting kitchen cabinets, interior doors, and trim: degrease, sand, bond-prime, and estimate gallons with the cabinet & trim calculator.',
+    readMinutes: 9,
+    toolPath: '/cabinet-trim-paint-calculator',
+    toolLabel: 'Cabinet & trim calculator',
+    relatedGuideSlugs: [
+      'identify-oil-vs-latex-paint-on-walls',
+      'how-to-choose-primer-interior-walls',
+      'interior-paint-sheen-guide',
+      'painting-over-oil-based-paint',
+    ],
+    sections: [
+      {
+        heading: 'Size the paint before you open a can',
+        paragraphs: [
+          'Cabinets and trim are piece counts, not room walls. Use the [cabinet & trim paint calculator](/cabinet-trim-paint-calculator) for door/drawer counts and linear feet of baseboard — then buy gallons (or quarts) with waste built in.',
+        ],
+      },
+      {
+        heading: 'Prep that makes paint stick',
+        bullets: [
+          'Remove doors/drawers and hardware; label everything',
+          'Degrease kitchen cabinets (TSP substitute) — dust alone is not enough',
+          'Light sand glossy surfaces; wipe dust',
+          'Test oil vs latex on old trim — see [oil vs latex ID](/guides/identify-oil-vs-latex-paint-on-walls)',
+          'Bonding primer on glossy or oil-based trim and cabinets',
+        ],
+        paragraphs: [
+          'Skip primer and you fight peeling edges around knobs and door edges. Primer choice guide: [how to choose primer](/guides/how-to-choose-primer-interior-walls).',
+        ],
+      },
+      {
+        heading: 'Sheen and coats',
+        paragraphs: [
+          'Satin or semi-gloss is standard for trim and cabinets — wipeable and tougher than flat. Most kitchen cabinets need two thin finish coats after primer. Recoat timing: [how long between coats](/guides/how-long-between-paint-coats).',
+          'Sheen comparison: [flat vs eggshell vs satin](/guides/interior-paint-sheen-guide).',
+        ],
+      },
+      {
+        heading: 'When to stop DIY',
+        paragraphs: [
+          'Factory-finished cabinets with peeling laminate, water-damaged boxes, or sprayed finishes you cannot sand safely are often better replaced or left to a cabinet refinisher. Softwood trim with failing oil layers may need [painting over oil](/guides/painting-over-oil-based-paint) steps or stripping.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I paint cabinets without sanding?',
+        answer:
+          'Liquid deglossers help, but light scuff sanding plus bonding primer is more reliable on greasy kitchen doors.',
+      },
+      {
+        question: 'Brush, roll, or spray?',
+        answer:
+          'Foam rollers and angled sash brushes work for DIY. Spraying looks factory-smooth but needs masking skill and ventilation.',
+      },
+      {
+        question: 'How much paint for trim only?',
+        answer:
+          'Enter zero cabinets and doors in the calculator and only linear feet of trim. Many DIYers buy a quart for small trim jobs and a gallon when casing every room.',
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {

@@ -1,9 +1,13 @@
 import type { EstimateResult, PaintType, ProjectSettings, RoomInput } from './types';
 import {
+  CABINET_DOOR_SQFT,
   DEFAULT_COATS,
   DEFAULT_SQFT_PER_GALLON,
+  DEFAULT_TRIM_HEIGHT_IN,
+  DEFAULT_TRIM_WASTE,
   DEFAULT_WASTE,
   DOOR_DEDUCTION_SQFT,
+  TRIM_DOOR_FACE_SQFT,
   WINDOW_DEDUCTION_SQFT,
   isStainType,
 } from './types';
@@ -45,13 +49,103 @@ export function roomCeilingSqFt(room: RoomInput): number {
   return length * width;
 }
 
+export function trimPieceSqFt(settings: ProjectSettings): {
+  cabinetSqFt: number;
+  doorSqFt: number;
+  trimSqFt: number;
+  total: number;
+} {
+  const cabinets = parseNonNegative(settings.cabinetDoors) * CABINET_DOOR_SQFT;
+  const doorFaces = settings.bothSides ? 2 : 1;
+  const doors = parseNonNegative(settings.trimDoors) * TRIM_DOOR_FACE_SQFT * doorFaces;
+  const heightIn =
+    settings.trimHeightIn.trim() === ''
+      ? DEFAULT_TRIM_HEIGHT_IN
+      : parseNonNegative(settings.trimHeightIn) || DEFAULT_TRIM_HEIGHT_IN;
+  const trim = parseNonNegative(settings.trimLinearFt) * (heightIn / 12);
+  return {
+    cabinetSqFt: cabinets,
+    doorSqFt: doors,
+    trimSqFt: trim,
+    total: cabinets + doors + trim,
+  };
+}
+
 export function calculateEstimate(rooms: RoomInput[], settings: ProjectSettings): EstimateResult {
   const { surface } = settings;
+  const isTrim = surface === 'trim';
   const includeWalls = surface === 'walls' || surface === 'both';
   const includeCeiling = surface === 'ceiling' || surface === 'both';
   const isFence = surface === 'fence';
   const isDeck = surface === 'deck';
-  const skipDeductions = isFence || isDeck || isStainType(settings.paintType);
+  const skipDeductions = isFence || isDeck || isTrim || isStainType(settings.paintType);
+
+  if (isTrim) {
+    const pieces = trimPieceSqFt(settings);
+    const roomResults = [
+      {
+        id: 'trim-cabinets',
+        name: 'Cabinet doors / drawers',
+        wallSqFt: pieces.cabinetSqFt,
+        ceilingSqFt: 0,
+        paintableSqFt: pieces.cabinetSqFt,
+      },
+      {
+        id: 'trim-doors',
+        name: settings.bothSides ? 'Interior doors (both faces)' : 'Interior doors (one face)',
+        wallSqFt: pieces.doorSqFt,
+        ceilingSqFt: 0,
+        paintableSqFt: pieces.doorSqFt,
+      },
+      {
+        id: 'trim-board',
+        name: 'Baseboard / trim',
+        wallSqFt: pieces.trimSqFt,
+        ceilingSqFt: 0,
+        paintableSqFt: pieces.trimSqFt,
+      },
+    ];
+
+    const totalPaintableSqFt = pieces.total;
+    const parsedWaste = parseNonNegative(settings.wastePercent);
+    const wastePercent =
+      settings.wastePercent.trim() === '' ? DEFAULT_TRIM_WASTE : parsedWaste;
+    const wasteSqFt = totalPaintableSqFt * (wastePercent / 100);
+    const totalWithWasteSqFt = totalPaintableSqFt + wasteSqFt;
+    const coats = Math.max(
+      1,
+      Math.round(parseNonNegative(settings.coats) || DEFAULT_COATS[settings.paintType])
+    );
+    const totalCoverageSqFt = totalWithWasteSqFt * coats;
+    const sqFtPerGallon =
+      parseNonNegative(settings.sqFtPerGallon) || DEFAULT_SQFT_PER_GALLON[settings.paintType];
+    const rawGallons = sqFtPerGallon > 0 ? totalCoverageSqFt / sqFtPerGallon : 0;
+    const gallonsNeeded = rawGallons > 0 ? Math.ceil(rawGallons * 100) / 100 : 0;
+    const quartsNeeded = rawGallons > 0 ? Math.ceil(rawGallons * 4) : 0;
+    const pricePerGallon = parseNonNegative(settings.pricePerGallon);
+    const totalCost =
+      pricePerGallon > 0 && gallonsNeeded > 0 ? Math.ceil(gallonsNeeded) * pricePerGallon : null;
+
+    return {
+      rooms: roomResults,
+      totalWallSqFt: totalPaintableSqFt,
+      totalCeilingSqFt: 0,
+      totalPaintableSqFt,
+      doorDeductionSqFt: 0,
+      windowDeductionSqFt: 0,
+      totalDeductionSqFt: 0,
+      netPaintableSqFt: totalPaintableSqFt,
+      wastePercent,
+      wasteSqFt,
+      totalWithWasteSqFt,
+      coats,
+      totalCoverageSqFt,
+      sqFtPerGallon,
+      gallonsNeeded,
+      quartsNeeded,
+      totalCost,
+    };
+  }
 
   const roomResults = rooms.map((room) => {
     let wallSqFt = 0;
@@ -161,6 +255,9 @@ export function surfaceLabel(surface: ProjectSettings['surface'], bothSides: boo
   if (surface === 'deck') return 'Deck surface';
   if (surface === 'walls') return 'Exterior walls / siding';
   if (surface === 'ceiling') return 'Ceiling only';
+  if (surface === 'trim') {
+    return bothSides ? 'Cabinets, doors & trim (doors both faces)' : 'Cabinets, doors & trim';
+  }
   return 'Walls & ceiling';
 }
 
@@ -178,6 +275,10 @@ export function buildShoppingList(settings: ProjectSettings, estimate: EstimateR
     'Rooms:',
   ];
 
+  if (settings.surface === 'trim') {
+    lines[lines.length - 1] = 'Pieces:';
+  }
+
   for (const room of estimate.rooms) {
     if (room.paintableSqFt <= 0) continue;
     const parts: string[] = [];
@@ -185,7 +286,9 @@ export function buildShoppingList(settings: ProjectSettings, estimate: EstimateR
       parts.push(
         settings.surface === 'fence'
           ? `${formatSqFt(room.wallSqFt)} sq ft fence`
-          : `${formatSqFt(room.wallSqFt)} sq ft walls`
+          : settings.surface === 'trim'
+            ? `${formatSqFt(room.wallSqFt)} sq ft`
+            : `${formatSqFt(room.wallSqFt)} sq ft walls`
       );
     }
     if (room.ceilingSqFt > 0) {
