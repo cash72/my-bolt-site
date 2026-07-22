@@ -48,17 +48,29 @@ export function getGuidesForLanding(page: LandingPage): Guide[] {
       .map((slug) => getGuideBySlug(slug))
       .filter((g): g is Guide => g !== undefined);
   }
+  if (page.slug === 'mulch-cost-estimator') {
+    return ['delivery-vs-bags-bulk-mulch', 'how-many-mulch-bags-per-yard', 'how-much-mulch-do-i-need']
+      .map((slug) => getGuideBySlug(slug))
+      .filter((g): g is Guide => g !== undefined);
+  }
+  if (page.slug === 'sod-calculator') {
+    return ['topsoil-calculator-guide', 'cubic-yards-mulch-explained', 'how-much-mulch-do-i-need']
+      .map((slug) => getGuideBySlug(slug))
+      .filter((g): g is Guide => g !== undefined);
+  }
   return [...MULCH_GUIDES]
     .map((slug) => getGuideBySlug(slug))
     .filter((g): g is Guide => g !== undefined);
 }
 
 const P0_CROSS_LINK_SLUGS: Partial<Record<string, string[]>> = {
-  'mulch-calculator': ['cubic-yards-calculator', 'gravel-calculator'],
-  'gravel-calculator': ['mulch-calculator', 'cubic-yards-calculator'],
-  'cubic-yards-calculator': ['mulch-calculator', 'gravel-calculator'],
-  'playground-mulch-calculator': ['mulch-calculator', 'cubic-yards-calculator'],
-  'topsoil-calculator': ['cubic-yards-calculator', 'mulch-calculator'],
+  'mulch-calculator': ['mulch-cost-estimator', 'sod-calculator'],
+  'mulch-cost-estimator': ['mulch-calculator', 'cubic-yards-calculator'],
+  'sod-calculator': ['topsoil-calculator', 'mulch-calculator'],
+  'gravel-calculator': ['mulch-calculator', 'stone-mulch-calculator'],
+  'cubic-yards-calculator': ['mulch-calculator', 'mulch-cost-estimator'],
+  'playground-mulch-calculator': ['mulch-calculator', 'mulch-cost-estimator'],
+  'topsoil-calculator': ['sod-calculator', 'mulch-calculator'],
   'stone-mulch-calculator': ['gravel-calculator', 'mulch-calculator'],
 };
 

@@ -9,6 +9,7 @@ import AlternativesPage from './pages/AlternativesPage';
 import BestPage from './pages/BestPage';
 import GuidesIndexPage from './pages/GuidesIndexPage';
 import GuidePage from './pages/GuidePage';
+import PricingMatrixPage from './pages/PricingMatrixPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPage from './pages/PrivacyPage';
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="tools/:slug" element={<ToolPage />} />
         <Route path="compare" element={<CompareIndexPage />} />
         <Route path="compare/:slug" element={<ComparePage />} />
+        <Route path="pricing" element={<PricingMatrixPage />} />
         <Route path="alternatives/:slug" element={<AlternativesPage />} />
         <Route path="best/:slug" element={<BestPage />} />
         <Route path="guides" element={<GuidesIndexPage />} />

@@ -88,16 +88,16 @@ export default function HomePage() {
             Jobber vs Housecall Pro
           </Link>
           <Link
+            to="/pricing"
+            className="inline-flex px-5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 hover:border-emerald-400 font-semibold text-sm transition-colors"
+          >
+            Pricing matrix
+          </Link>
+          <Link
             to="/compare"
             className="inline-flex px-5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 hover:border-emerald-400 font-semibold text-sm transition-colors"
           >
             All comparisons
-          </Link>
-          <Link
-            to="/compare/aspire-vs-lmn-landscaping"
-            className="inline-flex px-5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 hover:border-emerald-400 font-semibold text-sm transition-colors"
-          >
-            Aspire vs LMN
           </Link>
         </div>
       </section>

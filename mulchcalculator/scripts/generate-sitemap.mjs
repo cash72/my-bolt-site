@@ -23,6 +23,8 @@ const LANDING_SLUGS = [
   'playground-mulch-calculator',
   'topsoil-calculator',
   'stone-mulch-calculator',
+  'mulch-cost-estimator',
+  'sod-calculator',
 ];
 
 /** Keep in sync with src/lib/guides/guides.ts */

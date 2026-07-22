@@ -8,9 +8,9 @@ import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 
 const POPULAR_CALCULATORS = [
   { to: '/mulch-calculator', label: 'Mulch calculator' },
+  { to: '/mulch-cost-estimator', label: 'Cost estimator' },
+  { to: '/sod-calculator', label: 'Sod calculator' },
   { to: '/topsoil-calculator', label: 'Topsoil calculator' },
-  { to: '/playground-mulch-calculator', label: 'Playground mulch' },
-  { to: '/cubic-yards-calculator', label: 'Cubic yards' },
 ] as const;
 
 const HOMEPAGE_FAQ = [

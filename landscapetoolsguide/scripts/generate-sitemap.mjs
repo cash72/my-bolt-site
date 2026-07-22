@@ -10,6 +10,7 @@ const TODAY = new Date().toISOString().slice(0, 10);
 const STATIC_ROUTES = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
   { path: '/tools', changefreq: 'weekly', priority: '0.95' },
+  { path: '/pricing', changefreq: 'weekly', priority: '0.93' },
   { path: '/compare', changefreq: 'weekly', priority: '0.9' },
   { path: '/guides', changefreq: 'weekly', priority: '0.88' },
   { path: '/about', changefreq: 'monthly', priority: '0.5' },

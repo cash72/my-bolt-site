@@ -192,15 +192,74 @@ export const LANDING_PAGES: LandingPage[] = [
       },
     ],
   },
+  {
+    slug: 'mulch-cost-estimator',
+    path: '/mulch-cost-estimator',
+    materialType: 'mulch',
+    depthIn: 3,
+    title: 'Mulch Cost Estimator — Bulk Yards vs Bags',
+    h1: 'Mulch Cost Estimator',
+    description:
+      'Estimate mulch cost by the cubic yard or by the bag. Enter bed area, depth, and local prices for a materials total.',
+    breadcrumbLabel: 'Cost estimator',
+    intro:
+      'Enter bed dimensions and depth, then optional prices per cubic yard and per 2 cu ft bag. Compare bulk delivery vs bagged mulch before you order.',
+    faqs: [
+      {
+        question: 'Is bulk mulch cheaper than bags?',
+        answer:
+          'Usually yes above ~1 cubic yard. Bags are convenient for small beds; bulk is cheaper per yard once delivery minimums make sense. Enter both prices to compare.',
+      },
+      {
+        question: 'How do I estimate mulch cost?',
+        answer:
+          'Get cubic yards from area × depth, round up, multiply by $/yard — or multiply 2 cu ft bag count by bag price. This tool does both from the same bed measurements.',
+      },
+      {
+        question: 'Does this include delivery?',
+        answer:
+          'No — delivery fees vary by supplier and distance. Add them on top of the materials total when comparing quotes.',
+      },
+    ],
+  },
+  {
+    slug: 'sod-calculator',
+    path: '/sod-calculator',
+    materialType: 'sod',
+    title: 'Sod Calculator — Rolls, Pallets & Lawn Area',
+    h1: 'Sod Calculator',
+    description:
+      'Free sod calculator for new lawns. Enter area dimensions — get sod roll and pallet counts with optional pricing.',
+    breadcrumbLabel: 'Sod calculator',
+    intro:
+      'Measure each lawn section in feet and inches. We convert area (plus waste) into sod rolls and pallets using common coverage defaults you can edit.',
+    faqs: [
+      {
+        question: 'How much sod do I need?',
+        answer:
+          'Measure length × width for each section, add ~10% waste for cuts and seams, then divide by roll or pallet coverage. A typical roll covers about 10 sq ft; a pallet often covers ~450 sq ft — confirm with your supplier.',
+      },
+      {
+        question: 'How many rolls of sod in a pallet?',
+        answer:
+          'It depends on roll size. If rolls are 10 sq ft and a pallet covers 450 sq ft, that is about 45 rolls. Enter your supplier’s roll and pallet coverage in settings.',
+      },
+      {
+        question: 'Should I buy sod by the roll or pallet?',
+        answer:
+          'Small patches often use rolls from a garden center. Full lawns are cheaper by the pallet with delivery. Enter both prices to compare.',
+      },
+    ],
+  },
 ];
 
 export const FEATURED_LANDING_SLUGS = [
   'mulch-calculator',
+  'mulch-cost-estimator',
+  'sod-calculator',
   'topsoil-calculator',
   'playground-mulch-calculator',
   'stone-mulch-calculator',
-  'gravel-calculator',
-  'cubic-yards-calculator',
 ] as const;
 
 export const FEATURED_LANDING_LINKS = FEATURED_LANDING_SLUGS.map((slug) =>

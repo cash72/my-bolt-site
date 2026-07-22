@@ -31,6 +31,8 @@ export const P0_INDEX_BY_DIR = {
     label: 'Mulch Calculators',
     paths: [
       { path: '/mulch-calculator/' },
+      { path: '/mulch-cost-estimator/', isNew: true },
+      { path: '/sod-calculator/', isNew: true },
       { path: '/cubic-yards-calculator/' },
       { path: '/playground-mulch-calculator/', isNew: true },
       { path: '/topsoil-calculator/', isNew: true },
@@ -80,6 +82,7 @@ export const P0_INDEX_BY_DIR = {
   landscapetoolsguide: {
     label: 'Landscape Tools Guide',
     paths: [
+      { path: '/pricing/', isNew: true },
       { path: '/compare/jobber-vs-housecall-pro-landscaping/' },
       { path: '/compare/lmn-vs-jobber-landscaping/' },
       { path: '/compare/jobber-vs-gorilladesk-landscaping/', isNew: true },

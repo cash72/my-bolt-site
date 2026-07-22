@@ -146,6 +146,46 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       },
     ],
   },
+
+  'mulch-cost-estimator': {
+    intro:
+      'Volume alone does not answer “what will this cost?” Enter bed area and depth, then local bulk and bag prices to compare delivery vs bagged mulch.',
+    sections: [
+      {
+        heading: 'Bulk vs bags',
+        paragraphs: [
+          'Bulk cubic yards usually win past about one yard once you account for bag count (~14 bags per yard of 2 cu ft bags). Bags win for small refresh projects and car-trunk trips.',
+          'See [delivery vs bags](/guides/delivery-vs-bags-bulk-mulch) and [bags per yard](/guides/how-many-mulch-bags-per-yard) for planning detail.',
+        ],
+      },
+      {
+        heading: 'What is not included',
+        paragraphs: [
+          'Delivery fees, tax, and fabric or edging are separate. Use the materials total to compare supplier quotes, then add delivery from each yard.',
+        ],
+      },
+    ],
+  },
+
+  'sod-calculator': {
+    intro:
+      'Sod is sold by coverage — rolls for patches, pallets for full lawns. Enter lawn dimensions and we convert area plus waste into roll and pallet counts.',
+    sections: [
+      {
+        heading: 'Roll and pallet coverage',
+        paragraphs: [
+          'Common DIY rolls cover about 10 sq ft (often 2×5 ft). Pallets commonly cover roughly 400–500 sq ft depending on the farm — edit coverage in settings to match your quote.',
+          'Add ~10% waste for cuts around beds, curves, and seams. Prep soil first — see our [topsoil calculator](/topsoil-calculator) if you are leveling before install.',
+        ],
+      },
+      {
+        heading: 'Pricing tips',
+        paragraphs: [
+          'Enter price per roll and per pallet to compare. Full-lawn orders almost always price better by the pallet with delivery than by individual rolls.',
+        ],
+      },
+    ],
+  },
 };
 
 export function getLandingEditorial(slug: string): LandingEditorial | undefined {

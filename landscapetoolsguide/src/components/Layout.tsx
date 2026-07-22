@@ -48,6 +48,9 @@ export default function Layout() {
             <NavLink to="/tools" className={navLinkClass}>
               Tools
             </NavLink>
+            <NavLink to="/pricing" className={navLinkClass}>
+              Pricing
+            </NavLink>
             <NavLink to="/compare" className={navLinkClass}>
               Compare
             </NavLink>

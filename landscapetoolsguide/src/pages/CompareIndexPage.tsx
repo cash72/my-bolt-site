@@ -28,6 +28,11 @@ export default function CompareIndexPage() {
       <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3">Software comparisons</h1>
       <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
         Head-to-head reviews for landscaping and lawn care companies choosing between popular platforms.
+        Prefer a single table of starting prices? See the{' '}
+        <Link to="/pricing" className="text-emerald-700 dark:text-emerald-400 hover:underline">
+          pricing matrix
+        </Link>
+        .
       </p>
 
       <ul className="space-y-6 mb-10">
