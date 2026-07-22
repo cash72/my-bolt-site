@@ -33,7 +33,7 @@ export default function ProjectSettingsForm({
         </div>
       </fieldset>
 
-      <div className="grid sm:grid-cols-3 gap-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <div>
           <label htmlFor="waste-percent" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
             Waste %
@@ -49,7 +49,7 @@ export default function ProjectSettingsForm({
             className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
           />
           <p className="text-[10px] text-slate-400 mt-1">
-            Default {settings.material === 'laminate' ? '10%' : '15%'}
+            Default {settings.material === 'tile' ? '15%' : '10%'}
           </p>
         </div>
         <div>
@@ -79,6 +79,43 @@ export default function ProjectSettingsForm({
               step="0.01"
               value={settings.pricePerBox}
               onChange={(e) => onUpdate({ pricePerBox: e.target.value })}
+              placeholder="0"
+              className="w-full pl-7 pr-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+            />
+          </div>
+        </div>
+        <div>
+          <label htmlFor="price-sqft" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+            Material $ / sq ft <span className="font-normal">(optional)</span>
+          </label>
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">$</span>
+            <input
+              id="price-sqft"
+              type="number"
+              min="0"
+              step="0.01"
+              value={settings.materialPricePerSqFt}
+              onChange={(e) => onUpdate({ materialPricePerSqFt: e.target.value })}
+              placeholder="0"
+              className="w-full pl-7 pr-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+            />
+          </div>
+          <p className="text-[10px] text-slate-400 mt-1">Overrides box price when set</p>
+        </div>
+        <div>
+          <label htmlFor="install-sqft" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+            Install $ / sq ft <span className="font-normal">(optional)</span>
+          </label>
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">$</span>
+            <input
+              id="install-sqft"
+              type="number"
+              min="0"
+              step="0.01"
+              value={settings.installPricePerSqFt}
+              onChange={(e) => onUpdate({ installPricePerSqFt: e.target.value })}
               placeholder="0"
               className="w-full pl-7 pr-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
             />

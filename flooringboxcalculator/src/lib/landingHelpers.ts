@@ -30,6 +30,11 @@ const P0_CROSS_LINK_SLUGS: Partial<Record<string, string[]>> = {
   'flooring-waste-calculator': ['how-many-flooring-boxes', 'laminate-flooring-calculator'],
   'flooring-square-footage-calculator': ['how-many-flooring-boxes', 'carpet-calculator'],
   'stair-carpet-calculator': ['carpet-calculator', 'square-yard-calculator', 'how-to-choose-carpet-for-rooms'],
+  'flooring-cost-estimator': [
+    'how-many-flooring-boxes',
+    'flooring-waste-calculator',
+    'laminate-flooring-calculator',
+  ],
 };
 
 export function getRelatedLandingPages(page: LandingPage, limit = 4): LandingPage[] {

@@ -72,14 +72,26 @@ export default function ResultsPanel({ estimate, settings }: ResultsPanelProps) 
           )}
 
           {estimate.totalCost !== null && (
-            <div className="pt-3 border-t border-emerald-200/60 dark:border-emerald-900/40 text-sm">
+            <div className="pt-3 border-t border-emerald-200/60 dark:border-emerald-900/40 text-sm space-y-1">
+              {estimate.materialCost !== null && (
+                <p>
+                  <span className="text-slate-500 dark:text-slate-400">Material: </span>
+                  <span className="font-semibold">{formatCurrency(estimate.materialCost)}</span>
+                </p>
+              )}
+              {estimate.installCost !== null && (
+                <p>
+                  <span className="text-slate-500 dark:text-slate-400">Install: </span>
+                  <span className="font-semibold">{formatCurrency(estimate.installCost)}</span>
+                </p>
+              )}
               <p>
-                <span className="text-slate-500 dark:text-slate-400">Estimated cost: </span>
+                <span className="text-slate-500 dark:text-slate-400">Estimated total: </span>
                 <span className="font-semibold">{formatCurrency(estimate.totalCost)}</span>
               </p>
               {estimate.wasteCost !== null && (
-                <p className="text-slate-500 dark:text-slate-400 mt-1">
-                  Waste portion (~): {formatCurrency(estimate.wasteCost)}
+                <p className="text-slate-500 dark:text-slate-400">
+                  Waste portion of material (~): {formatCurrency(estimate.wasteCost)}
                 </p>
               )}
             </div>

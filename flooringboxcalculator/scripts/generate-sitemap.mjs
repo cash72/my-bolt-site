@@ -28,6 +28,7 @@ const LANDING_SLUGS = [
   'carpet-calculator',
   'how-many-tiles-do-i-need',
   'stair-carpet-calculator',
+  'flooring-cost-estimator',
 ];
 
 const GUIDE_SLUGS = [

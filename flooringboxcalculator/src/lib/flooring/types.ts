@@ -14,6 +14,8 @@ export interface ProjectSettings {
   wastePercent: string;
   sqFtPerBox: string;
   pricePerBox: string;
+  materialPricePerSqFt: string;
+  installPricePerSqFt: string;
 }
 
 export interface RoomResult {
@@ -35,6 +37,8 @@ export interface EstimateResult {
   leftoverSqFt: number;
   totalCost: number | null;
   wasteCost: number | null;
+  materialCost: number | null;
+  installCost: number | null;
 }
 
 export const MAX_ROOMS = 5;
@@ -68,5 +72,7 @@ export function defaultProjectSettings(material: MaterialType = 'laminate'): Pro
     wastePercent: String(DEFAULT_WASTE[material]),
     sqFtPerBox: String(DEFAULT_SQFT_PER_BOX[material]),
     pricePerBox: '',
+    materialPricePerSqFt: '',
+    installPricePerSqFt: '',
   };
 }

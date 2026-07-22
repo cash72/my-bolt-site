@@ -54,10 +54,29 @@ export function calculateEstimate(rooms: RoomInput[], settings: ProjectSettings)
   const leftoverSqFt = Math.max(0, coveredSqFt - totalWithWasteSqFt);
 
   const pricePerBox = parseNonNegative(settings.pricePerBox);
-  const totalCost = pricePerBox > 0 && boxesNeeded > 0 ? boxesNeeded * pricePerBox : null;
+  const materialPricePerSqFt = parseNonNegative(settings.materialPricePerSqFt);
+  const installPricePerSqFt = parseNonNegative(settings.installPricePerSqFt);
+
+  const materialCostFromSqFt =
+    materialPricePerSqFt > 0 && totalWithWasteSqFt > 0
+      ? totalWithWasteSqFt * materialPricePerSqFt
+      : null;
+  const materialCostFromBoxes =
+    pricePerBox > 0 && boxesNeeded > 0 ? boxesNeeded * pricePerBox : null;
+  const materialCost = materialCostFromSqFt ?? materialCostFromBoxes;
+  const installCost =
+    installPricePerSqFt > 0 && totalWithWasteSqFt > 0
+      ? totalWithWasteSqFt * installPricePerSqFt
+      : null;
+
+  let totalCost: number | null = null;
+  if (materialCost !== null || installCost !== null) {
+    totalCost = (materialCost ?? 0) + (installCost ?? 0);
+  }
+
   const wasteCost =
-    totalCost !== null && totalWithWasteSqFt > 0
-      ? (wasteSqFt / totalWithWasteSqFt) * totalCost
+    materialCost !== null && totalWithWasteSqFt > 0
+      ? (wasteSqFt / totalWithWasteSqFt) * materialCost
       : null;
 
   return {
@@ -73,6 +92,8 @@ export function calculateEstimate(rooms: RoomInput[], settings: ProjectSettings)
     leftoverSqFt,
     totalCost,
     wasteCost,
+    materialCost,
+    installCost,
   };
 }
 
@@ -127,9 +148,15 @@ export function buildShoppingList(
   );
 
   if (estimate.totalCost !== null) {
-    lines.push(`Estimated cost: ${formatCurrency(estimate.totalCost)}`);
+    if (estimate.materialCost !== null) {
+      lines.push(`Material cost: ${formatCurrency(estimate.materialCost)}`);
+    }
+    if (estimate.installCost !== null) {
+      lines.push(`Install cost: ${formatCurrency(estimate.installCost)}`);
+    }
+    lines.push(`Estimated total: ${formatCurrency(estimate.totalCost)}`);
     if (estimate.wasteCost !== null) {
-      lines.push(`Waste portion (~): ${formatCurrency(estimate.wasteCost)}`);
+      lines.push(`Waste portion of material (~): ${formatCurrency(estimate.wasteCost)}`);
     }
   }
 

@@ -58,9 +58,9 @@ export const P0_INDEX_BY_DIR = {
     paths: [
       { path: '/how-many-flooring-boxes/' },
       { path: '/laminate-flooring-calculator/' },
+      { path: '/flooring-cost-estimator/', isNew: true },
       { path: '/stair-carpet-calculator/', isNew: true },
       { path: '/guides/diy-flooring-installation-roadmap/', isNew: true },
-      { path: '/guides/first-row-laminate-flooring-layout/', isNew: true },
       { path: '/guides/how-many-flooring-boxes-guide/' },
     ],
   },

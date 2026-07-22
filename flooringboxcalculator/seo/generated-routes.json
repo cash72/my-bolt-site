@@ -16,6 +16,7 @@
     "/carpet-calculator",
     "/how-many-tiles-do-i-need",
     "/stair-carpet-calculator",
+    "/flooring-cost-estimator",
     "/guides/how-to-measure-rooms-for-flooring",
     "/guides/how-to-prep-subfloor-before-installing-flooring",
     "/guides/how-to-remove-old-flooring",
@@ -51,7 +52,8 @@
     "/square-yard-calculator",
     "/carpet-calculator",
     "/how-many-tiles-do-i-need",
-    "/stair-carpet-calculator"
+    "/stair-carpet-calculator",
+    "/flooring-cost-estimator"
   ],
   "guidePaths": [
     "/guides/how-to-measure-rooms-for-flooring",

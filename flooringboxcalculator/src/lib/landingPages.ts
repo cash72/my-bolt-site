@@ -317,9 +317,39 @@ export const LANDING_PAGES: LandingPage[] = [
     ],
     relatedGuideSlugs: ['how-to-choose-carpet-for-rooms', 'carpet-pad-guide', 'how-to-measure-rooms-for-flooring'],
   },
+  {
+    slug: 'flooring-cost-estimator',
+    path: '/flooring-cost-estimator',
+    material: 'laminate',
+    title: 'Flooring Cost Estimator — Material & Install $ per Sq Ft',
+    h1: 'Flooring Cost Estimator',
+    description:
+      'Estimate flooring project cost from room size, waste %, material $ per sq ft, and optional install $ per sq ft. Free laminate, tile, and carpet budget calculator.',
+    breadcrumbLabel: 'Flooring cost estimator',
+    intro:
+      'Enter room dimensions, waste allowance, and the material price you saw in-store ($/sq ft). Add install $/sq ft if a contractor quoted labor. We calculate buy area with waste and a materials + install total.',
+    faqs: [
+      {
+        question: 'How do I estimate flooring cost per square foot?',
+        answer:
+          'Multiply purchase area (room sq ft + waste %) by material $/sq ft. Add install $/sq ft × the same buy area if labor is quoted that way. This calculator does both.',
+      },
+      {
+        question: 'Should waste be included in cost?',
+        answer:
+          'Yes — you pay for the boxes or rolls you buy, including cut waste. Default waste is 10% for laminate/carpet and 15% for tile.',
+      },
+      {
+        question: 'Price per box or per sq ft?',
+        answer:
+          'Use material $/sq ft when the tag shows that rate. Or enter price per box instead — $/sq ft overrides box price when both are filled.',
+      },
+    ],
+  },
 ];
 
 export const FEATURED_LANDING_SLUGS = [
+  'flooring-cost-estimator',
   'how-many-flooring-boxes',
   'laminate-flooring-calculator',
   'stair-carpet-calculator',
