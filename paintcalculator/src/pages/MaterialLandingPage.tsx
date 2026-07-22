@@ -5,6 +5,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import PaintCalculator from '../components/PaintCalculator';
 import WallpaperCalculator from '../components/WallpaperCalculator';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import { hasResultsAdUnit } from '../lib/ads/config';
 import { getLandingEditorial } from '../lib/landingEditorial';
 import { getGuidesForLanding, getRelatedLandingPages } from '../lib/landingHelpers';
 import { getLandingPageBySlug } from '../lib/landingPages';
@@ -124,7 +125,7 @@ export default function MaterialLandingPage() {
         />
       )}
 
-      <ContentMonetizationSlot placement="content" guides={relatedGuides} />
+      <ContentMonetizationSlot placement="content" guides={relatedGuides} showAd={!hasResultsAdUnit()} />
 
       {relatedGuides.length > 0 && (
         <section className="mt-12" aria-label="Related guides">

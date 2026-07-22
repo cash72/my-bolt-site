@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import MulchCalculator from '../components/MulchCalculator';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import { hasResultsAdUnit } from '../lib/ads/config';
 import { GuideCard } from '../components/GuideCard';
 import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 
@@ -94,6 +95,7 @@ export default function HomePage() {
 
       <ContentMonetizationSlot
         placement="content"
+        showAd={!hasResultsAdUnit()}
         relatedSlugs={['mulch-calculator', 'topsoil-calculator', 'playground-mulch-calculator', 'stone-mulch-calculator']}
       />
 

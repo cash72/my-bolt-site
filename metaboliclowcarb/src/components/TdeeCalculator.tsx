@@ -181,12 +181,12 @@ export default function TdeeCalculator({
                     {formatCalories(result.targetCalories)}
                   </dd>
                 </div>
-                {result.deficitKcal > 0 && (
-                  <p className="text-xs text-slate-500">
-                    About {formatCalories(result.deficitKcal)} below maintenance. Target is floored at BMR.
-                  </p>
-                )}
               </dl>
+              {result.deficitKcal > 0 && (
+                <p className="text-xs text-slate-500">
+                  About {formatCalories(result.deficitKcal)} below maintenance. Target is floored at BMR.
+                </p>
+              )}
               <SessionDeepener links={TDEE_NEXT_STEPS} />
               <AdSlot placement="results" className="my-3" />
             </>

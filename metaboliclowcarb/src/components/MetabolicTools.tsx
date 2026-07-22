@@ -297,8 +297,14 @@ export default function MetabolicTools({
             ) : (
               <MacroResults result={macro.result} />
             )}
-            <SessionDeepener links={CALCULATOR_NEXT_STEPS} />
-            <AdSlot placement="results" className="my-0" />
+            {(activeTool === 'net-carb'
+              ? netCarb.result.totalCarbsG > 0 || netCarb.result.fiberG > 0 || netCarb.result.sugarAlcoholsG > 0
+              : macro.result !== null) && (
+              <>
+                <SessionDeepener links={CALCULATOR_NEXT_STEPS} />
+                <AdSlot placement="results" className="my-0" />
+              </>
+            )}
           </div>
         </div>
       </div>

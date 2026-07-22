@@ -16,6 +16,10 @@ import {
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useBitcoinPrice } from '../hooks/useBitcoinPrice';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import AdSlot from '../components/AdSlot';
+import SessionDeepener from '../components/SessionDeepener';
+import { CALCULATOR_NEXT_STEPS } from '../lib/sessionNextSteps';
+import { hasResultsAdUnit } from '../lib/ads/config';
 import { renderEditorialText } from '../lib/renderEditorialText';
 import {
   CURRENCY_LABELS,
@@ -394,9 +398,12 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
           </div>
           <span>Next update in {countdown}s · {currencyName} rates from CoinGecko</span>
         </div>
-      </section>
 
-      <ContentMonetizationSlot placement="content" guides={relatedGuides} />
+        <div className="mt-4 space-y-3">
+          <SessionDeepener links={CALCULATOR_NEXT_STEPS} />
+          <AdSlot placement="results" className="my-0" />
+        </div>
+      </section>
 
       <section className="mb-10 prose prose-slate dark:prose-invert max-w-none">
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -414,6 +421,12 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
           ))}
         </div>
       </section>
+
+      <ContentMonetizationSlot
+        placement="content"
+        guides={relatedGuides}
+        showAd={!hasResultsAdUnit()}
+      />
 
       <section className="mb-10" aria-labelledby="landing-faq-heading">
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">

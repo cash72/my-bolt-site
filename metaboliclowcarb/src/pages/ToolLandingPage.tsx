@@ -6,6 +6,7 @@ import MetabolicTools from '../components/MetabolicTools';
 import FastingClock from '../components/FastingClock';
 import TdeeCalculator from '../components/TdeeCalculator';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import { hasResultsAdUnit } from '../lib/ads/config';
 import { GuideCard } from '../components/GuideCard';
 import { getGuideBySlug } from '../lib/guides/guides';
 import { getLandingEditorial } from '../lib/landingEditorial';
@@ -127,7 +128,7 @@ export default function ToolLandingPage() {
         />
       )}
 
-      <ContentMonetizationSlot placement="content" guides={relatedGuides} />
+      <ContentMonetizationSlot placement="content" guides={relatedGuides} showAd={!hasResultsAdUnit()} />
 
       {relatedGuides.length > 0 && (
         <section className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800" aria-labelledby="related-guides">

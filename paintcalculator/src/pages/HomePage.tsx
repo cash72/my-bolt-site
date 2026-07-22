@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import PaintCalculator from '../components/PaintCalculator';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import { hasResultsAdUnit } from '../lib/ads/config';
 import { GuideCard } from '../components/GuideCard';
 import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 
@@ -101,7 +102,7 @@ export default function HomePage() {
 
       <PaintCalculator />
 
-      <ContentMonetizationSlot placement="content" guides={featuredGuides} />
+      <ContentMonetizationSlot placement="content" guides={featuredGuides} showAd={!hasResultsAdUnit()} />
 
       <section className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800">
         <div className="flex items-end justify-between gap-4 mb-4">

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import HvacCalculator from '../components/HvacCalculator';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import { hasResultsAdUnit } from '../lib/ads/config';
 import { GuideCard } from '../components/GuideCard';
 import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 import { LANDING_PAGES } from '../lib/landingPages';
@@ -114,7 +115,7 @@ export default function HomePage() {
 
       <HvacCalculator />
 
-      <ContentMonetizationSlot placement="content" guides={featuredGuides} />
+      <ContentMonetizationSlot placement="content" guides={featuredGuides} showAd={!hasResultsAdUnit()} />
 
       <section className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800">
         <h2 className="text-xl font-semibold mb-4">Room, window & garage calculators</h2>

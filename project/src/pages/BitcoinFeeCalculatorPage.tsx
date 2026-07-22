@@ -15,6 +15,7 @@ import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import AdSlot from '../components/AdSlot';
 import SessionDeepener from '../components/SessionDeepener';
 import { FEE_NEXT_STEPS } from '../lib/sessionNextSteps';
+import { hasResultsAdUnit } from '../lib/ads/config';
 import {
   formatCurrency,
   formatNumber,
@@ -249,8 +250,6 @@ export default function BitcoinFeeCalculatorPage() {
         </div>
       </section>
 
-      <ContentMonetizationSlot placement="content" guides={relatedGuides} />
-
       <section className="mb-10 prose prose-slate dark:prose-invert max-w-none">
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed">
           <div>
@@ -293,6 +292,12 @@ export default function BitcoinFeeCalculatorPage() {
           </div>
         </div>
       </section>
+
+      <ContentMonetizationSlot
+        placement="content"
+        guides={relatedGuides}
+        showAd={!hasResultsAdUnit()}
+      />
 
       <section className="mb-10" aria-labelledby="fee-faq-heading">
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">

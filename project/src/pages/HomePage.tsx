@@ -2,6 +2,10 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import SessionDeepener from '../components/SessionDeepener';
+import { CALCULATOR_NEXT_STEPS } from '../lib/sessionNextSteps';
+import { hasResultsAdUnit } from '../lib/ads/config';
+import AdSlot from '../components/AdSlot';
 import {
   COINGECKO_URL,
   SATOSHI_PER_BTC,
@@ -540,7 +544,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        <ContentMonetizationSlot placement="content" guides={FEATURED_GUIDES.slice(0, 3)} />
+        <div className="mb-10 space-y-3">
+          <SessionDeepener links={CALCULATOR_NEXT_STEPS} />
+          <AdSlot placement="results" className="my-0" />
+        </div>
 
         {/* Internal links */}
         <section className="mb-12 animate-slide-up" aria-labelledby="explore-heading">
@@ -598,6 +605,12 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        <ContentMonetizationSlot
+          placement="content"
+          guides={FEATURED_GUIDES.slice(0, 3)}
+          showAd={!hasResultsAdUnit()}
+        />
 
         {/* Info Section */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12" aria-label="About Satoshi and Conversion Guide">

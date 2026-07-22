@@ -7,6 +7,8 @@ import { GOAL_OPTIONS } from '../lib/fasting/phases';
 import { cycleProfileLabel, modeLabel } from '../lib/fasting/calculate';
 import BreakFastGuidePanel from './BreakFastGuide';
 import AdSlot from './AdSlot';
+import SessionDeepener from './SessionDeepener';
+import { CALCULATOR_NEXT_STEPS } from '../lib/sessionNextSteps';
 import { shouldShowBreakGuide } from '../lib/fasting/breakFast';
 import type { CycleProfile, FastingGoalHours, FastingMode } from '../lib/fasting/types';
 
@@ -239,8 +241,12 @@ export default function FastingClock({
           <p className="text-xs font-medium text-teal-700 dark:text-teal-400 mb-2 lg:sr-only">Fasting timer</p>
           <div className="lg:sticky lg:top-20 space-y-6">
             <FastingClockResults result={result} isRunning={state.isRunning} goalHours={state.goalHours} />
-            <AdSlot placement="sidebar" className="my-0 hidden lg:block" />
-            <AdSlot placement="content" className="my-0 lg:hidden" />
+            {(state.isRunning || result.elapsedHours > 0) && (
+              <>
+                <SessionDeepener links={CALCULATOR_NEXT_STEPS} />
+                <AdSlot placement="results" className="my-0" />
+              </>
+            )}
           </div>
         </div>
       </div>

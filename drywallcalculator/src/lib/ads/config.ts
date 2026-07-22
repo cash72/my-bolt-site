@@ -11,9 +11,9 @@ export const ADSENSE_ENABLED = import.meta.env.VITE_ADSENSE_ENABLED === 'true';
 export const ADSENSE_SLOTS = {
   footer: import.meta.env.VITE_ADSENSE_SLOT_FOOTER?.trim() || '',
   content: import.meta.env.VITE_ADSENSE_SLOT_CONTENT?.trim() || '',
-  /** Under calculator results — falls back to content slot ID if empty */
+  /** Under calculator results — set VITE_ADSENSE_SLOT_RESULTS (do not reuse content). */
   results: import.meta.env.VITE_ADSENSE_SLOT_RESULTS?.trim() || '',
-  /** Mid-article on guides — falls back to content slot ID if empty */
+  /** Mid-article on guides — set VITE_ADSENSE_SLOT_MID (do not reuse content). */
   midGuide: import.meta.env.VITE_ADSENSE_SLOT_MID?.trim() || '',
 } as const;
 
@@ -23,14 +23,12 @@ export function isAdsenseClientSet(): boolean {
   return ADSENSE_ENABLED && Boolean(ADSENSE_CLIENT);
 }
 
-/** Resolve slot ID; results/midGuide reuse content until dedicated units exist. */
+/**
+ * Resolve slot ID. results/midGuide only render when their own env IDs are set —
+ * do not alias the content unit (avoids the same ad slot 2–3× on one page).
+ */
 export function getAdsenseSlot(placement: AdPlacement): string {
-  const direct = ADSENSE_SLOTS[placement];
-  if (direct) return direct;
-  if (placement === 'results' || placement === 'midGuide') {
-    return ADSENSE_SLOTS.content || (ADSENSE_SLOTS as { sidebar?: string }).sidebar || '';
-  }
-  return '';
+  return ADSENSE_SLOTS[placement] || '';
 }
 
 export function isAdsenseSlotConfigured(placement: AdPlacement): boolean {
@@ -43,4 +41,9 @@ export function isAdsenseEnabled(): boolean {
 
 export function isAnyAdEnabled(): boolean {
   return isAdsenseEnabled();
+}
+
+/** True when a dedicated in-results unit is live — page-level content ads should yield. */
+export function hasResultsAdUnit(): boolean {
+  return isAdsenseSlotConfigured('results');
 }

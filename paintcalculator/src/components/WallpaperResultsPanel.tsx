@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import AdSlot from './AdSlot';
+import SessionDeepener from './SessionDeepener';
+import { CALCULATOR_NEXT_STEPS } from '../lib/sessionNextSteps';
 import { Check, Copy } from 'lucide-react';
 import { buildWallpaperShoppingList, formatCurrency, formatSqFt } from '../lib/wallpaper/calculate';
 import type { WallpaperEstimate, WallpaperSettings } from '../lib/wallpaper/types';
@@ -56,6 +59,10 @@ export default function WallpaperResultsPanel({ estimate, settings }: WallpaperR
               <span className="font-semibold">{formatCurrency(estimate.totalCost)}</span>
             </p>
           )}
+
+          <SessionDeepener links={CALCULATOR_NEXT_STEPS} />
+
+          <AdSlot placement="results" className="my-3" />
 
           <button
             type="button"

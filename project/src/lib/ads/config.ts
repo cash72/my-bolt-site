@@ -15,7 +15,9 @@ export const ADSENSE_CLIENT =
 export const ADSENSE_SLOTS = {
   footer: import.meta.env.VITE_ADSENSE_SLOT_FOOTER?.trim() || '9490641503',
   content: import.meta.env.VITE_ADSENSE_SLOT_CONTENT?.trim() || '8950595776',
+  /** Under calculator results — set VITE_ADSENSE_SLOT_RESULTS (do not reuse content). */
   results: import.meta.env.VITE_ADSENSE_SLOT_RESULTS?.trim() || '',
+  /** Mid-article on guides — set VITE_ADSENSE_SLOT_MID (do not reuse content). */
   midGuide: import.meta.env.VITE_ADSENSE_SLOT_MID?.trim() || '',
 } as const;
 
@@ -53,13 +55,9 @@ export function hasAdsensePublisher(): boolean {
   return ADSENSE_ENABLED && Boolean(ADSENSE_CLIENT);
 }
 
+/** results/midGuide only when their own IDs are set — never alias content. */
 export function getAdsenseSlot(placement: AdPlacement): string {
-  const direct = ADSENSE_SLOTS[placement];
-  if (direct) return direct;
-  if (placement === 'results' || placement === 'midGuide') {
-    return ADSENSE_SLOTS.content;
-  }
-  return '';
+  return ADSENSE_SLOTS[placement] || '';
 }
 
 export function isAdsenseSlotConfigured(placement: AdPlacement): boolean {
@@ -76,4 +74,8 @@ export function isAAdsEnabled(): boolean {
 
 export function isAnyAdEnabled(): boolean {
   return isAdsenseEnabled() || isAAdsEnabled();
+}
+
+export function hasResultsAdUnit(): boolean {
+  return isAdsenseSlotConfigured('results');
 }

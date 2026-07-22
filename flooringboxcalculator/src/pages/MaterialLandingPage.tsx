@@ -4,6 +4,7 @@ import { ChevronRight } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import FlooringCalculator from '../components/FlooringCalculator';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import { hasResultsAdUnit } from '../lib/ads/config';
 import { getLandingEditorial } from '../lib/landingEditorial';
 import { getGuidesForLanding, getRelatedLandingPages } from '../lib/landingHelpers';
 import { getLandingPageBySlug } from '../lib/landingPages';
@@ -115,7 +116,7 @@ export default function MaterialLandingPage() {
         subheading={pageIntro ?? page.intro}
       />
 
-      <ContentMonetizationSlot placement="content" guides={relatedGuides} />
+      <ContentMonetizationSlot placement="content" guides={relatedGuides} showAd={!hasResultsAdUnit()} />
 
       {relatedGuides.length > 0 && (
         <section className="mt-12" aria-label="Related guides">
