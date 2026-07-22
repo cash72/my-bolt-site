@@ -295,8 +295,8 @@ export const GUIDES: Guide[] = [
     description:
       'What SEER and SEER2 mean on ductless heat pumps, how higher ratings save money, and what to look for when comparing models.',
     readMinutes: 8,
-    toolPath: '/mini-split-calculator',
-    toolLabel: 'Mini-split calculator',
+    toolPath: '/ac-cost-to-run-calculator',
+    toolLabel: 'AC cost to run calculator',
     relatedGuideSlugs: [
       'mini-split-vs-window-ac',
       'common-mini-split-sizing-mistakes',
