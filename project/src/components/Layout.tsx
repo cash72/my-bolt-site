@@ -26,6 +26,7 @@ const mobileNavLinkClass = ({ isActive }: { isActive: boolean }) =>
 const NAV_ITEMS = [
   { to: '/', end: true, label: 'Converter' },
   { to: '/conversions', label: 'Conversions' },
+  { to: '/bitcoin-fee-calculator', label: 'Fees' },
   { to: '/guides', label: 'Guides' },
   { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },

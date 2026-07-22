@@ -14,6 +14,45 @@ export interface LandingEditorial {
  * Addresses AdSense "low value content" by adding page-specific context beyond the calculator template.
  */
 export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
+  'btc-to-usd': {
+    intro:
+      'One Bitcoin equals 100,000,000 Satoshis — but headlines still quote whole coins. This live BTC to USD converter shows today’s dollar value of 1 BTC using CoinGecko market data, refreshed every 60 seconds.',
+    sections: [
+      {
+        heading: 'BTC to USD vs Satoshi to USD',
+        paragraphs: [
+          'Use this page when you think in whole coins or fractions like 0.1 BTC. Use [Satoshi to USD](/satoshi-to-usd) when your wallet shows sats — Lightning tips, DCA stacks, and most modern balances.',
+          'Fixed amount pages help with common searches: [0.01 BTC to USD](/0.01-btc-to-usd), [0.1 BTC to USD](/0.1-btc-to-usd), and [1 BTC to USD](/1-btc-to-usd).',
+        ],
+      },
+      {
+        heading: 'Buying and fee planning',
+        paragraphs: [
+          'Flip the math on [USD to Bitcoin](/usd-to-btc) to see how much BTC a dollar amount buys. Before an on-chain withdrawal, estimate cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator).',
+          'New to self-custody? [How to buy Bitcoin](/guides/how-to-buy-bitcoin) and [how to store Bitcoin safely](/guides/how-to-store-bitcoin-safely) cover the next steps after conversion.',
+        ],
+      },
+    ],
+  },
+  'usd-to-btc': {
+    intro:
+      'How much Bitcoin does your dollar amount buy at today’s live price? This USD to BTC converter shows both Bitcoin and the equivalent Satoshi count — useful for DCA deposits and first purchases.',
+    sections: [
+      {
+        heading: 'Dollars to coins and sats',
+        paragraphs: [
+          'Exchanges settle in BTC; many wallets display sats. This page gives both so you can compare [USD to Satoshi](/usd-to-satoshi) stacking goals with whole-coin quotes.',
+          'Common budgets: [$100 in BTC](/100-dollars-in-btc) and [$1,000 in BTC](/1000-dollars-in-btc).',
+        ],
+      },
+      {
+        heading: 'After you know the BTC amount',
+        paragraphs: [
+          'See the reverse on [Bitcoin to USD](/btc-to-usd). Plan network fees with the [fee calculator](/bitcoin-fee-calculator) before moving coins off an exchange.',
+        ],
+      },
+    ],
+  },
   '50000-satoshi-to-usd': {
     intro:
       'Fifty thousand Satoshis (50,000 sats) equals 0.0005 BTC — a popular “stack” milestone among Bitcoin savers. Use the live calculator below to see exactly how many US dollars that is at today’s market price.',

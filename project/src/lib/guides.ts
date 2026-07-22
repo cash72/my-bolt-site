@@ -710,7 +710,7 @@ export const GUIDES: GuideDef[] = [
         heading: 'How Bitcoin fees work',
         paragraphs: [
           'Fees are paid to miners, not to exchanges or wallet companies. Miners prioritize transactions offering higher fee rates (satoshis per virtual byte, or sat/vB). When mempools fill during busy periods, low-fee transactions wait hours or get dropped.',
-          'Transaction size matters — spending from many small inputs costs more bytes than one clean UTXO. If you are sending 100,000 sats, compare that to live fiat on [100k sats](/100000-satoshi-to-usd) — a $3 fee hurts more on a $30 transfer than a $3,000 one.',
+          'Transaction size matters — spending from many small inputs costs more bytes than one clean UTXO. Use our free [Bitcoin fee calculator](/bitcoin-fee-calculator) to turn sat/vB × vBytes into sats and live USD. If you are sending 100,000 sats, compare that to live fiat on [100k sats](/100000-satoshi-to-usd) — a $3 fee hurts more on a $30 transfer than a $3,000 one.',
         ],
       },
       {
@@ -936,9 +936,17 @@ export const FEATURED_GUIDES = [
   .map((slug) => getGuideBySlug(slug))
   .filter((g): g is GuideDef => g !== undefined);
 
-export function getGuidesForLanding(page: { direction: 'satoshi-to-fiat' | 'fiat-to-satoshi' }): GuideDef[] {
-  if (page.direction === 'fiat-to-satoshi') {
+export function getGuidesForLanding(page: {
+  direction: 'satoshi-to-fiat' | 'fiat-to-satoshi' | 'btc-to-fiat' | 'fiat-to-btc';
+}): GuideDef[] {
+  if (page.direction === 'fiat-to-satoshi' || page.direction === 'fiat-to-btc') {
     return ['how-to-buy-bitcoin', 'stacking-sats-dca', 'usd-to-satoshi']
+      .map((slug) => getGuideBySlug(slug))
+      .filter((g): g is GuideDef => g !== undefined);
+  }
+
+  if (page.direction === 'btc-to-fiat') {
+    return ['how-many-satoshis-in-a-bitcoin', 'understanding-bitcoin-price-volatility', 'what-is-a-satoshi']
       .map((slug) => getGuideBySlug(slug))
       .filter((g): g is GuideDef => g !== undefined);
   }

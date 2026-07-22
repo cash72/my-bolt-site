@@ -10,6 +10,7 @@ const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const DisclaimerPage = lazy(() => import('./pages/DisclaimerPage'));
 const ConversionLandingPage = lazy(() => import('./pages/ConversionLandingPage'));
 const ConversionsHubPage = lazy(() => import('./pages/ConversionsHubPage'));
+const BitcoinFeeCalculatorPage = lazy(() => import('./pages/BitcoinFeeCalculatorPage'));
 const GuidesIndexPage = lazy(() => import('./pages/GuidesIndexPage'));
 const GuidePageRoute = lazy(() => import('./pages/GuidePage'));
 
@@ -27,6 +28,14 @@ export default function App() {
           element={
             <LazyPage>
               <ConversionsHubPage />
+            </LazyPage>
+          }
+        />
+        <Route
+          path="bitcoin-fee-calculator"
+          element={
+            <LazyPage>
+              <BitcoinFeeCalculatorPage />
             </LazyPage>
           }
         />

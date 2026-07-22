@@ -21,7 +21,11 @@ import {
   CURRENCY_LABELS,
   CURRENCY_NAMES,
   SATOSHI_PER_BTC,
+  btcToFiat,
+  btcToSatoshi,
+  fiatToBtc,
   fiatToSatoshi,
+  formatBtcDisplay,
   formatCurrency,
   formatNumber,
   formatSatoshiAmount,
@@ -103,48 +107,141 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
   const editorial = getLandingEditorial(page);
   const pageIntro = editorial.intro ?? page.intro;
 
-  const isSatoshiToFiat = page.direction === 'satoshi-to-fiat';
-  const fiatResult = satoshiToFiat(page.amount, btcPrice);
-  const satoshiResult = Math.floor(fiatToSatoshi(page.amount, btcPrice));
-  const btcEquivalent = isSatoshiToFiat
-    ? page.amount / SATOSHI_PER_BTC
-    : satoshiResult / SATOSHI_PER_BTC;
+  const direction = page.direction;
+  const isSatsToFiat = direction === 'satoshi-to-fiat';
+  const isFiatToSats = direction === 'fiat-to-satoshi';
+  const isBtcToFiat = direction === 'btc-to-fiat';
+  const isFiatToBtc = direction === 'fiat-to-btc';
 
-  const formulaText = isSatoshiToFiat
+  const fiatFromSats = satoshiToFiat(page.amount, btcPrice);
+  const satsFromFiat = Math.floor(fiatToSatoshi(page.amount, btcPrice));
+  const fiatFromBtc = btcToFiat(page.amount, btcPrice);
+  const btcFromFiat = fiatToBtc(page.amount, btcPrice);
+  const satsFromBtc = Math.floor(btcToSatoshi(isBtcToFiat ? page.amount : btcFromFiat));
+
+  const inputLabel = isSatsToFiat
+    ? `${formatSatoshiAmount(page.amount)} sats`
+    : isBtcToFiat
+      ? `${formatBtcDisplay(page.amount)} BTC`
+      : formatCurrency(page.amount, page.currency);
+
+  const outputPrimary =
+    loading && btcPrice === 0
+      ? 'Loading…'
+      : isSatsToFiat || isBtcToFiat
+        ? formatCurrency(isSatsToFiat ? fiatFromSats : fiatFromBtc, page.currency)
+        : isFiatToSats
+          ? `${formatSatoshiAmount(satsFromFiat)} sats`
+          : `${formatBtcDisplay(btcFromFiat)} BTC`;
+
+  const inputSub =
+    isSatsToFiat
+      ? `= ${formatNumber(page.amount / SATOSHI_PER_BTC)} BTC`
+      : isBtcToFiat
+        ? `= ${formatSatoshiAmount(Math.floor(btcToSatoshi(page.amount)))} sats`
+        : null;
+
+  const outputSub =
+    isFiatToSats && btcPrice > 0
+      ? `= ${formatNumber(satsFromFiat / SATOSHI_PER_BTC)} BTC`
+      : isFiatToBtc && btcPrice > 0
+        ? `= ${formatSatoshiAmount(satsFromBtc)} sats`
+        : isBtcToFiat && btcPrice > 0
+          ? `= ${formatSatoshiAmount(Math.floor(btcToSatoshi(page.amount)))} sats`
+          : null;
+
+  const formulaText = isSatsToFiat
     ? `${formatSatoshiAmount(page.amount)} sats × (${formatCurrency(btcPrice, page.currency)} BTC price ÷ 100,000,000)`
-    : `${formatCurrency(page.amount, page.currency)} ÷ ${formatCurrency(btcPrice, page.currency)} × 100,000,000 sats`;
+    : isFiatToSats
+      ? `${formatCurrency(page.amount, page.currency)} ÷ ${formatCurrency(btcPrice, page.currency)} × 100,000,000 sats`
+      : isBtcToFiat
+        ? `${formatBtcDisplay(page.amount)} BTC × ${formatCurrency(btcPrice, page.currency)}`
+        : `${formatCurrency(page.amount, page.currency)} ÷ ${formatCurrency(btcPrice, page.currency)}`;
 
-  const faqItems = useMemo(
-    () =>
-      isSatoshiToFiat
-        ? [
-            {
-              question: `How much is ${formatSatoshiAmount(page.amount)} Satoshi in ${label}?`,
-              answer:
-                btcPrice > 0
-                  ? `${formatSatoshiAmount(page.amount)} Satoshis equals ${formatCurrency(fiatResult, page.currency)} ${label} at the current Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
-                  : 'Live price loading — refresh in a moment for the current conversion.',
-            },
-            {
-              question: `How do you convert Satoshi to ${label}?`,
-              answer: `Multiply the Satoshi amount by the live BTC price in ${label}, then divide by 100,000,000 because there are 100 million Satoshis in one Bitcoin.`,
-            },
-          ]
-        : [
-            {
-              question: `How many Satoshis is ${page.amount} ${label}?`,
-              answer:
-                btcPrice > 0
-                  ? `${page.amount} ${label} buys about ${formatSatoshiAmount(satoshiResult)} Satoshis at a Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
-                  : 'Live price loading — refresh in a moment for the current conversion.',
-            },
-            {
-              question: `How do you convert ${label} to Satoshi?`,
-              answer: `Divide your ${label} amount by the live Bitcoin price, then multiply by 100,000,000 to get the Satoshi equivalent.`,
-            },
-          ],
-    [page.amount, page.currency, btcPrice, fiatResult, satoshiResult, isSatoshiToFiat, label]
-  );
+  const summaryText =
+    btcPrice > 0
+      ? isSatsToFiat
+        ? `${formatSatoshiAmount(page.amount)} Satoshis = ${formatCurrency(fiatFromSats, page.currency)} ${label} at a Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
+        : isFiatToSats
+          ? `${formatCurrency(page.amount, page.currency)} = ${formatSatoshiAmount(satsFromFiat)} Satoshis at a Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
+          : isBtcToFiat
+            ? `${formatBtcDisplay(page.amount)} BTC = ${formatCurrency(fiatFromBtc, page.currency)} ${label} at a Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
+            : `${formatCurrency(page.amount, page.currency)} = ${formatBtcDisplay(btcFromFiat)} BTC (${formatSatoshiAmount(satsFromBtc)} sats) at a Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
+      : null;
+
+  const faqItems = useMemo(() => {
+    if (isSatsToFiat) {
+      return [
+        {
+          question: `How much is ${formatSatoshiAmount(page.amount)} Satoshi in ${label}?`,
+          answer:
+            btcPrice > 0
+              ? `${formatSatoshiAmount(page.amount)} Satoshis equals ${formatCurrency(fiatFromSats, page.currency)} ${label} at the current Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
+              : 'Live price loading — refresh in a moment for the current conversion.',
+        },
+        {
+          question: `How do you convert Satoshi to ${label}?`,
+          answer: `Multiply the Satoshi amount by the live BTC price in ${label}, then divide by 100,000,000 because there are 100 million Satoshis in one Bitcoin.`,
+        },
+      ];
+    }
+    if (isFiatToSats) {
+      return [
+        {
+          question: `How many Satoshis is ${page.amount} ${label}?`,
+          answer:
+            btcPrice > 0
+              ? `${page.amount} ${label} buys about ${formatSatoshiAmount(satsFromFiat)} Satoshis at a Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
+              : 'Live price loading — refresh in a moment for the current conversion.',
+        },
+        {
+          question: `How do you convert ${label} to Satoshi?`,
+          answer: `Divide your ${label} amount by the live Bitcoin price, then multiply by 100,000,000 to get the Satoshi equivalent.`,
+        },
+      ];
+    }
+    if (isBtcToFiat) {
+      return [
+        {
+          question: `How much is ${formatBtcDisplay(page.amount)} BTC in ${label}?`,
+          answer:
+            btcPrice > 0
+              ? `${formatBtcDisplay(page.amount)} Bitcoin equals ${formatCurrency(fiatFromBtc, page.currency)} ${label} at the current Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
+              : 'Live price loading — refresh in a moment for the current conversion.',
+        },
+        {
+          question: `How do you convert Bitcoin to ${label}?`,
+          answer: `Multiply the BTC amount by the live Bitcoin price in ${label}. One Bitcoin equals 100,000,000 Satoshis — see our Satoshi converter for smaller units.`,
+        },
+      ];
+    }
+    return [
+      {
+        question: `How much Bitcoin is ${page.amount} ${label}?`,
+        answer:
+          btcPrice > 0
+            ? `${page.amount} ${label} buys about ${formatBtcDisplay(btcFromFiat)} BTC (${formatSatoshiAmount(satsFromBtc)} sats) at a Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
+            : 'Live price loading — refresh in a moment for the current conversion.',
+      },
+      {
+        question: `How do you convert ${label} to Bitcoin?`,
+        answer: `Divide your ${label} amount by the live Bitcoin price to get BTC. Multiply BTC by 100,000,000 for the Satoshi equivalent.`,
+      },
+    ];
+  }, [
+    page.amount,
+    page.currency,
+    btcPrice,
+    fiatFromSats,
+    satsFromFiat,
+    fiatFromBtc,
+    btcFromFiat,
+    satsFromBtc,
+    isSatsToFiat,
+    isFiatToSats,
+    isBtcToFiat,
+    label,
+  ]);
 
   useEffect(() => {
     const scriptId = 'landing-faq-schema';
@@ -238,10 +335,10 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-slate-50 dark:bg-slate-850 rounded-xl p-5 border border-slate-100 dark:border-slate-800">
             <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 mb-2">
-              {isSatoshiToFiat ? (
+              {isSatsToFiat || isBtcToFiat ? (
                 <>
                   <Bitcoin className="w-4 h-4 text-orange-500" aria-hidden="true" />
-                  <span className="text-sm font-medium">Satoshis</span>
+                  <span className="text-sm font-medium">{isBtcToFiat ? 'Bitcoin' : 'Satoshis'}</span>
                 </>
               ) : (
                 <>
@@ -250,19 +347,15 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
                 </>
               )}
             </div>
-            <p className="text-2xl sm:text-3xl font-bold tracking-tight">
-              {isSatoshiToFiat
-                ? `${formatSatoshiAmount(page.amount)} sats`
-                : formatCurrency(page.amount, page.currency)}
-            </p>
-            {isSatoshiToFiat && (
-              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">= {formatNumber(btcEquivalent)} BTC</p>
+            <p className="text-2xl sm:text-3xl font-bold tracking-tight">{inputLabel}</p>
+            {inputSub && (
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{inputSub}</p>
             )}
           </div>
 
           <div className="bg-orange-50 dark:bg-orange-900/20 rounded-xl p-5 border border-orange-100 dark:border-orange-900/40">
             <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 mb-2">
-              {isSatoshiToFiat ? (
+              {isSatsToFiat || isBtcToFiat ? (
                 <>
                   <span aria-hidden="true">{currencyIcons[page.currency]}</span>
                   <span className="text-sm font-medium">{label}</span>
@@ -270,28 +363,22 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
               ) : (
                 <>
                   <Bitcoin className="w-4 h-4 text-orange-500" aria-hidden="true" />
-                  <span className="text-sm font-medium">Satoshis</span>
+                  <span className="text-sm font-medium">{isFiatToBtc ? 'Bitcoin' : 'Satoshis'}</span>
                 </>
               )}
             </div>
             <p className="text-2xl sm:text-3xl font-bold tracking-tight text-orange-700 dark:text-orange-300">
-              {loading && btcPrice === 0
-                ? 'Loading…'
-                : isSatoshiToFiat
-                  ? formatCurrency(fiatResult, page.currency)
-                  : `${formatSatoshiAmount(satoshiResult)} sats`}
+              {outputPrimary}
             </p>
-            {!isSatoshiToFiat && btcPrice > 0 && (
-              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">= {formatNumber(btcEquivalent)} BTC</p>
+            {outputSub && (
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{outputSub}</p>
             )}
           </div>
         </div>
 
-        {btcPrice > 0 && (
+        {summaryText && (
           <p className="mt-5 text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed border-l-4 border-orange-500 pl-4">
-            {isSatoshiToFiat
-              ? `${formatSatoshiAmount(page.amount)} Satoshis = ${formatCurrency(fiatResult, page.currency)} ${label} at a Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`
-              : `${formatCurrency(page.amount, page.currency)} = ${formatSatoshiAmount(satoshiResult)} Satoshis at a Bitcoin price of ${formatCurrency(btcPrice, page.currency)}.`}
+            {summaryText}
           </p>
         )}
 

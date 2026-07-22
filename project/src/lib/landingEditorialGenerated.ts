@@ -2,6 +2,7 @@ import {
   CURRENCY_LABELS,
   CURRENCY_NAMES,
   CURRENCY_SLUG_NAMES,
+  formatBtcDisplay,
   formatSatoshiAmount,
   type FiatCurrency,
 } from './conversion';
@@ -370,5 +371,92 @@ export function buildGeneratedLandingEditorial(page: LandingPageDef): LandingEdi
         intro: fiatAmountIntro(page.amount, page.currency),
         sections: fiatAmountSections(page.amount, page.currency),
       };
+    case 'btc-to-fiat-hub':
+      return {
+        intro: `See the live ${CURRENCY_LABELS[page.currency]} value of 1 Bitcoin at today's market price. Jump to fixed amounts like 0.01 BTC or 0.1 BTC when you know the exact figure.`,
+        sections: [
+          {
+            heading: `Why convert BTC to ${CURRENCY_LABELS[page.currency]}?`,
+            paragraphs: [
+              `News and exchanges quote Bitcoin in whole coins. This hub multiplies BTC by the live ${CURRENCY_LABELS[page.currency]} price so you can budget in familiar units.`,
+              `For everyday tips and wallet balances, switch to our [Satoshi to ${CURRENCY_LABELS[page.currency]}](/satoshi-to-${page.currency}) converter — one Bitcoin equals 100,000,000 sats.`,
+            ],
+          },
+          {
+            heading: 'Related tools',
+            paragraphs: [
+              `Reverse the math on [${CURRENCY_LABELS[page.currency]} to Bitcoin](/${page.currency}-to-btc). Estimate on-chain costs with the [Bitcoin fee calculator](/bitcoin-fee-calculator).`,
+              `Learn the unit relationship in [how many Satoshis in a Bitcoin](/guides/how-many-satoshis-in-a-bitcoin).`,
+            ],
+          },
+        ],
+      };
+    case 'btc-to-fiat-amount': {
+      const display = formatBtcDisplay(page.amount);
+      const label = CURRENCY_LABELS[page.currency];
+      return {
+        intro: `${display} BTC equals ${(page.amount * SATOSHI_PER_BTC).toLocaleString('en-US')} Satoshis. See the live ${label} value below.`,
+        sections: [
+          {
+            heading: `What ${display} BTC means`,
+            paragraphs: [
+              page.amount < 1
+                ? `${display} BTC is a fractional stack — common for DCA milestones and self-custody practice moves.`
+                : `${display} BTC is a large position for most individuals. Confirm custody and withdrawal fees before moving this amount.`,
+              `Compare with [Satoshi to ${label}](/satoshi-to-${page.currency}) if your wallet shows sats instead of coins.`,
+            ],
+          },
+          {
+            heading: 'Next steps',
+            paragraphs: [
+              `Buy more with [${CURRENCY_LABELS[page.currency]} to BTC](/${page.currency}-to-btc) or read [how to buy Bitcoin](/guides/how-to-buy-bitcoin).`,
+              `Estimate network fees before an on-chain send with the [fee calculator](/bitcoin-fee-calculator).`,
+            ],
+          },
+        ],
+      };
+    }
+    case 'fiat-to-btc-hub':
+      return {
+        intro: `Find out how much Bitcoin any ${CURRENCY_LABELS[page.currency]} amount buys at the live price — shown in BTC and Satoshis.`,
+        sections: [
+          {
+            heading: `${CURRENCY_LABELS[page.currency]} to BTC vs sats`,
+            paragraphs: [
+              `Whole-coin quotes help with large purchases; sats help with DCA and Lightning. Use this hub for BTC, or [${CURRENCY_LABELS[page.currency]} to Satoshi](/${page.currency}-to-satoshi) for sat counts.`,
+              `Live price comes from CoinGecko and refreshes every 60 seconds.`,
+            ],
+          },
+          {
+            heading: 'Related pages',
+            paragraphs: [
+              `See [Bitcoin to ${CURRENCY_LABELS[page.currency]}](/btc-to-${page.currency}) for the reverse conversion.`,
+              `New to buying? [How to buy Bitcoin](/guides/how-to-buy-bitcoin) covers exchange setup and first withdrawal.`,
+            ],
+          },
+        ],
+      };
+    case 'fiat-to-btc-amount': {
+      const label = CURRENCY_LABELS[page.currency];
+      return {
+        intro: `How much BTC does ${page.amount} ${label} buy today? Live Bitcoin and Satoshi equivalents below.`,
+        sections: [
+          {
+            heading: 'Why this amount is searched',
+            paragraphs: [
+              `${page.amount} ${label} is a common budgeting figure for first buys and recurring DCA deposits.`,
+              `Also see [${page.amount} ${label} in Satoshi](/${page.amount}-${CURRENCY_SLUG_NAMES[page.currency]}-in-satoshi) if you track progress in sats.`,
+            ],
+          },
+          {
+            heading: 'After you know the BTC amount',
+            paragraphs: [
+              `Plan self-custody with [how to store Bitcoin safely](/guides/how-to-store-bitcoin-safely).`,
+              `Check on-chain cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator) before withdrawing from an exchange.`,
+            ],
+          },
+        ],
+      };
+    }
   }
 }

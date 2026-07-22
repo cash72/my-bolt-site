@@ -16,6 +16,7 @@ const landingConfig = JSON.parse(
 const STATIC_ROUTES = [
   { path: '/', changefreq: 'hourly', priority: '1.0', lastmod: TODAY },
   { path: '/conversions', changefreq: 'weekly', priority: '0.85', lastmod: CONTENT_UPDATED },
+  { path: '/bitcoin-fee-calculator', changefreq: 'weekly', priority: '0.9', lastmod: TODAY },
   { path: '/guides', changefreq: 'weekly', priority: '0.85', lastmod: CONTENT_UPDATED },
   { path: '/about', changefreq: 'monthly', priority: '0.6', lastmod: CONTENT_UPDATED },
   { path: '/contact', changefreq: 'monthly', priority: '0.5', lastmod: CONTENT_UPDATED },
@@ -45,6 +46,7 @@ const GUIDE_LASTMOD = {
 const CURRENCIES = landingConfig.currencies;
 const SATOSHI_AMOUNTS = landingConfig.satoshiAmounts;
 const FIAT_AMOUNTS = landingConfig.fiatAmounts;
+const BTC_AMOUNTS = landingConfig.btcAmounts ?? [0.01, 0.1, 1];
 
 const FIAT_SLUG_NAMES = {
   usd: 'dollars',
@@ -52,6 +54,10 @@ const FIAT_SLUG_NAMES = {
   gbp: 'pounds',
   cad: 'cad',
 };
+
+function formatBtcSlugAmount(amount) {
+  return Number.isInteger(amount) ? String(amount) : String(amount);
+}
 
 function buildLandingPaths() {
   const paths = [];
@@ -73,6 +79,26 @@ function buildLandingPaths() {
   for (const currency of CURRENCIES) {
     for (const amount of FIAT_AMOUNTS) {
       paths.push(`/${amount}-${FIAT_SLUG_NAMES[currency]}-in-satoshi`);
+    }
+  }
+
+  for (const currency of CURRENCIES) {
+    paths.push(`/btc-to-${currency}`);
+  }
+
+  for (const currency of CURRENCIES) {
+    for (const amount of BTC_AMOUNTS) {
+      paths.push(`/${formatBtcSlugAmount(amount)}-btc-to-${currency}`);
+    }
+  }
+
+  for (const currency of CURRENCIES) {
+    paths.push(`/${currency}-to-btc`);
+  }
+
+  for (const currency of CURRENCIES) {
+    for (const amount of FIAT_AMOUNTS) {
+      paths.push(`/${amount}-${FIAT_SLUG_NAMES[currency]}-in-btc`);
     }
   }
 

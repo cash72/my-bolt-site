@@ -102,9 +102,10 @@ export const P0_INDEX_BY_DIR = {
     label: 'Satoshi Calc',
     paths: [
       { path: '/' },
+      { path: '/btc-to-usd/', isNew: true },
+      { path: '/usd-to-btc/', isNew: true },
+      { path: '/bitcoin-fee-calculator/', isNew: true },
       { path: '/100000-satoshi-to-usd/' },
-      { path: '/500-satoshi-to-usd/', isNew: true },
-      { path: '/5000-satoshi-to-usd/', isNew: true },
       { path: '/guides/what-is-a-satoshi/' },
     ],
   },

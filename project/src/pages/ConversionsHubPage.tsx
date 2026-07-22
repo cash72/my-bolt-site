@@ -64,6 +64,8 @@ export default function ConversionsHubPage() {
 
   const satoshiHubs = LANDING_PAGES.filter((p) => p.kind === 'satoshi-to-fiat-hub');
   const fiatHubs = LANDING_PAGES.filter((p) => p.kind === 'fiat-to-satoshi-hub');
+  const btcHubs = LANDING_PAGES.filter((p) => p.kind === 'btc-to-fiat-hub');
+  const fiatToBtcHubs = LANDING_PAGES.filter((p) => p.kind === 'fiat-to-btc-hub');
 
   const satoshiAmountsByCurrency = Object.fromEntries(
     FIAT_CURRENCIES.map((currency) => [
@@ -79,6 +81,20 @@ export default function ConversionsHubPage() {
     ])
   ) as Record<FiatCurrency, typeof LANDING_PAGES>;
 
+  const btcAmountsByCurrency = Object.fromEntries(
+    FIAT_CURRENCIES.map((currency) => [
+      currency,
+      LANDING_PAGES.filter((p) => p.kind === 'btc-to-fiat-amount' && p.currency === currency),
+    ])
+  ) as Record<FiatCurrency, typeof LANDING_PAGES>;
+
+  const fiatToBtcAmountsByCurrency = Object.fromEntries(
+    FIAT_CURRENCIES.map((currency) => [
+      currency,
+      LANDING_PAGES.filter((p) => p.kind === 'fiat-to-btc-amount' && p.currency === currency),
+    ])
+  ) as Record<FiatCurrency, typeof LANDING_PAGES>;
+
   return (
     <main id="main-content" className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12" role="main">
       <header className="mb-10">
@@ -88,28 +104,85 @@ export default function ConversionsHubPage() {
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Satoshi Conversion Directory</h1>
         <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl mb-6">
-          Every live calculator on SatoshiCalc in one place — 72 conversion pages across USD, EUR, GBP, and CAD.
-          Prices refresh every 60 seconds from CoinGecko.
+          Every live calculator on SatoshiCalc — {LANDING_PAGES.length} conversion pages across Satoshis, Bitcoin
+          (BTC), USD, EUR, GBP, and CAD. Prices refresh every 60 seconds from CoinGecko.
         </p>
         <div className="max-w-3xl space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed">
           <p>
-            <strong className="text-slate-800 dark:text-slate-200">Satoshi → fiat</strong> pages answer “how much
-            money is X sats worth?” — from Lightning tips (500–5,000 sats) to stacking milestones (50,000–1,000,000
-            sats). <strong className="text-slate-800 dark:text-slate-200">Fiat → Satoshi</strong> pages flip the
-            question for buyers: “how many sats does $100 buy?”
+            <strong className="text-slate-800 dark:text-slate-200">BTC → fiat</strong> hubs answer “how much is one
+            Bitcoin worth?” — including fixed amounts like 0.01 BTC.{' '}
+            <strong className="text-slate-800 dark:text-slate-200">Satoshi → fiat</strong> pages cover Lightning tips
+            and stacking milestones. Reverse hubs flip the question for buyers.
           </p>
           <p>
-            Start with a currency hub for any amount, or jump to a fixed-amount page when you know the exact number.
-            Each page includes live conversion, context on what that amount means, and links to related{' '}
+            Estimate on-chain costs with the{' '}
+            <Link to="/bitcoin-fee-calculator" className="text-orange-600 dark:text-orange-400 hover:underline">
+              Bitcoin fee calculator
+            </Link>{' '}
+            (sat/vB × vBytes). Each conversion page includes live math and links to{' '}
             <Link to="/guides" className="text-orange-600 dark:text-orange-400 hover:underline">
               Bitcoin guides
-            </Link>{' '}
-            on buying, stacking, and self-custody.
+            </Link>
+            .
           </p>
         </div>
       </header>
 
       <ContentMonetizationSlot placement="content" guides={FEATURED_GUIDES.slice(0, 3)} />
+
+      <section className="mb-12" aria-labelledby="btc-hubs-heading">
+        <h2 id="btc-hubs-heading" className="text-xl font-bold mb-4">
+          Bitcoin (BTC) to fiat
+        </h2>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {btcHubs.map((page) => (
+            <li key={page.slug}>
+              <Link
+                to={page.path}
+                className="block rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-sm font-medium hover:border-orange-300 dark:hover:border-orange-700 transition-colors"
+              >
+                BTC → {CURRENCY_LABELS[page.currency]}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {FIAT_CURRENCIES.map((currency) => (
+        <section key={`btc-${currency}`} className="mb-12" aria-labelledby={`btc-${currency}-heading`}>
+          <h2 id={`btc-${currency}-heading`} className="text-xl font-bold mb-4">
+            Common BTC amounts ({CURRENCY_LABELS[currency]})
+          </h2>
+          <AmountLinkGrid pages={btcAmountsByCurrency[currency]} />
+        </section>
+      ))}
+
+      <section className="mb-12" aria-labelledby="fiat-btc-hubs-heading">
+        <h2 id="fiat-btc-hubs-heading" className="text-xl font-bold mb-4">
+          Fiat to Bitcoin
+        </h2>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {fiatToBtcHubs.map((page) => (
+            <li key={page.slug}>
+              <Link
+                to={page.path}
+                className="block rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-sm font-medium hover:border-orange-300 dark:hover:border-orange-700 transition-colors"
+              >
+                {CURRENCY_LABELS[page.currency]} → BTC
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {FIAT_CURRENCIES.map((currency) => (
+        <section key={`fiat-btc-${currency}`} className="mb-12" aria-labelledby={`fiat-btc-${currency}-heading`}>
+          <h2 id={`fiat-btc-${currency}-heading`} className="text-xl font-bold mb-4">
+            Common {CURRENCY_NAMES[currency].toLowerCase()} amounts in BTC
+          </h2>
+          <AmountLinkGrid pages={fiatToBtcAmountsByCurrency[currency]} />
+        </section>
+      ))}
 
       <section className="mb-12" aria-labelledby="currency-hubs-heading">
         <h2 id="currency-hubs-heading" className="text-xl font-bold mb-4">

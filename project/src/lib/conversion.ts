@@ -53,6 +53,29 @@ export function fiatToSatoshi(fiat: number, btcPrice: number): number {
   return btcPrice > 0 ? (fiat / btcPrice) * SATOSHI_PER_BTC : 0;
 }
 
+export function btcToFiat(btc: number, btcPrice: number): number {
+  return btc * btcPrice;
+}
+
+export function fiatToBtc(fiat: number, btcPrice: number): number {
+  return btcPrice > 0 ? fiat / btcPrice : 0;
+}
+
+export function btcToSatoshi(btc: number): number {
+  return btc * SATOSHI_PER_BTC;
+}
+
+/** Slug-safe BTC amount string: 0.01, 0.1, 1, 10 (no trailing zeros). */
+export function formatBtcSlugAmount(amount: number): string {
+  if (Number.isInteger(amount)) return String(amount);
+  return String(amount);
+}
+
+export function formatBtcDisplay(amount: number): string {
+  if (amount >= 1) return formatNumber(amount);
+  return amount.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 8 });
+}
+
 export function formatCurrency(value: number, currency: string) {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
