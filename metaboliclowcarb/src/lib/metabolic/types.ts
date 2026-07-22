@@ -43,4 +43,22 @@ export interface MacroResult {
   planLabel: string;
 }
 
-export type ToolId = 'net-carb' | 'macro' | 'fasting-clock';
+export type ToolId = 'net-carb' | 'macro' | 'fasting-clock' | 'tdee';
+
+export interface TdeeInput {
+  sex: Sex;
+  age: number;
+  weightLbs: number;
+  heightFt: number;
+  heightIn: number;
+  activity: ActivityLevel;
+  deficitPct: number;
+}
+
+export interface TdeeResult {
+  bmr: number;
+  tdee: number;
+  targetCalories: number;
+  deficitPct: number;
+  deficitKcal: number;
+}

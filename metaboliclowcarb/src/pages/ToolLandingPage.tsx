@@ -4,6 +4,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import MetabolicTools from '../components/MetabolicTools';
 import FastingClock from '../components/FastingClock';
+import TdeeCalculator from '../components/TdeeCalculator';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { GuideCard } from '../components/GuideCard';
 import { getGuideBySlug } from '../lib/guides/guides';
@@ -114,6 +115,8 @@ export default function ToolLandingPage() {
           defaultGoal={page.defaultFastingGoal}
           defaultMode={page.defaultFastingMode}
         />
+      ) : page.tool === 'tdee' ? (
+        <TdeeCalculator heading={page.h1} subheading={pageIntro ?? page.intro} />
       ) : (
         <MetabolicTools
           activeTool={page.tool}

@@ -6,6 +6,8 @@ import type {
   NetCarbInput,
   NetCarbResult,
   Sex,
+  TdeeInput,
+  TdeeResult,
 } from './types';
 
 const ACTIVITY_MULTIPLIER: Record<ActivityLevel, number> = {
@@ -59,6 +61,18 @@ export function calcBmr(sex: Sex, weightKg: number, heightCm: number, age: numbe
 
 export function calcTdee(bmr: number, activity: ActivityLevel): number {
   return Math.round(bmr * ACTIVITY_MULTIPLIER[activity]);
+}
+
+export function calcTdeeTarget(input: TdeeInput): TdeeResult | null {
+  if (input.age <= 0 || input.weightLbs <= 0 || input.heightFt < 0 || input.heightIn < 0) {
+    return null;
+  }
+  const bmr = Math.round(calcBmr(input.sex, toKg(input.weightLbs), toCm(input.heightFt, input.heightIn), input.age));
+  const tdee = calcTdee(bmr, input.activity);
+  const deficitPct = Math.min(40, Math.max(0, input.deficitPct || 0));
+  const deficitKcal = Math.round(tdee * (deficitPct / 100));
+  const targetCalories = Math.max(bmr, tdee - deficitKcal);
+  return { bmr, tdee, targetCalories, deficitPct, deficitKcal };
 }
 
 export function calcMacros(input: MacroInput): MacroResult | null {

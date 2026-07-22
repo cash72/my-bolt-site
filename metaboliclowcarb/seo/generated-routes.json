@@ -22,6 +22,7 @@
     "/omad-fasting-timer",
     "/weight-loss-macro-calculator",
     "/diabetes-macro-calculator",
+    "/tdee-calorie-calculator",
     "/guides/how-to-break-a-24-hour-fast",
     "/guides/intermittent-fasting-16-8-vs-18-6",
     "/guides/water-fast-vs-assisted-fast",
@@ -84,7 +85,8 @@
     "/pcos-low-carb-calculator",
     "/omad-fasting-timer",
     "/weight-loss-macro-calculator",
-    "/diabetes-macro-calculator"
+    "/diabetes-macro-calculator",
+    "/tdee-calorie-calculator"
   ],
   "guidePaths": [
     "/guides/how-to-break-a-24-hour-fast",

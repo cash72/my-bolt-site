@@ -90,6 +90,7 @@ export const P0_INDEX_BY_DIR = {
   metaboliclowcarb: {
     label: 'Metabolic Low Carb',
     paths: [
+      { path: '/tdee-calorie-calculator/', isNew: true },
       { path: '/net-carb-calculator/' },
       { path: '/keto-macro-calculator/' },
       { path: '/weight-loss-macro-calculator/', isNew: true },

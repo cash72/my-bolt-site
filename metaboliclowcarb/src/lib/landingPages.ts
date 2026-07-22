@@ -518,9 +518,44 @@ export const LANDING_PAGES: LandingPage[] = [
     ],
     relatedGuideSlugs: ['fasting-on-diabetes-medications', 'net-carbs-for-insulin-resistance', 'fasting-with-insulin-resistance'],
   },
+  {
+    slug: 'tdee-calorie-calculator',
+    path: '/tdee-calorie-calculator',
+    tool: 'tdee',
+    title: 'TDEE Calculator — Daily Calories & BMR (Mifflin-St Jeor)',
+    h1: 'TDEE Calorie Calculator',
+    description:
+      'Free TDEE calculator using Mifflin-St Jeor. Estimate BMR, maintenance calories, and an optional deficit for weight loss — then pair with keto or low-carb macros.',
+    breadcrumbLabel: 'TDEE calculator',
+    intro:
+      'Total Daily Energy Expenditure (TDEE) is a planning estimate of how many calories you burn in a day. Enter age, sex, weight, height, and activity — optionally apply a mild-to-moderate deficit for fat-loss targets.',
+    faqs: [
+      {
+        question: 'What is TDEE vs BMR?',
+        answer:
+          'BMR is calories burned at rest. TDEE multiplies BMR by an activity factor to estimate full-day burn including movement and exercise.',
+      },
+      {
+        question: 'How accurate is Mifflin-St Jeor?',
+        answer:
+          'It is a widely used adult estimate, not a lab measurement. Adjust after 2–3 weeks if weight stalls or drops too fast. This is not medical advice.',
+      },
+      {
+        question: 'Should I eat below BMR?',
+        answer:
+          'This tool floors targets at BMR. Very low calories can be unsafe — talk with a clinician before aggressive cuts, especially with diabetes medications.',
+      },
+    ],
+    relatedGuideSlugs: [
+      'getting-started-keto-low-carb',
+      'mindful-macro-tracking-low-carb',
+      'visceral-fat-metabolic-health',
+    ],
+  },
 ];
 
 export const FEATURED_LANDING_SLUGS = [
+  'tdee-calorie-calculator',
   'net-carb-calculator',
   'keto-macro-calculator',
   'insulin-resistance-macro-calculator',
