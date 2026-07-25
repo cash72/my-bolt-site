@@ -64,10 +64,10 @@ export const LANDING_PAGES: LandingPage[] = [
     kind: 'paint',
     paintType: 'interior',
     surface: 'walls',
-    title: 'Paint Gallon Calculator — How Much Paint Do I Need? (Free, Canada)',
+    title: 'How Much Behr Paint Do I Need? Free Gallon Calculator (Canada)',
     h1: 'How Much Paint Do I Need?',
     description:
-      'Free paint gallon calculator for Canadian DIY projects. Enter room size, coats, and sq ft per gallon from your can — see how many gallons to buy. Works with Behr, Benjamin Moore, and any brand.',
+      'Free paint gallon calculator for Behr and any brand. Enter room size, coats, and sq ft per gallon from your can — see how many gallons to buy. Built for Canadian DIY projects.',
     breadcrumbLabel: 'How much paint',
     intro:
       'The biggest question at the paint counter: how many gallons? Enter your room size and we round up so you do not run short mid-project.',
@@ -105,13 +105,13 @@ export const LANDING_PAGES: LandingPage[] = [
     kind: 'paint',
     paintType: 'interior',
     surface: 'walls',
-    title: 'How Many Sq Ft Does a Gallon Cover? Free Paint Coverage Calculator',
-    h1: 'Paint Coverage Calculator',
+    title: 'Behr Paint Coverage Calculator — Sq Ft per Gallon to Gallons',
+    h1: 'Behr Paint Coverage Calculator',
     description:
-      'Free paint coverage calculator — enter room size and sq ft per gallon from your can. See how many gallons you need per coat. Works with Behr, Benjamin Moore, and Canadian paint labels.',
+      'Free Behr paint coverage calculator: enter room size and sq ft per gallon from your Behr can (or any brand). See gallons per coat for Canadian DIY projects.',
     breadcrumbLabel: 'Coverage calculator',
     intro:
-      'Coverage depends on your paint label, surface texture, and number of coats. Enter the sq ft per gallon from your can for an accurate gallon count.',
+      'Searching for a Behr paint coverage calculator? Enter your room size and the sq ft per gallon from your can — we convert label coverage into gallons to buy. Works for Behr, Benjamin Moore, and any brand.',
     faqs: [
       {
         question: 'What is typical paint coverage?',

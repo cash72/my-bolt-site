@@ -63,10 +63,10 @@ export const LANDING_PAGES: LandingPage[] = [
     path: '/keto-macro-calculator',
     tool: 'macro',
     defaultPlan: 'strict_keto',
-    title: 'Free Keto Macro Calculator — Daily Carbs, Protein & Fat',
+    title: 'Keto Macro Calculator — Free Protein, Fat & Net Carbs',
     h1: 'Keto Macro Calculator',
     description:
-      'Free keto macro calculator for weight loss and strict keto. Enter age, weight, height, and activity — get daily calories, protein, fat, and 20g net carb targets.',
+      'Keto macro calculator for weight loss and strict keto. Enter age, weight, height, and activity — get daily calories, protein, fat, and 20g net carb targets. Free, no signup.',
     breadcrumbLabel: 'Keto macro calculator',
     intro:
       'How many carbs, protein, and fat on keto? Enter your stats and get daily macro targets — about 20g net carbs for strict keto, with calories from the Mifflin-St Jeor equation.',
@@ -522,10 +522,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'tdee-calorie-calculator',
     path: '/tdee-calorie-calculator',
     tool: 'tdee',
-    title: 'TDEE Calculator — Daily Calories & BMR (Mifflin-St Jeor)',
+    title: 'TDEE Calorie Calculator — Free Daily Calories & BMR',
     h1: 'TDEE Calorie Calculator',
     description:
-      'Free TDEE calculator using Mifflin-St Jeor. Estimate BMR, maintenance calories, and an optional deficit for weight loss — then pair with keto or low-carb macros.',
+      'Free TDEE calorie calculator (Mifflin-St Jeor). Estimate BMR, maintenance calories, and an optional deficit for weight loss — then pair with keto or low-carb macros.',
     breadcrumbLabel: 'TDEE calculator',
     intro:
       'Total Daily Energy Expenditure (TDEE) is a planning estimate of how many calories you burn in a day. Enter age, sex, weight, height, and activity — optionally apply a mild-to-moderate deficit for fat-loss targets.',

@@ -136,12 +136,12 @@ export const GUIDES: Guide[] = [
   {
     slug: 'paint-coverage-per-gallon',
     category: 'paint',
-    title: 'How Many Square Feet Does a Gallon of Paint Cover?',
+    title: 'Behr Paint Coverage per Gallon — Sq Ft Chart & Calculator',
     description:
-      'How many sq ft per gallon on interior latex, primer, and Behr cans. Read your label, adjust for texture, and use our free coverage calculator to avoid under-buying.',
+      'How many sq ft per gallon for Behr and other interior latex, primer, and exterior cans. Read your label, adjust for texture, and use our free Behr paint coverage calculator.',
     readMinutes: 8,
     toolPath: '/paint-coverage-calculator',
-    toolLabel: 'Paint coverage calculator',
+    toolLabel: 'Behr paint coverage calculator',
     relatedGuideSlugs: ['how-much-paint-for-a-room', 'how-many-coats-of-paint'],
     sections: [
       {
