@@ -79,11 +79,11 @@ function satoshiTierIntro(amount: number, label: string, currency: FiatCurrency)
     case 'small':
       return `${formatted} Satoshis is a round figure for everyday Bitcoin payments and budgeting in ${label}. This page shows the live ${label} value for exactly ${formatted} sats at the current market price.`;
     case 'milestone':
-      return `${formatted} Satoshis (${btcFraction(amount)}) is a stacking milestone many holders track in ${ctx.region}. Use the live calculator below to see how many ${label} that equals at today's Bitcoin price.`;
+      return `${formatted} Satoshis (${btcFraction(amount)}) is a stacking milestone many holders track in ${ctx.region}. Use the live calculator below to see how many ${label} that equals at today's Bitcoin price. Before withdrawing on-chain, estimate network cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator).`;
     case 'serious':
-      return `${formatted} Satoshis equals ${btcFraction(amount)} — a meaningful stack where self-custody and withdrawal planning start to matter. The live ${label} value below updates every 60 seconds from CoinGecko.`;
+      return `${formatted} Satoshis equals ${btcFraction(amount)} — a meaningful stack where self-custody and withdrawal planning start to matter. The live ${label} value below updates every 60 seconds from CoinGecko. Compare withdrawal cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator).`;
     case 'major':
-      return `${formatted} Satoshis is ${btcFraction(amount)} — a major Bitcoin position for most holders. This page shows the live ${label} equivalent at the current market price, with context on what that stack size means.`;
+      return `${formatted} Satoshis is ${btcFraction(amount)} — a major Bitcoin position for most holders. This page shows the live ${label} equivalent at the current market price, with context on what that stack size means. Plan the move with the [Bitcoin fee calculator](/bitcoin-fee-calculator).`;
   }
 }
 
@@ -133,7 +133,7 @@ function satoshiTierSections(amount: number, currency: FiatCurrency): LandingEdi
       heading: `Why ${formatted} sats is a checkpoint`,
       paragraphs: [
         `${formatted} sats (${btcFraction(amount)}) is a round number stackers celebrate — easier to share than quoting many decimal places of BTC.`,
-        `At this level, many holders in ${ctx.region} start researching hardware wallets and seed phrase backup. The ${label} figure helps you decide when withdrawal fees justify moving off-exchange.`,
+        `At this level, many holders in ${ctx.region} start researching hardware wallets and seed phrase backup. The ${label} figure helps you decide when withdrawal fees justify moving off-exchange — estimate sat/vB cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator) before you withdraw.`,
       ],
     });
     sections.push({
@@ -245,6 +245,9 @@ function fiatAmountSections(amount: number, currency: FiatCurrency): LandingEdit
 function satoshiHubIntro(currency: FiatCurrency): string {
   const label = CURRENCY_LABELS[currency];
   const ctx = CURRENCY_CONTEXT[currency];
+  if (currency === 'usd') {
+    return `Convert any Satoshi amount to USD using the live Bitcoin price. This hub defaults to 100,000 sats and links to fixed amounts US stackers search most often — like [50,000 sats](/50000-satoshi-to-usd) and [100,000 sats](/100000-satoshi-to-usd). Planning an on-chain move? Estimate cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator).`;
+  }
   return `Convert any Satoshi amount to ${label} using the live Bitcoin price. This hub defaults to 100,000 sats and links to fixed amounts holders in ${ctx.region} search most often.`;
 }
 
@@ -290,7 +293,7 @@ function satoshiHubSections(currency: FiatCurrency): LandingEditorialSection[] {
         currency !== 'usd'
           ? `We also support USD with the same pipeline — see [Satoshi to USD](/satoshi-to-usd) for the most popular hub. Browse [all conversions](/conversions) for the full directory.`
           : `For euros, pounds, or Canadian dollars, use [Satoshi to EUR](/satoshi-to-eur), [GBP](/satoshi-to-gbp), or [CAD](/satoshi-to-cad). Every currency has matching reverse converters.`,
-        `Learn the unit behind the math in [what is a Satoshi](/guides/what-is-a-satoshi), or plan buys with [stacking sats and DCA](/guides/stacking-sats-dca).`,
+        `Learn the unit behind the math in [what is a Satoshi](/guides/what-is-a-satoshi), or plan buys with [stacking sats and DCA](/guides/stacking-sats-dca). Moving sats off an exchange? Use the [Bitcoin fee calculator](/bitcoin-fee-calculator) so fee % is obvious before you hit send.`,
       ],
     },
   ];

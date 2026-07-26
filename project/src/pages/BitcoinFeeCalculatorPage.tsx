@@ -32,9 +32,9 @@ const DEFAULT_VBYTES = 140;
 
 export default function BitcoinFeeCalculatorPage() {
   usePageMeta({
-    title: 'Bitcoin Fee Calculator — sat/vB to Sats & USD',
+    title: 'Bitcoin Fee Calculator — sat/vB to Sats & USD (Free)',
     description:
-      'Estimate Bitcoin transaction fees from sat/vB and transaction size (vBytes). See fee in sats, BTC, and live USD. Free mempool planning tool.',
+      'Free Bitcoin fee calculator: enter sat/vB and vBytes to see network fees in sats, BTC, and live USD. Plan withdrawals and mempool costs before you send.',
     path: '/bitcoin-fee-calculator',
   });
 
@@ -69,6 +69,11 @@ export default function BitcoinFeeCalculatorPage() {
         answer: `Fee (sats) ≈ sat/vB × transaction size in vBytes. This page uses ${satPerVb} sat/vB × ${vBytes} vB = ${formatSatoshiAmount(sats)} sats${btcPrice > 0 ? ` (about ${formatCurrency(usd, 'usd')} USD)` : ''}.`,
       },
       {
+        question: 'How much is a typical Bitcoin transaction fee in USD?',
+        answer:
+          'It depends on sat/vB and transaction size. A simple SegWit send during quiet periods can be under a dollar; the same size during congestion can cost several dollars. Convert your fee sats here, then compare to the amount you are moving on the Satoshi to USD converter.',
+      },
+      {
         question: 'Are these vByte sizes exact?',
         answer:
           'Presets are typical SegWit and legacy estimates. Your wallet may show a slightly different size based on inputs, outputs, and script type. Always confirm in your wallet before broadcasting.',
@@ -77,6 +82,11 @@ export default function BitcoinFeeCalculatorPage() {
         question: 'When should I use Lightning instead?',
         answer:
           'For tips and small payments, Lightning fees are usually far cheaper than on-chain. Use on-chain for cold-storage moves and exchange withdrawals when you need settlement finality.',
+      },
+      {
+        question: 'Should I check fee % before withdrawing 100k sats?',
+        answer:
+          'Yes. Compare the fee USD result here to the live value of your stack on the 100,000 Satoshi to USD page — a $3 fee is material on a small transfer and negligible on a large one.',
       },
     ],
     [satPerVb, vBytes, sats, usd, btcPrice]

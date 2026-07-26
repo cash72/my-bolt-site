@@ -744,7 +744,12 @@ export const GUIDES: GuideDef[] = [
       },
     ],
     relatedGuideSlugs: ['lightning-network-basics', 'how-to-send-bitcoin-first-time', 'how-to-store-bitcoin-safely', 'stacking-sats-dca'],
-    relatedLandingPaths: ['/satoshi-to-usd', '/100000-satoshi-to-usd', '/usd-to-satoshi'],
+    relatedLandingPaths: [
+      '/bitcoin-fee-calculator',
+      '/satoshi-to-usd',
+      '/100000-satoshi-to-usd',
+      '/usd-to-satoshi',
+    ],
   },
   {
     slug: 'bitcoin-wallet-types-compared',
@@ -827,7 +832,7 @@ export const GUIDES: GuideDef[] = [
       {
         heading: 'Step-by-step on-chain send',
         paragraphs: [
-          '1. Open your wallet and tap Send. 2. Paste or scan the receive address — prefer QR codes over typed addresses. 3. Enter amount in sats or BTC — remember [100 million sats = 1 BTC](/guides/how-many-satoshis-in-a-bitcoin). 4. Select a fee tier (economy if not urgent). 5. On hardware wallets, verify address and amount on the device screen before confirming.',
+          '1. Open your wallet and tap Send. 2. Paste or scan the receive address — prefer QR codes over typed addresses. 3. Enter amount in sats or BTC — remember [100 million sats = 1 BTC](/guides/how-many-satoshis-in-a-bitcoin). 4. Select a fee tier (economy if not urgent) — sanity-check sat/vB × size in the [Bitcoin fee calculator](/bitcoin-fee-calculator). 5. On hardware wallets, verify address and amount on the device screen before confirming.',
           'Send a test transaction first — 10,000–50,000 sats is common — and wait for at least one confirmation before moving the rest. Track test value on [10k sats](/10000-satoshi-to-usd) or nearby amount pages.',
         ],
       },
@@ -836,14 +841,14 @@ export const GUIDES: GuideDef[] = [
         paragraphs: [
           'Transactions need block confirmations before recipients treat them as final. One confirmation is usually enough for small amounts; exchanges may require three or more.',
           'Never send to an address someone DMed you unless you independently verified it. Scammers impersonate support and ask for “verification deposits.” Legitimate services never ask for your seed phrase.',
-          'If you bought on an exchange and have not withdrawn yet, start with [how to buy Bitcoin](/guides/how-to-buy-bitcoin) and [self-custody basics](/guides/bitcoin-self-custody-basics) — sending from an exchange works the same but fees are set by the platform.',
+          'If you bought on an exchange and have not withdrawn yet, start with [how to buy Bitcoin](/guides/how-to-buy-bitcoin) and [self-custody basics](/guides/bitcoin-self-custody-basics) — sending from an exchange works the same but fees are set by the platform. Compare their withdrawal fee to live mempool math with the [fee calculator](/bitcoin-fee-calculator).',
         ],
       },
     ],
     faq: [
       {
         q: 'How long does a first Bitcoin send take?',
-        a: 'Lightning settles in seconds. On-chain usually confirms within 10–60 minutes depending on fee rate and network congestion.',
+        a: 'Lightning settles in seconds. On-chain usually confirms within 10–60 minutes depending on fee rate and network congestion. Estimate cost first with the [Bitcoin fee calculator](/bitcoin-fee-calculator).',
       },
       {
         q: 'What if I sent to the wrong address?',
@@ -855,7 +860,12 @@ export const GUIDES: GuideDef[] = [
       },
     ],
     relatedGuideSlugs: ['bitcoin-transaction-fees-explained', 'bitcoin-wallet-types-compared', 'how-to-buy-bitcoin', 'what-is-a-satoshi'],
-    relatedLandingPaths: ['/satoshi-to-usd', '/10000-satoshi-to-usd', '/100-dollars-in-satoshi'],
+    relatedLandingPaths: [
+      '/bitcoin-fee-calculator',
+      '/satoshi-to-usd',
+      '/10000-satoshi-to-usd',
+      '/100-dollars-in-satoshi',
+    ],
   },
   {
     slug: 'understanding-bitcoin-price-volatility',

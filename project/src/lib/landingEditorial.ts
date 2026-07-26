@@ -55,7 +55,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
   },
   '50000-satoshi-to-usd': {
     intro:
-      'Fifty thousand Satoshis (50,000 sats) equals 0.0005 BTC — a popular “stack” milestone among Bitcoin savers. Use the live calculator below to see exactly how many US dollars that is at today’s market price.',
+      'Fifty thousand Satoshis (50,000 sats) equals 0.0005 BTC — a popular “stack” milestone among Bitcoin savers. Use the live calculator below to see exactly how many US dollars that is at today’s market price. Before an on-chain send, estimate cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator).',
     sections: [
       {
         heading: 'Why people look up 50,000 sats',
@@ -75,7 +75,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'What to do after you know the value',
         paragraphs: [
           'If you are stacking, compare this USD figure to your weekly budget and see how many sats your next buy adds. Our [stacking sats and DCA guide](/guides/stacking-sats-dca) walks through building a repeatable plan.',
-          'If you received 50,000 sats as payment, consider moving long-term savings to a hardware wallet once the amount would hurt to lose. Our [guide on storing Bitcoin safely](/guides/how-to-store-bitcoin-safely) compares beginner-friendly options.',
+          'If you received 50,000 sats as payment, consider moving long-term savings to a hardware wallet once the amount would hurt to lose. Our [guide on storing Bitcoin safely](/guides/how-to-store-bitcoin-safely) compares beginner-friendly options. Check withdrawal cost first with the [Bitcoin fee calculator](/bitcoin-fee-calculator).',
         ],
       },
     ],
@@ -83,7 +83,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   '100000-satoshi-to-usd': {
     intro:
-      'One hundred thousand Satoshis (100,000 sats) is 0.001 BTC — a round number that stackers use as a progress checkpoint. Below is the live US Dollar value at the current Bitcoin price.',
+      'One hundred thousand Satoshis (100,000 sats) is 0.001 BTC — a round number that stackers use as a progress checkpoint. Below is the live US Dollar value at the current Bitcoin price. Planning a withdrawal? Run sat/vB math in the [Bitcoin fee calculator](/bitcoin-fee-calculator).',
     sections: [
       {
         heading: 'Why 100,000 sats matters',
@@ -103,7 +103,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'Related amounts worth bookmarking',
         paragraphs: [
           'Nearby milestones: [50,000 sats](/50000-satoshi-to-usd) (half this stack), [500,000 sats](/500000-satoshi-to-usd) (five times), and [10,000,000 sats](/10000000-satoshi-to-usd) (0.1 BTC). Each has its own live page on SatoshiCalc.',
-          'To buy more sats with dollars, flip the calculation on our [100 USD in Satoshi](/100-dollars-in-satoshi) page or use the reverse converter on the homepage.',
+          'To buy more sats with dollars, flip the calculation on our [100 USD in Satoshi](/100-dollars-in-satoshi) page or use the reverse converter on the homepage. Before moving 100k sats on-chain, compare fee % with the [fee calculator](/bitcoin-fee-calculator).',
         ],
       },
     ],
@@ -123,7 +123,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       {
         heading: 'Fees and moving this amount',
         paragraphs: [
-          'On-chain Bitcoin fees vary with network congestion. Moving 500,000 sats during a fee spike can cost a noticeable slice; many users wait for quieter periods or use Lightning for smaller payments.',
+          'On-chain Bitcoin fees vary with network congestion. Moving 500,000 sats during a fee spike can cost a noticeable slice; many users wait for quieter periods or use Lightning for smaller payments. Estimate sat/vB × size with the [Bitcoin fee calculator](/bitcoin-fee-calculator) before you withdraw.',
           'Always send a test transaction first when withdrawing from an exchange to a new wallet address. Verify the address on your hardware wallet screen before confirming.',
         ],
       },
@@ -201,7 +201,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'Fees reduce the sats you receive',
         paragraphs: [
           'Exchanges charge trading fees; card purchases often include a premium. The sats shown here assume spot price — your actual fill may be slightly lower after costs.',
-          'Withdrawal fees also apply when moving off-exchange. Batch withdrawals when the amount justifies the network fee rather than withdrawing every single buy.',
+          'Withdrawal fees also apply when moving off-exchange. Batch withdrawals when the amount justifies the network fee rather than withdrawing every single buy — sanity-check on-chain cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator).',
         ],
       },
       {
@@ -216,7 +216,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'satoshi-to-usd': {
     intro:
-      'This hub converts any Satoshi amount to US Dollars using the live Bitcoin price. Start with 100,000 sats below, or jump to a fixed amount like 50,000 or 500,000 sats.',
+      'This hub converts any Satoshi amount to US Dollars using the live Bitcoin price. Start with 100,000 sats below, or jump to a fixed amount like [50,000](/50000-satoshi-to-usd) or [100,000 sats](/100000-satoshi-to-usd). Planning an on-chain move? Estimate cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator).',
     sections: [
       {
         heading: 'When to use Satoshis vs BTC',
@@ -236,7 +236,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'Popular USD satoshi lookups',
         paragraphs: [
           'Fixed-amount pages load faster for SEO and sharing: [1,000 sats](/1000-satoshi-to-usd), [50,000 sats](/50000-satoshi-to-usd), [100,000 sats](/100000-satoshi-to-usd), [500,000 sats](/500000-satoshi-to-usd), and [10,000,000 sats](/10000000-satoshi-to-usd) each have dedicated live pages with extra context.',
-          'For euros, pounds, or Canadian dollars, use the [Satoshi to EUR](/satoshi-to-eur), [GBP](/satoshi-to-gbp), or [CAD](/satoshi-to-cad) hubs in our [conversions directory](/conversions).',
+          'For euros, pounds, or Canadian dollars, use the [Satoshi to EUR](/satoshi-to-eur), [GBP](/satoshi-to-gbp), or [CAD](/satoshi-to-cad) hubs in our [conversions directory](/conversions). Before withdrawing a stack, compare fee % with the [Bitcoin fee calculator](/bitcoin-fee-calculator).',
         ],
       },
     ],
