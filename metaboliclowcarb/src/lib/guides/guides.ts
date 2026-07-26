@@ -478,6 +478,7 @@ export const GUIDES: Guide[] = [
         bullets: [
           'Track net carbs daily — start with 50g for insulin resistance.',
           'Prioritize protein at each meal to preserve muscle during fat loss.',
+          'Set calories with the [TDEE calorie calculator](/tdee-calorie-calculator), then macros with the [keto macro calculator](/keto-macro-calculator).',
           'Add 16:8 IF once low-carb eating feels stable.',
           'Measure waist monthly, not just weight weekly.',
           'Discuss liver enzymes and A1c with your doctor annually.',
@@ -488,7 +489,7 @@ export const GUIDES: Guide[] = [
         heading: 'Measuring metabolic progress',
         paragraphs: [
           'Waist circumference, fasting insulin, triglycerides, and liver enzymes often improve before scale weight drops. Use our [metabolic health calculator](/metabolic-health-calculator) for waist-to-height context.',
-          'Low carb plus [time-restricted eating](/guides/intermittent-fasting-16-8-vs-18-6) targets visceral fat preferentially in many studies — consistency beats extreme restriction.',
+          'Low carb plus [time-restricted eating](/guides/intermittent-fasting-16-8-vs-18-6) targets visceral fat preferentially in many studies — consistency beats extreme restriction. If scale weight is your main lever, start with [TDEE](/tdee-calorie-calculator) and a modest deficit rather than crash cuts.',
         ],
       },
     ],
@@ -502,6 +503,11 @@ export const GUIDES: Guide[] = [
         question: 'Does fasting burn belly fat specifically?',
         answer:
           'You cannot spot-reduce fat. Fasting lowers insulin and extends fat-burning windows, which may preferentially reduce visceral fat over time in some people — but diet consistency matters more than any single fast.',
+      },
+      {
+        question: 'Should I track calories or just carbs for belly fat?',
+        answer:
+          'Start with net carbs and protein. If waist and weight stall for several weeks, add a calorie check with the [TDEE calorie calculator](/tdee-calorie-calculator) and rebuild macros in the [keto macro calculator](/keto-macro-calculator).',
       },
     ],
   },
@@ -603,7 +609,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Week 2: set a daily net carb target',
         paragraphs: [
-          'Strict keto: ~20g net carbs. Insulin resistance: ~50g. Moderate low carb: ~100g. Use our [keto macro calculator](/keto-macro-calculator) or [insulin resistance macro calculator](/insulin-resistance-macro-calculator) to personalize calories and protein.',
+          'Strict keto: ~20g net carbs. Insulin resistance: ~50g. Moderate low carb: ~100g. Use our [keto macro calculator](/keto-macro-calculator) or [insulin resistance macro calculator](/insulin-resistance-macro-calculator) to personalize protein, fat, and net carbs — and the [TDEE calorie calculator](/tdee-calorie-calculator) if you want a maintenance or deficit calorie baseline first.',
           'Dr. Eric Westman notes hunger often drops within days on low carb — many people naturally skip breakfast without forcing fasting. If hunger drops, you can experiment with a shorter eating window later — see [intermittent fasting 16:8 vs 18:6](/guides/intermittent-fasting-16-8-vs-18-6).',
           'Expect keto flu symptoms (headache, fatigue, cramps) if electrolytes drop. Read [keto flu and electrolytes](/guides/keto-flu-and-electrolytes) before you blame “willpower.”',
         ],
@@ -614,6 +620,7 @@ export const GUIDES: Guide[] = [
           'Day 1–3: remove sugar, bread, rice, pasta, soda',
           'Stock proteins, leafy greens, eggs, avocados, olive oil',
           'Calculate macros — [keto macro calculator](/keto-macro-calculator)',
+          'Optional calorie baseline — [TDEE calculator](/tdee-calorie-calculator)',
           'Track net carbs — [net carb calculator](/net-carb-calculator)',
           'Cook from [strict keto recipes](/recipes/keto) so dinner is decided',
           'Read [Atkins phases](/guides/atkins-phases-explained) if using a phased approach',
@@ -627,7 +634,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Do I need to count calories?',
         answer:
-          'Many people start with net carbs and protein only. If weight loss stalls, tracking total calories for a short period can help.',
+          'Many people start with net carbs and protein only. If weight loss stalls, estimate maintenance with the [TDEE calorie calculator](/tdee-calorie-calculator), then re-check protein and carbs in the [keto macro calculator](/keto-macro-calculator).',
       },
     ],
   },
@@ -1007,7 +1014,7 @@ export const GUIDES: Guide[] = [
         heading: 'Why protein matters when carbs drop',
         paragraphs: [
           'Carb restriction lowers insulin, but protein is what preserves muscle during weight loss and keeps meals satisfying. Too little protein on an aggressive deficit costs lean mass; chasing extremely high protein is rarely required for most people who are not athletes.',
-          'Our [keto macro calculator](/keto-macro-calculator) defaults to about 0.8g protein per pound of body weight — a common starting point in many low-carb programs. Use the [weight-loss macro calculator](/weight-loss-macro-calculator) if you also want a calorie deficit layered on top.',
+          'Our [keto macro calculator](/keto-macro-calculator) defaults to about 0.8g protein per pound of body weight — a common starting point in many low-carb programs. If you also need a calorie ceiling, run the [TDEE calorie calculator](/tdee-calorie-calculator) with the same stats first, or use the [weight-loss macro calculator](/weight-loss-macro-calculator) for a deficit layered on top.',
         ],
       },
       {
@@ -1020,7 +1027,7 @@ export const GUIDES: Guide[] = [
           'Kidney disease: your medical team sets limits — do not self-prescribe high protein',
         ],
         paragraphs: [
-          'Re-run macros when weight drops 10–15 lbs. Absolute protein grams can scale with current (or target) body weight so you are not stuck on day-one numbers forever.',
+          'Re-run macros when weight drops 10–15 lbs. Absolute protein grams can scale with current (or target) body weight so you are not stuck on day-one numbers forever. Refresh [TDEE](/tdee-calorie-calculator) at the same time so deficit targets stay realistic.',
         ],
       },
       {
@@ -1053,6 +1060,11 @@ export const GUIDES: Guide[] = [
         question: 'Is plant protein okay on low carb?',
         answer:
           'Yes if net carbs fit your budget — tofu, tempeh, and some seitan products vary widely. Read labels carefully; beans and lentils raise carbs faster than animal proteins.',
+      },
+      {
+        question: 'How do protein grams fit with TDEE calories?',
+        answer:
+          'Set total calories with the [TDEE calorie calculator](/tdee-calorie-calculator), lock protein in the [keto macro calculator](/keto-macro-calculator), then fill remaining calories with fat while holding net carbs at your plan’s limit.',
       },
     ],
   },
@@ -1132,7 +1144,7 @@ export const GUIDES: Guide[] = [
         heading: 'Track long enough to learn, not forever',
         paragraphs: [
           'Two to four weeks of logging teaches portion sizes and the hidden carbs in sauces, drinks, and “healthy” snacks. The goal is pattern recognition — not a lifetime of barcode scanning at every meal.',
-          'Set initial targets with a calculator — [keto](/keto-macro-calculator), [low carb](/low-carb-macro-calculator), or [insulin resistance macros](/insulin-resistance-macro-calculator) — then adjust from energy, hunger, waist, and labs with your provider.',
+          'Set initial targets with a calculator — [TDEE](/tdee-calorie-calculator) for calories, then [keto](/keto-macro-calculator), [low carb](/low-carb-macro-calculator), or [insulin resistance macros](/insulin-resistance-macro-calculator) — then adjust from energy, hunger, waist, and labs with your provider.',
         ],
       },
       {
