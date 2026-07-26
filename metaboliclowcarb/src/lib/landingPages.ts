@@ -92,6 +92,11 @@ export const LANDING_PAGES: LandingPage[] = [
           'This calculator uses about 0.8g protein per pound of body weight — a common starting point. Adjust with a dietitian if you have kidney or other conditions.',
       },
       {
+        question: 'Should I set calories with TDEE before macros?',
+        answer:
+          'Optional but useful for weight loss. Run the [TDEE calorie calculator](/tdee-calorie-calculator) for maintenance or a modest deficit, then use this keto macro calculator to lock protein, fat, and ~20g net carbs inside that calorie budget.',
+      },
+      {
         question: 'Is this medical advice?',
         answer:
           'No. These are estimates for education only. Talk to your doctor before changing diet, especially if you take diabetes or blood pressure medication.',
@@ -536,6 +541,16 @@ export const LANDING_PAGES: LandingPage[] = [
           'BMR is calories burned at rest. TDEE multiplies BMR by an activity factor to estimate full-day burn including movement and exercise.',
       },
       {
+        question: 'How do I calculate TDEE for weight loss?',
+        answer:
+          'Estimate maintenance with this calculator, then subtract about 300–500 calories for a moderate deficit. Pair the calorie target with protein and net carbs in the keto macro calculator — do not cut calories alone without enough protein.',
+      },
+      {
+        question: 'Can I use a TDEE calculator with keto?',
+        answer:
+          'Yes. TDEE sets total calories; keto sets the carb ceiling (often ~20g net). Run TDEE first, then split protein, fat, and net carbs with our keto macro calculator using the same body stats.',
+      },
+      {
         question: 'How accurate is Mifflin-St Jeor?',
         answer:
           'It is a widely used adult estimate, not a lab measurement. Adjust after 2–3 weeks if weight stalls or drops too fast. This is not medical advice.',
@@ -544,6 +559,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'Should I eat below BMR?',
         answer:
           'This tool floors targets at BMR. Very low calories can be unsafe — talk with a clinician before aggressive cuts, especially with diabetes medications.',
+      },
+      {
+        question: 'Is this TDEE calorie calculator free?',
+        answer:
+          'Yes — no signup. Enter age, sex, height, weight, and activity to get BMR, maintenance calories, and an optional deficit target.',
       },
     ],
     relatedGuideSlugs: [
