@@ -82,7 +82,7 @@ function buildSatoshiHubPage(currency: FiatCurrency): LandingPageDef {
 
   const title =
     currency === 'usd'
-      ? 'Satoshi to USD Converter — Live Price Today'
+      ? 'Satoshi to USD Converter — Live Sats to Dollars'
       : currency === 'eur'
         ? 'Satoshi to EUR — Live Euro Conversion (2026)'
         : currency === 'gbp'
@@ -91,7 +91,7 @@ function buildSatoshiHubPage(currency: FiatCurrency): LandingPageDef {
 
   const description =
     currency === 'usd'
-      ? 'Convert Satoshis to USD at the live Bitcoin price. Free calculator — updated every 60 seconds from CoinGecko.'
+      ? 'Convert Satoshis to USD at the live Bitcoin price. Free sats-to-dollars calculator — updated every 60 seconds from CoinGecko.'
       : `Convert Satoshis to ${label} (${name}) at the live Bitcoin price. Free ${label} calculator for stackers — updated every 60 seconds.`;
 
   return {
@@ -104,7 +104,10 @@ function buildSatoshiHubPage(currency: FiatCurrency): LandingPageDef {
     title,
     description,
     h1: `Satoshi to ${label} Converter`,
-    intro: `See how many ${label} your Satoshis are worth at today's Bitcoin price. Enter any amount in sats for an instant ${label} value — or jump to fixed amounts like 50,000 and 100,000 sats.`,
+    intro:
+      currency === 'usd'
+        ? `See how many dollars your Satoshis are worth at today's Bitcoin price. Enter any sats amount for an instant USD value — or jump to fixed pages like [50,000 sats](/50000-satoshi-to-usd) and [100,000 sats](/100000-satoshi-to-usd). Planning an on-chain move? Estimate cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator).`
+        : `See how many ${label} your Satoshis are worth at today's Bitcoin price. Enter any amount in sats for an instant ${label} value — or jump to fixed amounts like 50,000 and 100,000 sats.`,
     breadcrumbLabel: `Satoshi to ${label}`,
   };
 }
@@ -114,6 +117,34 @@ function buildSatoshiAmountPage(amount: number, currency: FiatCurrency): Landing
   const slug = `${amount}-satoshi-to-${currency}`;
   const formatted = formatSatoshiAmount(amount);
 
+  // CTR titles for top USD amount queries (Sunday ops index queue)
+  let title = `${formatted} Satoshi to ${label} — Live Price Today`;
+  let description = `How much is ${formatted} Satoshis in ${label}? See the live ${label} value at today's Bitcoin price. Free calculator — updated every 60 seconds.`;
+  if (currency === 'usd') {
+    if (amount === 100_000) {
+      title = '100,000 Satoshi to USD — How Much Is 100k Sats Worth?';
+      description =
+        'How much is 100,000 Satoshis in USD today? Live Bitcoin price conversion for 100k sats — free calculator updated every 60 seconds.';
+    } else if (amount === 50_000) {
+      title = '50,000 Satoshi to USD — Live Value of 50k Sats';
+      description =
+        'How much is 50,000 Satoshis worth in USD? See the live dollar value of 50k sats at today’s Bitcoin price. Free converter.';
+    } else if (amount === 1_000_000) {
+      title = '1,000,000 Satoshi to USD — Live Value of 1M Sats';
+      description =
+        'How much is 1,000,000 Satoshis in USD? Live price for 1M sats (0.01 BTC) — free calculator updated every 60 seconds.';
+    } else if (amount === 1_000) {
+      title = '1,000 Satoshi to USD — Live Price for 1k Sats';
+      description =
+        'How much is 1,000 Satoshis in USD? Live Lightning-tip size conversion at today’s Bitcoin price. Free calculator.';
+    }
+  }
+
+  let intro = satoshiAmountIntro(amount, label, formatted);
+  if (currency === 'usd' && amount >= 50_000) {
+    intro = `${intro} Before moving this stack on-chain, estimate network cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator).`;
+  }
+
   return {
     slug,
     path: `/${slug}`,
@@ -121,10 +152,10 @@ function buildSatoshiAmountPage(amount: number, currency: FiatCurrency): Landing
     direction: 'satoshi-to-fiat',
     amount,
     currency,
-    title: `${formatted} Satoshi to ${label} — Live Price Today`,
-    description: `How much is ${formatted} Satoshis in ${label}? See the live ${label} value at today's Bitcoin price. Free calculator — updated every 60 seconds.`,
+    title,
+    description,
     h1: `${formatted} Satoshi to ${label}`,
-    intro: satoshiAmountIntro(amount, label, formatted),
+    intro,
     breadcrumbLabel: `${formatted} sats → ${label}`,
   };
 }
@@ -177,6 +208,18 @@ function buildFiatAmountPage(amount: number, currency: FiatCurrency): LandingPag
   const slugName = CURRENCY_SLUG_NAMES[currency];
   const slug = `${amount}-${slugName}-in-satoshi`;
 
+  let title = `${amount} ${label} in Satoshi — Live Sats Calculator`;
+  let description = `How many Satoshis is ${amount} ${label}? See the live sats equivalent at today's Bitcoin price in ${name}. Updated every 60 seconds.`;
+  if (currency === 'usd' && amount === 100) {
+    title = '100 Dollars in Satoshi — How Many Sats Is $100?';
+    description =
+      'How many Satoshis is $100 USD? Live sats equivalent at today’s Bitcoin price — free $100 → sats calculator updated every 60 seconds.';
+  } else if (currency === 'usd' && amount === 1000) {
+    title = '1000 Dollars in Satoshi — How Many Sats Is $1,000?';
+    description =
+      'How many Satoshis is $1,000 USD? Live sats stack for a $1,000 Bitcoin buy — free calculator updated every 60 seconds.';
+  }
+
   return {
     slug,
     path: `/${slug}`,
@@ -184,8 +227,8 @@ function buildFiatAmountPage(amount: number, currency: FiatCurrency): LandingPag
     direction: 'fiat-to-satoshi',
     amount,
     currency,
-    title: `${amount} ${label} in Satoshi — Live Sats Calculator`,
-    description: `How many Satoshis is ${amount} ${label}? See the live sats equivalent at today's Bitcoin price in ${name}. Updated every 60 seconds.`,
+    title,
+    description,
     h1: `${amount} ${label} in Satoshi`,
     intro: fiatAmountIntro(amount, label, name),
     breadcrumbLabel: `${amount} ${label} → sats`,

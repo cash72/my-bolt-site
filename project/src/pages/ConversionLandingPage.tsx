@@ -310,7 +310,9 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
 
       <header className="mb-8 animate-fade-in">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">{page.h1}</h1>
-        <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">{pageIntro}</p>
+        <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+          {renderEditorialText(pageIntro)}
+        </p>
       </header>
 
       {error && (
