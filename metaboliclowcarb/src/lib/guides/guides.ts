@@ -1126,6 +1126,7 @@ export const GUIDES: Guide[] = [
           'Days 1–2: carb withdrawal and salt loss feel loud — keep meals simple and salty',
           'Days 3–5: energy often dips then stabilizes if electrolytes are on point',
           'Days 6–14: hunger usually falls; refine macros with the [keto macro calculator](/keto-macro-calculator)',
+          'If fat loss is a goal after week one, set calories with the [TDEE calorie calculator](/tdee-calorie-calculator)',
         ],
         paragraphs: [
           'If you take blood pressure medication, tell your clinician you are changing sodium and carbs — doses sometimes need adjustment as volume changes.',
@@ -1147,6 +1148,11 @@ export const GUIDES: Guide[] = [
         question: 'Does “dirty keto” prevent keto flu?',
         answer:
           'No. Electrolyte shifts happen from low insulin, not from whether your cheese is artisanal. Whole foods help long-term health; salt and magnesium fix most early flu symptoms.',
+      },
+      {
+        question: 'When should I set macros during keto flu?',
+        answer:
+          'Focus on electrolytes and simple meals first. Once symptoms ease (often days 4–7), lock protein and ~20g net carbs in the [keto macro calculator](/keto-macro-calculator). Add the [TDEE calorie calculator](/tdee-calorie-calculator) if fat loss needs a calorie ceiling.',
       },
     ],
   },
