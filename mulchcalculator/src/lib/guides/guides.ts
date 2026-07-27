@@ -6,7 +6,7 @@ export const GUIDES: Guide[] = [
     category: 'planning',
     title: 'How Much Mulch Do I Need for My Garden Beds?',
     description:
-      'Step-by-step guide to calculating mulch volume for landscaping beds. Area formulas, depth in inches, cubic yards, bag counts, and real examples for front yards, tree rings, and shrub borders.',
+      'Calculate mulch for garden beds using area, depth, cubic-yard, and bag formulas with practical examples for borders, tree rings, and front yards.',
     readMinutes: 10,
     toolPath: '/mulch-calculator',
     toolLabel: 'Mulch calculator',

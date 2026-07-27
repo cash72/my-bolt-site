@@ -86,7 +86,7 @@ export default function ResultsPanel({ estimate, settings }: ResultsPanelProps) 
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-slate-500 dark:text-slate-400">Bags (2 cu ft)</dt>
+                  <dt className="text-slate-500 dark:text-slate-400">Bags ({estimate.bagCuFt} cu ft)</dt>
                   <dd className="text-lg font-semibold text-emerald-700 dark:text-emerald-400">
                     {estimate.bagsNeeded}
                   </dd>
@@ -99,7 +99,7 @@ export default function ResultsPanel({ estimate, settings }: ResultsPanelProps) 
             <p className="text-xs text-slate-500 dark:text-slate-400">
               Buy at store: {buyCubicYards} cubic yard{buyCubicYards !== 1 ? 's' : ''} ·{' '}
               {Math.round(estimate.cubicFeet)} cu ft total · {estimate.bagsNeeded} bag
-              {estimate.bagsNeeded !== 1 ? 's' : ''} if buying bagged
+              {estimate.bagsNeeded !== 1 ? 's' : ''} at {estimate.bagCuFt} cu ft each
             </p>
           )}
 

@@ -52,13 +52,13 @@ export default function ProjectSettingsForm({
               id="depth-in"
               type="number"
               min="1"
-              max="12"
+              max="24"
               step="0.5"
               value={settings.depthIn}
               onChange={(e) => onUpdate({ depthIn: e.target.value })}
               className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
             />
-            <p className="text-[10px] text-slate-400 mt-1">Default 3" for mulch beds</p>
+            <p className="text-[10px] text-slate-400 mt-1">Use the project-specific starting depth, then verify locally</p>
           </div>
         )}
         <div>
@@ -170,6 +170,23 @@ export default function ProjectSettingsForm({
               </div>
             </div>
             <div>
+              <label htmlFor="bag-cu-ft" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+                Bag size (cu ft)
+              </label>
+              <input
+                id="bag-cu-ft"
+                type="number"
+                min="0.1"
+                step="0.1"
+                value={settings.bagCuFt}
+                onChange={(e) => onUpdate({ bagCuFt: e.target.value })}
+                className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+              />
+              <p className="text-[10px] text-slate-400 mt-1">
+                {settings.materialType === 'gravel' ? 'Default 0.5 cu ft for bagged gravel' : 'Default 2 cu ft'}
+              </p>
+            </div>
+            <div>
               <label htmlFor="price-bag" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
                 Price / bag <span className="font-normal">(optional)</span>
               </label>
@@ -186,7 +203,7 @@ export default function ProjectSettingsForm({
                   className="w-full pl-7 pr-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
                 />
               </div>
-              <p className="text-[10px] text-slate-400 mt-1">2 cu ft bags</p>
+              <p className="text-[10px] text-slate-400 mt-1">Uses the bag size above</p>
             </div>
           </>
         )}

@@ -48,10 +48,11 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'gravel-calculator',
     path: '/gravel-calculator',
     materialType: 'gravel',
-    title: 'Gravel Calculator — Cubic Yards & Tons (Free)',
+    depthIn: 4,
+    title: 'Gravel Calculator — Cubic Yards & Bag Counts',
     h1: 'Gravel Calculator',
     description:
-      'Free gravel calculator for paths and driveways. Enter area dimensions and depth — get cubic yards, tons, and bag counts for bulk gravel.',
+      'Free gravel calculator for paths and driveways. Enter area dimensions and depth to get cubic yards and configurable bag counts.',
     breadcrumbLabel: 'Gravel calculator',
     intro:
       'Enter the length and width of your gravel area. Adjust depth for paths (2–3"), driveways (4–6"), or drainage projects.',

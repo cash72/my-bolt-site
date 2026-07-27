@@ -25,13 +25,14 @@ export default function PrivacyPage() {
         servers.
       </p>
       <p>
-        Like most websites, we may use analytics (such as Google Analytics) to understand aggregate traffic — pages
-        visited, device type, and general location. This helps us improve the site.
+        Our hosting provider may process standard request data for security and aggregate traffic reporting. We do not
+        currently load a separate site-analytics service.
       </p>
 
       <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Cookies</h2>
       <p>
-        Analytics and advertising partners may set cookies. You can control cookies through your browser settings.
+        When advertising is enabled, advertising partners may set cookies. You can control cookies through your browser
+        settings.
       </p>
 
       <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Third-party services</h2>

@@ -171,7 +171,7 @@ export default function BitcoinFeeCalculatorPage() {
               min={1}
               step={1}
               value={satPerVb}
-              onChange={(e) => setSatPerVb(Math.max(0, Number(e.target.value) || 0))}
+              onChange={(e) => setSatPerVb(Math.max(1, Number(e.target.value) || 1))}
               className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-850 px-4 py-3 text-lg font-semibold"
             />
           </label>
@@ -184,7 +184,7 @@ export default function BitcoinFeeCalculatorPage() {
               value={vBytes}
               onChange={(e) => {
                 setPresetId('custom');
-                setVBytes(Math.max(0, Number(e.target.value) || 0));
+                setVBytes(Math.max(1, Number(e.target.value) || 1));
               }}
               className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-850 px-4 py-3 text-lg font-semibold"
             />

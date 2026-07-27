@@ -22,6 +22,10 @@ export default function ContactPage() {
         We welcome pricing corrections, broken links, and suggestions for tools or comparisons to add. We do not
         offer software support for third-party products — contact vendors directly for account help.
       </p>
+      <p>
+        When reporting outdated information, include the software name, plan, source URL, and the date you verified it.
+        That helps us review corrections quickly and keep comparisons useful for landscaping business owners.
+      </p>
     </LegalPageLayout>
   );
 }

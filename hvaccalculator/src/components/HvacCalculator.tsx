@@ -8,12 +8,14 @@ interface HvacCalculatorProps {
   initialApplication?: ApplicationType;
   heading?: string;
   subheading?: string;
+  resultMode?: 'standard' | 'heating';
 }
 
 export default function HvacCalculator({
   initialApplication = 'standard_room',
   heading = 'BTU & Mini-Split Calculator',
   subheading = 'Enter room dimensions. Get cooling BTU, heating estimate, and recommended mini-split size.',
+  resultMode = 'standard',
 }: HvacCalculatorProps) {
   const {
     spaces,
@@ -62,7 +64,7 @@ export default function HvacCalculator({
 
       <div className="lg:col-span-2">
         <div className="lg:sticky lg:top-20">
-          <ResultsPanel estimate={estimate} settings={settings} />
+          <ResultsPanel estimate={estimate} settings={settings} resultMode={resultMode} />
         </div>
       </div>
     </div>

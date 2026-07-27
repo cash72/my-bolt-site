@@ -13,6 +13,7 @@ export interface ProjectSettings {
   depthIn: string;
   materialType: MaterialType;
   wastePercent: string;
+  bagCuFt: string;
   pricePerCubicYard: string;
   pricePerBag: string;
   sodRollSqFt: string;
@@ -36,6 +37,7 @@ export interface EstimateResult {
   depthIn: number;
   cubicFeet: number;
   cubicYards: number;
+  bagCuFt: number;
   bagsNeeded: number;
   rollsNeeded: number | null;
   palletsNeeded: number | null;
@@ -74,6 +76,7 @@ export function defaultProjectSettings(materialType: MaterialType = 'mulch'): Pr
     depthIn: String(DEFAULT_DEPTH),
     materialType,
     wastePercent: String(DEFAULT_WASTE),
+    bagCuFt: materialType === 'gravel' ? '0.5' : String(BAG_CU_FT),
     pricePerCubicYard: '',
     pricePerBag: '',
     sodRollSqFt: String(DEFAULT_SOD_ROLL_SQ_FT),
@@ -87,5 +90,6 @@ export function materialTypeDefaults(materialType: MaterialType): Partial<Projec
   return {
     materialType,
     wastePercent: String(DEFAULT_WASTE),
+    bagCuFt: materialType === 'gravel' ? '0.5' : String(BAG_CU_FT),
   };
 }

@@ -66,13 +66,46 @@ export GOOGLE_APPLICATION_CREDENTIALS="$PWD/secrets/gsc-service-account.json"
 npm run gsc:nightly -- --dry-run
 ```
 
-Then a real run:
+Then a real GSC-only run:
 
 ```bash
 npm run gsc:nightly
 ```
 
 Report writes to `reports/gsc-nightly-latest.json` (gitignored).
+
+## Full nightly portfolio audit
+
+The scheduled job runs more than the GSC API. It now:
+
+- typechecks and production-builds every site, including prerendering;
+- crawls every URL in every live sitemap;
+- validates HTTP status, real 404 behavior, canonical URLs, titles, descriptions, robots directives, AdSense ownership, JSON-LD, article dates, and referenced images;
+- checks legal pages, ads.txt, robots.txt, generated-route/sitemap parity, broken internal links, thin pages, exact duplicate content, and site-specific calculator contracts;
+- compares with the previous run to report new, persistent, and resolved issues;
+- writes readable Markdown and JSON reports and sends a desktop notification;
+- submits sitemaps and inspects P0 URLs through GSC after the health checks finish.
+
+Run the complete job manually:
+
+```bash
+npm run portfolio:nightly
+```
+
+Fast dry-run without rebuilding or changing GSC:
+
+```bash
+npm run portfolio:nightly:dry
+```
+
+Primary reports:
+
+- `reports/nightly-latest.md` — plain-language outcome and actions performed
+- `reports/portfolio-health-latest.md` — detailed site defects
+- `reports/gsc-nightly-latest.json` — Google inspection details
+- `reports/nightly-portfolio.log` — scheduled-run console log
+
+Set `NIGHTLY_REPORT_WEBHOOK_URL` in `.env` to send the same summary to a Slack- or Discord-compatible incoming webhook. Without a webhook, the job still writes reports and attempts a desktop notification.
 
 ## Schedule on this always-on PC (8pm Pacific)
 
@@ -84,7 +117,7 @@ crontab -e
 Add (adjust path if needed):
 
 ```cron
-0 20 * * * cd /home/tiny/Downloads/project-bolt-update && GOOGLE_APPLICATION_CREDENTIALS=/home/tiny/Downloads/project-bolt-update/secrets/gsc-service-account.json /usr/bin/npm run gsc:nightly >> /home/tiny/Downloads/project-bolt-update/reports/gsc-nightly.log 2>&1
+0 20 * * * cd /home/tiny/Downloads/project-bolt-update && GOOGLE_APPLICATION_CREDENTIALS=/home/tiny/Downloads/project-bolt-update/secrets/gsc-service-account.json /usr/bin/npm run portfolio:nightly >> /home/tiny/Downloads/project-bolt-update/reports/nightly-portfolio.log 2>&1
 ```
 
 ### Option B — systemd user timer
@@ -98,8 +131,8 @@ systemctl --user enable --now gsc-nightly.timer
 ```
 
 ## Pairing with the Cursor nightly SEO automation
-1. **Cursor cloud agent (8pm PT):** code titles/FAQs/links + PR  
-2. **This PC script (8pm PT):** sitemap submit + inspect P0 URLs → report  
-3. **You (weekly):** for any URL in the report with `coverageState` not indexed, open GSC → Request indexing (short list only)
+1. **This PC script (8pm PT):** build, crawl, SEO/contracts audit, readable report, sitemap submission, and P0 inspection.
+2. **Same-day follow-up:** fix any item marked `ACTION NEEDED` in `reports/nightly-latest.md`.
+3. **You (weekly):** for URLs listed as needing manual indexing, open GSC → URL Inspection → Request indexing.
 
 After credentials are in place, tell the agent “GSC API is connected” so future cloud runs can assume `npm run gsc:nightly` works on this machine or via secrets in Cloud Agents.

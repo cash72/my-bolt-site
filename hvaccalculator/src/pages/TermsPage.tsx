@@ -6,7 +6,7 @@ import { CONTACT_EMAIL, SITE_NAME, SITE_URL } from '../lib/site';
 export default function TermsPage() {
   usePageMeta({
     title: 'Terms of Use',
-    description: `Terms of use for ${SITE_NAME} calculators, tools, and guides.`,
+    description: `Read the ${SITE_NAME} terms covering sizing estimates, educational guides, acceptable use, warranties, and liability.`,
     path: '/terms',
   });
 

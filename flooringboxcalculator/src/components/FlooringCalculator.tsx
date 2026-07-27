@@ -6,12 +6,14 @@ import type { MaterialType } from '../lib/flooring/types';
 
 interface FlooringCalculatorProps {
   initialMaterial?: MaterialType;
+  initialWastePercent?: number;
   heading?: string;
   subheading?: string;
 }
 
 export default function FlooringCalculator({
   initialMaterial = 'laminate',
+  initialWastePercent,
   heading = 'Flooring Calculator',
   subheading = 'Enter room sizes in feet and inches. Get square footage, waste, and how many boxes to buy.',
 }: FlooringCalculatorProps) {
@@ -25,7 +27,7 @@ export default function FlooringCalculator({
     setMaterial,
     updateSettings,
     canAddRoom,
-  } = useFlooringEstimate(initialMaterial);
+  } = useFlooringEstimate(initialMaterial, initialWastePercent);
 
   return (
     <div className="grid lg:grid-cols-5 gap-8">

@@ -7,7 +7,7 @@ export const SITE_DOMAIN = 'landscapetoolsguide.com';
 
 export const CONTACT_EMAIL = 'cashfreedom4us@gmail.com';
 
-export const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
+export const OG_IMAGE_URL = `${SITE_URL}/guides/images/how-to-choose-lawn-care-software.jpg`;
 
 export const SITE_CONTENT_UPDATED = '2026-07-07';
 

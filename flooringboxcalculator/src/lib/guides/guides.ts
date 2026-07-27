@@ -979,7 +979,7 @@ export const GUIDES: Guide[] = [
     category: 'planning',
     title: 'DIY Flooring Installation Roadmap — Room Redo Start to Finish',
     description:
-      'Complete DIY flooring project map: choose material, measure boxes, remove old floor, prep subfloor, acclimate, underlay, install, and trim. Links every phase to free calculators and how-to guides.',
+      'Plan a DIY flooring project from material selection and measurement through subfloor prep, acclimation, installation, transitions, trim, and final cleanup.',
     readMinutes: 12,
     toolPath: '/how-many-flooring-boxes',
     toolLabel: 'Flooring boxes calculator',

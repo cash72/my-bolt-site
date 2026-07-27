@@ -52,38 +52,42 @@ export default function ProjectSettingsForm({
             Default {settings.material === 'tile' ? '15%' : '10%'}
           </p>
         </div>
-        <div>
-          <label htmlFor="sqft-box" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
-            Sq ft / box
-          </label>
-          <input
-            id="sqft-box"
-            type="number"
-            min="0"
-            step="0.1"
-            value={settings.sqFtPerBox}
-            onChange={(e) => onUpdate({ sqFtPerBox: e.target.value })}
-            className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
-          />
-        </div>
-        <div>
-          <label htmlFor="price-box" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
-            Price / box <span className="font-normal">(optional)</span>
-          </label>
-          <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">$</span>
-            <input
-              id="price-box"
-              type="number"
-              min="0"
-              step="0.01"
-              value={settings.pricePerBox}
-              onChange={(e) => onUpdate({ pricePerBox: e.target.value })}
-              placeholder="0"
-              className="w-full pl-7 pr-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
-            />
-          </div>
-        </div>
+        {settings.material !== 'carpet' && (
+          <>
+            <div>
+              <label htmlFor="sqft-box" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+                Sq ft / box
+              </label>
+              <input
+                id="sqft-box"
+                type="number"
+                min="0"
+                step="0.1"
+                value={settings.sqFtPerBox}
+                onChange={(e) => onUpdate({ sqFtPerBox: e.target.value })}
+                className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+              />
+            </div>
+            <div>
+              <label htmlFor="price-box" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+                Price / box <span className="font-normal">(optional)</span>
+              </label>
+              <div className="relative">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">$</span>
+                <input
+                  id="price-box"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  value={settings.pricePerBox}
+                  onChange={(e) => onUpdate({ pricePerBox: e.target.value })}
+                  placeholder="0"
+                  className="w-full pl-7 pr-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                />
+              </div>
+            </div>
+          </>
+        )}
         <div>
           <label htmlFor="price-sqft" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
             Material $ / sq ft <span className="font-normal">(optional)</span>
@@ -101,7 +105,9 @@ export default function ProjectSettingsForm({
               className="w-full pl-7 pr-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
             />
           </div>
-          <p className="text-[10px] text-slate-400 mt-1">Overrides box price when set</p>
+          <p className="text-[10px] text-slate-400 mt-1">
+            {settings.material === 'carpet' ? 'Use the installed or material quote converted to square feet' : 'Overrides box price when set'}
+          </p>
         </div>
         <div>
           <label htmlFor="install-sqft" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">

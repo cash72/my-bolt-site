@@ -152,6 +152,109 @@ async function inspectUrl(client, siteUrl, pageUrl) {
   };
 }
 
+function isoDateDaysAgo(days) {
+  const date = new Date();
+  date.setUTCDate(date.getUTCDate() - days);
+  return date.toISOString().slice(0, 10);
+}
+
+async function searchAnalytics(client, siteUrl, startDate, endDate) {
+  const property = encodeURIComponent(gscSiteUrl(siteUrl));
+  const url = `https://www.googleapis.com/webmasters/v3/sites/${property}/searchAnalytics/query`;
+  if (dryRun) return [];
+  const data = await withRetry(`search analytics ${siteUrl}`, () =>
+    apiRequest(client, 'POST', url, {
+      startDate,
+      endDate,
+      dimensions: ['query', 'page'],
+      rowLimit: 5000,
+      dataState: 'final',
+    }),
+  );
+  return (data.rows || []).map((row) => ({
+    query: row.keys?.[0] || '',
+    page: row.keys?.[1] || '',
+    clicks: row.clicks || 0,
+    impressions: row.impressions || 0,
+    ctr: row.ctr || 0,
+    position: row.position || 0,
+  }));
+}
+
+function buildContentOpportunities(domain, current, previous) {
+  const previousByKey = new Map(previous.map((row) => [`${row.query}|${row.page}`, row]));
+  const opportunities = [];
+  for (const row of current) {
+    const prior = previousByKey.get(`${row.query}|${row.page}`);
+    if (row.impressions >= 5 && row.position >= 4 && row.position <= 20) {
+      opportunities.push({
+        domain,
+        type: 'striking-distance',
+        priority: row.impressions / Math.max(row.position, 1),
+        ...row,
+        previousClicks: prior?.clicks ?? null,
+        previousImpressions: prior?.impressions ?? null,
+        action: `Expand the page section answering “${row.query}” and strengthen internal links to this URL.`,
+      });
+    } else if (row.impressions >= 10 && row.position < 10 && row.ctr < 0.02) {
+      opportunities.push({
+        domain,
+        type: 'low-ctr',
+        priority: row.impressions * (0.02 - row.ctr),
+        ...row,
+        previousClicks: prior?.clicks ?? null,
+        previousImpressions: prior?.impressions ?? null,
+        action: `Improve the title and meta description for “${row.query}” without changing the page intent.`,
+      });
+    }
+    if (
+      prior &&
+      prior.impressions >= 10 &&
+      row.impressions <= prior.impressions * 0.6 &&
+      prior.impressions - row.impressions >= 10
+    ) {
+      opportunities.push({
+        domain,
+        type: 'declining-demand',
+        priority: prior.impressions - row.impressions,
+        ...row,
+        previousClicks: prior.clicks,
+        previousImpressions: prior.impressions,
+        action: `Review freshness, SERP intent, and competing coverage for “${row.query}”; update only if the topic remains relevant.`,
+      });
+    }
+  }
+  return opportunities.sort((a, b) => b.priority - a.priority).slice(0, 50);
+}
+
+function contentOpportunityMarkdown(report) {
+  const rows = [...report.contentOpportunities].sort((a, b) => b.priority - a.priority);
+  const lines = [
+    '# Search-led content opportunities',
+    '',
+    `Generated: ${report.generatedAt}`,
+    '',
+    'These are based on real Google impressions, ranking position, and click-through rate. Expand an existing page only when the query matches its intent; do not create a thin page for every keyword.',
+    '',
+  ];
+  if (!rows.length) {
+    lines.push('No qualified opportunities were found in the current 28-day window.', '');
+    return lines.join('\n');
+  }
+  for (const domain of [...new Set(rows.map((row) => row.domain))]) {
+    lines.push(`## ${domain}`, '');
+    for (const row of rows.filter((item) => item.domain === domain).slice(0, 20)) {
+      lines.push(
+        `- **${row.query}** — ${row.type}; ${row.impressions} impressions; ${row.clicks} clicks; position ${row.position.toFixed(1)}; CTR ${(row.ctr * 100).toFixed(1)}%`,
+      );
+      lines.push(`  - Page: ${row.page}`);
+      lines.push(`  - Recommended: ${row.action}`);
+    }
+    lines.push('');
+  }
+  return lines.join('\n');
+}
+
 function needsManualRequest(row) {
   if (row.dryRun) return false;
   const cov = (row.coverageState || '').toLowerCase();
@@ -175,6 +278,8 @@ async function main() {
       'URL Inspection + sitemap submit only. "Request indexing" in GSC UI is not available via API for normal pages.',
     sitemaps: [],
     inspections: [],
+    searchPerformance: [],
+    contentOpportunities: [],
     needsManualRequestIndexing: [],
     /** Hard failures (auth/permission/most sitemaps down) — exit 1 */
     errors: [],
@@ -239,6 +344,41 @@ async function main() {
       // Stay polite under URL Inspection quotas
       await sleep(dryRun ? 0 : 350);
     }
+
+    if (!inspectOnly) {
+      const currentRange = { startDate: isoDateDaysAgo(28), endDate: isoDateDaysAgo(1) };
+      const previousRange = { startDate: isoDateDaysAgo(56), endDate: isoDateDaysAgo(29) };
+      process.stdout.write(`  Search demand ${domain} ... `);
+      try {
+        const current = client
+          ? await searchAnalytics(client, site.url, currentRange.startDate, currentRange.endDate)
+          : [];
+        const previous = client
+          ? await searchAnalytics(client, site.url, previousRange.startDate, previousRange.endDate)
+          : [];
+        const opportunities = buildContentOpportunities(domain, current, previous);
+        report.searchPerformance.push({
+          domain,
+          currentRange,
+          previousRange,
+          rows: current.length,
+          clicks: current.reduce((sum, row) => sum + row.clicks, 0),
+          impressions: current.reduce((sum, row) => sum + row.impressions, 0),
+          opportunities: opportunities.length,
+        });
+        report.contentOpportunities.push(...opportunities);
+        console.log(`${current.length} query/page rows, ${opportunities.length} opportunities`);
+      } catch (err) {
+        const msg = errorMessage(err);
+        console.log(`FAIL: ${msg}`);
+        report.softErrors.push({
+          type: 'search-analytics',
+          domain,
+          error: msg,
+          transient: isTransientError(err),
+        });
+      }
+    }
   }
 
   await mkdir(REPORT_DIR, { recursive: true });
@@ -248,6 +388,11 @@ async function main() {
   const json = JSON.stringify(report, null, 2);
   await writeFile(latestPath, json, 'utf8');
   await writeFile(datedPath, json, 'utf8');
+  await writeFile(
+    path.join(REPORT_DIR, 'content-opportunities-latest.md'),
+    contentOpportunityMarkdown(report),
+    'utf8',
+  );
 
   const sitemapOk = report.sitemaps.filter((s) => s.ok).length;
   const sitemapTotal = report.sitemaps.length;
@@ -256,6 +401,7 @@ async function main() {
   console.log('\n=== Summary ===');
   console.log(`Sitemaps: ${sitemapOk}/${sitemapTotal} ok`);
   console.log(`Inspections: ${report.inspections.length}`);
+  console.log(`Search content opportunities: ${report.contentOpportunities.length}`);
   console.log(`Needs manual Request indexing: ${report.needsManualRequestIndexing.length}`);
   console.log(`Soft errors (non-fatal): ${report.softErrors.length}`);
   console.log(`Hard errors: ${report.errors.length}`);
@@ -275,6 +421,17 @@ async function main() {
     console.log('\nSoft errors (retried; did not fail the job):');
     for (const row of report.softErrors.slice(0, 15)) {
       console.log(`  - ${row.type}: ${row.url || row.domain} — ${row.error}`);
+    }
+  }
+
+  if (report.contentOpportunities.length) {
+    console.log('\nTop search-led content opportunities:');
+    for (const row of report.contentOpportunities
+      .sort((a, b) => b.priority - a.priority)
+      .slice(0, 20)) {
+      console.log(
+        `  - ${row.domain}: ${row.query} (${row.impressions} impressions, position ${row.position.toFixed(1)}, ${row.type})`,
+      );
     }
   }
 

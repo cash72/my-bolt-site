@@ -112,6 +112,7 @@ export default function MaterialLandingPage() {
 
       <FlooringCalculator
         initialMaterial={page.material}
+        initialWastePercent={page.initialWastePercent}
         heading={page.h1}
         subheading={pageIntro ?? page.intro}
       />

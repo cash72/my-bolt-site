@@ -23,8 +23,8 @@ export default function DisclaimerPage() {
         equipment — permits and code compliance may apply.
       </p>
       <p>
-        Links to retailers or products may be affiliate links. If you purchase through those links, we may earn a
-        commission at no extra cost to you.
+        This site does not currently use affiliate links. If that changes, qualifying links and the relationship will
+        be clearly disclosed.
       </p>
       <p>
         By using {SITE_NAME}, you agree that you use the tool at your own risk and that professional load calculation

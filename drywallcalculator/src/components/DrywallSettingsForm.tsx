@@ -79,7 +79,7 @@ export default function DrywallSettingsForm({ settings, onUpdate }: DrywallSetti
         </div>
         <div>
           <label htmlFor="doors" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
-            Doors <span className="font-normal">(−20 sq ft each)</span>
+            Total doors, all rooms <span className="font-normal">(−20 sq ft each)</span>
           </label>
           <input
             id="doors"
@@ -93,7 +93,7 @@ export default function DrywallSettingsForm({ settings, onUpdate }: DrywallSetti
         </div>
         <div>
           <label htmlFor="windows" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1.5">
-            Windows <span className="font-normal">(−15 sq ft each)</span>
+            Total windows, all rooms <span className="font-normal">(−15 sq ft each)</span>
           </label>
           <input
             id="windows"

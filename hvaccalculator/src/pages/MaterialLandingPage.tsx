@@ -110,6 +110,7 @@ export default function MaterialLandingPage() {
           initialApplication={page.applicationType}
           heading={page.h1}
           subheading={pageIntro ?? page.intro}
+          resultMode={page.slug === 'garage-heater-btu-calculator' ? 'heating' : 'standard'}
         />
       )}
 

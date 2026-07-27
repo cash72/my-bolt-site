@@ -15,9 +15,10 @@ import type { EstimateResult, ProjectSettings } from '../lib/hvac/types';
 interface ResultsPanelProps {
   estimate: EstimateResult;
   settings: ProjectSettings;
+  resultMode?: 'standard' | 'heating';
 }
 
-export default function ResultsPanel({ estimate, settings }: ResultsPanelProps) {
+export default function ResultsPanel({ estimate, settings, resultMode = 'standard' }: ResultsPanelProps) {
   const [copied, setCopied] = useState(false);
   const hasInput = estimate.totalAreaSqFt > 0;
 
@@ -34,7 +35,9 @@ export default function ResultsPanel({ estimate, settings }: ResultsPanelProps) 
 
       {!hasInput ? (
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          Enter space dimensions to see BTU load and recommended mini-split size.
+          {resultMode === 'heating'
+            ? 'Enter the garage dimensions to see the estimated heating load.'
+            : 'Enter space dimensions to see BTU load and recommended mini-split size.'}
         </p>
       ) : (
         <>
@@ -47,29 +50,42 @@ export default function ResultsPanel({ estimate, settings }: ResultsPanelProps) 
               <dt className="text-slate-500 dark:text-slate-400">Cooling load</dt>
               <dd className="text-lg font-semibold">{formatBtu(estimate.totalCoolingBtu)} BTU</dd>
             </div>
-            <div>
-              <dt className="text-slate-500 dark:text-slate-400">Heating estimate</dt>
-              <dd className="text-lg font-semibold">{formatBtu(estimate.totalHeatingBtu)} BTU</dd>
-            </div>
-            <div className="col-span-2">
-              <dt className="text-slate-500 dark:text-slate-400">Recommended mini-split</dt>
-              <dd className="text-2xl font-bold text-sky-700 dark:text-sky-400">
-                {miniSplitLabel(estimate.recommendedMiniSplitBtu)}
+            <div className={resultMode === 'heating' ? 'col-span-2' : undefined}>
+              <dt className="text-slate-500 dark:text-slate-400">
+                {resultMode === 'heating' ? 'Design heating load' : 'Heating estimate'}
+              </dt>
+              <dd className={resultMode === 'heating' ? 'text-2xl font-bold text-sky-700 dark:text-sky-400' : 'text-lg font-semibold'}>
+                {formatBtu(estimate.totalHeatingBtu)} BTU/hr
               </dd>
             </div>
+            {resultMode === 'standard' && (
+              <div className="col-span-2">
+                <dt className="text-slate-500 dark:text-slate-400">Recommended mini-split</dt>
+                <dd className="text-2xl font-bold text-sky-700 dark:text-sky-400">
+                  {miniSplitLabel(estimate.recommendedMiniSplitBtu)}
+                </dd>
+              </div>
+            )}
           </dl>
 
-          {estimate.alternateMiniSplitBtu && (
+          {resultMode === 'standard' && estimate.alternateMiniSplitBtu && (
             <p className="text-xs text-slate-500 dark:text-slate-400">
               Upsize option: {miniSplitLabel(estimate.alternateMiniSplitBtu)} for hot climates, poor insulation, or
               west-facing glass.
             </p>
           )}
 
-          <p className="text-xs text-slate-500 dark:text-slate-400">
-            Tonnage: {formatTons(estimate.recommendedTons)} ton — common single-zone head sizes are 9k, 12k, 18k, and
-            24k BTU.
-          </p>
+          {resultMode === 'standard' ? (
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              Tonnage: {formatTons(estimate.recommendedTons)} ton — common single-zone head sizes are 9k, 12k, 18k, and
+              24k BTU.
+            </p>
+          ) : (
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              Use this planning estimate to compare unit-heater output. Final sizing should account for air leakage,
+              door-opening frequency, local design temperature, and manufacturer derating.
+            </p>
+          )}
 
           {estimate.spaces.filter((s) => s.areaSqFt > 0).length > 1 && (
             <div className="pt-3 border-t border-sky-200/60 dark:border-sky-900/40">

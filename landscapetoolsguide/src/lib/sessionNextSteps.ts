@@ -28,7 +28,7 @@ export const COMPARE_NEXT_STEPS: NextStepLink[] = [
   {
     to: '/tools',
     label: 'Browse all tools',
-    hint: 'Full directory with filters',
+    hint: 'Browse the full directory by category',
   },
   {
     to: '/guides/how-to-choose-lawn-care-software',

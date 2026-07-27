@@ -6,7 +6,7 @@ export const GUIDES: Guide[] = [
     category: 'planning',
     title: 'How Much Drywall Do I Need for a Room?',
     description:
-      'Complete guide to calculating drywall sheets for walls and ceilings. Perimeter formulas, door and window deductions, waste percentages, and real room examples for DIY basement and bedroom projects.',
+      'Calculate drywall sheets for walls and ceilings using perimeter formulas, opening deductions, waste allowances, and practical bedroom and basement examples.',
     readMinutes: 10,
     toolPath: '/drywall-calculator',
     toolLabel: 'Drywall calculator',
@@ -184,7 +184,7 @@ export const GUIDES: Guide[] = [
     category: 'installation',
     title: 'How to Hang Drywall Step by Step — Walls for Beginners',
     description:
-      'Stud spacing, screw patterns, sheet orientation, cutting around outlets, and the correct order to hang a room (ceiling first, then walls top-down) for a flat, code-friendly DIY install.',
+      'Learn drywall sheet orientation, screw patterns, outlet cuts, and the correct ceiling-first order for a flatter, safer beginner installation.',
     readMinutes: 12,
     toolPath: '/drywall-calculator',
     toolLabel: 'Drywall calculator',
@@ -1044,7 +1044,7 @@ export const GUIDES: Guide[] = [
     category: 'planning',
     title: 'Drywall Project From Framing to Paint — DIY Roadmap',
     description:
-      'Complete DIY drywall project map: estimate sheets, pick thickness, hang, tape and mud, sand, finish level, and prime for paint. Links every phase to free calculators and how-to guides.',
+      'Plan a drywall project from sheet estimates and thickness selection through hanging, taping, mudding, sanding, finish levels, primer, and paint.',
     readMinutes: 12,
     toolPath: '/drywall-calculator',
     toolLabel: 'Drywall calculator',

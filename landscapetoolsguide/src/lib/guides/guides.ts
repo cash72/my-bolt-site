@@ -6,7 +6,7 @@ export const GUIDES: Guide[] = [
     category: 'buying-guide',
     title: 'How to Choose Lawn Care & Landscaping Software',
     description:
-      'A practical framework for picking business software — crew size, maintenance vs install, integrations, and budget. Compare Jobber, LMN, Housecall Pro, and more before you sign an annual contract.',
+      'Choose landscaping software by crew size, service mix, integrations, and budget. Compare Jobber, LMN, Housecall Pro, and other leading platforms.',
     readMinutes: 10,
     ctaPath: '/compare/jobber-vs-housecall-pro-landscaping',
     ctaLabel: 'Jobber vs Housecall Pro',

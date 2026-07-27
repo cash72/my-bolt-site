@@ -4,6 +4,7 @@ export interface LandingPage {
   slug: string;
   path: string;
   material: MaterialType;
+  initialWastePercent?: number;
   title: string;
   h1: string;
   description: string;
@@ -291,6 +292,7 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'stair-carpet-calculator',
     path: '/stair-carpet-calculator',
     material: 'carpet',
+    initialWastePercent: 15,
     title: 'Stair Carpet Calculator — Square Yards for Stairs',
     h1: 'Stair Carpet Calculator',
     description:

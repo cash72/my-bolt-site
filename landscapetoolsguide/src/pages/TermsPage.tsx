@@ -6,7 +6,7 @@ import { CONTACT_EMAIL, SITE_NAME, SITE_URL } from '../lib/site';
 export default function TermsPage() {
   usePageMeta({
     title: 'Terms of Use',
-    description: `Terms of use for ${SITE_NAME} calculators, tools, and guides.`,
+    description: `Read the ${SITE_NAME} terms covering software comparisons, vendor information, acceptable use, warranties, and liability.`,
     path: '/terms',
   });
 
@@ -27,9 +27,9 @@ export default function TermsPage() {
 
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Not professional advice</h2>
       <p>
-        Nothing on this site is professional engineering, contracting, financial, medical, or legal advice. Calculators
-        produce estimates based on formulas and the inputs you provide. Always verify materials, measurements, and
-        safety requirements for your project. See our{' '}
+        Nothing on this site is business, financial, legal, or software-procurement advice. Product features, prices,
+        and policies can change after publication. Verify current terms with each vendor and evaluate software against
+        your own workflow, budget, data, and compliance requirements. See our{' '}
         <Link to="/disclaimer" className="text-emerald-600 dark:text-emerald-400 hover:underline">
           Disclaimer
         </Link>
@@ -39,7 +39,7 @@ export default function TermsPage() {
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Acceptable use</h2>
       <p>
         You agree not to misuse the site, including attempting to disrupt servers, scrape content at abusive rates, or
-        misrepresent our estimates as certified professional calculations. You may not copy large portions of our
+        misrepresent our comparisons as vendor endorsements or guaranteed results. You may not copy large portions of our
         guides for republication without permission.
       </p>
 
@@ -53,21 +53,21 @@ export default function TermsPage() {
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Advertising and affiliates</h2>
       <p>
         We may display advertising (including Google AdSense when approved) and affiliate links. Advertising does not
-        change our obligation to keep calculator methods transparent. Affiliate relationships, if any, are disclosed
+        change our obligation to keep comparisons editorially independent. Affiliate relationships, if any, are disclosed
         where required.
       </p>
 
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">No warranties</h2>
       <p>
         The site is provided “as is.” We do not warrant uninterrupted availability, error-free calculations, or that
-        content meets your specific project needs. Estimates can be wrong if inputs, product labels, or site conditions
-        differ.
+        content meets your specific business needs. Vendor information can become outdated, incomplete, or differ by
+        plan, region, crew size, and negotiated contract.
       </p>
 
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Limitation of liability</h2>
       <p>
         To the fullest extent permitted by law, {SITE_NAME} and its operators are not liable for damages arising from
-        use of the site, including purchasing or construction decisions based on calculator outputs.
+        use of the site, including software purchasing, migration, or operational decisions based on our comparisons.
       </p>
 
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Changes</h2>
@@ -78,14 +78,14 @@ export default function TermsPage() {
 
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Contact</h2>
       <p>
-        Questions about these terms: 
+        Questions about these terms:{' '}
         <a href={`mailto:${CONTACT_EMAIL}`} className="text-emerald-600 dark:text-emerald-400 hover:underline">
           {CONTACT_EMAIL}
-        </a> 
-        or our 
+        </a>{' '}
+        or our{' '}
         <Link to="/contact" className="text-emerald-600 dark:text-emerald-400 hover:underline">
           Contact
-        </Link> 
+        </Link>{' '}
         page.
       </p>
     </LegalPageLayout>

@@ -13,6 +13,13 @@ secrets/
 !secrets/README.md
 reports/gsc-nightly*.json
 reports/gsc-nightly.log
+reports/portfolio-health-*.json
+reports/portfolio-health-*.md
+reports/nightly-*.json
+reports/nightly-*.md
+reports/build-*-latest.log
+reports/nightly-portfolio.log
+reports/content-opportunities-latest.md
 
 # OS / editor
 .DS_Store

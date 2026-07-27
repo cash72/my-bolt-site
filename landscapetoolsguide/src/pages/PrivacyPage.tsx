@@ -20,14 +20,14 @@ export default function PrivacyPage() {
       </p>
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Information we collect</h2>
       <p>
-        We do not require accounts. Standard web server logs and analytics may record IP address, browser type, pages
-        viewed, and referring URL. Third-party ad networks (such as Google AdSense) may use cookies to serve relevant
-        ads.
+        We do not require accounts. Our hosting provider may process standard request data such as IP address, browser
+        type, requested page, and referring URL for security and aggregate reporting. When advertising is enabled,
+        third-party ad networks may use cookies or similar technologies.
       </p>
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Cookies</h2>
       <p>
-        We use cookies for dark mode preference (local storage) and advertising. You can disable cookies in your
-        browser settings.
+        The current site does not store your dark-mode preference. When advertising is enabled, advertising partners may
+        set cookies. You can disable cookies in your browser settings.
       </p>
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Third-party links</h2>
       <p>

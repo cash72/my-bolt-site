@@ -60,6 +60,9 @@ export default function Layout() {
             <NavLink to="/about" className={navLinkClass}>
               About
             </NavLink>
+            <NavLink to="/contact" className={navLinkClass}>
+              Contact
+            </NavLink>
           </nav>
 
           <button
@@ -74,6 +77,17 @@ export default function Layout() {
             )}
           </button>
         </div>
+        <nav
+          className="sm:hidden flex items-center gap-5 overflow-x-auto px-4 py-2 border-t border-slate-100 dark:border-slate-800"
+          aria-label="Mobile site"
+        >
+          <NavLink to="/tools" className={navLinkClass}>Tools</NavLink>
+          <NavLink to="/pricing" className={navLinkClass}>Pricing</NavLink>
+          <NavLink to="/compare" className={navLinkClass}>Compare</NavLink>
+          <NavLink to="/guides" className={navLinkClass}>Guides</NavLink>
+          <NavLink to="/about" className={navLinkClass}>About</NavLink>
+          <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
+        </nav>
       </header>
 
       <Outlet />

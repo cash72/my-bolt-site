@@ -70,6 +70,15 @@ export default function Layout() {
             )}
           </button>
         </div>
+        <nav
+          className="sm:hidden flex items-center gap-5 overflow-x-auto px-4 py-2 border-t border-slate-100 dark:border-slate-800"
+          aria-label="Mobile site"
+        >
+          <NavLink to="/" end className={navLinkClass}>Calculator</NavLink>
+          <NavLink to="/guides" className={navLinkClass}>Guides</NavLink>
+          <NavLink to="/about" className={navLinkClass}>About</NavLink>
+          <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
+        </nav>
       </header>
 
       <Outlet />
@@ -86,7 +95,7 @@ export default function Layout() {
                 {SITE_NAME}
               </div>
               <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
-                Free BTU, mini-split, and ductless AC calculators plus DIY guides for coverage, coats, and gallon counts.
+                Free BTU, mini-split, tonnage, and SEER calculators plus practical HVAC sizing and efficiency guides.
               </p>
             </div>
             <div>

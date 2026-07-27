@@ -27,18 +27,16 @@ export default function PrivacyPage() {
         our servers. If you clear your browser data, those local values are gone.
       </p>
 
-      <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Analytics</h2>
+      <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Hosting data</h2>
       <p>
-        Like most websites, we may use analytics services (such as Google Analytics) to understand aggregate traffic:
-        pages visited, approximate geography, device type, and referral source. This helps us improve content and tools.
-        Analytics providers process data under their own privacy policies.
+        Our hosting provider may process standard request data for security and aggregate traffic reporting. We do not
+        currently load a separate site-analytics service.
       </p>
 
       <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Cookies and similar technologies</h2>
       <p>
-        Cookies and local storage may be used for site preferences (for example dark mode), analytics, and — when ads are
-        enabled — advertising. You can block or delete cookies in your browser settings; some features may work less well
-        if you do.
+        Local storage may be used for site preferences (for example dark mode). When ads are enabled, advertising
+        partners may use cookies or similar technologies. You can block or delete this data in your browser settings.
       </p>
 
       <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Google AdSense and advertising</h2>

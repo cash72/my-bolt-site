@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { SITE_NAME, canonicalUrl } from '../lib/site';
+import { OG_IMAGE_URL, SITE_NAME, canonicalUrl } from '../lib/site';
 
 interface PageMeta {
   title: string;
@@ -34,7 +34,7 @@ function normalizePageUrl(path: string): string {
   return canonicalUrl(path);
 }
 
-export function usePageMeta({ title, description, path = '', image, ogType = 'website' }: PageMeta) {
+export function usePageMeta({ title, description, path = '', image = OG_IMAGE_URL, ogType = 'website' }: PageMeta) {
   useEffect(() => {
     const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
     const normalizedUrl = normalizePageUrl(path);
@@ -45,14 +45,13 @@ export function usePageMeta({ title, description, path = '', image, ogType = 'we
     upsertMeta('og:title', fullTitle, 'property');
     upsertMeta('og:description', description, 'property');
     upsertMeta('og:url', normalizedUrl, 'property');
+    upsertMeta('og:site_name', SITE_NAME, 'property');
     upsertMeta('twitter:title', fullTitle);
     upsertMeta('twitter:description', description);
     upsertMeta('twitter:url', normalizedUrl);
     upsertCanonical(normalizedUrl);
-    if (image) {
-      upsertMeta('og:image', image, 'property');
-      upsertMeta('twitter:image', image);
-      upsertMeta('twitter:card', 'summary_large_image');
-    }
+    upsertMeta('og:image', image, 'property');
+    upsertMeta('twitter:image', image);
+    upsertMeta('twitter:card', 'summary_large_image');
   }, [title, description, path, image, ogType]);
 }

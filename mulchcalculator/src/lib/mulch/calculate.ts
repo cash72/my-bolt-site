@@ -45,7 +45,8 @@ export function calculateEstimate(beds: RoomInput[], settings: ProjectSettings):
   const cubicFeet = isSod ? 0 : totalWithWasteSqFt * (depthIn / 12);
   const cubicYardsRaw = cubicFeet / 27;
   const cubicYards = cubicYardsRaw > 0 ? Math.ceil(cubicYardsRaw * 100) / 100 : 0;
-  const bagsNeeded = cubicFeet > 0 ? Math.ceil(cubicFeet / BAG_CU_FT) : 0;
+  const bagCuFt = parseNonNegative(settings.bagCuFt) || BAG_CU_FT;
+  const bagsNeeded = cubicFeet > 0 ? Math.ceil(cubicFeet / bagCuFt) : 0;
 
   const sodRollSqFt = parseNonNegative(settings.sodRollSqFt) || DEFAULT_SOD_ROLL_SQ_FT;
   const sodPalletSqFt = parseNonNegative(settings.sodPalletSqFt) || DEFAULT_SOD_PALLET_SQ_FT;
@@ -98,6 +99,7 @@ export function calculateEstimate(beds: RoomInput[], settings: ProjectSettings):
     depthIn,
     cubicFeet,
     cubicYards,
+    bagCuFt,
     bagsNeeded,
     rollsNeeded,
     palletsNeeded,
@@ -177,7 +179,7 @@ export function buildShoppingList(settings: ProjectSettings, estimate: EstimateR
       `Volume: ${formatCubicYards(estimate.cubicYards)} cubic yards (${Math.round(estimate.cubicFeet)} cu ft)`,
       `${materialTypeLabel(settings.materialType)} to buy: ${formatCubicYards(estimate.cubicYards)} cu yd`,
       `Round up at store: ${buyCubicYards} cubic yard${buyCubicYards !== 1 ? 's' : ''}`,
-      `Bag option (2 cu ft): ${estimate.bagsNeeded} bag${estimate.bagsNeeded !== 1 ? 's' : ''}`,
+      `Bag option (${estimate.bagCuFt} cu ft): ${estimate.bagsNeeded} bag${estimate.bagsNeeded !== 1 ? 's' : ''}`,
     );
     if (estimate.bulkCost !== null) {
       lines.push(`Bulk cost: ${formatCurrency(estimate.bulkCost)}`);

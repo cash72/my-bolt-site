@@ -9,7 +9,7 @@ export const TX_SIZE_PRESETS = [
 ] as const;
 
 export function feeSats(satPerVb: number, vBytes: number): number {
-  if (!Number.isFinite(satPerVb) || !Number.isFinite(vBytes) || satPerVb < 0 || vBytes < 0) {
+  if (!Number.isFinite(satPerVb) || !Number.isFinite(vBytes) || satPerVb < 1 || vBytes < 1) {
     return 0;
   }
   return Math.ceil(satPerVb * vBytes);

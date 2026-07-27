@@ -11,7 +11,7 @@ import { getGuideImagePath, getGuideImageUrl } from '../lib/guides/images';
 import { getToolBySlug } from '../lib/tools/tools';
 import { breadcrumbSchema } from '../lib/schema/jsonLd';
 import { renderEditorialText } from '../lib/renderEditorialText';
-import { SITE_NAME, SITE_URL, canonicalUrl } from '../lib/site';
+import { SITE_CONTENT_UPDATED, SITE_NAME, SITE_URL, canonicalUrl } from '../lib/site';
 
 export default function GuidePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -48,6 +48,8 @@ export default function GuidePage() {
           '@type': 'Article',
           headline: guide.title,
           description: guide.description,
+          datePublished: SITE_CONTENT_UPDATED,
+          dateModified: SITE_CONTENT_UPDATED,
           image: [getGuideImageUrl(guide, SITE_URL)],
           url: canonicalUrl(`/guides/${guide.slug}`),
           author: { '@type': 'Organization', name: SITE_NAME },

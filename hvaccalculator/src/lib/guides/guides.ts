@@ -1214,7 +1214,7 @@ export const GUIDES: Guide[] = [
     category: 'diy',
     title: 'DIY Mini-Split Project Roadmap — Size, Wire, Mount & Start Up',
     description:
-      'Complete DIY ductless mini-split project map: BTU sizing, single vs multi-zone, electrical, placement, pre-charged kits, install basics, and when to hire. Links every phase to free calculators.',
+      'Plan a ductless mini-split project from BTU sizing and zone selection through electrical work, placement, mounting, startup, and professional handoff.',
     readMinutes: 12,
     toolPath: '/mini-split-calculator',
     toolLabel: 'Mini-split calculator',

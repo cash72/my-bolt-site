@@ -11,7 +11,7 @@ import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { GuideCard } from '../components/GuideCard';
 import { breadcrumbSchema, pageUrl } from '../lib/schema/jsonLd';
 import { renderEditorialText } from '../lib/renderEditorialText';
-import { SITE_NAME, SITE_URL } from '../lib/site';
+import { SITE_CONTENT_UPDATED, SITE_NAME, SITE_URL } from '../lib/site';
 
 export default function GuidePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -71,6 +71,8 @@ export default function GuidePage() {
       '@type': 'Article',
       headline: guide.title,
       description: guide.description,
+      datePublished: SITE_CONTENT_UPDATED,
+      dateModified: SITE_CONTENT_UPDATED,
       image: [getGuideImageUrl(guide)],
       url: pageUrl(`/guides/${guide.slug}`),
       mainEntityOfPage: pageUrl(`/guides/${guide.slug}`),

@@ -16,7 +16,7 @@ export function ToolCard({ tool }: { tool: Tool }) {
       <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-3">{tool.tagline}</p>
       <div className="flex flex-wrap gap-2 text-xs">
         <span className="px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300">
-          From ~${tool.startingPriceUsd}/mo
+          {tool.startingPriceUsd > 0 ? `From ~$${tool.startingPriceUsd}/mo` : 'Custom pricing'}
         </span>
         {tool.bestFor.slice(0, 2).map((size) => (
           <span

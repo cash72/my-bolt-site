@@ -24,9 +24,14 @@
     "sitemaps:ping:legacy": "node scripts/ping-sitemaps.mjs --legacy",
     "gsc:checklist": "node scripts/ping-sitemaps.mjs --checklist-only --all",
     "gsc:nightly": "node scripts/gsc-api-nightly.mjs",
-    "gsc:nightly:dry": "node scripts/gsc-api-nightly.mjs --dry-run"
+    "gsc:nightly:dry": "node scripts/gsc-api-nightly.mjs --dry-run",
+    "audit:portfolio": "node scripts/portfolio-health-audit.mjs",
+    "audit:portfolio:build": "node scripts/portfolio-health-audit.mjs --build",
+    "portfolio:nightly": "node scripts/nightly-portfolio.mjs",
+    "portfolio:nightly:dry": "node scripts/nightly-portfolio.mjs --dry-run --skip-build"
   },
   "dependencies": {
+    "cheerio": "^1.2.0",
     "google-auth-library": "^9.15.1"
   },
   "devDependencies": {

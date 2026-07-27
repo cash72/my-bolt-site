@@ -9,9 +9,14 @@ import {
   type RoomInput,
 } from '../lib/flooring/types';
 
-export function useFlooringEstimate(initialMaterial: MaterialType = 'laminate') {
+export function useFlooringEstimate(initialMaterial: MaterialType = 'laminate', initialWastePercent?: number) {
   const [rooms, setRooms] = useState<RoomInput[]>(() => [createEmptyRoom(0)]);
-  const [settings, setSettings] = useState<ProjectSettings>(() => defaultProjectSettings(initialMaterial));
+  const [settings, setSettings] = useState<ProjectSettings>(() => {
+    const defaults = defaultProjectSettings(initialMaterial);
+    return initialWastePercent === undefined
+      ? defaults
+      : { ...defaults, wastePercent: String(initialWastePercent) };
+  });
 
   const estimate = useMemo(() => calculateEstimate(rooms, settings), [rooms, settings]);
 
