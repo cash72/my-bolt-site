@@ -574,27 +574,38 @@ export const GUIDES: Guide[] = [
     title: 'Getting Started with Keto and Low Carb — First 2 Weeks',
     description:
       'A practical starter plan: cut sugar first, target net carbs, prioritize protein, and when to add fasting.',
-    readMinutes: 9,
+    readMinutes: 12,
     toolPath: '/keto-macro-calculator',
     toolLabel: 'Keto macro calculator',
     relatedGuideSlugs: ['net-carbs-for-insulin-resistance', 'atkins-phases-explained', 'how-to-read-nutrition-labels-net-carbs'],
     relatedRecipeSlugs: ['scrambled-eggs-spinach', 'lettuce-wrap-burger-bowl', 'sheet-pan-chicken-thighs-cabbage', 'egg-muffins'],
     sections: [
       {
+        heading: 'Before you change anything',
+        paragraphs: [
+          'If you take diabetes, blood-pressure, or diuretic medication, talk with your clinician before starting a low-carb diet or fasting. Carbohydrate reduction can change glucose and blood pressure quickly. This guide is educational — not a prescription.',
+          'Decide your first target before day one: strict keto (~20g net carbs), insulin-resistance-friendly (~50g), or moderate low carb (~100g). You can tighten later. Jumping straight to 20g while travel-stressed and under-slept is how people quit in week one.',
+        ],
+      },
+      {
         heading: 'Week 1: remove the obvious carbs',
         bullets: [
           'Stop soda, juice, candy, and white bread',
           'Read labels — use our net carb calculator on packaged foods',
-          'Eat protein + vegetables at each meal',
-          'Drink water; add salt if you feel lightheaded (keto flu)',
+          'Eat protein + non-starchy vegetables at each meal',
+          'Drink water; add salt if you feel lightheaded (keto flu) — confirm with your clinician if you have blood-pressure issues',
+          'Cook from the [breakfast](/recipes/breakfast) and [dinner](/recipes/dinner) hubs so you are not improvising hungry',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Week one is subtraction, not perfection. Clear the pantry of the foods that trigger automatic eating. Replace them with eggs, meat, leafy greens, olive oil, butter, cheese (if tolerated), and plain yogurt you have label-checked.',
+        ],
       },
       {
         heading: 'Week 2: set a daily net carb target',
         paragraphs: [
-          'Strict keto: ~20g net carbs. Insulin resistance: ~50g. Moderate low carb: ~100g. Use our macro calculator to personalize calories and protein.',
-          'Dr. Eric Westman notes hunger often drops within days on low carb — many people naturally skip breakfast without forcing fasting.',
+          'Strict keto: ~20g net carbs. Insulin resistance: ~50g. Moderate low carb: ~100g. Use our [keto macro calculator](/keto-macro-calculator) or [insulin resistance macro calculator](/insulin-resistance-macro-calculator) to personalize calories and protein.',
+          'Dr. Eric Westman notes hunger often drops within days on low carb — many people naturally skip breakfast without forcing fasting. If hunger drops, you can experiment with a shorter eating window later — see [intermittent fasting 16:8 vs 18:6](/guides/intermittent-fasting-16-8-vs-18-6).',
+          'Expect keto flu symptoms (headache, fatigue, cramps) if electrolytes drop. Read [keto flu and electrolytes](/guides/keto-flu-and-electrolytes) before you blame “willpower.”',
         ],
       },
       {
@@ -604,10 +615,11 @@ export const GUIDES: Guide[] = [
           'Stock proteins, leafy greens, eggs, avocados, olive oil',
           'Calculate macros — [keto macro calculator](/keto-macro-calculator)',
           'Track net carbs — [net carb calculator](/net-carb-calculator)',
-          'Read [Atkins phases](/guides/atkins-phases-explained) if using phased approach',
+          'Cook from [strict keto recipes](/recipes/keto) so dinner is decided',
+          'Read [Atkins phases](/guides/atkins-phases-explained) if using a phased approach',
         ],
         paragraphs: [
-          'If you have insulin resistance or PCOS, also read [net carbs for IR](/guides/net-carbs-for-insulin-resistance) and [PCOS and low carb](/guides/pcos-and-low-carb).',
+          'If you have insulin resistance or PCOS, also read [net carbs for IR](/guides/net-carbs-for-insulin-resistance) and [PCOS and low carb](/guides/pcos-and-low-carb). Women may need a gentler fasting ramp — do not copy a 72-hour fast from social media in week one.',
         ],
       },
     ],
@@ -624,33 +636,49 @@ export const GUIDES: Guide[] = [
     category: 'insulin-resistance',
     title: 'Atkins Phases Explained — Induction Through Maintenance',
     description:
-      'Phase 1 through 4 net carb limits, when to advance, and how Atkins compares to strict keto.',
-    readMinutes: 8,
+      'Phase 1 through 4 net carb limits, when to advance, how Atkins compares to strict keto, and a practical food ladder for each stage.',
+    readMinutes: 11,
     toolPath: '/atkins-macro-calculator',
     toolLabel: 'Atkins macro calculator',
-    relatedGuideSlugs: ['getting-started-keto-low-carb', 'net-carbs-for-insulin-resistance'],
+    relatedGuideSlugs: ['getting-started-keto-low-carb', 'net-carbs-for-insulin-resistance', 'mindful-macro-tracking-low-carb'],
+    relatedRecipeSlugs: ['scrambled-eggs-spinach', 'greek-yogurt-berries', 'sheet-pan-chicken-thighs-cabbage'],
     sections: [
       {
-        heading: 'The four phases',
-        bullets: [
-          'Phase 1 (Induction): ~20g net carbs — rapid switch to fat burning',
-          'Phase 2: add 5g net carbs weekly from nuts, seeds, berries',
-          'Phase 3 (Pre-maintenance): fine-tune as you near goal weight',
-          'Phase 4 (Maintenance): find your personal carb tolerance',
+        heading: 'Why Atkins still uses phases',
+        paragraphs: [
+          'Atkins is a ladder, not a permanent 20g carb sentence. Induction forces rapid fat adaptation; later phases add carbs back until you find a personal ceiling that keeps weight and energy stable. That structure is useful if strict keto forever feels socially or nutritionally too tight.',
+          'Phase 1 looks a lot like modern strict keto. The difference is intentional progression: you are expected to test higher carb levels once cravings and weight loss stabilize. Use the [Atkins macro calculator](/atkins-macro-calculator) for induction targets, then switch to the [low carb macro calculator](/low-carb-macro-calculator) as you leave Phase 1.',
         ],
-        paragraphs: [],
       },
       {
-        heading: 'Phase carb limits quick reference',
+        heading: 'The four phases at a glance',
         bullets: [
-          'Phase 1 Induction: ~20g net carbs/day',
-          'Phase 2 Ongoing: add 5g weekly as tolerated',
-          'Phase 3 Pre-Maintenance: widen toward goal weight',
-          'Phase 4 Maintenance: personal carb balance',
-          'Use [Atkins macro calculator](/atkins-macro-calculator) for phase targets',
+          'Phase 1 (Induction): ~20g net carbs — foundation foods only (eggs, meat, leafy greens, oils, cheese in moderation)',
+          'Phase 2 (Ongoing Weight Loss): add ~5g net carbs per week from nuts, seeds, berries, more vegetables',
+          'Phase 3 (Pre-maintenance): widen further as you approach goal weight; slow the pace of loss',
+          'Phase 4 (Lifetime Maintenance): your personal carb tolerance — the highest net carbs that keep results',
         ],
         paragraphs: [
-          'Compare with strict keto in our [getting started guide](/guides/getting-started-keto-low-carb).',
+          'Write down the phase and the current carb budget. Vague “I’m doing Atkins” without a number is how people stall or overshoot.',
+        ],
+      },
+      {
+        heading: 'When to advance (and when to stay)',
+        paragraphs: [
+          'Advance when hunger is manageable, energy is stable, and weight trend is still downward (or maintenance is holding). Stay or drop back a phase if cravings roar back, sleep collapses, or the scale jumps and stays up for two weeks.',
+          'Medical context matters. If you take diabetes medication, any carb reintroduction can change glucose — coordinate with your clinician. For IR-focused carb ceilings, also read [net carbs for insulin resistance](/guides/net-carbs-for-insulin-resistance).',
+        ],
+      },
+      {
+        heading: 'Food ladder examples',
+        bullets: [
+          'Phase 1: eggs, fish, poultry, beef, olive oil, spinach, broccoli, avocado',
+          'Early Phase 2: almonds, pecans, raspberries, blackberries, Greek yogurt (check labels)',
+          'Later phases: more fruit, legumes, or starchy vegetables only if your numbers still work',
+          'Always verify packaged foods with the [net carb calculator](/net-carb-calculator)',
+        ],
+        paragraphs: [
+          'Compare induction habits with our [getting started keto guide](/guides/getting-started-keto-low-carb) if you prefer keto language over Atkins phase names — the first two weeks look similar.',
         ],
       },
     ],
@@ -658,7 +686,17 @@ export const GUIDES: Guide[] = [
       {
         question: 'Can I stay on Phase 1 forever?',
         answer:
-          'Some people do for therapeutic reasons under medical care. Most advance to Phase 2 once cravings stabilize and weight loss is on track.',
+          'Some people do for therapeutic reasons under medical care. Most advance to Phase 2 once cravings stabilize and weight loss is on track, then find a higher personal carb limit that still works.',
+      },
+      {
+        question: 'Is Atkins the same as keto?',
+        answer:
+          'Induction is very similar to strict keto (~20g net carbs). Atkins explicitly plans carb reintroduction; many keto approaches stay low indefinitely. Choose the structure you can follow for years, not weeks.',
+      },
+      {
+        question: 'What if I stall in Phase 2?',
+        answer:
+          'Check portions of nuts and dairy first — easy to overeat. Confirm net carbs with labels, tighten back toward Phase 1 for 1–2 weeks, then re-expand more slowly.',
       },
     ],
   },
@@ -667,34 +705,50 @@ export const GUIDES: Guide[] = [
     category: 'insulin-resistance',
     title: 'PCOS and Low Carb — What the Research Suggests',
     description:
-      'How insulin resistance links to PCOS symptoms and why many providers discuss carb reduction — not a treatment plan.',
-    readMinutes: 9,
+      'How insulin resistance links to PCOS symptoms, practical carb and protein starting points, cycle-aware fasting notes, and what low carb cannot replace.',
+    readMinutes: 12,
     toolPath: '/pcos-low-carb-calculator',
     toolLabel: 'PCOS calculator',
-    relatedGuideSlugs: ['net-carbs-for-insulin-resistance', 'intermittent-fasting-16-8-vs-18-6'],
+    relatedGuideSlugs: ['net-carbs-for-insulin-resistance', 'intermittent-fasting-16-8-vs-18-6', 'protein-on-keto-and-low-carb'],
     relatedRecipeSlugs: ['salmon-avocado-poke-bowl', 'sheet-pan-chicken-thighs-cabbage', 'scrambled-eggs-spinach'],
     sections: [
       {
-        heading: 'Insulin and PCOS',
+        heading: 'Insulin and PCOS — the connection people discuss',
         paragraphs: [
-          'PCOS often involves insulin resistance, which drives higher insulin and can worsen androgen symptoms. Lower-carb diets may improve metabolic markers for some women — individual results vary.',
+          'Polycystic ovary syndrome often travels with insulin resistance. Higher insulin can push androgen symptoms (acne, unwanted hair growth, irregular cycles) and make fat loss harder even when calories look “fine.” That is why many clinicians discuss lower-carb eating as one lever among others — medication, sleep, strength training, and cycle tracking included.',
+          'This guide is educational, not a treatment plan. PCOS phenotypes differ. What helps one person may be too aggressive for another, especially around fertility goals or disordered-eating history.',
         ],
       },
       {
-        heading: 'Practical starting points',
+        heading: 'Practical nutrition starting points',
         bullets: [
-          'Discuss targets with OB/GYN or endocrinologist',
-          'Start ~50g net carbs with adequate protein',
-          'Consider cycle-aware fasting (shorter fasts in luteal phase — Dr. Mindy)',
-          'Track cycles, energy, and labs — not just scale weight',
+          'Discuss targets with your OB/GYN or endocrinologist before large diet shifts',
+          'Many low-carb PCOS plans start around 50g net carbs — see the [PCOS low carb calculator](/pcos-low-carb-calculator)',
+          'Protein at every meal (roughly palm-sized) to blunt hunger and protect muscle',
+          'Build plates around eggs, fish, poultry, leafy greens, olive oil, and berries in moderation',
+          'Track cycles, energy, waist, and labs — not scale weight alone',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Label literacy matters: sauces and “healthy” yogurts often hide the carbs that spike insulin. Practice with [how to read nutrition labels](/guides/how-to-read-nutrition-labels-net-carbs) and [net carbs for IR](/guides/net-carbs-for-insulin-resistance).',
+        ],
       },
       {
-        heading: 'PCOS nutrition priorities',
+        heading: 'Fasting and the menstrual cycle',
         paragraphs: [
-          'Lower net carbs reduce insulin spikes that drive androgen symptoms in many women with PCOS. Start with [PCOS low carb calculator](/pcos-low-carb-calculator) targets — often 50–75g net carbs.',
-          'Women should align longer fasts with cycle phase — see [intermittent fasting 16:8 vs 18:6](/guides/intermittent-fasting-16-8-vs-18-6) for gender-specific notes.',
+          'Longer fasts are not mandatory for PCOS. If you use intermittent fasting, many women do better with shorter windows in the luteal phase and save 18–24 hour experiments for times of the cycle when energy is stronger — a theme Dr. Mindy Pelz emphasizes.',
+          'Start with 13–16 hour overnight fasts only after low-carb meals feel sustainable. Read [16:8 vs 18:6](/guides/intermittent-fasting-16-8-vs-18-6) before jumping to OMAD or multi-day fasts.',
+        ],
+      },
+      {
+        heading: 'What to cook this week',
+        paragraphs: [
+          'Protein-forward, low-spike meals beat perfect macros. Try [scrambled eggs with spinach](/recipes/scrambled-eggs-spinach), [sheet-pan chicken thighs with cabbage](/recipes/sheet-pan-chicken-thighs-cabbage), or a [salmon avocado bowl](/recipes/salmon-avocado-poke-bowl). Browse the [dinner hub](/recipes/dinner) when you need variety without cereal bowls.',
+        ],
+      },
+      {
+        heading: 'When diet is not enough',
+        paragraphs: [
+          'Low carb does not replace medication, fertility workups, or mental-health care. If cycles remain absent, symptoms worsen, or you feel obsessive about food rules, pause aggressive restriction and talk to your care team. Sustainable metabolic health beats a perfect carb count.',
         ],
       },
     ],
@@ -704,6 +758,16 @@ export const GUIDES: Guide[] = [
         answer:
           'Some women see improved cycle regularity as insulin improves. Others need additional treatment. Do not replace medical care with diet alone.',
       },
+      {
+        question: 'Is keto better than moderate low carb for PCOS?',
+        answer:
+          'Not always. Strict keto (~20g) can work for some; others do better near 50–75g with more vegetables and social flexibility. Choose the lowest carb level you can maintain while labs and symptoms trend the right way — with your clinician.',
+      },
+      {
+        question: 'Should I do long fasts for PCOS?',
+        answer:
+          'Usually not as a first tool. Stabilize meals and sleep first. Use shorter overnight fasts if helpful, and get medical clearance before 24h+ fasts — especially on glucose-lowering medication.',
+      },
     ],
   },
   {
@@ -711,40 +775,56 @@ export const GUIDES: Guide[] = [
     category: 'fasting',
     title: 'Fasting on Diabetes and Blood Pressure Medications — Safety Basics',
     description:
-      'Why insulin, sulfonylureas, and BP meds require doctor supervision before extended fasts.',
-    readMinutes: 10,
+      'Why insulin, sulfonylureas, SGLT2 inhibitors, and BP meds require doctor supervision before extended fasts — plus a safer progression ladder.',
+    readMinutes: 12,
     toolPath: '/fasting-clock',
     toolLabel: 'Fasting clock',
-    relatedGuideSlugs: ['fasting-with-insulin-resistance', 'water-fast-vs-assisted-fast'],
+    relatedGuideSlugs: ['fasting-with-insulin-resistance', 'water-fast-vs-assisted-fast', 'electrolytes-during-fasting'],
     sections: [
       {
-        heading: 'Why medications matter',
+        heading: 'Why medications change fasting risk',
         paragraphs: [
-          'Dr. Eric Westman warns that fasting while on insulin or sulfonylureas can cause dangerous hypoglycemia. Blood pressure medications may need adjustment as weight and sodium intake change during fasts.',
-          'Never stop or reduce prescriptions without your prescriber. Many clinics use supervised low-carb programs with medication tapering plans.',
+          'Fasting lowers blood sugar and blood volume. That is useful metabolically — and dangerous when medications already push glucose or blood pressure down. Dr. Eric Westman warns that fasting while on insulin or sulfonylureas can cause severe hypoglycemia. Blood pressure drugs may need adjustment as sodium intake and weight change.',
+          'Never stop or reduce prescriptions on your own. Many low-carb clinics use supervised programs with explicit medication tapering plans. This page is a briefing so you know what to ask — not a protocol to self-run.',
         ],
       },
       {
-        heading: 'Safer progression',
+        heading: 'Medication categories and relative risk',
         bullets: [
-          'Stabilize low-carb eating for weeks before extended fasts (Dr. Boz)',
-          'Start with 13–16 hour windows; monitor glucose if your doctor recommends',
-          'Use assisted fasting with sodium for 24h+ only with clearance',
-          'Break fasts immediately if shaky, confused, or severely hypoglycemic',
-        ],
-        paragraphs: [],
-      },
-      {
-        heading: 'Medication categories and fasting risk',
-        bullets: [
-          'Metformin: often continued — hypoglycemia risk lower alone',
-          'Sulfonylureas: high hypoglycemia risk — dose adjustment required',
-          'Insulin: never fast without medical supervision',
-          'SGLT2 inhibitors: dehydration/ketoacidosis risk — provider guidance essential',
-          'Pair diet changes with [IR fasting guide](/guides/fasting-with-insulin-resistance)',
+          'Metformin: lower hypoglycemia risk alone — still discuss longer fasts with your prescriber',
+          'Sulfonylureas (e.g. glipizide, glyburide): high hypoglycemia risk — dose changes often required before fasting',
+          'Insulin: never attempt extended fasting without medical supervision and a monitoring plan',
+          'SGLT2 inhibitors: dehydration and ketoacidosis risk — provider guidance is essential',
+          'GLP-1 drugs: nausea and intake changes are common — coordinate any fasting experiments',
+          'Blood pressure meds: dizziness on standing can worsen as sodium and volume drop',
         ],
         paragraphs: [
-          'This is educational only — your prescriber must approve any fasting protocol with diabetes medications.',
+          'If you cannot name your medications and how they work, pause fasting plans until a pharmacist or clinician walks through them with you.',
+        ],
+      },
+      {
+        heading: 'Safer progression before long fasts',
+        bullets: [
+          'Stabilize low-carb eating for several weeks first (a common Dr. Boz-style approach)',
+          'Start with 12–16 hour overnight windows — track how you feel, not just the clock',
+          'Monitor glucose if your doctor recommends meters or CGM',
+          'Use assisted fasting with sodium for anything near 24h+ only with clearance',
+          'Break the fast immediately if you are shaky, confused, sweating heavily, or severely hypoglycemic',
+        ],
+        paragraphs: [
+          'Pair this with [fasting with insulin resistance](/guides/fasting-with-insulin-resistance) and [electrolytes during fasting](/guides/electrolytes-during-fasting). Track windows on the [fasting clock](/fasting-clock) only after your care team agrees on the plan.',
+        ],
+      },
+      {
+        heading: 'Questions to ask your clinician',
+        bullets: [
+          'Which of my meds raise hypoglycemia risk during a fast?',
+          'What glucose reading means I should eat immediately?',
+          'Should I check ketones if I take an SGLT2 inhibitor?',
+          'How should BP meds change if I lose weight or increase sodium for electrolytes?',
+        ],
+        paragraphs: [
+          'Bring a written plan: intended fast length, water-only vs assisted, and when you will stop. Vague “I might try fasting” is harder to supervise safely.',
         ],
       },
     ],
@@ -752,7 +832,17 @@ export const GUIDES: Guide[] = [
       {
         question: 'Can I fast on metformin?',
         answer:
-          'Metformin is lower hypoglycemia risk than insulin secretagogues, but still discuss fasting plans with your prescriber — especially beyond 24 hours.',
+          'Metformin is lower hypoglycemia risk than insulin secretagogues, but still discuss fasting plans with your prescriber — especially beyond 24 hours or if combined with other drugs.',
+      },
+      {
+        question: 'Is 16:8 safe on diabetes medication?',
+        answer:
+          'Sometimes — with approval and monitoring. It is still a medication-relevant change. Do not assume “everyone does IF” means it is safe for your prescription list.',
+      },
+      {
+        question: 'What if I feel hypoglycemic during a fast?',
+        answer:
+          'Treat low blood sugar per your clinician’s instructions (often fast-acting glucose), stop the fast, and seek urgent care for severe symptoms. Do not push through confusion or fainting.',
       },
     ],
   },
@@ -761,45 +851,72 @@ export const GUIDES: Guide[] = [
     category: 'fasting',
     title: 'Electrolytes During Fasting — Sodium, Potassium & Magnesium',
     description:
-      'Prevent headaches and cramps during 16–72 hour fasts. Dr. Westman bouillon and Dr. Boz assisted-fasting tips.',
-    readMinutes: 8,
+      'Prevent headaches and cramps during 16–72 hour fasts with sodium, potassium, and magnesium — Dr. Westman bouillon and Dr. Boz assisted-fasting notes.',
+    readMinutes: 11,
     toolPath: '/extended-fasting-clock',
     toolLabel: 'Extended fasting clock',
-    relatedGuideSlugs: ['water-fast-vs-assisted-fast', 'how-to-break-a-24-hour-fast'],
+    relatedGuideSlugs: ['water-fast-vs-assisted-fast', 'how-to-break-a-24-hour-fast', 'keto-flu-and-electrolytes'],
     relatedRecipeSlugs: ['break-fast-bone-broth-eggs', 'ginger-chicken-bone-broth-soup'],
     sections: [
       {
-        heading: 'Why electrolytes drop',
+        heading: 'Why electrolytes drop when you fast',
         paragraphs: [
-          'Low insulin during fasting increases sodium loss through kidneys. Without replacement, you may get headaches, dizziness, or leg cramps — often mistaken for “fasting not working.”',
+          'When insulin falls during fasting or strict low carb, kidneys excrete more sodium. Water follows. The result can be headaches, lightheadedness, heart palpitations, or leg cramps — symptoms people often blame on “willpower failure” or “fasting not working.”',
+          'The same sodium shift shows up in the first week of keto (“keto flu”). Fixes overlap: see [keto flu and electrolytes](/guides/keto-flu-and-electrolytes). Fasting just compresses the timeline.',
         ],
       },
       {
-        heading: 'What experts recommend',
+        heading: 'What clinicians commonly recommend',
         bullets: [
-          'Dr. Westman: bouillon or broth for sodium (assisted fasts)',
-          'Dr. Boz: salt water, magnesium, potassium as needed — avoid caloric broth on strict water-only',
-          'Plain water-only beyond 24h increases electrolyte risk — switch to assisted mode',
+          'Dr. Westman: bouillon or broth for sodium on assisted fasts',
+          'Dr. Boz: salt water, magnesium, and potassium as needed — avoid caloric broth if you insist on strict water-only',
+          'Plain water-only beyond ~24 hours raises electrolyte risk for many people — prefer assisted mode',
+          'Black coffee/tea are common on assisted plans; cream and sweeteners break a true fast',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Choose a mode deliberately. Compare [water fast vs assisted fast](/guides/water-fast-vs-assisted-fast) before you start the [extended fasting clock](/extended-fasting-clock).',
+        ],
       },
       {
-        heading: 'Daily electrolyte targets (general adults)',
+        heading: 'Practical daily targets (general adults)',
         bullets: [
-          'Sodium: 2–3g/day on low carb; more during prolonged fasts',
-          'Potassium: food-first; supplement only with guidance',
-          'Magnesium: 200–400mg glycinate often helps sleep and cramps',
-          'Avoid overhydrating plain water without sodium',
-          'Assisted fasts: bouillon — see [water vs assisted fast](/guides/water-fast-vs-assisted-fast)',
+          'Sodium: often 2–3g/day on low carb; more may be needed on longer assisted fasts — follow clinician guidance',
+          'Potassium: food-first when eating; supplement only with medical advice (especially on BP meds or kidney disease)',
+          'Magnesium: 200–400mg glycinate at night often helps sleep and cramps for many people',
+          'Fluids: drink to thirst — chugging gallons of plain water without sodium can worsen cramps',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'If you take blood pressure medication, extra sodium and volume shifts are not DIY experiments. Ask before you double bouillon “because the internet said so.”',
+        ],
+      },
+      {
+        heading: 'Symptom → fix map',
+        bullets: [
+          'Headache / brain fog early in a fast: try sodium (salt water or bouillon on assisted plans)',
+          'Leg cramps at night: magnesium + review sodium; check potassium strategy with a clinician if persistent',
+          'Dizziness standing up: sit, hydrate with sodium, shorten the fast if it continues',
+          'Severe chest pain, confusion, or fainting: stop fasting and seek urgent care',
+        ],
+        paragraphs: [
+          'When the fast ends, refeed gently — [how to break a 24-hour fast](/guides/how-to-break-a-24-hour-fast) and [bone broth + eggs](/recipes/break-fast-bone-broth-eggs) are designed for that transition.',
+        ],
       },
     ],
     faqs: [
       {
         question: 'Can I use zero-calorie electrolyte powders?',
         answer:
-          'Many assisted fasters use sugar-free electrolyte mixes. Check labels for carbs and artificial sweeteners if you are strict keto.',
+          'Many assisted fasters use sugar-free electrolyte mixes. Check labels for carbs and sweeteners if you are strict keto, and confirm the product fits your clinician’s advice.',
+      },
+      {
+        question: 'Does bone broth break a fast?',
+        answer:
+          'Yes for a strict water-only fast — broth has calories and protein. On assisted plans, small amounts of bouillon are often used for sodium. Decide your rules before the clock starts.',
+      },
+      {
+        question: 'How much salt is too much?',
+        answer:
+          'People with kidney disease, heart failure, or certain BP regimens need individualized limits. Do not chase high sodium targets without medical context.',
       },
     ],
   },
@@ -809,28 +926,50 @@ export const GUIDES: Guide[] = [
     title: 'How to Read Nutrition Labels for Net Carbs',
     description:
       'Find total carbs, fiber, and sugar alcohols on US labels — step-by-step for keto and low-carb shopping.',
-    readMinutes: 8,
+    readMinutes: 11,
     toolPath: '/net-carb-calculator',
     toolLabel: 'Net carb calculator',
     relatedGuideSlugs: ['net-carbs-for-insulin-resistance', 'getting-started-keto-low-carb'],
+    relatedRecipeSlugs: ['greek-yogurt-berries', 'sheet-pan-sausage-peppers', 'chia-pudding-coconut'],
     sections: [
+      {
+        heading: 'Why label literacy matters on low carb',
+        paragraphs: [
+          'Most “low carb” mistakes happen in the grocery aisle, not the kitchen. A yogurt cup, salad dressing, or sausage link can look safe until you check serving size and added sugars. Learning three lines on a US Nutrition Facts panel — total carbohydrate, dietary fiber, and sugar alcohols — lets you estimate net carbs in under a minute.',
+          'Net carbs are not a FDA-required line. They are a shopper convention used on keto and low-carb plans. Different people treat maltitol, allulose, and soluble corn fiber differently. When a product is unclear, be conservative: count more carbs rather than fewer, especially if you have diabetes or take glucose-lowering medication.',
+        ],
+      },
       {
         heading: 'Label lines to find',
         bullets: [
-          'Total Carbohydrate (top line)',
-          'Dietary Fiber (indented below — subtract fully)',
-          'Sugar Alcohols (if listed — often subtract fully for erythritol)',
-          'Serving size — multiply if you eat more than one serving',
+          'Serving size — the math only works if you eat that amount',
+          'Total Carbohydrate (top carbohydrate line)',
+          'Dietary Fiber (indented below — usually subtract fully on US labels)',
+          'Sugar Alcohols (if listed — erythritol often subtracted fully; maltitol often partially counted)',
+          'Total Sugars / Added Sugars — context for how “sweet” the product is',
         ],
         paragraphs: [
-          'Net carbs ≈ total carbs − fiber − sugar alcohols. Enter numbers in our calculator for instant results.',
+          'Standard estimate: net carbs ≈ total carbs − fiber − sugar alcohols (with judgment on which sugar alcohols you fully subtract). Enter the numbers in our [net carb calculator](/net-carb-calculator) so you are not doing mental math with a cart behind you.',
         ],
       },
       {
         heading: 'Label math worked example',
         paragraphs: [
-          'Total carbs 15g, fiber 8g, erythritol 4g → net carbs ≈ 3g on most keto plans. Enter each line in our [net carb calculator](/net-carb-calculator).',
-          'For insulin resistance targets, see [net carbs for IR](/guides/net-carbs-for-insulin-resistance) and verify sugar alcohol rules per product.',
+          'Example: Total carbs 15g, fiber 8g, erythritol 4g → net carbs ≈ 3g on most keto plans. If you eat two servings, double everything before you celebrate.',
+          'Example with a trap: a “keto” bar lists 20g total carbs, 10g fiber, 8g maltitol. Some people count maltitol at half impact (~4g), so estimated net might be closer to 6g than 2g. If your glucose monitor reacts, trust the meter over the marketing.',
+          'For daily budgets with insulin resistance, see [net carbs for IR](/guides/net-carbs-for-insulin-resistance). Then pick a meal from our [under 10g recipes](/recipes/under-10g-net-carbs) so the label math turns into dinner.',
+        ],
+      },
+      {
+        heading: 'Shopping checklist',
+        bullets: [
+          'Ignore front-of-pack “keto” badges until you check the panel',
+          'Compare brands of the same food — mayonnaise, salsa, and sausage vary widely',
+          'Watch “sugar-free” candies that use maltitol or sorbitol',
+          'Weigh nuts and cheese once at home so portions stay honest',
+        ],
+        paragraphs: [
+          'If you are just starting, spend one shopping trip only on label practice: pick five packaged foods you already buy and run each through the calculator. That single habit prevents weeks of accidental carb creep.',
         ],
       },
     ],
@@ -838,7 +977,17 @@ export const GUIDES: Guide[] = [
       {
         question: 'Do I subtract all fiber?',
         answer:
-          'On US labels, dietary fiber is subtracted from total carbs for net carb counting on most keto plans. Soluble fiber still has minimal impact for some people.',
+          'On US labels, dietary fiber is usually subtracted from total carbs for net carb counting on keto plans. Some people still notice glucose effects from certain fibers — use a meter if you need precision.',
+      },
+      {
+        question: 'What about allulose?',
+        answer:
+          'Allulose is often listed under sugars or separately and is commonly treated as contributing few net carbs. Confirm how it appears on your specific label and how your clinician wants you to count it.',
+      },
+      {
+        question: 'Are Canadian or EU labels the same?',
+        answer:
+          'No. Fiber and sugar alcohol placement can differ. This guide focuses on typical US Nutrition Facts panels. When traveling, read the local panel carefully or stick to whole foods.',
       },
     ],
   },
@@ -847,29 +996,45 @@ export const GUIDES: Guide[] = [
     category: 'metabolic-health',
     title: 'How Much Protein on Keto and Low Carb?',
     description:
-      'Protein targets for strict keto, moderate low carb, and fasting — grams per pound, kidney considerations, and how to set macros without overthinking.',
-    readMinutes: 9,
+      'Protein targets for strict keto, moderate low carb, and fasting — grams per pound, food examples, kidney considerations, and how to set macros without overthinking.',
+    readMinutes: 11,
     toolPath: '/keto-macro-calculator',
     toolLabel: 'Keto macro calculator',
-    relatedGuideSlugs: ['getting-started-keto-low-carb', 'net-carbs-for-insulin-resistance'],
+    relatedGuideSlugs: ['getting-started-keto-low-carb', 'net-carbs-for-insulin-resistance', 'mindful-macro-tracking-low-carb'],
+    relatedRecipeSlugs: ['sheet-pan-chicken-thighs-cabbage', 'salmon-avocado-poke-bowl', 'cottage-cheese-cucumber'],
     sections: [
       {
-        heading: 'Why protein matters on low carb',
+        heading: 'Why protein matters when carbs drop',
         paragraphs: [
-          'Carb restriction lowers insulin, but protein preserves muscle during weight loss and keeps meals satisfying. Too little protein on aggressive deficits can cost lean mass; extremely high protein is rarely needed for most people.',
-          'Our [keto macro calculator](/keto-macro-calculator) defaults to about 0.8g protein per pound of body weight — a common starting point used in many low-carb programs.',
+          'Carb restriction lowers insulin, but protein is what preserves muscle during weight loss and keeps meals satisfying. Too little protein on an aggressive deficit costs lean mass; chasing extremely high protein is rarely required for most people who are not athletes.',
+          'Our [keto macro calculator](/keto-macro-calculator) defaults to about 0.8g protein per pound of body weight — a common starting point in many low-carb programs. Use the [weight-loss macro calculator](/weight-loss-macro-calculator) if you also want a calorie deficit layered on top.',
         ],
       },
       {
-        heading: 'Adjusting for activity and medical history',
+        heading: 'Starting targets by situation',
         bullets: [
-          'Resistance training: stay at upper end of protein range',
-          'Sedentary weight loss: moderate protein often sufficient',
-          'Kidney disease: medical team sets limits — do not self-prescribe high protein',
-          'Older adults: slightly higher protein may help preserve muscle',
+          'General low carb / keto: ~0.7–0.9g per pound of body weight (or goal weight if obese — ask your clinician)',
+          'Resistance training: stay toward the upper end',
+          'Sedentary fat loss: moderate protein is often enough if meals are consistent',
+          'Older adults: slightly higher protein often helps preserve muscle',
+          'Kidney disease: your medical team sets limits — do not self-prescribe high protein',
         ],
         paragraphs: [
-          'Re-run macros when weight drops 10–15 lbs — protein grams can scale with current body weight.',
+          'Re-run macros when weight drops 10–15 lbs. Absolute protein grams can scale with current (or target) body weight so you are not stuck on day-one numbers forever.',
+        ],
+      },
+      {
+        heading: 'What a protein-forward day looks like',
+        paragraphs: [
+          'Think meals, not shakes by default: eggs at breakfast, fish or chicken at lunch, a palm of meat or cottage cheese at dinner. Browse [breakfast recipes](/recipes/breakfast) and [dinner recipes](/recipes/dinner) for plates that already lean protein-first.',
+          'Packaged “protein bars” can hide maltitol and fiber tricks. Verify with the [net carb calculator](/net-carb-calculator) before they become a daily habit.',
+        ],
+      },
+      {
+        heading: 'Protein, ketosis, and fasting',
+        paragraphs: [
+          'For most people, moderate protein does not block ketosis the way dietary carbs do. If you are experimenting clinically, measure — do not guess from social media anecdotes.',
+          'Protein breaks a true fast. During the eating window, prioritize it; during the fast, stick to your water or assisted rules. See [best first meal after fasting](/guides/best-first-meal-after-fasting) for refeed composition.',
         ],
       },
     ],
@@ -884,6 +1049,11 @@ export const GUIDES: Guide[] = [
         answer:
           'A true fast means no calories — protein breaks the fast. Break fasts with protein-forward meals; see [best first meal after fasting](/guides/best-first-meal-after-fasting).',
       },
+      {
+        question: 'Is plant protein okay on low carb?',
+        answer:
+          'Yes if net carbs fit your budget — tofu, tempeh, and some seitan products vary widely. Read labels carefully; beans and lentils raise carbs faster than animal proteins.',
+      },
     ],
   },
   {
@@ -891,29 +1061,41 @@ export const GUIDES: Guide[] = [
     category: 'metabolic-health',
     title: 'Keto Flu — Symptoms, Electrolytes & Fixes',
     description:
-      'Why headaches and fatigue happen in the first week of low carb, which electrolytes to replenish, and when symptoms need medical attention.',
-    readMinutes: 8,
+      'Why headaches and fatigue happen in the first week of low carb, which electrolytes to replenish, day-by-day expectations, and when symptoms need medical attention.',
+    readMinutes: 10,
     toolPath: '/keto-macro-calculator',
     toolLabel: 'Keto macro calculator',
-    relatedGuideSlugs: ['electrolytes-during-fasting', 'getting-started-keto-low-carb'],
+    relatedGuideSlugs: ['electrolytes-during-fasting', 'getting-started-keto-low-carb', 'protein-on-keto-and-low-carb'],
     sections: [
       {
         heading: 'What “keto flu” usually is',
         paragraphs: [
-          'The first 3–7 days of strict low carb often bring headaches, fatigue, irritability, and muscle cramps. Much of this is sodium and water shift — insulin drops, kidneys excrete sodium, and volume depletes.',
-          'It is not an infection. It usually improves with electrolytes, sleep, and consistent low-carb meals — not with going back to high sugar.',
+          'The first 3–7 days of strict low carb often bring headaches, fatigue, irritability, and muscle cramps. Much of this is a sodium and water shift — insulin drops, kidneys excrete sodium, and blood volume dips. It is not a virus and it is not proof the diet “isn’t for you.”',
+          'Most people improve with electrolytes, sleep, and consistent low-carb meals — not by bouncing back to sugar. Pair this guide with [getting started keto](/guides/getting-started-keto-low-carb) so the first two weeks have a plan.',
         ],
       },
       {
         heading: 'Electrolyte fixes that help',
         bullets: [
-          'Sodium: bouillon, pickle juice, or salt on food — especially if you feel dizzy standing up',
-          'Potassium: leafy greens, avocado, supplement only if provider approves',
+          'Sodium: bouillon, pickle juice, or salt on food — especially if dizzy standing up',
+          'Potassium: leafy greens and avocado first; supplements only if a provider approves',
           'Magnesium: glycinate or citrate at night for cramps and sleep',
-          'Water: drink to thirst — chugging plain water without sodium can worsen cramps',
+          'Water: drink to thirst — plain water without sodium can worsen cramps',
+          'Protein: do not under-eat protein while carbs crash — see [protein on keto](/guides/protein-on-keto-and-low-carb)',
         ],
         paragraphs: [
-          'Fasters use similar fixes — see [electrolytes during fasting](/guides/electrolytes-during-fasting) for overlap with assisted fasts.',
+          'Fasters use the same toolkit — [electrolytes during fasting](/guides/electrolytes-during-fasting) covers assisted vs water-only details.',
+        ],
+      },
+      {
+        heading: 'Day-by-day expectations',
+        bullets: [
+          'Days 1–2: carb withdrawal and salt loss feel loud — keep meals simple and salty',
+          'Days 3–5: energy often dips then stabilizes if electrolytes are on point',
+          'Days 6–14: hunger usually falls; refine macros with the [keto macro calculator](/keto-macro-calculator)',
+        ],
+        paragraphs: [
+          'If you take blood pressure medication, tell your clinician you are changing sodium and carbs — doses sometimes need adjustment as volume changes.',
         ],
       },
     ],
@@ -928,6 +1110,11 @@ export const GUIDES: Guide[] = [
         answer:
           'Try sodium and magnesium first. If symptoms are severe, chest pain, or confusion — seek medical care immediately, not internet advice.',
       },
+      {
+        question: 'Does “dirty keto” prevent keto flu?',
+        answer:
+          'No. Electrolyte shifts happen from low insulin, not from whether your cheese is artisanal. Whole foods help long-term health; salt and magnesium fix most early flu symptoms.',
+      },
     ],
   },
   {
@@ -935,17 +1122,29 @@ export const GUIDES: Guide[] = [
     category: 'metabolic-health',
     title: 'Macro Tracking Without Obsession — Low Carb Habits',
     description:
-      'When to count macros, when to use plate method, and how to transition from calculator numbers to sustainable eating.',
-    readMinutes: 7,
+      'When to count macros, when to use plate method, how to exit logging without rebound, and how to transition from calculator numbers to sustainable eating.',
+    readMinutes: 10,
     toolPath: '/low-carb-macro-calculator',
     toolLabel: 'Low carb macro calculator',
-    relatedGuideSlugs: ['getting-started-keto-low-carb', 'protein-on-keto-and-low-carb'],
+    relatedGuideSlugs: ['getting-started-keto-low-carb', 'protein-on-keto-and-low-carb', 'how-to-read-nutrition-labels-net-carbs'],
     sections: [
       {
         heading: 'Track long enough to learn, not forever',
         paragraphs: [
-          'Two to four weeks of logging teaches portion sizes and hidden carbs in sauces, drinks, and snacks. Many people then shift to a simple rule: protein at each meal, vegetables, healthy fat to satiety.',
-          'Use our calculators for initial targets — [keto](/keto-macro-calculator), [low carb](/low-carb-macro-calculator), or [insulin resistance macros](/insulin-resistance-macro-calculator) — then adjust based on energy, hunger, and labs with your provider.',
+          'Two to four weeks of logging teaches portion sizes and the hidden carbs in sauces, drinks, and “healthy” snacks. The goal is pattern recognition — not a lifetime of barcode scanning at every meal.',
+          'Set initial targets with a calculator — [keto](/keto-macro-calculator), [low carb](/low-carb-macro-calculator), or [insulin resistance macros](/insulin-resistance-macro-calculator) — then adjust from energy, hunger, waist, and labs with your provider.',
+        ],
+      },
+      {
+        heading: 'A simple tracking protocol',
+        bullets: [
+          'Week 1: log everything, including oils and bites — honesty beats perfection',
+          'Week 2: fix the biggest leaks (nuts, cheese, dressings) using [label skills](/guides/how-to-read-nutrition-labels-net-carbs)',
+          'Week 3–4: keep protein steady; loosen fat if hunger is low and weight is trending',
+          'Exit plan: move to plate method below once portions feel obvious',
+        ],
+        paragraphs: [
+          'If logging raises anxiety or you skip social meals to protect a streak, the tool is costing more than it gives. Stop counting and change approach.',
         ],
       },
       {
@@ -957,7 +1156,13 @@ export const GUIDES: Guide[] = [
           'Carbs from berries, legumes, or starchy veg only if your plan allows',
         ],
         paragraphs: [
-          'Revisit numbers if weight stalls for 6+ weeks or you change activity level significantly.',
+          'Revisit numbers if weight stalls for 6+ weeks, you add serious training, or medications change. Use [TDEE](/tdee-calorie-calculator) plus macros when you need a fresh baseline — then return to habits, not permanent spreadsheet living.',
+        ],
+      },
+      {
+        heading: 'Cook from recipes instead of guessing',
+        paragraphs: [
+          'Repeating a few known meals beats improvising every night. Start with [under 10g net carb recipes](/recipes/under-10g-net-carbs) or the [keto hub](/recipes/keto), then rotate. Consistency is a feature, not a failure of creativity.',
         ],
       },
     ],
@@ -971,6 +1176,11 @@ export const GUIDES: Guide[] = [
         question: 'What if tracking increases anxiety?',
         answer:
           'Stop counting and work with a dietitian on hunger-fullness cues. Low carb should reduce obsession for many people — if it increases it, change approach.',
+      },
+      {
+        question: 'Should I track on maintenance forever?',
+        answer:
+          'Usually no. Spot-check for a few days after holidays or travel. Continuous logging is a teaching tool, not a personality trait.',
       },
     ],
   },

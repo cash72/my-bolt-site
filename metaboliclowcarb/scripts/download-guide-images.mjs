@@ -59,9 +59,22 @@ async function downloadTo(dest, photoId) {
 
 await fs.mkdir(OUT_DIR, { recursive: true });
 const failures = [];
+let cached = 0;
+let downloaded = 0;
 
 for (const [slug, primaryId] of Object.entries(GUIDE_PHOTOS)) {
   const dest = path.join(OUT_DIR, `${slug}.jpg`);
+  try {
+    const st = await fs.stat(dest);
+    if (st.size > 10_000) {
+      console.log(`↻ ${slug}.jpg cached (${st.size} bytes)`);
+      cached += 1;
+      continue;
+    }
+  } catch {
+    /* missing — download below */
+  }
+
   const candidates = [primaryId, ...FALLBACK_POOL.filter((id) => id !== primaryId)];
   let saved = false;
   for (const photoId of candidates) {
@@ -70,14 +83,27 @@ for (const [slug, primaryId] of Object.entries(GUIDE_PHOTOS)) {
       await downloadTo(dest, photoId);
       console.log(`✓ ${slug}.jpg <- Pexels ${photoId}${photoId === primaryId ? ' (primary)' : ` (fallback ${photoId})`}`);
       saved = true;
+      downloaded += 1;
       break;
     } catch { /* next */ }
   }
-  if (!saved) failures.push(slug);
+  if (!saved) {
+    try {
+      const st = await fs.stat(dest);
+      if (st.size > 10_000) {
+        console.log(`⚠ ${slug}.jpg download failed; keeping cached file`);
+        cached += 1;
+        continue;
+      }
+    } catch { /* ignore */ }
+    failures.push(slug);
+  }
 }
 
 if (failures.length) {
   console.error(`FAILED: ${failures.join(', ')}`);
   process.exit(1);
 }
-console.log(`\nAll ${Object.keys(GUIDE_PHOTOS).length} guide images saved.`);
+console.log(
+  `\nAll ${Object.keys(GUIDE_PHOTOS).length} guide images ready (downloaded ${downloaded}, cached ${cached}).`
+);

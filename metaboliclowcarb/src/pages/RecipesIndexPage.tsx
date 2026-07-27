@@ -3,6 +3,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { RECIPES } from '../lib/recipes/recipes';
 import { RECIPE_CATEGORY_LABEL, type RecipeCategory } from '../lib/recipes/types';
+import { RECIPE_HUBS } from '../lib/recipes/recipeHubs';
 import { GUIDES } from '../lib/guides/guides';
 import { RecipeCard } from '../components/RecipeCard';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
@@ -69,6 +70,21 @@ export default function RecipesIndexPage() {
         <p className="text-xs text-slate-500 dark:text-slate-500 mt-3">
           Estimates only — not medical or dietary advice. Consult your healthcare provider before changing your diet.
         </p>
+        <div className="flex flex-wrap gap-2 mt-5">
+          {RECIPE_HUBS.map((hub) => (
+            <Link
+              key={hub.id}
+              to={hub.path}
+              className="text-xs px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-teal-500 hover:text-teal-700 dark:hover:text-teal-300"
+            >
+              {hub.id === 'under-10g-net-carbs'
+                ? 'Under 10g net carbs'
+                : hub.id === 'keto'
+                  ? 'Strict keto'
+                  : RECIPE_CATEGORY_LABEL[hub.id as RecipeCategory] ?? hub.title}
+            </Link>
+          ))}
+        </div>
       </div>
 
       {CATEGORIES.map((category) => {
@@ -77,7 +93,15 @@ export default function RecipesIndexPage() {
 
         return (
           <section key={category} className="mb-12">
-            <h2 className="text-lg font-semibold mb-4">{RECIPE_CATEGORY_LABEL[category]}</h2>
+            <div className="flex items-baseline justify-between gap-3 mb-4">
+              <h2 className="text-lg font-semibold">{RECIPE_CATEGORY_LABEL[category]}</h2>
+              <Link
+                to={`/recipes/${category}`}
+                className="text-xs font-medium text-teal-600 dark:text-teal-400 hover:underline"
+              >
+                View hub →
+              </Link>
+            </div>
             <div className="grid sm:grid-cols-2 gap-4">
               {items.map((recipe) => (
                 <RecipeCard key={recipe.slug} recipe={recipe} />

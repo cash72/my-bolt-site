@@ -10,10 +10,17 @@ const TODAY = new Date().toISOString().slice(0, 10);
 const STATIC_ROUTES = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
   { path: '/recipes', changefreq: 'weekly', priority: '0.85' },
+  { path: '/recipes/breakfast', changefreq: 'weekly', priority: '0.8' },
+  { path: '/recipes/lunch', changefreq: 'weekly', priority: '0.8' },
+  { path: '/recipes/dinner', changefreq: 'weekly', priority: '0.8' },
+  { path: '/recipes/snack', changefreq: 'weekly', priority: '0.75' },
+  { path: '/recipes/keto', changefreq: 'weekly', priority: '0.82' },
+  { path: '/recipes/under-10g-net-carbs', changefreq: 'weekly', priority: '0.82' },
   { path: '/guides', changefreq: 'weekly', priority: '0.88' },
   { path: '/about', changefreq: 'monthly', priority: '0.6' },
   { path: '/contact', changefreq: 'monthly', priority: '0.5' },
   { path: '/privacy', changefreq: 'yearly', priority: '0.3' },
+  { path: '/terms', changefreq: 'yearly', priority: '0.3' },
   { path: '/disclaimer', changefreq: 'yearly', priority: '0.3' },
 ];
 

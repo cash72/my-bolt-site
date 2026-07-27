@@ -175,6 +175,12 @@ export default function Layout() {
                 Recipes
               </Link>
               <Link
+                to="/recipes/keto"
+                className="text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400"
+              >
+                Keto recipes
+              </Link>
+              <Link
                 to="/about"
                 className="text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400"
               >
@@ -191,6 +197,12 @@ export default function Layout() {
                 className="text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400"
               >
                 Privacy Policy
+              </Link>
+              <Link
+                to="/terms"
+                className="text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400"
+              >
+                Terms of Use
               </Link>
               <Link
                 to="/disclaimer"

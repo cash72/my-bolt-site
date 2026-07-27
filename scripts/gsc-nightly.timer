@@ -1,0 +1,10 @@
+[Unit]
+Description=Run GSC nightly at 8pm Pacific
+
+[Timer]
+# 20:00 America/Los_Angeles — systemd uses local timezone of the machine
+OnCalendar=*-*-* 20:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

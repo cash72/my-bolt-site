@@ -9,6 +9,10 @@ node_modules/
 # Secrets
 .env
 .env.local
+secrets/
+!secrets/README.md
+reports/gsc-nightly*.json
+reports/gsc-nightly.log
 
 # OS / editor
 .DS_Store

@@ -1,0 +1,12 @@
+[Unit]
+Description=Nightly Google Search Console sitemap + URL inspection
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/tiny/Downloads/project-bolt-update
+Environment=GOOGLE_APPLICATION_CREDENTIALS=/home/tiny/Downloads/project-bolt-update/secrets/gsc-service-account.json
+ExecStart=/usr/bin/npm run gsc:nightly
+StandardOutput=append:/home/tiny/Downloads/project-bolt-update/reports/gsc-nightly.log
+StandardError=append:/home/tiny/Downloads/project-bolt-update/reports/gsc-nightly.log

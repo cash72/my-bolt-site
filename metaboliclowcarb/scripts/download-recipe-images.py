@@ -75,6 +75,30 @@ def save_recipe_image(slug: str, raw: bytes) -> None:
     img.save(out_path, "JPEG", quality=88, optimize=True)
 
 
+def load_existing_manifest() -> dict[str, dict[str, str]]:
+    for path in (SRC_MANIFEST, MANIFEST_PATH):
+        if path.is_file():
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+                if isinstance(data, dict):
+                    return data
+            except json.JSONDecodeError:
+                pass
+    return {}
+
+
+def download_with_retries(url: str, attempts: int = 3) -> bytes:
+    last_err: Exception | None = None
+    for attempt in range(1, attempts + 1):
+        try:
+            return download(url)
+        except Exception as err:  # noqa: BLE001 — network errors vary
+            last_err = err
+            print(f"  retry {attempt}/{attempts}: {err}")
+    assert last_err is not None
+    raise last_err
+
+
 def main() -> None:
     slugs = parse_recipe_slugs()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -83,15 +107,16 @@ def main() -> None:
     if missing:
         raise SystemExit(f"Missing Pexels mapping for: {', '.join(missing)}")
 
+    existing_manifest = load_existing_manifest()
     manifest: dict[str, dict[str, str]] = {}
+    skipped = 0
+    downloaded = 0
+
     for slug in slugs:
         meta = RECIPE_PHOTOS[slug]
         photo_id = meta["id"]
-        url = PEXELS_URL.format(photo_id=photo_id)
-        print(f"Downloading {slug} <- Pexels {photo_id} …")
-        raw = download(url)
-        save_recipe_image(slug, raw)
-        manifest[slug] = {
+        out_path = OUT_DIR / f"{slug}.jpg"
+        entry = {
             "path": f"/recipes/images/{slug}.jpg",
             "source": "Pexels",
             "photoId": photo_id,
@@ -99,9 +124,33 @@ def main() -> None:
             "url": f"https://www.pexels.com/photo/{photo_id}/",
         }
 
+        # Reuse cached images in CI/local so flaky Pexels does not fail deploy.
+        if out_path.is_file() and out_path.stat().st_size > 10_000:
+            print(f"Skip {slug} (cached {out_path.stat().st_size} bytes)")
+            manifest[slug] = existing_manifest.get(slug, entry)
+            skipped += 1
+            continue
+
+        url = PEXELS_URL.format(photo_id=photo_id)
+        print(f"Downloading {slug} <- Pexels {photo_id} …")
+        try:
+            raw = download_with_retries(url)
+            save_recipe_image(slug, raw)
+            downloaded += 1
+        except Exception as err:  # noqa: BLE001
+            if out_path.is_file() and out_path.stat().st_size > 10_000:
+                print(f"  warn: download failed ({err}); keeping cached file")
+                skipped += 1
+            else:
+                raise SystemExit(f"Failed to download {slug}: {err}") from err
+        manifest[slug] = entry
+
     MANIFEST_PATH.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     SRC_MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    print(f"Saved {len(slugs)} recipe photos to {OUT_DIR.relative_to(ROOT)}")
+    print(
+        f"Recipe photos ready in {OUT_DIR.relative_to(ROOT)} "
+        f"(downloaded {downloaded}, cached {skipped}, total {len(slugs)})"
+    )
 
 
 if __name__ == "__main__":

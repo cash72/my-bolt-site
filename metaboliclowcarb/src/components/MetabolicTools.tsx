@@ -4,7 +4,7 @@ import ToolGuide from './ToolGuide';
 import FieldHint from './FieldHint';
 import AdSlot from './AdSlot';
 import SessionDeepener from './SessionDeepener';
-import { CALCULATOR_NEXT_STEPS } from '../lib/sessionNextSteps';
+import { CALCULATOR_NEXT_STEPS, MACRO_NEXT_STEPS } from '../lib/sessionNextSteps';
 import { useNetCarbCalc } from '../hooks/useNetCarbCalc';
 import { useMacroCalc } from '../hooks/useMacroCalc';
 import type { DietPlan, ToolId } from '../lib/metabolic/types';
@@ -301,7 +301,9 @@ export default function MetabolicTools({
               ? netCarb.result.totalCarbsG > 0 || netCarb.result.fiberG > 0 || netCarb.result.sugarAlcoholsG > 0
               : macro.result !== null) && (
               <>
-                <SessionDeepener links={CALCULATOR_NEXT_STEPS} />
+                <SessionDeepener
+                  links={activeTool === 'net-carb' ? CALCULATOR_NEXT_STEPS : MACRO_NEXT_STEPS}
+                />
                 <AdSlot placement="results" className="my-0" />
               </>
             )}

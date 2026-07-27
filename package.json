@@ -22,7 +22,12 @@
     "google:verify": "node scripts/add-google-verification.mjs",
     "sitemaps:ping": "node scripts/ping-sitemaps.mjs --all",
     "sitemaps:ping:legacy": "node scripts/ping-sitemaps.mjs --legacy",
-    "gsc:checklist": "node scripts/ping-sitemaps.mjs --checklist-only --all"
+    "gsc:checklist": "node scripts/ping-sitemaps.mjs --checklist-only --all",
+    "gsc:nightly": "node scripts/gsc-api-nightly.mjs",
+    "gsc:nightly:dry": "node scripts/gsc-api-nightly.mjs --dry-run"
+  },
+  "dependencies": {
+    "google-auth-library": "^9.15.1"
   },
   "devDependencies": {
     "wrangler": "^3.114.0"

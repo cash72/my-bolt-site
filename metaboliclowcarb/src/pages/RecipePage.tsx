@@ -2,17 +2,22 @@ import { useEffect } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
-import { getRecipeBySlug, RECIPES } from '../lib/recipes/recipes';
+import { getRecipeBySlug } from '../lib/recipes/recipes';
 import { getGuideBySlug } from '../lib/guides/guides';
 import { RECIPE_CATEGORY_LABEL } from '../lib/recipes/types';
 import { PlanBadges } from '../components/RecipeCard';
 import { GuideCard } from '../components/GuideCard';
 import { RecipeCard } from '../components/RecipeCard';
 import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
+import AdSlot from '../components/AdSlot';
 import { getRecipeImagePath, getRecipeImageUrl } from '../lib/recipes/images';
 import imageManifest from '../lib/recipes/imageManifest.json';
 import { breadcrumbSchema } from '../lib/schema/jsonLd';
 import { SITE_NAME, SITE_URL } from '../lib/site';
+import { getRecipeArticle } from '../lib/recipes/recipeArticles';
+import { getRelatedRecipes } from '../lib/recipes/recipeHubs';
+import SessionDeepener from '../components/SessionDeepener';
+import { RECIPE_NEXT_STEPS } from '../lib/sessionNextSteps';
 
 type ImageCredit = {
   path: string;
@@ -39,6 +44,7 @@ export default function RecipePage() {
     recipe
       ? breadcrumbSchema([
           { name: 'Recipes', path: '/recipes' },
+          { name: RECIPE_CATEGORY_LABEL[recipe.category], path: `/recipes/${recipe.category}` },
           { name: recipe.title, path: `/recipes/${recipe.slug}` },
         ])
       : null
@@ -57,20 +63,25 @@ export default function RecipePage() {
     }
 
     const imageUrl = getRecipeImageUrl(recipe);
+    const article = getRecipeArticle(recipe);
 
     script.textContent = JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Recipe',
       name: recipe.title,
-      description: recipe.description,
+      description: `${recipe.description} ${article.whyItFits}`.slice(0, 500),
       image: [imageUrl],
       url: `${SITE_URL}/recipes/${recipe.slug}/`,
+      datePublished: '2026-06-01',
+      dateModified: '2026-07-26',
+      keywords: ['low carb', 'keto', RECIPE_CATEGORY_LABEL[recipe.category], 'net carbs'].join(', '),
       author: {
         '@type': 'Organization',
         name: SITE_NAME,
         url: `${SITE_URL}/`,
       },
       recipeCategory: RECIPE_CATEGORY_LABEL[recipe.category],
+      recipeCuisine: 'Low carb',
       recipeYield: `${recipe.servings} servings`,
       prepTime: `PT${recipe.prepMinutes}M`,
       cookTime: `PT${recipe.cookMinutes}M`,
@@ -83,10 +94,8 @@ export default function RecipePage() {
       })),
       nutrition: {
         '@type': 'NutritionInformation',
-        carbohydrateContent: `${recipe.netCarbsPerServing} g net carbs (estimated)`,
-        ...(recipe.proteinPerServing
-          ? { proteinContent: `${recipe.proteinPerServing} g (estimated)` }
-          : {}),
+        carbohydrateContent: `${recipe.netCarbsPerServing} g`,
+        ...(recipe.proteinPerServing ? { proteinContent: `${recipe.proteinPerServing} g` } : {}),
       },
     });
 
@@ -99,13 +108,12 @@ export default function RecipePage() {
     return <Navigate to="/recipes" replace />;
   }
 
+  const article = getRecipeArticle(recipe);
   const relatedGuides = (recipe.relatedGuideSlugs ?? [])
     .map((s) => getGuideBySlug(s))
     .filter((g): g is NonNullable<typeof g> => g != null);
 
-  const relatedRecipes = RECIPES.filter((r) => r.slug !== recipe.slug && r.category === recipe.category)
-    .slice(0, 3);
-
+  const relatedRecipes = getRelatedRecipes(recipe, 3);
   const photoCredit = (imageManifest as Record<string, ImageCredit>)[recipe.slug];
 
   return (
@@ -113,6 +121,13 @@ export default function RecipePage() {
       <nav className="text-sm text-slate-500 dark:text-slate-400 mb-6">
         <Link to="/recipes" className="hover:text-teal-600 dark:hover:text-teal-400">
           Recipes
+        </Link>
+        <span className="mx-2">/</span>
+        <Link
+          to={`/recipes/${recipe.category}`}
+          className="hover:text-teal-600 dark:hover:text-teal-400"
+        >
+          {RECIPE_CATEGORY_LABEL[recipe.category]}
         </Link>
         <span className="mx-2">/</span>
         <span className="text-slate-700 dark:text-slate-300">{recipe.title}</span>
@@ -169,6 +184,23 @@ export default function RecipePage() {
         </div>
       </dl>
 
+      <section className="mb-8 prose prose-slate dark:prose-invert max-w-none">
+        <h2 className="text-lg font-semibold mb-3 !mt-0">Why this meal fits low carb</h2>
+        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{article.whyItFits}</p>
+        {article.swaps && (
+          <>
+            <h3 className="text-base font-semibold mt-5 mb-2">Swaps</h3>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{article.swaps}</p>
+          </>
+        )}
+        {article.mealPrep && (
+          <>
+            <h3 className="text-base font-semibold mt-5 mb-2">Meal prep</h3>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{article.mealPrep}</p>
+          </>
+        )}
+      </section>
+
       <section className="mb-8">
         <h2 className="text-lg font-semibold mb-3">Ingredients</h2>
         <ul className="list-disc list-inside space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
@@ -177,6 +209,8 @@ export default function RecipePage() {
           ))}
         </ul>
       </section>
+
+      <AdSlot placement="midGuide" className="my-8" />
 
       <section className="mb-8">
         <h2 className="text-lg font-semibold mb-3">Instructions</h2>
@@ -196,6 +230,43 @@ export default function RecipePage() {
         </section>
       )}
 
+      <section
+        className="mb-8 p-4 rounded-xl border border-teal-200 dark:border-teal-900 bg-teal-50/50 dark:bg-teal-950/20"
+        aria-labelledby="recipe-tools"
+      >
+        <h2 id="recipe-tools" className="text-sm font-semibold mb-2 text-teal-900 dark:text-teal-200">
+          Check the numbers
+        </h2>
+        <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
+          This recipe is about <strong>~{recipe.netCarbsPerServing}g net carbs</strong> per serving
+          {recipe.proteinPerServing ? ` and ~${recipe.proteinPerServing}g protein` : ''}. Verify packaged ingredients
+          and set your daily budget:
+        </p>
+        <ul className="space-y-1.5 text-sm mb-3">
+          <li>
+            <Link to="/net-carb-calculator" className="text-teal-700 dark:text-teal-400 hover:underline font-medium">
+              Net carb calculator
+            </Link>
+            <span className="text-slate-500"> — label math for sauces, yogurt, sausages</span>
+          </li>
+          <li>
+            <Link to="/keto-macro-calculator" className="text-teal-700 dark:text-teal-400 hover:underline font-medium">
+              Keto macro calculator
+            </Link>
+            <span className="text-slate-500"> — daily protein / fat / carb targets</span>
+          </li>
+          <li>
+            <Link
+              to="/recipes/under-10g-net-carbs"
+              className="text-teal-700 dark:text-teal-400 hover:underline font-medium"
+            >
+              More recipes under 10g net carbs
+            </Link>
+          </li>
+        </ul>
+        <SessionDeepener links={RECIPE_NEXT_STEPS} />
+      </section>
+
       <ContentMonetizationSlot placement="content" guides={relatedGuides} />
 
       {relatedGuides.length > 0 && (
@@ -214,13 +285,21 @@ export default function RecipePage() {
       {relatedRecipes.length > 0 && (
         <section className="mb-8" aria-labelledby="related-recipes">
           <h2 id="related-recipes" className="text-lg font-semibold mb-4">
-            More {RECIPE_CATEGORY_LABEL[recipe.category].toLowerCase()} recipes
+            Cook next
           </h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {relatedRecipes.map((r) => (
               <RecipeCard key={r.slug} recipe={r} />
             ))}
           </div>
+          <p className="mt-4 text-sm">
+            <Link
+              to={`/recipes/${recipe.category}`}
+              className="text-teal-600 dark:text-teal-400 hover:underline font-medium"
+            >
+              More {RECIPE_CATEGORY_LABEL[recipe.category].toLowerCase()} recipes →
+            </Link>
+          </p>
         </section>
       )}
 
