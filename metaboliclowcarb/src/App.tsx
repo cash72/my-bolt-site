@@ -12,6 +12,8 @@ import RecipePage from './pages/RecipePage';
 import RecipeHubPage from './pages/RecipeHubPage';
 import GuidePage from './pages/GuidePage';
 import GuidesIndexPage from './pages/GuidesIndexPage';
+import EditorialPolicyPage from './pages/EditorialPolicyPage';
+import MethodologyPage from './pages/MethodologyPage';
 
 export default function App() {
   return (
@@ -23,6 +25,8 @@ export default function App() {
         <Route path="privacy" element={<PrivacyPage />} />
         <Route path="disclaimer" element={<DisclaimerPage />} />
         <Route path="terms" element={<TermsPage />} />
+        <Route path="editorial-policy" element={<EditorialPolicyPage />} />
+        <Route path="methodology" element={<MethodologyPage />} />
         <Route path="recipes" element={<RecipesIndexPage />} />
         <Route path="recipes/breakfast" element={<RecipeHubPage hubId="breakfast" />} />
         <Route path="recipes/lunch" element={<RecipeHubPage hubId="lunch" />} />

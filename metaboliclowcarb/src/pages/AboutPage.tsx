@@ -21,10 +21,13 @@ export default function AboutPage() {
 
       <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Who runs this site</h2>
       <p>
-        The site is operated by an independent publisher focused on clear, practical tools — not a clinic, supplement
-        brand, or meal-delivery company. We are not physicians or dietitians. When we reference clinicians (for example
-        Dr. Mindy Pelz, Dr. Eric Westman, or Dr. Boz), we do so to point readers toward publicly discussed frameworks;
-        those mentions are educational context, not endorsements of a personal treatment plan.
+        The site is independently published, and its content is written and maintained by the Metabolic Low Carb
+        Editorial Team. The team is not a clinic. Content is not currently medically reviewed unless an individual page
+        explicitly says otherwise, and nothing on the site is a personal treatment plan. Read our{' '}
+        <Link to="/editorial-policy" className="text-teal-600 dark:text-teal-400 hover:underline">
+          Editorial Policy
+        </Link>{' '}
+        for our authorship, sourcing, correction, and advertising standards.
       </p>
 
       <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">What we publish</h2>
@@ -46,20 +49,28 @@ export default function AboutPage() {
       <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">How we build content</h2>
       <p>
         Calculator formulas are documented in-page (for example Mifflin-St Jeor for calorie estimates and standard US
-        label net-carb math). Recipe net carbs are estimates from common ingredient databases and package labels — always
+        label net-carb math). Recipe net-carb and protein values are working estimates, not laboratory analyses — always
         verify packaged foods with our{' '}
         <Link to="/net-carb-calculator" className="text-teal-600 dark:text-teal-400 hover:underline">
           net carb calculator
         </Link>
-        . Guides are rewritten and expanded when we find thinner sections or clearer examples. We prioritize usefulness
-        over hype: no miracle claims, no “cure” language, and clear medical disclaimers.
+        . Our{' '}
+        <Link to="/methodology" className="text-teal-600 dark:text-teal-400 hover:underline">
+          Methodology
+        </Link>{' '}
+        documents the formulas, fixed assumptions, fasting-timer behavior, and recipe limitations. We prioritize
+        usefulness over hype: no miracle claims, no “cure” language, and clear medical disclaimers.
       </p>
 
       <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Editorial standards</h2>
       <p>
         We aim for original explanations, worked examples, and internal links between tools, recipes, and guides so you
         can move from a number on a label to a meal idea. We do not invent clinical studies. When evidence is mixed or
-        individual results vary, we say so. Corrections and suggestions are welcome via{' '}
+        individual results vary, we say so. Our{' '}
+        <Link to="/editorial-policy" className="text-teal-600 dark:text-teal-400 hover:underline">
+          Editorial Policy
+        </Link>{' '}
+        explains how we choose sources and handle higher-risk health claims. Corrections and suggestions are welcome via{' '}
         <Link to="/contact" className="text-teal-600 dark:text-teal-400 hover:underline">
           Contact
         </Link>
@@ -69,7 +80,11 @@ export default function AboutPage() {
       <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Advertising</h2>
       <p>
         We may display ads (including Google AdSense when the site is approved) to keep tools free. Ads do not change
-        calculator math. See our{' '}
+        calculator math or control editorial conclusions. See our{' '}
+        <Link to="/editorial-policy" className="text-teal-600 dark:text-teal-400 hover:underline">
+          Editorial Policy
+        </Link>
+        ,{' '}
         <Link to="/privacy" className="text-teal-600 dark:text-teal-400 hover:underline">
           Privacy Policy
         </Link>{' '}

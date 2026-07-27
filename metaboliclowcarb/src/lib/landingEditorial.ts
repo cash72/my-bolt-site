@@ -145,7 +145,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'fasting-clock': {
     intro:
-      'Track water-only or assisted fasts from 16 hours toward longer windows. The clock shows educational metabolic phases — fat burning, commonly cited autophagy thresholds, and extended reset windows — based on hours without food. It does not diagnose or supervise your fast.',
+      'Track water-only or assisted fasts from 16 hours toward longer windows. The clock shows educational stage labels based on hours without food. It does not diagnose, supervise, or prove biological processes occurred.',
     sections: [
       {
         heading: 'Assisted vs water-only fasting',
@@ -177,8 +177,8 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       {
         heading: '16:8 vs 18:6 — which to start with',
         paragraphs: [
-          '16:8 (16 hours fasted, 8-hour eating window) is the usual entry point. 18:6 adds two hours of fasting — some people see better glucose control without jumping to 24-hour fasts.',
-          'See [intermittent fasting 16:8 vs 18:6](/guides/intermittent-fasting-16-8-vs-18-6) for schedule examples, including notes many women use around the menstrual cycle.',
+          '16:8 (16 hours fasted, 8-hour eating window) is the usual entry point. 18:6 adds two hours of fasting — some people find it manageable without jumping to 24-hour fasts.',
+          'See [intermittent fasting 16:8 vs 18:6](/guides/intermittent-fasting-16-8-vs-18-6) for schedule examples. Evidence does not support universal fasting schedules by sex or menstrual-cycle phase.',
         ],
       },
       {
@@ -204,8 +204,8 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       {
         heading: 'What happens hour by hour (educational)',
         paragraphs: [
-          'Around 12–14 hours, fat burning typically increases for many people. Autophagy research often cites roughly ~17 hours without food as a commonly discussed threshold — not a guarantee of a specific cellular outcome on your body.',
-          'A 24-hour fast is often used as an occasional “gut reset,” not a daily habit. Track optional glucose and ketones with the [Dr. Boz ratio calculator](/dr-boz-ratio-calculator) during longer experiments if you already own a dual meter.',
+          'Around 12–14 hours, some educational materials describe a commonly cited metabolic-shift window — individual timing varies and a timer cannot confirm fat use.',
+          'Human autophagy timing is uncertain and not measurable at home. A 24-hour fast is an advanced choice for many people, not a validated daily or weekly prescription. Optional glucose and ketones can be tracked with the [Dr. Boz ratio calculator](/dr-boz-ratio-calculator) if you already own a dual meter.',
         ],
       },
       {
@@ -251,13 +251,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'dr-boz-ratio-calculator': {
     intro:
-      'The Dr. Boz Ratio divides fasting glucose (mg/dL) by blood ketones (mmol/L). One number reflects whether you are primarily burning glucose or fat — useful during fasts and low-carb transitions if you already use a dual meter.',
+      'The Dr. Boz Ratio divides fasting glucose (mg/dL) by blood ketones (mmol/L). It combines two readings into one number for optional tracking — not a diagnostic test of which fuel your body is burning.',
     sections: [
       {
         heading: 'How to interpret your ratio',
         paragraphs: [
-          'Above 80: still glucose-dominant — tighten carbs or extend overnight fasting. 40–80: moderate ketosis, common for steady weight management. Below 40: deeper ketosis — approach gradually, not as a day-one target.',
-          'Full explanation in our [Dr. Boz ratio guide](/guides/dr-boz-ratio-explained). Trends over days matter more than a single heroic reading.',
+          'Branded materials sometimes cite bands above 80, 40–80, and below 40. Published clinical guidelines do not validate these as treatment thresholds. A single reading does not prove health status, autophagy, or metabolic flexibility.',
+          'Full explanation in our [Dr. Boz ratio guide](/guides/dr-boz-ratio-explained). Trends over days matter more than a single reading — if you track at all.',
         ],
       },
       {
@@ -267,9 +267,9 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
-        heading: 'What to change when the number is high',
+        heading: 'What this calculator does not do',
         paragraphs: [
-          'Usually: fewer refined carbs, consistent protein, earlier dinner, and patience. Recalculate macros with the [keto macro calculator](/keto-macro-calculator) and verify packaged foods before you blame “stubborn metabolism.”',
+          'It does not advise tighter carbs, longer fasting, medication changes, or autophagy claims. Unexpected glucose or ketone results should be assessed with your care plan, especially with diabetes, illness, or pregnancy.',
         ],
       },
     ],
@@ -341,7 +341,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       {
         heading: 'OMAD and blood sugar medications',
         paragraphs: [
-          'A single large meal plus all-day fasting shifts glucose patterns dramatically — medication doses may need adjustment. Medical supervision is essential on insulin or sulfonylureas. Read [fasting on diabetes medications](/guides/fasting-on-diabetes-medications).',
+          'A single large meal plus all-day fasting shifts glucose patterns dramatically. Medical supervision is essential on insulin or sulfonylureas — do not adjust medication on your own. Read [fasting on diabetes medications](/guides/fasting-on-diabetes-medications).',
         ],
       },
       {
@@ -386,7 +386,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       {
         heading: 'Carb changes and medication',
         paragraphs: [
-          'Lower carb intake can drop blood sugar quickly — insulin and sulfonylurea doses may need reduction to avoid hypoglycemia. Never adjust medication without your prescriber.',
+          'Lower carb intake can drop blood sugar quickly — insulin and sulfonylurea doses may need review to avoid hypoglycemia. Never adjust medication without your prescriber.',
           'Read [fasting on diabetes medications](/guides/fasting-on-diabetes-medications) before combining diet changes with IF, and [fasting with insulin resistance](/guides/fasting-with-insulin-resistance) if IR is part of your picture.',
         ],
       },

@@ -568,7 +568,7 @@ export const RECIPES: Recipe[] = [
     prepMinutes: 5,
     cookMinutes: 8,
     ingredients: [
-      '1 cup bone broth or bouillon (Dr. Westman style)',
+      '1 cup bone broth or bouillon',
       '2 large eggs',
       '1 tsp butter',
       'Salt and pepper',
@@ -579,7 +579,7 @@ export const RECIPES: Recipe[] = [
       'Soft-scramble or poach eggs in butter over low heat.',
       'Season eggs; garnish with chives. Eat slowly.',
     ],
-    tips: 'Dr. Mindy recommends protein, fat, and fiber when breaking fasts — add spinach if tolerated.',
+    tips: 'Protein, fat, and fiber are a common refeed pattern when breaking fasts — add spinach if tolerated.',
     relatedGuideSlugs: ['how-to-break-a-24-hour-fast', 'best-first-meal-after-fasting', 'electrolytes-during-fasting'],
   },
   {
@@ -706,7 +706,7 @@ export const RECIPES: Recipe[] = [
     slug: 'ginger-chicken-bone-broth-soup',
     title: 'Ginger Chicken Bone Broth Soup',
     description:
-      'Light refeed soup with collagen-rich broth, shredded chicken, and ginger — about 3g net carbs. Dr. Westman–style assisted fasting support.',
+      'Light refeed soup with collagen-rich broth, shredded chicken, and ginger — about 3g net carbs. Gentle option after assisted fasting.',
     category: 'lunch',
     fitsPlans: ['strict_keto', 'low_carb_ir'],
     netCarbsPerServing: 3,

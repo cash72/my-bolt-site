@@ -4,21 +4,21 @@ import FastingClockResults, { FastingGuidance } from './FastingClockResults';
 import ToolGuide from './ToolGuide';
 import FieldHint from './FieldHint';
 import { GOAL_OPTIONS } from '../lib/fasting/phases';
-import { cycleProfileLabel, modeLabel } from '../lib/fasting/calculate';
+import { modeLabel } from '../lib/fasting/calculate';
 import BreakFastGuidePanel from './BreakFastGuide';
 import AdSlot from './AdSlot';
 import SessionDeepener from './SessionDeepener';
 import { FASTING_NEXT_STEPS } from '../lib/sessionNextSteps';
 import { shouldShowBreakGuide } from '../lib/fasting/breakFast';
-import type { CycleProfile, FastingGoalHours, FastingMode } from '../lib/fasting/types';
+import type { FastingGoalHours, FastingMode } from '../lib/fasting/types';
 
 const inputClass =
   'w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/40';
 
 const FASTING_STEPS = [
-  'Choose water-only or assisted fasting, pick your goal hours, and set your profile for personalized guidance.',
+  'Choose water-only or assisted fasting and pick your goal hours.',
   'Tap Start fast when you finish your last bite. When you reach your goal, we show how to break the fast with meal ideas.',
-  'Follow doctor-sourced tips for electrolytes, cycle timing, and when to break your fast safely.',
+  'Stage labels mark educational time windows only — they do not prove biological processes occurred.',
 ];
 
 interface FastingClockProps extends UseFastingClockOptions {
@@ -28,7 +28,7 @@ interface FastingClockProps extends UseFastingClockOptions {
 
 export default function FastingClock({
   heading = 'Fasting Clock',
-  subheading = 'Track water-only and assisted fasts beyond 16 hours with guidance from Dr. Mindy Pelz, Dr. Eric Westman, and Dr. Boz.',
+  subheading = 'Track water-only and assisted fasts from 16 to 72 hours. Stage labels are educational time windows — not medical supervision.',
   defaultGoal,
   defaultMode,
 }: FastingClockProps) {
@@ -79,7 +79,7 @@ export default function FastingClock({
                       <span className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                         {mode === 'water-only'
                           ? 'Plain water only — strictest. Best for shorter fasts.'
-                          : 'Water + electrolytes, bouillon, black coffee/tea (Dr. Westman & Boz).'}
+                          : 'Water, zero-calorie electrolytes, bouillon, black coffee/tea without calories.'}
                       </span>
                     </label>
                   ))}
@@ -112,20 +112,6 @@ export default function FastingClock({
                   ))}
                 </div>
               </fieldset>
-
-              <label className="block">
-                <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">Profile (for cycle guidance)</span>
-                <select
-                  className={`${inputClass} mt-1.5`}
-                  value={state.cycleProfile}
-                  onChange={(e) => clock.setCycleProfile(e.target.value as CycleProfile)}
-                >
-                  <option value="female-cycling">{cycleProfileLabel('female-cycling')}</option>
-                  <option value="female-postmenopause">{cycleProfileLabel('female-postmenopause')}</option>
-                  <option value="male">{cycleProfileLabel('male')}</option>
-                </select>
-                <FieldHint>Dr. Mindy&apos;s cycle-based guidance applies to cycling women. Men and post-menopause skip cycle timing.</FieldHint>
-              </label>
 
               <div className="rounded-lg border border-slate-200 dark:border-slate-800 p-4 space-y-3">
                 <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">
@@ -160,7 +146,14 @@ export default function FastingClock({
                     />
                   </label>
                 </div>
-                <FieldHint>Track metabolic progress during your fast. Target under 80 for ketosis; under 40 for deeper benefits (Dr. Boz).</FieldHint>
+                <FieldHint>
+                  Formula: glucose (mg/dL) ÷ ketones (mmol/L). Interpretations are educational only — not diagnostic
+                  targets. See our{' '}
+                  <a href="/guides/dr-boz-ratio-explained" className="text-teal-600 dark:text-teal-400 hover:underline">
+                    ratio guide
+                  </a>{' '}
+                  for limitations.
+                </FieldHint>
               </div>
 
               <button
@@ -204,10 +197,6 @@ export default function FastingClock({
                   <strong className="font-medium text-slate-800 dark:text-slate-200">Goal:</strong> {state.goalHours}{' '}
                   hours
                 </p>
-                <p>
-                  <strong className="font-medium text-slate-800 dark:text-slate-200">Profile:</strong>{' '}
-                  {cycleProfileLabel(state.cycleProfile)}
-                </p>
               </div>
 
               <FastingGuidance result={result} isRunning={state.isRunning} />
@@ -231,9 +220,9 @@ export default function FastingClock({
           )}
 
           <p className="text-xs text-slate-500 dark:text-slate-400 rounded-lg bg-slate-100 dark:bg-slate-900/60 px-3 py-2">
-            <strong className="font-medium text-slate-700 dark:text-slate-300">Not medical advice.</strong> Guidance
-            synthesizes public teachings from Dr. Mindy Pelz, Dr. Eric Westman, and Dr. Boz. Talk to your doctor before
-            fasting — especially on diabetes, blood pressure, or kidney medications.
+            <strong className="font-medium text-slate-700 dark:text-slate-300">Not medical advice.</strong> This timer
+            tracks clock time only. Talk to your doctor before fasting — especially on diabetes, blood pressure, or
+            kidney medications. Do not adjust medication on your own.
           </p>
         </div>
 

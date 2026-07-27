@@ -40,7 +40,7 @@ const HOMEPAGE_FAQS = [
   {
     question: 'How long should I fast?',
     answer:
-      'Dr. Mindy Pelz starts most people at 13–16 hours. Autophagy benefits increase around 17 hours. Extended 24–72 hour fasts need medical awareness — especially on medications.',
+      'Many people start with 13–16 hour overnight fasts for time-restricted eating. Human autophagy timing is uncertain and not measurable at home. Extended 24–72 hour fasts need medical awareness — especially on medications.',
   },
   {
     question: 'Which calculator should I use first?',
@@ -144,7 +144,7 @@ export default function HomePage() {
         {activeTool === 'fasting-clock' ? (
           <FastingClock
             heading="Fasting Clock"
-            subheading="Track water-only and assisted fasts from 16 to 72 hours. Guidance synthesized from Dr. Mindy Pelz, Dr. Eric Westman, and Dr. Boz."
+            subheading="Track water-only and assisted fasts from 16 to 72 hours. Stage labels are educational time windows — not medical supervision."
           />
         ) : (
           <MetabolicTools activeTool={activeTool} showTabs={false} showHeader={false} />
@@ -224,8 +224,7 @@ export default function HomePage() {
           </li>
           <li className="rounded-lg border border-slate-200 dark:border-slate-800 p-4">
             <span className="block font-semibold text-slate-800 dark:text-slate-200 mb-1">Fasting clock</span>
-            Track 16–72 hour fasts with metabolic phases, cycle guidance (Dr. Mindy), electrolyte tips (Dr. Westman &
-            Boz), and optional Dr. Boz Ratio tracking.
+            Track 16–72 hour fasts with educational stage labels, safety reminders, and optional Dr. Boz Ratio tracking.
           </li>
         </ul>
       </section>

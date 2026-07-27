@@ -1,12 +1,92 @@
-import type { Guide } from './types';
+import type { Guide, GuideSource } from './types';
 
-export const GUIDES: Guide[] = [
+const SOURCES = {
+  healthyEating: {
+    title: 'Tips for Healthy Eating for a Healthy Weight',
+    publisher: 'Centers for Disease Control and Prevention',
+    url: 'https://www.cdc.gov/healthy-weight-growth/healthy-eating/index.html',
+  },
+  foodData: {
+    title: 'USDA FoodData Central',
+    publisher: 'U.S. Department of Agriculture',
+    url: 'https://fdc.nal.usda.gov/',
+  },
+  nutritionLabel: {
+    title: 'How to Understand and Use the Nutrition Facts Label',
+    publisher: 'U.S. Food and Drug Administration',
+    url: 'https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label',
+  },
+  insulinResistance: {
+    title: 'Insulin Resistance & Prediabetes',
+    publisher: 'National Institute of Diabetes and Digestive and Kidney Diseases',
+    url: 'https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes/prediabetes-insulin-resistance',
+  },
+  hypoglycemia: {
+    title: 'Low Blood Glucose (Hypoglycemia)',
+    publisher: 'National Institute of Diabetes and Digestive and Kidney Diseases',
+    url: 'https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-problems/low-blood-glucose-hypoglycemia',
+  },
+  fattyLiver: {
+    title: 'Nonalcoholic Fatty Liver Disease (NAFLD) & NASH',
+    publisher: 'National Institute of Diabetes and Digestive and Kidney Diseases',
+    url: 'https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash',
+  },
+  pcos: {
+    title: 'Polycystic ovary syndrome',
+    publisher: "U.S. Department of Health and Human Services, Office on Women's Health",
+    url: 'https://womenshealth.gov/a-z-topics/polycystic-ovary-syndrome',
+  },
+  magnesium: {
+    title: 'Magnesium: Fact Sheet for Consumers',
+    publisher: 'National Institutes of Health, Office of Dietary Supplements',
+    url: 'https://ods.od.nih.gov/factsheets/Magnesium-Consumer/',
+  },
+  potassium: {
+    title: 'Potassium: Fact Sheet for Consumers',
+    publisher: 'National Institutes of Health, Office of Dietary Supplements',
+    url: 'https://ods.od.nih.gov/factsheets/Potassium-Consumer/',
+  },
+  fastingReview: {
+    title: 'Intermittent fasting and weight loss: Systematic review',
+    publisher: 'Canadian Family Physician (PubMed)',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/32060194/',
+  },
+  fastingOutcomesReview: {
+    title: 'Intermittent Energy Restriction for Weight Loss: A Systematic Review of Cardiometabolic, Inflammatory and Appetite Outcomes',
+    publisher: 'Journal of the Academy of Nutrition and Dietetics (PubMed)',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/35531785/',
+  },
+  namedDietsReview: {
+    title: 'Long-term effects of 4 popular diets on weight loss and cardiovascular risk factors: a systematic review of randomized controlled trials',
+    publisher: 'Circulation: Cardiovascular Quality and Outcomes (PubMed)',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/25387778/',
+  },
+} satisfies Record<string, GuideSource>;
+
+function sourcesForGuide(slug: string): GuideSource[] {
+  if (slug === 'fatty-liver-low-carb') return [SOURCES.fattyLiver, SOURCES.healthyEating];
+  if (slug === 'pcos-and-low-carb') return [SOURCES.pcos, SOURCES.insulinResistance];
+  if (slug === 'atkins-phases-explained') return [SOURCES.namedDietsReview, SOURCES.healthyEating];
+  if (slug.includes('electrolytes') || slug === 'water-fast-vs-assisted-fast') {
+    return [SOURCES.magnesium, SOURCES.potassium, SOURCES.fastingReview];
+  }
+  if (slug.includes('fast') || slug === 'intermittent-fasting-16-8-vs-18-6') {
+    return [SOURCES.fastingReview, SOURCES.fastingOutcomesReview, SOURCES.hypoglycemia];
+  }
+  if (slug.includes('carb') || slug.includes('label')) {
+    return [SOURCES.nutritionLabel, SOURCES.foodData, SOURCES.insulinResistance];
+  }
+  if (slug === 'dr-boz-ratio-explained') return [SOURCES.insulinResistance, SOURCES.hypoglycemia];
+  return [SOURCES.healthyEating, SOURCES.insulinResistance, SOURCES.foodData];
+}
+
+const GUIDE_DRAFTS: Omit<Guide, 'sources'>[] = [
   {
     slug: 'how-to-break-a-24-hour-fast',
     category: 'fasting',
     title: 'How to Break a 24-Hour Fast Safely',
     description:
-      'Step-by-step guide to refeeding after a 24-hour gut-reset fast. What to eat first, what to avoid, and when to seek medical help.',
+      'General meal-planning considerations after a 24-hour fast, including symptoms that require medical help.',
     readMinutes: 9,
     toolPath: '/fasting-clock',
     toolLabel: 'Fasting clock',
@@ -16,33 +96,33 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Why how you break a fast matters',
         paragraphs: [
-          'A 24-hour fast is long enough to activate autophagy and give your digestive system a real rest. Dr. Mindy Pelz calls this a weekly "gut reset." The mistake many people make is treating the first meal like a reward — pizza, pasta, or a large sugary coffee — which spikes blood sugar and can cause nausea or cramping.',
-          'Dr. Eric Westman notes that extended fasts carry refeeding risks if you eat too much too fast. Even at 24 hours, your gut enzymes and insulin response need a gentle restart. The goal is protein, healthy fat, and modest fiber — not a carb load.',
+          'Human research does not establish that a 24-hour fast produces a specific autophagy threshold or a medically meaningful “gut reset.” Responses to fasting and the first meal vary.',
+          'After a short fast, most otherwise healthy adults can return to an ordinary balanced meal. A smaller meal eaten slowly may feel more comfortable, but it is not a universal medical requirement.',
         ],
       },
       {
         heading: 'Step-by-step: breaking a 24-hour fast',
-        paragraphs: ['Follow this sequence for most healthy adults on a low-carb or keto-style plan:'],
+        paragraphs: ['These are optional comfort-focused ideas, not a refeeding protocol:'],
         bullets: [
-          'Optional first: warm bouillon or bone broth (5–10 minutes) for sodium — especially after water-only fasts.',
-          'First meal: a moderate portion — about half to two-thirds of a normal plate. Think eggs, chicken salad in lettuce cups, or baked salmon with broccoli.',
+          'Choose water and an ordinary meal unless a clinician has given different instructions.',
+          'If a large meal feels uncomfortable, begin with a smaller portion such as eggs, chicken salad, or salmon with vegetables.',
           'Eat slowly over 15–20 minutes. Stop at comfortable fullness, not stuffed.',
           'Wait 30–60 minutes before a second small meal if still hungry.',
-          'Resume normal low-carb eating for the rest of your eating window. Skip dessert and processed carbs for this first meal.',
+          'Resume your usual eating pattern according to hunger and tolerance.',
         ],
       },
       {
         heading: 'What to avoid on your first meal',
         paragraphs: [
-          'Skip fruit juice, smoothies with banana, bread, cereal, and large pasta portions. These spike insulin quickly after fasting and can undo the metabolic benefits you built.',
-          'Avoid alcohol for at least several hours after breaking a 24-hour fast. Your liver is still shifting back to normal processing.',
+          'There is no single food that “undoes” a fast. Large, rich meals or alcohol may worsen nausea or stomach discomfort for some people.',
+          'People with diabetes should follow their care plan for carbohydrate intake and glucose monitoring rather than relying on universal “spike” claims.',
         ],
       },
       {
         heading: 'When to get medical help',
         paragraphs: [
-          'Seek urgent care if you experience chest pain, severe confusion, fainting, or persistent vomiting when refeeding. Dr. Westman warns that refeeding syndrome — though more common beyond 48–72 hours — is serious and requires medical supervision.',
-          'If you take diabetes or blood pressure medication, work with your provider before attempting 24-hour fasts. Doses often need adjustment.',
+          'Seek urgent care for chest pain, severe confusion, fainting, or persistent vomiting. Refeeding syndrome is associated mainly with malnutrition and prolonged inadequate intake; this page cannot assess individual risk.',
+          'If you take diabetes or blood-pressure medication, ask your prescriber whether fasting is appropriate. Never change a dose on the basis of this guide.',
         ],
       },
       {
@@ -57,17 +137,17 @@ export const GUIDES: Guide[] = [
       {
         question: 'Can I break a 24-hour fast with fruit?',
         answer:
-          'Whole low-sugar berries in small amounts may work for some people on moderate low carb. For strict keto or insulin resistance, protein and fat first is safer — fruit can spike glucose after a fast.',
+          'Whole fruit can be part of a balanced meal. People who monitor glucose can follow their clinician’s advice and observe their own response.',
       },
       {
         question: 'How often should I do a 24-hour fast?',
         answer:
-          'Dr. Mindy Pelz suggests once weekly or every other week for many people. Post-menopausal women often have more flexibility than cycling women, who should align longer fasts with "power phases" of the menstrual cycle.',
+          'No schedule is appropriate for everyone, and evidence does not support branded menstrual-cycle “fasting phases” as medical consensus. Ask a clinician if fasting may affect a health condition, pregnancy, medication, or eating-disorder recovery.',
       },
       {
         question: 'Is coffee with cream okay to break a fast?',
         answer:
-          'Dr. Boz emphasizes that cream in coffee breaks the fasted metabolic state. Use black coffee during the fast; break with real food when you open your eating window.',
+          'Cream contains calories, so it does not meet a strict no-calorie definition. Whether that matters depends on the purpose of the fast.',
       },
     ],
   },
@@ -76,7 +156,7 @@ export const GUIDES: Guide[] = [
     category: 'fasting',
     title: '16:8 vs 18:6 Intermittent Fasting — Which Is Right for You?',
     description:
-      'Compare 16-hour and 18-hour intermittent fasting windows. Beginner-friendly guide with Dr. Mindy and Dr. Westman principles for low-carb eaters.',
+      'Compare 16-hour and 18-hour eating windows, the limits of current evidence, and situations that require clinical advice.',
     readMinutes: 9,
     toolPath: '/intermittent-fasting-timer',
     toolLabel: 'IF timer',
@@ -85,29 +165,29 @@ export const GUIDES: Guide[] = [
       {
         heading: 'What intermittent fasting actually means',
         paragraphs: [
-          'Intermittent fasting (IF) is not a diet — it is a schedule. You alternate a fasting window (water, plain tea, or assisted electrolytes) with an eating window where you eat normal low-carb meals.',
-          'Dr. Eric Westman points out that on a well-formulated ketogenic diet, hunger often drops within days, so many people naturally skip breakfast without forcing it. That is intermittent fasting emerging from reduced appetite, not willpower alone.',
+          'Intermittent fasting describes eating schedules that alternate periods of eating and not eating. Study protocols vary, so results from one schedule do not automatically apply to another.',
+          'Systematic reviews report that intermittent fasting can produce short-term weight loss, but it has not consistently outperformed continuous energy restriction and long-term evidence remains limited.',
         ],
       },
       {
         heading: '16:8 — the beginner standard',
         paragraphs: [
-          'Sixteen hours fasting, eight hours eating. Example: finish dinner at 7 PM, eat again at 11 AM. Dr. Mindy Pelz uses 13–16 hour fasts as the baseline for metabolic flexibility — accessible to nearly everyone.',
-          'Benefits: easier socially, fits most work schedules, enough time to shift toward fat burning (often by 12–14 hours). Good first step if you are new to fasting or managing insulin resistance cautiously.',
+          'A 16:8 schedule allows eating during an eight-hour period. Example: finish dinner at 7 PM and eat again at 11 AM.',
+          'It may fit some schedules, but it is not accessible or beneficial for everyone. Research does not establish a universal hour when “fat burning” meaningfully begins.',
         ],
       },
       {
         heading: '18:6 — a modest step up',
         paragraphs: [
-          'Eighteen hours fasting, six hours eating. You push closer to the 17-hour autophagy threshold Dr. Mindy discusses without committing to a full 24-hour fast.',
-          'Best for: people comfortable with 16:8 for several weeks, stable energy, and no signs of excessive stress (poor sleep, hair loss, anxiety). Cycling women should avoid pushing to 18:6 during ovulation (days 11–15) — keep to 15 hours max in that window.',
+          'An 18:6 schedule narrows eating to six hours. No validated 17-hour autophagy threshold exists for humans.',
+          'There is not enough evidence to prescribe fasting length by menstrual-cycle phase. Stop and seek advice if fasting contributes to dizziness, sleep disruption, menstrual changes, anxiety, or restrictive eating.',
         ],
       },
       {
         heading: 'OMAD and longer fasts — not step one',
         paragraphs: [
-          'One meal a day (OMAD) and fasts beyond 18 hours are advanced. Dr. Boz warns that people with severe insulin resistance may not be "healthy enough to fast" until they stabilize with low-carb eating first — glucose can stay elevated for days on extended fasts.',
-          'Build the habit: 16:8 for 2–4 weeks → try 18:6 → consider 24-hour gut resets occasionally. Use our fasting clock to track phases and break-fast guidance.',
+          'One-meal-a-day and longer fasts make it harder to meet energy and nutrient needs and may increase medication-related risks. They are not a required progression from shorter schedules.',
+          'Choose the least restrictive schedule that meets your goals, or do not fast. A timer records elapsed time; it does not determine safety or metabolic state.',
         ],
       },
       {
@@ -127,17 +207,17 @@ export const GUIDES: Guide[] = [
       {
         question: 'Will IF slow my metabolism?',
         answer:
-          'Short daily fasting windows (16–18 hours) do not cause the same metabolic slowdown as chronic severe calorie restriction for most people. If energy crashes, sleep suffers, or cycles become irregular, shorten your fast.',
+          'Long-term metabolic effects of specific daily fasting windows remain uncertain. If energy, sleep, menstrual cycles, or eating behavior worsen, stop and discuss the change with a clinician.',
       },
       {
         question: 'Can I drink coffee while fasting?',
         answer:
-          'Black coffee and plain tea are generally fine during IF. Cream, MCT oil, or sweeteners break the fast for metabolic purposes (Dr. Boz). Assisted fasting allows electrolytes and bouillon without calories.',
+          'Water is the simplest no-calorie option. Plain coffee and tea contain little energy; cream and oils contain calories. There is no universal definition of an “assisted fast.”',
       },
       {
         question: 'Should men and women fast the same way?',
         answer:
-          'Dr. Mindy emphasizes cycle-aware fasting for women. Men, governed primarily by testosterone pulses, can often vary fast length by goal (17h for autophagy, 36h for plateaus) without the same cycle constraints.',
+          'Evidence does not support universal fasting schedules by sex or menstrual-cycle phase. Pregnancy, breastfeeding, fertility treatment, menstrual changes, and a history of disordered eating warrant individualized advice.',
       },
     ],
   },
@@ -146,7 +226,7 @@ export const GUIDES: Guide[] = [
     category: 'fasting',
     title: 'Water Fast vs Assisted Fast — Electrolytes Explained',
     description:
-      'Strict water-only fasting vs assisted fasting with salt, bouillon, and electrolytes. Guidance from Dr. Westman and Dr. Boz for safe extended fasts.',
+      'Definitions, evidence limits, and electrolyte risks of water-only and supplement-supported fasting.',
     readMinutes: 9,
     toolPath: '/water-fast-timer',
     toolLabel: 'Water fast timer',
@@ -155,34 +235,34 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Water-only fasting',
         paragraphs: [
-          'Plain water only — no calories, no broth, no supplements with calories. Strictest form, often used for shorter fasts (16–24 hours) or by experienced fasters.',
-          'Risk: electrolyte loss. Dr. Eric Westman stresses that low-carb diets and fasting both increase sodium needs. Headaches, dizziness, and muscle cramps on water-only fasts often mean you need salt, not more willpower.',
+          'A water-only fast generally means consuming water and no calories. “Assisted fasting” is not a standardized medical term.',
+          'Headache, dizziness, weakness, palpitations, and cramps have many possible causes. They should not automatically be treated as sodium deficiency.',
         ],
       },
       {
         heading: 'Assisted fasting — what is allowed',
         paragraphs: [
-          'Assisted fasting adds non-caloric support: water, plain salt or electrolyte mixes without sugar, bouillon/bone broth (Dr. Westman recommends a cup daily for sodium), black coffee, and plain tea.',
-          'Dr. Boz is direct: "Salt + water are best" during fasts. This is not cheating — it prevents preventable side effects and helps you complete the fast safely.',
+          'Some people use “assisted fasting” to describe adding electrolytes, coffee, tea, or broth. Broth has calories, and products differ in sodium, potassium, magnesium, sweeteners, and medication interactions.',
+          'Electrolyte supplements do not make prolonged fasting inherently safe. Excess sodium, potassium, or magnesium can also cause harm.',
         ],
       },
       {
         heading: 'Which should you choose?',
         paragraphs: [
-          'For 16–18 hour IF: water alone may be fine if you salt food well when you eat. For 24 hours and beyond: assisted fasting is strongly recommended.',
+          'There is no authoritative one-size-fits-all electrolyte protocol by fast length. Prolonged fasting should not be self-managed with an internet dosing schedule.',
           'Our fasting clock lets you toggle modes and shows tailored hydration tips as your timer runs.',
         ],
         bullets: [
-          '16–18h IF, feel good → water or assisted both work',
-          '24h+ gut reset → assisted with bouillon',
-          '36–72h extended → assisted only for most people',
-          'History of kidney issues → ask your doctor before high sodium',
+          'For ordinary hydration, drink according to thirst unless a clinician has set a fluid target',
+          'Do not use electrolyte products to push through concerning symptoms',
+          'Avoid prolonged fasting without clinical guidance',
+          'Kidney, heart, blood-pressure, and endocrine conditions can change electrolyte safety',
         ],
       },
       {
         heading: 'Electrolyte strategy by fast type',
         paragraphs: [
-          'Water-only fasts beyond 24 hours need sodium, potassium, and magnesium planning — see [electrolytes during fasting](/guides/electrolytes-during-fasting). Assisted fasts with bouillon or bone broth are gentler for beginners.',
+          'Potassium and magnesium supplements can interact with medications and may be dangerous with impaired kidney function. See [electrolytes during fasting](/guides/electrolytes-during-fasting) for general safety information.',
           'Use the [water fast timer](/water-fast-timer) or [extended fasting clock](/extended-fasting-clock) depending on your protocol.',
         ],
       },
@@ -191,12 +271,12 @@ export const GUIDES: Guide[] = [
       {
         question: 'Does bouillon break a fast?',
         answer:
-          'Plain bouillon has minimal calories but provides critical sodium. Most low-carb clinicians treat it as compatible with fasting goals, especially beyond 16 hours. Strict water-only purists may disagree — choose based on your goals and how you feel.',
+          'Bouillon usually contains calories and sodium, so it is not water-only. Whether to use it is a dietary preference, not a medical definition of a successful fast.',
       },
       {
         question: 'What about electrolyte powders?',
         answer:
-          'Use sugar-free powders with sodium, potassium, and magnesium. Avoid gummy vitamins or products with maltodextrin or sugar.',
+          'Read the label and ask a clinician or pharmacist about supplements if you have kidney, heart, or blood-pressure conditions or take medicines that affect electrolytes.',
       },
     ],
   },
@@ -205,7 +285,7 @@ export const GUIDES: Guide[] = [
     category: 'insulin-resistance',
     title: 'Fasting With Insulin Resistance — When to Go Slow',
     description:
-      'Why extended fasting can fail with insulin resistance. Dr. Boz on glucose, ketones, and building metabolic readiness before long fasts.',
+      'Why insulin resistance and glucose-lowering medicines require caution with fasting and individualized clinical advice.',
     readMinutes: 10,
     toolPath: '/insulin-resistance-macro-calculator',
     toolLabel: 'IR macro calculator',
@@ -214,42 +294,42 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Insulin resistance changes the fasting equation',
         paragraphs: [
-          'With insulin resistance, your cells do not respond efficiently to insulin. Blood glucose stays elevated; fat stores stay locked. Dr. Boz describes patients who fast 48+ hours yet glucose remains in the hundreds — a sign the body is not yet burning fat effectively.',
-          'Research on prolonged fasting in severely obese patients showed glucose could stay elevated for days while ketones lagged — the body breaking down muscle instead of tapping fat. That is why "fast harder" is not always the answer.',
+          'With insulin resistance, muscle, fat, and liver cells do not respond to insulin as they should. Blood glucose tests—not appearance, symptoms, or a ketone ratio—are used to identify prediabetes and diabetes.',
+          'Fasting responses vary, and a high glucose reading during a fast is not enough to infer which tissue is supplying energy. Unexpected or persistent high readings need clinical evaluation.',
         ],
       },
       {
-        heading: 'The Dr. Boz approach: stabilize first',
+        heading: 'Why clinical context comes first',
         paragraphs: [
-          'Dr. Boz recommends delaying prolonged fasts until metabolism improves. Start with a low-carb, adequate-fat eating pattern. Track the Dr. Boz Ratio (glucose ÷ ketones) — aim below 80, ideally below 40, before pushing 24-hour+ fasts.',
-          'Dr. Eric Westman adds patience: blood sugar normalization on keto can take months, not days. Intermittent 16:8 while keeping carbs low is often more sustainable than jumping to multi-day water fasts.',
+          'No validated glucose-to-ketone target determines whether a person is “ready” to fast. A1C, fasting plasma glucose, medical history, nutrition status, and medicines are more relevant clinical information.',
+          'Lifestyle changes can help prevent or delay type 2 diabetes, but no single fasting or carbohydrate schedule is required.',
         ],
       },
       {
         heading: 'Signs you should not extend your fast',
         paragraphs: [
-          'Stop or shorten your fast and eat a proper low-carb meal if you notice persistent weakness, shakiness, heart palpitations, or fasting glucose staying above ~120 mg/dL after 24+ hours without ketones rising.',
-          'If you take metformin, insulin, sulfonylureas, or blood pressure medication, fasting requires medical supervision — doses may need lowering to prevent dangerous lows.',
+          'Stop fasting and follow your care plan if you develop weakness, shakiness, confusion, sweating, palpitations, or an out-of-range glucose reading. Seek urgent help for severe symptoms.',
+          'Insulin and medicines that stimulate insulin release can cause hypoglycemia when meals are skipped. Ask the prescriber before fasting and never adjust medication yourself.',
         ],
       },
       {
         heading: 'A practical progression',
         bullets: [
-          'Weeks 1–4: Low-carb meals, track net carbs (50g or less for IR).',
-          'Weeks 2–6: Natural 12–14 hour overnight fasts as hunger allows.',
-          'Weeks 4–8: 16:8 IF if Dr. Boz Ratio and energy improve.',
-          'Later: Occasional 24-hour gut resets — not weekly marathons until metrics support it.',
+          'Choose a sustainable, nutrient-dense eating pattern with your care team.',
+          'Use laboratory tests recommended by your clinician to monitor prediabetes or diabetes.',
+          'Discuss any meal-skipping schedule before starting if you take glucose-lowering medicine.',
+          'Longer fasting is optional and is not a treatment milestone.',
         ],
         paragraphs: [],
       },
       {
         heading: 'IR fasting safety checklist',
         bullets: [
-          'Check fasting glucose and symptoms daily when starting',
-          'Coordinate with your provider if on diabetes meds',
-          'Keep net carbs under personal tolerance — see [net carbs for IR](/guides/net-carbs-for-insulin-resistance)',
-          'Break fasts with protein-first meals, not juice',
-          'Monitor with [Dr. Boz ratio calculator](/dr-boz-ratio-calculator) if you track GKI',
+          'Use a meter or CGM only as directed and know your action thresholds',
+          'Coordinate with your prescriber before changing meal timing',
+          'Choose carbohydrate intake with a registered dietitian or clinician',
+          'Carry the fast-acting carbohydrate recommended in your hypoglycemia plan',
+          'Treat consumer glucose-to-ketone ratios as non-diagnostic',
         ],
         paragraphs: [],
       },
@@ -258,21 +338,21 @@ export const GUIDES: Guide[] = [
       {
         question: 'Why is my fasting glucose high on keto?',
         answer:
-          'Dawn phenomenon, stress hormones, and incomplete insulin sensitivity improvement can keep morning glucose elevated. It often improves over months. Persistent highs despite low carb warrant medical evaluation.',
+          'Morning glucose can be affected by hormones, sleep, illness, food, and medicines. Persistent out-of-range results warrant medical evaluation.',
       },
       {
         question: 'Can fasting cure insulin resistance?',
         answer:
-          'Fasting and low-carb eating can improve insulin sensitivity for many people, but this is not medical advice or a guarantee. Work with your healthcare team and monitor labs.',
+          'No. Insulin resistance has multiple causes. Evidence-based lifestyle and medical care can improve risk factors, but fasting is not a guaranteed cure.',
       },
     ],
   },
   {
     slug: 'dr-boz-ratio-explained',
     category: 'insulin-resistance',
-    title: 'Dr. Boz Ratio Explained — Calculator, Formula & Target Numbers',
+    title: 'Dr. Boz Ratio — Branded Calculator & Limitations',
     description:
-      'What is the Dr. Boz Ratio? Learn the glucose ÷ ketones formula, target numbers for weight loss and autophagy, and use our free Dr. Boz ratio calculator.',
+      'What this branded glucose-to-ketone ratio calculates, why its targets are not validated clinical cutoffs, and how to interpret it cautiously.',
     readMinutes: 9,
     toolPath: '/dr-boz-ratio-calculator',
     toolLabel: 'Dr. Boz ratio calculator',
@@ -281,14 +361,14 @@ export const GUIDES: Guide[] = [
       {
         heading: 'What is the Dr. Boz Ratio?',
         paragraphs: [
-          'The Dr. Boz Ratio (DBR) divides fasting blood glucose (mg/dL) by blood ketones (mmol/L). It is a single number that reflects whether you are primarily burning glucose or fat.',
-          'Dr. Annette Bosworth (Dr. Boz) uses it to help patients see insulin resistance in real time — especially when scale weight stalls but metabolic health is changing.',
+          'The “Dr. Boz Ratio” is a branded calculation that divides blood glucose in mg/dL by blood ketones in mmol/L. It is not a diagnostic test or medical-consensus measure of insulin resistance.',
+          'A ratio combines two readings but cannot show which fuel the whole body is “primarily burning,” diagnose disease, or substitute for A1C and glucose tests interpreted by a clinician.',
         ],
       },
       {
         heading: 'How to calculate it',
         paragraphs: [
-          'You need a meter that reads both glucose and ketones from a finger stick. Measure in a fasted state — morning before food is common.',
+          'The calculation requires glucose in mg/dL and beta-hydroxybutyrate in mmol/L measured at the same time. Home meters have limitations, and context affects both values.',
           'Formula: Dr. Boz Ratio = Glucose (mg/dL) ÷ Ketones (mmol/L). Example: 90 mg/dL ÷ 1.5 mmol/L = 60.',
           'Our fasting clock includes optional fields to track your ratio during active fasts.',
         ],
@@ -296,18 +376,18 @@ export const GUIDES: Guide[] = [
       {
         heading: 'How to interpret your number',
         bullets: [
-          'Above 80: Still glucose-dominant. Tighten carbs, consider longer overnight fasts, or improve fat intake quality.',
-          '40–80: Moderate ketosis. Good for general health and steady weight management.',
-          'Below 40: Deeper ketosis associated with autophagy and therapeutic benefits — approach gradually.',
+          'Published clinical guidelines do not validate 80 or 40 as treatment thresholds.',
+          'A lower value usually results from lower glucose, higher ketones, or both, but does not prove better health.',
+          'Do not use the ratio to justify prolonged fasting, medication changes, or claims about autophagy.',
         ],
         paragraphs: [
-          'Dr. Boz emphasizes: "Ketones rise first, glucose falls second." Do not expect instant ratio improvements on day one of low carb.',
+          'Unexpected glucose or ketone results should be assessed using your care plan, especially with diabetes, illness, pregnancy, or SGLT2-inhibitor use.',
         ],
       },
       {
         heading: 'Using the ratio in practice',
         paragraphs: [
-          'Measure fasting glucose (mg/dL) and blood ketones (mmol/L). Divide glucose by 18, then divide by ketones for the Dr. Boz ratio. Lower ratios generally indicate deeper metabolic flexibility.',
+          'This site’s calculator uses the branded formula directly: glucose (mg/dL) ÷ ketones (mmol/L). It does not convert glucose to mmol/L first. Some other tools divide glucose by 18 before dividing by ketones — that yields a different number; check which formula a tool uses.',
           'Enter values in our [Dr. Boz ratio calculator](/dr-boz-ratio-calculator). Pair with [net carb tracking](/net-carb-calculator) to see how meals move your numbers.',
         ],
       },
@@ -321,7 +401,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'What ratio should I target for weight loss?',
         answer:
-          'Many people aim to get consistently under 80. Below 40 is often associated with deeper fat burning — but individual targets vary. Discuss with your provider if you have diabetes.',
+          'There is no evidence-based target for weight loss. Do not change food, fasting, or medication to chase a ratio; discuss glucose or ketone monitoring with your clinician.',
       },
       {
         question: 'Where is the Dr. Boz ratio calculator?',
@@ -345,16 +425,16 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Net carbs vs total carbs',
         paragraphs: [
-          'On US nutrition labels: net carbs ≈ total carbohydrates minus dietary fiber minus sugar alcohols (often erythritol fully subtracted). This estimates carbs that more directly affect blood sugar.',
-          'Fiber-rich whole foods behave differently than refined carbs — but net carbs remain a useful daily budget for insulin resistance and keto-style plans.',
+          '“Net carbs” is not an FDA-defined label value. Commercial formulas commonly subtract fiber and selected sugar alcohols from total carbohydrate, but methods vary.',
+          'A net-carbohydrate estimate does not reliably predict an individual glucose response and is not the same as carbohydrate counting prescribed for diabetes care.',
         ],
       },
       {
         heading: 'Daily targets — three common tiers',
         bullets: [
-          'Strict keto: ~20g net carbs/day — Dr. Westman-style therapeutic ketosis for diabetes and obesity clinics.',
-          'Insulin resistance / metabolic health: ~50g net carbs/day — our default IR macro plan; balanced and sustainable.',
-          'Moderate low carb: ~100g net carbs/day — maintenance or gradual transition.',
+          'Very-low-carbohydrate plans are often described as fewer than about 50g total carbohydrate per day, but definitions vary.',
+          '“Low carbohydrate” has no single universal gram target.',
+          'Individual needs depend on total diet, activity, health conditions, medicines, preferences, and access to food.',
         ],
         paragraphs: [
           'Your provider may recommend different numbers based on medications, kidney health, and lab results. These tiers are starting points, not prescriptions.',
@@ -370,9 +450,9 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Daily net carb targets for IR',
         bullets: [
-          'Strict therapeutic: 20–30g net carbs/day',
-          'Moderate low carb: 50–75g net carbs/day',
-          'Maintenance after reversal: 75–100g — individual',
+          'Do not treat 20g, 50g, or 100g as universal treatment cutoffs',
+          'Prioritize overall nutrient quality and a sustainable pattern',
+          'Prediabetes risk can improve without claiming permanent “reversal”',
           'Use [net carb calculator](/net-carb-calculator) per meal',
           'Read labels — [nutrition label guide](/guides/how-to-read-nutrition-labels-net-carbs)',
         ],
@@ -385,12 +465,12 @@ export const GUIDES: Guide[] = [
       {
         question: 'Should I subtract all sugar alcohols?',
         answer:
-          'Erythritol is usually fully subtracted. Maltitol and others can still raise blood sugar — some people count half. Our calculator subtracts what you enter; adjust based on your response.',
+          'There is no FDA-standard subtraction rule for “net carbs.” Follow your clinician’s carbohydrate-counting method if you use insulin or other glucose-lowering medicine.',
       },
       {
         question: 'Is 50g net carbs low enough for insulin resistance?',
         answer:
-          'For many people, yes — combined with adequate protein and healthy fats. Some need stricter keto (20g); others improve at 100g. Track glucose response and work with your doctor.',
+          'There is no single effective number for everyone. A clinician or registered dietitian can help set a target that accounts for medicines, labs, nutrition, and preferences.',
       },
     ],
   },
@@ -409,27 +489,27 @@ export const GUIDES: Guide[] = [
       {
         heading: 'The break-fast formula',
         paragraphs: [
-          'Dr. Mindy Pelz: protein + healthy fat + fiber at your first meal. Dr. Westman: eat when hungry, stop when full — do not "make up" missed calories.',
-          'For 16:8 IF, a normal-sized lunch works. For 24-hour fasts, start smaller — half plate, then assess hunger in 30–60 minutes.',
+          'There is no medically established “best” first meal after a short fast. A balanced meal can include protein foods, vegetables or fruit, whole-food carbohydrates as appropriate, and unsaturated fats.',
+          'After a short daily fasting window, most healthy adults can eat a usual meal. After 24 hours, a smaller portion may be more comfortable for some people.',
         ],
       },
       {
         heading: 'Top recipe picks from our kitchen',
         paragraphs: [
-          'Each recipe below is linked from our collection with estimated net carbs. All fit strict keto or insulin resistance plans.',
+          'Each recipe below has an estimated net-carbohydrate value. Estimates do not determine whether a meal is appropriate for an individual medical condition.',
         ],
         bullets: [
           'Scrambled Eggs with Spinach (~2g net carbs) — classic, gentle, high protein.',
           'Egg Muffins (~2g) — prep ahead for busy break-fast mornings.',
           'Chicken Salad Lettuce Cups (~3g) — light after extended fasts.',
           'Taco Bowl No Tortilla (~8g) — satisfying after 16:8, skip if just finished 24h+.',
-          'Greek Yogurt with Berries (~6g) — moderate; best after shorter fasts, not first choice for strict IR.',
+          'Greek Yogurt with Berries (~6g) — check the label for added sugars and serving size.',
         ],
       },
       {
         heading: 'Match the meal to the fast length',
         paragraphs: [
-          'After 16–18 hours: any recipe above in a normal portion. After 24 hours: eggs, cottage cheese, or chicken salad first. After 36+ hours: follow our prolonged refeed steps in the fasting clock break-fast guide.',
+          'Tolerance and nutrition needs vary. Fasts longer than a day, repeated fasting, malnutrition risk, or concerning symptoms call for professional guidance rather than a website refeeding sequence.',
         ],
       },
       {
@@ -444,7 +524,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Can I break a fast with a protein shake?',
         answer:
-          'A clean whey or collagen shake without added sugar can work in a pinch. Whole food is preferred — chewing signals satiety and is gentler on digestion after longer fasts.',
+          'A shake can provide nutrients, but ingredients and individual tolerance vary. There is no universal evidence that a shake or whole food is safer after a short fast.',
       },
     ],
   },
@@ -463,20 +543,20 @@ export const GUIDES: Guide[] = [
         heading: 'Subcutaneous vs visceral fat',
         paragraphs: [
           'Subcutaneous fat sits under your skin — the fat you can pinch. Visceral fat wraps around organs in the abdomen (liver, pancreas, intestines). Visceral fat is more strongly linked to insulin resistance, elevated triglycerides, and metabolic syndrome.',
-          'Waist circumference often tracks visceral fat better than BMI alone. A larger waist with "normal" weight still carries metabolic risk.',
+          'Waist circumference and BMI are screening measures with limitations. A clinician can interpret them alongside blood pressure, laboratory results, history, and other risk factors.',
         ],
       },
       {
         heading: 'Why the scale is not the whole story',
         paragraphs: [
-          'Dr. Westman\'s clinic experience: improving blood sugar and reducing carb intake often improves metabolic markers before dramatic weight loss. Dr. Boz uses the Boz Ratio for the same reason — internal metabolism can shift while the scale stalls.',
-          'Intermittent fasting and low-carb eating both reduce insulin spikes, which helps the body access stored fat — including visceral depots — over time.',
+          'Waist circumference provides information that BMI alone does not, but neither measurement directly quantifies visceral fat. Imaging is used in research and selected clinical settings.',
+          'Dietary patterns and activity can change weight and cardiometabolic risk factors. No eating pattern can target fat loss from a specific body area.',
         ],
       },
       {
         heading: 'What you can do',
         bullets: [
-          'Track net carbs daily — start with 50g for insulin resistance.',
+          'If you track carbohydrates, choose a target with a clinician or registered dietitian.',
           'Prioritize protein at each meal to preserve muscle during fat loss.',
           'Add 16:8 IF once low-carb eating feels stable.',
           'Measure waist monthly, not just weight weekly.',
@@ -487,8 +567,8 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Measuring metabolic progress',
         paragraphs: [
-          'Waist circumference, fasting insulin, triglycerides, and liver enzymes often improve before scale weight drops. Use our [metabolic health calculator](/metabolic-health-calculator) for waist-to-height context.',
-          'Low carb plus [time-restricted eating](/guides/intermittent-fasting-16-8-vs-18-6) targets visceral fat preferentially in many studies — consistency beats extreme restriction.',
+          'Weight, waist circumference, blood pressure, glucose, lipids, and liver tests describe different aspects of health. Use our [metabolic health calculator](/metabolic-health-calculator) only for general context.',
+          'Some interventions reduce waist circumference or measured visceral fat, but evidence does not show that low carb plus [time-restricted eating](/guides/intermittent-fasting-16-8-vs-18-6) reliably targets visceral fat for every person.',
         ],
       },
     ],
@@ -501,7 +581,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Does fasting burn belly fat specifically?',
         answer:
-          'You cannot spot-reduce fat. Fasting lowers insulin and extends fat-burning windows, which may preferentially reduce visceral fat over time in some people — but diet consistency matters more than any single fast.',
+          'You cannot spot-reduce fat. Current evidence does not establish that fasting selectively burns belly or visceral fat.',
       },
     ],
   },
@@ -520,24 +600,24 @@ export const GUIDES: Guide[] = [
       {
         heading: 'What is fatty liver (NAFLD)?',
         paragraphs: [
-          'Non-alcoholic fatty liver disease means excess fat stored in liver cells — not from alcohol, but often from insulin resistance, excess fructose, and chronic calorie surplus. It is common in metabolic syndrome and type 2 diabetes.',
+          'Nonalcoholic fatty liver disease (also called metabolic dysfunction-associated steatotic liver disease in newer terminology) involves excess fat in the liver. Obesity, metabolic syndrome, and type 2 diabetes are important risk factors.',
           'Many people have no symptoms early on. Blood tests (ALT, AST, GGT) and imaging can detect it. This guide is educational only — diagnosis and treatment require a healthcare provider.',
         ],
       },
       {
         heading: 'Why low carb comes up in conversation',
         paragraphs: [
-          'The liver plays a central role in glucose and fat metabolism. When insulin is chronically elevated, the liver converts excess carbohydrate to fat (de novo lipogenesis). Reducing refined carbs and fructose lowers that signal.',
-          'Clinical research on ketogenic and low-carb diets shows improvements in liver fat markers for some patients with NAFLD — but study designs and populations vary. Dr. Westman\'s work at Duke focused on metabolic disease broadly, including fatty liver in obesity clinics.',
+          'The liver plays a central role in glucose and fat metabolism. Diet quality, energy intake, body weight, activity, medicines, and other conditions can all affect liver health.',
+          'Some dietary interventions improve liver-fat measures, but this does not make a ketogenic diet the standard treatment for every patient. NIDDK emphasizes clinician-guided weight management and diet changes.',
         ],
       },
       {
         heading: 'Practical steps (with your doctor)',
         bullets: [
           'Reduce sugar, soda, juice, and refined grains first.',
-          'Target net carbs appropriate for your plan (often 20–50g under medical supervision).',
+          'Choose an eating pattern and any carbohydrate target with your care team.',
           'Avoid aggressive extended fasting until liver and kidney function are evaluated.',
-          'Retest liver enzymes after 3–6 months of consistent change.',
+          'Follow the testing schedule recommended by your clinician.',
         ],
         paragraphs: [
           'Never stop medications or ignore elevated liver enzymes without medical guidance.',
@@ -547,9 +627,9 @@ export const GUIDES: Guide[] = [
         heading: 'Lifestyle stack for NAFLD',
         bullets: [
           'Cut refined carbs and fructose-heavy drinks first',
-          'Aim for 50g or fewer net carbs if tolerated',
+          'Do not assume a fixed net-carb target treats fatty liver',
           'Add walking after meals — independent of weight loss',
-          'Retest liver enzymes at 12 weeks with your doctor',
+          'Review liver tests and imaging on the schedule your doctor recommends',
           'See [getting started keto](/guides/getting-started-keto-low-carb) for food lists',
         ],
         paragraphs: [],
@@ -559,12 +639,12 @@ export const GUIDES: Guide[] = [
       {
         question: 'Is keto safe with fatty liver?',
         answer:
-          'Many clinicians use low-carb diets for NAFLD under supervision. If you have advanced liver disease or take multiple medications, you need personalized medical advice — not a website guide.',
+          'A lower-carbohydrate pattern may be one option, but safety and suitability depend on the full diet and medical context. Liver disease requires personalized care.',
       },
       {
         question: 'Does fasting help fatty liver?',
         answer:
-          'Some research suggests time-restricted eating may reduce liver fat. Extended fasts without medical clearance are not recommended if you have significant liver disease.',
+          'Evidence is not sufficient to prescribe fasting as fatty-liver treatment. Discuss meal timing with the clinician managing your liver health.',
       },
     ],
   },
@@ -584,7 +664,7 @@ export const GUIDES: Guide[] = [
         heading: 'Before you change anything',
         paragraphs: [
           'If you take diabetes, blood-pressure, or diuretic medication, talk with your clinician before starting a low-carb diet or fasting. Carbohydrate reduction can change glucose and blood pressure quickly. This guide is educational — not a prescription.',
-          'Decide your first target before day one: strict keto (~20g net carbs), insulin-resistance-friendly (~50g), or moderate low carb (~100g). You can tighten later. Jumping straight to 20g while travel-stressed and under-slept is how people quit in week one.',
+          'Decide what change is realistic before day one. “Keto” and “low carb” are defined differently across studies and programs; no fixed gram target is appropriate for everyone.',
         ],
       },
       {
@@ -593,7 +673,7 @@ export const GUIDES: Guide[] = [
           'Stop soda, juice, candy, and white bread',
           'Read labels — use our net carb calculator on packaged foods',
           'Eat protein + non-starchy vegetables at each meal',
-          'Drink water; add salt if you feel lightheaded (keto flu) — confirm with your clinician if you have blood-pressure issues',
+          'Drink normally; do not assume lightheadedness is caused by salt loss',
           'Cook from the [breakfast](/recipes/breakfast) and [dinner](/recipes/dinner) hubs so you are not improvising hungry',
         ],
         paragraphs: [
@@ -603,9 +683,9 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Week 2: set a daily net carb target',
         paragraphs: [
-          'Strict keto: ~20g net carbs. Insulin resistance: ~50g. Moderate low carb: ~100g. Use our [keto macro calculator](/keto-macro-calculator) or [insulin resistance macro calculator](/insulin-resistance-macro-calculator) to personalize calories and protein.',
-          'Dr. Eric Westman notes hunger often drops within days on low carb — many people naturally skip breakfast without forcing fasting. If hunger drops, you can experiment with a shorter eating window later — see [intermittent fasting 16:8 vs 18:6](/guides/intermittent-fasting-16-8-vs-18-6).',
-          'Expect keto flu symptoms (headache, fatigue, cramps) if electrolytes drop. Read [keto flu and electrolytes](/guides/keto-flu-and-electrolytes) before you blame “willpower.”',
+          'Calculators provide estimates, not personalized prescriptions. Use our [keto macro calculator](/keto-macro-calculator) only as an educational planning aid.',
+          'Appetite may increase or decrease after a diet change. Skipping breakfast is optional and should not be treated as proof of metabolic improvement.',
+          'Headache, fatigue, and cramps are nonspecific. Read [keto flu and electrolytes](/guides/keto-flu-and-electrolytes) for safety limits and seek care for severe or persistent symptoms.',
         ],
       },
       {
@@ -619,7 +699,7 @@ export const GUIDES: Guide[] = [
           'Read [Atkins phases](/guides/atkins-phases-explained) if using a phased approach',
         ],
         paragraphs: [
-          'If you have insulin resistance or PCOS, also read [net carbs for IR](/guides/net-carbs-for-insulin-resistance) and [PCOS and low carb](/guides/pcos-and-low-carb). Women may need a gentler fasting ramp — do not copy a 72-hour fast from social media in week one.',
+          'If you have insulin resistance or PCOS, also read [net carbs for IR](/guides/net-carbs-for-insulin-resistance) and [PCOS and low carb](/guides/pcos-and-low-carb). Avoid copying prolonged fasting plans from social media.',
         ],
       },
     ],
@@ -646,17 +726,17 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Why Atkins still uses phases',
         paragraphs: [
-          'Atkins is a ladder, not a permanent 20g carb sentence. Induction forces rapid fat adaptation; later phases add carbs back until you find a personal ceiling that keeps weight and energy stable. That structure is useful if strict keto forever feels socially or nutritionally too tight.',
+          'Atkins is a branded commercial diet that uses staged carbohydrate restriction and reintroduction. Its phase rules describe that program; they are not medical-consensus targets and do not prove “fat adaptation.”',
           'Phase 1 looks a lot like modern strict keto. The difference is intentional progression: you are expected to test higher carb levels once cravings and weight loss stabilize. Use the [Atkins macro calculator](/atkins-macro-calculator) for induction targets, then switch to the [low carb macro calculator](/low-carb-macro-calculator) as you leave Phase 1.',
         ],
       },
       {
         heading: 'The four phases at a glance',
         bullets: [
-          'Phase 1 (Induction): ~20g net carbs — foundation foods only (eggs, meat, leafy greens, oils, cheese in moderation)',
-          'Phase 2 (Ongoing Weight Loss): add ~5g net carbs per week from nuts, seeds, berries, more vegetables',
-          'Phase 3 (Pre-maintenance): widen further as you approach goal weight; slow the pace of loss',
-          'Phase 4 (Lifetime Maintenance): your personal carb tolerance — the highest net carbs that keep results',
+          'Phase 1 (“Induction”): the commercial program uses its most restrictive carbohydrate rules',
+          'Phase 2: the program gradually adds selected carbohydrate-containing foods',
+          'Phase 3: the program broadens food choices near a weight goal',
+          'Phase 4: the program describes an individualized maintenance pattern',
         ],
         paragraphs: [
           'Write down the phase and the current carb budget. Vague “I’m doing Atkins” without a number is how people stall or overshoot.',
@@ -665,7 +745,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'When to advance (and when to stay)',
         paragraphs: [
-          'Advance when hunger is manageable, energy is stable, and weight trend is still downward (or maintenance is holding). Stay or drop back a phase if cravings roar back, sleep collapses, or the scale jumps and stays up for two weeks.',
+          'Program materials define phase transitions, but there is no clinical rule that a short-term weight change or craving level proves a specific carbohydrate threshold.',
           'Medical context matters. If you take diabetes medication, any carb reintroduction can change glucose — coordinate with your clinician. For IR-focused carb ceilings, also read [net carbs for insulin resistance](/guides/net-carbs-for-insulin-resistance).',
         ],
       },
@@ -686,17 +766,17 @@ export const GUIDES: Guide[] = [
       {
         question: 'Can I stay on Phase 1 forever?',
         answer:
-          'Some people do for therapeutic reasons under medical care. Most advance to Phase 2 once cravings stabilize and weight loss is on track, then find a higher personal carb limit that still works.',
+          'Long-term severe restriction can make nutrient adequacy and adherence harder. Discuss the full dietary pattern with a registered dietitian or clinician.',
       },
       {
         question: 'Is Atkins the same as keto?',
         answer:
-          'Induction is very similar to strict keto (~20g net carbs). Atkins explicitly plans carb reintroduction; many keto approaches stay low indefinitely. Choose the structure you can follow for years, not weeks.',
+          'Both labels commonly describe carbohydrate restriction, but definitions vary. Atkins is a proprietary phased program; “keto” is a broader term.',
       },
       {
         question: 'What if I stall in Phase 2?',
         answer:
-          'Check portions of nuts and dairy first — easy to overeat. Confirm net carbs with labels, tighten back toward Phase 1 for 1–2 weeks, then re-expand more slowly.',
+          'Weight changes can reflect many factors. Review intake, activity, sleep, medicines, and expectations with a qualified professional instead of automatically intensifying restriction.',
       },
     ],
   },
@@ -705,7 +785,7 @@ export const GUIDES: Guide[] = [
     category: 'insulin-resistance',
     title: 'PCOS and Low Carb — What the Research Suggests',
     description:
-      'How insulin resistance links to PCOS symptoms, practical carb and protein starting points, cycle-aware fasting notes, and what low carb cannot replace.',
+      'How insulin resistance can relate to PCOS, what nutrition research can and cannot establish, and why care is individualized.',
     readMinutes: 12,
     toolPath: '/pcos-low-carb-calculator',
     toolLabel: 'PCOS calculator',
@@ -715,7 +795,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Insulin and PCOS — the connection people discuss',
         paragraphs: [
-          'Polycystic ovary syndrome often travels with insulin resistance. Higher insulin can push androgen symptoms (acne, unwanted hair growth, irregular cycles) and make fat loss harder even when calories look “fine.” That is why many clinicians discuss lower-carb eating as one lever among others — medication, sleep, strength training, and cycle tracking included.',
+          'Many people with PCOS also have insulin resistance, but PCOS has varied features and causes. Diet is one part of care and does not replace evaluation of irregular cycles, androgen-related symptoms, fertility goals, or metabolic risk.',
           'This guide is educational, not a treatment plan. PCOS phenotypes differ. What helps one person may be too aggressive for another, especially around fertility goals or disordered-eating history.',
         ],
       },
@@ -723,26 +803,26 @@ export const GUIDES: Guide[] = [
         heading: 'Practical nutrition starting points',
         bullets: [
           'Discuss targets with your OB/GYN or endocrinologist before large diet shifts',
-          'Many low-carb PCOS plans start around 50g net carbs — see the [PCOS low carb calculator](/pcos-low-carb-calculator)',
-          'Protein at every meal (roughly palm-sized) to blunt hunger and protect muscle',
+          'No universal net-carbohydrate target treats PCOS; treat the [PCOS calculator](/pcos-low-carb-calculator) as an educational estimate',
+          'Include varied protein foods as part of a nutritionally adequate pattern',
           'Build plates around eggs, fish, poultry, leafy greens, olive oil, and berries in moderation',
           'Track cycles, energy, waist, and labs — not scale weight alone',
         ],
         paragraphs: [
-          'Label literacy matters: sauces and “healthy” yogurts often hide the carbs that spike insulin. Practice with [how to read nutrition labels](/guides/how-to-read-nutrition-labels-net-carbs) and [net carbs for IR](/guides/net-carbs-for-insulin-resistance).',
+          'Label literacy can help compare added sugars, fiber, sodium, and serving sizes. Practice with [how to read nutrition labels](/guides/how-to-read-nutrition-labels-net-carbs).',
         ],
       },
       {
         heading: 'Fasting and the menstrual cycle',
         paragraphs: [
-          'Longer fasts are not mandatory for PCOS. If you use intermittent fasting, many women do better with shorter windows in the luteal phase and save 18–24 hour experiments for times of the cycle when energy is stronger — a theme Dr. Mindy Pelz emphasizes.',
-          'Start with 13–16 hour overnight fasts only after low-carb meals feel sustainable. Read [16:8 vs 18:6](/guides/intermittent-fasting-16-8-vs-18-6) before jumping to OMAD or multi-day fasts.',
+          'Longer fasts are not required for PCOS. Evidence does not establish special fasting windows for menstrual-cycle phases.',
+          'If meal timing worsens menstrual symptoms, fertility treatment, medication tolerance, or restrictive eating, stop and contact your care team.',
         ],
       },
       {
         heading: 'What to cook this week',
         paragraphs: [
-          'Protein-forward, low-spike meals beat perfect macros. Try [scrambled eggs with spinach](/recipes/scrambled-eggs-spinach), [sheet-pan chicken thighs with cabbage](/recipes/sheet-pan-chicken-thighs-cabbage), or a [salmon avocado bowl](/recipes/salmon-avocado-poke-bowl). Browse the [dinner hub](/recipes/dinner) when you need variety without cereal bowls.',
+          'Balanced meals can include protein foods, vegetables, whole-food carbohydrate sources, and unsaturated fats. Recipes are examples, not treatments.',
         ],
       },
       {
@@ -756,17 +836,17 @@ export const GUIDES: Guide[] = [
       {
         question: 'Will low carb regulate my period?',
         answer:
-          'Some women see improved cycle regularity as insulin improves. Others need additional treatment. Do not replace medical care with diet alone.',
+          'Cycle regularity can change for many reasons. Diet alone is not a reliable treatment or diagnostic test; discuss irregular or absent periods with a clinician.',
       },
       {
         question: 'Is keto better than moderate low carb for PCOS?',
         answer:
-          'Not always. Strict keto (~20g) can work for some; others do better near 50–75g with more vegetables and social flexibility. Choose the lowest carb level you can maintain while labs and symptoms trend the right way — with your clinician.',
+          'Research does not establish keto as universally superior to other sustainable eating patterns for PCOS. Choose a nutritionally adequate approach with your care team.',
       },
       {
         question: 'Should I do long fasts for PCOS?',
         answer:
-          'Usually not as a first tool. Stabilize meals and sleep first. Use shorter overnight fasts if helpful, and get medical clearance before 24h+ fasts — especially on glucose-lowering medication.',
+          'Long fasts are not a standard PCOS treatment. Ask your care team before fasting, especially during fertility treatment, pregnancy, or use of glucose-lowering medicine.',
       },
     ],
   },
@@ -784,19 +864,18 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Why medications change fasting risk',
         paragraphs: [
-          'Fasting lowers blood sugar and blood volume. That is useful metabolically — and dangerous when medications already push glucose or blood pressure down. Dr. Eric Westman warns that fasting while on insulin or sulfonylureas can cause severe hypoglycemia. Blood pressure drugs may need adjustment as sodium intake and weight change.',
-          'Never stop or reduce prescriptions on your own. Many low-carb clinics use supervised programs with explicit medication tapering plans. This page is a briefing so you know what to ask — not a protocol to self-run.',
+          'Skipping or delaying meals while continuing insulin or medicines that increase insulin release can raise hypoglycemia risk. Fluid intake and blood-pressure effects also vary by medicine and health condition.',
+          'Never stop, reduce, or reschedule a prescription on your own. This page helps identify questions for a prescriber; it is not a medication-adjustment protocol.',
         ],
       },
       {
         heading: 'Medication categories and relative risk',
         bullets: [
-          'Metformin: lower hypoglycemia risk alone — still discuss longer fasts with your prescriber',
-          'Sulfonylureas (e.g. glipizide, glyburide): high hypoglycemia risk — dose changes often required before fasting',
-          'Insulin: never attempt extended fasting without medical supervision and a monitoring plan',
-          'SGLT2 inhibitors: dehydration and ketoacidosis risk — provider guidance is essential',
-          'GLP-1 drugs: nausea and intake changes are common — coordinate any fasting experiments',
-          'Blood pressure meds: dizziness on standing can worsen as sodium and volume drop',
+          'Insulin and sulfonylureas can cause hypoglycemia when meals are skipped',
+          'Other diabetes medicines have different risks and combinations change the picture',
+          'SGLT2 inhibitors carry a ketoacidosis warning that can occur even without very high glucose',
+          'Blood-pressure medicines and diuretics can affect fluid balance and dizziness',
+          'A pharmacist or prescriber should review the exact medicine list before fasting',
         ],
         paragraphs: [
           'If you cannot name your medications and how they work, pause fasting plans until a pharmacist or clinician walks through them with you.',
@@ -805,11 +884,11 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Safer progression before long fasts',
         bullets: [
-          'Stabilize low-carb eating for several weeks first (a common Dr. Boz-style approach)',
-          'Start with 12–16 hour overnight windows — track how you feel, not just the clock',
-          'Monitor glucose if your doctor recommends meters or CGM',
-          'Use assisted fasting with sodium for anything near 24h+ only with clearance',
-          'Break the fast immediately if you are shaky, confused, sweating heavily, or severely hypoglycemic',
+          'Ask whether fasting is appropriate before changing meal timing',
+          'Agree on glucose checks and action thresholds when monitoring is prescribed',
+          'Know how to treat hypoglycemia using the plan from your care team',
+          'Do not add sodium or electrolyte supplements as a substitute for medication review',
+          'Stop fasting for shakiness, confusion, heavy sweating, fainting, or an out-of-range reading',
         ],
         paragraphs: [
           'Pair this with [fasting with insulin resistance](/guides/fasting-with-insulin-resistance) and [electrolytes during fasting](/guides/electrolytes-during-fasting). Track windows on the [fasting clock](/fasting-clock) only after your care team agrees on the plan.',
@@ -821,7 +900,7 @@ export const GUIDES: Guide[] = [
           'Which of my meds raise hypoglycemia risk during a fast?',
           'What glucose reading means I should eat immediately?',
           'Should I check ketones if I take an SGLT2 inhibitor?',
-          'How should BP meds change if I lose weight or increase sodium for electrolytes?',
+          'Could diet, fluid, or weight changes affect my blood-pressure treatment?',
         ],
         paragraphs: [
           'Bring a written plan: intended fast length, water-only vs assisted, and when you will stop. Vague “I might try fasting” is harder to supervise safely.',
@@ -837,7 +916,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Is 16:8 safe on diabetes medication?',
         answer:
-          'Sometimes — with approval and monitoring. It is still a medication-relevant change. Do not assume “everyone does IF” means it is safe for your prescription list.',
+          'Only your prescriber can assess this for your medicine list and health history. Ask for a monitoring and hypoglycemia plan before changing meal timing.',
       },
       {
         question: 'What if I feel hypoglycemic during a fast?',
@@ -851,7 +930,7 @@ export const GUIDES: Guide[] = [
     category: 'fasting',
     title: 'Electrolytes During Fasting — Sodium, Potassium & Magnesium',
     description:
-      'Prevent headaches and cramps during 16–72 hour fasts with sodium, potassium, and magnesium — Dr. Westman bouillon and Dr. Boz assisted-fasting notes.',
+      'What sodium, potassium, and magnesium do, why symptoms are nonspecific, and when supplements can be unsafe.',
     readMinutes: 11,
     toolPath: '/extended-fasting-clock',
     toolLabel: 'Extended fasting clock',
@@ -861,40 +940,40 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Why electrolytes drop when you fast',
         paragraphs: [
-          'When insulin falls during fasting or strict low carb, kidneys excrete more sodium. Water follows. The result can be headaches, lightheadedness, heart palpitations, or leg cramps — symptoms people often blame on “willpower failure” or “fasting not working.”',
-          'The same sodium shift shows up in the first week of keto (“keto flu”). Fixes overlap: see [keto flu and electrolytes](/guides/keto-flu-and-electrolytes). Fasting just compresses the timeline.',
+          'Fluid and electrolyte balance can change with food intake, sweating, vomiting, diarrhea, kidney function, medicines, and some eating patterns.',
+          'Headache, lightheadedness, palpitations, weakness, and cramps are nonspecific. They cannot be safely diagnosed as sodium, potassium, or magnesium deficiency from symptoms alone.',
         ],
       },
       {
-        heading: 'What clinicians commonly recommend',
+        heading: 'What general guidance can safely say',
         bullets: [
-          'Dr. Westman: bouillon or broth for sodium on assisted fasts',
-          'Dr. Boz: salt water, magnesium, and potassium as needed — avoid caloric broth if you insist on strict water-only',
-          'Plain water-only beyond ~24 hours raises electrolyte risk for many people — prefer assisted mode',
-          'Black coffee/tea are common on assisted plans; cream and sweeteners break a true fast',
+          'There is no standard “assisted fasting” electrolyte formula',
+          'Food-first nutrient intake is generally preferable when eating',
+          'Potassium supplements and salt substitutes can be dangerous with kidney disease or certain medicines',
+          'Magnesium supplements can cause adverse effects and interact with medicines',
         ],
         paragraphs: [
           'Choose a mode deliberately. Compare [water fast vs assisted fast](/guides/water-fast-vs-assisted-fast) before you start the [extended fasting clock](/extended-fasting-clock).',
         ],
       },
       {
-        heading: 'Practical daily targets (general adults)',
+        heading: 'Avoid one-size-fits-all supplement doses',
         bullets: [
-          'Sodium: often 2–3g/day on low carb; more may be needed on longer assisted fasts — follow clinician guidance',
-          'Potassium: food-first when eating; supplement only with medical advice (especially on BP meds or kidney disease)',
-          'Magnesium: 200–400mg glycinate at night often helps sleep and cramps for many people',
-          'Fluids: drink to thirst — chugging gallons of plain water without sodium can worsen cramps',
+          'Do not use a generic sodium target to self-treat dizziness or extend a fast',
+          'Get potassium from food when appropriate; ask before using supplements or potassium salt substitutes',
+          'Do not use a generic magnesium dose for cramps or sleep; supplement limits and interactions matter',
+          'Follow clinician-set fluid limits if you have kidney, heart, or endocrine conditions',
         ],
         paragraphs: [
           'If you take blood pressure medication, extra sodium and volume shifts are not DIY experiments. Ask before you double bouillon “because the internet said so.”',
         ],
       },
       {
-        heading: 'Symptom → fix map',
+        heading: 'How to respond to symptoms',
         bullets: [
-          'Headache / brain fog early in a fast: try sodium (salt water or bouillon on assisted plans)',
-          'Leg cramps at night: magnesium + review sodium; check potassium strategy with a clinician if persistent',
-          'Dizziness standing up: sit, hydrate with sodium, shorten the fast if it continues',
+          'Headache or brain fog: stop the fast if symptoms persist and consider medical advice',
+          'Persistent cramps: review possible causes with a clinician rather than guessing an electrolyte',
+          'Dizziness standing up: sit or lie down, avoid driving, and seek advice if it continues',
           'Severe chest pain, confusion, or fainting: stop fasting and seek urgent care',
         ],
         paragraphs: [
@@ -911,7 +990,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Does bone broth break a fast?',
         answer:
-          'Yes for a strict water-only fast — broth has calories and protein. On assisted plans, small amounts of bouillon are often used for sodium. Decide your rules before the clock starts.',
+          'Broth has calories and protein, so it is not water-only. Adding it does not make prolonged fasting medically safe.',
       },
       {
         question: 'How much salt is too much?',
@@ -935,7 +1014,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Why label literacy matters on low carb',
         paragraphs: [
-          'Most “low carb” mistakes happen in the grocery aisle, not the kitchen. A yogurt cup, salad dressing, or sausage link can look safe until you check serving size and added sugars. Learning three lines on a US Nutrition Facts panel — total carbohydrate, dietary fiber, and sugar alcohols — lets you estimate net carbs in under a minute.',
+          'Nutrition Facts labels help compare serving size, total carbohydrate, fiber, added sugars, sodium, and other nutrients. “Net carbs” is not an FDA-defined or required label value.',
           'Net carbs are not a FDA-required line. They are a shopper convention used on keto and low-carb plans. Different people treat maltitol, allulose, and soluble corn fiber differently. When a product is unclear, be conservative: count more carbs rather than fewer, especially if you have diabetes or take glucose-lowering medication.',
         ],
       },
@@ -944,19 +1023,19 @@ export const GUIDES: Guide[] = [
         bullets: [
           'Serving size — the math only works if you eat that amount',
           'Total Carbohydrate (top carbohydrate line)',
-          'Dietary Fiber (indented below — usually subtract fully on US labels)',
-          'Sugar Alcohols (if listed — erythritol often subtracted fully; maltitol often partially counted)',
+          'Dietary Fiber (indented below and included within Total Carbohydrate)',
+          'Sugar Alcohols (if listed; the FDA does not define a standard “net carb” subtraction)',
           'Total Sugars / Added Sugars — context for how “sweet” the product is',
         ],
         paragraphs: [
-          'Standard estimate: net carbs ≈ total carbs − fiber − sugar alcohols (with judgment on which sugar alcohols you fully subtract). Enter the numbers in our [net carb calculator](/net-carb-calculator) so you are not doing mental math with a cart behind you.',
+          'A common commercial estimate is total carbohydrate minus fiber and some sugar alcohols, but methods differ and the FDA does not define a standard “net carb” formula.',
         ],
       },
       {
         heading: 'Label math worked example',
         paragraphs: [
           'Example: Total carbs 15g, fiber 8g, erythritol 4g → net carbs ≈ 3g on most keto plans. If you eat two servings, double everything before you celebrate.',
-          'Example with a trap: a “keto” bar lists 20g total carbs, 10g fiber, 8g maltitol. Some people count maltitol at half impact (~4g), so estimated net might be closer to 6g than 2g. If your glucose monitor reacts, trust the meter over the marketing.',
+          'Example: if a product lists 20g total carbohydrate, 10g fiber, and 8g maltitol, different commercial formulas will produce different “net” values. Use total carbohydrate if your care plan requires it.',
           'For daily budgets with insulin resistance, see [net carbs for IR](/guides/net-carbs-for-insulin-resistance). Then pick a meal from our [under 10g recipes](/recipes/under-10g-net-carbs) so the label math turns into dinner.',
         ],
       },
@@ -969,7 +1048,7 @@ export const GUIDES: Guide[] = [
           'Weigh nuts and cheese once at home so portions stay honest',
         ],
         paragraphs: [
-          'If you are just starting, spend one shopping trip only on label practice: pick five packaged foods you already buy and run each through the calculator. That single habit prevents weeks of accidental carb creep.',
+          'For label practice, compare a few packaged foods you already buy. Use the calculator as an estimate and consider the full Nutrition Facts panel.',
         ],
       },
     ],
@@ -977,12 +1056,12 @@ export const GUIDES: Guide[] = [
       {
         question: 'Do I subtract all fiber?',
         answer:
-          'On US labels, dietary fiber is usually subtracted from total carbs for net carb counting on keto plans. Some people still notice glucose effects from certain fibers — use a meter if you need precision.',
+          'FDA total carbohydrate already includes dietary fiber. Some low-carb programs subtract fiber to create a nonstandard “net” estimate; follow your clinician’s method if carbohydrate counting is part of diabetes care.',
       },
       {
         question: 'What about allulose?',
         answer:
-          'Allulose is often listed under sugars or separately and is commonly treated as contributing few net carbs. Confirm how it appears on your specific label and how your clinician wants you to count it.',
+          'Check how allulose appears on the specific label. If carbohydrate counting affects medication dosing, use the method provided by your care team.',
       },
       {
         question: 'Are Canadian or EU labels the same?',
@@ -1006,18 +1085,17 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Why protein matters when carbs drop',
         paragraphs: [
-          'Carb restriction lowers insulin, but protein is what preserves muscle during weight loss and keeps meals satisfying. Too little protein on an aggressive deficit costs lean mass; chasing extremely high protein is rarely required for most people who are not athletes.',
-          'Our [keto macro calculator](/keto-macro-calculator) defaults to about 0.8g protein per pound of body weight — a common starting point in many low-carb programs. Use the [weight-loss macro calculator](/weight-loss-macro-calculator) if you also want a calorie deficit layered on top.',
+          'Protein supplies amino acids and supports muscle and other tissues. Needs vary with age, body size, activity, pregnancy, illness, kidney function, and overall energy intake.',
+          'Calculator output is an estimate, not a dietary reference intake or clinical prescription. A registered dietitian can assess individual needs.',
         ],
       },
       {
         heading: 'Starting targets by situation',
         bullets: [
-          'General low carb / keto: ~0.7–0.9g per pound of body weight (or goal weight if obese — ask your clinician)',
-          'Resistance training: stay toward the upper end',
-          'Sedentary fat loss: moderate protein is often enough if meals are consistent',
-          'Older adults: slightly higher protein often helps preserve muscle',
-          'Kidney disease: your medical team sets limits — do not self-prescribe high protein',
+          'Use established dietary reference guidance as a baseline, then individualize when appropriate',
+          'Training, recovery, age, and energy intake can change needs',
+          'Pregnancy, illness, and recovery may require professional assessment',
+          'Kidney or liver disease requires individualized advice',
         ],
         paragraphs: [
           'Re-run macros when weight drops 10–15 lbs. Absolute protein grams can scale with current (or target) body weight so you are not stuck on day-one numbers forever.',
@@ -1026,14 +1104,14 @@ export const GUIDES: Guide[] = [
       {
         heading: 'What a protein-forward day looks like',
         paragraphs: [
-          'Think meals, not shakes by default: eggs at breakfast, fish or chicken at lunch, a palm of meat or cottage cheese at dinner. Browse [breakfast recipes](/recipes/breakfast) and [dinner recipes](/recipes/dinner) for plates that already lean protein-first.',
+          'Protein can come from eggs, fish, poultry, dairy, legumes, tofu, nuts, seeds, and other foods. Browse [breakfast recipes](/recipes/breakfast) and [dinner recipes](/recipes/dinner) for examples.',
           'Packaged “protein bars” can hide maltitol and fiber tricks. Verify with the [net carb calculator](/net-carb-calculator) before they become a daily habit.',
         ],
       },
       {
         heading: 'Protein, ketosis, and fasting',
         paragraphs: [
-          'For most people, moderate protein does not block ketosis the way dietary carbs do. If you are experimenting clinically, measure — do not guess from social media anecdotes.',
+          'Protein intake can influence metabolism, but there is no universal gram amount that guarantees or prevents ketosis.',
           'Protein breaks a true fast. During the eating window, prioritize it; during the fast, stick to your water or assisted rules. See [best first meal after fasting](/guides/best-first-meal-after-fasting) for refeed composition.',
         ],
       },
@@ -1042,7 +1120,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Can too much protein kick me out of ketosis?',
         answer:
-          'For most people, moderate protein does not prevent ketosis the way carbs do. Individual response varies — track ketones if you are experimenting, not guessing.',
+          'There is no universal protein cutoff that determines ketosis. Medical ketogenic diets require specialist supervision.',
       },
       {
         question: 'Should I eat protein during a fast?',
@@ -1061,7 +1139,7 @@ export const GUIDES: Guide[] = [
     category: 'metabolic-health',
     title: 'Keto Flu — Symptoms, Electrolytes & Fixes',
     description:
-      'Why headaches and fatigue happen in the first week of low carb, which electrolytes to replenish, day-by-day expectations, and when symptoms need medical attention.',
+      'Why “keto flu” is not a diagnosis, why symptoms should not be assumed to be electrolyte loss, and when to seek care.',
     readMinutes: 10,
     toolPath: '/keto-macro-calculator',
     toolLabel: 'Keto macro calculator',
@@ -1070,18 +1148,18 @@ export const GUIDES: Guide[] = [
       {
         heading: 'What “keto flu” usually is',
         paragraphs: [
-          'The first 3–7 days of strict low carb often bring headaches, fatigue, irritability, and muscle cramps. Much of this is a sodium and water shift — insulin drops, kidneys excrete sodium, and blood volume dips. It is not a virus and it is not proof the diet “isn’t for you.”',
-          'Most people improve with electrolytes, sleep, and consistent low-carb meals — not by bouncing back to sugar. Pair this guide with [getting started keto](/guides/getting-started-keto-low-carb) so the first two weeks have a plan.',
+          '“Keto flu” is an informal label, not a diagnosis. Headache, fatigue, nausea, dizziness, irritability, and cramps after a diet change have many possible causes.',
+          'Do not assume symptoms prove an electrolyte deficit or that they must be endured. Severe, persistent, or worsening symptoms need medical assessment.',
         ],
       },
       {
-        heading: 'Electrolyte fixes that help',
+        heading: 'Safer responses to symptoms',
         bullets: [
-          'Sodium: bouillon, pickle juice, or salt on food — especially if dizzy standing up',
-          'Potassium: leafy greens and avocado first; supplements only if a provider approves',
-          'Magnesium: glycinate or citrate at night for cramps and sleep',
-          'Water: drink to thirst — plain water without sodium can worsen cramps',
-          'Protein: do not under-eat protein while carbs crash — see [protein on keto](/guides/protein-on-keto-and-low-carb)',
+          'Pause the dietary change if you feel unwell',
+          'Eat regular, nutritionally adequate meals and drink normally',
+          'Do not self-treat dizziness with salt or potassium',
+          'Ask a clinician or pharmacist before using electrolyte supplements',
+          'Seek urgent care for chest pain, fainting, severe confusion, or breathing difficulty',
         ],
         paragraphs: [
           'Fasters use the same toolkit — [electrolytes during fasting](/guides/electrolytes-during-fasting) covers assisted vs water-only details.',
@@ -1090,12 +1168,12 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Day-by-day expectations',
         bullets: [
-          'Days 1–2: carb withdrawal and salt loss feel loud — keep meals simple and salty',
-          'Days 3–5: energy often dips then stabilizes if electrolytes are on point',
-          'Days 6–14: hunger usually falls; refine macros with the [keto macro calculator](/keto-macro-calculator)',
+          'There is no reliable day-by-day symptom schedule',
+          'Symptoms that persist should not be normalized as adaptation',
+          'A [macro calculator](/keto-macro-calculator) cannot identify the cause of symptoms',
         ],
         paragraphs: [
-          'If you take blood pressure medication, tell your clinician you are changing sodium and carbs — doses sometimes need adjustment as volume changes.',
+          'If you take blood-pressure medication, tell your prescriber before making a major diet or sodium change. Do not alter the medicine yourself.',
         ],
       },
     ],
@@ -1103,17 +1181,17 @@ export const GUIDES: Guide[] = [
       {
         question: 'How long does keto flu last?',
         answer:
-          'Most people feel better within a week if electrolytes are addressed. Persistent severe symptoms warrant talking to a clinician — especially on blood pressure medication.',
+          'There is no guaranteed duration. Seek medical advice for persistent or severe symptoms, especially with diabetes, kidney disease, pregnancy, or blood-pressure treatment.',
       },
       {
         question: 'Should I quit keto if I feel awful day two?',
         answer:
-          'Try sodium and magnesium first. If symptoms are severe, chest pain, or confusion — seek medical care immediately, not internet advice.',
+          'Do not guess at an electrolyte treatment. Stop the diet change and seek prompt care for severe symptoms, chest pain, fainting, or confusion.',
       },
       {
         question: 'Does “dirty keto” prevent keto flu?',
         answer:
-          'No. Electrolyte shifts happen from low insulin, not from whether your cheese is artisanal. Whole foods help long-term health; salt and magnesium fix most early flu symptoms.',
+          'No dietary marketing label prevents nonspecific symptoms. Food quality matters, but salt or magnesium should not be presented as a universal fix.',
       },
     ],
   },
@@ -1131,7 +1209,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Track long enough to learn, not forever',
         paragraphs: [
-          'Two to four weeks of logging teaches portion sizes and the hidden carbs in sauces, drinks, and “healthy” snacks. The goal is pattern recognition — not a lifetime of barcode scanning at every meal.',
+          'Short-term logging can help some people learn portions and label information, but there is no required duration and tracking can be harmful for people prone to disordered eating.',
           'Set initial targets with a calculator — [keto](/keto-macro-calculator), [low carb](/low-carb-macro-calculator), or [insulin resistance macros](/insulin-resistance-macro-calculator) — then adjust from energy, hunger, waist, and labs with your provider.',
         ],
       },
@@ -1175,16 +1253,21 @@ export const GUIDES: Guide[] = [
       {
         question: 'What if tracking increases anxiety?',
         answer:
-          'Stop counting and work with a dietitian on hunger-fullness cues. Low carb should reduce obsession for many people — if it increases it, change approach.',
+          'Stop counting if it raises anxiety or compulsive behavior, and consider support from a registered dietitian or mental-health professional experienced in eating concerns.',
       },
       {
         question: 'Should I track on maintenance forever?',
         answer:
-          'Usually no. Spot-check for a few days after holidays or travel. Continuous logging is a teaching tool, not a personality trait.',
+          'There is no requirement to track indefinitely. Use the least intensive method that supports health without anxiety or compulsive behavior.',
       },
     ],
   },
 ];
+
+export const GUIDES: Guide[] = GUIDE_DRAFTS.map((guide) => ({
+  ...guide,
+  sources: sourcesForGuide(guide.slug),
+}));
 
 export function getGuideBySlug(slug: string): Guide | undefined {
   return GUIDES.find((g) => g.slug === slug);

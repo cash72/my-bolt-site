@@ -6,6 +6,12 @@ export interface GuideSection {
   bullets?: string[];
 }
 
+export interface GuideSource {
+  title: string;
+  publisher: string;
+  url: string;
+}
+
 export interface Guide {
   slug: string;
   category: GuideCategory;
@@ -14,6 +20,7 @@ export interface Guide {
   readMinutes: number;
   sections: GuideSection[];
   faqs: { question: string; answer: string }[];
+  sources: GuideSource[];
   /** Primary tool to promote */
   toolPath?: string;
   toolLabel?: string;

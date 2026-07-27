@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
@@ -11,7 +10,10 @@ import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { GuideCard } from '../components/GuideCard';
 import { breadcrumbSchema, pageUrl } from '../lib/schema/jsonLd';
 import { renderEditorialText } from '../lib/renderEditorialText';
-import { SITE_CONTENT_UPDATED, SITE_NAME, SITE_URL } from '../lib/site';
+import { SITE_NAME, SITE_URL } from '../lib/site';
+
+const GUIDE_DATE_PUBLISHED = '2026-07-12';
+const GUIDE_DATE_MODIFIED = '2026-07-26';
 
 export default function GuidePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -35,57 +37,41 @@ export default function GuidePage() {
       : null
   );
 
-  useEffect(() => {
-    if (!guide) return;
+  useJsonLd(
+    'guide-faq-schema',
+    guide
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: guide.faqs.map((faq) => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+          })),
+        }
+      : null
+  );
 
-    const faqScriptId = 'guide-faq-schema';
-    let faqScript = document.getElementById(faqScriptId) as HTMLScriptElement | null;
-    if (!faqScript) {
-      faqScript = document.createElement('script');
-      faqScript.id = faqScriptId;
-      faqScript.type = 'application/ld+json';
-      document.head.appendChild(faqScript);
-    }
-
-    faqScript.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: guide.faqs.map((faq) => ({
-        '@type': 'Question',
-        name: faq.question,
-        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-      })),
-    });
-
-    const articleScriptId = 'guide-article-schema';
-    let articleScript = document.getElementById(articleScriptId) as HTMLScriptElement | null;
-    if (!articleScript) {
-      articleScript = document.createElement('script');
-      articleScript.id = articleScriptId;
-      articleScript.type = 'application/ld+json';
-      document.head.appendChild(articleScript);
-    }
-
-    articleScript.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: guide.title,
-      description: guide.description,
-      datePublished: SITE_CONTENT_UPDATED,
-      dateModified: SITE_CONTENT_UPDATED,
-      image: [getGuideImageUrl(guide)],
-      url: pageUrl(`/guides/${guide.slug}`),
-      mainEntityOfPage: pageUrl(`/guides/${guide.slug}`),
-      author: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_URL}/` },
-      publisher: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_URL}/` },
-      articleSection: GUIDE_CATEGORY_LABEL[guide.category],
-    });
-
-    return () => {
-      document.getElementById(faqScriptId)?.remove();
-      document.getElementById(articleScriptId)?.remove();
-    };
-  }, [guide]);
+  useJsonLd(
+    'guide-article-schema',
+    guide
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: guide.title,
+          description: guide.description,
+          datePublished: GUIDE_DATE_PUBLISHED,
+          dateModified: GUIDE_DATE_MODIFIED,
+          image: [getGuideImageUrl(guide)],
+          url: pageUrl(`/guides/${guide.slug}`),
+          mainEntityOfPage: pageUrl(`/guides/${guide.slug}`),
+          author: { '@type': 'Organization', name: 'Metabolic Low Carb Editorial Team', url: `${SITE_URL}/` },
+          publisher: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_URL}/` },
+          articleSection: GUIDE_CATEGORY_LABEL[guide.category],
+          citation: guide.sources.map((source) => source.url),
+        }
+      : null
+  );
 
   if (!guide) {
     return <Navigate to="/guides" replace />;
@@ -127,6 +113,15 @@ export default function GuidePage() {
         {GUIDE_CATEGORY_LABEL[guide.category]} · {guide.readMinutes} min read
       </p>
       <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3">{guide.title}</h1>
+      <div className="text-sm text-slate-600 dark:text-slate-400 mb-4 space-y-1">
+        <p>By Metabolic Low Carb Editorial Team</p>
+        <p>
+          Editorially updated July 26, 2026 ·{' '}
+          <Link to="/editorial-policy" className="text-teal-600 dark:text-teal-400 hover:underline">
+            Not medically reviewed
+          </Link>
+        </p>
+      </div>
       <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">{guide.description}</p>
 
       {guide.toolPath && guide.toolLabel && (
@@ -182,6 +177,31 @@ export default function GuidePage() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="mb-8" aria-labelledby="guide-sources">
+        <h2 id="guide-sources" className="text-lg font-semibold mb-3">
+          Sources and further reading
+        </h2>
+        <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 leading-relaxed">
+          These sources support general education about the topics discussed. They do not establish an individual
+          diagnosis or treatment plan.
+        </p>
+        <ul className="list-disc pl-5 space-y-2">
+          {guide.sources.map((source) => (
+            <li key={source.url} className="text-sm text-slate-700 dark:text-slate-300">
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-teal-600 dark:text-teal-400 hover:underline"
+              >
+                {source.title}
+              </a>{' '}
+              <span className="text-slate-500 dark:text-slate-400">— {source.publisher}</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {relatedRecipes.length > 0 && (

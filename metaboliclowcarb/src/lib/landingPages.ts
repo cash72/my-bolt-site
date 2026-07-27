@@ -211,25 +211,25 @@ export const LANDING_PAGES: LandingPage[] = [
     title: 'Fasting Clock — Intermittent & Extended Fast Timer',
     h1: 'Fasting Clock',
     description:
-      'Free fasting timer for water-only and assisted fasts. Track 16–72 hour fasts with guidance from Dr. Mindy Pelz, Dr. Eric Westman, and Dr. Boz.',
+      'Free fasting timer for water-only and assisted fasts. Track 16–72 hour fasts with educational stage labels and safety reminders.',
     breadcrumbLabel: 'Fasting clock',
     intro:
-      'Start your fast and watch metabolic phases unfold — from fat burning at 12h to autophagy at 17h, gut reset at 24h, and extended resets up to 72h. Personalized for keto, insulin resistance, and cycle-aware fasting.',
+      'Start your fast and track elapsed time against educational stage windows — commonly cited metabolic-shift, extended-IF, and multi-day ranges. Labels mark clock time only; they do not prove biological processes occurred.',
     faqs: [
       {
         question: 'What is assisted fasting vs water-only?',
         answer:
-          'Water-only means plain water — strictest, best for shorter fasts. Assisted adds electrolytes, bouillon/broth for sodium (Dr. Westman), and black coffee or tea without calories (Dr. Boz). Both avoid food and caloric drinks.',
+          'Water-only means plain water — strictest, best for shorter fasts. Assisted adds zero-calorie electrolytes, bouillon/broth, and black coffee or tea without calories. Both avoid caloric food and drinks.',
       },
       {
         question: 'When does autophagy start?',
         answer:
-          'Dr. Mindy Pelz cites research showing autophagy increases around 17 hours without food. A 24-hour fast is her recommended "gut reset" for weekly use.',
+          'Human autophagy timing is uncertain and cannot be measured at home. Some research discusses cellular cleanup after many hours without food, but a timer cannot confirm it. See our guides for limitations.',
       },
       {
         question: 'Is extended fasting safe?',
         answer:
-          'Dr. Westman cautions that fasts beyond 24 hours carry electrolyte and refeeding risks — especially on diabetes or blood pressure medications. Dr. Boz adds that severe insulin resistance may require stabilizing with low-carb eating before longer fasts. Always consult your doctor.',
+          'Fasts beyond 24 hours carry electrolyte and refeeding risks — especially on diabetes or blood pressure medications. Always consult your doctor before extended fasting. Do not adjust medication on your own.',
       },
     ],
     relatedGuideSlugs: ['how-to-break-a-24-hour-fast', 'intermittent-fasting-16-8-vs-18-6', 'electrolytes-during-fasting'],
@@ -243,25 +243,25 @@ export const LANDING_PAGES: LandingPage[] = [
     title: 'Intermittent Fasting Timer — 16:8 & 18:6 Clock',
     h1: 'Intermittent Fasting Timer',
     description:
-      'Track 16-hour and 18-hour intermittent fasts with metabolic phase guidance. Keto-friendly IF timer with Dr. Westman and Dr. Mindy Pelz principles.',
+      'Track 16-hour and 18-hour intermittent fasts with educational stage labels. Keto-friendly IF timer for time-restricted eating.',
     breadcrumbLabel: 'IF timer',
     intro:
-      'Classic 16:8 or 18:6 intermittent fasting made simple. See when you enter fat-burning (12h+) and approach the autophagy threshold at 17 hours.',
+      'Classic 16:8 or 18:6 intermittent fasting made simple. Stage labels mark educational time windows — not proof of fat burning or autophagy.',
     faqs: [
       {
         question: 'What is 16:8 fasting?',
         answer:
-          'You fast for 16 hours and eat within an 8-hour window. Dr. Mindy Pelz uses 13–16 hour fasts as the baseline entry point for metabolic flexibility.',
+          'You fast for 16 hours and eat within an 8-hour window. Many people start with 13–16 hour overnight fasts as an entry point for time-restricted eating.',
       },
       {
         question: 'Does keto make fasting easier?',
         answer:
-          'Dr. Eric Westman notes that when carbs stay low, hunger drops within days and many people naturally skip meals — intermittent fasting follows without forcing it.',
+          'When carbs stay lower, hunger often drops within days and many people naturally skip meals — intermittent fasting can follow without forcing it.',
       },
       {
         question: 'Can women do 16:8 every day?',
         answer:
-          'Dr. Mindy recommends shorter fasts (13–15h) during ovulation (days 11–15) and avoiding extended fasts before your period. Power phases support longer windows.',
+          'Evidence does not support universal fasting schedules by sex or menstrual-cycle phase. Stop and seek advice if fasting contributes to dizziness, sleep disruption, menstrual changes, or restrictive eating.',
       },
     ],
     relatedGuideSlugs: ['intermittent-fasting-16-8-vs-18-6', 'fasting-with-insulin-resistance'],
@@ -275,25 +275,25 @@ export const LANDING_PAGES: LandingPage[] = [
     title: 'Extended Fasting Clock — 24 to 72 Hour Fast Timer',
     h1: 'Extended Fasting Clock',
     description:
-      'Track 24, 36, 48, and 72 hour water and assisted fasts. Electrolyte guidance, Dr. Boz ratio tracking, and safety alerts for extended fasting.',
+      'Track 24, 36, 48, and 72 hour water and assisted fasts. Optional Dr. Boz ratio tracking and safety alerts for extended fasting.',
     breadcrumbLabel: 'Extended fasting',
     intro:
-      'For gut-reset (24h), fat-burner (36h), and multi-day metabolic resets. Assisted mode includes bouillon, salt, and electrolytes per Dr. Westman and Dr. Boz.',
+      'For advanced 24–72 hour fasts after you have a safety plan and medical clearance when needed. Assisted mode allows bouillon and zero-calorie electrolytes.',
     faqs: [
       {
         question: 'How often should I do a 24-hour fast?',
         answer:
-          'Dr. Mindy Pelz suggests once weekly or every other week for metabolic flexibility. Quarterly 24–36 hour fasts can provide deeper cellular clean-out.',
+          'Frequency depends on health status, medications, and goals. There is no validated schedule for everyone. Discuss extended fasting with your clinician before making it routine.',
       },
       {
         question: 'What is the Dr. Boz Ratio during a fast?',
         answer:
-          'Divide fasting glucose (mg/dL) by blood ketones (mmol/L). Above 80 = glucose-dominant; 40–80 = moderate ketosis; under 40 = deeper therapeutic ketosis and autophagy-friendly metabolism.',
+          'Divide fasting glucose (mg/dL) by blood ketones (mmol/L). Branded materials sometimes cite bands above 80, 40–80, and below 40 — these are not validated clinical cutoffs or treatment targets.',
       },
       {
         question: 'Why use assisted instead of water-only for long fasts?',
         answer:
-          'Dr. Westman and Dr. Boz emphasize sodium and electrolytes during extended fasts. Bouillon, salt water, and magnesium help prevent headaches, cramps, and refeeding complications.',
+          'Assisted mode allows bouillon and zero-calorie electrolytes, which many people find easier to tolerate. Read our electrolytes-during-fasting guide and get medical clearance before extended fasts.',
       },
     ],
     relatedGuideSlugs: ['water-fast-vs-assisted-fast', 'electrolytes-during-fasting', 'dr-boz-ratio-explained'],
@@ -310,22 +310,22 @@ export const LANDING_PAGES: LandingPage[] = [
       'Track strict water-only fasts from 16 to 72 hours. Metabolic phase clock with safety guidance for extended water fasting.',
     breadcrumbLabel: 'Water fast timer',
     intro:
-      'Plain water only — no broth, electrolyte powders with calories, or coffee with cream. Best for shorter fasts; switch to assisted mode for 24h+ per expert guidance.',
+      'Plain water only — no broth, electrolyte powders with calories, or coffee with cream. Best for shorter fasts; consider assisted mode for 24h+ with medical clearance.',
     faqs: [
       {
         question: 'What can I drink on a water-only fast?',
         answer:
-          'Plain water only in strict mode. No bouillon, no coffee with cream, no supplements with calories. Dr. Boz notes that even cream in coffee breaks the fasted state for metabolic purposes.',
+          'Plain water only in strict mode. No bouillon, no coffee with cream, no supplements with calories. Caloric additions break a strict water-only fast.',
       },
       {
         question: 'Is water-only safe for 48+ hours?',
         answer:
-          'Dr. Westman warns that extended fasts beyond 24 hours increase electrolyte imbalance risk. This timer will suggest assisted mode with salt and bouillon for longer fasts.',
+          'Extended water-only fasts beyond 24 hours increase electrolyte imbalance risk for many people. Discuss with your doctor; this timer may suggest assisted mode for longer goals.',
       },
       {
         question: 'How do I break a water fast safely?',
         answer:
-          'Dr. Mindy recommends breaking with protein, healthy fat, and fiber — not a large carb-heavy meal. Go slowly to avoid refeeding syndrome on extended fasts.',
+          'Break with small portions of protein, healthy fat, and gentle fiber — not a large carb-heavy meal. Go slowly to reduce refeeding risk on extended fasts.',
       },
     ],
     relatedGuideSlugs: ['water-fast-vs-assisted-fast', 'how-to-break-a-24-hour-fast'],
@@ -339,25 +339,25 @@ export const LANDING_PAGES: LandingPage[] = [
     title: 'Dr. Boz Ratio Calculator — Glucose ÷ Ketones During Fasts',
     h1: 'Dr. Boz Ratio Calculator',
     description:
-      'Track the Dr. Boz Ratio (fasting glucose ÷ blood ketones) during fasts. Interpret therapeutic ketosis and autophagy-friendly metabolism.',
+      'Track the Dr. Boz Ratio (fasting glucose ÷ blood ketones) during fasts. Educational calculator with neutral interpretations.',
     breadcrumbLabel: 'Dr. Boz ratio',
     intro:
-      'Log fasting glucose and blood ketones during your fast. Ratio under 40 suggests deeper therapeutic ketosis — guidance from Dr. Annette Bosworth (Dr. Boz).',
+      'Log fasting glucose and blood ketones during your fast. The branded ratio divides mg/dL by mmol/L — interpretations here are educational only, not diagnostic targets.',
     faqs: [
       {
         question: 'What is the Dr. Boz Ratio?',
         answer:
-          'Divide fasting glucose (mg/dL) by blood ketones (mmol/L). Above 80 = glucose-dominant; 40–80 = moderate ketosis; under 40 = deeper therapeutic ketosis.',
+          'Divide fasting glucose (mg/dL) by blood ketones (mmol/L). Branded materials sometimes cite bands above 80, 40–80, and below 40 — these are not validated clinical cutoffs.',
       },
       {
         question: 'When should I check my ratio?',
         answer:
-          'Many people check in the morning before breaking a fast, or at 17–24 hours when autophagy benefits increase. Use the same meter each time for consistency.',
+          'Many people check in the morning before breaking a fast, or at consistent intervals if they already use a dual meter. Use the same meter and conditions for trend comparison.',
       },
       {
         question: 'Is this medical advice?',
         answer:
-          'No. The ratio is an educational tool from Dr. Boz’s public teachings. Work with your doctor if you manage diabetes or take glucose-lowering medications.',
+          'No. The ratio is an optional educational tool. Work with your doctor if you manage diabetes or take glucose-lowering medications. Do not adjust medication based on the ratio.',
       },
     ],
     relatedGuideSlugs: ['dr-boz-ratio-explained', 'extended-fasting-clock', 'fasting-on-diabetes-medications'],
@@ -414,7 +414,7 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'Should women with PCOS fast?',
         answer:
-          'Intermittent fasting may help some women with PCOS once low-carb eating is stable. Cycle-aware shorter fasts are often recommended — see our PCOS guide and Dr. Mindy’s cycle guidance.',
+          'Intermittent fasting may help some women with PCOS once low-carb eating is stable. Evidence does not support cycle-phase fasting prescriptions — discuss timing with your clinician.',
       },
       {
         question: 'How much protein for PCOS?',

@@ -31,7 +31,7 @@
     "portfolio:nightly:dry": "node scripts/nightly-portfolio.mjs --dry-run --skip-build"
   },
   "dependencies": {
-    "cheerio": "^1.2.0",
+    "cheerio": "^1.0.0",
     "google-auth-library": "^9.15.1"
   },
   "devDependencies": {

@@ -63,15 +63,14 @@ export default function BreakFastGuidePanel({
       </div>
 
       <div>
-        <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">Expert tips</h3>
+        <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">Tips</h3>
         <ul className="space-y-2">
-          {guide.doctorTips.map((tip) => (
+          {guide.tips.map((tip) => (
             <li
-              key={tip.tip}
-              className="text-xs rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 px-3 py-2"
+              key={tip}
+              className="text-xs rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 px-3 py-2 text-slate-600 dark:text-slate-400"
             >
-              <span className="font-medium text-teal-700 dark:text-teal-400">{tip.doctor}:</span>{' '}
-              <span className="text-slate-600 dark:text-slate-400">{tip.tip}</span>
+              {tip}
             </li>
           ))}
         </ul>

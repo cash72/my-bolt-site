@@ -2,6 +2,7 @@ export type FastingMode = 'water-only' | 'assisted';
 
 export type FastingGoalHours = 16 | 18 | 24 | 36 | 48 | 72;
 
+/** @deprecated Kept for localStorage compatibility; no longer shown in UI. */
 export type CycleProfile = 'female-cycling' | 'female-postmenopause' | 'male';
 
 export interface FastingClockState {
@@ -15,8 +16,8 @@ export interface FastingClockState {
   ketonesMmol: number | null;
 }
 
-export interface DoctorNote {
-  doctor: 'Dr. Mindy Pelz' | 'Dr. Eric Westman' | 'Dr. Boz';
+export interface PhaseNote {
+  label: string;
   note: string;
 }
 
@@ -27,7 +28,7 @@ export interface FastingPhase {
   label: string;
   shortLabel: string;
   description: string;
-  doctorNotes: DoctorNote[];
+  contextNotes: PhaseNote[];
 }
 
 export interface FastingMilestone {

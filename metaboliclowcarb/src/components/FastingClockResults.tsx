@@ -108,31 +108,22 @@ export function FastingGuidance({ result, isRunning }: FastingGuidanceProps) {
 
   return (
     <div className="space-y-4 mt-6">
-      {result.currentPhase.doctorNotes.length > 0 && (
-        <section aria-labelledby="doctor-notes">
-          <h3 id="doctor-notes" className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">
-            What experts say at this stage
+      {result.currentPhase.contextNotes.length > 0 && (
+        <section aria-labelledby="phase-notes">
+          <h3 id="phase-notes" className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">
+            Context at this stage
           </h3>
           <ul className="space-y-2">
-            {result.currentPhase.doctorNotes.map((note) => (
+            {result.currentPhase.contextNotes.map((note) => (
               <li
-                key={`${note.doctor}-${note.note.slice(0, 30)}`}
+                key={`${note.label}-${note.note.slice(0, 30)}`}
                 className="text-xs rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 px-3 py-2"
               >
-                <span className="font-medium text-teal-700 dark:text-teal-400">{note.doctor}:</span>{' '}
+                <span className="font-medium text-teal-700 dark:text-teal-400">{note.label}:</span>{' '}
                 <span className="text-slate-600 dark:text-slate-400">{note.note}</span>
               </li>
             ))}
           </ul>
-        </section>
-      )}
-
-      {result.cycleGuidance && (
-        <section
-          className="rounded-lg border border-violet-200 dark:border-violet-900/40 bg-violet-50/50 dark:bg-violet-950/20 px-3 py-2"
-          aria-label="Cycle guidance"
-        >
-          <p className="text-xs text-violet-800 dark:text-violet-300">{result.cycleGuidance}</p>
         </section>
       )}
 

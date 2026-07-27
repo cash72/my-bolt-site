@@ -193,6 +193,18 @@ export default function Layout() {
                 Contact
               </Link>
               <Link
+                to="/editorial-policy"
+                className="text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400"
+              >
+                Editorial Policy
+              </Link>
+              <Link
+                to="/methodology"
+                className="text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400"
+              >
+                Methodology
+              </Link>
+              <Link
                 to="/privacy"
                 className="text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400"
               >
