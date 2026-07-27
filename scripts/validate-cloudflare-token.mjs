@@ -57,8 +57,10 @@ try {
       console.log('  ✓ Zone active');
     }
 
+    const project = await cf.getPagesProject(site.pagesProject);
+    const subdomain = project?.subdomain || site.pagesProject;
+    const target = subdomain.endsWith('.pages.dev') ? subdomain : `${subdomain}.pages.dev`;
     const records = await cf.listDns(zone.id);
-    const target = `${site.pagesProject}.pages.dev`;
     const apex = records.find(
       (r) => r.type === 'CNAME' && r.content === target && (r.name === site.domain || r.name === site.domain + '.')
     );

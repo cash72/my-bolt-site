@@ -129,7 +129,14 @@ export default function Layout() {
               >
                 Privacy Policy
               </Link>
+              
               <Link
+                to="/terms"
+                className="text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400"
+              >
+                Terms of Use
+              </Link>
+<Link
                 to="/disclaimer"
                 className="text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400"
               >

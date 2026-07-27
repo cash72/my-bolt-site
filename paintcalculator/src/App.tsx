@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
 import DisclaimerPage from './pages/DisclaimerPage';
 import MaterialLandingPage from './pages/MaterialLandingPage';
 import GuidePage from './pages/GuidePage';
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="about" element={<AboutPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="privacy" element={<PrivacyPage />} />
+        <Route path="terms" element={<TermsPage />} />
         <Route path="disclaimer" element={<DisclaimerPage />} />
         <Route path="guides" element={<GuidesIndexPage />} />
         <Route path="guides/:slug" element={<GuidePage />} />

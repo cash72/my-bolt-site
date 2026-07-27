@@ -202,7 +202,14 @@ export default function Layout() {
               <Link to="/privacy" className="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400">
                 Privacy Policy
               </Link>
-              <Link to="/disclaimer" className="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400">
+              
+              <Link
+                to="/terms"
+                className="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400"
+              >
+                Terms of Use
+              </Link>
+<Link to="/disclaimer" className="text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400">
                 Disclaimer
               </Link>
             </div>

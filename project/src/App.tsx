@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
+const TermsPage = lazy(() => import('./pages/TermsPage'));
 const DisclaimerPage = lazy(() => import('./pages/DisclaimerPage'));
 const ConversionLandingPage = lazy(() => import('./pages/ConversionLandingPage'));
 const ConversionsHubPage = lazy(() => import('./pages/ConversionsHubPage'));
@@ -76,6 +77,14 @@ export default function App() {
           element={
             <LazyPage>
               <PrivacyPage />
+            </LazyPage>
+          }
+        />
+        <Route
+          path="terms"
+          element={
+            <LazyPage>
+              <TermsPage />
             </LazyPage>
           }
         />
