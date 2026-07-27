@@ -15,6 +15,11 @@ export interface RecipeHub {
   metaTitle: string;
   description: string;
   intro: string[];
+  practicalGuide?: {
+    title: string;
+    paragraphs: string[];
+    checklist: string[];
+  };
   getRecipes: () => Recipe[];
 }
 
@@ -37,6 +42,48 @@ const CATEGORY_INTROS: Record<RecipeCategory, string[]> = {
   ],
 };
 
+const CATEGORY_GUIDES: Partial<Record<RecipeCategory, NonNullable<RecipeHub['practicalGuide']>>> = {
+  breakfast: {
+    title: 'Build a breakfast you can repeat',
+    paragraphs: [
+      'Start by deciding whether breakfast needs to be cooked now, reheated, or carried out the door. Scrambled eggs and shakshuka suit a slower morning; egg muffins and chia pudding move most of the work to the day before. A no-cook yogurt bowl is fastest, but its label and measured toppings matter more than its simple assembly suggests.',
+      'Treat each recipe’s net-carb number as an estimate for the exact listed serving, not a promise for every version of the dish. Flavored yogurt, sweetened plant milk, bottled sauces, and larger fruit portions can change the result quickly. If you alter an ingredient, use its package panel and the net carb calculator to update the meal rather than relying on the recipe badge.',
+    ],
+    checklist: [
+      'Choose one fresh-cooked option and one make-ahead option for the week.',
+      'Portion fruit, seeds, and cheese instead of adding them freely from the package.',
+      'Keep a savory backup such as eggs for mornings when a planned recipe is unavailable.',
+      'Reheat egg dishes until hot, and keep yogurt or prepared chia pudding refrigerated.',
+    ],
+  },
+  lunch: {
+    title: 'Pack low-carb lunches that hold up',
+    paragraphs: [
+      'A reliable packed lunch separates wet ingredients from crisp ones. Keep lettuce leaves, mini peppers, greens, and dressing apart from chicken or tuna salad until you eat. For jar salads, place dressing at the bottom and sturdy ingredients above it, with greens at the top. These small packing choices prevent a low-carb lunch from becoming unappealing by noon.',
+      'Use the stated serving count when dividing a batch. A two-serving tuna salad or burger bowl should become two containers before the first meal is served. This makes the per-serving estimate more useful and reduces accidental double portions. When using deli meat, mayonnaise, dressing, salsa, or pickles, compare labels because recipes can only estimate the products specified.',
+    ],
+    checklist: [
+      'Cool cooked meat before sealing it with salad ingredients.',
+      'Pack sauces and dressings in a leakproof container and add them at serving time.',
+      'Include a fork or spoon and a bowl if the original container is difficult to mix in.',
+      'Use an insulated bag and ice pack when lunch cannot go straight into a refrigerator.',
+    ],
+  },
+  snack: {
+    title: 'Use snacks deliberately',
+    paragraphs: [
+      'A useful snack solves a specific problem: a long gap between meals, a small appetite, or the need for a portable option. Choose a defined portion, put it on a plate or in a container, and then close the package. Cheese, nuts, yogurt, and cottage cheese are easy to keep eating when the serving is not separated first.',
+      'Match the snack to the rest of the day instead of assuming every item here fits every carb target. The yogurt-and-berry bowl is tagged for moderate low carb and insulin-resistance plans, while eggs and the cottage-cheese bowl have lower listed estimates. Brand differences still matter, especially for dairy, seasoning blends, deli meat, and anything marketed as sugar-free.',
+    ],
+    checklist: [
+      'Pick protein-centered snacks when the next full meal is several hours away.',
+      'Measure nuts, berries, and condiments at least once before relying on visual portions.',
+      'Keep dairy and prepared eggs chilled when packing them away from home.',
+      'If you are routinely hungry soon after a snack, consider whether a planned meal would be more useful.',
+    ],
+  },
+};
+
 function categoryHub(category: RecipeCategory): RecipeHub {
   const label = RECIPE_CATEGORY_LABEL[category];
   return {
@@ -46,6 +93,7 @@ function categoryHub(category: RecipeCategory): RecipeHub {
     metaTitle: `${label} Low Carb & Keto Recipes`,
     description: `${label} recipes with estimated net carbs for keto and insulin resistance. Blood-sugar-friendly ideas from Metabolic Low Carb.`,
     intro: CATEGORY_INTROS[category],
+    practicalGuide: CATEGORY_GUIDES[category],
     getRecipes: () => getRecipesByCategory(category),
   };
 }

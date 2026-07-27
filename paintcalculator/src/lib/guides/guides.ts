@@ -669,38 +669,49 @@ export const GUIDES: Guide[] = [
     ],
     sections: [
       {
-        heading: 'Why paint peels',
-        bullets: [
-          'Painting over dirty, glossy, or wet surfaces',
-          'Moisture behind the wall (bathroom, exterior, leak)',
-          'Oil paint topped with latex without bonding primer',
-          'Cheap paint or paint applied too thick in one coat',
-        ],
-        paragraphs: [],
-      },
-      {
-        heading: 'Fix it properly',
-        bullets: [
-          'Scrape all loose and lifting paint until edges are firmly bonded',
-          'Sand feathered edge where old meets bare — 120 grit',
-          'Dust; apply bonding or oil-blocking primer on bare and transition zones',
-          'Fill low spots if needed, sand, prime again',
-          'Two finish coats — blend beyond the patch if the sheen mismatch shows',
-        ],
+        heading: 'Diagnose the failure before scraping',
         paragraphs: [
-          'If peel returns in weeks, investigate moisture before repainting again.',
+          'Peeling is a symptom, not a complete diagnosis. Look at where it starts and what is exposed underneath. Failure around a window, ceiling stain, shower, or exterior wall can point to active moisture. Widespread sheets that reveal a glossy older coating often indicate poor adhesion, while isolated chips around patched areas may mean dust or unprimed filler was painted over.',
+          'Press painter’s tape firmly across several nearby areas and pull it back. If sound-looking paint releases, the weak zone extends beyond the visible curl. Do not seal an active leak or damp substrate under another coating. Repair the water source, allow the assembly to dry, and confirm that the surface is stable before continuing.',
+        ],
+        bullets: [
+          'Around plumbing or a roof line: investigate moisture first',
+          'Over shiny old paint: suspect inadequate cleaning, sanding, or bonding primer',
+          'At joint compound or filler: suspect dust, porosity, or skipped primer',
+          'Only at an impact point: treat it as a local repair after checking the surrounding edge',
         ],
       },
       {
-        heading: 'Peeling repair workflow',
-        bullets: [
-          'Scrape all loose paint to sound edge',
-          'Sand feather edge — no ridge under new paint',
-          'Prime bare substrate (shellac if stain present)',
-          'Two finish coats — match [sheen](/guides/interior-paint-sheen-guide) to adjacent wall',
-          'Fix moisture source before repainting bath areas',
+        heading: 'Remove failure without enlarging the damage',
+        paragraphs: [
+          'Protect the floor and wear appropriate eye and respiratory protection. Scrape from the loose area toward firmly bonded paint, keeping the blade nearly flat so it does not gouge drywall paper or soft wood. Stop only when the remaining edge resists moderate pressure; painting over a curled transition simply moves the next failure line outward.',
+          'Older coatings can require special handling. If the age or history of the paint makes hazardous material a possibility, avoid aggressive sanding until you have identified the coating and chosen a safe method. For ordinary modern coatings, feather the firm edge gradually, remove dust, and inspect under side lighting. A ridge visible now will remain visible after repainting.',
         ],
-        paragraphs: [],
+        bullets: [
+          'Cut away torn drywall face paper rather than leaving fibres standing',
+          'Skim shallow depressions in thin passes and let each pass dry',
+          'Sand the repair flush, then vacuum and wipe away remaining dust',
+          'Recheck the entire perimeter for edges that flex under the scraper',
+        ],
+      },
+      {
+        heading: 'Choose primer for the exposed surface',
+        paragraphs: [
+          'Primer should solve the condition you actually uncovered. Use a drywall-compatible primer over new compound and exposed gypsum face, a bonding primer where a sound but hard or glossy coating remains, and a stain-blocking product only when a dry stain could migrate through the finish. Follow the primer label for surface compatibility, ventilation, drying, and recoating.',
+          'Prime beyond the bare spot onto a narrow band of sound paint. After it dries, inspect for raised fibres or pinholes, make any final correction, and spot-prime again. The goal is one even, sealed repair rather than alternating porous filler and dense old paint.',
+        ],
+      },
+      {
+        heading: 'Repaint so the patch disappears',
+        paragraphs: [
+          'Match both colour and [interior paint sheen](/guides/interior-paint-sheen-guide). Even an accurate colour can flash when a flat patch sits inside a satin wall. Apply the specified finish coats and respect the label’s recoat time; a heavy coat does not replace two properly dried coats. On a small repair, feathering outward may work, but strong side light or higher sheen often makes a corner-to-corner wall coat the cleaner choice.',
+          'Keep the room within the product’s listed temperature and humidity range and restore normal ventilation as the coating cures. Save the product name and colour formula for maintenance. If blistering, staining, or edge lifting returns, stop repainting and reassess moisture or substrate compatibility.',
+        ],
+        bullets: [
+          'Spot repair when the surrounding coating is sound and the match is inconspicuous',
+          'Recoat the full wall when colour, texture, or sheen differences remain obvious',
+          'Use the [paint calculator](/how-much-paint-do-i-need) after deciding how much of the wall must be recoated',
+        ],
       },
     ],
     faqs: [
@@ -708,6 +719,11 @@ export const GUIDES: Guide[] = [
         question: 'Can I paint over peeling paint?',
         answer:
           'No — new paint will peel with the old layer. Remove all failing paint first, then prime and recoat.',
+      },
+      {
+        question: 'Why is the repaired area visible after painting?',
+        answer:
+          'The usual causes are an unfeathered edge, different surface porosity, or a sheen mismatch. Sand the transition smooth, seal filler with primer, and use the same finish. If side lighting still reveals the patch, coat the wall from corner to corner.',
       },
     ],
   },
@@ -723,34 +739,43 @@ export const GUIDES: Guide[] = [
     relatedGuideSlugs: ['how-to-prep-walls-for-painting', 'primer-before-painting'],
     sections: [
       {
-        heading: 'Basic removal process',
-        bullets: [
-          'Score vinyl wallpaper with a scoring tool so remover penetrates',
-          'Apply hot water or wallpaper stripper with a pump sprayer; wait 10–15 minutes',
-          'Scrape with a wide putty knife — work parallel to the wall to avoid gouges',
-          'Remove residual paste with hot water and sponge or commercial paste remover',
-          'Sand rough areas; wash walls; let dry 24–48 hours',
-          'Prime entire wall — leftover paste stains and porosity vary',
-        ],
-        paragraphs: [],
-      },
-      {
-        heading: 'Paint vs new wallpaper after removal',
+        heading: 'Identify the wall and wallpaper first',
         paragraphs: [
-          'Painting: prime with drywall primer, then two finish coats. Use our room paint calculator for gallons.',
-          'New wallpaper: walls must be smooth and primed — paste residue causes bubbles. Use our wallpaper calculator for rolls.',
+          'Start at a loose seam or switch-plate opening and lift a small corner. Some papers release as a complete sheet; others separate into a decorative face and a paper backing. Vinyl-faced paper usually needs its surface opened before water can reach the paste. Knowing which layer is resisting avoids soaking a wall that would have dry-stripped cleanly.',
+          'Also identify the substrate. Painted plaster tolerates careful wetting differently from unsealed drywall face paper, which can soften, tear, and swell. Shut off power to the work area before removing switch and receptacle covers, keep liquid out of electrical boxes, protect floors, and test the least aggressive method in a hidden area.',
+        ],
+        bullets: [
+          'Peelable paper: remove the face first, then treat the backing',
+          'Strippable paper: pull slowly at a low angle to limit surface damage',
+          'Coated or vinyl face: perforate lightly only if moisture cannot penetrate',
+          'Unknown wall: use a small test patch before committing to steam or stripper',
         ],
       },
       {
-        heading: 'Removal methods',
-        bullets: [
-          'Score vinyl surface, apply steamer, scrape — most reliable',
-          'Liquid stripper for stubborn glue — ventilate well',
-          'Dry strip (peelable top layer) if wallpaper is strippable type',
-          'Sand remaining glue residue — primer blocks yellowing',
-        ],
+        heading: 'Soften paste in manageable sections',
         paragraphs: [
-          'After removal, skim damaged areas and follow [wall prep](/guides/how-to-prep-walls-for-painting) before paint.',
+          'Work in a section you can scrape while it remains damp. Apply the remover recommended for the paper and adhesive, allow the labelled dwell time, and re-wet rather than forcing a dry scraper. Hold a broad scraper nearly parallel to the wall. A steep blade angle causes gouges that create more finishing work than the wallpaper itself.',
+          'Steam can help with stubborn layers, but excess heat and moisture can loosen drywall facing, soften compound, or damage nearby finishes. Use short passes and stop if the wall face begins to fuzz or delaminate. More scoring is not automatically better: deep perforations leave hundreds of small repairs.',
+        ],
+      },
+      {
+        heading: 'Remove adhesive, not just the paper',
+        paragraphs: [
+          'A bare-looking wall may still carry a thin paste film. Under angled light, mark glossy streaks and ridges, then wash using the adhesive remover’s directions and clean water for the final pass. Change the water frequently so dissolved paste is not spread back over the wall. When dry, rub the surface with a damp dark cloth; slime or tackiness means residue remains.',
+          'Avoid relying on sanding alone for adhesive removal. Heat can gum the paste onto the abrasive and drive residue into the surface. Wash first, allow the wall to dry fully, and then sand only raised fibres and repaired areas.',
+        ],
+        bullets: [
+          'Rinse trim and baseboards before residue dries on them',
+          'Do not mix removal products unless the labels explicitly permit it',
+          'Ventilate the room and use the protective equipment listed by the product maker',
+          'Let the wall dry before judging stains, blisters, or remaining adhesive',
+        ],
+      },
+      {
+        heading: 'Repair, seal, and prepare for the next finish',
+        paragraphs: [
+          'Cut away loose face paper, seal damaged drywall paper with a compatible problem-surface sealer, and skim gouges in thin coats. Sand smooth and inspect with a lamp held close to the wall. Follow the complete [wall preparation guide](/guides/how-to-prep-walls-for-painting) before applying a finish.',
+          'For paint, use a primer suitable for the repaired substrate and any trace staining, then apply the specified finish coats. For new wallpaper, use the primer or wallcovering preparation product recommended by the paper and adhesive manufacturers. Once the final wall dimensions are known, the [wallpaper calculator](/wallpaper-calculator) can estimate the replacement material.',
         ],
       },
     ],
@@ -759,6 +784,11 @@ export const GUIDES: Guide[] = [
         question: 'Can I paint over wallpaper instead of removing?',
         answer:
           'Only if paper is fully glued, no seams lifting, and you prime with an oil or shellac sealer first. Removal is safer long-term — water can loosen paper under latex paint later.',
+      },
+      {
+        question: 'How do I know whether the wallpaper paste is gone?',
+        answer:
+          'Inspect the dry wall under side lighting and test a small area with a damp cloth. A slick, gummy, or reactivated film indicates remaining adhesive. Continue the label-approved wash and rinse process before repairing or priming.',
       },
     ],
   },
@@ -774,39 +804,49 @@ export const GUIDES: Guide[] = [
     relatedGuideSlugs: ['how-to-paint-a-room-step-by-step', 'how-to-prep-walls-for-painting'],
     sections: [
       {
-        heading: 'Sheen from matte to gloss',
-        bullets: [
-          'Flat / matte: hides imperfections, low reflectivity — ceilings, low-traffic bedrooms',
-          'Eggshell: slight washability, most popular for living rooms and bedrooms',
-          'Satin: easier to wipe — hallways, kids rooms, trim in some homes',
-          'Semi-gloss: trim, doors, cabinets, high moisture (bathroom if not flat ceiling)',
-          'Gloss: rarely on walls; doors, furniture, accents',
-        ],
+        heading: 'What sheen changes in a finished room',
         paragraphs: [
-          'Higher sheen shows wall flaws more — repair and sand well before satin on rough walls.',
+          'Sheen describes how strongly a dried coating reflects light. As reflectivity rises, a surface generally becomes easier to wipe but also reveals more dents, sanding marks, roller texture, and touch-ups. Product names are not perfectly standardized, so one maker’s matte may resemble another maker’s eggshell. Compare the actual product data and sample boards rather than choosing by name alone.',
+          'Colour also shifts with finish and lighting. A deeper colour in satin can appear richer and more reflective than the same formula in flat. View a cured sample in daylight and under the room’s evening lighting, then tilt it to see how windows and fixtures create glare.',
+        ],
+        bullets: [
+          'Flat or matte: low reflection and forgiving appearance',
+          'Eggshell: a subtle lustre that balances appearance and routine cleaning',
+          'Satin: stronger reflection and a more noticeable surface texture',
+          'Semi-gloss or gloss: pronounced highlights, commonly reserved for detailed or frequently handled surfaces',
         ],
       },
       {
-        heading: 'Room-by-room quick picks',
-        bullets: [
-          'Ceiling: flat white',
-          'Living / dining: eggshell',
-          'Kitchen / bath walls: satin or scrubbable eggshell (not flat near splashes)',
-          'Trim and doors: semi-gloss (often different product than walls)',
+        heading: 'Choose by cleaning and exposure',
+        paragraphs: [
+          'Start with what reaches the surface. A quiet adult bedroom may need little more than dusting, while an entry, play area, or kitchen sees fingerprints and repeated wiping. In a bathroom, the coating must suit the humidity and ventilation conditions; sheen alone does not make an unsuitable product moisture resistant. Check that the selected paint is approved for the room and substrate.',
+          'Flat is a practical ceiling choice because it reduces reflected glare and disguises minor variations. Eggshell or a washable matte can suit many living spaces. Satin is useful where regular cleaning matters, provided the wall is prepared carefully. Trim, doors, and frames often use a harder semi-gloss product so handled edges clean more readily.',
         ],
-        paragraphs: [],
+        bullets: [
+          'Low contact and uneven substrate: favour lower reflection',
+          'Frequent fingerprints or splashes: compare the product’s washability and intended use',
+          'Strong window light: expect higher sheen to emphasize waves and patches',
+          'Doors and trim: prioritize blocking resistance and cleanability, not just shine',
+        ],
       },
       {
-        heading: 'Room-by-room sheen picks',
-        bullets: [
-          'Ceilings: flat or matte — hides imperfections',
-          'Bedrooms/living: eggshell or matte',
-          'Kitchen/bath/hall: satin — washable',
-          'Trim/doors: semi-gloss — durable, wipeable',
-          'Kids rooms: satin on walls, semi-gloss on trim',
-        ],
+        heading: 'Preparation matters more as sheen rises',
         paragraphs: [
-          'Match sheen on repairs — flashing occurs when patch is flat and wall is satin. Buy quarts from the [room paint calculator](/room-paint-calculator) totals.',
+          'Repair dents, feather patches, sand ridges, and remove dust before applying satin or glossier finishes. Prime porous repairs so they do not absorb the finish differently from the surrounding wall. Use a consistent roller cover and maintain a wet edge; changing application pressure midway can leave bands that become visible in reflected light.',
+          'When changing from a glossy coating, clean and dull the old surface as directed by the new product. A bonding primer may be needed where adhesion is uncertain. Do a small compatibility test if the old coating is unknown rather than assuming a wall paint will grip it.',
+        ],
+      },
+      {
+        heading: 'Use a simple decision rule',
+        paragraphs: [
+          'Choose the lowest sheen that meets the room’s realistic cleaning needs and is offered in a suitable product. This usually gives the calmest appearance while avoiding unnecessary glare. Move one step higher when repeated washing, handling, or splash exposure justifies it—not because every kitchen or child’s room must use the same finish.',
+          'For repairs, match the exact product and sheen whenever possible. Stir retained paint thoroughly and test after it dries. Age, cleaning, and application method can make touch-ups flash even from the original can, so repainting from corner to corner may be the only invisible solution. Use the [room paint calculator](/room-paint-calculator) once you decide whether the job is a patch or a full wall.',
+        ],
+        bullets: [
+          'Need to hide flaws: compare flat and matte products',
+          'Need routine gentle washing: compare washable matte and eggshell',
+          'Need frequent wiping: evaluate satin products rated for that use',
+          'Need a distinct, durable trim finish: compare semi-gloss options',
         ],
       },
     ],
@@ -815,6 +855,11 @@ export const GUIDES: Guide[] = [
         question: 'Can I use the same sheen on walls and trim?',
         answer:
           'You can, but contrast in sheen (eggshell walls + semi-gloss trim) is standard — trim wipes clean and frames the room.',
+      },
+      {
+        question: 'Is satin always better for bathrooms?',
+        answer:
+          'No. Use a paint specifically suitable for the room’s moisture conditions, and maintain effective ventilation. Satin may make cleaning easier, but product suitability, surface preparation, and moisture control matter more than sheen by itself.',
       },
     ],
   },
@@ -830,30 +875,50 @@ export const GUIDES: Guide[] = [
     relatedGuideSlugs: ['wallpaper-pattern-repeat', 'accent-wall-wallpaper-tips'],
     sections: [
       {
-        heading: 'What you need to measure',
+        heading: 'Record the room as separate wall runs',
         paragraphs: [
-          'Measure each wall width and height in feet. Note doors and windows — you still buy paper for those sections but pattern matching affects drop length.',
-          'Check the wallpaper label for roll width (usually 20.5" or 27"), roll length (often 33 ft), and pattern repeat (vertical distance before the pattern repeats).',
+          'Measure each wall from corner to corner and use the greatest finished height from ceiling to baseboard. Rooms that look rectangular often have a chimney breast, alcove, sloped ceiling, or bulkhead that changes the required strip length. Sketch these separately instead of hiding them inside one perimeter number.',
+          'Record the width and height of doors and windows, but do not assume every opening can be deducted as simple square footage. Full-length drops still run above, below, or beside openings, and matching pieces may consume more paper than the opening saves. Treat large uninterrupted openings as possible deductions only after planning the strip layout.',
+        ],
+        bullets: [
+          'Measure in one unit system and keep it consistent',
+          'Use the tallest point when a ceiling is slightly out of level',
+          'Mark inside and outside corners because strips should not be wrapped blindly through them',
+          'List short sections above doors and windows for possible offcut reuse',
         ],
       },
       {
-        heading: 'Pattern repeat adds waste',
+        heading: 'Read the roll label before doing the math',
         paragraphs: [
-          'Solid or random-match papers waste less. A 24-inch pattern repeat on a 96-inch wall means each drop is cut longer to align the pattern — leftover increases.',
-          'Rule of thumb: add 10–15% waste for plain paper, 15–25% for large repeats. Our wallpaper calculator handles repeat math automatically.',
+          'Use the exact packaged width, length, repeat, match type, and roll convention shown by the seller or manufacturer. A product described as a “double roll” may be sold as one physical bolt, while another listing may quote single-roll equivalents. Comparing only the word roll can double or halve an order by mistake.',
+          'Confirm whether the listed dimensions describe one packaged bolt and whether the stated coverage is nominal or usable. Nominal area does not account for trimming and pattern alignment. Also record the batch, lot, or dye-lot identifier so every package in the room is from the same production run.',
         ],
       },
       {
-        heading: 'Buy an extra roll',
+        heading: 'Convert roll length into complete drops',
         paragraphs: [
-          'Keep one unopened roll from the same dye lot for future repairs. Stores may not stock the same batch later.',
+          'Add the manufacturer’s recommended top and bottom trimming allowance to the measured wall height. For straight-match paper, increase that cut length to the next point where the motif can align. A drop-match design may require alternating cuts or a larger offset; follow its hanging instructions rather than treating it as a straight repeat.',
+          'Divide the packaged roll length by the planned cut length and round down. That is the number of complete drops available from one bolt. Then divide each wall width by the paper width and round up to find strips needed. Finally, divide total strips by drops per bolt and round up again. The [wallpaper calculator](/wallpaper-calculator) performs this process when supplied with the exact label values.',
+        ],
+        bullets: [
+          'Never count a partial final drop as usable for a full-height wall',
+          'Keep a strip-by-strip plan for offcuts that may fit over openings',
+          'Calculate each different ceiling height separately',
+          'Recheck the result when changing to another colourway or paper construction',
         ],
       },
       {
-        heading: 'Roll math worked example',
+        heading: 'Worked method with a hypothetical label',
         paragraphs: [
-          'Accent wall 10×8 ft = 80 sq ft. Roll covers 28 sq ft usable (after pattern waste). 80 ÷ 28 ≈ 2.9 → buy 3 rolls. Add 10% for beginners.',
-          'Use the [wallpaper calculator](/wallpaper-calculator) for multiple walls and pattern repeat — see [pattern repeat guide](/guides/wallpaper-pattern-repeat).',
+          'Suppose a wall needs seven full-width strips after its width is divided by the paper width. After adding trim and aligning the stated repeat, suppose the labelled roll length yields three complete drops. Seven strips divided by three drops per roll is 2.34, so the purchase must be rounded up to three packaged rolls. The unused drop capacity is not wasted if it can cover another planned section.',
+          'This example demonstrates the sequence rather than a universal coverage value. Substitute your wall and label dimensions. Before ordering, verify whether a seller’s quantity selector represents physical bolts, single-roll equivalents, or pairs.',
+        ],
+      },
+      {
+        heading: 'Plan for installation risk and future repair',
+        paragraphs: [
+          'Add an appropriate contingency for damaged strips, complex corners, a large repeat, or a first-time installation. The best reserve is usually a complete unopened package from the same batch, provided the return policy is acceptable. Store leftover paper dry and labelled; a future repair is much easier when the exact batch is available.',
+          'Before cutting, unroll every package enough to confirm colour and printing consistency. Stop if batch codes differ or a defect repeats. For more detail on match types, use the [pattern repeat guide](/guides/wallpaper-pattern-repeat).',
         ],
       },
     ],
@@ -861,7 +926,12 @@ export const GUIDES: Guide[] = [
       {
         question: 'How many rolls for a 10×12 room?',
         answer:
-          'Depends on ceiling height, roll dimensions, and pattern repeat. A typical bedroom with 8 ft ceilings often needs 5–7 single rolls — use our calculator with your exact paper specs.',
+          'Room length and width are not enough. The answer depends on wall height, openings, packaged roll dimensions, match type, and pattern repeat. Enter the exact wall and label specifications in the calculator, then confirm whether the seller counts physical bolts or single-roll equivalents.',
+      },
+      {
+        question: 'Should I subtract every door and window?',
+        answer:
+          'No. A narrow opening may save little because full drops are still needed around it. Plan strips first and deduct only material that can genuinely be omitted or replaced with usable offcuts.',
       },
     ],
   },
@@ -877,39 +947,62 @@ export const GUIDES: Guide[] = [
     relatedGuideSlugs: ['how-to-estimate-wallpaper-rolls', 'accent-wall-wallpaper-tips'],
     sections: [
       {
-        heading: 'Random match vs straight match vs drop match',
-        bullets: [
-          'Random match / no repeat: easiest install, least waste',
-          'Straight match: pattern aligns horizontally at the same height each drop',
-          'Drop match: pattern shifts vertically — most waste, most planning',
-        ],
+        heading: 'Read repeat and match as separate instructions',
         paragraphs: [
-          'The repeat number (e.g. 21 cm or 9 inches) is the vertical distance before the design repeats. Larger repeats mean longer cuts per strip.',
+          'The repeat is the vertical distance until a design begins again. The match tells you how neighbouring strips relate. Both matter: two papers can share the same repeat but require different starting points on every second strip. Read the symbols and hanging instructions on the actual label because naming and diagrams can vary by manufacturer.',
+          'Before cutting, roll out two strip widths side by side on a clean floor. Locate a distinctive motif and verify how it meets at the seam. This simple mock-up catches mistaken assumptions about orientation, alternating strips, and the top of the design before material is committed.',
+        ],
+        bullets: [
+          'Random or free match: adjacent strips do not need a fixed vertical alignment',
+          'Straight match: matching motifs meet at the same height across a seam',
+          'Drop or offset match: the neighbouring strip starts at a different point in the repeat',
+          'Reverse hang: alternate strips rotate as directed to control shading or design',
         ],
       },
       {
-        heading: 'Why repeat matters for shopping',
+        heading: 'Turn wall height into a cut length',
         paragraphs: [
-          'Two rooms with identical square footage can need different roll counts if the repeat differs. Always enter repeat into our calculator — guessing "one roll per wall" fails on patterned paper.',
+          'Begin with the maximum wall height and add the trimming allowance specified by the hanging instructions. For a straight match, increase this raw length to the next complete repeat position so every drop can begin and end with enough material. The difference between raw length and aligned cut length is pattern waste.',
+          'For an offset match, do not automatically apply straight-match arithmetic. Some designs alternate between two starting points, and some labels describe a half-drop or other offset. Plan an A/B cutting sequence if directed, mark each strip lightly on the back, and keep the tops facing the same way.',
         ],
       },
       {
-        heading: 'Repeat types and waste',
+        heading: 'Use a measurement example, not an area shortcut',
+        paragraphs: [
+          'Imagine a measured wall plus trimming allowance requires a raw drop of 101 inches, and the paper label states a 24-inch straight repeat. The next repeat boundary is 120 inches, so each full drop must be planned at 120 inches for alignment. A roll that looked adequate by square footage may therefore yield fewer complete strips.',
+          'Those numbers are only an arithmetic example; use the repeat and allowances on your own product. The reliable shopping unit is complete aligned drops per packaged roll, not nominal square feet. Enter the exact repeat in the [wallpaper calculator](/wallpaper-calculator), then compare its result with a manual strip count.',
+        ],
+      },
+      {
+        heading: 'Set a focal point before the first strip',
+        paragraphs: [
+          'On a feature wall, centre a dominant motif on the architectural or furniture focal point, then work outward. This can require trimming equal amounts from the first and last strips rather than starting with a full-width strip at one corner. In a full room, choose the least conspicuous place for the final mismatch and avoid assuming corners are perfectly plumb.',
+          'Draw a plumb reference line for the first strip; do not use a corner as the only guide. Dry-lay enough strips to see whether a prominent motif will be clipped awkwardly at the ceiling, outlet bank, or window edge. A small starting adjustment can produce a more deliberate result without changing the number of rolls.',
+        ],
+      },
+      {
+        heading: 'Avoid repeat-related mistakes',
         bullets: [
-          'Random match / free match: lowest waste — drops align anywhere',
-          'Straight match: pattern aligns horizontally — add repeat to strip length',
-          'Drop match: diagonal repeat — highest waste, plan 15–25% extra',
-          'Large repeat (12+ inches): fewer strips per roll — buy extra',
+          'Do not cut all strips until the first two are hung and the match is confirmed',
+          'Do not rotate a strip unless the label calls for reverse hanging',
+          'Do not mix production batches on one wall',
+          'Do not discard labelled offcuts until doors, windows, and repairs are complete',
         ],
         paragraphs: [
-          'Enter repeat inches in the [wallpaper calculator](/wallpaper-calculator) — our [rolls guide](/guides/how-to-estimate-wallpaper-rolls) explains usable sq ft per bolt.',
+          'Keep strips in sequence when the print has natural variation. If a seam will not align both near the ceiling and lower down, check plumb and wall flatness before stretching or forcing wet paper. The [roll estimation guide](/guides/how-to-estimate-wallpaper-rolls) explains how aligned cut length affects the purchase quantity.',
         ],
       },
     ],
     faqs: [
       {
         question: 'What if my label says no repeat?',
-        answer: 'Enter zero or a small random-match value. Waste drops to roughly 10% for standard rooms.',
+        answer:
+          'Treat it as a random or free match only if the hanging instructions confirm that designation. Enter zero repeat in the calculator, while still allowing for top and bottom trimming and installation mistakes.',
+      },
+      {
+        question: 'Does a larger repeat always mean more rolls?',
+        answer:
+          'Not always. It often increases each aligned cut length, but the final roll count depends on how many complete drops fit into the packaged roll and how many strips the walls need. Calculate complete drops with the exact label dimensions.',
       },
     ],
   },
@@ -925,28 +1018,45 @@ export const GUIDES: Guide[] = [
     relatedGuideSlugs: ['wallpaper-pattern-repeat', 'how-to-estimate-wallpaper-rolls'],
     sections: [
       {
-        heading: 'One wall is simpler — but not trivial',
+        heading: 'Choose a wall that supports the room',
         paragraphs: [
-          'Measure only the accent wall width × height. You still need enough drops for pattern repeat and a full strip width — you cannot buy half a strip.',
-          'Buy one extra roll if the pattern is bold — small rooms with large repeats often need more paper than intuition suggests.',
+          'A useful accent wall has a clear visual reason: it frames a bed, fireplace, dining area, or other focal point. A wall broken by several doors, vents, or cabinets can fragment a large design and create excessive cutting. Stand at the room entrance and from the main seated position to check whether the selected wall feels intentional from both views.',
+          'Consider daylight and fixtures. Reflective or dark papers can look dramatically different opposite a window or under grazing light. Order a sample and place it vertically on the wall for several days before buying full rolls. Check it beside flooring, trim, and the paint on the adjoining walls.',
         ],
       },
       {
-        heading: 'Pair with paint for other walls',
+        heading: 'Measure full-width drops, not just square area',
         paragraphs: [
-          'Many designers paint adjoining walls a coordinating solid color. Use our room paint calculator for the non-papered walls and the accent wall calculator for wallpaper.',
+          'Measure the wall width at the top, middle, and bottom and use the largest figure for strip planning. Measure height in several places as well. Divide the maximum width by the labelled paper width and round up to determine the number of strips. Then calculate how many pattern-aligned drops fit in each packaged roll.',
+          'Openings do not always produce a full deduction. A window may interrupt several strips while still requiring matching sections above and below it. Sketch the strip positions and identify where offcuts can be reused. Enter the exact roll length, width, and repeat in the [accent wall calculator](/accent-wall-wallpaper-calculator).',
         ],
       },
       {
-        heading: 'Accent wall planning',
+        heading: 'Centre the design deliberately',
+        paragraphs: [
+          'For a strong geometric, mural-like, or oversized botanical print, decide which motif should sit on the focal centreline. Mark that line and plan equal edge cuts so neither corner ends with an accidental sliver. The visual centre may be the bed or fireplace rather than the mathematical centre of the wall.',
+          'Use a level to create a plumb starting line. Corners are frequently out of plumb, so starting from one can make the design drift across the wall. Dry-plan at least the first and last strip widths. Review the [pattern repeat guide](/guides/wallpaper-pattern-repeat) before cutting a straight, drop, or reverse-hung design.',
+        ],
+      },
+      {
+        heading: 'Prepare the wall and boundaries',
+        paragraphs: [
+          'Remove loose coatings, repair dents, sand smooth, and use the wall preparation product specified for the wallpaper and adhesive. A feature wall attracts attention, so ridges and unsealed patches are especially visible in side light. Let repairs and primer dry fully before hanging.',
+          'Decide how the paper will terminate at inside corners, trim, baseboards, and the ceiling. Do not assume a decorative caulk bead will hide poor cuts. Remove switch plates safely, keep paste out of electrical boxes, and pre-plan cuts around fixed objects. If the wall has persistent dampness or an unresolved leak, correct that condition before covering it.',
+        ],
+      },
+      {
+        heading: 'Coordinate paint without competing',
+        paragraphs: [
+          'Pull a quieter background or secondary colour from the paper for the remaining walls rather than automatically matching its boldest motif. Test the paint and paper together under the room’s real lighting. A lower-reflection wall finish often lets the pattern remain the focal point, but select a paint suitable for the room’s cleaning needs.',
+          'Paint adjoining walls and trim before hanging where practical, allowing the coating to cure as directed. Use the [room paint calculator](/room-paint-calculator) for the non-papered surfaces. Keep the wallpaper label, batch details, and a usable offcut with your maintenance records.',
+        ],
         bullets: [
-          'Choose wall with least doors/windows — fewer cuts',
-          'Bold pattern: one wall only — see [accent calculator](/accent-wall-wallpaper-calculator)',
-          'Align focal point (headboard, TV) with pattern center',
-          'Buy all rolls same dye lot — check bolt numbers',
-          'Keep 1 spare roll for future repairs',
+          'Check every package for the same batch identifier before cutting',
+          'Retain one full-width piece long enough for a future damaged-strip repair',
+          'Photograph the product label and installation instructions',
+          'Use a soft brush or cleaning method approved for that wallcovering',
         ],
-        paragraphs: [],
       },
     ],
     faqs: [
@@ -954,6 +1064,11 @@ export const GUIDES: Guide[] = [
         question: 'Can I use wallpaper on just one wall?',
         answer:
           'Yes — accent walls are common. Calculate that wall only, but order from the same batch and keep spare paper for edge repairs.',
+      },
+      {
+        question: 'Should the pattern be centred on the wall?',
+        answer:
+          'Centre it on the room’s visual focal point when the design has a dominant motif. That may be the wall centre, but a bed, fireplace, or built-in can shift the best centreline. Dry-plan the edge strip widths before committing.',
       },
     ],
   },
@@ -969,28 +1084,50 @@ export const GUIDES: Guide[] = [
     relatedGuideSlugs: ['deck-stain-coverage', 'exterior-stain-two-coats'],
     sections: [
       {
-        heading: 'Measure the fence run',
+        heading: 'Measure each fence section and side',
         paragraphs: [
-          'Measure total fence length in feet and average panel height. For a 6 ft privacy fence 100 ft long, one side is roughly 600 sq ft — both sides doubles to 1,200 sq ft if staining inside and out.',
-          'Deduct gates or use our calculator openings field for approximate deductions.',
-        ],
-      },
-      {
-        heading: 'Stain coverage is lower than paint',
-        paragraphs: [
-          'Rough cedar and weathered wood absorb more product. Many exterior stains cover 150–250 sq ft per gallon per coat. Read your can — transparent stains cover less than solid-color stains.',
+          'Measure the horizontal length and average height of each section, then multiply length by height for one face. Keep sections separate when heights or construction styles change. Decide whether the project includes one face or both: a 100-foot-long, 6-foot-high fence is 600 square feet on one face and 1,200 square feet for two faces before adjustments.',
+          'Measure gates as their own rectangles if they will be stained. Subtract only true openings that contain no wood. Posts, caps, kickboards, and exposed edges add area, while widely spaced pickets reduce the solid face. The [fence stain calculator](/fence-stain-calculator) can account for fence style, but a direct board count is more accurate for an unusual design.',
         ],
         bullets: [
-          'Transparent / semi-transparent: 150–200 sq ft/gallon',
-          'Solid stain: up to 250–300 sq ft/gallon',
-          'Plan two coats on weathered wood',
+          'Record each height change instead of using the tallest height everywhere',
+          'Count both faces only when both are accessible and included in the job',
+          'Add gates, posts, caps, and trim that receive the same product',
+          'Keep a sketch so the crew knows which neighbour-facing sections are included',
         ],
       },
       {
-        heading: 'Fence stain quick math',
+        heading: 'Use the coverage rate on the selected stain',
         paragraphs: [
-          '100 linear ft × 6 ft height = 600 sq ft both sides (if staining front and back). One coat at 150 sq ft/gallon ≈ 4 gallons. Two coats → 8 gallons.',
-          'Use the [fence stain calculator](/fence-stain-calculator) with picket vs panel style and [two-coat guide](/guides/exterior-stain-two-coats) for exterior projects.',
+          'Do not estimate from a generic “stain” rate. Coverage changes with product chemistry, application method, wood species, surface texture, porosity, and whether the boards are new, weathered, or previously coated. Use the rate printed on the current product label or technical sheet for the relevant surface condition.',
+          'Rough-sawn faces, end grain, cracks, and dry weathered boards can absorb more than smooth sealed wood. Spraying can also create transfer loss, especially on open pickets. Apply a measured test area when the wood is unusually porous, then compare actual use with the estimate before purchasing the remainder.',
+        ],
+        bullets: [
+          'Keep the calculator rate in the same units as the product label',
+          'Use the label’s rough-surface range when that matches the fence',
+          'Do not thin stain to stretch coverage unless the manufacturer permits it',
+          'Round the final purchase to available container sizes',
+        ],
+      },
+      {
+        heading: 'Calculate coats from the product system',
+        paragraphs: [
+          'If a hypothetical label lists 200 square feet per gallon for one coat, a measured 1,200-square-foot two-sided fence would require 1,200 ÷ 200 = 6 gallons for that coat before waste and detail work. This is an arithmetic example, not a recommended coverage rate; replace 200 with the value for your product and substrate.',
+          'Do not simply double the quantity until you confirm that the product calls for two coats. Some penetrating systems specify one saturating application, some use wet-on-wet passes, and film-forming products may require separate coats. The [exterior stain coat guide](/guides/exterior-stain-two-coats) explains how to read that decision.',
+        ],
+      },
+      {
+        heading: 'Prepare for even absorption',
+        paragraphs: [
+          'Clean dirt, biological growth, and loose fibres using methods compatible with the wood and coating. Remove failing previous finish where required, rinse away cleaning residue, and allow the fence to reach the moisture condition specified by the stain maker. Staining damp wood can reduce penetration or trap moisture.',
+          'Protect plants, masonry, siding, and neighbouring property from cleaner and overspray. Stir the stain as directed and mix containers together when colour uniformity matters. Work complete board lengths or panel sections while maintaining a wet edge; stopping in the middle of a board can leave lap marks.',
+        ],
+      },
+      {
+        heading: 'Choose a workable weather window',
+        paragraphs: [
+          'Follow the label’s limits for air and surface temperature, humidity, rain-free time, direct sun, and drying before evening dew. In many Canadian regions, spring and autumn can bring cool nights even after a mild afternoon, so check the full application and curing window rather than only the daytime high.',
+          'After the fence dries, record the product, colour, batch, application date, and areas completed. Inspect exposed tops, horizontal caps, end grain, and sprinkler-facing sections more often because they can weather differently. Maintenance should be triggered by the product’s condition and manufacturer guidance, not an arbitrary calendar interval.',
         ],
       },
     ],
@@ -998,7 +1135,12 @@ export const GUIDES: Guide[] = [
       {
         question: 'Do I stain both sides of a fence?',
         answer:
-          'Only if you want both sides finished. Neighbor-facing side is often skipped on boundary fences — calculate one side only if that is your plan.',
+          'Include only the faces you are authorized and able to finish. Before entering neighbouring property or coating a shared boundary fence, confirm access and the agreed scope with the owner. Calculate one face for a one-sided job and two faces for both sides.',
+      },
+      {
+        question: 'Should I buy extra fence stain?',
+        answer:
+          'Allow for the product maker’s stated application loss and the fence’s roughness, details, and test-area result. Avoid a universal waste percentage. Keep enough matching product for missed edges and small maintenance work, stored according to the label.',
       },
     ],
   },
@@ -1014,27 +1156,50 @@ export const GUIDES: Guide[] = [
     relatedGuideSlugs: ['how-much-fence-stain-do-i-need', 'exterior-stain-two-coats'],
     sections: [
       {
-        heading: 'Start with deck footprint',
+        heading: 'Build the estimate surface by surface',
         paragraphs: [
-          'Length × width gives the main surface. A 12×16 deck = 192 sq ft. Add stairs (each tread + riser), top rails, balusters, and posts — these add 20–40% more area on many decks.',
+          'Start with deck length multiplied by width for the walking surface. A 12-by-16-foot rectangle is 192 square feet. Measure each additional landing separately and exclude areas covered permanently by a structure only if they will not be coated. Do not stop at the footprint when rails, fascia, steps, and posts are part of the scope.',
+          'For stairs, measure tread width by tread depth and riser width by riser height, then multiply by the number of similar steps. Treat broad rail caps as narrow rectangles. Balusters and decorative rails are time-consuming and difficult to estimate by footprint, so measure a representative section or use a direct component count.',
         ],
-      },
-      {
-        heading: 'Prep affects absorption',
-        paragraphs: [
-          'Power-washed bare wood drinks stain. Previously coated decks may need one coat. Always check manufacturer coverage after prep — our calculator lets you set coats and sq ft per gallon.',
-        ],
-      },
-      {
-        heading: 'Deck sq ft examples',
         bullets: [
-          '10×12 deck surface: 120 sq ft',
-          '12×20 deck: 240 sq ft',
-          'Add railings and steps separately — lots of edge footage',
-          'New wood may need 2 coats — see [exterior two-coat guide](/guides/exterior-stain-two-coats)',
+          'Walking boards and landings',
+          'Treads, risers, and stair stringers',
+          'Top and bottom rails, balusters, and posts',
+          'Fascia, exposed beam faces, skirting, and board ends',
         ],
+      },
+      {
+        heading: 'Match the rate to wood condition',
         paragraphs: [
-          'Run dimensions in the [deck stain calculator](/deck-stain-calculator) with transparent vs solid stain coverage rates.',
+          'Use the selected product’s coverage range for the prepared substrate. Smooth previously coated boards, rough weathered wood, and freshly stripped surfaces do not absorb the same amount. End grain and checking can take extra material. A small measured test area gives better evidence than transferring a rate from another deck.',
+          'Preparation also determines whether the stain can bond or penetrate. Clean the deck, remove incompatible or failing finish, rinse thoroughly, and allow it to dry to the moisture condition required by the manufacturer. Aggressive pressure washing can damage soft fibres and create a fuzzy surface, so use a method appropriate to the wood and existing coating.',
+        ],
+      },
+      {
+        heading: 'Decide the coat count from instructions',
+        paragraphs: [
+          'Read the complete application system before entering a coat count. Some penetrating stains require one controlled application; others specify a second wet-on-wet pass. Film-forming products may call for distinct coats with a stated recoat interval. Applying an unnecessary heavy coat can leave a tacky or uneven surface rather than improve durability.',
+          'If the deck has an existing finish, confirm compatibility before recoating. Water should not be used as the only compatibility test, and adding a different coating over a sound-looking but incompatible layer can lead to peeling. Make a test patch and let it cure before committing to the full deck.',
+        ],
+      },
+      {
+        heading: 'Run a transparent calculation',
+        paragraphs: [
+          'Add the measured areas for every included component. Divide that total by the label coverage for one coat, multiply only by the specified coat count, then allow for the product’s stated application loss and the complexity of rails or gaps. Round up to container sizes actually sold. Use the [deck stain calculator](/deck-stain-calculator) to keep the arithmetic visible.',
+          'For example, the 192-square-foot deck surface above remains 192 square feet until stair and railing measurements are added. If those components total another 74 square feet, the project area is 266 square feet. Divide 266 by your own product’s labelled coverage; no generic gallons-per-deck shortcut is required.',
+        ],
+        bullets: [
+          'Keep separate totals if rails and decking use different products',
+          'Do not count underside framing unless it is actually in scope',
+          'Allow for gaps and edges only when the application reaches them',
+          'Use the [two-coat guide](/guides/exterior-stain-two-coats) when instructions are unclear',
+        ],
+      },
+      {
+        heading: 'Apply in safe deck conditions',
+        paragraphs: [
+          'Check air and surface temperature, sun exposure, humidity, wind, rain-free period, and cure time on the label. A deck board can be hotter than the air in direct sun, causing stain to dry before it can be worked evenly. Cool nights and dew matter as well, particularly during short shoulder-season weather windows in Canada.',
+          'Plan an exit route so freshly coated stairs or doorways do not trap you. Keep people, pets, furniture, and planters off the surface for the stated cure period. Afterward, inspect high-traffic paths, exposed board ends, rail caps, and areas where water lingers. Clean gently using methods approved for the coating and recoat based on condition.',
         ],
       },
     ],
@@ -1043,6 +1208,11 @@ export const GUIDES: Guide[] = [
         question: 'Oil vs water-based deck stain coverage?',
         answer:
           'Coverage varies by formula, not just base. Use the number on your specific product label rather than rules of thumb.',
+      },
+      {
+        question: 'Do I include gaps between deck boards?',
+        answer:
+          'Count only surfaces you will actually reach. The top-face footprint already covers the board widths plus gaps as a plan area, so do not add the gaps again. Add accessible board edges separately only if the application method and scope include coating them.',
       },
     ],
   },
@@ -1058,33 +1228,56 @@ export const GUIDES: Guide[] = [
     relatedGuideSlugs: ['deck-stain-coverage', 'how-much-fence-stain-do-i-need'],
     sections: [
       {
-        heading: 'Exterior square footage basics',
+        heading: 'Measure the exterior envelope by elevation',
         paragraphs: [
-          'For rectangular homes, approximate wall area as perimeter × average wall height. A 40×30 ft footprint with 9 ft walls ≈ 140 ft perimeter × 9 ft = 1,260 sq ft per story — adjust for gables, dormers, and garage.',
-          'Our house stain calculator uses footprint dimensions you enter plus wall height — refine with your actual measurements.',
+          'Measure each wall width by its height and keep the four elevations separate. For a simple 40-by-30-foot footprint with 9-foot rectangular walls, the perimeter is 140 feet and the base wall area is 1,260 square feet before gables and openings. This is a geometry example only; actual wall heights, additions, and cladding details must be measured.',
+          'Add triangular gables as one-half base times height. Measure dormer faces, exposed foundation trim, fascia, and other included elements separately. Deduct only substantial windows and doors; detailed trim and extra cutting can offset small opening deductions. The [house stain calculator](/exterior-house-stain-calculator) provides a starting total that should be checked against elevation notes.',
         ],
       },
       {
-        heading: 'Two coats on exposed wood',
+        heading: 'One coat or two is a product decision',
         paragraphs: [
-          'Horizontal surfaces (decks, rail caps) weather faster than vertical siding. Most exterior stain systems recommend two coats on new or stripped wood, one maintenance coat on previously stained sound wood.',
+          'Do not use “new wood equals two coats” as a universal rule. Penetrating stains, wet-on-wet systems, and film-forming solid stains can have very different application requirements. Read the technical instructions for the exact product, substrate, and desired opacity. The specified spread rate may also differ between the first and later coats.',
+          'A maintenance coat is appropriate only when the existing finish is compatible, well bonded, clean, and within the product system’s recoat guidance. Peeling, heavy build-up, widespread greying, or an unknown previous coating calls for closer diagnosis and possibly stripping or a different preparation system.',
         ],
         bullets: [
-          'Log homes: check log-specific coverage — often 100–150 sq ft/gallon',
-          'Smooth hardboard siding: higher coverage than rough cedar',
-          'Spraying: faster but uses more product — add 10–15% material',
+          'One application: use only where the product specifies it',
+          'Wet-on-wet passes: complete within the maker’s timing window',
+          'Separate coats: observe the stated drying and recoat interval',
+          'Maintenance coat: verify adhesion and compatibility first',
         ],
       },
       {
-        heading: 'Two-coat exterior planning',
+        heading: 'Estimate each coat with the correct rate',
+        paragraphs: [
+          'Divide measured area by the label coverage for the first coat. If a second coat is required and has a different spread rate, calculate it separately rather than simply doubling the first-coat quantity. Rough cedar, logs, end grain, and deeply weathered wood may use more material than smooth siding, so select the label range that matches the prepared surface.',
+          'Spray application can lose material to wind and overspray; back-brushing may be required for penetration and evenness. Use the product maker’s stated allowance and local test-area use instead of a universal waste percentage. Keep separate calculations when siding, trim, deck surfaces, or logs use different products.',
+        ],
+      },
+      {
+        heading: 'Prepare for adhesion and uniform colour',
+        paragraphs: [
+          'Inspect for moisture entry, rot, failed caulking, loose fasteners, biological growth, and peeling finish. Correct the cause of deterioration before cosmetic work. Clean using a method compatible with the substrate, rinse residues, and let the assembly dry to the condition required by the stain maker. Sand or strip as directed, taking suitable precautions for old or unknown coatings.',
+          'Box compatible containers together when the manufacturer recommends it, and work to natural breaks such as corners or boards. Maintain a wet edge to reduce lap marks. Apply a test area where it can be evaluated after full drying; colour and opacity on rough wood often differ from a small store sample.',
+        ],
+      },
+      {
+        heading: 'Wait for the complete weather window',
+        paragraphs: [
+          'Check the forecast against the label’s limits for air and surface temperature, direct sun, wind, humidity, rain, and overnight dew. The wall surface can be much hotter in sun or cooler in shade than the reported air temperature. In Canadian spring and autumn conditions, a suitable afternoon can still be followed by a night below the product’s curing range.',
+          'Plan staging so each elevation can be completed to a natural break. Follow appropriate ladder, scaffold, and fall-protection practices for the site; material estimation does not make high work safe. Protect roofs, masonry, glazing, plants, vehicles, and neighbouring property from cleaner and overspray.',
+        ],
+      },
+      {
+        heading: 'Inspect and maintain by exposure',
         bullets: [
-          'Transparent/semi-transparent: often 2 coats first year, 1 coat maintenance',
-          'Solid stain: 2 coats for uniform color on weathered wood',
-          'Double gallons in calculator when product specifies 2 coats wet-on-wet or 24h apart',
-          'Fence, deck, and siding — use matching product line for compatibility',
+          'Check south- and west-facing walls for faster weathering',
+          'Inspect lower courses, end grain, and splash zones after wet seasons',
+          'Clean gently without damaging the stain film or wood fibres',
+          'Record product, colour, batch, prep, coat count, and application date',
         ],
         paragraphs: [
-          'Estimate total gallons with the [fence](/fence-stain-calculator) or [deck stain calculator](/deck-stain-calculator) and toggle coat count.',
+          'Recoat when inspection and manufacturer guidance indicate it, before widespread failure makes preparation more invasive. Horizontal rail caps and trim can age faster than vertical siding and may need separate attention. Use the [fence](/fence-stain-calculator) or [deck stain calculator](/deck-stain-calculator) for those surfaces rather than folding them into the house-wall rate.',
         ],
       },
     ],
@@ -1092,7 +1285,12 @@ export const GUIDES: Guide[] = [
       {
         question: 'Paint vs stain on exterior — same calculator?',
         answer:
-          'Our tool handles both paint and stain products. Enter the coverage from your can — stain values are usually lower than exterior paint.',
+          'The area math is the same, but coverage, preparation, and coat requirements are product-specific. Select the correct product type and enter the rate from its current label or technical sheet rather than borrowing a value from paint or another stain.',
+      },
+      {
+        question: 'Can I apply a second coat just for darker colour?',
+        answer:
+          'Only if the product instructions allow another coat on that substrate. Extra material can create gloss, tackiness, poor penetration, or later peeling. Test the approved coat system to judge colour before coating the full elevation.',
       },
     ],
   },

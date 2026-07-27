@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useJsonLd } from '../hooks/useJsonLd';
 import { getRecipeBySlug } from '../lib/recipes/recipes';
 import { getGuideBySlug } from '../lib/guides/guides';
+import type { Recipe } from '../lib/recipes/types';
 import { RECIPE_CATEGORY_LABEL } from '../lib/recipes/types';
 import { PlanBadges } from '../components/RecipeCard';
 import { GuideCard } from '../components/GuideCard';
@@ -12,8 +12,8 @@ import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import AdSlot from '../components/AdSlot';
 import { getRecipeImagePath, getRecipeImageUrl } from '../lib/recipes/images';
 import imageManifest from '../lib/recipes/imageManifest.json';
-import { breadcrumbSchema } from '../lib/schema/jsonLd';
-import { SITE_NAME, SITE_URL } from '../lib/site';
+import { breadcrumbSchema, pageUrl } from '../lib/schema/jsonLd';
+import { SITE_URL } from '../lib/site';
 import { getRecipeArticle } from '../lib/recipes/recipeArticles';
 import { getRelatedRecipes } from '../lib/recipes/recipeHubs';
 import SessionDeepener from '../components/SessionDeepener';
@@ -26,6 +26,36 @@ type ImageCredit = {
   photographer: string;
   url: string;
 };
+
+function recipeSchema(recipe: Recipe): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Recipe',
+    name: recipe.title,
+    description: recipe.description,
+    image: [getRecipeImageUrl(recipe)],
+    url: pageUrl(`/recipes/${recipe.slug}`),
+    recipeCategory: RECIPE_CATEGORY_LABEL[recipe.category],
+    recipeYield: `${recipe.servings} ${recipe.servings === 1 ? 'serving' : 'servings'}`,
+    prepTime: `PT${recipe.prepMinutes}M`,
+    cookTime: `PT${recipe.cookMinutes}M`,
+    totalTime: `PT${recipe.prepMinutes + recipe.cookMinutes}M`,
+    recipeIngredient: recipe.ingredients,
+    recipeInstructions: recipe.steps.map((text, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      text,
+    })),
+    ...(recipe.proteinPerServing != null
+      ? {
+          nutrition: {
+            '@type': 'NutritionInformation',
+            proteinContent: `${recipe.proteinPerServing} g`,
+          },
+        }
+      : {}),
+  };
+}
 
 export default function RecipePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -50,59 +80,7 @@ export default function RecipePage() {
       : null
   );
 
-  useEffect(() => {
-    if (!recipe) return;
-
-    const scriptId = 'recipe-schema';
-    let script = document.getElementById(scriptId) as HTMLScriptElement | null;
-    if (!script) {
-      script = document.createElement('script');
-      script.id = scriptId;
-      script.type = 'application/ld+json';
-      document.head.appendChild(script);
-    }
-
-    const imageUrl = getRecipeImageUrl(recipe);
-    const article = getRecipeArticle(recipe);
-
-    script.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Recipe',
-      name: recipe.title,
-      description: `${recipe.description} ${article.whyItFits}`.slice(0, 500),
-      image: [imageUrl],
-      url: `${SITE_URL}/recipes/${recipe.slug}/`,
-      datePublished: '2026-06-01',
-      dateModified: '2026-07-26',
-      keywords: ['low carb', 'keto', RECIPE_CATEGORY_LABEL[recipe.category], 'net carbs'].join(', '),
-      author: {
-        '@type': 'Organization',
-        name: SITE_NAME,
-        url: `${SITE_URL}/`,
-      },
-      recipeCategory: RECIPE_CATEGORY_LABEL[recipe.category],
-      recipeCuisine: 'Low carb',
-      recipeYield: `${recipe.servings} servings`,
-      prepTime: `PT${recipe.prepMinutes}M`,
-      cookTime: `PT${recipe.cookMinutes}M`,
-      totalTime: `PT${recipe.prepMinutes + recipe.cookMinutes}M`,
-      recipeIngredient: recipe.ingredients,
-      recipeInstructions: recipe.steps.map((text, i) => ({
-        '@type': 'HowToStep',
-        position: i + 1,
-        text,
-      })),
-      nutrition: {
-        '@type': 'NutritionInformation',
-        carbohydrateContent: `${recipe.netCarbsPerServing} g`,
-        ...(recipe.proteinPerServing ? { proteinContent: `${recipe.proteinPerServing} g` } : {}),
-      },
-    });
-
-    return () => {
-      document.getElementById(scriptId)?.remove();
-    };
-  }, [recipe]);
+  useJsonLd('recipe-schema', recipe ? recipeSchema(recipe) : null);
 
   if (!recipe) {
     return <Navigate to="/recipes" replace />;
@@ -197,6 +175,18 @@ export default function RecipePage() {
           <>
             <h3 className="text-base font-semibold mt-5 mb-2">Meal prep</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{article.mealPrep}</p>
+          </>
+        )}
+        {article.ingredientNotes && (
+          <>
+            <h3 className="text-base font-semibold mt-5 mb-2">Choose and prep the ingredients</h3>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{article.ingredientNotes}</p>
+          </>
+        )}
+        {article.servingNotes && (
+          <>
+            <h3 className="text-base font-semibold mt-5 mb-2">Serve it well</h3>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{article.servingNotes}</p>
           </>
         )}
       </section>
@@ -304,8 +294,9 @@ export default function RecipePage() {
       )}
 
       <p className="text-xs text-slate-500 dark:text-slate-400 mt-8 leading-relaxed">
-        Net carb and nutrition values are estimates for {SITE_NAME} — not medical advice. Verify packaged foods with
-        our{' '}
+        Net carb and protein values are working estimates intended for the listed quantities and stated servings; they
+        are not laboratory analyses or medical advice. Brands and substitutions can change the result. Verify packaged
+        foods with our{' '}
         <Link to="/net-carb-calculator" className="text-teal-600 dark:text-teal-400 hover:underline">
           net carb calculator
         </Link>

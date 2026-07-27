@@ -96,6 +96,34 @@ export default function RecipeHubPage({ hubId }: RecipeHubPageProps) {
         ))}
       </div>
 
+      {hub.practicalGuide && (
+        <section
+          className="mb-10 max-w-3xl prose prose-slate dark:prose-invert"
+          aria-labelledby="recipe-hub-practical-guide"
+        >
+          <h2 id="recipe-hub-practical-guide" className="text-xl font-semibold">
+            {hub.practicalGuide.title}
+          </h2>
+          {hub.practicalGuide.paragraphs.map((paragraph) => (
+            <p key={paragraph.slice(0, 64)} className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
+          <h3 className="text-base font-semibold">Before you prep</h3>
+          <ul className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            {hub.practicalGuide.checklist.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <h3 className="text-base font-semibold">How to use the estimates</h3>
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            Recipe values are working estimates intended for the listed quantities and stated number of servings. They
+            are not laboratory analyses, and products can differ by brand. Check the package values for the ingredients
+            you use and recalculate when you change a portion or substitution.
+          </p>
+        </section>
+      )}
+
       <ContentMonetizationSlot placement="content" guides={relatedGuides} />
 
       <p className="text-xs text-slate-500 dark:text-slate-400 mt-8">

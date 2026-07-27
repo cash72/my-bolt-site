@@ -5,6 +5,8 @@ export interface RecipeArticle {
   whyItFits: string;
   mealPrep?: string;
   swaps?: string;
+  ingredientNotes?: string;
+  servingNotes?: string;
 }
 
 /** Unique prose per recipe — fights AdSense “low value content” thinness. */
@@ -35,9 +37,15 @@ export const RECIPE_ARTICLES: Record<string, RecipeArticle> = {
   },
   'greek-yogurt-berries': {
     whyItFits:
-      'Plain full-fat Greek yogurt with a measured berry portion balances protein and a controlled carb hit. Sweetened “fruit on the bottom” cups often hide double-digit sugars — always confirm with the net carb calculator.',
-    mealPrep: 'Portion yogurt into jars; add berries just before eating so they stay firm.',
-    swaps: 'Swap berries for a few chopped walnuts if you need fewer carbs that day.',
+      'Plain Greek yogurt and a measured berry portion make a practical cold snack when you want something lightly sweet without building the meal around granola or juice. The listed 3/4-cup yogurt portion supplies the base, while 1/4 cup of raspberries or blackberries keeps the fruit amount visible instead of turning it into an unmeasured handful. This recipe is tagged for insulin-resistance and moderate-low-carb plans rather than strict keto because yogurt and berries both contribute carbohydrate.',
+    ingredientNotes:
+      'Compare tubs using the nutrition panel, not the front label. Choose plain, unsweetened Greek yogurt and check the serving size because carbohydrate and protein vary by brand and milk-fat level. Frozen berries work, but thaw them separately and drain excess liquid before spooning them over the yogurt. If using walnuts, measure the tablespoon before chopping so the portion does not quietly grow.',
+    mealPrep:
+      'Portion the yogurt into a covered jar up to two days ahead. Keep berries and walnuts in separate small containers, then add them just before eating so the nuts stay crisp and thawed berries do not thin the yogurt. For a packed snack, keep it chilled with an ice pack.',
+    swaps:
+      'Use raspberries or blackberries as listed; either gives a tart contrast to the yogurt. For a lower-fruit version, omit the berries and use the optional walnuts plus cinnamon. Recalculate rather than assuming the same estimate if you change the yogurt quantity, use flavored yogurt, or add sweetener.',
+    servingNotes:
+      'Stir the cinnamon into the yogurt for even flavor or leave the toppings layered for more texture. The recipe makes one measured serving. If it needs to become a larger meal, pair it with a separate savory protein rather than doubling every topping; doubling the bowl also doubles its estimated net carbs.',
   },
   'taco-bowl-no-tortilla': {
     whyItFits:
@@ -59,9 +67,15 @@ export const RECIPE_ARTICLES: Record<string, RecipeArticle> = {
   },
   'cottage-cheese-cucumber': {
     whyItFits:
-      'High-protein cottage cheese with cucumber is a fast snack or light lunch. Choose plain full-fat or low-fat without fruit syrup. This is especially useful when you need protein between meals without cooking.',
-    mealPrep: 'Portion cottage cheese in containers; slice cucumber when you eat.',
-    swaps: 'Add everything-bagel seasoning or chili crisp (check carbs). Swap cucumber for celery sticks.',
+      'This bowl uses a measured portion of cottage cheese as the protein-centered base and cucumber for cool crunch, so it works as a snack or small no-cook meal without crackers. Because cottage cheese naturally contains some carbohydrate, the label matters even when the product is plain. The olive oil is optional; it adds richness, while everything bagel seasoning gives a sharper, saltier finish.',
+    ingredientNotes:
+      'Look for unflavored cottage cheese and compare labels at the same serving size. Some products include starches or gums for texture, so use the tub you actually buy when checking the estimate. English or Persian cucumber stays especially crisp, but a standard cucumber works if you peel any tough skin and scoop out watery seeds. Taste before salting because cottage cheese and seasoning blends can already be salty.',
+    mealPrep:
+      'Portion the cottage cheese in a sealed container up to two days ahead. Store sliced cucumber separately with a dry paper towel, then combine at serving time; this prevents cucumber water from loosening the cheese. Add olive oil and dry seasonings last. Keep the bowl refrigerated and do not leave a packed portion at room temperature for an extended period.',
+    swaps:
+      'Use fresh dill, black pepper, or everything bagel seasoning as listed. Celery or radish can replace the cucumber when you want a firmer crunch. Chili crisp changes the carb count and can add substantial oil and sodium, so check its label and measure it rather than treating it as a free garnish.',
+    servingNotes:
+      'Cut the cucumber into small dice for a spoonable bowl or into rounds for a dip-and-scoop snack. The listed quantities make one serving. For a more substantial lunch, add a separate egg or leftover plain chicken and recalculate any additions instead of relying on the bowl’s 5g estimate.',
   },
   'sheet-pan-sausage-peppers': {
     whyItFits:
@@ -89,9 +103,15 @@ export const RECIPE_ARTICLES: Record<string, RecipeArticle> = {
   },
   'tuna-salad-stuffed-peppers': {
     whyItFits:
-      'Tuna salad in pepper cups is a no-stove lunch with protein and crunch. Prefer tuna in olive oil or water without sweet relish. Half a pepper keeps carbs lower than a whole large bell.',
-    mealPrep: 'Mix tuna salad 2 days ahead. Stuff peppers at lunchtime.',
-    swaps: 'Canned salmon or shredded chicken. Celery boats instead of peppers for fewer carbs.',
+      'Tuna salad stuffed into mini pepper halves is a complete no-cook lunch format: the tuna supplies the main protein, mayonnaise binds the filling, and celery, onion, and peppers provide contrast without bread. Using the peppers as cups also makes the two-serving batch easy to divide. The listed estimate assumes plain tuna and mayonnaise without sweet relish or a sweetened dressing.',
+    ingredientNotes:
+      'Drain the tuna thoroughly so the filling stays in the pepper cups. Tuna packed in water or oil both work, but the final texture will differ; oil-packed tuna may need slightly less mayonnaise. Choose firm mini peppers without wrinkled skin, and halve them lengthwise to make stable cups. Mince the onion finely so no bite overwhelms the filling, then add lemon gradually because brands of mayonnaise vary in acidity.',
+    mealPrep:
+      'Mix the tuna filling and refrigerate it in a covered container for up to two days. Wash, halve, and dry the peppers separately. Stuff them shortly before serving so they remain crisp and the filling does not become watery. For transport, pack the filling and pepper halves in separate compartments and assemble at lunch.',
+    swaps:
+      'Canned salmon or cooked shredded chicken can replace tuna, but their texture may require a little more or less mayonnaise. Cucumber boats or celery sticks can replace the mini peppers. Skip sweet relish unless you have checked and included its label values; chopped dill pickle gives a similar tang with more predictable portioning.',
+    servingNotes:
+      'Spoon equal amounts of filling into all eight pepper halves, then divide four halves per serving. If the peppers tip, trim only a very thin strip from the rounded side without cutting through the cup. Serve cold, or let the tuna mixture sit out just long enough to lose its refrigerator chill before filling the peppers.',
   },
   'steak-salad-arugula': {
     whyItFits:
