@@ -104,7 +104,7 @@ if (!apiToken || !accountId) {
 }
 
 run(
-  `npx wrangler@3 pages deploy dist --project-name=${site.pagesProject} --branch=main`,
+  `npx wrangler@3 pages deploy dist --project-name=${site.pagesProject} --branch=main --commit-dirty=true`,
   { cwd: sitePath, env: wranglerEnv }
 );
 

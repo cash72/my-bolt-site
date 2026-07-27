@@ -275,19 +275,26 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'exterior-paint-calculator': {
     intro:
-      'Exterior latex covers less area than interior paint — default 250 sq ft per gallon on porous siding. Enter building footprint and average wall height for gallon estimates with Canadian coverage defaults.',
+      'Exterior latex covers less area than interior paint — default 250 sq ft per gallon on porous siding. Enter building footprint and average wall height for gallon estimates with Canadian coverage defaults. Use this before you order delivery so one weekend of good weather is enough product.',
     sections: [
       {
         heading: 'Siding and texture',
         paragraphs: [
           'Rough cedar, stucco, and previously unpainted wood absorb more paint than smooth hardboard. Use the sq ft per gallon printed on your exterior can — often 200–300 sq ft/gallon.',
-          'Bold colour changes over dark siding usually need primer plus two topcoats — run the calculator twice or adjust coat count.',
+          'Bold colour changes over dark siding usually need primer plus two topcoats — run the calculator twice or raise coat count. A light refresh over the same colour on sound paint may finish in one heavy coat plus touch-ups.',
         ],
       },
       {
-        heading: 'Trim and soffits',
+        heading: 'Footprint example',
+        paragraphs: [
+          'A 40 × 30 ft bungalow with 9 ft walls is about 2 × 9 × (40 + 30) = 1,260 sq ft of wall. At 250 sq ft/gallon and two coats you need about 10.1 gallons — buy 11 to cover waste, porches, and touch-ups. Bump waste to 15% if you have heavy texture or lots of trim returns.',
+        ],
+      },
+      {
+        heading: 'Trim, soffits, and Canadian weather windows',
         paragraphs: [
           'This tool focuses on main wall area. Many DIYers buy trim paint by the quart separately — the 10% waste allowance helps cover some fascia and soffit area.',
+          'Plan exterior painting when overnight lows stay above ~10°C and rain is unlikely for 24 hours. For stain instead of paint, switch to the [exterior house stain calculator](/exterior-house-stain-calculator).',
         ],
       },
     ],
@@ -295,18 +302,25 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'ceiling-paint-calculator': {
     intro:
-      'Ceiling paint is usually flat white — enter room length and width for ceiling square footage only. Walls are excluded so you get a quick gallon count for a repaint.',
+      'Ceiling paint is usually flat white — enter room length and width for ceiling square footage only. Walls are excluded so you get a quick gallon count for a ceiling-only refresh without overbuying wall paint.',
     sections: [
       {
         heading: 'One coat vs two',
         paragraphs: [
-          'White-over-white refreshes often need one coat. Stains, nicotine, or colour changes need stain-blocking primer first — see our [primer before painting guide](/guides/primer-before-painting).',
+          'White-over-white refreshes often need one coat if the old finish is sound. Water stains, nicotine, or colour changes need stain-blocking primer first — see our [primer before painting guide](/guides/primer-before-painting), then run this calculator for the finish coats.',
+          'Popcorn or heavy texture covers less per gallon than smooth drywall. If your label assumes 350–400 sq ft/gallon on smooth ceilings, drop coverage toward 250–300 for texture.',
+        ],
+      },
+      {
+        heading: 'Quick ceiling math',
+        paragraphs: [
+          'A 12 × 14 ft ceiling is 168 sq ft. Two coats at 350 sq ft/gallon ≈ 1.0 gallon — buy one gallon plus a quart if you cut in poorly or have patches. Open-plan great rooms add up fast; measure each zone or use the largest rectangle and add 10% waste.',
         ],
       },
       {
         heading: 'Walls and ceiling together',
         paragraphs: [
-          'For a full room repaint, use the [room paint calculator](/room-paint-calculator) or [how much paint do I need](/how-much-paint-do-i-need) with surface set to both.',
+          'For a full room repaint, use the [room paint calculator](/room-paint-calculator) or [how much paint do I need](/how-much-paint-do-i-need) with surface set to both. Keep ceiling flat and walls eggshell/satin as separate products — do not mix sheens in one estimate.',
         ],
       },
     ],
@@ -314,18 +328,26 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'paint-cost-estimator': {
     intro:
-      'Enter price per gallon from your local paint store (CAD) — we multiply gallons needed for an estimated materials total. Tape, rollers, and primer are extra line items.',
+      'Enter price per gallon from your local paint store (CAD) — we multiply gallons needed for an estimated materials total. Tape, rollers, and primer are extra line items so you can budget the full DIY cart, not just the colour can.',
     sections: [
       {
         heading: 'Budgeting a DIY room',
         paragraphs: [
-          'Materials often run $80–$200 CAD for a typical bedroom including basic supplies. This page estimates paint gallons × your entered price — add 15–20% for brushes, tape, and drop cloths.',
+          'Materials often run $80–$200 CAD for a typical bedroom including basic supplies. This page estimates paint gallons × your entered price — add 15–20% for brushes, tape, trays, and drop cloths.',
+          'Example: 2.5 gallons at $65/gallon ≈ $163 in paint alone. Mid-grade brushes and a roller kit can add $40–$70. Keep a labelled touch-up jar so you are not buying another gallon for one scuff.',
         ],
       },
       {
-        heading: 'Primer and topcoat',
+        heading: 'Primer and topcoat as two line items',
         paragraphs: [
-          'New drywall and bold colour changes need primer — run the calculator with paint type set to primer, then again for topcoat, or add primer gallons manually.',
+          'New drywall and bold colour changes need primer — run the gallon math with paint type set to primer, then again for topcoat, or add primer gallons manually to the cost field.',
+          'Premium paint costs more per gallon but may cover in fewer coats. Compare cost per finished square foot: (price ÷ coverage) × coats, not sticker price alone.',
+        ],
+      },
+      {
+        heading: 'Where this estimator stops',
+        paragraphs: [
+          'Labour, ladder rental, and furniture moving are not included. For gallon counts without price, use [how much paint do I need](/how-much-paint-do-i-need). For coverage-only brand math, use the [paint coverage calculator](/paint-coverage-calculator).',
         ],
       },
     ],

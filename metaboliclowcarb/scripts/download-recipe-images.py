@@ -4,12 +4,9 @@ from __future__ import annotations
 
 import json
 import re
-import urllib.parse
 import urllib.request
 from io import BytesIO
 from pathlib import Path
-
-from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
 RECIPES_TS = ROOT / "src/lib/recipes/recipes.ts"
@@ -68,6 +65,9 @@ def download(url: str) -> bytes:
 
 
 def save_recipe_image(slug: str, raw: bytes) -> None:
+    # Lazy import so CI can reuse committed images without Pillow installed.
+    from PIL import Image, ImageOps
+
     img = Image.open(BytesIO(raw))
     img = ImageOps.exif_transpose(img)
     img = ImageOps.fit(img, TARGET_SIZE, method=Image.Resampling.LANCZOS)
@@ -111,6 +111,32 @@ def main() -> None:
     manifest: dict[str, dict[str, str]] = {}
     skipped = 0
     downloaded = 0
+
+    cached_slugs = [
+        slug
+        for slug in slugs
+        if (OUT_DIR / f"{slug}.jpg").is_file() and (OUT_DIR / f"{slug}.jpg").stat().st_size > 10_000
+    ]
+    if len(cached_slugs) == len(slugs):
+        for slug in slugs:
+            meta = RECIPE_PHOTOS[slug]
+            manifest[slug] = existing_manifest.get(
+                slug,
+                {
+                    "path": f"/recipes/images/{slug}.jpg",
+                    "source": "Pexels",
+                    "photoId": meta["id"],
+                    "photographer": meta["photographer"],
+                    "url": f"https://www.pexels.com/photo/{meta['id']}/",
+                },
+            )
+        MANIFEST_PATH.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+        SRC_MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+        print(
+            f"Recipe photos ready in {OUT_DIR.relative_to(ROOT)} "
+            f"(downloaded 0, cached {len(slugs)}, total {len(slugs)}) — skipped network/Pillow"
+        )
+        return
 
     for slug in slugs:
         meta = RECIPE_PHOTOS[slug]
