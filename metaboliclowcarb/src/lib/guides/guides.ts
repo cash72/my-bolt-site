@@ -357,13 +357,13 @@ export const GUIDES: Guide[] = [
           'Moderate low carb: ~100g net carbs/day — maintenance or gradual transition.',
         ],
         paragraphs: [
-          'Your provider may recommend different numbers based on medications, kidney health, and lab results. These tiers are starting points, not prescriptions.',
+          'Your provider may recommend different numbers based on medications, kidney health, and lab results. These tiers are starting points, not prescriptions. Personalize protein and calories with the [keto macro calculator](/keto-macro-calculator) (strict) or [insulin resistance macro calculator](/insulin-resistance-macro-calculator) (~50g), and use the [TDEE calorie calculator](/tdee-calorie-calculator) when fat loss needs a calorie ceiling.',
         ],
       },
       {
         heading: 'Practical label reading',
         paragraphs: [
-          'Use our net carb calculator at the grocery store: enter total carbs, fiber, and sugar alcohols from the label. Multiply by servings if you eat more than one.',
+          'Use our [net carb calculator](/net-carb-calculator) at the grocery store: enter total carbs, fiber, and sugar alcohols from the label. Multiply by servings if you eat more than one.',
           'Watch hidden sugars in sauces, dressings, and "keto" packaged foods. When in doubt, choose whole foods: meat, fish, eggs, leafy greens, olive oil.',
         ],
       },
@@ -374,6 +374,8 @@ export const GUIDES: Guide[] = [
           'Moderate low carb: 50–75g net carbs/day',
           'Maintenance after reversal: 75–100g — individual',
           'Use [net carb calculator](/net-carb-calculator) per meal',
+          'Set daily macros — [keto](/keto-macro-calculator) or [IR macros](/insulin-resistance-macro-calculator)',
+          'Optional calorie baseline — [TDEE calculator](/tdee-calorie-calculator)',
           'Read labels — [nutrition label guide](/guides/how-to-read-nutrition-labels-net-carbs)',
         ],
         paragraphs: [
@@ -391,6 +393,11 @@ export const GUIDES: Guide[] = [
         question: 'Is 50g net carbs low enough for insulin resistance?',
         answer:
           'For many people, yes — combined with adequate protein and healthy fats. Some need stricter keto (20g); others improve at 100g. Track glucose response and work with your doctor.',
+      },
+      {
+        question: 'Should I set macros or just net carbs?',
+        answer:
+          'Net carbs are the first lever for insulin resistance. Add protein and calorie targets with the [keto macro calculator](/keto-macro-calculator) or [TDEE calorie calculator](/tdee-calorie-calculator) if hunger, muscle loss, or stalled weight becomes the next problem.',
       },
     ],
   },
@@ -546,7 +553,7 @@ export const GUIDES: Guide[] = [
           'Retest liver enzymes after 3–6 months of consistent change.',
         ],
         paragraphs: [
-          'Never stop medications or ignore elevated liver enzymes without medical guidance.',
+          'Never stop medications or ignore elevated liver enzymes without medical guidance. For educational macro starting points, use the [keto macro calculator](/keto-macro-calculator) or [low carb macro calculator](/low-carb-macro-calculator), and the [TDEE calorie calculator](/tdee-calorie-calculator) if calorie surplus is part of the story.',
         ],
       },
       {
@@ -554,6 +561,8 @@ export const GUIDES: Guide[] = [
         bullets: [
           'Cut refined carbs and fructose-heavy drinks first',
           'Aim for 50g or fewer net carbs if tolerated',
+          'Set macros — [keto](/keto-macro-calculator) or [low carb](/low-carb-macro-calculator)',
+          'Optional calorie check — [TDEE calculator](/tdee-calorie-calculator)',
           'Add walking after meals — independent of weight loss',
           'Retest liver enzymes at 12 weeks with your doctor',
           'See [getting started keto](/guides/getting-started-keto-low-carb) for food lists',
@@ -571,6 +580,11 @@ export const GUIDES: Guide[] = [
         question: 'Does fasting help fatty liver?',
         answer:
           'Some research suggests time-restricted eating may reduce liver fat. Extended fasts without medical clearance are not recommended if you have significant liver disease.',
+      },
+      {
+        question: 'Do I need a calorie target or just lower carbs?',
+        answer:
+          'Carb quality and quantity matter first for many NAFLD discussions. If weight and waist stall, add a maintenance check with the [TDEE calorie calculator](/tdee-calorie-calculator) and rebuild macros in the [keto macro calculator](/keto-macro-calculator) with your clinician’s guidance.',
       },
     ],
   },
@@ -685,7 +699,7 @@ export const GUIDES: Guide[] = [
           'Always verify packaged foods with the [net carb calculator](/net-carb-calculator)',
         ],
         paragraphs: [
-          'Compare induction habits with our [getting started keto guide](/guides/getting-started-keto-low-carb) if you prefer keto language over Atkins phase names — the first two weeks look similar.',
+          'Compare induction habits with our [getting started keto guide](/guides/getting-started-keto-low-carb) if you prefer keto language over Atkins phase names — the first two weeks look similar. For induction numbers, the [keto macro calculator](/keto-macro-calculator) and [Atkins macro calculator](/atkins-macro-calculator) both target ~20g net carbs; add [TDEE](/tdee-calorie-calculator) when weight loss needs a calorie baseline.',
         ],
       },
     ],
@@ -698,12 +712,12 @@ export const GUIDES: Guide[] = [
       {
         question: 'Is Atkins the same as keto?',
         answer:
-          'Induction is very similar to strict keto (~20g net carbs). Atkins explicitly plans carb reintroduction; many keto approaches stay low indefinitely. Choose the structure you can follow for years, not weeks.',
+          'Induction is very similar to strict keto (~20g net carbs). Atkins explicitly plans carb reintroduction; many keto approaches stay low indefinitely. Choose the structure you can follow for years, not weeks. Day-one numbers: [keto macro calculator](/keto-macro-calculator).',
       },
       {
         question: 'What if I stall in Phase 2?',
         answer:
-          'Check portions of nuts and dairy first — easy to overeat. Confirm net carbs with labels, tighten back toward Phase 1 for 1–2 weeks, then re-expand more slowly.',
+          'Check portions of nuts and dairy first — easy to overeat. Confirm net carbs with labels, tighten back toward Phase 1 for 1–2 weeks, then re-expand more slowly. If the scale is the issue, refresh calories with the [TDEE calorie calculator](/tdee-calorie-calculator) before blaming carbs alone.',
       },
     ],
   },
@@ -731,6 +745,8 @@ export const GUIDES: Guide[] = [
         bullets: [
           'Discuss targets with your OB/GYN or endocrinologist before large diet shifts',
           'Many low-carb PCOS plans start around 50g net carbs — see the [PCOS low carb calculator](/pcos-low-carb-calculator)',
+          'Prefer stricter induction? Start with the [keto macro calculator](/keto-macro-calculator) (~20g), then loosen',
+          'Optional calorie baseline — [TDEE calorie calculator](/tdee-calorie-calculator)',
           'Protein at every meal (roughly palm-sized) to blunt hunger and protect muscle',
           'Build plates around eggs, fish, poultry, leafy greens, olive oil, and berries in moderation',
           'Track cycles, energy, waist, and labs — not scale weight alone',
@@ -768,12 +784,17 @@ export const GUIDES: Guide[] = [
       {
         question: 'Is keto better than moderate low carb for PCOS?',
         answer:
-          'Not always. Strict keto (~20g) can work for some; others do better near 50–75g with more vegetables and social flexibility. Choose the lowest carb level you can maintain while labs and symptoms trend the right way — with your clinician.',
+          'Not always. Strict keto (~20g) can work for some; others do better near 50–75g with more vegetables and social flexibility. Choose the lowest carb level you can maintain while labs and symptoms trend the right way — with your clinician. Compare the [keto macro calculator](/keto-macro-calculator) and [PCOS low carb calculator](/pcos-low-carb-calculator).',
       },
       {
         question: 'Should I do long fasts for PCOS?',
         answer:
           'Usually not as a first tool. Stabilize meals and sleep first. Use shorter overnight fasts if helpful, and get medical clearance before 24h+ fasts — especially on glucose-lowering medication.',
+      },
+      {
+        question: 'Do I need a calorie deficit for PCOS weight loss?',
+        answer:
+          'Often yes over time, but start with carb quality and protein. If waist and weight stall for several weeks, estimate maintenance with the [TDEE calorie calculator](/tdee-calorie-calculator) and rebuild macros — still under clinician guidance.',
       },
     ],
   },
