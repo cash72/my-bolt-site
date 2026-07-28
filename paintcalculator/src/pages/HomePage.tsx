@@ -9,7 +9,7 @@ import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 
 const POPULAR_CALCULATORS = [
   { to: '/how-much-paint-do-i-need', label: 'How much paint?' },
-  { to: '/cabinet-trim-paint-calculator', label: 'Cabinet & trim' },
+  { to: '/paint-coverage-calculator', label: 'Behr coverage' },
   { to: '/paint-cost-estimator', label: 'Paint cost' },
   { to: '/ceiling-paint-calculator', label: 'Ceiling paint' },
   { to: '/exterior-paint-calculator', label: 'Exterior paint' },
