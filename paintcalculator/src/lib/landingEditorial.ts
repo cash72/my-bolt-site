@@ -173,6 +173,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
+        heading: 'Worked example — 12×12 room with Behr label math',
+        paragraphs: [
+          'Walls: perimeter 48 ft × 8 ft = 384 sq ft. Two coats = 768 sq ft of coverage demand. At Behr Premium Plus 400 sq ft/gallon → 768 ÷ 400 = 1.92 gallons — buy 2 gallons if walls are smooth and primed. Texture, colour change, or unprimed drywall? Drop to 325–350 sq ft/gallon and buy 3.',
+          'Already measured total wall area from a contractor quote? Enter that sq ft above with coats and your can rate — no need to re-measure length and width. For doors, windows, and multi-room shopping lists, switch to [how much paint do I need](/how-much-paint-do-i-need).',
+        ],
+      },
+      {
         heading: 'Interior vs primer vs exterior numbers',
         paragraphs: [
           'Interior latex: often 350–400 sq ft/gallon. Primer: 250–350 sq ft/gallon. Exterior on wood siding: 200–300 sq ft/gallon. Never mix products in one calculation — run the calculator separately for primer and topcoat.',
