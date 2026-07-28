@@ -22,7 +22,7 @@ const HOMEPAGE_FAQ = [
   },
   {
     q: 'How many sq ft does a gallon of paint cover?',
-    a: 'Most interior latex covers 350–400 sq ft per gallon on smooth walls. Primer is often 300 sq ft/gallon. Check your Canadian paint can label and enter the exact number for best results.',
+    a: 'Most interior latex covers 350–400 sq ft per gallon on smooth walls. Primer is often 300 sq ft/gallon. Check your Canadian paint can label and enter the exact number in our Behr paint coverage calculator for best results.',
   },
   {
     q: 'Does this work for fence or deck stain?',
