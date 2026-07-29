@@ -159,11 +159,11 @@ export default function HomePage() {
   });
 
   const popularConversions = [
+    { to: '/satoshi-to-usd', label: 'Satoshi → USD' },
     { to: '/50000-satoshi-to-usd', label: '50,000 sats → USD' },
     { to: '/100000-satoshi-to-usd', label: '100,000 sats → USD' },
     { to: '/100-dollars-in-satoshi', label: '100 USD → sats' },
-    { to: '/satoshi-to-eur', label: 'Satoshi → EUR' },
-    { to: '/satoshi-to-gbp', label: 'Satoshi → GBP' },
+    { to: '/bitcoin-fee-calculator', label: 'Fee calculator' },
     { to: '/usd-to-satoshi', label: 'USD → Satoshi' },
   ] as const;
 
