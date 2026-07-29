@@ -103,7 +103,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: false,
     readTimeMinutes: 7,
     datePublished: '2026-06-01',
-    dateModified: '2026-06-29',
+    dateModified: '2026-07-29',
     sections: [
       {
         heading: 'The fixed ratio',
@@ -426,7 +426,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: true,
     readTimeMinutes: 13,
     datePublished: '2026-06-29',
-    dateModified: '2026-06-29',
+    dateModified: '2026-07-29',
     sections: [
       {
         heading: 'Before you buy: know what you’re getting',
@@ -530,7 +530,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: true,
     readTimeMinutes: 11,
     datePublished: '2026-06-29',
-    dateModified: '2026-07-07',
+    dateModified: '2026-07-29',
     sections: [
       {
         heading: 'What “stacking sats” actually means',
@@ -649,7 +649,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: false,
     readTimeMinutes: 9,
     datePublished: '2026-07-18',
-    dateModified: '2026-07-18',
+    dateModified: '2026-07-29',
     sections: [
       {
         heading: 'What Lightning is — and what it is not',
@@ -816,7 +816,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: false,
     readTimeMinutes: 9,
     datePublished: '2026-07-18',
-    dateModified: '2026-07-18',
+    dateModified: '2026-07-29',
     sections: [
       {
         heading: 'Before you send: amount and destination',
