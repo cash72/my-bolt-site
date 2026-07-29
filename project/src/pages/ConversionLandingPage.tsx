@@ -187,6 +187,16 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
           question: `How do you convert Satoshi to ${label}?`,
           answer: `Multiply the Satoshi amount by the live BTC price in ${label}, then divide by 100,000,000 because there are 100 million Satoshis in one Bitcoin.`,
         },
+        {
+          question: 'How often does this price update?',
+          answer:
+            'SatoshiCalc refreshes aggregated spot prices from CoinGecko about every 60 seconds. Spot is a mid-market estimate — your exchange may quote a slightly different price after spread and fees.',
+        },
+        {
+          question: 'Should I think in sats or BTC for this amount?',
+          answer:
+            'Wallets and Lightning apps usually show sats for amounts under 0.01 BTC. Use BTC for whole-coin or large fractions; use sats for stacking milestones, tips, and everyday balances. This page locks the sat amount and shows the live fiat label.',
+        },
       ];
     }
     if (isFiatToSats) {
@@ -201,6 +211,11 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
         {
           question: `How do you convert ${label} to Satoshi?`,
           answer: `Divide your ${label} amount by the live Bitcoin price, then multiply by 100,000,000 to get the Satoshi equivalent.`,
+        },
+        {
+          question: 'Does this include exchange or network fees?',
+          answer:
+            'No — the calculator shows spot conversion only. Trading fees, card premiums, and on-chain withdrawal fees reduce the sats you actually receive. Estimate mempool cost separately before withdrawing.',
         },
       ];
     }
