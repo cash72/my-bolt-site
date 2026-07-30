@@ -292,13 +292,21 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'ac-cost-to-run-calculator': {
     intro:
-      'Estimate what it costs to run an air conditioner from SEER (or EER), capacity, hours, and your electric rate. Useful for comparing window units, portable ACs, and mini-splits before you buy.',
+      'How much does AC cost to run? Estimate electricity from SEER (or SEER2), capacity, hours, and your $/kWh rate — then compare two efficiency levels before you buy a window unit, portable AC, or mini-split.',
     sections: [
       {
         heading: 'How SEER turns into a bill estimate',
         paragraphs: [
           'Cooling energy use scales with BTU capacity and hours of operation, then divides by efficiency (SEER/EER). Higher SEER means fewer kWh for the same cooling — enter your utility $/kWh for a local monthly estimate.',
           'Size the unit first with the [BTU calculator](/btu-calculator) or [mini-split calculator](/mini-split-calculator); an oversized short-cycling unit can cost more than a right-sized efficient one.',
+          'For label shopping and SEER vs SEER2, read [SEER ratings explained](/guides/seer-ratings-explained) — then plug both ratings into the compare field above.',
+        ],
+      },
+      {
+        heading: 'Worked example: 1-ton mini-split vs window AC',
+        paragraphs: [
+          'A 12,000 BTU (1 ton) load at 8 hours/day and $0.16/kWh: SEER 22 ductless ≈ 4.4 kWh/day (~$21/month), while a SEER 11 window unit ≈ 8.7 kWh/day (~$42/month). That gap compounds over a long cooling season.',
+          'Your numbers change with climate and thermostat habits — use the calculator with honest daily hours, not “worst day ever” runtime.',
         ],
       },
       {
