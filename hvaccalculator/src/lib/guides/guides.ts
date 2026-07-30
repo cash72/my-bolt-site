@@ -40,6 +40,7 @@ export const GUIDES: Guide[] = [
         heading: 'Put it together with a calculator',
         paragraphs: [
           'Multiply length × width for floor area, apply your BTU factor, then adjust for ceiling height, sun, and occupants. Our [BTU calculator](/btu-calculator) applies these factors so you do not have to memorize every exception.',
+          'After you lock capacity, estimate monthly electricity with the [AC cost to run calculator](/ac-cost-to-run-calculator) using SEER, hours, and your $/kWh rate.',
         ],
       },
       {
@@ -194,7 +195,7 @@ export const GUIDES: Guide[] = [
         heading: 'Cost comparison over 5 years (planning estimate)',
         paragraphs: [
           'A $400 window unit vs a $1,200 DIY mini-split kit: the mini-split often pays back in electricity if you run AC 4+ hours daily in a hot climate with SEER 20+ vs SEER 11 window unit.',
-          'Renters and seasonal-only users may still prefer window units despite efficiency. Full-time tiny home, RV, or cottage dwellers usually benefit from ductless long term. Read [SEER ratings explained](/guides/seer-ratings-explained) before comparing models.',
+          'Renters and seasonal-only users may still prefer window units despite efficiency. Full-time tiny home, RV, or cottage dwellers usually benefit from ductless long term. Read [SEER ratings explained](/guides/seer-ratings-explained) before comparing models — then plug both SEER numbers into the [AC cost to run calculator](/ac-cost-to-run-calculator) with your hours and utility rate.',
         ],
       },
     ],
@@ -320,7 +321,7 @@ export const GUIDES: Guide[] = [
           'Install quality (vacuum, line length, airflow) affects real-world efficiency as much as the label',
         ],
         paragraphs: [
-          'Size the head first with a BTU calculator, then compare SEER within the correct capacity tier.',
+          'Size the head first with a [BTU calculator](/btu-calculator), then compare SEER within the correct capacity tier using the [AC cost to run calculator](/ac-cost-to-run-calculator).',
         ],
       },
       {
@@ -339,7 +340,7 @@ export const GUIDES: Guide[] = [
           'SEER2 label on 2023+ equipment — compare like with like',
         ],
         paragraphs: [
-          'A 9,000 BTU SEER 22 unit running 8 hours daily at $0.15/kWh saves roughly $30–50/year vs SEER 13 at the same load — rough planning math, not a utility bill guarantee.',
+          'A 9,000 BTU SEER 22 unit running 8 hours daily at $0.15/kWh saves roughly $30–50/year vs SEER 13 at the same load — rough planning math, not a utility bill guarantee. Run your own hours and rate in the [AC cost to run calculator](/ac-cost-to-run-calculator).',
           'Pair efficiency shopping with correct sizing from our [BTU per sq ft guide](/guides/btu-per-square-foot-explained).',
         ],
       },
@@ -923,6 +924,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Walk through our [BTU per sq ft guide](/guides/btu-per-square-foot-explained) and rerun the [mini-split calculator](/mini-split-calculator) before checkout — returns on opened line-set kits are difficult.',
+          'Once capacity is settled, compare efficiency tiers with the [AC cost to run calculator](/ac-cost-to-run-calculator) so you are not paying for oversized SEER you will never recover.',
         ],
       },
     ],
@@ -1105,6 +1107,7 @@ export const GUIDES: Guide[] = [
         heading: 'When to skip window AC',
         paragraphs: [
           'Large open rooms, sunrooms, and additions with poor insulation may need 12,000+ BTU window units that are loud and block egress windows. Compare [mini-split vs window AC](/guides/mini-split-vs-window-ac) before buying the biggest box at the store.',
+          'If you are choosing between a cheap low-SEER window unit and a higher-SEER ductless head, run both through the [AC cost to run calculator](/ac-cost-to-run-calculator) with your summer hours.',
         ],
       },
     ],
@@ -1148,7 +1151,7 @@ export const GUIDES: Guide[] = [
           'HSPF and SEER: read both on heat pump labels',
         ],
         paragraphs: [
-          'See [SEER ratings explained](/guides/seer-ratings-explained) for efficiency shopping — higher SEER saves kWh over years, not first-season comfort.',
+          'See [SEER ratings explained](/guides/seer-ratings-explained) for efficiency shopping — higher SEER saves kWh over years, not first-season comfort. Estimate the bill impact with the [AC cost to run calculator](/ac-cost-to-run-calculator).',
         ],
       },
     ],
