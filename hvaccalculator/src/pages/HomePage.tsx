@@ -10,10 +10,10 @@ import { LANDING_PAGES } from '../lib/landingPages';
 
 const POPULAR_CALCULATORS = [
   { to: '/btu-calculator', label: 'BTU calculator' },
-  { to: '/ac-cost-to-run-calculator', label: 'AC cost to run' },
+  { to: '/ac-cost-to-run-calculator', label: 'SEER / AC cost to run' },
   { to: '/mini-split-calculator', label: 'Mini-split sizing' },
+  { to: '/tonnage-calculator', label: 'BTU to tons' },
   { to: '/window-ac-calculator', label: 'Window AC' },
-  { to: '/garage-heater-btu-calculator', label: 'Garage heater' },
 ] as const;
 
 const HOMEPAGE_FAQ = [
@@ -22,12 +22,12 @@ const HOMEPAGE_FAQ = [
     a: 'Most cooled rooms need 20–30 BTU per sq ft. RVs and uninsulated sheds need more; well-insulated tiny homes need less. Sun exposure, ceiling height, and occupants adjust the result.',
   },
   {
-    q: 'What size mini-split for an RV?',
-    a: 'Most full-time RVers use 9,000–12,000 BTU depending on length and insulation. A 30 ft RV with 200–250 sq ft of living space often needs a 9k minimum; 12k is common in hot climates.',
+    q: 'How much does it cost to run an AC?',
+    a: 'Roughly kWh = (BTU/hr × hours) ÷ (SEER × 1,000), then multiply by your $/kWh rate. Use the SEER / AC cost to run calculator with your capacity, hours, and utility rate — then compare two SEER levels before you buy.',
   },
   {
-    q: 'Can I size a whole tiny home with one calculator?',
-    a: 'Yes — add up to five spaces or enter the main living footprint as one zone. Most tiny homes use a single 9k–18k BTU ductless head.',
+    q: 'What size mini-split for an RV?',
+    a: 'Most full-time RVers use 9,000–12,000 BTU depending on length and insulation. A 30 ft RV with 200–250 sq ft of living space often needs a 9k minimum; 12k is common in hot climates.',
   },
   {
     q: 'Is this a Manual J calculation?',
