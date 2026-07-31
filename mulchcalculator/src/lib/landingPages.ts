@@ -19,10 +19,10 @@ export const LANDING_PAGES: LandingPage[] = [
     path: '/mulch-calculator',
     materialType: 'mulch',
     depthIn: 3,
-    title: 'Mulch Calculator — How Much Mulch Do I Need? (Free)',
+    title: 'Mulch Calculator — Cubic Yards & Bags (How Much Do I Need?)',
     h1: 'Mulch Calculator',
     description:
-      'Free mulch calculator for garden beds. Enter bed length, width, and depth — get cubic yards and bag counts. Default 3-inch depth.',
+      'Free mulch calculator: enter bed length, width, and depth for cubic yards and 2 cu ft bag counts. Default 3-inch depth for garden beds — plan bulk delivery or bagged orders.',
     breadcrumbLabel: 'Mulch calculator',
     intro:
       'Measure each garden bed in feet and inches. Default depth is 3 inches — the standard for decorative mulch around shrubs and trees.',
@@ -30,17 +30,17 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How much mulch do I need?',
         answer:
-          'Multiply bed area (length × width) by depth in feet. Divide by 27 for cubic yards. A 10×10 bed at 3" depth needs about 0.93 cubic yards — round up to 1.',
+          'Multiply bed area (length × width) by depth in feet. Divide by 27 for cubic yards. A 10×10 bed at 3" depth needs about 0.93 cubic yards — round up to 1 yard for bulk. Use the [mulch cost estimator](/mulch-cost-estimator) once you have local $/yard and bag prices.',
       },
       {
         question: 'How deep should mulch be?',
         answer:
-          'Most landscaping beds use 2–4 inches of mulch. Three inches is a common default — it suppresses weeds without smothering plant roots.',
+          'Most landscaping beds use 2–4 inches of mulch. Three inches is a common default — it suppresses weeds without smothering plant roots. Late-summer top-ups before fall often need only 1–2 inches over existing material.',
       },
       {
         question: 'How many bags of mulch equal a cubic yard?',
         answer:
-          'A cubic yard is 27 cu ft. Standard mulch bags are 2 cu ft, so about 14 bags per cubic yard. The calculator counts bags automatically.',
+          'A cubic yard is 27 cu ft. Standard mulch bags are 2 cu ft, so about 14 bags per cubic yard. The calculator counts bags automatically — compare bag vs bulk totals in the [mulch cost estimator](/mulch-cost-estimator).',
       },
     ],
   },
@@ -78,10 +78,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'cubic-yards-calculator',
     path: '/cubic-yards-calculator',
     materialType: 'mulch',
-    title: 'Cubic Yards Calculator — Mulch, Gravel & Topsoil',
+    title: 'Cubic Yards Calculator — Bulk Mulch, Gravel & Topsoil',
     h1: 'Cubic Yards Calculator',
     description:
-      'Convert garden bed area and depth to cubic yards. Works for mulch, gravel, topsoil, and other bulk landscaping materials.',
+      'Convert bed area and depth to cubic yards for bulk mulch, gravel, and topsoil orders. Free landscaping volume calculator with bag equivalents.',
     breadcrumbLabel: 'Cubic yards',
     intro:
       'Enter any rectangular area and depth to get cubic yards and bag equivalents. Switch material type for mulch, gravel, or topsoil.',
@@ -89,17 +89,17 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How do I convert sq ft to cubic yards?',
         answer:
-          'Multiply square footage by depth in feet to get cubic feet, then divide by 27. Example: 100 sq ft × 0.25 ft (3") = 25 cu ft ≈ 0.93 cu yd.',
+          'Multiply square footage by depth in feet to get cubic feet, then divide by 27. Example: 100 sq ft × 0.25 ft (3") = 25 cu ft ≈ 0.93 cu yd. Price that yardage with the [mulch cost estimator](/mulch-cost-estimator).',
       },
       {
         question: 'How many cubic yards in a pickup truck?',
         answer:
-          'A standard pickup bed holds about 1.5–2 cubic yards level full. A cubic yard weighs roughly 400–800 lbs depending on material.',
+          'A standard pickup bed holds about 1.5–2 cubic yards level full. A cubic yard of mulch weighs roughly 400–800 lbs; gravel is much heavier — check payload before self-hauling bulk.',
       },
       {
         question: 'Should I add extra for waste?',
         answer:
-          'Yes. Add 10% for settling, uneven ground, and spillage. The calculator includes a waste allowance you can adjust.',
+          'Yes. Add 10% for settling, uneven ground, and spillage. The calculator includes a waste allowance you can adjust — especially useful before late-summer or fall bulk deliveries.',
       },
     ],
   },
@@ -198,10 +198,10 @@ export const LANDING_PAGES: LandingPage[] = [
     path: '/mulch-cost-estimator',
     materialType: 'mulch',
     depthIn: 3,
-    title: 'Mulch Cost Estimator — Bulk Yards vs Bags',
+    title: 'How Much Does Mulch Cost? Bulk Yard vs Bag Estimator',
     h1: 'Mulch Cost Estimator',
     description:
-      'Estimate mulch cost by the cubic yard or by the bag. Enter bed area, depth, and local prices for a materials total.',
+      'How much does mulch cost? Estimate bulk cubic-yard vs bagged mulch totals from bed area, depth, and local prices — free materials cost calculator before delivery.',
     breadcrumbLabel: 'Cost estimator',
     intro:
       'Enter bed dimensions and depth, then optional prices per cubic yard and per 2 cu ft bag. Compare bulk delivery vs bagged mulch before you order.',
@@ -209,17 +209,22 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'Is bulk mulch cheaper than bags?',
         answer:
-          'Usually yes above ~1 cubic yard. Bags are convenient for small beds; bulk is cheaper per yard once delivery minimums make sense. Enter both prices to compare.',
+          'Usually yes above ~1 cubic yard once you count ~14 bags per yard (2 cu ft bags) plus trips. Bags win for half-yard refresh projects and car-trunk loads. Enter both $/yard and bag prices above to see your break-even. Planning detail: [delivery vs bags](/guides/delivery-vs-bags-bulk-mulch).',
       },
       {
         question: 'How do I estimate mulch cost?',
         answer:
-          'Get cubic yards from area × depth, round up, multiply by $/yard — or multiply 2 cu ft bag count by bag price. This tool does both from the same bed measurements.',
+          'Get cubic yards from area × depth (or use the [mulch calculator](/mulch-calculator)), round up, multiply by $/yard — or multiply 2 cu ft bag count by bag price. Example: 2 cu yd at $45/yard ≈ $90 materials; the same volume as bags at $4.50 × 28 ≈ $126 before tax.',
       },
       {
         question: 'Does this include delivery?',
         answer:
-          'No — delivery fees vary by supplier and distance. Add them on top of the materials total when comparing quotes.',
+          'No — delivery fees, tax, fabric, and edging are separate. Many yards charge a flat fee under 3–5 yards. Use the materials total to compare supplier quotes, then add each yard’s delivery line.',
+      },
+      {
+        question: 'When should I order mulch for late summer or fall?',
+        answer:
+          'Late summer is a good window to price bulk before peak fall demand — measure beds after heat-stressed weeds die back, then top up 1–2 inches before frost. See [fall mulch application timing](/guides/fall-mulch-application-timing) for depth targets; run volumes here with your local yard and bag prices.',
       },
     ],
   },
