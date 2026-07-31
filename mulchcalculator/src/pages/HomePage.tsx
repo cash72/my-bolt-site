@@ -9,8 +9,8 @@ import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 
 const POPULAR_CALCULATORS = [
   { to: '/mulch-calculator', label: 'Mulch calculator' },
-  { to: '/mulch-cost-estimator', label: 'Cost estimator' },
-  { to: '/sod-calculator', label: 'Sod calculator' },
+  { to: '/mulch-cost-estimator', label: 'Bulk / bag cost estimator' },
+  { to: '/cubic-yards-calculator', label: 'Cubic yards' },
   { to: '/gravel-calculator', label: 'Gravel calculator' },
   { to: '/topsoil-calculator', label: 'Topsoil calculator' },
 ] as const;
@@ -21,12 +21,12 @@ const HOMEPAGE_FAQ = [
     a: 'Multiply bed area (length × width) by depth in feet, then divide by 27 for cubic yards. A 10×10 bed at 3 inches needs about 0.93 cubic yards — round up to 1 yard when ordering bulk.',
   },
   {
-    q: 'How many bags equal a cubic yard?',
-    a: 'One cubic yard is 27 cu ft. Standard mulch bags hold 2 cu ft, so you need about 14 bags per cubic yard.',
+    q: 'How much does mulch cost — bulk or bags?',
+    a: 'Bulk usually wins past about one cubic yard; bags win for small refreshes. Enter bed size, depth, and local $/yard plus bag prices in the bulk / bag cost estimator to compare materials totals before delivery fees.',
   },
   {
-    q: 'Does this work for gravel and topsoil?',
-    a: 'Yes. Switch material type in project settings. The math is the same — area × depth — regardless of material.',
+    q: 'How many bags equal a cubic yard?',
+    a: 'One cubic yard is 27 cu ft. Standard mulch bags hold 2 cu ft, so you need about 14 bags per cubic yard.',
   },
   {
     q: 'Can I calculate multiple beds?',
