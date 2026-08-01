@@ -64,13 +64,13 @@ export const LANDING_PAGES: LandingPage[] = [
     kind: 'paint',
     paintType: 'interior',
     surface: 'walls',
-    title: 'How Much Behr Paint Do I Need? Free Gallon Calculator (Canada)',
-    h1: 'How Much Paint Do I Need?',
+    title: 'How Much Behr Paint Do I Need? | Paint Calculator',
+    h1: 'How Much Behr Paint Do I Need?',
     description:
-      'Free paint gallon calculator for Behr and any brand. Enter room size, coats, and sq ft per gallon from your can — see how many gallons to buy. Built for Canadian DIY projects.',
+      'Free answer for “how much Behr paint do I need”: enter room size → gallons to buy. 12×12 room ≈ 2–3 gallons at ~400 sq ft/gal. Works for any brand — Canadian DIY.',
     breadcrumbLabel: 'How much paint',
     intro:
-      'The biggest question at the paint counter: how many gallons? Enter your room size and we round up so you do not run short mid-project.',
+      'Searching how much Behr paint you need? Enter your room size, set sq ft per gallon from your Behr can (or any brand), and we round up so you do not run short mid-project.',
     faqs: [
       {
         question: 'How many gallons for a 12×12 room?',
@@ -105,13 +105,13 @@ export const LANDING_PAGES: LandingPage[] = [
     kind: 'paint',
     paintType: 'interior',
     surface: 'walls',
-    title: 'Behr Paint Coverage Calculator — Sq Ft per Gallon to Gallons',
+    title: 'Behr Paint Coverage Calculator (Free) | Paint Calculator',
     h1: 'Behr Paint Coverage Calculator',
     description:
-      'Free Behr paint coverage calculator: enter room size and sq ft per gallon from your Behr can (or any brand). See gallons per coat for Canadian DIY projects.',
+      'Free Behr paint calculator: enter room size + label coverage → gallons per coat. Typical Behr interior: up to 400 sq ft/gallon. Works for any brand.',
     breadcrumbLabel: 'Coverage calculator',
     intro:
-      'Searching for a Behr paint coverage calculator? Enter your room size and the sq ft per gallon from your can — we convert label coverage into gallons to buy. Works for Behr, Benjamin Moore, and any brand.',
+      'Need a Behr paint coverage calculator? Enter room size and the sq ft per gallon from your can — we convert label coverage into gallons to buy. Same tool for Benjamin Moore, Sherwin-Williams, or store brands.',
     faqs: [
       {
         question: 'What is typical paint coverage?',

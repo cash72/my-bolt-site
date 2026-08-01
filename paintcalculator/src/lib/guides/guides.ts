@@ -136,9 +136,9 @@ export const GUIDES: Guide[] = [
   {
     slug: 'paint-coverage-per-gallon',
     category: 'paint',
-    title: 'Behr Paint Coverage per Gallon — Sq Ft Chart & Calculator',
+    title: 'Behr Paint Coverage per Gallon — Free Chart | Paint Calculator',
     description:
-      'How many sq ft per gallon for Behr and other interior latex, primer, and exterior cans. Read your label, adjust for texture, and use our free Behr paint coverage calculator.',
+      'How many sq ft does a gallon of Behr paint cover? Interior ~350–400 sq ft/gal; primer & exterior lower. Chart + free Behr coverage calculator.',
     readMinutes: 8,
     toolPath: '/paint-coverage-calculator',
     toolLabel: 'Behr paint coverage calculator',

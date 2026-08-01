@@ -8,11 +8,11 @@ import { GuideCard } from '../components/GuideCard';
 import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 
 const POPULAR_CALCULATORS = [
-  { to: '/how-much-paint-do-i-need', label: 'How much paint?' },
-  { to: '/cabinet-trim-paint-calculator', label: 'Cabinet & trim' },
+  { to: '/paint-coverage-calculator', label: 'Behr coverage calculator' },
+  { to: '/how-much-paint-do-i-need', label: 'How much Behr paint?' },
   { to: '/paint-cost-estimator', label: 'Paint cost' },
-  { to: '/ceiling-paint-calculator', label: 'Ceiling paint' },
-  { to: '/exterior-paint-calculator', label: 'Exterior paint' },
+  { to: '/cabinet-trim-paint-calculator', label: 'Cabinet & trim' },
+  { to: '/guides/paint-coverage-per-gallon', label: 'Coverage per gallon' },
 ] as const;
 
 const HOMEPAGE_FAQ = [
@@ -22,7 +22,11 @@ const HOMEPAGE_FAQ = [
   },
   {
     q: 'How many sq ft does a gallon of paint cover?',
-    a: 'Most interior latex covers 350–400 sq ft per gallon on smooth walls. Primer is often 300 sq ft/gallon. Check your Canadian paint can label and enter the exact number for best results.',
+    a: 'Most interior latex covers 350–400 sq ft per gallon on smooth walls. Behr Premium Plus Interior often lists up to 400 sq ft/gallon — use our Behr paint coverage calculator with your exact can label for gallons to buy.',
+  },
+  {
+    q: 'Is there a Behr paint calculator?',
+    a: 'Yes — use our free Behr paint coverage calculator or how much Behr paint page. Enter room size and the sq ft per gallon from your Behr can (any brand works the same way).',
   },
   {
     q: 'Does this work for fence or deck stain?',
