@@ -327,7 +327,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Worked example: 320 sq ft living + hallway',
         paragraphs: [
-          '320 sq ft × 10% waste = 352 sq ft to buy for straight laminate. At 22 sq ft per box → 16 boxes. For 15% tile waste on the same area: 368 sq ft ÷ 15 sq ft per box ≈ 25 boxes. Use the [waste calculator](/flooring-waste-calculator) to toggle percentages without redoing math.',
+          '320 sq ft × 10% waste = 352 sq ft to buy for straight laminate. At 22 sq ft per box → 16 boxes. For 15% tile waste on the same area: 368 sq ft ÷ 15 sq ft per box ≈ 25 boxes. Use the [waste calculator](/flooring-waste-calculator) to toggle percentages without redoing math, then price the buy area in the [flooring cost estimator](/flooring-cost-estimator).',
         ],
       },
     ],
@@ -434,7 +434,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Budget planning per square foot',
         paragraphs: [
-          'Material-only rough ranges (installed varies by region): carpet often lowest per sq ft, laminate/LVP mid-tier, porcelain tile higher for product + mortar + labor. Measure total sq ft first, then compare line-item quotes per category using our [square footage calculator](/flooring-square-footage-calculator).',
+          'Material-only rough ranges (installed varies by region): carpet often lowest per sq ft, laminate/LVP mid-tier, porcelain tile higher for product + mortar + labor. Measure total sq ft first, then compare line-item quotes per category using our [square footage calculator](/flooring-square-footage-calculator) and [flooring cost estimator](/flooring-cost-estimator).',
         ],
       },
     ],
@@ -585,6 +585,8 @@ export const GUIDES: Guide[] = [
     description:
       'Pick the right laminate for traffic, pets, and moisture. AC ratings, mm thickness, and when to choose LVP instead.',
     readMinutes: 9,
+    toolPath: '/flooring-cost-estimator',
+    toolLabel: 'Flooring cost estimator',
     sections: [
       {
         heading: 'AC wear rating',
@@ -620,7 +622,9 @@ export const GUIDES: Guide[] = [
           'Attached pad? — skip double underlay unless approved',
           'Batch/lot number — buy all boxes same run',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Once you shortlist a product, run room size and the shelf $/sq ft through the [flooring cost estimator](/flooring-cost-estimator) so material totals beat a vague “about $X a box” guess.',
+        ],
       },
     ],
     faqs: [
@@ -1027,7 +1031,7 @@ export const GUIDES: Guide[] = [
           'Carpet branch: [Choose carpet](/guides/how-to-choose-carpet-for-rooms) · [Carpet pad](/guides/carpet-pad-guide) · [Carpet calculator](/carpet-calculator)',
         ],
         paragraphs: [
-          'Material-specific calculators: [laminate](/laminate-flooring-calculator), [vinyl plank](/vinyl-plank-calculator), [tile](/tile-flooring-calculator), [carpet](/carpet-calculator).',
+          'Material-specific calculators: [laminate](/laminate-flooring-calculator), [vinyl plank](/vinyl-plank-calculator), [tile](/tile-flooring-calculator), [carpet](/carpet-calculator). Price materials + optional install with the [flooring cost estimator](/flooring-cost-estimator) before you commit to a cart.',
         ],
       },
       {
@@ -1377,7 +1381,7 @@ export const GUIDES: Guide[] = [
         heading: 'DIY wins on simple floating floors',
         paragraphs: [
           'Click-lock laminate or rigid vinyl in a rectangular room on a flat, dry subfloor is a classic weekend DIY. You will spend more time on prep and cuts than on clicking planks together.',
-          'Use the [DIY flooring roadmap](/guides/diy-flooring-installation-roadmap) and [boxes calculator](/how-many-flooring-boxes) even if you hire install — knowing quantities keeps bids honest.',
+          'Use the [DIY flooring roadmap](/guides/diy-flooring-installation-roadmap), [boxes calculator](/how-many-flooring-boxes), and [flooring cost estimator](/flooring-cost-estimator) even if you hire install — knowing quantities and materials cost keeps bids honest.',
         ],
       },
       {

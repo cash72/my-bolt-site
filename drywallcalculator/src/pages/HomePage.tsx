@@ -6,15 +6,20 @@ import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { hasResultsAdUnit } from '../lib/ads/config';
 import { GuideCard } from '../components/GuideCard';
 import { getFeaturedHomeGuides } from '../lib/landingHelpers';
+import { renderEditorialText } from '../lib/renderEditorialText';
 
 const POPULAR_CALCULATORS = [
-  { to: '/drywall-calculator', label: 'Drywall calculator' },
   { to: '/drywall-cost-estimator', label: 'Cost estimator' },
+  { to: '/drywall-calculator', label: 'Drywall calculator' },
   { to: '/how-many-drywall-sheets', label: 'Sheet count' },
   { to: '/basement-drywall-calculator', label: 'Basement drywall' },
 ] as const;
 
 const HOMEPAGE_FAQ = [
+  {
+    q: 'How much does drywall cost for a room?',
+    a: 'Materials are sheets + mud + screws. Enter room size and local prices in the free [drywall cost estimator](/drywall-cost-estimator) for a materials-only total before labor or texture.',
+  },
   {
     q: 'How much drywall do I need for a room?',
     a: 'Wall area = 2 × ceiling height × (length + width). Subtract about 20 sq ft per door and 15 sq ft per window. Divide by sheet size (32 sq ft for 4×8), add waste, and round up to whole sheets.',
@@ -141,7 +146,7 @@ export default function HomePage() {
           {HOMEPAGE_FAQ.map((faq) => (
             <div key={faq.q}>
               <h3 className="font-medium text-slate-800 dark:text-slate-200">{faq.q}</h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-1">{faq.a}</p>
+              <p className="text-slate-600 dark:text-slate-400 mt-1">{renderEditorialText(faq.a)}</p>
             </div>
           ))}
         </div>

@@ -160,10 +160,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'drywall-cost-estimator',
     path: '/drywall-cost-estimator',
     includeCeiling: false,
-    title: 'Drywall Cost Estimator — Sheets, Mud & Screws',
+    title: 'Drywall Cost Estimator — Free Materials Cost (Sheets, Mud, Screws)',
     h1: 'Drywall Cost Estimator',
     description:
-      'Estimate drywall project cost: sheet price, joint compound buckets, and screw boxes. Enter room dimensions and local prices for a materials total.',
+      'Free drywall cost calculator: estimate sheets, joint compound, and screws from room size and local prices — materials-only total before hang-and-tape labor.',
     breadcrumbLabel: 'Cost estimator',
     intro:
       'Enter room size, then optional prices for sheets, five-gallon mud buckets, and screw boxes. We estimate quantities and add up a materials-only total before labor.',
@@ -171,17 +171,27 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How much does drywall cost for a room?',
         answer:
-          'Materials are sheets + mud + screws (and tape). Price sheets per panel, mud per five-gallon bucket (~1 bucket per 200 sq ft hung for Level 4), and screws by the box. Labor and texture are separate.',
+          'Materials are sheets + mud + screws (and tape). Price sheets per panel, mud per five-gallon bucket (~1 bucket per 200 sq ft hung for Level 4), and screws by the box. Example: 15 sheets at $14 + 2 mud buckets at $18 + one screw box ≈ $246 materials before tax for a small bedroom — flip the prices above to match your yard.',
       },
       {
         question: 'Does this include labor?',
         answer:
-          'No — this estimator covers hang-and-finish materials only. Pro hanging and taping rates vary widely by market; use the materials total to compare store quotes.',
+          'No — this estimator covers hang-and-finish materials only. Pro hanging and taping rates vary widely by market; use the materials total to compare store quotes, then get a separate labor bid if you are not finishing yourself.',
       },
       {
         question: 'How do you estimate mud and screws?',
         answer:
-          'Screws use ~32 per sheet. Mud uses roughly one five-gallon bucket per 200 sq ft of hung area for a standard three-coat Level 4 finish — bump up for Level 5 skim coats.',
+          'Screws use ~32 per sheet. Mud uses roughly one five-gallon bucket per 200 sq ft of hung area for a standard three-coat Level 4 finish — bump up for Level 5 skim coats. Detail: [estimating screws and compound](/guides/estimating-drywall-screws-and-compound).',
+      },
+      {
+        question: 'What is a typical materials cost per square foot?',
+        answer:
+          'Hang materials often land roughly $0.40–$0.90 per sq ft of hung area depending on sheet thickness, Type X, and mud brand — local tags win. Enter your sheet, mud, and screw prices here after you know area from the [drywall calculator](/drywall-calculator).',
+      },
+      {
+        question: 'Are tape, corner bead, and primer included?',
+        answer:
+          'Not in the dollar total — tape, bead, primer, and sanding supplies are small add-ons. Budget them after the sheets/mud/screws sum, then follow the [framing-to-paint roadmap](/guides/drywall-project-from-framing-to-paint) for the full shopping sequence.',
       },
     ],
   },
