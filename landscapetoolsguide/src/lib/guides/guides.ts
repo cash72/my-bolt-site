@@ -536,9 +536,9 @@ export const GUIDES: Guide[] = [
   {
     slug: 'lawn-treatment-chemical-tracking',
     category: 'operations',
-    title: 'Lawn Treatment & Chemical Tracking Software',
+    title: 'Chemical Application Software for Lawn Treatment',
     description:
-      'Pesticide application records, property measurements, routing by treatment type, and compliance — why treatment companies choose GorillaDesk and similar tools.',
+      'Chemical application software for lawn treatment: pesticide logs, property sq ft, treatment routing, and compliance — GorillaDesk and alternatives.',
     readMinutes: 8,
     relatedToolSlugs: ['gorilladesk', 'service-autopilot', 'jobber'],
     relatedGuideSlugs: ['route-optimization-lawn-care-software', 'mobile-app-landscape-crew-management'],

@@ -33,9 +33,9 @@ export const BEST_PAGES: BestPage[] = [
   },
   {
     slug: 'best-lawn-care-route-software',
-    title: 'Best Lawn Care Route Optimization Software',
+    title: 'Best Lawn Care Routing Software (2026)',
     description:
-      'Software with strong route optimization for recurring lawn care routes — compare Jobber, Service Autopilot, GorillaDesk, and Housecall Pro.',
+      'Lawn care routing software compared: Jobber, Service Autopilot, GorillaDesk, and Housecall Pro for recurring routes and scheduling.',
     toolSlugs: ['service-autopilot', 'jobber', 'housecall-pro', 'gorilladesk'],
     intro:
       'Recurring mowing and treatment routes live or die on efficient scheduling. These platforms prioritize route density, recurring visits, and crew dispatch.',

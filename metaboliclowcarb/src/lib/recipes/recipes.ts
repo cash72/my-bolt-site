@@ -171,7 +171,7 @@ export const RECIPES: Recipe[] = [
       'Top with beef, salsa, avocado, cheese, and sour cream.',
       'Squeeze lime over the top and serve.',
     ],
-    tips: 'Make your own seasoning to avoid cornstarch and sugar in packets.',
+    tips: 'Make your own seasoning to avoid cornstarch and sugar in packets. Check salsa and seasoning packets with the [net carb / recipe carb calculator](/net-carb-calculator) before you log the meal.',
   },
   {
     slug: 'egg-muffins',

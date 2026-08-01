@@ -11,8 +11,15 @@ export interface LandingEditorial {
 export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
   'net-carb-calculator': {
     intro:
-      'Packaged foods list total carbohydrates, fiber, and sugar alcohols separately. Net carbs estimate what affects blood sugar — enter label numbers above for per-serving net carbs on keto and low-carb plans. This page is a working tool plus a short field guide so you can shop with confidence, not guesswork.',
+      'Packaged foods and recipe nutrition panels list total carbohydrates, fiber, and sugar alcohols separately. Net carbs estimate what affects blood sugar — enter those numbers above for per-serving net carbs on keto and low-carb plans. Use this as a recipe carb calculator when you are building meals from labels.',
     sections: [
+      {
+        heading: 'Recipe carb calculator — how to use it',
+        paragraphs: [
+          'If you searched “recipe carb calculator,” enter the per-serving totals from your recipe or packaged ingredients: total carbs, fiber, and sugar alcohols. The result is net carbs for that serving — then multiply by how many servings you eat.',
+          'For multi-ingredient homemade recipes, calculate each packaged sauce or cheese separately, then add. Whole foods (eggs, meat, leafy greens, olive oil) rarely need a label once you know your pattern. Browse [recipes under 10g net carbs](/recipes/under-10g-net-carbs) when you want meals that already fit.',
+        ],
+      },
       {
         heading: 'Net carb math on US nutrition labels',
         paragraphs: [

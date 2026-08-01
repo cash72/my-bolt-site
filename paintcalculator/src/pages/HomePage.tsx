@@ -29,6 +29,10 @@ const HOMEPAGE_FAQ = [
     a: 'Yes — use our free Behr paint coverage calculator or how much Behr paint page. Enter room size and the sq ft per gallon from your Behr can (any brand works the same way).',
   },
   {
+    q: 'How much Behr paint do I need for a 12×12 room?',
+    a: 'About 2–3 gallons for walls with two coats when Behr lists ~400 sq ft/gallon. Use the how much Behr paint calculator with your exact dimensions and can label.',
+  },
+  {
     q: 'Does this work for fence or deck stain?',
     a: 'Yes. Choose fence stain, house exterior stain, or deck stain. Fence uses run length × panel height; deck uses length × width; house stain uses building footprint and wall height.',
   },
@@ -40,9 +44,9 @@ const HOMEPAGE_FAQ = [
 
 export default function HomePage() {
   usePageMeta({
-    title: 'Paint Calculator Canada — Gallons, Coverage & Room Size (Free)',
+    title: 'Paint Calculator Canada — Free Behr Coverage & Room Gallons',
     description:
-      'Free paint calculator for Canadian DIY projects. Enter room size, coats, and coverage — get gallon counts for walls, ceiling, fence, deck, and wallpaper. 12×12 room ≈ 2–3 gallons.',
+      'Free paint calculator Canada: room gallons, Behr paint coverage calculator, and shopping lists. 12×12 room ≈ 2–3 gallons at ~400 sq ft/gal. Walls, ceiling, fence, deck, wallpaper.',
     path: '/',
   });
 
@@ -98,10 +102,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      <aside
+        className="mb-6 rounded-xl border border-blue-200 dark:border-blue-900/50 bg-blue-50 dark:bg-blue-950/30 px-4 py-3 sm:px-5 sm:py-4"
+        aria-label="Quick answer"
+      >
+        <p className="text-xs font-semibold uppercase tracking-wide text-blue-800 dark:text-blue-300 mb-1">
+          Quick answer — Behr paint coverage
+        </p>
+        <p className="text-sm sm:text-[15px] text-slate-800 dark:text-slate-200 leading-relaxed">
+          Most Behr Premium Plus Interior covers up to ~400 sq ft per gallon (one coat, smooth primed drywall).
+          A 12×12 room with 8 ft ceilings needs about 2–3 gallons for two coats. Use the{' '}
+          <Link to="/paint-coverage-calculator" className="font-medium text-blue-700 dark:text-blue-300 hover:underline">
+            Behr paint coverage calculator
+          </Link>{' '}
+          or{' '}
+          <Link to="/how-much-paint-do-i-need" className="font-medium text-blue-700 dark:text-blue-300 hover:underline">
+            how much Behr paint do I need
+          </Link>{' '}
+          with your can label — or enter room size below on this paint calculator Canada homepage.
+        </p>
+      </aside>
+
       <p className="mb-8 text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed border-l-4 border-blue-500 pl-4">
-        A 12×12 room with 8 ft ceilings has about 384 sq ft of wall area — at two coats and 350 sq ft per
-        gallon, that is roughly 2–3 gallons. Enter your dimensions below for an exact count, plus stain and
-        wallpaper estimates.
+        Enter dimensions below for walls, ceiling, fence, deck, or wallpaper — coats, waste, and coverage from
+        your paint can, with a copyable shopping list.
       </p>
 
       <PaintCalculator />

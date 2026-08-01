@@ -100,6 +100,12 @@ export const P0_INDEX_BY_DIR = {
       { path: '/weight-loss-macro-calculator/', isNew: true },
       { path: '/diabetes-macro-calculator/', isNew: true },
       { path: '/guides/net-carbs-for-insulin-resistance/' },
+      { path: '/editorial-policy/', isNew: true },
+      { path: '/methodology/', isNew: true },
+      { path: '/about/', isNew: true },
+      { path: '/fasting-clock/', isNew: true },
+      { path: '/dr-boz-ratio-calculator/', isNew: true },
+      { path: '/guides/dr-boz-ratio-explained/', isNew: true },
     ],
   },
   project: {

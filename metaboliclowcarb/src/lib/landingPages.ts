@@ -22,13 +22,13 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'net-carb-calculator',
     path: '/net-carb-calculator',
     tool: 'net-carb',
-    title: 'Net Carb Calculator — How to Calculate Net Carbs (Free)',
+    title: 'Net Carb / Recipe Carb Calculator — Free Label Math',
     h1: 'Net Carb Calculator',
     description:
-      'Free net carb calculator for food labels. Enter total carbs, fiber, and sugar alcohols — get net carbs per serving for keto, Atkins, and insulin resistance diets.',
+      'Free recipe carb calculator and net carb tool. Enter total carbs, fiber, and sugar alcohols from any food label — get net carbs per serving for keto and low-carb recipes.',
     breadcrumbLabel: 'Net carb calculator',
     intro:
-      'How do you calculate net carbs? Enter numbers from any nutrition label — we subtract fiber and sugar alcohols so you get net carbs per serving for keto and blood-sugar-friendly eating.',
+      'Looking for a recipe carb calculator? Enter numbers from any nutrition label (or recipe nutrition panel) — we subtract fiber and sugar alcohols so you get net carbs per serving for keto and blood-sugar-friendly cooking.',
     faqs: [
       {
         question: 'How do you calculate net carbs?',

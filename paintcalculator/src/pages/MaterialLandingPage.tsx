@@ -111,6 +111,20 @@ export default function MaterialLandingPage() {
     <main id="main-content" className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12" role="main">
       <Breadcrumbs label={page.breadcrumbLabel} />
 
+      {page.quickAnswer && (
+        <aside
+          className="mb-6 rounded-xl border border-blue-200 dark:border-blue-900/50 bg-blue-50 dark:bg-blue-950/30 px-4 py-3 sm:px-5 sm:py-4"
+          aria-label="Quick answer"
+        >
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-800 dark:text-blue-300 mb-1">
+            Quick answer
+          </p>
+          <p className="text-sm sm:text-[15px] text-slate-800 dark:text-slate-200 leading-relaxed">
+            {page.quickAnswer}
+          </p>
+        </aside>
+      )}
+
       {page.kind === 'wallpaper' ? (
         <WallpaperCalculator
           heading={page.h1}

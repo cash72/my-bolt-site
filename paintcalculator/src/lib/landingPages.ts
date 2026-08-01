@@ -11,6 +11,8 @@ interface LandingPageBase {
   description: string;
   breadcrumbLabel: string;
   intro: string;
+  /** Above-the-fold answer for striking-distance queries (prerendered). */
+  quickAnswer?: string;
   faqs: { question: string; answer: string }[];
 }
 
@@ -69,6 +71,8 @@ export const LANDING_PAGES: LandingPage[] = [
     description:
       'Free answer for “how much Behr paint do I need”: enter room size → gallons to buy. 12×12 room ≈ 2–3 gallons at ~400 sq ft/gal. Works for any brand — Canadian DIY.',
     breadcrumbLabel: 'How much paint',
+    quickAnswer:
+      'A 12×12 room with 8 ft ceilings needs about 2–3 gallons of Behr interior paint for two coats (≈384 sq ft walls × 2 ÷ ~350–400 sq ft/gallon). Enter your room size below and set coverage from your Behr can label for an exact count.',
     intro:
       'Searching how much Behr paint you need? Enter your room size, set sq ft per gallon from your Behr can (or any brand), and we round up so you do not run short mid-project.',
     faqs: [
@@ -110,6 +114,8 @@ export const LANDING_PAGES: LandingPage[] = [
     description:
       'Free Behr paint calculator: enter room size + label coverage → gallons per coat. Typical Behr interior: up to 400 sq ft/gallon. Works for any brand.',
     breadcrumbLabel: 'Coverage calculator',
+    quickAnswer:
+      'How much does a gallon of Behr paint cover? Most Behr Premium Plus Interior lists up to ~400 sq ft per gallon on smooth, primed drywall (one coat). Enter that label number below with your room size to get gallons to buy — this is a free Behr paint calculator that works for any brand.',
     intro:
       'Need a Behr paint coverage calculator? Enter room size and the sq ft per gallon from your can — we convert label coverage into gallons to buy. Same tool for Benjamin Moore, Sherwin-Williams, or store brands.',
     faqs: [

@@ -451,9 +451,9 @@ export const GUIDES: Guide[] = [
   {
     slug: 'do-i-need-underlay-for-laminate',
     category: 'laminate',
-    title: 'Do I Need Underlayment for Laminate Flooring?',
+    title: 'Do You Need Underlay for Laminate Flooring? (Yes)',
     description:
-      'When underlay is required, foam vs felt vs cork, vapor barriers on concrete, and attached-pad laminate exceptions.',
+      'Do you need underlay for laminate flooring? Almost always yes — foam, felt, cork, vapor barriers on concrete, and when attached-pad laminate is the exception.',
     readMinutes: 9,
     toolPath: '/laminate-flooring-calculator',
     toolLabel: 'Laminate calculator',
