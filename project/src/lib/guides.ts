@@ -574,7 +574,7 @@ export const GUIDES: GuideDef[] = [
         heading: 'When to withdraw stacked sats to self-custody',
         paragraphs: [
           'DCA on an exchange is fine while you learn — but stacked sats left on a platform are still someone else’s IOU. A practical rule: batch-withdraw when your stack would hurt to lose, or when fees make sense relative to the amount.',
-          'Many stackers withdraw monthly or at round milestones (500k sats, 1M sats). Send a test transaction first, verify the address on a hardware wallet screen, then move the rest.',
+          'Many stackers withdraw monthly or at round milestones (500k sats, 1M sats). Estimate on-chain cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator), send a test transaction first, verify the address on a hardware wallet screen, then move the rest.',
           'Once withdrawal becomes routine, a hardware wallet pays for itself in peace of mind.',
         ],
         productIds: ['jade', 'bitbox02'],
@@ -661,7 +661,7 @@ export const GUIDES: GuideDef[] = [
         heading: 'When to use Lightning vs on-chain',
         paragraphs: [
           'Use Lightning for small, frequent payments: tips, streaming sats, retail purchases under a few dollars, and moving spending money between your own wallets. Fees are often fractions of a cent instead of dollars during on-chain congestion.',
-          'Use on-chain for larger savings you plan to hold long term. Withdraw from an exchange to a hardware wallet on-chain, then optionally fund a Lightning wallet with a smaller spending balance. Our [storage guide](/guides/how-to-store-bitcoin-safely) covers cold storage; Lightning suits hot spending wallets.',
+          'Use on-chain for larger savings you plan to hold long term. Withdraw from an exchange to a hardware wallet on-chain, then optionally fund a Lightning wallet with a smaller spending balance. Estimate on-chain cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator) before choosing a rail — then see our [storage guide](/guides/how-to-store-bitcoin-safely) for cold storage.',
           'Check how many sats you are moving with [Satoshi to USD](/satoshi-to-usd) or [100 dollars in sats](/100-dollars-in-satoshi) before choosing a rail — the dollar label helps sanity-check whether on-chain fees are worth it.',
         ],
       },
@@ -689,7 +689,7 @@ export const GUIDES: GuideDef[] = [
       },
     ],
     relatedGuideSlugs: ['what-is-a-satoshi', 'bitcoin-transaction-fees-explained', 'how-to-send-bitcoin-first-time', 'run-your-own-bitcoin-node'],
-    relatedLandingPaths: ['/satoshi-to-usd', '/1000-satoshi-to-usd', '/100-dollars-in-satoshi'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/bitcoin-fee-calculator', '/1000-satoshi-to-usd', '/100-dollars-in-satoshi'],
   },
   {
     slug: 'bitcoin-transaction-fees-explained',
@@ -744,7 +744,12 @@ export const GUIDES: GuideDef[] = [
       },
     ],
     relatedGuideSlugs: ['lightning-network-basics', 'how-to-send-bitcoin-first-time', 'how-to-store-bitcoin-safely', 'stacking-sats-dca'],
-    relatedLandingPaths: ['/satoshi-to-usd', '/100000-satoshi-to-usd', '/usd-to-satoshi'],
+    relatedLandingPaths: [
+      '/bitcoin-fee-calculator',
+      '/satoshi-to-usd',
+      '/100000-satoshi-to-usd',
+      '/usd-to-satoshi',
+    ],
   },
   {
     slug: 'bitcoin-wallet-types-compared',
@@ -827,7 +832,7 @@ export const GUIDES: GuideDef[] = [
       {
         heading: 'Step-by-step on-chain send',
         paragraphs: [
-          '1. Open your wallet and tap Send. 2. Paste or scan the receive address — prefer QR codes over typed addresses. 3. Enter amount in sats or BTC — remember [100 million sats = 1 BTC](/guides/how-many-satoshis-in-a-bitcoin). 4. Select a fee tier (economy if not urgent). 5. On hardware wallets, verify address and amount on the device screen before confirming.',
+          '1. Open your wallet and tap Send. 2. Paste or scan the receive address — prefer QR codes over typed addresses. 3. Enter amount in sats or BTC — remember [100 million sats = 1 BTC](/guides/how-many-satoshis-in-a-bitcoin). 4. Select a fee tier (economy if not urgent) — sanity-check sat/vB × size in the [Bitcoin fee calculator](/bitcoin-fee-calculator). 5. On hardware wallets, verify address and amount on the device screen before confirming.',
           'Send a test transaction first — 10,000–50,000 sats is common — and wait for at least one confirmation before moving the rest. Track test value on [10k sats](/10000-satoshi-to-usd) or nearby amount pages.',
         ],
       },
@@ -836,14 +841,14 @@ export const GUIDES: GuideDef[] = [
         paragraphs: [
           'Transactions need block confirmations before recipients treat them as final. One confirmation is usually enough for small amounts; exchanges may require three or more.',
           'Never send to an address someone DMed you unless you independently verified it. Scammers impersonate support and ask for “verification deposits.” Legitimate services never ask for your seed phrase.',
-          'If you bought on an exchange and have not withdrawn yet, start with [how to buy Bitcoin](/guides/how-to-buy-bitcoin) and [self-custody basics](/guides/bitcoin-self-custody-basics) — sending from an exchange works the same but fees are set by the platform.',
+          'If you bought on an exchange and have not withdrawn yet, start with [how to buy Bitcoin](/guides/how-to-buy-bitcoin) and [self-custody basics](/guides/bitcoin-self-custody-basics) — sending from an exchange works the same but fees are set by the platform. Compare their withdrawal fee to live mempool math with the [fee calculator](/bitcoin-fee-calculator).',
         ],
       },
     ],
     faq: [
       {
         q: 'How long does a first Bitcoin send take?',
-        a: 'Lightning settles in seconds. On-chain usually confirms within 10–60 minutes depending on fee rate and network congestion.',
+        a: 'Lightning settles in seconds. On-chain usually confirms within 10–60 minutes depending on fee rate and network congestion. Estimate cost first with the [Bitcoin fee calculator](/bitcoin-fee-calculator).',
       },
       {
         q: 'What if I sent to the wrong address?',
@@ -855,7 +860,12 @@ export const GUIDES: GuideDef[] = [
       },
     ],
     relatedGuideSlugs: ['bitcoin-transaction-fees-explained', 'bitcoin-wallet-types-compared', 'how-to-buy-bitcoin', 'what-is-a-satoshi'],
-    relatedLandingPaths: ['/satoshi-to-usd', '/10000-satoshi-to-usd', '/100-dollars-in-satoshi'],
+    relatedLandingPaths: [
+      '/bitcoin-fee-calculator',
+      '/satoshi-to-usd',
+      '/10000-satoshi-to-usd',
+      '/100-dollars-in-satoshi',
+    ],
   },
   {
     slug: 'understanding-bitcoin-price-volatility',
@@ -902,7 +912,7 @@ export const GUIDES: GuideDef[] = [
       },
       {
         q: 'Does volatility affect transaction fees?',
-        a: 'Indirectly — busy mempool periods often coincide with price spikes. Fee mechanics are covered in [Bitcoin transaction fees explained](/guides/bitcoin-transaction-fees-explained).',
+        a: 'Indirectly — busy mempool periods often coincide with price spikes. Estimate sat/vB × size with the [Bitcoin fee calculator](/bitcoin-fee-calculator), or read [Bitcoin transaction fees explained](/guides/bitcoin-transaction-fees-explained).',
       },
       {
         q: 'Should I stop DCA during downturns?',
