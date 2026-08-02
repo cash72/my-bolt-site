@@ -13,11 +13,11 @@ import { LANDING_PAGES } from '../lib/landingPages';
 import type { ToolId } from '../lib/metabolic/types';
 
 const POPULAR_TOOLS = [
-  { to: '/net-carb-calculator', label: 'Net carb calculator' },
   { to: '/keto-macro-calculator', label: 'Keto macro calculator' },
+  { to: '/tdee-calorie-calculator', label: 'TDEE calorie calculator' },
+  { to: '/net-carb-calculator', label: 'Net carb calculator' },
   { to: '/weight-loss-macro-calculator', label: 'Weight loss macros' },
   { to: '/diabetes-macro-calculator', label: 'Diabetes macros' },
-  { to: '/intermittent-fasting-timer', label: 'Intermittent fasting timer' },
 ] as const;
 
 const TOOL_TABS: { id: ToolId; label: string; sub: string }[] = [
