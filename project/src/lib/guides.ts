@@ -595,6 +595,7 @@ export const GUIDES: GuideDef[] = [
           '100,000 sats — [100k page](/100000-satoshi-to-usd)',
           '500,000 sats — [500k page](/500000-satoshi-to-usd)',
           '1,000,000 sats — [1M page](/1000000-satoshi-to-usd)',
+          'Before withdrawing — [Bitcoin fee calculator](/bitcoin-fee-calculator)',
           'New to buying? Start at [how to buy Bitcoin](/guides/how-to-buy-bitcoin)',
         ],
         paragraphs: [],
@@ -623,11 +624,12 @@ export const GUIDES: GuideDef[] = [
       },
       {
         q: 'Should I stack sats on an exchange or in a wallet?',
-        a: 'Buy on an exchange, then withdraw to a wallet you control for amounts you are saving. Keep only spending money or active-trade balances on exchanges.',
+        a: 'Buy on an exchange, then withdraw to a wallet you control for amounts you are saving. Keep only spending money or active-trade balances on exchanges. Check withdrawal cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator) before you move.',
       },
     ],
     relatedGuideSlugs: ['how-to-buy-bitcoin', 'how-many-satoshis-in-a-bitcoin', 'how-to-store-bitcoin-safely'],
     relatedLandingPaths: [
+      '/bitcoin-fee-calculator',
       '/50000-satoshi-to-usd',
       '/100000-satoshi-to-usd',
       '/500000-satoshi-to-usd',

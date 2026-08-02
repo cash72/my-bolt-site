@@ -193,7 +193,7 @@ export default function HomePage() {
           {HOMEPAGE_FAQ.map((faq) => (
             <div key={faq.q}>
               <h3 className="font-medium text-slate-800 dark:text-slate-200">{faq.q}</h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-1">{faq.a}</p>
+              <p className="text-slate-600 dark:text-slate-400 mt-1">{renderEditorialText(faq.a)}</p>
             </div>
           ))}
         </div>
