@@ -196,7 +196,9 @@ export default function MaterialLandingPage() {
           {page.faqs.map((faq) => (
             <article key={faq.question}>
               <h3 className="font-medium text-slate-800 dark:text-slate-200">{faq.question}</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">{faq.answer}</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                {renderEditorialText(faq.answer)}
+              </p>
             </article>
           ))}
         </div>

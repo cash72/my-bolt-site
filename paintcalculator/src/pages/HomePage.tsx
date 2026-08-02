@@ -6,6 +6,7 @@ import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { hasResultsAdUnit } from '../lib/ads/config';
 import { GuideCard } from '../components/GuideCard';
 import { getFeaturedHomeGuides } from '../lib/landingHelpers';
+import { renderEditorialText } from '../lib/renderEditorialText';
 
 const POPULAR_CALCULATORS = [
   { to: '/paint-coverage-calculator', label: 'Behr coverage calculator' },
@@ -18,19 +19,19 @@ const POPULAR_CALCULATORS = [
 const HOMEPAGE_FAQ = [
   {
     q: 'How much paint do I need for a room?',
-    a: 'Wall area = 2 × ceiling height × (length + width). Add ceiling area if needed. Multiply by coats, add waste, then divide by sq ft per gallon on your paint label. A 12×12 room with 8 ft ceilings needs about 2–3 gallons for two coats.',
+    a: 'Wall area = 2 × ceiling height × (length + width). Add ceiling area if needed. Multiply by coats, add waste, then divide by sq ft per gallon on your paint label. A 12×12 room with 8 ft ceilings needs about 2–3 gallons for two coats — or run the [how much Behr paint](/how-much-paint-do-i-need) calculator.',
   },
   {
     q: 'How many sq ft does a gallon of paint cover?',
-    a: 'Most interior latex covers 350–400 sq ft per gallon on smooth walls. Behr Premium Plus Interior often lists up to 400 sq ft/gallon — use our Behr paint coverage calculator with your exact can label for gallons to buy.',
+    a: 'Most interior latex covers 350–400 sq ft per gallon on smooth walls. Behr Premium Plus Interior often lists up to 400 sq ft/gallon — use our [Behr paint coverage calculator](/paint-coverage-calculator) with your exact can label for gallons to buy.',
   },
   {
     q: 'Is there a Behr paint calculator?',
-    a: 'Yes — use our free Behr paint coverage calculator or how much Behr paint page. Enter room size and the sq ft per gallon from your Behr can (any brand works the same way).',
+    a: 'Yes — use our free [Behr paint coverage calculator](/paint-coverage-calculator) or [how much Behr paint](/how-much-paint-do-i-need) page. Enter room size and the sq ft per gallon from your Behr can (any brand works the same way).',
   },
   {
     q: 'How much Behr paint do I need for a 12×12 room?',
-    a: 'About 2–3 gallons for walls with two coats when Behr lists ~400 sq ft/gallon. Use the how much Behr paint calculator with your exact dimensions and can label.',
+    a: 'About 2–3 gallons for walls with two coats when Behr lists ~400 sq ft/gallon. Use the [how much Behr paint calculator](/how-much-paint-do-i-need) with your exact dimensions and can label.',
   },
   {
     q: 'Does this work for fence or deck stain?',

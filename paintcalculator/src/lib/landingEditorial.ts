@@ -192,7 +192,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'Quarts vs gallons at the counter',
         paragraphs: [
           'The results panel shows gallons and quarts. Closets, powder rooms, and single accent walls often need only one or two quarts. Whole rooms and open-plan spaces almost always need full gallons — we round up so you are not caught short.',
-          'For a full room estimate that includes coats and waste, also try the [how much paint do I need](/how-much-paint-do-i-need) page or the [room paint calculator](/room-paint-calculator).',
+          'For a full room estimate that includes coats and waste, also try the [how much paint do I need](/how-much-paint-do-i-need) page or the [room paint calculator](/room-paint-calculator). Searching “Behr paint coverage calculator” lands here because label coverage → gallons is the exact job — then shop with coats and openings on the how-much page.',
         ],
       },
     ],
