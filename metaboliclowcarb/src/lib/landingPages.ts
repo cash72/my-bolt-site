@@ -63,10 +63,10 @@ export const LANDING_PAGES: LandingPage[] = [
     path: '/keto-macro-calculator',
     tool: 'macro',
     defaultPlan: 'strict_keto',
-    title: 'Keto Macro Calculator — Free Protein, Fat & Net Carbs',
+    title: 'Keto Macro Calculator — Daily Protein, Fat & 20g Net Carbs',
     h1: 'Keto Macro Calculator',
     description:
-      'Keto macro calculator for weight loss and strict keto. Enter age, weight, height, and activity — get daily calories, protein, fat, and 20g net carb targets. Free, no signup.',
+      'Free keto macros calculator for weight loss and strict keto. Enter age, weight, height, and activity — get daily calories, protein, fat, and 20g net carb targets. No signup.',
     breadcrumbLabel: 'Keto macro calculator',
     intro:
       'How many carbs, protein, and fat on keto? Enter your stats and get daily macro targets — about 20g net carbs for strict keto, with calories from the Mifflin-St Jeor equation.',
@@ -79,7 +79,7 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How many carbs should I eat on keto per day?',
         answer:
-          'Most strict keto plans target 20–25g net carbs daily. Moderate low-carb allows more — use our low carb macro calculator if you are not in induction.',
+          'Most strict keto plans target 20–25g net carbs daily. Moderate low-carb allows more — use our [low carb macro calculator](/low-carb-macro-calculator) if you are not in induction.',
       },
       {
         question: 'Is there a free keto macro calculator?',
@@ -90,6 +90,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'How much protein on keto?',
         answer:
           'This calculator uses about 0.8g protein per pound of body weight — a common starting point. Adjust with a dietitian if you have kidney or other conditions.',
+      },
+      {
+        question: 'Should I set calories with TDEE before macros?',
+        answer:
+          'Optional but useful for weight loss. Run the [TDEE calorie calculator](/tdee-calorie-calculator) for maintenance or a modest deficit, then use this keto macro calculator to lock protein, fat, and ~20g net carbs inside that calorie budget.',
       },
       {
         question: 'Is this medical advice?',
@@ -522,10 +527,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'tdee-calorie-calculator',
     path: '/tdee-calorie-calculator',
     tool: 'tdee',
-    title: 'TDEE Calorie Calculator — Free Daily Calories & BMR',
+    title: 'TDEE Calculator — Free Daily Calories, BMR & Deficit',
     h1: 'TDEE Calorie Calculator',
     description:
-      'Free TDEE calorie calculator (Mifflin-St Jeor). Estimate BMR, maintenance calories, and an optional deficit for weight loss — then pair with keto or low-carb macros.',
+      'Free TDEE calculator (Mifflin-St Jeor): estimate BMR, maintenance calories, and an optional weight-loss deficit — then pair with keto or low-carb macros. No signup.',
     breadcrumbLabel: 'TDEE calculator',
     intro:
       'Total Daily Energy Expenditure (TDEE) is a planning estimate of how many calories you burn in a day. Enter age, sex, weight, height, and activity — optionally apply a mild-to-moderate deficit for fat-loss targets.',
@@ -536,6 +541,21 @@ export const LANDING_PAGES: LandingPage[] = [
           'BMR is calories burned at rest. TDEE multiplies BMR by an activity factor to estimate full-day burn including movement and exercise.',
       },
       {
+        question: 'How do I calculate TDEE for weight loss?',
+        answer:
+          'Estimate maintenance with this calculator, then subtract about 300–500 calories for a moderate deficit. Pair the calorie target with protein and net carbs in the [keto macro calculator](/keto-macro-calculator) — do not cut calories alone without enough protein.',
+      },
+      {
+        question: 'Can I use a TDEE calculator with keto?',
+        answer:
+          'Yes. TDEE sets total calories; keto sets the carb ceiling (often ~20g net). Run TDEE first, then split protein, fat, and net carbs with our [keto macro calculator](/keto-macro-calculator) using the same body stats.',
+      },
+      {
+        question: 'What is a good calorie deficit from TDEE?',
+        answer:
+          'A common starting point is 300–500 calories below maintenance. Larger cuts raise hunger and muscle-loss risk. Recheck TDEE after a 10–15 lb change, then refresh macros so protein stays adequate.',
+      },
+      {
         question: 'How accurate is Mifflin-St Jeor?',
         answer:
           'It is a widely used adult estimate, not a lab measurement. Adjust after 2–3 weeks if weight stalls or drops too fast. This is not medical advice.',
@@ -544,6 +564,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'Should I eat below BMR?',
         answer:
           'This tool floors targets at BMR. Very low calories can be unsafe — talk with a clinician before aggressive cuts, especially with diabetes medications.',
+      },
+      {
+        question: 'Is this TDEE calorie calculator free?',
+        answer:
+          'Yes — no signup. Enter age, sex, height, weight, and activity to get BMR, maintenance calories, and an optional deficit target.',
       },
     ],
     relatedGuideSlugs: [

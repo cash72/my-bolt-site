@@ -56,6 +56,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
+        heading: 'Pair calories with TDEE when the scale stalls',
+        paragraphs: [
+          'Macros without a calorie ceiling can stall weight loss if fat portions creep up. Run the [TDEE calorie calculator](/tdee-calorie-calculator) with the same stats for maintenance or a 300–500 calorie deficit, then return here so protein and ~20g net carbs fit inside that budget.',
+          'If you only care about ketosis (not the scale), lock carbs and protein first and let hunger guide fat — still recheck TDEE after a 10–15 lb change.',
+        ],
+      },
+      {
         heading: 'First two weeks on paper',
         paragraphs: [
           'Week one is often electrolytes and sleep, not perfect logging. Read [keto flu and electrolytes](/guides/keto-flu-and-electrolytes) and [getting started keto](/guides/getting-started-keto-low-carb) before you chase a flawless macro streak.',
@@ -424,10 +431,16 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
+        heading: 'Pair TDEE with keto macros',
+        paragraphs: [
+          'TDEE answers “how many calories?” Keto answers “how are those calories split?” After you have maintenance or a deficit here, open the [keto macro calculator](/keto-macro-calculator) (~20g net carbs) or the [insulin resistance macro calculator](/insulin-resistance-macro-calculator) (~50g) so protein stays locked while fat fills the remaining calories.',
+          'New to low carb? Pair calorie targets with our [getting started keto guide](/guides/getting-started-keto-low-carb), then return here after a 10–15 lb change so the deficit stays realistic.',
+        ],
+      },
+      {
         heading: 'Activity multipliers are estimates',
         paragraphs: [
           'Desk jobs with light walking differ from construction or daily training. If weight stalls for 2–3 weeks, adjust calories rather than trusting the multiplier forever — track weekly averages, not day-to-day scale noise.',
-          'New to low carb? Pair calorie targets with our [getting started keto guide](/guides/getting-started-keto-low-carb), then split macros in the [keto macro calculator](/keto-macro-calculator).',
         ],
       },
       {

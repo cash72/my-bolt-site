@@ -28,7 +28,7 @@ export const GUIDES: Guide[] = [
         heading: 'From square footage to gallons',
         paragraphs: [
           'Divide total paintable area (× number of coats) by the coverage number on your paint can label. Most interior latex lists 350–400 sq ft per gallon on smooth, primed walls.',
-          'Always round up. A 416 sq ft wall with two coats at 350 sq ft/gallon needs about 2.4 gallons — buy 3 gallons to avoid a mid-project store run.',
+          'Always round up. A 416 sq ft wall with two coats at 350 sq ft/gallon needs about 2.4 gallons — buy 3 gallons to avoid a mid-project store run. Prefer label math over guesswork — the [Behr paint coverage calculator](/paint-coverage-calculator) turns your can’s sq ft/gallon into gallons to buy.',
         ],
         bullets: [
           'Smooth new drywall: often 400 sq ft/gallon',
@@ -40,14 +40,14 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Use the calculator instead of guesswork',
         paragraphs: [
-          'Our room paint calculator accepts feet and inches, handles multiple rooms, deducts openings, and outputs gallons plus quarts with a copyable shopping list.',
+          'Our room paint calculator accepts feet and inches, handles multiple rooms, deducts openings, and outputs gallons plus quarts with a copyable shopping list. Already know total wall sq ft? Jump straight to the [paint coverage calculator](/paint-coverage-calculator).',
         ],
       },
       {
         heading: 'Worked example: 12×14 bedroom',
         paragraphs: [
           'Walls: perimeter 52 ft × 8 ft ceiling = 416 sq ft. Minus one door (20) and one window (15) → 381 sq ft. Two coats at 350 sq ft/gallon = 762 ÷ 350 ≈ 2.2 gallons — buy 3 gallons finish paint.',
-          'Run your dimensions in the [room paint calculator](/room-paint-calculator). See [how many coats](/guides/how-many-coats-of-paint) and [primer guide](/guides/primer-before-painting) before checkout.',
+          'Run your dimensions in the [room paint calculator](/room-paint-calculator) or [coverage calculator](/paint-coverage-calculator). See [how many coats](/guides/how-many-coats-of-paint) and [primer guide](/guides/primer-before-painting) before checkout.',
         ],
       },
     ],
@@ -55,7 +55,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'How much paint for a 12×12 room?',
         answer:
-          'With 8 ft ceilings, walls are about 384 sq ft. Two coats at 350 sq ft/gallon ≈ 2.2 gallons — buy 3 gallons. Add one gallon if painting the ceiling too.',
+          'With 8 ft ceilings, walls are about 384 sq ft. Two coats at 350 sq ft/gallon ≈ 2.2 gallons — buy 3 gallons. Add one gallon if painting the ceiling too. Confirm with the [coverage calculator](/paint-coverage-calculator).',
       },
       {
         question: 'Do I need separate paint for trim?',
@@ -105,7 +105,7 @@ export const GUIDES: Guide[] = [
           'Exterior wood that drinks the first coat',
         ],
         paragraphs: [
-          'Enter the actual coat count in our calculator — underestimating coats is the #1 reason people run out mid-room.',
+          'Enter the actual coat count in our calculator — underestimating coats is the #1 reason people run out mid-room. After you know coats, convert label coverage into gallons with the [Behr paint coverage calculator](/paint-coverage-calculator).',
         ],
       },
       {
@@ -116,6 +116,7 @@ export const GUIDES: Guide[] = [
           'Same-color refresh: 1–2 coats after cleaning',
           'Ceiling flat white: often 1–2 coats',
           'Enter actual coat count in the [paint calculator](/how-much-paint-do-i-need)',
+          'Convert label coverage → gallons in the [coverage calculator](/paint-coverage-calculator)',
         ],
         paragraphs: [],
       },
@@ -124,7 +125,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Does primer count as a coat?',
         answer:
-          'Primer is a separate product layer. For shopping, buy primer gallons based on one coat of primer coverage, then buy finish paint for two coats.',
+          'Primer is a separate product layer. For shopping, buy primer gallons based on one coat of primer coverage, then buy finish paint for two coats. Run each product through the [coverage calculator](/paint-coverage-calculator) separately.',
       },
       {
         question: 'Can I thin paint to stretch coverage?',
@@ -566,7 +567,7 @@ export const GUIDES: Guide[] = [
           '9 inch roller frame + 3/8 inch nap cover for smooth walls (1/2 inch for light texture)',
           'Extension pole for ceilings and high walls',
           'Roller tray with liner, stir sticks, opener',
-          'Primer and finish paint (calculate gallons first)',
+          'Primer and finish paint (calculate gallons first with the [coverage calculator](/paint-coverage-calculator))',
           'Drop cloths, tape, spackle kit if repairing',
         ],
         paragraphs: [],
@@ -1332,14 +1333,14 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Why paint projects fail mid-way',
         paragraphs: [
-          'Most DIY paint jobs go wrong before the roller hits the wall: wrong primer over oil, skipping prep, buying too little paint, or recoating while the first coat is still soft. This guide is your project map — each phase links to a deeper article and the [how much paint calculator](/how-much-paint-do-i-need) so you buy once.',
+          'Most DIY paint jobs go wrong before the roller hits the wall: wrong primer over oil, skipping prep, buying too little paint, or recoating while the first coat is still soft. This guide is your project map — each phase links to a deeper article and the [how much paint calculator](/how-much-paint-do-i-need) so you buy once. Prefer label coverage math? Start with the [Behr paint coverage calculator](/paint-coverage-calculator).',
           'Use this as a checklist. Jump to the phase that matches where you are today, then follow the next-step links at the end of each article.',
         ],
       },
       {
         heading: 'The 7-phase interior paint flow',
         bullets: [
-          'Phase 1 — Estimate gallons: measure walls and run the [paint calculator](/how-much-paint-do-i-need)',
+          'Phase 1 — Estimate gallons: measure walls and run the [paint calculator](/how-much-paint-do-i-need) or [coverage calculator](/paint-coverage-calculator)',
           'Phase 2 — Identify what is on the wall: oil vs latex (alcohol wipe test)',
           'Phase 3 — Choose primer: drywall, stain-block, bonding, or tinted',
           'Phase 4 — Prep and repair: clean, patch, sand, tape',
