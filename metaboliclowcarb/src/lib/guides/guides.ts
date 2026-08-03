@@ -863,12 +863,17 @@ const GUIDE_DRAFTS: Omit<Guide, 'sources'>[] = [
       {
         question: 'Is keto better than moderate low carb for PCOS?',
         answer:
-          'Research does not establish keto as universally superior to other sustainable eating patterns for PCOS. Choose a nutritionally adequate approach with your care team.',
+          'Research does not establish keto as universally superior to other sustainable eating patterns for PCOS. Choose a nutritionally adequate approach with your care team. Compare the [keto macro calculator](/keto-macro-calculator) and [PCOS low carb calculator](/pcos-low-carb-calculator) as educational estimates only.',
       },
       {
         question: 'Should I do long fasts for PCOS?',
         answer:
           'Long fasts are not a standard PCOS treatment. Ask your care team before fasting, especially during fertility treatment, pregnancy, or use of glucose-lowering medicine.',
+      },
+      {
+        question: 'Do I need a calorie deficit for PCOS weight loss?',
+        answer:
+          'Often yes over time, but start with carb quality and protein. If waist and weight stall for several weeks, estimate maintenance with the [TDEE calorie calculator](/tdee-calorie-calculator) and rebuild macros — still under clinician guidance.',
       },
     ],
   },
