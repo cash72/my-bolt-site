@@ -13,11 +13,11 @@ import { LANDING_PAGES } from '../lib/landingPages';
 import type { ToolId } from '../lib/metabolic/types';
 
 const POPULAR_TOOLS = [
-  { to: '/net-carb-calculator', label: 'Net carb calculator' },
   { to: '/keto-macro-calculator', label: 'Keto macro calculator' },
+  { to: '/tdee-calorie-calculator', label: 'TDEE calorie calculator' },
+  { to: '/net-carb-calculator', label: 'Net carb calculator' },
   { to: '/weight-loss-macro-calculator', label: 'Weight loss macros' },
   { to: '/diabetes-macro-calculator', label: 'Diabetes macros' },
-  { to: '/intermittent-fasting-timer', label: 'Intermittent fasting timer' },
 ] as const;
 
 const TOOL_TABS: { id: ToolId; label: string; sub: string }[] = [
@@ -45,7 +45,7 @@ const HOMEPAGE_FAQS = [
   {
     question: 'Which calculator should I use first?',
     answer:
-      'Use the net carb calculator when reading a food label. Use the macro calculator for daily targets. Use the fasting clock when you are ready to track fasts after low-carb eating feels stable.',
+      'Use the net carb calculator when reading a food label. Use the keto macro calculator for daily protein, fat, and ~20g net carbs. Use the TDEE calorie calculator when you need a maintenance or deficit calorie baseline. Use the fasting clock when you are ready to track fasts after low-carb eating feels stable.',
   },
 ];
 
