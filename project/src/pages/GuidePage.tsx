@@ -152,7 +152,17 @@ function GuideContent({ guide }: { guide: GuideDef }) {
   const relatedLandings = guide.relatedLandingPaths
     .map((path) => {
       const slug = path.replace(/^\//, '');
-      return LANDING_PAGE_BY_SLUG.get(slug);
+      const landing = LANDING_PAGE_BY_SLUG.get(slug);
+      if (landing) return landing;
+      // Primary money tools that are not conversion landings
+      if (slug === 'bitcoin-fee-calculator') {
+        return {
+          slug,
+          path: '/bitcoin-fee-calculator',
+          breadcrumbLabel: 'Bitcoin fee calculator',
+        };
+      }
+      return undefined;
     })
     .filter(Boolean);
 
@@ -234,7 +244,9 @@ function GuideContent({ guide }: { guide: GuideDef }) {
               Quick answer
             </p>
             <h3 className="font-semibold text-slate-900 dark:text-slate-100">{guide.faq[0].q}</h3>
-            <p className="mt-1 text-slate-600 dark:text-slate-300 leading-relaxed">{guide.faq[0].a}</p>
+            <p className="mt-1 text-slate-600 dark:text-slate-300 leading-relaxed">
+              {renderEditorialText(guide.faq[0].a)}
+            </p>
           </div>
         )}
         <div className="space-y-3">
@@ -246,7 +258,9 @@ function GuideContent({ guide }: { guide: GuideDef }) {
               <summary className="flex items-center justify-between cursor-pointer p-4 list-none font-medium text-slate-800 dark:text-slate-200">
                 {item.q}
               </summary>
-              <div className="px-4 pb-4 text-slate-600 dark:text-slate-300 leading-relaxed">{item.a}</div>
+              <div className="px-4 pb-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                {renderEditorialText(item.a)}
+              </div>
             </details>
           ))}
         </div>
