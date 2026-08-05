@@ -25,6 +25,7 @@ import {
 } from '../lib/conversion';
 import { TX_SIZE_PRESETS, feeSats } from '../lib/fees';
 import { getGuideBySlug } from '../lib/guides';
+import { renderEditorialText } from '../lib/renderEditorialText';
 import { canonicalUrl } from '../lib/site';
 
 const DEFAULT_SAT_PER_VB = 12;
@@ -32,9 +33,9 @@ const DEFAULT_VBYTES = 140;
 
 export default function BitcoinFeeCalculatorPage() {
   usePageMeta({
-    title: 'Bitcoin Fee Calculator — sat/vB to Sats & USD',
+    title: 'Bitcoin Fee Calculator — sat/vB × vBytes to Sats & USD',
     description:
-      'Estimate Bitcoin transaction fees from sat/vB and transaction size (vBytes). See fee in sats, BTC, and live USD. Free mempool planning tool.',
+      'Estimate Bitcoin mempool fees and exchange withdrawal cost: sat/vB × vBytes → sats, BTC, and live USD. Free planning tool before you send.',
     path: '/bitcoin-fee-calculator',
   });
 
@@ -77,6 +78,11 @@ export default function BitcoinFeeCalculatorPage() {
         question: 'When should I use Lightning instead?',
         answer:
           'For tips and small payments, Lightning fees are usually far cheaper than on-chain. Use on-chain for cold-storage moves and exchange withdrawals when you need settlement finality.',
+      },
+      {
+        question: 'Is an exchange withdrawal fee the same as the mempool fee?',
+        answer:
+          'Usually not. Exchanges often charge a flat withdrawal fee that may be higher than live mempool rates. This calculator estimates sat/vB × vBytes for wallet broadcasts — compare that USD estimate to your exchange’s listed withdrawal fee before you move stacked sats. Convert the fee sats on [Satoshi to USD](/satoshi-to-usd) if you want a second check.',
       },
     ],
     [satPerVb, vBytes, sats, usd, btcPrice]
@@ -319,7 +325,9 @@ export default function BitcoinFeeCalculatorPage() {
                   <span className="font-medium text-slate-800 dark:text-slate-200 pr-4">{faq.question}</span>
                   <ChevronDown className="w-4 h-4 text-slate-400 shrink-0 group-open:rotate-180" aria-hidden="true" />
                 </summary>
-                <div className="px-4 pb-4 text-slate-600 dark:text-slate-300 leading-relaxed">{faq.answer}</div>
+                <div className="px-4 pb-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                  {renderEditorialText(faq.answer)}
+                </div>
               </details>
             ))}
           </div>
