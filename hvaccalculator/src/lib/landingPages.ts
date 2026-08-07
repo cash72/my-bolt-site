@@ -394,10 +394,10 @@ export const LANDING_PAGES: LandingPage[] = [
     path: '/ac-cost-to-run-calculator',
     applicationType: 'standard_room',
     kind: 'cost',
-    title: 'AC Cost to Run Calculator — SEER Electricity Estimate',
-    h1: 'AC Cost to Run Calculator',
+    title: 'How Much Does AC Cost to Run? SEER Electricity Calculator',
+    h1: 'How Much Does AC Cost to Run?',
     description:
-      'Estimate how much it costs to run an air conditioner or mini-split. Enter BTU or tons, SEER, hours per day, and $/kWh for monthly and seasonal cost — free SEER savings tool.',
+      'How much does it cost to run an air conditioner? Enter BTU or tons, SEER/SEER2, hours per day, and your $/kWh rate for daily, monthly, and seasonal electricity cost — free SEER savings comparison.',
     breadcrumbLabel: 'AC cost to run',
     intro:
       'Higher SEER uses less electricity for the same cooling output. Enter your unit capacity, SEER rating, typical run hours, and your electric rate to estimate daily, monthly, and seasonal cost — and compare two SEER levels.',
@@ -405,17 +405,27 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How do you calculate AC electricity cost?',
         answer:
-          'Rough planning formula: kWh = (BTU/hr × hours) ÷ (SEER × 1,000). Multiply kWh by your $/kWh rate. Real bills vary with outdoor temperature, thermostat setpoints, and cycling.',
+          'Rough planning formula: kWh = (BTU/hr × hours) ÷ (SEER × 1,000). Multiply kWh by your $/kWh rate. Example: a 12,000 BTU unit at SEER 16 for 8 hours ≈ 6 kWh/day; at $0.15/kWh that is about $0.90/day or ~$27/month. Real bills vary with outdoor temperature, thermostat setpoints, and cycling — use this calculator with your rate and hours.',
       },
       {
         question: 'Is SEER the same as SEER2?',
         answer:
-          'No — SEER2 uses updated test conditions and usually reads lower than old SEER for the same hardware. Enter the number on your equipment label; do not mix SEER and SEER2 in one comparison without converting.',
+          'No — SEER2 uses updated test conditions and usually reads lower than old SEER for the same hardware. Enter the number on your equipment label; do not mix SEER and SEER2 in one comparison without converting. Read [SEER ratings explained](/guides/seer-ratings-explained) before shopping labels.',
       },
       {
         question: 'Does a higher SEER always save money?',
         answer:
-          'Higher SEER cuts run cost for the same hours and capacity, but the upgrade premium may take years to recover. Use the compare SEER field to see monthly savings before you buy.',
+          'Higher SEER cuts run cost for the same hours and capacity, but the upgrade premium may take years to recover. Use the compare SEER field to see monthly savings before you buy. Size the head first with the [BTU calculator](/btu-calculator) — wrong capacity wastes more than a mid-tier SEER gap.',
+      },
+      {
+        question: 'How much does a 12,000 BTU AC cost to run per month?',
+        answer:
+          'At SEER 16, 8 hours/day, and $0.15/kWh, expect roughly $25–30/month of compressor energy in planning math. Drop SEER to 10 (typical older window unit) and the same load is closer to $40–45/month. Enter your SEER, hours, and utility rate above for a local estimate.',
+      },
+      {
+        question: 'How do I estimate peak summer AC electricity cost?',
+        answer:
+          'Use longer daily hours for hot months (often 10–14 hours in humid climates) and your utility’s peak or tiered $/kWh if you have time-of-use rates. Compare your current SEER to a higher-efficiency option in this calculator — seasonal totals track hours × rate more than nameplate BTU alone.',
       },
     ],
   },

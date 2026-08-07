@@ -7,13 +7,14 @@ import { hasResultsAdUnit } from '../lib/ads/config';
 import { GuideCard } from '../components/GuideCard';
 import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 import { LANDING_PAGES } from '../lib/landingPages';
+import { renderEditorialText } from '../lib/renderEditorialText';
 
 const POPULAR_CALCULATORS = [
+  { to: '/ac-cost-to-run-calculator', label: 'SEER / AC cost to run' },
   { to: '/btu-calculator', label: 'BTU calculator' },
-  { to: '/ac-cost-to-run-calculator', label: 'AC cost to run' },
   { to: '/mini-split-calculator', label: 'Mini-split sizing' },
+  { to: '/tonnage-calculator', label: 'BTU to tons' },
   { to: '/window-ac-calculator', label: 'Window AC' },
-  { to: '/garage-heater-btu-calculator', label: 'Garage heater' },
 ] as const;
 
 const HOMEPAGE_FAQ = [
@@ -22,12 +23,12 @@ const HOMEPAGE_FAQ = [
     a: 'Most cooled rooms need 20–30 BTU per sq ft. RVs and uninsulated sheds need more; well-insulated tiny homes need less. Sun exposure, ceiling height, and occupants adjust the result.',
   },
   {
-    q: 'What size mini-split for an RV?',
-    a: 'Most full-time RVers use 9,000–12,000 BTU depending on length and insulation. A 30 ft RV with 200–250 sq ft of living space often needs a 9k minimum; 12k is common in hot climates.',
+    q: 'How much does it cost to run an AC?',
+    a: 'Roughly kWh = (BTU/hr × hours) ÷ (SEER × 1,000), then multiply by your $/kWh rate. Use the [SEER / AC cost to run calculator](/ac-cost-to-run-calculator) with your capacity, hours, and utility rate — then compare two SEER levels before you buy.',
   },
   {
-    q: 'Can I size a whole tiny home with one calculator?',
-    a: 'Yes — add up to five spaces or enter the main living footprint as one zone. Most tiny homes use a single 9k–18k BTU ductless head.',
+    q: 'What size mini-split for an RV?',
+    a: 'Most full-time RVers use 9,000–12,000 BTU depending on length and insulation. A 30 ft RV with 200–250 sq ft of living space often needs a 9k minimum; 12k is common in hot climates.',
   },
   {
     q: 'Is this a Manual J calculation?',
@@ -59,7 +60,10 @@ export default function HomePage() {
       mainEntity: HOMEPAGE_FAQ.map((item) => ({
         '@type': 'Question',
         name: item.q,
-        acceptedAnswer: { '@type': 'Answer', text: item.a },
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+        },
       })),
     });
 
@@ -200,7 +204,7 @@ export default function HomePage() {
           {HOMEPAGE_FAQ.map((faq) => (
             <div key={faq.q}>
               <h3 className="font-medium text-slate-800 dark:text-slate-200">{faq.q}</h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-1">{faq.a}</p>
+              <p className="text-slate-600 dark:text-slate-400 mt-1">{renderEditorialText(faq.a)}</p>
             </div>
           ))}
         </div>
