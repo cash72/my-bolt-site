@@ -395,7 +395,7 @@ export const LANDING_PAGES: LandingPage[] = [
     applicationType: 'standard_room',
     kind: 'cost',
     title: 'How Much Does AC Cost to Run? SEER Electricity Calculator',
-    h1: 'AC Cost to Run Calculator',
+    h1: 'How Much Does AC Cost to Run?',
     description:
       'How much does it cost to run an air conditioner? Enter BTU or tons, SEER/SEER2, hours per day, and your $/kWh rate for daily, monthly, and seasonal electricity cost — free SEER savings comparison.',
     breadcrumbLabel: 'AC cost to run',
@@ -421,6 +421,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'How much does a 12,000 BTU AC cost to run per month?',
         answer:
           'At SEER 16, 8 hours/day, and $0.15/kWh, expect roughly $25–30/month of compressor energy in planning math. Drop SEER to 10 (typical older window unit) and the same load is closer to $40–45/month. Enter your SEER, hours, and utility rate above for a local estimate.',
+      },
+      {
+        question: 'How do I estimate peak summer AC electricity cost?',
+        answer:
+          'Use longer daily hours for hot months (often 10–14 hours in humid climates) and your utility’s peak or tiered $/kWh if you have time-of-use rates. Compare your current SEER to a higher-efficiency option in this calculator — seasonal totals track hours × rate more than nameplate BTU alone.',
       },
     ],
   },

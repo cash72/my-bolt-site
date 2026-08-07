@@ -317,6 +317,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
+        heading: 'Peak-summer hours vs shoulder months',
+        paragraphs: [
+          'July–August bills spike because run hours jump, not because the equipment suddenly got less efficient. Model a peak month with 10–14 hours/day, then a shoulder month with 4–6 hours — the same SEER looks very different on the bill.',
+          'If your utility uses time-of-use or tiered rates, enter the rate you actually pay during afternoon cooling. A mid-SEER unit on expensive peak kWh can cost more than a higher-SEER unit on the same hours.',
+        ],
+      },
+      {
         heading: 'What this estimate leaves out',
         paragraphs: [
           'We model compressor energy for planning — not standby power, fans on other equipment, or time-of-use rate tiers. Treat the result as a comparison tool between units, not a utility bill guarantee.',

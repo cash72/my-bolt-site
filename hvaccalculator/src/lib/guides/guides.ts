@@ -125,6 +125,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Run exact dimensions in the [room AC calculator](/room-ac-calculator). Compare ductless vs window units in our [mini-split vs window AC guide](/guides/mini-split-vs-window-ac) before buying.',
+          'Once you pick a capacity and SEER, estimate nightly electricity with the [AC cost to run calculator](/ac-cost-to-run-calculator) — bedrooms often run 6–10 hours while you sleep.',
         ],
       },
     ],
@@ -1069,6 +1070,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Many owners oversize because they skip steps 1–2. See [DIY install basics](/guides/diy-mini-split-installation-basics) for electrical planning before cutting drywall.',
+          'Workshop run hours are often longer than living rooms — check summer electricity with the [AC cost to run calculator](/ac-cost-to-run-calculator) before locking a SEER tier.',
         ],
       },
     ],
@@ -1188,7 +1190,7 @@ export const GUIDES: Guide[] = [
         heading: 'Efficiency and hose setup',
         paragraphs: [
           'Single-hose portable ACs pull conditioned air from the room to exhaust heat — they fight themselves and use more kWh per BTU. Dual-hose models separate intake and exhaust — better, still less efficient than window units.',
-          'Window units mount half inside, half outside — heat leaves directly. Same BTU rating, window units usually cool faster and cheaper to run.',
+          'Window units mount half inside, half outside — heat leaves directly. Same BTU rating, window units usually cool faster and cheaper to run. Compare monthly kWh with the [AC cost to run calculator](/ac-cost-to-run-calculator) using each unit’s SEER/EER and your hours.',
         ],
       },
       {
@@ -1267,7 +1269,7 @@ export const GUIDES: Guide[] = [
           'Alt DIY: [Window AC sizing](/guides/window-ac-btu-sizing) · [Install window AC](/guides/how-to-install-window-ac-safely) · [Portable vs window](/guides/portable-ac-vs-window-ac)',
         ],
         paragraphs: [
-          'Calculators: [mini-split](/mini-split-calculator), [BTU](/btu-calculator), [window AC](/window-ac-calculator), [RV](/mini-split-for-rv), [tiny home](/mini-split-for-tiny-home), [shed](/mini-split-for-shed), [garage heater](/garage-heater-btu-calculator).',
+          'Calculators: [mini-split](/mini-split-calculator), [BTU](/btu-calculator), [window AC](/window-ac-calculator), [AC cost to run / SEER](/ac-cost-to-run-calculator), [RV](/mini-split-for-rv), [tiny home](/mini-split-for-tiny-home), [shed](/mini-split-for-shed), [garage heater](/garage-heater-btu-calculator).',
         ],
       },
       {
@@ -1275,6 +1277,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Week before: size with the calculator, order matched kit, schedule electrician if you are not comfortable with 220V, pull permit if required. Saturday: mount outdoor pad/bracket and indoor head, drill penetration, run line set and drain. Sunday: electrical disconnect, leak check, open valves or vacuum, test modes. Complex multi-zone or long line sets are rarely a weekend DIY.',
           'This roadmap is planning information — always follow the manufacturer manual and local code. Refrigerant work may require a license where you live.',
+          'Before checkout, run your chosen SEER through the [AC cost to run calculator](/ac-cost-to-run-calculator) so you are not paying for efficiency you will not recover in your climate.',
         ],
       },
     ],
