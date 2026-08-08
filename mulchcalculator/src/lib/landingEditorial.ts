@@ -149,19 +149,28 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'mulch-cost-estimator': {
     intro:
-      'Volume alone does not answer “what will this cost?” Enter bed area and depth, then local bulk and bag prices to compare delivery vs bagged mulch.',
+      'How much does mulch cost? Volume alone is not enough — enter bed area and depth, then local bulk $/yard and bag prices to compare delivery vs bagged mulch before you order.',
     sections: [
       {
-        heading: 'Bulk vs bags',
+        heading: 'Bulk vs bags — the break-even',
         paragraphs: [
-          'Bulk cubic yards usually win past about one yard once you account for bag count (~14 bags per yard of 2 cu ft bags). Bags win for small refresh projects and car-trunk trips.',
-          'See [delivery vs bags](/guides/delivery-vs-bags-bulk-mulch) and [bags per yard](/guides/how-many-mulch-bags-per-yard) for planning detail.',
+          'Bulk cubic yards usually win past about one yard once you count ~14 bags per yard of 2 cu ft bags plus store trips. Bags win for half-yard cosmetic refreshes and beds far from the driveway drop point.',
+          'Worked example: 150 sq ft at 3 inches ≈ 1.4 cu yd. At $40/yard materials ≈ $56; as bags at $4.50 × ~20 ≈ $90 before tax. Flip the prices above to match your nursery and big-box tags.',
+          'See [delivery vs bags](/guides/delivery-vs-bags-bulk-mulch) and [bags per yard](/guides/how-many-mulch-bags-per-yard) for logistics detail — or get clean yardage first with the [mulch calculator](/mulch-calculator).',
         ],
       },
       {
-        heading: 'What is not included',
+        heading: 'Seasonal pricing without new landings',
         paragraphs: [
-          'Delivery fees, tax, and fabric or edging are separate. Use the materials total to compare supplier quotes, then add delivery from each yard.',
+          'Late summer into early fall is when many yards restock dyed bulk and fall colors. Measure after you pull summer weeds, order only the top-up depth you need (often 1–2 inches over existing mulch), and compare quotes while suppliers still have capacity.',
+          'August–September tip: call for delivery lead times before weekend demand stacks up — wait lists stretch faster than $/yard in many markets. Depth and timing tips live in [fall mulch application timing](/guides/fall-mulch-application-timing) and [spring mulch application](/guides/spring-mulch-application-guide).',
+        ],
+      },
+      {
+        heading: 'What this estimate leaves out',
+        paragraphs: [
+          'Delivery fees, tax, landscape fabric, and edging are separate. Many suppliers charge a flat delivery under 3–5 yards — add that line after you lock materials totals from each quote.',
+          'Treat the result as a planning comparison between bulk and bags, not a supplier invoice. Confirm bag size (2 vs 3 cu ft) and whether dyed bulk matches the bag SKU you want.',
         ],
       },
     ],
