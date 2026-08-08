@@ -6,11 +6,12 @@ import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { hasResultsAdUnit } from '../lib/ads/config';
 import { GuideCard } from '../components/GuideCard';
 import { getFeaturedHomeGuides } from '../lib/landingHelpers';
+import { renderEditorialText } from '../lib/renderEditorialText';
 
 const POPULAR_CALCULATORS = [
+  { to: '/mulch-cost-estimator', label: 'Bulk / bag cost estimator' },
   { to: '/mulch-calculator', label: 'Mulch calculator' },
-  { to: '/mulch-cost-estimator', label: 'Cost estimator' },
-  { to: '/sod-calculator', label: 'Sod calculator' },
+  { to: '/cubic-yards-calculator', label: 'Cubic yards' },
   { to: '/gravel-calculator', label: 'Gravel calculator' },
   { to: '/topsoil-calculator', label: 'Topsoil calculator' },
 ] as const;
@@ -21,12 +22,12 @@ const HOMEPAGE_FAQ = [
     a: 'Multiply bed area (length × width) by depth in feet, then divide by 27 for cubic yards. A 10×10 bed at 3 inches needs about 0.93 cubic yards — round up to 1 yard when ordering bulk.',
   },
   {
-    q: 'How many bags equal a cubic yard?',
-    a: 'One cubic yard is 27 cu ft. Standard mulch bags hold 2 cu ft, so you need about 14 bags per cubic yard.',
+    q: 'How much does mulch cost — bulk or bags?',
+    a: 'Bulk usually wins past about one cubic yard; bags win for small refreshes. Enter bed size, depth, and local $/yard plus bag prices in the [bulk / bag cost estimator](/mulch-cost-estimator) to compare materials totals before delivery fees.',
   },
   {
-    q: 'Does this work for gravel and topsoil?',
-    a: 'Yes. Switch material type in project settings. The math is the same — area × depth — regardless of material.',
+    q: 'How many bags equal a cubic yard?',
+    a: 'One cubic yard is 27 cu ft. Standard mulch bags hold 2 cu ft, so you need about 14 bags per cubic yard.',
   },
   {
     q: 'Can I calculate multiple beds?',
@@ -58,7 +59,10 @@ export default function HomePage() {
       mainEntity: HOMEPAGE_FAQ.map((item) => ({
         '@type': 'Question',
         name: item.q,
-        acceptedAnswer: { '@type': 'Answer', text: item.a },
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+        },
       })),
     });
 
@@ -97,7 +101,7 @@ export default function HomePage() {
       <ContentMonetizationSlot
         placement="content"
         showAd={!hasResultsAdUnit()}
-        relatedSlugs={['mulch-calculator', 'topsoil-calculator', 'playground-mulch-calculator', 'stone-mulch-calculator']}
+        relatedSlugs={['mulch-cost-estimator', 'mulch-calculator', 'cubic-yards-calculator', 'topsoil-calculator']}
       />
 
       <section className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800" aria-labelledby="featured-guides">
@@ -145,7 +149,7 @@ export default function HomePage() {
           {HOMEPAGE_FAQ.map((faq) => (
             <div key={faq.q}>
               <h3 className="font-medium text-slate-800 dark:text-slate-200">{faq.q}</h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-1">{faq.a}</p>
+              <p className="text-slate-600 dark:text-slate-400 mt-1">{renderEditorialText(faq.a)}</p>
             </div>
           ))}
         </div>
