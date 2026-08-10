@@ -63,10 +63,10 @@ export const LANDING_PAGES: LandingPage[] = [
     path: '/keto-macro-calculator',
     tool: 'macro',
     defaultPlan: 'strict_keto',
-    title: 'Keto Macro Calculator — Free Protein, Fat & Net Carbs',
+    title: 'Keto Macro Calculator — Daily Protein, Fat & 20g Net Carbs',
     h1: 'Keto Macro Calculator',
     description:
-      'Keto macro calculator for weight loss and strict keto. Enter age, weight, height, and activity — get daily calories, protein, fat, and 20g net carb targets. Free, no signup.',
+      'Free keto macro calculator: enter age, weight, height, and activity to get daily calories, protein, fat, and ~20g net carb targets for strict keto and weight loss. No signup.',
     breadcrumbLabel: 'Keto macro calculator',
     intro:
       'How many carbs, protein, and fat on keto? Enter your stats and get daily macro targets — about 20g net carbs for strict keto, with calories from the Mifflin-St Jeor equation.',
@@ -79,7 +79,7 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How many carbs should I eat on keto per day?',
         answer:
-          'Most strict keto plans target 20–25g net carbs daily. Moderate low-carb allows more — use our low carb macro calculator if you are not in induction.',
+          'Most strict keto plans target 20–25g net carbs daily. Moderate low-carb allows more — use our [low carb macro calculator](/low-carb-macro-calculator) if you are not in induction.',
       },
       {
         question: 'Is there a free keto macro calculator?',
@@ -89,7 +89,17 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How much protein on keto?',
         answer:
-          'This calculator uses about 0.8g protein per pound of body weight — a common starting point. Adjust with a dietitian if you have kidney or other conditions.',
+          'This calculator uses about 0.8g protein per pound of body weight — a common starting point. Adjust with a dietitian if you have kidney or other conditions. See our [protein on keto guide](/guides/protein-on-keto-and-low-carb) for food examples.',
+      },
+      {
+        question: 'Should I set calories with TDEE before macros?',
+        answer:
+          'Optional but useful for weight loss. Run the [TDEE calorie calculator](/tdee-calorie-calculator) for maintenance or a modest deficit, then use this keto macro calculator to lock protein, fat, and ~20g net carbs inside that calorie budget.',
+      },
+      {
+        question: 'How do I calculate keto macros for weight loss?',
+        answer:
+          'Start with body stats and activity here for protein, fat, and ~20g net carbs. If the scale stalls, refresh total calories with the [TDEE calorie calculator](/tdee-calorie-calculator) (modest deficit), then re-run keto macros so fat grams fill the remaining budget — not crash cuts without protein.',
       },
       {
         question: 'Is this medical advice?',
@@ -97,7 +107,7 @@ export const LANDING_PAGES: LandingPage[] = [
           'No. These are estimates for education only. Talk to your doctor before changing diet, especially if you take diabetes or blood pressure medication.',
       },
     ],
-    relatedGuideSlugs: ['getting-started-keto-low-carb', 'dr-boz-ratio-explained'],
+    relatedGuideSlugs: ['getting-started-keto-low-carb', 'dr-boz-ratio-explained', 'protein-on-keto-and-low-carb'],
   },
   {
     slug: 'insulin-resistance-macro-calculator',
@@ -472,7 +482,12 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How many carbs for weight loss?',
         answer:
-          'Many people lose weight on 50–130g net carbs depending on activity and insulin sensitivity. This calculator uses ~100g as a moderate low-carb starting point.',
+          'Many people lose weight on 50–130g net carbs depending on activity and insulin sensitivity. This calculator uses ~100g as a moderate low-carb starting point. Prefer induction-level restriction? Use the [keto macro calculator](/keto-macro-calculator) (~20g).',
+      },
+      {
+        question: 'Should I use TDEE or this weight-loss calculator?',
+        answer:
+          'Use the [TDEE calorie calculator](/tdee-calorie-calculator) when you want maintenance or a custom deficit first. Use this page when you want macros (~100g net carbs) with a built-in planning deficit. Prefer strict keto splits? Lock protein and ~20g net carbs in the [keto macro calculator](/keto-macro-calculator) inside the same calorie budget.',
       },
       {
         question: 'Do I need to count macros forever?',
@@ -482,7 +497,7 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'Is low carb required for weight loss?',
         answer:
-          'No — calorie deficit matters most. Low carb helps some people control hunger and blood sugar. Pair these targets with whole foods and medical guidance if needed.',
+          'No — calorie deficit matters most. Low carb helps some people control hunger and blood sugar. Pair these targets with whole foods and medical guidance if needed. Recheck burn with [TDEE](/tdee-calorie-calculator) after a 10–15 lb change.',
       },
     ],
     relatedGuideSlugs: ['getting-started-keto-low-carb', 'visceral-fat-metabolic-health', 'atkins-phases-explained'],
@@ -522,10 +537,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'tdee-calorie-calculator',
     path: '/tdee-calorie-calculator',
     tool: 'tdee',
-    title: 'TDEE Calorie Calculator — Free Daily Calories & BMR',
+    title: 'TDEE Calculator — Free Daily Calories, BMR & Deficit',
     h1: 'TDEE Calorie Calculator',
     description:
-      'Free TDEE calorie calculator (Mifflin-St Jeor). Estimate BMR, maintenance calories, and an optional deficit for weight loss — then pair with keto or low-carb macros.',
+      'Free TDEE calculator (Mifflin-St Jeor): estimate BMR, maintenance calories, and an optional weight-loss deficit — then pair with keto or low-carb macros. No signup.',
     breadcrumbLabel: 'TDEE calculator',
     intro:
       'Total Daily Energy Expenditure (TDEE) is a planning estimate of how many calories you burn in a day. Enter age, sex, weight, height, and activity — optionally apply a mild-to-moderate deficit for fat-loss targets.',
@@ -534,6 +549,21 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'What is TDEE vs BMR?',
         answer:
           'BMR is calories burned at rest. TDEE multiplies BMR by an activity factor to estimate full-day burn including movement and exercise.',
+      },
+      {
+        question: 'How do I calculate TDEE for weight loss?',
+        answer:
+          'Estimate maintenance with this calculator, then subtract about 300–500 calories for a moderate deficit. Pair the calorie target with protein and net carbs in the [keto macro calculator](/keto-macro-calculator) — do not cut calories alone without enough protein.',
+      },
+      {
+        question: 'Can I use a TDEE calculator with keto?',
+        answer:
+          'Yes. TDEE sets total calories; keto sets the carb ceiling (often ~20g net). Run TDEE first, then split protein, fat, and net carbs with our [keto macro calculator](/keto-macro-calculator) using the same body stats.',
+      },
+      {
+        question: 'What is a good calorie deficit from TDEE?',
+        answer:
+          'A common starting point is 300–500 calories below maintenance. Larger cuts raise hunger and muscle-loss risk. Recheck TDEE after a 10–15 lb change, then refresh macros so protein stays adequate.',
       },
       {
         question: 'How accurate is Mifflin-St Jeor?',
@@ -545,6 +575,11 @@ export const LANDING_PAGES: LandingPage[] = [
         answer:
           'This tool floors targets at BMR. Very low calories can be unsafe — talk with a clinician before aggressive cuts, especially with diabetes medications.',
       },
+      {
+        question: 'Is this TDEE calorie calculator free?',
+        answer:
+          'Yes — no signup. Enter age, sex, height, weight, and activity to get BMR, maintenance calories, and an optional deficit target.',
+      },
     ],
     relatedGuideSlugs: [
       'getting-started-keto-low-carb',
@@ -555,9 +590,9 @@ export const LANDING_PAGES: LandingPage[] = [
 ];
 
 export const FEATURED_LANDING_SLUGS = [
+  'keto-macro-calculator',
   'tdee-calorie-calculator',
   'net-carb-calculator',
-  'keto-macro-calculator',
   'insulin-resistance-macro-calculator',
   'weight-loss-macro-calculator',
   'diabetes-macro-calculator',
