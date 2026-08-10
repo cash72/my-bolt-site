@@ -82,7 +82,7 @@ function buildSatoshiHubPage(currency: FiatCurrency): LandingPageDef {
 
   const title =
     currency === 'usd'
-      ? 'Satoshi to USD Converter — Live Price Today'
+      ? 'Satoshi to USD Converter — Live Sats Value Today'
       : currency === 'eur'
         ? 'Satoshi to EUR — Live Euro Conversion (2026)'
         : currency === 'gbp'
@@ -91,7 +91,7 @@ function buildSatoshiHubPage(currency: FiatCurrency): LandingPageDef {
 
   const description =
     currency === 'usd'
-      ? 'Convert Satoshis to USD at the live Bitcoin price. Free calculator — updated every 60 seconds from CoinGecko.'
+      ? 'How much is a Satoshi in USD? Convert any sat amount to dollars at the live Bitcoin price. Free calculator — updated every 60 seconds from CoinGecko.'
       : `Convert Satoshis to ${label} (${name}) at the live Bitcoin price. Free ${label} calculator for stackers — updated every 60 seconds.`;
 
   return {
@@ -109,10 +109,31 @@ function buildSatoshiHubPage(currency: FiatCurrency): LandingPageDef {
   };
 }
 
+function satoshiAmountTitleLabel(amount: number, formatted: string): string {
+  if (amount >= 1_000_000 && amount % 1_000_000 === 0) {
+    return `${amount / 1_000_000}M sats`;
+  }
+  if (amount >= 1_000 && amount % 1_000 === 0) {
+    return `${amount / 1_000}k sats`;
+  }
+  return `${formatted} sats`;
+}
+
 function buildSatoshiAmountPage(amount: number, currency: FiatCurrency): LandingPageDef {
   const label = CURRENCY_LABELS[currency];
   const slug = `${amount}-satoshi-to-${currency}`;
   const formatted = formatSatoshiAmount(amount);
+  const titleAmount = satoshiAmountTitleLabel(amount, formatted);
+
+  const title =
+    currency === 'usd'
+      ? `${formatted} Satoshis to USD — How Much Is ${titleAmount}?`
+      : `${titleAmount} to ${label} — Live Price Today`;
+
+  const description =
+    currency === 'usd'
+      ? `How much is ${formatted} Satoshis (${titleAmount}) in USD today? See the live dollar value at the current Bitcoin price. Free calculator — updated every 60 seconds.`
+      : `How much is ${formatted} sats in ${label}? See the live ${label} value at today's Bitcoin price. Free calculator — updated every 60 seconds.`;
 
   return {
     slug,
@@ -121,8 +142,8 @@ function buildSatoshiAmountPage(amount: number, currency: FiatCurrency): Landing
     direction: 'satoshi-to-fiat',
     amount,
     currency,
-    title: `${formatted} Satoshi to ${label} — Live Price Today`,
-    description: `How much is ${formatted} Satoshis in ${label}? See the live ${label} value at today's Bitcoin price. Free calculator — updated every 60 seconds.`,
+    title,
+    description,
     h1: `${formatted} Satoshi to ${label}`,
     intro: satoshiAmountIntro(amount, label, formatted),
     breadcrumbLabel: `${formatted} sats → ${label}`,
@@ -177,6 +198,15 @@ function buildFiatAmountPage(amount: number, currency: FiatCurrency): LandingPag
   const slugName = CURRENCY_SLUG_NAMES[currency];
   const slug = `${amount}-${slugName}-in-satoshi`;
 
+  const title =
+    amount === 100 && currency === 'usd'
+      ? '100 USD in Satoshi — How Many Sats Is $100? (Live)'
+      : `${amount} ${label} in Satoshi — Live Sats Calculator`;
+  const description =
+    amount === 100 && currency === 'usd'
+      ? "How many Satoshis is $100 USD at today's Bitcoin price? See the live sats equivalent for a typical first buy. Free calculator — updated every 60 seconds."
+      : `How many Satoshis is ${amount} ${label}? See the live sats equivalent at today's Bitcoin price in ${name}. Updated every 60 seconds.`;
+
   return {
     slug,
     path: `/${slug}`,
@@ -184,8 +214,8 @@ function buildFiatAmountPage(amount: number, currency: FiatCurrency): LandingPag
     direction: 'fiat-to-satoshi',
     amount,
     currency,
-    title: `${amount} ${label} in Satoshi — Live Sats Calculator`,
-    description: `How many Satoshis is ${amount} ${label}? See the live sats equivalent at today's Bitcoin price in ${name}. Updated every 60 seconds.`,
+    title,
+    description,
     h1: `${amount} ${label} in Satoshi`,
     intro: fiatAmountIntro(amount, label, name),
     breadcrumbLabel: `${amount} ${label} → sats`,
