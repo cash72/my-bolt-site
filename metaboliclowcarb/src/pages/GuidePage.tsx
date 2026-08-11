@@ -13,7 +13,7 @@ import { renderEditorialText } from '../lib/renderEditorialText';
 import { SITE_NAME, SITE_URL } from '../lib/site';
 
 const GUIDE_DATE_PUBLISHED = '2026-07-12';
-const GUIDE_DATE_MODIFIED = '2026-08-10';
+const GUIDE_DATE_MODIFIED = '2026-08-11';
 
 export default function GuidePage() {
   const { slug } = useParams<{ slug: string }>();

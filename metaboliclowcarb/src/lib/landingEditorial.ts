@@ -97,6 +97,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
+        heading: 'When waist and weight stall',
+        paragraphs: [
+          'Carb ceilings alone do not guarantee fat loss if total calories drift up. If waist and scale stall for 2–3 weeks under clinician guidance, estimate maintenance with the [TDEE calorie calculator](/tdee-calorie-calculator), then rebuild protein and ~50g net carbs here — or temporarily tighten with the [keto macro calculator](/keto-macro-calculator).',
+          'Recheck TDEE after a 10–15 lb change so the deficit stays realistic instead of chasing day-one fat grams forever.',
+        ],
+      },
+      {
         heading: 'Pair macros with timing — carefully',
         paragraphs: [
           'Time-restricted eating can help some people with IR, but medication changes the risk profile. Read [fasting with insulin resistance](/guides/fasting-with-insulin-resistance) and [fasting on diabetes medications](/guides/fasting-on-diabetes-medications) before stacking long fasts on top of a new carb budget.',
@@ -415,6 +422,12 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'Focus on whole foods first',
         paragraphs: [
           'Replacing refined carbs with vegetables, protein, and healthy fats often improves post-meal glucose before counting every gram. Use net carb math as a tool — [net carb calculator](/net-carb-calculator) — not the only measure of a meal.',
+        ],
+      },
+      {
+        heading: 'Calories only with clinician oversight',
+        paragraphs: [
+          'If weight loss is also a goal and glucose-lowering meds are stable, estimate maintenance with the [TDEE calorie calculator](/tdee-calorie-calculator) before cutting — never slash calories alone on insulin or sulfonylureas. For a short, clinician-approved induction window, compare the [keto macro calculator](/keto-macro-calculator) (~20g) with this ~50g plan.',
         ],
       },
       {

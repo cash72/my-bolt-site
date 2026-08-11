@@ -31,7 +31,7 @@ const HOMEPAGE_FAQS = [
   {
     question: 'What are net carbs?',
     answer:
-      'Net carbs are total carbohydrates minus fiber and often sugar alcohols. Keto and low-carb diets use them to track daily carb intake.',
+      'Net carbs are total carbohydrates minus fiber and often sugar alcohols. Keto and low-carb diets use them to track daily carb intake. Practice with the [net carb calculator](/net-carb-calculator), then lock a day budget in the [keto macro calculator](/keto-macro-calculator).',
   },
   {
     question: 'Is this medical advice?',
@@ -48,15 +48,20 @@ const HOMEPAGE_FAQS = [
     answer:
       'Use the [net carb calculator](/net-carb-calculator) when reading a food label. Use the [keto macro calculator](/keto-macro-calculator) for daily protein, fat, and ~20g net carbs. Use the [TDEE calorie calculator](/tdee-calorie-calculator) when you need a maintenance or deficit calorie baseline. Use the [fasting clock](/fasting-clock) when you are ready to track fasts after low-carb eating feels stable.',
   },
+  {
+    question: 'How do keto macros and TDEE work together?',
+    answer:
+      'TDEE answers how many calories you burn; keto macros answer how those calories split. Run the [TDEE calorie calculator](/tdee-calorie-calculator) for maintenance or a 300–500 calorie deficit, then lock protein, fat, and ~20g net carbs in the [keto macro calculator](/keto-macro-calculator).',
+  },
 ];
 
 export default function HomePage() {
   const [activeTool, setActiveTool] = useState<ToolId>('net-carb');
 
   usePageMeta({
-    title: 'Metabolic Low Carb Calculator — Net Carbs, Macros & Fasting Clock',
+    title: 'Metabolic Low Carb Calculator — Keto Macros, TDEE & Net Carbs',
     description:
-      'Free keto macro calculator, TDEE calorie calculator, net carb tool, and fasting clock for insulin resistance, PCOS, metabolic health, and low-carb diets. Plus recipes and guides.',
+      'Free keto macro calculator (~20g net carbs), TDEE calorie calculator, net carb tool, and fasting clock for insulin resistance, PCOS, metabolic health, and low-carb diets. Plus recipes and guides.',
     path: '/',
   });
 
@@ -269,6 +274,10 @@ export default function HomePage() {
           <div>
             <h3 className="font-medium text-slate-800 dark:text-slate-200">{HOMEPAGE_FAQS[3].question}</h3>
             <p className="text-slate-600 dark:text-slate-400 mt-1">{renderEditorialText(HOMEPAGE_FAQS[3].answer)}</p>
+          </div>
+          <div>
+            <h3 className="font-medium text-slate-800 dark:text-slate-200">{HOMEPAGE_FAQS[4].question}</h3>
+            <p className="text-slate-600 dark:text-slate-400 mt-1">{renderEditorialText(HOMEPAGE_FAQS[4].answer)}</p>
           </div>
         </div>
       </section>

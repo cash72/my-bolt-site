@@ -195,11 +195,12 @@ const GUIDE_DRAFTS: Omit<Guide, 'sources'>[] = [
         bullets: [
           'Start 16:8 — skip breakfast, eat 12 PM–8 PM',
           'Move to 18:6 after 2–4 weeks if energy is stable',
-          'Pair with [low-carb macros](/keto-macro-calculator) for steadier glucose',
+          'Pair with [keto macros](/keto-macro-calculator) for steadier glucose',
+          'Optional calorie baseline — [TDEE calculator](/tdee-calorie-calculator)',
           'Track with our [intermittent fasting timer](/intermittent-fasting-timer)',
         ],
         paragraphs: [
-          'If you have insulin resistance, read [fasting with insulin resistance](/guides/fasting-with-insulin-resistance) before tightening your window.',
+          'If you have insulin resistance, read [fasting with insulin resistance](/guides/fasting-with-insulin-resistance) before tightening your window. A shorter eating window is not a free pass for ultra-processed carbs — lock protein and net carbs with the [keto macro calculator](/keto-macro-calculator) when fat loss is the goal.',
         ],
       },
     ],
@@ -213,6 +214,11 @@ const GUIDE_DRAFTS: Omit<Guide, 'sources'>[] = [
         question: 'Can I drink coffee while fasting?',
         answer:
           'Water is the simplest no-calorie option. Plain coffee and tea contain little energy; cream and oils contain calories. There is no universal definition of an “assisted fast.”',
+      },
+      {
+        question: 'Do I still need macros on 16:8?',
+        answer:
+          'Yes if fat loss or blood sugar is the goal. Set protein and ~20g net carbs with the [keto macro calculator](/keto-macro-calculator), and use the [TDEE calorie calculator](/tdee-calorie-calculator) when the scale stalls despite a shorter eating window.',
       },
       {
         question: 'Should men and women fast the same way?',
@@ -316,6 +322,8 @@ const GUIDE_DRAFTS: Omit<Guide, 'sources'>[] = [
         heading: 'A practical progression',
         bullets: [
           'Choose a sustainable, nutrient-dense eating pattern with your care team.',
+          'Set educational macros with the [insulin resistance calculator](/insulin-resistance-macro-calculator) or [keto macro calculator](/keto-macro-calculator) only after clinician agreement.',
+          'Optional calorie baseline — [TDEE calculator](/tdee-calorie-calculator) if weight loss is also a goal and meds are stable.',
           'Use laboratory tests recommended by your clinician to monitor prediabetes or diabetes.',
           'Discuss any meal-skipping schedule before starting if you take glucose-lowering medicine.',
           'Longer fasting is optional and is not a treatment milestone.',
@@ -344,6 +352,11 @@ const GUIDE_DRAFTS: Omit<Guide, 'sources'>[] = [
         question: 'Can fasting cure insulin resistance?',
         answer:
           'No. Insulin resistance has multiple causes. Evidence-based lifestyle and medical care can improve risk factors, but fasting is not a guaranteed cure.',
+      },
+      {
+        question: 'Should I set macros before trying IF with IR?',
+        answer:
+          'Usually yes under clinician guidance. Lock protein and a carb ceiling with the [insulin resistance macro calculator](/insulin-resistance-macro-calculator) or [keto macro calculator](/keto-macro-calculator) first. Add the [TDEE calorie calculator](/tdee-calorie-calculator) only if weight loss is a goal and medications are stable.',
       },
     ],
   },
@@ -523,7 +536,7 @@ const GUIDE_DRAFTS: Omit<Guide, 'sources'>[] = [
         heading: 'Recipe picks by fast length',
         paragraphs: [
           'After 16–18 hour IF: normal low-carb meal size is fine. After 24+ hours: half-portion protein meals — [scrambled eggs](/recipes/scrambled-eggs-spinach), [cottage cheese](/recipes/cottage-cheese-cucumber), or [bone broth eggs](/recipes/break-fast-bone-broth-eggs).',
-          'Full protocol in [how to break a 24-hour fast](/guides/how-to-break-a-24-hour-fast).',
+          'Full protocol in [how to break a 24-hour fast](/guides/how-to-break-a-24-hour-fast). Match protein grams to your day with the [keto macro calculator](/keto-macro-calculator) so the first meal does not blow the carb ceiling.',
         ],
       },
     ],
@@ -532,6 +545,11 @@ const GUIDE_DRAFTS: Omit<Guide, 'sources'>[] = [
         question: 'Can I break a fast with a protein shake?',
         answer:
           'A shake can provide nutrients, but ingredients and individual tolerance vary. There is no universal evidence that a shake or whole food is safer after a short fast.',
+      },
+      {
+        question: 'How do I keep the first meal inside keto macros?',
+        answer:
+          'Prioritize protein and vegetables, then verify packaged items with the [net carb calculator](/net-carb-calculator). Set the day ceiling with the [keto macro calculator](/keto-macro-calculator) so the break-fast meal fits ~20g net carbs instead of guessing.',
       },
     ],
   },
@@ -1075,7 +1093,7 @@ const GUIDE_DRAFTS: Omit<Guide, 'sources'>[] = [
           'Weigh nuts and cheese once at home so portions stay honest',
         ],
         paragraphs: [
-          'For label practice, compare a few packaged foods you already buy. Use the calculator as an estimate and consider the full Nutrition Facts panel.',
+          'For label practice, compare a few packaged foods you already buy. Use the [net carb calculator](/net-carb-calculator) as an estimate and consider the full Nutrition Facts panel. Once servings fit your day, lock daily protein and carbs with the [keto macro calculator](/keto-macro-calculator) — and the [TDEE calorie calculator](/tdee-calorie-calculator) if fat loss needs a calorie ceiling.',
         ],
       },
     ],
@@ -1089,6 +1107,11 @@ const GUIDE_DRAFTS: Omit<Guide, 'sources'>[] = [
         question: 'What about allulose?',
         answer:
           'Check how allulose appears on the specific label. If carbohydrate counting affects medication dosing, use the method provided by your care team.',
+      },
+      {
+        question: 'How do label net carbs fit a daily keto budget?',
+        answer:
+          'Add servings with the [net carb calculator](/net-carb-calculator), then keep the day under your carb ceiling from the [keto macro calculator](/keto-macro-calculator). If weight loss stalls, refresh calories with the [TDEE calorie calculator](/tdee-calorie-calculator) before blaming one snack.',
       },
       {
         question: 'Are Canadian or EU labels the same?',
