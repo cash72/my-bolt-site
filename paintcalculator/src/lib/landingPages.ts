@@ -71,10 +71,10 @@ export const LANDING_PAGES: LandingPage[] = [
     kind: 'paint',
     paintType: 'interior',
     surface: 'walls',
-    title: 'How Much Behr Paint Do I Need? | Paint Calculator',
+    title: 'How Much Behr Paint Do I Need? Free Gallon Calculator',
     h1: 'How Much Behr Paint Do I Need?',
     description:
-      'Free answer for “how much Behr paint do I need”: enter room size → gallons to buy. 12×12 room ≈ 2–3 gallons at ~400 sq ft/gal. Works for any brand — Canadian DIY.',
+      'How much Behr paint do I need? Free gallon calculator: room size → buy list. 12×12 ≈ 2–3 gal at ~400 sq ft/gal. Works for any brand — Canadian DIY.',
     breadcrumbLabel: 'How much paint',
     quickAnswer:
       'A 12×12 room with 8 ft ceilings needs about 2–3 gallons of Behr interior paint for two coats (≈384 sq ft walls × 2 ÷ ~350–400 sq ft/gallon). Enter your room size below and set coverage from your Behr can label for an exact count.',
@@ -94,7 +94,7 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'Do I need primer and paint?',
         answer:
-          'New drywall, stains, or bold color changes usually need primer first. Run the calculator twice — once for primer, once for topcoat — or switch paint type in settings.',
+          'New drywall, stains, or bold color changes usually need primer first. Run the calculator twice — once for primer, once for topcoat — or switch paint type in settings. Convert each can’s coverage rate in the [Behr paint coverage calculator](/paint-coverage-calculator).',
       },
       {
         question: 'How many square feet does a gallon of paint cover?',
@@ -106,6 +106,11 @@ export const LANDING_PAGES: LandingPage[] = [
         answer:
           'Behr sells paint by coverage on the can label, not a room-size tool. Enter your room dimensions here and set sq ft per gallon to the number on your Behr can — same math, any brand. Prefer coverage-only math? Use the [paint coverage calculator](/paint-coverage-calculator).',
       },
+      {
+        question: 'How much Behr paint for a 10×12 bedroom?',
+        answer:
+          'Walls ≈ 352 sq ft (10×12, 8 ft ceilings). Two coats at 400 sq ft/gallon ≈ 1.8 gallons — buy 2 gallons if smooth and primed; buy 3 if textured or changing colour a lot. Run exact openings and waste above, or confirm in the [coverage calculator](/paint-coverage-calculator).',
+      },
     ],
   },
   {
@@ -114,10 +119,10 @@ export const LANDING_PAGES: LandingPage[] = [
     kind: 'paint',
     paintType: 'interior',
     surface: 'walls',
-    title: 'Behr Paint Coverage Calculator (Free) | Paint Calculator',
+    title: 'Behr Paint Coverage Calculator — Sq Ft to Gallons (Free)',
     h1: 'Behr Paint Coverage Calculator',
     description:
-      'Free Behr paint calculator: enter room size + label coverage → gallons per coat. Typical Behr interior: up to 400 sq ft/gallon. Works for any brand.',
+      'Behr paint coverage calculator (free): room size + can label sq ft/gallon → gallons per coat. Typical Behr interior: up to 400 sq ft/gallon. Any brand works.',
     breadcrumbLabel: 'Coverage calculator',
     quickAnswer:
       'How much does a gallon of Behr paint cover? Most Behr Premium Plus Interior lists up to ~400 sq ft per gallon on smooth, primed drywall (one coat). Enter that label number below with your room size to get gallons to buy — this is a free Behr paint calculator that works for any brand.',
@@ -147,7 +152,7 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'Does Behr have a paint coverage calculator?',
         answer:
-          'Behr lists sq ft per gallon on each product label but does not offer a room-dimension calculator. Enter your wall measurements above and set coverage to the Behr number on your can for an accurate gallon count.',
+          'Behr lists sq ft per gallon on each product label but does not offer a room-dimension calculator. Enter your wall measurements above and set coverage to the Behr number on your can for an accurate gallon count — this free Behr paint coverage calculator does that math for you.',
       },
       {
         question: 'What is Behr paint coverage per gallon?',
@@ -158,6 +163,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'How much Behr paint for a 12×12 room at label coverage?',
         answer:
           'Walls ≈ 384 sq ft. One coat at 400 sq ft/gallon ≈ 1 gallon; two coats ≈ 1.9 → buy 2 gallons if walls are smooth and primed. Texture or a colour change? Plan 3 gallons, or run [how much Behr paint do I need](/how-much-paint-do-i-need) with waste on.',
+      },
+      {
+        question: 'Can I use this for Benjamin Moore or Sherwin-Williams too?',
+        answer:
+          'Yes. Enter the Coverage line from any brand can — Benjamin Moore, Sherwin-Williams, Behr, or a store brand. The tool converts your label rate into gallons; only the sq ft/gallon number changes.',
       },
     ],
   },
@@ -445,10 +455,10 @@ export const LANDING_PAGES: LandingPage[] = [
     kind: 'paint',
     paintType: 'interior',
     surface: 'both',
-    title: 'Paint Cost Estimator — Gallons & Project Budget (Canada)',
+    title: 'Paint Cost Estimator — Behr Gallons & CAD Budget',
     h1: 'Paint Cost Estimator',
     description:
-      'Estimate paint gallons and total project cost. Enter room size, price per gallon, and coats for a DIY budget before the paint store.',
+      'Estimate Behr (or any brand) paint gallons and CAD project cost. Enter room size, price per gallon, and coats for a DIY budget before the paint store.',
     breadcrumbLabel: 'Paint cost estimator',
     intro:
       'Enter price per gallon from your local paint store (CAD). We calculate gallons needed and multiply for an estimated materials total — primer, tape, and rollers are extra.',
@@ -456,7 +466,7 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How much does it cost to paint a room?',
         answer:
-          'Materials often run $80–$200 CAD for a typical bedroom (paint, primer, basic supplies). Enter your gallon price here for paint-only cost; add 10–15% for rollers and tape.',
+          'Materials often run $80–$200 CAD for a typical bedroom (paint, primer, basic supplies). Enter your gallon price here for paint-only cost; add 10–15% for rollers and tape. Confirm gallons first with the [Behr paint coverage calculator](/paint-coverage-calculator).',
       },
       {
         question: 'Should I include primer in the cost estimate?',
@@ -467,6 +477,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'Why is my estimate higher than one gallon?',
         answer:
           'Two coats on walls plus ceiling, waste allowance, and door/window deductions all affect gallons. We round up to whole gallons like the store sells them.',
+      },
+      {
+        question: 'How do I price Behr Premium Plus for my room?',
+        answer:
+          'Get gallons from this estimator (or the [coverage calculator](/paint-coverage-calculator) using your Behr label rate), then multiply by the shelf price at Home Depot Canada. Primer and supplies are separate line items.',
       },
     ],
   },
@@ -504,14 +519,14 @@ export const LANDING_PAGES: LandingPage[] = [
 ];
 
 export const FEATURED_LANDING_SLUGS = [
+  'paint-coverage-calculator',
   'how-much-paint-do-i-need',
+  'paint-cost-estimator',
   'cabinet-trim-paint-calculator',
   'exterior-paint-calculator',
   'ceiling-paint-calculator',
-  'paint-cost-estimator',
   'room-paint-calculator',
   'interior-paint-calculator',
-  'paint-coverage-calculator',
   'wallpaper-calculator',
   'fence-stain-calculator',
 ] as const;

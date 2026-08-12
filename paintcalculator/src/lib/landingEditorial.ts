@@ -209,6 +209,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
           'For a full room estimate that includes coats and waste, also try the [how much paint do I need](/how-much-paint-do-i-need) page or the [room paint calculator](/room-paint-calculator).',
         ],
       },
+      {
+        heading: 'Home Depot Canada Behr cans — read this line first',
+        paragraphs: [
+          'On most Behr Canada cans, Coverage (or “Approximate Coverage”) is printed near the product description or on the back panel in sq ft per gallon (or per litre — convert if needed). That single number is what you enter above.',
+          'If two Behr SKUs sit side by side with different coverage claims, run this calculator twice and compare gallons × shelf price — not just the sticker on the can. For a dollar budget after gallons, use the [paint cost estimator](/paint-cost-estimator).',
+        ],
+      },
     ],
   },
 
