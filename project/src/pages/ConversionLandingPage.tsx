@@ -197,6 +197,11 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
           answer:
             'Wallets and Lightning apps usually show sats for amounts under 0.01 BTC. Use BTC for whole-coin or large fractions; use sats for stacking milestones, tips, and everyday balances. This page locks the sat amount and shows the live fiat label.',
         },
+        {
+          question: 'How do network fees compare to this sat amount?',
+          answer:
+            'Compare the live fiat value above to a typical on-chain fee from the [Bitcoin fee calculator](/bitcoin-fee-calculator) (sat/vB × vBytes). If the fee is a large share of this stack — common under ~50,000 sats during congestion — prefer Lightning or wait for quieter blocks before withdrawing.',
+        },
       ];
     }
     if (isFiatToSats) {

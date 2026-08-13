@@ -84,6 +84,11 @@ export default function BitcoinFeeCalculatorPage() {
         answer:
           'Usually not. Exchanges often charge a flat withdrawal fee that may be higher than live mempool rates. This calculator estimates sat/vB × vBytes for wallet broadcasts — compare that USD estimate to your exchange’s listed withdrawal fee before you move stacked sats. Convert the fee sats on [Satoshi to USD](/satoshi-to-usd) if you want a second check.',
       },
+      {
+        question: 'When does a fee eat too much of my stack?',
+        answer:
+          'Rule of thumb: if the fee USD is more than a few percent of what you are sending, wait or use Lightning. Check stack size on [50k sats](/50000-satoshi-to-usd), [100k sats](/100000-satoshi-to-usd), or [1M sats](/1000000-satoshi-to-usd), then compare to this calculator’s live fee estimate before you broadcast.',
+      },
     ],
     [satPerVb, vBytes, sats, usd, btcPrice]
   );

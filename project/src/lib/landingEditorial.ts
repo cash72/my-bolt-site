@@ -141,13 +141,20 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   '10000000-satoshi-to-usd': {
     intro:
-      'Ten million Satoshis (10,000,000 sats) equals 0.1 BTC — one tenth of a whole Bitcoin. This page shows the live US Dollar value at the current market price.',
+      'Ten million Satoshis (10,000,000 sats) equals 0.1 BTC — one tenth of a whole Bitcoin. This page shows the live US Dollar value at the current market price, plus fee context before you move a stack this size on-chain.',
     sections: [
       {
         heading: 'The 0.1 BTC psychological milestone',
         paragraphs: [
           'Whole-coin scarcity makes 1 BTC feel distant for most people. Ten million sats reframes the goal: one tenth of a coin is concrete, measurable, and still a serious stack.',
           'Investors who started with “stack sats” language often celebrate crossing 1M, 5M, and 10M sat thresholds before ever discussing full bitcoins.',
+        ],
+      },
+      {
+        heading: 'Fees before you move 0.1 BTC',
+        paragraphs: [
+          'At this size, a flat exchange withdrawal fee is usually a tiny percentage of the stack — but a congested mempool can still surprise you if you broadcast a large multi-input transaction. Estimate sat/vB × vBytes with the [Bitcoin fee calculator](/bitcoin-fee-calculator) before you withdraw.',
+          'Compare the fee in dollars to the live USD value above so you know whether waiting for quieter blocks is worth it.',
         ],
       },
       {
@@ -169,7 +176,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   '1000-satoshi-to-usd': {
     intro:
-      'One thousand Satoshis (1,000 sats) is a tiny on-chain amount — often used for Lightning tips, faucet rewards, or learning wallets. Here is the live USD value at today’s Bitcoin price.',
+      'One thousand Satoshis (1,000 sats) is a tiny on-chain amount — often used for Lightning tips, faucet rewards, or learning wallets. Here is the live USD value at today’s Bitcoin price, and why on-chain fees usually make Lightning the better rail for this size.',
     sections: [
       {
         heading: 'Why 1,000 sats comes up often',
@@ -181,7 +188,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       {
         heading: 'On-chain vs Lightning for small amounts',
         paragraphs: [
-          'Sending 1,000 sats on-chain can cost more in fees than the payment itself during busy blocks. Lightning exists partly to make sub-dollar Bitcoin payments economical.',
+          'Sending 1,000 sats on-chain can cost more in fees than the payment itself during busy blocks. Run the [Bitcoin fee calculator](/bitcoin-fee-calculator) with a typical 140 vB send — if the fee exceeds this page’s USD value, use Lightning instead.',
           'If your balance is only 1,000 sats, a custodial Lightning wallet may be fine for experiments. Save cold storage for larger stacks you intend to hold for years.',
         ],
       },
@@ -338,7 +345,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   '1000000-satoshi-to-usd': {
     intro:
-      'One million Satoshis (1,000,000 sats) equals 0.01 BTC — one hundredth of a whole Bitcoin. This page shows the live US Dollar value and what that stack size means for custody, fees, and planning.',
+      'One million Satoshis (1,000,000 sats / 1M sats) equals 0.01 BTC — one hundredth of a whole Bitcoin. See the live US Dollar value below, then compare any withdrawal fee to this stack before you move it off an exchange.',
     sections: [
       {
         heading: 'The 0.01 BTC milestone',
@@ -478,7 +485,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   '1000-dollars-in-satoshi': {
     intro:
-      'One thousand US dollars converts to a large satoshi stack at today’s Bitcoin price. This page shows the exact sats equivalent for $1,000 using live market data.',
+      'One thousand US dollars converts to a large satoshi stack at today’s Bitcoin price. This page shows the exact sats equivalent for $1,000 using live market data — spot only, before trading or network fees.',
     sections: [
       {
         heading: 'Lump sums vs dollar-cost averaging',
@@ -491,7 +498,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'Self-custody becomes non-optional',
         paragraphs: [
           'At $1,000 equivalent, hardware wallet cost is negligible compared to stack value. Plan withdrawal before you buy so you are not leaving four figures on an exchange overnight.',
-          'Use a test send of a few dollars worth of sats before moving the full amount. One wrong address character is irreversible.',
+          'Use a test send of a few dollars worth of sats before moving the full amount — estimate mempool cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator) so the test fee does not surprise you. One wrong address character is irreversible.',
         ],
       },
     ],

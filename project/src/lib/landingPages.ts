@@ -82,7 +82,7 @@ function buildSatoshiHubPage(currency: FiatCurrency): LandingPageDef {
 
   const title =
     currency === 'usd'
-      ? 'Satoshi to USD Converter — Live Sats Value Today'
+      ? 'How Much Is a Satoshi in USD? Live Sats Converter'
       : currency === 'eur'
         ? 'Satoshi to EUR — Live Euro Conversion (2026)'
         : currency === 'gbp'
@@ -91,7 +91,7 @@ function buildSatoshiHubPage(currency: FiatCurrency): LandingPageDef {
 
   const description =
     currency === 'usd'
-      ? 'How much is a Satoshi in USD? Convert any sat amount to dollars at the live Bitcoin price. Free calculator — updated every 60 seconds from CoinGecko.'
+      ? 'How much is a Satoshi worth in USD today? Convert any sat amount to dollars at the live Bitcoin price. Free calculator — updated every 60 seconds from CoinGecko.'
       : `Convert Satoshis to ${label} (${name}) at the live Bitcoin price. Free ${label} calculator for stackers — updated every 60 seconds.`;
 
   return {
@@ -453,17 +453,17 @@ export function getRelatedLandingPages(page: LandingPageDef, limit = 8): Landing
 
 /** Curated links for site footer and homepage cross-linking */
 export const FEATURED_LANDING_LINKS: LandingPageDef[] = [
+  'satoshi-to-usd',
+  '50000-satoshi-to-usd',
+  '100000-satoshi-to-usd',
+  '1000000-satoshi-to-usd',
+  '100-dollars-in-satoshi',
+  'usd-to-satoshi',
   'btc-to-usd',
   'usd-to-btc',
-  'satoshi-to-usd',
   'satoshi-to-eur',
   '1-btc-to-usd',
   '0.1-btc-to-usd',
-  '0.01-btc-to-usd',
-  '100-dollars-in-btc',
-  'usd-to-satoshi',
-  '100000-satoshi-to-usd',
-  '100-dollars-in-satoshi',
   'btc-to-eur',
 ]
   .map((slug) => LANDING_PAGE_BY_SLUG.get(slug))
