@@ -63,7 +63,7 @@ export default function MaterialLandingPage() {
         name: faq.question,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: faq.answer,
+          text: faq.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
         },
       })),
     });

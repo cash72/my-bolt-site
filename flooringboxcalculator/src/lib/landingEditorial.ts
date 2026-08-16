@@ -307,6 +307,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
           'Still choosing product? Compare categories in [laminate vs tile vs carpet](/guides/laminate-vs-tile-vs-carpet-comparison), then return here with the $/sq ft you actually found on the shelf.',
         ],
       },
+      {
+        heading: 'Underlay and trim after the plank total',
+        paragraphs: [
+          'Once materials + optional install look right, add underlay ($0.30–$0.80/sq ft typical for foam or felt), transition strips per doorway, and base/quarter-round. These rarely sit inside the plank $/sq ft tag.',
+          'Confirm whether your product has attached pad before you double-buy underlay — see [do I need underlay for laminate](/guides/do-i-need-underlay-for-laminate) — then revisit this estimator with the plank price alone so the core materials number stays clean.',
+        ],
+      },
     ],
   },
 };

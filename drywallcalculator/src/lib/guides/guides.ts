@@ -67,7 +67,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'How much extra drywall should I buy?',
         answer:
-          'Add 10% waste for simple rectangular rooms, 12–15% for rooms with many corners, soffits, or arched openings. See our waste guide for cut-loss factors on ceilings and complex layouts.',
+          'Add 10% waste for simple rectangular rooms, 12–15% for rooms with many corners, soffits, or arched openings. See our waste guide for cut-loss factors on ceilings and complex layouts, then price the buy count in the [drywall cost estimator](/drywall-cost-estimator).',
       },
     ],
   },
@@ -204,6 +204,9 @@ export const GUIDES: Guide[] = [
           '1-1/4 inch drywall screws (coarse thread for wood studs)',
           'Drywall lift or deadman for ceiling help',
           'Construction adhesive optional on ceilings',
+        ],
+        paragraphs: [
+          'Estimate sheet count with the [drywall calculator](/drywall-calculator), then price sheets, mud, and screws in the [drywall cost estimator](/drywall-cost-estimator) before you rent a lift or buy a screw gun you will only use once.',
         ],
       },
       {
@@ -481,7 +484,7 @@ export const GUIDES: Guide[] = [
         heading: '1/2 inch — default for most homes',
         paragraphs: [
           '1/2 inch gypsum on walls and ceilings is the residential default when joists and studs are 16 inches on center. It balances weight, cost, and rigidity. A 4×8 sheet weighs about 57 lbs.',
-          'Use 1/2 inch moisture-resistant (green board) in bathrooms behind tile backer zones per manufacturer guidance — not as a tile substrate by itself in wet showers.',
+          'Use 1/2 inch moisture-resistant (green board) in bathrooms behind tile backer zones per manufacturer guidance — not as a tile substrate by itself in wet showers. Compare sheet prices for 1/2 vs 5/8 in the [drywall cost estimator](/drywall-cost-estimator) before you commit to a full-house upgrade.',
         ],
       },
       {
@@ -1138,7 +1141,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Hang tools vs finish tools',
         paragraphs: [
-          'Hanging needs lifting and fastening gear. Finishing needs knives, pans, and sanding. Buy or borrow both before mud day — driving to the store with wet mud on the walls wastes coats. Estimate sheets first with the [drywall calculator](/drywall-calculator).',
+          'Hanging needs lifting and fastening gear. Finishing needs knives, pans, and sanding. Buy or borrow both before mud day — driving to the store with wet mud on the walls wastes coats. Estimate sheets first with the [drywall calculator](/drywall-calculator), then price sheets, mud, and screws in the [drywall cost estimator](/drywall-cost-estimator) so the tool budget and materials cart stay in one plan.',
         ],
       },
       {

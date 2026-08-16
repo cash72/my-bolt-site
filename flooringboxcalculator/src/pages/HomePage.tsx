@@ -47,9 +47,9 @@ const HOMEPAGE_FAQS = [
 
 export default function HomePage() {
   usePageMeta({
-    title: 'Flooring Box Calculator — Laminate, Tile, Carpet & LVP',
+    title: 'Flooring Cost Estimator & Box Calculator — Laminate, Tile, LVP',
     description:
-      'Free flooring calculator for laminate, vinyl plank, tile, and carpet. Room square footage, waste allowance, box counts, and square yards — plus DIY prep guides.',
+      'Free flooring cost estimator and box calculator for laminate, vinyl plank, tile, and carpet. Room square footage, waste, $/sq ft materials + install, and DIY prep guides.',
     path: '/',
   });
 
@@ -69,7 +69,10 @@ export default function HomePage() {
       mainEntity: HOMEPAGE_FAQS.map((faq) => ({
         '@type': 'Question',
         name: faq.question,
-        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+        },
       })),
     });
 

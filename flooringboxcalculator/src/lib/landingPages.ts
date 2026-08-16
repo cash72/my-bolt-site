@@ -328,10 +328,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'flooring-cost-estimator',
     path: '/flooring-cost-estimator',
     material: 'laminate',
-    title: 'Flooring Cost Estimator — Free Materials + Install $/Sq Ft',
-    h1: 'Flooring Cost Estimator',
+    title: 'How Much Does Flooring Cost? Free $/Sq Ft Estimator',
+    h1: 'How Much Does Flooring Cost?',
     description:
-      'Free flooring cost calculator: room size, waste %, material $/sq ft, and optional install labor — estimate laminate, tile, vinyl, or carpet project totals before you buy boxes.',
+      'How much does flooring cost per square foot? Free estimator for room size, waste %, material $/sq ft, and optional install labor — laminate, tile, vinyl, or carpet totals before you buy boxes.',
     breadcrumbLabel: 'Flooring cost estimator',
     intro:
       'Enter room dimensions, waste allowance, and the material price you saw in-store ($/sq ft). Add install $/sq ft if a contractor quoted labor. We calculate buy area with waste and a materials + install total.',
@@ -360,6 +360,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'Does material $/sq ft include underlay and transitions?',
         answer:
           'Usually no. Underlay, transition strips, thresholds, and tear-out are separate line items. Budget them after you lock plank or tile cost here — see the [DIY flooring roadmap](/guides/diy-flooring-installation-roadmap) for the full shopping sequence.',
+      },
+      {
+        question: 'How much does LVP or laminate cost for a 200 sq ft room?',
+        answer:
+          'Example: 200 sq ft + 10% waste = 220 sq ft to buy. At $2.50/sq ft materials ≈ $550; at $3.50/sq ft install ≈ $770 labor → about $1,320 before underlay and trim. Enter your shelf $/sq ft and waste % above for a local total — then convert to cartons with [how many flooring boxes](/how-many-flooring-boxes).',
       },
     ],
     relatedGuideSlugs: [

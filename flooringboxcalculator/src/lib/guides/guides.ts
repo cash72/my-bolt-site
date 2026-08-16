@@ -22,7 +22,7 @@ export const GUIDES: Guide[] = [
         heading: 'Basic rectangular rooms',
         paragraphs: [
           'Measure wall to wall at the longest points — not always at the baseboard if the room is out of square. Record length and width in feet and inches.',
-          'Multiply length × width for square footage. A 12 ft × 14 ft room is 168 sq ft. Enter each room separately in the calculator, then add them for a whole-house total.',
+          'Multiply length × width for square footage. A 12 ft × 14 ft room is 168 sq ft. Enter each room separately in the calculator, then add them for a whole-house total — and price the buy area with waste in the [flooring cost estimator](/flooring-cost-estimator) once you have a shelf $/sq ft.',
         ],
       },
       {
@@ -86,7 +86,7 @@ export const GUIDES: Guide[] = [
         heading: 'Why subfloor prep matters',
         paragraphs: [
           'New flooring telegraphs every bump, dip, and squeak underneath. Laminate clicks together and bridges small gaps — but large low spots flex and crack boards. Tile needs a flat plane or edges crack. Carpet hides minor issues but pad over humps wears faster.',
-          'Budget time for prep. It is often half the job on older homes.',
+          'Budget time for prep. It is often half the job on older homes. After you know area, price materials (and optional install) in the [flooring cost estimator](/flooring-cost-estimator) so prep labor does not blow a vague “about $X a box” guess.',
         ],
       },
       {
@@ -467,7 +467,7 @@ export const GUIDES: Guide[] = [
         heading: 'Short answer: almost always yes',
         paragraphs: [
           'Underlayment goes between subfloor and floating laminate. It cushions, reduces noise, smooths minor subfloor texture, and often provides the required vapor barrier on concrete.',
-          'Skipping underlay voids many warranties and makes floors loud and hollow-sounding.',
+          'Skipping underlay voids many warranties and makes floors loud and hollow-sounding. Budget underlay separately from plank $/sq ft — lock the plank total in the [flooring cost estimator](/flooring-cost-estimator), then add underlay coverage for the same buy area.',
         ],
       },
       {
@@ -823,7 +823,7 @@ export const GUIDES: Guide[] = [
           'Natural stone: seal regularly; higher maintenance than porcelain',
         ],
         paragraphs: [
-          'Enter tile dimensions in the [tile calculator](/tile-flooring-calculator) with 15–20% waste for diagonal or large-format layouts.',
+          'Enter tile dimensions in the [tile calculator](/tile-flooring-calculator) with 15–20% waste for diagonal or large-format layouts, then price materials + optional install in the [flooring cost estimator](/flooring-cost-estimator) before you commit to a cart.',
         ],
       },
     ],
@@ -1079,7 +1079,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Buy the kit once — finish the room',
         paragraphs: [
-          'A cheap foam block and missing pull bar turn the last row into a fight. Spend on a proper floating-floor kit and one decent saw; it costs less than an extra box of planks wasted on bad cuts. Calculate boxes first with the [laminate calculator](/laminate-flooring-calculator).',
+          'A cheap foam block and missing pull bar turn the last row into a fight. Spend on a proper floating-floor kit and one decent saw; it costs less than an extra box of planks wasted on bad cuts. Calculate boxes first with the [laminate calculator](/laminate-flooring-calculator), then lock materials + optional install dollars in the [flooring cost estimator](/flooring-cost-estimator) before you open cartons.',
         ],
       },
       {
@@ -1294,8 +1294,8 @@ export const GUIDES: Guide[] = [
     description:
       'Undercut door casings so laminate or vinyl slides under for a clean finish. Tool setup, scrap-plank height trick, and transitions at doorways.',
     readMinutes: 9,
-    toolPath: '/how-many-flooring-boxes',
-    toolLabel: 'Flooring boxes calculator',
+    toolPath: '/flooring-cost-estimator',
+    toolLabel: 'Flooring cost estimator',
     relatedGuideSlugs: [
       'how-to-install-laminate-flooring-beginners',
       'flooring-transition-strips-and-trim',
@@ -1307,7 +1307,7 @@ export const GUIDES: Guide[] = [
         heading: 'Slide under the jamb — do not caulk a gap',
         paragraphs: [
           'Leaving a chewed gap beside the door casing and filling it with caulk looks like a DIY tell. Pros undercut the jamb and casing so the plank slides underneath with a tight shadow line.',
-          'Do this before or as you reach each doorway — fighting a finished row into a square casing wastes planks.',
+          'Do this before or as you reach each doorway — fighting a finished row into a square casing wastes planks. Factor doorway waste into your buy area with the [flooring cost estimator](/flooring-cost-estimator) so short boxes mid-install do not erase a carefully planned materials budget.',
         ],
       },
       {

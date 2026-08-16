@@ -154,6 +154,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
           'Need sheet count only? Use the main [drywall calculator](/drywall-calculator) or [how many sheets](/how-many-drywall-sheets).',
         ],
       },
+      {
+        heading: '1/2 inch vs 5/8 Type X in the budget',
+        paragraphs: [
+          'Upgrading walls or garage ceilings to 5/8 Type X raises board cost and weight — often a few dollars more per sheet plus harder lifts. Fire-rated assemblies can be non-negotiable above garages; elsewhere the upgrade is a deliberate STC/fire choice.',
+          'Price both sheet types with the tags from your yard: run the same room dimensions twice, swap the sheet price field, and keep mud/screw estimates unless finish level changes. Thickness guidance: [1/2 vs 5/8 drywall](/guides/half-inch-vs-five-eighth-drywall).',
+        ],
+      },
     ],
   },
 };

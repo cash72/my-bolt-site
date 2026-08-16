@@ -160,10 +160,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'drywall-cost-estimator',
     path: '/drywall-cost-estimator',
     includeCeiling: false,
-    title: 'Drywall Cost Estimator — Free Materials Cost (Sheets, Mud, Screws)',
-    h1: 'Drywall Cost Estimator',
+    title: 'How Much Does Drywall Cost? Free Materials Estimator',
+    h1: 'How Much Does Drywall Cost?',
     description:
-      'Free drywall cost calculator: estimate sheets, joint compound, and screws from room size and local prices — materials-only total before hang-and-tape labor.',
+      'How much does drywall cost for a room? Free materials estimator for sheets, joint compound, and screws from room size and local prices — materials-only total before hang-and-tape labor.',
     breadcrumbLabel: 'Cost estimator',
     intro:
       'Enter room size, then optional prices for sheets, five-gallon mud buckets, and screw boxes. We estimate quantities and add up a materials-only total before labor.',
@@ -193,13 +193,18 @@ export const LANDING_PAGES: LandingPage[] = [
         answer:
           'Not in the dollar total — tape, bead, primer, and sanding supplies are small add-ons. Budget them after the sheets/mud/screws sum, then follow the [framing-to-paint roadmap](/guides/drywall-project-from-framing-to-paint) for the full shopping sequence.',
       },
+      {
+        question: 'How much do drywall materials cost for a whole basement?',
+        answer:
+          'A 1,000 sq ft open basement can need 65–80 sheets when walls and ceiling are hung — at $13–18/sheet that is roughly $850–$1,450 in board alone before mud, screws, and bead. Run room-by-room takeoffs in the [basement drywall calculator](/basement-drywall-calculator), then price sheets, mud, and screws here so lumber-yard quotes stay honest.',
+      },
     ],
   },
 ];
 
 export const FEATURED_LANDING_SLUGS = [
-  'drywall-calculator',
   'drywall-cost-estimator',
+  'drywall-calculator',
   'how-many-drywall-sheets',
   'basement-drywall-calculator',
   'garage-drywall-calculator',

@@ -40,9 +40,9 @@ const HOMEPAGE_FAQ = [
 
 export default function HomePage() {
   usePageMeta({
-    title: 'Drywall Calculator — Room Size, Sheets & Waste',
+    title: 'Drywall Cost Estimator & Sheet Calculator — Free Materials',
     description:
-      'Free drywall calculator for walls and ceilings. Enter room dimensions, sheet size, and waste to get sheet counts plus a copyable shopping list.',
+      'Free drywall cost estimator and sheet calculator for walls and ceilings. Enter room dimensions, sheet size, and local prices for materials totals plus a copyable shopping list.',
     path: '/',
   });
 
@@ -62,7 +62,10 @@ export default function HomePage() {
       mainEntity: HOMEPAGE_FAQ.map((item) => ({
         '@type': 'Question',
         name: item.q,
-        acceptedAnswer: { '@type': 'Answer', text: item.a },
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+        },
       })),
     });
 

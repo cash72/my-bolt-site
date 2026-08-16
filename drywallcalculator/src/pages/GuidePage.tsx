@@ -40,7 +40,7 @@ export default function GuidePage() {
       mainEntity: guide.faqs.map((faq) => ({
         '@type': 'Question',
         name: faq.question,
-        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') },
       })),
     });
 
