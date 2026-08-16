@@ -130,20 +130,35 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'drywall-cost-estimator': {
     intro:
-      'Sheet count alone does not finish a budget. Add local prices for drywall panels, joint compound, and screw boxes to get a materials-only total before labor or texture.',
+      'How much does drywall cost? Sheet count alone does not finish a budget. Add local prices for drywall panels, joint compound, and screw boxes to get a materials-only total before labor or texture.',
     sections: [
       {
         heading: 'What this estimator includes',
         paragraphs: [
           'We convert room dimensions into sheets (with waste), rough screw counts (~32 per sheet), and five-gallon mud buckets (~1 per 200 sq ft for Level 4). Enter store prices and we sum sheets + mud + screws.',
+          'Worked example: a 12×12 bedroom with 8 ft walls (~14 sheets of 4×8 after waste) at $13/sheet ≈ $182; two five-gallon mud buckets at $17 ≈ $34; one screw box ≈ $8 → roughly $224 materials before tax, tape, and bead.',
           'Tape, corner bead, primer, and sanding supplies are small add-ons — budget them separately. See [estimating screws and compound](/guides/estimating-drywall-screws-and-compound) for Level 4 baselines.',
+        ],
+      },
+      {
+        heading: 'Typical materials price ranges',
+        paragraphs: [
+          'Standard 1/2 inch 4×8 sheets often run mid-teens per panel at big-box; 5/8 Type X and moisture-resistant board cost more. Ready-mixed five-gallon mud commonly sits in the mid-teens to low twenties; screw boxes are cheap relative to sheets.',
+          'Treat these as planning ranges only — enter the tags from your lumber yard above so the total matches a real cart, not a national average.',
         ],
       },
       {
         heading: 'Labor is separate',
         paragraphs: [
-          'Hang-and-tape labor varies widely by market. Use this materials total to compare lumber-yard quotes, then get a pro bid if you are not finishing yourself.',
+          'Hang-and-tape labor varies widely by market. Use this materials total to compare lumber-yard quotes, then get a pro bid if you are not finishing yourself — see [when to hire a drywall finisher](/guides/when-to-hire-a-drywall-finisher).',
           'Need sheet count only? Use the main [drywall calculator](/drywall-calculator) or [how many sheets](/how-many-drywall-sheets).',
+        ],
+      },
+      {
+        heading: '1/2 inch vs 5/8 Type X in the budget',
+        paragraphs: [
+          'Upgrading walls or garage ceilings to 5/8 Type X raises board cost and weight — often a few dollars more per sheet plus harder lifts. Fire-rated assemblies can be non-negotiable above garages; elsewhere the upgrade is a deliberate STC/fire choice.',
+          'Price both sheet types with the tags from your yard: run the same room dimensions twice, swap the sheet price field, and keep mud/screw estimates unless finish level changes. Thickness guidance: [1/2 vs 5/8 drywall](/guides/half-inch-vs-five-eighth-drywall).',
         ],
       },
     ],
