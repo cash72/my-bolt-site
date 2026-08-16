@@ -49,7 +49,7 @@ export const GUIDES: Guide[] = [
         heading: 'Multi-room projects and ordering',
         paragraphs: [
           'Add each room separately, then total sheets for one lumber-yard trip. Match sheet thickness and type (standard vs moisture-resistant) across the job so texture and paint absorb the same.',
-          'Use our [drywall calculator](/drywall-calculator) for up to five rooms, ceiling toggle, custom sheet dimensions, and a copyable shopping list with screw and compound estimates.',
+          'Use our [drywall calculator](/drywall-calculator) for up to five rooms, ceiling toggle, custom sheet dimensions, and a copyable shopping list with screw and compound estimates. Price sheets, mud, and screws with the [drywall cost estimator](/drywall-cost-estimator) before checkout.',
         ],
       },
     ],
@@ -569,8 +569,8 @@ export const GUIDES: Guide[] = [
     description:
       'When to use moisture-resistant board, framing on concrete walls, ceiling height loss, egress windows, and estimating materials for full basement finishing projects.',
     readMinutes: 12,
-    toolPath: '/drywall-calculator',
-    toolLabel: 'Drywall calculator',
+    toolPath: '/basement-drywall-calculator',
+    toolLabel: 'Basement drywall calculator',
     relatedGuideSlugs: [
       'half-inch-vs-five-eighth-drywall',
       'hanging-drywall-on-ceiling',
@@ -588,7 +588,7 @@ export const GUIDES: Guide[] = [
         heading: 'Framing and furring',
         paragraphs: [
           'Steel or pressure-treated bottom plates on slab, studs 16 inches on center, rigid or batt insulation in cavity, then drywall. Furring channels can save headroom versus full stud walls on perimeter concrete.',
-          'Soffits around ducts and beams eat sheet count — measure each boxed-out area separately in the calculator.',
+          'Soffits around ducts and beams eat sheet count — measure each boxed-out area separately in the [basement drywall calculator](/basement-drywall-calculator).',
         ],
       },
       {
@@ -600,7 +600,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Typical basement sheet quantities',
         paragraphs: [
-          'A 1,000 sq ft open basement (30×33 footprint, 8 ft ceilings) might need 35–45 sheets for perimeter walls plus 30–35 ceiling sheets depending on layout — use room-by-room calculator entries for accuracy.',
+          'A 1,000 sq ft open basement (30×33 footprint, 8 ft ceilings) might need 35–45 sheets for perimeter walls plus 30–35 ceiling sheets depending on layout — use room-by-room calculator entries for accuracy, then price materials in the [drywall cost estimator](/drywall-cost-estimator).',
         ],
       },
     ],
@@ -624,8 +624,8 @@ export const GUIDES: Guide[] = [
     description:
       'Boxes of screws per 1,000 sq ft, five-gallon mud buckets per hang, paper tape rolls, corner bead linear feet, and a shopping list template for your drywall finishing phase.',
     readMinutes: 10,
-    toolPath: '/how-many-drywall-sheets',
-    toolLabel: 'Sheet count calculator',
+    toolPath: '/drywall-cost-estimator',
+    toolLabel: 'Drywall cost estimator',
     relatedGuideSlugs: [
       'drywall-screw-spacing-and-pattern',
       'drywall-taping-and-mudding-guide',
@@ -656,7 +656,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Putting the list together',
         paragraphs: [
-          'Run the calculator for sheets first, then add finishing materials as multiples of sheet count. A 15-sheet bedroom job might need: 15 sheets, 1 box screws, 2 mud buckets, 1 roll tape, 3 corner beads, primer after sand.',
+          'Run the [sheet count calculator](/how-many-drywall-sheets) first, then add finishing materials as multiples of sheet count. A 15-sheet bedroom job might need: 15 sheets, 1 box screws, 2 mud buckets, 1 roll tape, 3 corner beads, primer after sand. Price sheets, mud, and screws in the [drywall cost estimator](/drywall-cost-estimator).',
         ],
       },
     ],
@@ -1081,7 +1081,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Phase-by-phase deep links',
         bullets: [
-          'Estimate: [How much drywall](/guides/how-much-drywall-for-a-room) · [Sheet sizes](/guides/drywall-sheet-sizes-explained) · [Waste](/guides/how-much-drywall-waste-to-add) · [Screws & compound](/guides/estimating-drywall-screws-and-compound)',
+          'Estimate: [How much drywall](/guides/how-much-drywall-for-a-room) · [Sheet sizes](/guides/drywall-sheet-sizes-explained) · [Waste](/guides/how-much-drywall-waste-to-add) · [Screws & compound](/guides/estimating-drywall-screws-and-compound) · [Cost estimator](/drywall-cost-estimator)',
           'Materials: [1/2 vs 5/8](/guides/half-inch-vs-five-eighth-drywall) · [Green/purple board](/guides/green-board-purple-board-bathrooms) · [Garage fire](/guides/garage-drywall-fire-separation)',
           'Hang: [Hang step-by-step](/guides/how-to-hang-drywall-step-by-step) · [Ceilings](/guides/hanging-drywall-on-ceiling) · [Screw pattern](/guides/drywall-screw-spacing-and-pattern) · [Windows & doors](/guides/drywall-around-windows-and-doors)',
           'Finish: [Tape & mud](/guides/drywall-taping-and-mudding-guide) · [How many coats](/guides/how-many-coats-drywall-mud) · [Finish levels](/guides/drywall-finish-levels-explained)',
@@ -1364,7 +1364,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Hang yourself, finish selectively',
         paragraphs: [
-          'Many DIYers hang successfully and hire finishing for skim and texture. Labor for Level 5 under gloss paint often costs less than redoing a blotchy DIY job. Still estimate sheets with the [drywall calculator](/drywall-calculator) so material bids stay honest.',
+          'Many DIYers hang successfully and hire finishing for skim and texture. Labor for Level 5 under gloss paint often costs less than redoing a blotchy DIY job. Still estimate sheets with the [drywall calculator](/drywall-calculator) and materials dollars with the [drywall cost estimator](/drywall-cost-estimator) so material bids stay honest before you compare labor quotes.',
         ],
       },
       {
