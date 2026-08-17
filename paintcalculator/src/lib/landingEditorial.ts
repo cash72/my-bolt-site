@@ -57,6 +57,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
+        heading: 'From room area to Behr gallons',
+        paragraphs: [
+          'Once you have paintable sq ft, divide by the Coverage line on your Behr (or any brand) can. Prefer a dedicated coverage tool? Use the [Behr paint coverage calculator](/paint-coverage-calculator) with the same label rate.',
+          'For coats, waste, and store rounding in one shopping list, switch to [how much Behr paint do I need](/how-much-paint-do-i-need) after you measure the room.',
+        ],
+      },
+      {
         heading: 'Multi-room projects',
         paragraphs: [
           'Add up to five rooms and the calculator totals paintable area and gallons for the whole job — useful when painting a hallway plus bedrooms in one colour.',
@@ -81,6 +88,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         paragraphs: [
           'Flat and matte hide imperfections on ceilings and low-traffic bedrooms. Eggshell and satin wash better in kitchens, halls, and kids’ rooms. Our [interior paint sheen guide](/guides/interior-paint-sheen-guide) matches finish to each room.',
           'Higher sheen covers slightly less area per gallon — if you switch from flat to semi-gloss, nudge coverage down 10–15% in settings.',
+        ],
+      },
+      {
+        heading: 'Behr label coverage vs default 350',
+        paragraphs: [
+          'Our default 350 sq ft/gallon is a conservative DIY interior rate. If your Behr Premium Plus Interior lists up to 400 sq ft/gallon on smooth primed drywall, enter that number for a tighter buy list — or run the [Behr paint coverage calculator](/paint-coverage-calculator) for coverage-only math.',
+          'Texture, primer, and dark-to-light colour changes still cover less than the marketing maximum. When unsure, keep 350 and round up.',
         ],
       },
       {
@@ -193,6 +207,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         paragraphs: [
           'The results panel shows gallons and quarts. Closets, powder rooms, and single accent walls often need only one or two quarts. Whole rooms and open-plan spaces almost always need full gallons — we round up so you are not caught short.',
           'For a full room estimate that includes coats and waste, also try the [how much paint do I need](/how-much-paint-do-i-need) page or the [room paint calculator](/room-paint-calculator).',
+        ],
+      },
+      {
+        heading: 'Home Depot Canada Behr cans — read this line first',
+        paragraphs: [
+          'On most Behr Canada cans, Coverage (or “Approximate Coverage”) is printed near the product description or on the back panel in sq ft per gallon (or per litre — convert if needed). That single number is what you enter above.',
+          'If two Behr SKUs sit side by side with different coverage claims, run this calculator twice and compare gallons × shelf price — not just the sticker on the can. For a dollar budget after gallons, use the [paint cost estimator](/paint-cost-estimator).',
         ],
       },
     ],
