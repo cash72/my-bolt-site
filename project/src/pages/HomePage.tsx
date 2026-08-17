@@ -159,11 +159,11 @@ export default function HomePage() {
   });
 
   const popularConversions = [
+    { to: '/satoshi-to-usd', label: 'Satoshi → USD' },
     { to: '/50000-satoshi-to-usd', label: '50,000 sats → USD' },
     { to: '/100000-satoshi-to-usd', label: '100,000 sats → USD' },
     { to: '/100-dollars-in-satoshi', label: '100 USD → sats' },
-    { to: '/satoshi-to-eur', label: 'Satoshi → EUR' },
-    { to: '/satoshi-to-gbp', label: 'Satoshi → GBP' },
+    { to: '/bitcoin-fee-calculator', label: 'Fee calculator' },
     { to: '/usd-to-satoshi', label: 'USD → Satoshi' },
   ] as const;
 
@@ -225,6 +225,10 @@ export default function HomePage() {
       {
         q: 'How often are prices updated?',
         a: 'Prices refresh automatically every 60 seconds from the CoinGecko API to keep conversions as accurate as possible.',
+      },
+      {
+        q: 'How do I estimate Bitcoin network fees before withdrawing?',
+        a: 'Use the Bitcoin fee calculator to turn sat/vB × vBytes into sats and live USD, then compare that cost to your stack on Satoshi to USD.',
       },
     ];
 
@@ -764,16 +768,26 @@ export default function HomePage() {
                   <h3 className="font-semibold text-slate-900 dark:text-slate-100">How many Satoshis in 100 dollars?</h3>
                   <p className="mt-1 text-slate-600 dark:text-slate-300 leading-relaxed">
                     {satsIn100Usd !== null
-                      ? `At current prices, 100 USD buys about ${satsIn100Usd.toLocaleString()} sats.`
-                      : 'Divide 100 by the live BTC/USD price, then multiply by 100,000,000.'}
+                      ? `At current prices, 100 USD buys about ${satsIn100Usd.toLocaleString()} sats. `
+                      : 'Divide 100 by the live BTC/USD price, then multiply by 100,000,000. '}
+                    See the live page for{' '}
+                    <Link to="/100-dollars-in-satoshi" className="text-orange-600 dark:text-orange-400 hover:underline">
+                      $100 in sats
+                    </Link>
+                    .
                   </p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-slate-900 dark:text-slate-100">How much is 1000 Satoshis?</h3>
                   <p className="mt-1 text-slate-600 dark:text-slate-300 leading-relaxed">
                     {thousandSatsUsd !== null
-                      ? `At current prices, 1,000 sats = ${thousandSatsUsd} USD (${thousandSatsEur} EUR).`
-                      : 'Multiply 1,000 by the current BTC price, then divide by 100,000,000.'}
+                      ? `At current prices, 1,000 sats = ${thousandSatsUsd} USD (${thousandSatsEur} EUR). `
+                      : 'Multiply 1,000 by the current BTC price, then divide by 100,000,000. '}
+                    Convert any amount on{' '}
+                    <Link to="/satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                      Satoshi to USD
+                    </Link>
+                    .
                   </p>
                 </div>
               </div>
@@ -817,6 +831,22 @@ export default function HomePage() {
                 {
                   q: 'How often are prices updated?',
                   a: 'Prices refresh automatically every 60 seconds from the CoinGecko API to keep conversions as accurate as possible.',
+                },
+                {
+                  q: 'How do I estimate Bitcoin network fees before withdrawing?',
+                  a: () => (
+                    <>
+                      Use the{' '}
+                      <Link to="/bitcoin-fee-calculator" className="text-orange-600 dark:text-orange-400 hover:underline">
+                        Bitcoin fee calculator
+                      </Link>{' '}
+                      to turn sat/vB × vBytes into sats and live USD, then compare that cost to your stack on{' '}
+                      <Link to="/satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                        Satoshi to USD
+                      </Link>
+                      .
+                    </>
+                  ),
                 },
               ].slice(3).map((faq, i) => {
                 const id = `faq-${i + 3}`;

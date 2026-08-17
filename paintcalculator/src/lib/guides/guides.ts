@@ -28,7 +28,7 @@ export const GUIDES: Guide[] = [
         heading: 'From square footage to gallons',
         paragraphs: [
           'Divide total paintable area (× number of coats) by the coverage number on your paint can label. Most interior latex lists 350–400 sq ft per gallon on smooth, primed walls.',
-          'Always round up. A 416 sq ft wall with two coats at 350 sq ft/gallon needs about 2.4 gallons — buy 3 gallons to avoid a mid-project store run.',
+          'Always round up. A 416 sq ft wall with two coats at 350 sq ft/gallon needs about 2.4 gallons — buy 3 gallons to avoid a mid-project store run. Prefer label math over guesswork — the [Behr paint coverage calculator](/paint-coverage-calculator) turns your can’s sq ft/gallon into gallons to buy.',
         ],
         bullets: [
           'Smooth new drywall: often 400 sq ft/gallon',
@@ -40,14 +40,14 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Use the calculator instead of guesswork',
         paragraphs: [
-          'Our room paint calculator accepts feet and inches, handles multiple rooms, deducts openings, and outputs gallons plus quarts with a copyable shopping list.',
+          'Our room paint calculator accepts feet and inches, handles multiple rooms, deducts openings, and outputs gallons plus quarts with a copyable shopping list. Already know total wall sq ft? Jump straight to the [paint coverage calculator](/paint-coverage-calculator).',
         ],
       },
       {
         heading: 'Worked example: 12×14 bedroom',
         paragraphs: [
           'Walls: perimeter 52 ft × 8 ft ceiling = 416 sq ft. Minus one door (20) and one window (15) → 381 sq ft. Two coats at 350 sq ft/gallon = 762 ÷ 350 ≈ 2.2 gallons — buy 3 gallons finish paint.',
-          'Run your dimensions in the [room paint calculator](/room-paint-calculator). See [how many coats](/guides/how-many-coats-of-paint) and [primer guide](/guides/primer-before-painting) before checkout.',
+          'Run your dimensions in the [room paint calculator](/room-paint-calculator) or [coverage calculator](/paint-coverage-calculator). See [how many coats](/guides/how-many-coats-of-paint) and [primer guide](/guides/primer-before-painting) before checkout.',
         ],
       },
     ],
@@ -55,7 +55,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'How much paint for a 12×12 room?',
         answer:
-          'With 8 ft ceilings, walls are about 384 sq ft. Two coats at 350 sq ft/gallon ≈ 2.2 gallons — buy 3 gallons. Add one gallon if painting the ceiling too.',
+          'With 8 ft ceilings, walls are about 384 sq ft. Two coats at 350 sq ft/gallon ≈ 2.2 gallons — buy 3 gallons. Add one gallon if painting the ceiling too. Confirm with the [coverage calculator](/paint-coverage-calculator) using your can’s rate.',
       },
       {
         question: 'Do I need separate paint for trim?',
@@ -105,7 +105,7 @@ export const GUIDES: Guide[] = [
           'Exterior wood that drinks the first coat',
         ],
         paragraphs: [
-          'Enter the actual coat count in our calculator — underestimating coats is the #1 reason people run out mid-room.',
+          'Enter the actual coat count in our calculator — underestimating coats is the #1 reason people run out mid-room. More coats multiply gallons; run totals in the [paint coverage calculator](/paint-coverage-calculator) before you buy.',
         ],
       },
       {
@@ -116,6 +116,7 @@ export const GUIDES: Guide[] = [
           'Same-color refresh: 1–2 coats after cleaning',
           'Ceiling flat white: often 1–2 coats',
           'Enter actual coat count in the [paint calculator](/how-much-paint-do-i-need)',
+          'Convert label coverage → gallons with the [coverage calculator](/paint-coverage-calculator)',
         ],
         paragraphs: [],
       },
@@ -129,7 +130,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Can I thin paint to stretch coverage?',
         answer:
-          'Manufacturers design paint at a specific viscosity. Thinning reduces hide and durability. Buy enough product instead of thinning.',
+          'Manufacturers design paint at a specific viscosity. Thinning reduces hide and durability. Buy enough product instead of thinning — use the [coverage calculator](/paint-coverage-calculator) with a realistic (lower) sq ft/gallon rate instead.',
       },
     ],
   },
@@ -293,7 +294,7 @@ export const GUIDES: Guide[] = [
           'Tinted primer: ask the store to tint toward your finish color for dark-to-light jumps',
         ],
         paragraphs: [
-          'Primer covers roughly 200–300 sq ft per gallon — less than finish paint. Buy primer gallons separately in our calculator by counting one primer coat over the same wall area.',
+          'Primer covers roughly 200–300 sq ft per gallon — less than finish paint. Buy primer gallons separately in our calculator by counting one primer coat over the same wall area. Convert your primer can’s sq ft/gallon into gallons with the [paint coverage calculator](/paint-coverage-calculator).',
         ],
       },
       {
@@ -305,7 +306,7 @@ export const GUIDES: Guide[] = [
           'Masonry: masonry primer before interior block walls',
         ],
         paragraphs: [
-          'Buy primer gallons from one coat of wall area — separate from [finish paint totals](/guides/how-much-paint-for-a-room).',
+          'Buy primer gallons from one coat of wall area — separate from [finish paint totals](/guides/how-much-paint-for-a-room). After primer, re-run the [coverage calculator](/paint-coverage-calculator) for finish coats using the topcoat label rate.',
         ],
       },
     ],
@@ -324,6 +325,11 @@ export const GUIDES: Guide[] = [
         question: 'How long after primer can I paint?',
         answer:
           'Most latex primers: recoat in 1–2 hours, topcoat same day. Check the can — humidity and cold slow drying. Sand lightly if grain raises on drywall primer.',
+      },
+      {
+        question: 'How many gallons of primer should I buy?',
+        answer:
+          'Usually one coat over the same wall area as finish paint, at the primer’s lower coverage rate (often 250–350 sq ft/gallon). Enter primer sq ft/gallon in the [Behr paint coverage calculator](/paint-coverage-calculator), then run finish coats separately.',
       },
     ],
   },
@@ -526,7 +532,7 @@ export const GUIDES: Guide[] = [
           'Shop vac for dust after sanding',
         ],
         paragraphs: [
-          'Complete [repairs](/guides/how-to-repair-walls-before-painting) and [primer](/guides/primer-before-painting) before estimating gallons in the [room calculator](/room-paint-calculator).',
+          'Complete [repairs](/guides/how-to-repair-walls-before-painting) and [primer](/guides/primer-before-painting) before estimating gallons in the [room calculator](/room-paint-calculator) or [Behr paint coverage calculator](/paint-coverage-calculator).',
         ],
       },
     ],
@@ -540,6 +546,11 @@ export const GUIDES: Guide[] = [
         question: 'Should I caulk before or after painting?',
         answer:
           'Caulk gaps at trim and small cracks before painting. Wipe excess, let cure per tube label, then paint. Do not caulk over unpainted bare wood without primer first.',
+      },
+      {
+        question: 'When should I buy paint relative to prep?',
+        answer:
+          'Measure and run the [Behr paint coverage calculator](/paint-coverage-calculator) after you know which walls need primer vs finish — then buy so dye lots match across the whole room.',
       },
     ],
   },
@@ -610,7 +621,7 @@ export const GUIDES: Guide[] = [
           'Day 3: walls coat 2, remove tape, touch-ups',
         ],
         paragraphs: [
-          'Order enough paint using [how much paint for a room](/guides/how-much-paint-for-a-room) before Day 2 — running out mid-wall shows lap marks.',
+          'Order enough paint using [how much paint for a room](/guides/how-much-paint-for-a-room) or the [Behr paint coverage calculator](/paint-coverage-calculator) before Day 2 — running out mid-wall shows lap marks.',
         ],
       },
     ],
@@ -624,6 +635,11 @@ export const GUIDES: Guide[] = [
         question: 'How long between coats?',
         answer:
           'Follow the can — typically 2–4 hours for latex at room temperature. Cool or humid rooms need longer. The wall should feel dry, not cool and tacky.',
+      },
+      {
+        question: 'How do I know I bought enough paint before Day 2?',
+        answer:
+          'Measure walls and convert your Behr (or any brand) label rate in the [paint coverage calculator](/paint-coverage-calculator) — buy all gallons from the same dye lot before you start rolling.',
       },
     ],
   },
@@ -653,14 +669,14 @@ export const GUIDES: Guide[] = [
           'If still not covered, add a third finish coat rather than thinning paint',
         ],
         paragraphs: [
-          'Update coat count to 2 (or 3) in our paint calculator when planning purchases.',
+          'Update coat count to 2 (or 3) in the [paint coverage calculator](/paint-coverage-calculator) when planning purchases — dark-to-light jobs burn more gallons than a same-color refresh.',
         ],
       },
       {
         heading: 'Dark-to-light coat strategy',
         paragraphs: [
           'Step 1: clean walls. Step 2: bond primer or stain-blocking primer if needed. Step 3: tinted primer toward your new color (gray for whites, beige-tint for tans). Step 4: two finish coats minimum.',
-          'Budget extra gallons — see [coat planning](/guides/how-many-coats-of-paint) and run totals in the [paint calculator](/how-much-paint-do-i-need).',
+          'Budget extra gallons — see [coat planning](/guides/how-many-coats-of-paint), then run totals in the [coverage calculator](/paint-coverage-calculator) or [how much paint](/how-much-paint-do-i-need).',
         ],
       },
     ],
@@ -669,6 +685,11 @@ export const GUIDES: Guide[] = [
         question: 'Does gray primer work under any color?',
         answer:
           'Gray primer is popular under medium tones. For very light pastels, ask for a white primer tinted toward your topcoat. The paint desk can match primer tint to your chips.',
+      },
+      {
+        question: 'How many gallons for a dark-to-light room?',
+        answer:
+          'Plan primer plus two finish coats minimum. Enter coat count 2–3 and a conservative coverage rate (often 300–350 sq ft/gallon) in the [Behr paint coverage calculator](/paint-coverage-calculator).',
       },
     ],
   },
@@ -859,7 +880,7 @@ export const GUIDES: Guide[] = [
         heading: 'Use a simple decision rule',
         paragraphs: [
           'Choose the lowest sheen that meets the room’s realistic cleaning needs and is offered in a suitable product. This usually gives the calmest appearance while avoiding unnecessary glare. Move one step higher when repeated washing, handling, or splash exposure justifies it—not because every kitchen or child’s room must use the same finish.',
-          'For repairs, match the exact product and sheen whenever possible. Stir retained paint thoroughly and test after it dries. Age, cleaning, and application method can make touch-ups flash even from the original can, so repainting from corner to corner may be the only invisible solution. Use the [room paint calculator](/room-paint-calculator) once you decide whether the job is a patch or a full wall.',
+          'For repairs, match the exact product and sheen whenever possible. Stir retained paint thoroughly and test after it dries. Age, cleaning, and application method can make touch-ups flash even from the original can, so repainting from corner to corner may be the only invisible solution. Use the [room paint calculator](/room-paint-calculator) or [Behr paint coverage calculator](/paint-coverage-calculator) once you decide whether the job is a patch or a full wall.',
         ],
         bullets: [
           'Need to hide flaws: compare flat and matte products',
@@ -879,6 +900,11 @@ export const GUIDES: Guide[] = [
         question: 'Is satin always better for bathrooms?',
         answer:
           'No. Use a paint specifically suitable for the room’s moisture conditions, and maintain effective ventilation. Satin may make cleaning easier, but product suitability, surface preparation, and moisture control matter more than sheen by itself.',
+      },
+      {
+        question: 'Does sheen change how much paint I need?',
+        answer:
+          'Slightly — higher sheen can cover a bit less area per gallon. Enter the Coverage line from your can in the [Behr paint coverage calculator](/paint-coverage-calculator) rather than assuming flat and satin use the same rate.',
       },
     ],
   },
@@ -1339,7 +1365,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'The 7-phase interior paint flow',
         bullets: [
-          'Phase 1 — Estimate gallons: measure walls and run the [paint calculator](/how-much-paint-do-i-need)',
+          'Phase 1 — Estimate gallons: measure walls and run the [paint calculator](/how-much-paint-do-i-need) or [coverage calculator](/paint-coverage-calculator)',
           'Phase 2 — Identify what is on the wall: oil vs latex (alcohol wipe test)',
           'Phase 3 — Choose primer: drywall, stain-block, bonding, or tinted',
           'Phase 4 — Prep and repair: clean, patch, sand, tape',
@@ -1508,7 +1534,7 @@ export const GUIDES: Guide[] = [
         heading: 'How much primer to buy',
         paragraphs: [
           'Interior primers often cover 200–300 sq ft per gallon — less than finish paint. Count one full coat over every wall you will prime. Large color changes or porous new drywall may need a second primer coat.',
-          'Estimate finish paint separately in the [how much paint calculator](/how-much-paint-do-i-need). Add primer gallons as a second pass of the same wall area at ~250 sq ft/gallon if your can does not list coverage.',
+          'Estimate finish paint separately in the [how much paint calculator](/how-much-paint-do-i-need). Add primer gallons as a second pass of the same wall area at ~250 sq ft/gallon if your can does not list coverage — or convert the primer label rate in the [Behr paint coverage calculator](/paint-coverage-calculator).',
         ],
       },
       {
@@ -1540,6 +1566,11 @@ export const GUIDES: Guide[] = [
         question: 'Do I need tinted primer for dark walls?',
         answer:
           'Tinted primer (gray or toward your new light color) reduces the number of finish coats when going from dark to light. See our [painting over dark colors](/guides/painting-over-dark-colors) guide for coat planning.',
+      },
+      {
+        question: 'How many gallons of primer vs finish paint?',
+        answer:
+          'Primer is usually one coat at a lower coverage rate; finish is often two coats at the topcoat rate. Convert each product separately in the [Behr paint coverage calculator](/paint-coverage-calculator).',
       },
     ],
   },
@@ -1663,7 +1694,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'How many coats vs how long between them',
         paragraphs: [
-          'Most interior latex jobs need two finish coats for even color — especially color changes. Dark-to-light may need primer plus two finish coats. Plan gallons with [how many coats of paint](/guides/how-many-coats-of-paint) and the [coverage guide](/guides/paint-coverage-per-gallon).',
+          'Most interior latex jobs need two finish coats for even color — especially color changes. Dark-to-light may need primer plus two finish coats. Plan gallons with [how many coats of paint](/guides/how-many-coats-of-paint), the [coverage guide](/guides/paint-coverage-per-gallon), and the [Behr paint coverage calculator](/paint-coverage-calculator).',
           'Back to the full roadmap: [interior painting project guide](/guides/interior-painting-project-guide).',
         ],
       },
@@ -1683,6 +1714,11 @@ export const GUIDES: Guide[] = [
         question: 'Do I wait longer between primer and paint?',
         answer:
           'Use the primer can’s topcoat time — often 1–2 hours for latex primers. Stain-blocking and oil primers may need longer. Sand lightly if the primer raised the grain on drywall.',
+      },
+      {
+        question: 'How do coats change how many gallons I buy?',
+        answer:
+          'Each finish coat multiplies paint needed. Set coat count and your can’s sq ft/gallon in the [Behr paint coverage calculator](/paint-coverage-calculator) before you schedule a two-day recoat window.',
       },
     ],
   },
