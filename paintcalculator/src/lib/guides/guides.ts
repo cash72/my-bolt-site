@@ -353,7 +353,7 @@ export const GUIDES: Guide[] = [
         heading: 'Why repair comes before paint quantity',
         paragraphs: [
           'Paint hides minor flaws but does not fix structure. Patches, cracks, and loose tape will telegraph through finish paint — especially with glossier sheens or raking light from windows.',
-          'Complete repairs, primer, then paint. Order matters: patch → sand → dust → prime → finish coats.',
+          'Complete repairs, primer, then paint. Order matters: patch → sand → dust → prime → finish coats. After repairs, convert wall sq ft to gallons with the [Behr paint coverage calculator](/paint-coverage-calculator) using your can label rate.',
         ],
       },
       {
@@ -1471,7 +1471,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'If the wipe test shows latex and walls are sound: clean, spot-prime patches, then finish paint. Follow [how to choose primer](/guides/how-to-choose-primer-interior-walls) only if you have stains, new drywall, or a big color change.',
           'If the wipe test shows oil (or you are unsure): light sand (120–150 grit) to dull gloss, wipe dust, apply bonding primer, then latex finish. Full steps in [painting over oil-based paint](/guides/painting-over-oil-based-paint).',
-          'Still planning gallons? Run wall measurements through the [how much paint calculator](/how-much-paint-do-i-need) after you know coats and primer needs.',
+          'Still planning gallons? Run wall measurements through the [Behr paint coverage calculator](/paint-coverage-calculator) with your can’s Coverage line, or use the [how much paint calculator](/how-much-paint-do-i-need) after you know coats and primer needs.',
         ],
       },
     ],
@@ -1490,6 +1490,11 @@ export const GUIDES: Guide[] = [
         question: 'What if nothing transfers but the wall feels soft?',
         answer:
           'You may have a failing film or heavy dirt. Clean thoroughly and retest. If the coating remains soft or chalky after cleaning, scrape loose paint and prime with a bonding or chalk-sealing primer before finishing.',
+      },
+      {
+        question: 'How do I turn wall area into Behr gallons after priming?',
+        answer:
+          'Enter total sq ft, coats, and the Coverage number from your Behr can in the [paint coverage calculator](/paint-coverage-calculator). Primer is a separate pass — run the tool twice if primer coverage differs from finish paint.',
       },
     ],
   },
@@ -1593,7 +1598,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Buy once, paint better',
         paragraphs: [
-          'Cheap foam brushes and overloaded trays cause drips and texture. A short, solid kit costs less than a wasted gallon of finish paint. Use this list before you shop — then calculate gallons with the [paint calculator](/how-much-paint-do-i-need).',
+          'Cheap foam brushes and overloaded trays cause drips and texture. A short, solid kit costs less than a wasted gallon of finish paint. Use this list before you shop — then convert sq ft to gallons with the [Behr paint coverage calculator](/paint-coverage-calculator) or the [how much paint calculator](/how-much-paint-do-i-need).',
         ],
       },
       {
@@ -1763,7 +1768,7 @@ export const GUIDES: Guide[] = [
         heading: 'Trim and doors vs wall fields',
         paragraphs: [
           'Trim is often oil while walls are latex. Paint walls and trim as separate systems: bond-prime oil trim, then finish with latex enamel or acrylic trim paint for durability.',
-          'Estimate wall gallons separately from trim — trim uses less area but more brush work. Wall totals still come from the [how much paint calculator](/how-much-paint-do-i-need).',
+          'Estimate wall gallons separately from trim — trim uses less area but more brush work. Wall totals still come from the [Behr paint coverage calculator](/paint-coverage-calculator) (label rate) or the [how much paint calculator](/how-much-paint-do-i-need) (coats + waste).',
         ],
       },
       {
@@ -1816,7 +1821,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Size the paint before you open a can',
         paragraphs: [
-          'Cabinets and trim are piece counts, not room walls. Use the [cabinet & trim paint calculator](/cabinet-trim-paint-calculator) for door/drawer counts and linear feet of baseboard — then buy gallons (or quarts) with waste built in.',
+          'Cabinets and trim are piece counts, not room walls. Use the [cabinet & trim paint calculator](/cabinet-trim-paint-calculator) for door/drawer counts and linear feet of baseboard — then buy gallons (or quarts) with waste built in. For wall fields in the same room, convert sq ft with the [Behr paint coverage calculator](/paint-coverage-calculator).',
         ],
       },
       {

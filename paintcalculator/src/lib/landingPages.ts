@@ -71,10 +71,10 @@ export const LANDING_PAGES: LandingPage[] = [
     kind: 'paint',
     paintType: 'interior',
     surface: 'walls',
-    title: 'How Much Behr Paint Do I Need? Free Gallon Calculator',
+    title: 'How Much Behr Paint Do I Need? | Paint Calculator',
     h1: 'How Much Behr Paint Do I Need?',
     description:
-      'How much Behr paint do I need? Free gallon calculator: room size → buy list. 12×12 ≈ 2–3 gal at ~400 sq ft/gal. Works for any brand — Canadian DIY.',
+      'Free answer for “how much Behr paint do I need”: enter room size → gallons to buy. 12×12 room ≈ 2–3 gallons at ~400 sq ft/gal. Works for any brand — Canadian DIY.',
     breadcrumbLabel: 'How much paint',
     quickAnswer:
       'A 12×12 room with 8 ft ceilings needs about 2–3 gallons of Behr interior paint for two coats (≈384 sq ft walls × 2 ÷ ~350–400 sq ft/gallon). Enter your room size below and set coverage from your Behr can label for an exact count.',
@@ -119,10 +119,10 @@ export const LANDING_PAGES: LandingPage[] = [
     kind: 'paint',
     paintType: 'interior',
     surface: 'walls',
-    title: 'Behr Paint Coverage Calculator — Sq Ft to Gallons (Free)',
+    title: 'Behr Paint Coverage Calculator (Free) | Paint Calculator',
     h1: 'Behr Paint Coverage Calculator',
     description:
-      'Behr paint coverage calculator (free): room size + can label sq ft/gallon → gallons per coat. Typical Behr interior: up to 400 sq ft/gallon. Any brand works.',
+      'Free Behr paint calculator: enter room size + label coverage → gallons per coat. Typical Behr interior: up to 400 sq ft/gallon. Works for any brand.',
     breadcrumbLabel: 'Coverage calculator',
     quickAnswer:
       'How much does a gallon of Behr paint cover? Most Behr Premium Plus Interior lists up to ~400 sq ft per gallon on smooth, primed drywall (one coat). Enter that label number below with your room size to get gallons to buy — this is a free Behr paint calculator that works for any brand.',
@@ -177,10 +177,10 @@ export const LANDING_PAGES: LandingPage[] = [
     kind: 'paint',
     paintType: 'interior',
     surface: 'both',
-    title: 'Interior Paint Calculator — Walls & Ceiling Gallons',
+    title: 'Interior Paint Calculator — Walls & Ceiling',
     h1: 'Interior Paint Calculator',
     description:
-      'Free interior paint calculator: walls + ceiling gallons with coats and waste. Use Behr (~400 sq ft/gal) or any brand label for Canadian DIY rooms.',
+      'Free interior paint calculator for walls and ceilings. Room dimensions, coats, waste, and gallon counts for DIY projects.',
     breadcrumbLabel: 'Interior calculator',
     intro:
       'Plan an interior repaint with default 350 sq ft per gallon and two coats. Toggle walls only, ceiling only, or both.',
@@ -455,10 +455,10 @@ export const LANDING_PAGES: LandingPage[] = [
     kind: 'paint',
     paintType: 'interior',
     surface: 'both',
-    title: 'Paint Cost Estimator — Behr Gallons & CAD Budget',
+    title: 'Paint Cost Estimator — Gallons & Project Budget (Canada)',
     h1: 'Paint Cost Estimator',
     description:
-      'Estimate Behr (or any brand) paint gallons and CAD project cost. Enter room size, price per gallon, and coats for a DIY budget before the paint store.',
+      'Estimate paint gallons and total project cost. Enter room size, price per gallon, and coats for a DIY budget before the paint store.',
     breadcrumbLabel: 'Paint cost estimator',
     intro:
       'Enter price per gallon from your local paint store (CAD). We calculate gallons needed and multiply for an estimated materials total — primer, tape, and rollers are extra.',
