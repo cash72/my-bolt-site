@@ -201,11 +201,19 @@ function buildFiatAmountPage(amount: number, currency: FiatCurrency): LandingPag
   const title =
     amount === 100 && currency === 'usd'
       ? '100 USD in Satoshi — How Many Sats Is $100? (Live)'
-      : `${amount} ${label} in Satoshi — Live Sats Calculator`;
+      : amount === 1000 && currency === 'usd'
+        ? '1000 USD in Satoshi — How Many Sats Is $1,000? (Live)'
+        : amount === 10 && currency === 'usd'
+          ? '10 USD in Satoshi — How Many Sats Is $10? (Live)'
+          : `${amount} ${label} in Satoshi — Live Sats Calculator`;
   const description =
     amount === 100 && currency === 'usd'
       ? "How many Satoshis is $100 USD at today's Bitcoin price? See the live sats equivalent for a typical first buy. Free calculator — updated every 60 seconds."
-      : `How many Satoshis is ${amount} ${label}? See the live sats equivalent at today's Bitcoin price in ${name}. Updated every 60 seconds.`;
+      : amount === 1000 && currency === 'usd'
+        ? "How many Satoshis is $1,000 USD at today's Bitcoin price? See the live sats for a lump-sum buy — before trading or withdrawal fees. Free calculator — updated every 60 seconds."
+        : amount === 10 && currency === 'usd'
+          ? "How many Satoshis is $10 USD at today's Bitcoin price? See the live sats for a first mobile buy. Free calculator — updated every 60 seconds."
+          : `How many Satoshis is ${amount} ${label}? See the live sats equivalent at today's Bitcoin price in ${name}. Updated every 60 seconds.`;
 
   return {
     slug,

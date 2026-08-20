@@ -43,7 +43,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: false,
     readTimeMinutes: 7,
     datePublished: '2026-06-01',
-    dateModified: '2026-06-29',
+    dateModified: '2026-08-19',
     sections: [
       {
         heading: 'The basics: 100 million Satoshis in one Bitcoin',
@@ -56,7 +56,7 @@ export const GUIDES: GuideDef[] = [
         heading: 'Why wallets and exchanges show sats',
         paragraphs: [
           'Many mobile wallets (Phoenix, Wallet of Satoshi, Strike) default to satoshi display for smaller balances. Lightning Network payments are often denominated in sats because they suit micropayments.',
-          'If you’re comparing prices, use a live converter. Our homepage updates every 60 seconds from CoinGecko for USD, EUR, GBP, and CAD.',
+          'If you’re comparing prices, use a live converter. Start at [Satoshi to USD](/satoshi-to-usd) — prices update every 60 seconds from CoinGecko for USD, EUR, GBP, and CAD.',
         ],
       },
       {
@@ -69,7 +69,7 @@ export const GUIDES: GuideDef[] = [
       {
         heading: 'Quick conversion links',
         paragraphs: [
-          'See live fiat values: [Satoshi to USD](/satoshi-to-usd), [100,000 sats](/100000-satoshi-to-usd), or [100 dollars in sats](/100-dollars-in-satoshi). Read [how many sats in 1 BTC](/guides/how-many-satoshis-in-a-bitcoin) for the fixed math.',
+          'See live fiat values: [Satoshi to USD](/satoshi-to-usd), [100,000 sats](/100000-satoshi-to-usd), or [100 dollars in sats](/100-dollars-in-satoshi). Before an on-chain tip or withdrawal, estimate cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator). Read [how many sats in 1 BTC](/guides/how-many-satoshis-in-a-bitcoin) for the fixed math.',
         ],
       },
     ],
@@ -80,15 +80,15 @@ export const GUIDES: GuideDef[] = [
       },
       {
         q: 'Can you send a single Satoshi?',
-        a: 'On-chain fees often make single-satoshi transfers impractical, but Lightning and some layer-2 systems handle tiny amounts efficiently.',
+        a: 'On-chain fees often make single-satoshi transfers impractical — compare fee USD on the [Bitcoin fee calculator](/bitcoin-fee-calculator) to tip-size pages like [1,000 sats](/1000-satoshi-to-usd). Lightning and some layer-2 systems handle tiny amounts efficiently.',
       },
       {
         q: 'How do I convert sats to dollars?',
-        a: 'Multiply your sats by the current BTC price in USD, then divide by 100,000,000. Use our live Satoshi to USD converter for instant results.',
+        a: 'Multiply your sats by the current BTC price in USD, then divide by 100,000,000. Use the live [Satoshi to USD](/satoshi-to-usd) converter for instant results.',
       },
     ],
     relatedGuideSlugs: ['how-many-satoshis-in-a-bitcoin', 'usd-to-satoshi', 'how-to-buy-bitcoin'],
-    relatedLandingPaths: ['/satoshi-to-usd', '/1000-satoshi-to-usd', '/100000-satoshi-to-usd'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/bitcoin-fee-calculator', '/1000-satoshi-to-usd', '/100000-satoshi-to-usd'],
   },
   {
     slug: 'how-many-satoshis-in-a-bitcoin',
@@ -103,7 +103,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: false,
     readTimeMinutes: 7,
     datePublished: '2026-06-01',
-    dateModified: '2026-08-05',
+    dateModified: '2026-08-19',
     sections: [
       {
         heading: 'The fixed ratio',
@@ -163,26 +163,26 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: false,
     readTimeMinutes: 7,
     datePublished: '2026-06-10',
-    dateModified: '2026-06-29',
+    dateModified: '2026-08-19',
     sections: [
       {
         heading: 'The formula',
         paragraphs: [
           'Satoshis = (USD amount ÷ BTC price in USD) × 100,000,000. Example: at $60,000 BTC, $100 buys (100 ÷ 60,000) × 100,000,000 ≈ 166,667 sats.',
-          'Our reverse converter on the homepage does this instantly for USD, EUR, GBP, and CAD with prices refreshed every 60 seconds.',
+          'Our reverse converter on the homepage does this instantly for USD, EUR, GBP, and CAD with prices refreshed every 60 seconds — or open the [USD to Satoshi](/usd-to-satoshi) hub and [Satoshi to USD](/satoshi-to-usd) for dedicated pages.',
         ],
       },
       {
         heading: 'Step-by-step',
         paragraphs: [
           '1. Look up the current BTC/USD price (SatoshiCalc shows it on the homepage). 2. Divide your dollar amount by that price to get BTC. 3. Multiply by 100 million for sats. 4. Round down if buying on an exchange — you also pay fees.',
-          'For common amounts, skip the math: use /100-dollars-in-satoshi or /1000-dollars-in-satoshi for live results.',
+          'For common amounts, skip the math: use [100 dollars in satoshi](/100-dollars-in-satoshi) or [1000 dollars in satoshi](/1000-dollars-in-satoshi) for live results.',
         ],
       },
       {
         heading: 'After you convert — custody matters',
         paragraphs: [
-          'Knowing how many sats you can buy is only half the picture. Leaving Bitcoin on an exchange means you don’t hold the keys. For amounts you plan to keep, withdraw to a wallet you control.',
+          'Knowing how many sats you can buy is only half the picture. Leaving Bitcoin on an exchange means you don’t hold the keys. For amounts you plan to keep, withdraw to a wallet you control — estimate network cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator) before you send.',
           'Our hardware wallet guide compares beginner-friendly and advanced options.',
         ],
       },
@@ -200,11 +200,15 @@ export const GUIDES: GuideDef[] = [
       },
       {
         q: 'Can I convert Satoshi back to USD?',
-        a: 'Yes — multiply sats by the BTC price and divide by 100,000,000. Use our Satoshi to USD converter for live values.',
+        a: 'Yes — multiply sats by the BTC price and divide by 100,000,000. Use the live [Satoshi to USD](/satoshi-to-usd) converter for current values.',
+      },
+      {
+        q: 'Do exchange or network fees change how many sats I keep?',
+        a: 'Yes. Spot conversion is before trading fees and on-chain withdrawal fees. Estimate mempool cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator) so you know what share of a [100 dollar](/100-dollars-in-satoshi) or [$1,000](/1000-dollars-in-satoshi) buy the fee represents.',
       },
     ],
     relatedGuideSlugs: ['how-to-buy-bitcoin', 'stacking-sats-dca', 'what-is-a-satoshi', 'how-to-store-bitcoin-safely'],
-    relatedLandingPaths: ['/usd-to-satoshi', '/100-dollars-in-satoshi', '/satoshi-to-usd'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/usd-to-satoshi', '/bitcoin-fee-calculator', '/100-dollars-in-satoshi', '/1000-dollars-in-satoshi'],
   },
   {
     slug: 'how-to-store-bitcoin-safely',
@@ -430,7 +434,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: true,
     readTimeMinutes: 13,
     datePublished: '2026-06-29',
-    dateModified: '2026-08-05',
+    dateModified: '2026-08-19',
     sections: [
       {
         heading: 'Before you buy: know what you’re getting',
@@ -519,7 +523,7 @@ export const GUIDES: GuideDef[] = [
       },
     ],
     relatedGuideSlugs: ['stacking-sats-dca', 'usd-to-satoshi', 'how-to-store-bitcoin-safely'],
-    relatedLandingPaths: ['/satoshi-to-usd', '/100-dollars-in-satoshi', '/usd-to-satoshi', '/50000-satoshi-to-usd', '/1000-dollars-in-satoshi'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/bitcoin-fee-calculator', '/100-dollars-in-satoshi', '/usd-to-satoshi', '/50000-satoshi-to-usd', '/1000-dollars-in-satoshi'],
   },
   {
     slug: 'stacking-sats-dca',
@@ -534,7 +538,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: true,
     readTimeMinutes: 11,
     datePublished: '2026-06-29',
-    dateModified: '2026-08-05',
+    dateModified: '2026-08-19',
     sections: [
       {
         heading: 'What “stacking sats” actually means',

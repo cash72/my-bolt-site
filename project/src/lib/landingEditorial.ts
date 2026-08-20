@@ -254,7 +254,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'usd-to-satoshi': {
     intro:
-      'Convert any US Dollar amount to Satoshis at the live Bitcoin price. This hub defaults to $100 — a typical first purchase size — and links to other common fiat amounts.',
+      'Convert any US Dollar amount to Satoshis at the live Bitcoin price. This hub defaults to $100 — a typical first purchase size — and links to other common fiat amounts. Spot only; trading and network fees reduce what you actually receive.',
     sections: [
       {
         heading: 'The reverse conversion formula',
@@ -267,7 +267,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'Planning buys in dollars, holding in sats',
         paragraphs: [
           'Budgets live in fiat; Bitcoin scarcity lives in sats. DCA in $25 or $100 weekly, but track progress toward 500k or 1M sat milestones to stay motivated.',
-          'After buying, withdraw to a wallet you control. Leaving stacks on an exchange keeps counterparty risk alive.',
+          'After buying, withdraw to a wallet you control. Leaving stacks on an exchange keeps counterparty risk alive — estimate withdrawal cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator) before you move.',
         ],
       },
       {
@@ -282,7 +282,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   '500-satoshi-to-usd': {
     intro:
-      'Five hundred Satoshis (500 sats) is the meme-friendly “coffee tip” amount in Bitcoin culture — small enough to send over Lightning, large enough to mean something. Here is the live US Dollar value at today’s Bitcoin price.',
+      'Five hundred Satoshis (500 sats) is the meme-friendly “coffee tip” amount in Bitcoin culture — small enough to send over Lightning, large enough to mean something. Here is the live US Dollar value at today’s Bitcoin price; on-chain fees usually make Lightning the better rail at this size.',
     sections: [
       {
         heading: 'The 500-sats tipping sweet spot',
@@ -294,7 +294,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       {
         heading: 'Lightning makes 500 sats practical',
         paragraphs: [
-          'On-chain fees can exceed 500 sats during congestion. Lightning settles sub-dollar payments in seconds with fees often under a cent — why micro-tipping culture exists at all.',
+          'On-chain fees can exceed 500 sats during congestion — compare with the [Bitcoin fee calculator](/bitcoin-fee-calculator) before you broadcast a tip on-chain.',
           'If you only hold a few hundred sats, a custodial Lightning wallet is fine for experiments. Our [what is a Satoshi guide](/guides/what-is-a-satoshi) explains the unit before you graduate to larger stacks.',
         ],
       },
@@ -303,7 +303,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   '5000-satoshi-to-usd': {
     intro:
-      'Five thousand Satoshis (5,000 sats) is a common Lightning payment size — big enough for a small digital purchase, small enough to send without overthinking fees. See the live USD value below.',
+      'Five thousand Satoshis (5,000 sats) is a common Lightning payment size — big enough for a small digital purchase, small enough to send without overthinking fees. See the live USD value below, then check whether an on-chain fee would eat this payment.',
     sections: [
       {
         heading: 'Real-world scale for 5,000 sats',
@@ -316,7 +316,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'Growing from 5k toward stack milestones',
         paragraphs: [
           'Five thousand sats is 5% of the popular [50,000 sat](/50000-satoshi-to-usd) milestone and half of [10,000 sats](/10000-satoshi-to-usd). Tracking these round numbers keeps stacking motivating.',
-          'If you are buying rather than receiving, see how many sats [100 USD](/100-dollars-in-satoshi) buys today — then compare against your Lightning balance.',
+          'If you are buying rather than receiving, see how many sats [100 USD](/100-dollars-in-satoshi) buys today — then compare against your Lightning balance. Prefer Lightning over on-chain when the [fee calculator](/bitcoin-fee-calculator) shows a large share of this USD value.',
         ],
       },
     ],
@@ -324,7 +324,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   '10000-satoshi-to-usd': {
     intro:
-      'Ten thousand Satoshis (10,000 sats) equals 0.0001 BTC — a round figure that appears in Lightning invoices, faucet rewards, and beginner stacking goals. Here is the live USD equivalent.',
+      'Ten thousand Satoshis (10,000 sats) equals 0.0001 BTC — a round figure that appears in Lightning invoices, faucet rewards, and beginner stacking goals. Here is the live USD equivalent, plus fee context before you move it on-chain.',
     sections: [
       {
         heading: 'Why 10,000 sats shows up everywhere',
@@ -337,7 +337,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'From 10k sats toward serious stacks',
         paragraphs: [
           'Ten thousand sats is one-fifth of [50,000 sats](/50000-satoshi-to-usd) and one-tenth of [100,000 sats](/100000-satoshi-to-usd). Many stackers bookmark these pages to watch progress in familiar dollar terms.',
-          'Ready to add more? [100 dollars in satoshi](/100-dollars-in-satoshi) shows how a typical buy translates at today’s price, and our [stacking sats guide](/guides/stacking-sats-dca) covers repeatable plans.',
+          'Ready to add more? [100 dollars in satoshi](/100-dollars-in-satoshi) shows how a typical buy translates at today’s price. Before an on-chain send of this size, run the [Bitcoin fee calculator](/bitcoin-fee-calculator) — during congestion the fee can rival the payment.',
         ],
       },
     ],
@@ -457,7 +457,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   '10-dollars-in-satoshi': {
     intro:
-      'Ten US dollars buys a modest satoshi stack at the live Bitcoin price — a common “first tap” amount on mobile apps. This page shows exactly how many sats $10 equals right now.',
+      'Ten US dollars buys a modest satoshi stack at the live Bitcoin price — a common “first tap” amount on mobile apps. This page shows exactly how many sats $10 equals right now, before trading or withdrawal fees.',
     sections: [
       {
         heading: 'Why $10 is a practical first buy',
@@ -470,7 +470,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'Card fees on small buys',
         paragraphs: [
           'Debit and card purchases often include a flat or percentage fee that hurts more on $10 than on $100. Bank transfer (ACH) is cheaper for recurring stacks if you can wait for settlement.',
-          'Spot price here is pre-fee. Expect slightly fewer sats in your exchange balance after costs.',
+          'Spot price here is pre-fee. Expect slightly fewer sats in your exchange balance after costs — and if you withdraw on-chain, check the [Bitcoin fee calculator](/bitcoin-fee-calculator) so the network fee does not dwarf this buy.',
         ],
       },
       {
@@ -499,6 +499,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         paragraphs: [
           'At $1,000 equivalent, hardware wallet cost is negligible compared to stack value. Plan withdrawal before you buy so you are not leaving four figures on an exchange overnight.',
           'Use a test send of a few dollars worth of sats before moving the full amount — estimate mempool cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator) so the test fee does not surprise you. One wrong address character is irreversible.',
+        ],
+      },
+      {
+        heading: 'Where $1,000 sits among sat milestones',
+        paragraphs: [
+          'After you know the sat count, compare it to live checkpoints: [100,000 sats](/100000-satoshi-to-usd), [1M sats](/1000000-satoshi-to-usd), and [10M sats](/10000000-satoshi-to-usd). The [Satoshi to USD](/satoshi-to-usd) hub converts any custom amount.',
+          'Smaller first buys? See [100 dollars in satoshi](/100-dollars-in-satoshi) or [10 dollars in satoshi](/10-dollars-in-satoshi) for the same live pipeline.',
         ],
       },
     ],

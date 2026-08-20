@@ -33,9 +33,9 @@ const DEFAULT_VBYTES = 140;
 
 export default function BitcoinFeeCalculatorPage() {
   usePageMeta({
-    title: 'Bitcoin Fee Calculator — sat/vB × vBytes to Sats & USD',
+    title: 'Bitcoin Fee Calculator — How Much Will My TX Cost in USD?',
     description:
-      'Estimate Bitcoin mempool fees and exchange withdrawal cost: sat/vB × vBytes → sats, BTC, and live USD. Free planning tool before you send.',
+      'How much will a Bitcoin transaction cost in USD today? Estimate mempool fees and exchange withdrawal cost: sat/vB × vBytes → sats, BTC, and live dollars. Free planning tool before you send.',
     path: '/bitcoin-fee-calculator',
   });
 
@@ -77,7 +77,7 @@ export default function BitcoinFeeCalculatorPage() {
       {
         question: 'When should I use Lightning instead?',
         answer:
-          'For tips and small payments, Lightning fees are usually far cheaper than on-chain. Use on-chain for cold-storage moves and exchange withdrawals when you need settlement finality.',
+          'For tips and small payments, Lightning fees are usually far cheaper than on-chain — compare this calculator’s fee USD to live stack values on [1,000 sats](/1000-satoshi-to-usd) or [10,000 sats](/10000-satoshi-to-usd). Use on-chain for cold-storage moves and exchange withdrawals when you need settlement finality.',
       },
       {
         question: 'Is an exchange withdrawal fee the same as the mempool fee?',
