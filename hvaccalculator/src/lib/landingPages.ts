@@ -300,6 +300,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'Is 1.5 ton the same as 18,000 BTU?',
         answer: 'Yes. 1.5 tons × 12,000 = 18,000 BTU. Mini-split packaging often lists BTU instead of tonnage.',
       },
+      {
+        question: 'How does tonnage affect electricity cost?',
+        answer:
+          'More tons means more BTU/hr — and more kWh for the same SEER and run hours. Convert tons to BTU (×12,000), then estimate the bill with the [AC cost to run calculator](/ac-cost-to-run-calculator) before you upsize for “just in case.”',
+      },
     ],
   },
   {
@@ -431,6 +436,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'How much does it cost to run a bedroom AC overnight?',
         answer:
           'Many bedrooms run 6–10 hours while you sleep. A 9,000 BTU unit at SEER 18 for 8 hours at $0.15/kWh is about 4 kWh/night (~$0.60) or ~$18/month if you cool every night. Enter your BTU, SEER/SEER2, hours, and rate above — overnight hours often dominate the monthly total more than afternoon spikes.',
+      },
+      {
+        question: 'How much does AC cost to run for a full cooling season?',
+        answer:
+          'Multiply a realistic daily cost by cooling-season days — often 90–150 days depending on climate. Example: ~$0.90/day × 120 days ≈ $108 of compressor energy for that season at the rates above. Late summer (August–September) still runs long hours in humid regions; model a peak month and a shoulder month separately in this calculator, then add them — do not annualize one July day.',
       },
     ],
   },

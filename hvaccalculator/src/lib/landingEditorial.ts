@@ -331,6 +331,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
+        heading: 'Late-summer hours still matter (August–September)',
+        paragraphs: [
+          'Peak July is not the whole bill. In humid climates, August evenings and early September still push 8–12 hour days — especially overnight bedroom cooling. Model those weeks with honest hours before you decide a mid-SEER window unit is “cheap enough.”',
+          'If you are shopping end-of-season clearance units, compare the sticker SEER against your remaining cooling days plus next summer — the [SEER ratings guide](/guides/seer-ratings-explained) pairs with the compare field above.',
+        ],
+      },
+      {
         heading: 'What this estimate leaves out',
         paragraphs: [
           'We model compressor energy for planning — not standby power, fans on other equipment, or time-of-use rate tiers. Treat the result as a comparison tool between units, not a utility bill guarantee.',

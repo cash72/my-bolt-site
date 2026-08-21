@@ -113,8 +113,11 @@ export default function HomePage() {
 
       <p className="mb-8 text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed border-l-4 border-sky-500 pl-4">
         A 12×12 bedroom (144 sq ft) typically needs 3,600–4,300 BTU calculated — retail mini-splits start at
-        9,000 BTU. Enter your exact dimensions below for cooling load, heating estimate, and recommended ductless
-        head size.
+        9,000 BTU. Size the load below, then estimate monthly electricity with the{' '}
+        <Link to="/ac-cost-to-run-calculator" className="text-sky-700 dark:text-sky-400 font-medium hover:underline">
+          SEER / AC cost to run calculator
+        </Link>{' '}
+        before you buy on efficiency alone.
       </p>
 
       <HvacCalculator />

@@ -269,6 +269,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Size each zone with the [mini-split calculator](/mini-split-calculator) before comparing multi-zone outdoor unit charts from manufacturers.',
+          'Multi-zone systems often run longer combined hours — after you lock capacity, compare SEER tiers with the [AC cost to run calculator](/ac-cost-to-run-calculator).',
         ],
       },
     ],
@@ -777,6 +778,7 @@ export const GUIDES: Guide[] = [
           'Cottages at the lake see high humidity in June — dehumidification matters as much as raw BTU. Right-sized inverter units run longer cycles and pull moisture better than oversized singles.',
           'Shoulder-season heat (50–40°F outdoor) needs a heat pump with published low-temp performance. Check HSPF2 and extended capacity tables before relying on ductless as sole heat source.',
           'Run the [cottage mini-split calculator](/mini-split-for-cottage) with "poor" insulation first if the camp is older, then model upgrades to see BTU drop.',
+          'Seasonal cottages still rack up July–August kWh — estimate electricity with the [AC cost to run calculator](/ac-cost-to-run-calculator) using SEER, weekend/vacation hours, and your $/kWh rate.',
         ],
       },
     ],
@@ -824,6 +826,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Start with the full [DIY mini-split project roadmap](/guides/diy-mini-split-project-roadmap) if you are sequencing size → wire → mount. DIY videos skip code and refrigerant law — verify what is legal in your jurisdiction before purchasing.',
+          'Before you pay for a premium SEER tier, estimate recovery with the [AC cost to run calculator](/ac-cost-to-run-calculator) using your climate hours and utility rate.',
         ],
       },
       {
@@ -1562,6 +1565,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Avoid [common sizing mistakes](/guides/common-mini-split-sizing-mistakes) even when hiring — oversized heads short-cycle and feel clammy.',
+          'Ask for SEER2 options with a side-by-side bill estimate — run both tiers in the [AC cost to run calculator](/ac-cost-to-run-calculator) before you sign for “highest efficiency.”',
         ],
       },
       {
@@ -1610,6 +1614,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'A unit that is too large short-cycles; too small never catches up. Use the [window AC calculator](/window-ac-calculator) and [window AC BTU sizing](/guides/window-ac-btu-sizing) before you haul a 70 lb chassis up a ladder.',
           'If you want quiet year-round heat and cool, compare [mini-split vs window AC](/guides/mini-split-vs-window-ac) before cutting foam side panels.',
+          'Low-SEER clearance window units look cheap upfront — check late-summer run cost with the [AC cost to run calculator](/ac-cost-to-run-calculator) before you mount one for another season.',
         ],
       },
       {
