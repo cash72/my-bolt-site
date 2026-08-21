@@ -40,6 +40,7 @@ export const GUIDES: Guide[] = [
         heading: 'Put it together with a calculator',
         paragraphs: [
           'Multiply length × width for floor area, apply your BTU factor, then adjust for ceiling height, sun, and occupants. Our [BTU calculator](/btu-calculator) applies these factors so you do not have to memorize every exception.',
+          'After you lock capacity, estimate monthly electricity with the [AC cost to run calculator](/ac-cost-to-run-calculator) using SEER, hours, and your $/kWh rate.',
         ],
       },
       {
@@ -124,6 +125,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Run exact dimensions in the [room AC calculator](/room-ac-calculator). Compare ductless vs window units in our [mini-split vs window AC guide](/guides/mini-split-vs-window-ac) before buying.',
+          'Once you pick a capacity and SEER, estimate nightly electricity with the [AC cost to run calculator](/ac-cost-to-run-calculator) — bedrooms often run 6–10 hours while you sleep.',
         ],
       },
     ],
@@ -194,7 +196,7 @@ export const GUIDES: Guide[] = [
         heading: 'Cost comparison over 5 years (planning estimate)',
         paragraphs: [
           'A $400 window unit vs a $1,200 DIY mini-split kit: the mini-split often pays back in electricity if you run AC 4+ hours daily in a hot climate with SEER 20+ vs SEER 11 window unit.',
-          'Renters and seasonal-only users may still prefer window units despite efficiency. Full-time tiny home, RV, or cottage dwellers usually benefit from ductless long term. Read [SEER ratings explained](/guides/seer-ratings-explained) before comparing models.',
+          'Renters and seasonal-only users may still prefer window units despite efficiency. Full-time tiny home, RV, or cottage dwellers usually benefit from ductless long term. Read [SEER ratings explained](/guides/seer-ratings-explained) before comparing models — then plug both SEER numbers into the [AC cost to run calculator](/ac-cost-to-run-calculator) with your hours and utility rate.',
         ],
       },
     ],
@@ -320,7 +322,7 @@ export const GUIDES: Guide[] = [
           'Install quality (vacuum, line length, airflow) affects real-world efficiency as much as the label',
         ],
         paragraphs: [
-          'Size the head first with a BTU calculator, then compare SEER within the correct capacity tier.',
+          'Size the head first with a [BTU calculator](/btu-calculator), then compare SEER within the correct capacity tier using the [AC cost to run calculator](/ac-cost-to-run-calculator).',
         ],
       },
       {
@@ -339,7 +341,7 @@ export const GUIDES: Guide[] = [
           'SEER2 label on 2023+ equipment — compare like with like',
         ],
         paragraphs: [
-          'A 9,000 BTU SEER 22 unit running 8 hours daily at $0.15/kWh saves roughly $30–50/year vs SEER 13 at the same load — rough planning math, not a utility bill guarantee.',
+          'A 9,000 BTU SEER 22 unit running 8 hours daily at $0.15/kWh saves roughly $30–50/year vs SEER 13 at the same load — rough planning math, not a utility bill guarantee. Run your own hours and rate in the [AC cost to run calculator](/ac-cost-to-run-calculator).',
           'Pair efficiency shopping with correct sizing from our [BTU per sq ft guide](/guides/btu-per-square-foot-explained).',
         ],
       },
@@ -348,7 +350,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'What SEER is good for a mini-split?',
         answer:
-          'SEER 18–20 is a solid minimum for new ductless equipment. SEER 24+ is common on premium inverter models. Diminishing returns exist — balance upfront cost against local electric rates.',
+          'SEER 18–20 is a solid minimum for new ductless equipment. SEER 24+ is common on premium inverter models. Diminishing returns exist — balance upfront cost against local electric rates. Estimate monthly bill impact with the [AC cost to run calculator](/ac-cost-to-run-calculator) before paying for a premium tier.',
       },
       {
         question: 'Does SEER matter for a she-shed used part-time?',
@@ -359,6 +361,11 @@ export const GUIDES: Guide[] = [
         question: 'Is SEER the same as EER?',
         answer:
           'No. EER is a single test point (often 95°F). SEER averages over a season. Mini-split shopping labels emphasize SEER or SEER2.',
+      },
+      {
+        question: 'How do I translate SEER into monthly cost?',
+        answer:
+          'Use kWh ≈ (BTU/hr × hours) ÷ (SEER × 1,000), then multiply by your $/kWh rate. The [AC cost to run calculator](/ac-cost-to-run-calculator) does that math and lets you compare two SEER levels side by side.',
       },
     ],
   },
@@ -407,6 +414,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'A propane range and refrigerator in a 300 sq ft tiny home add sensible heat beyond square footage. Enable kitchen load in the [tiny home calculator](/mini-split-for-tiny-home) when the galley shares the main volume.',
           'Sleeping lofts with 4–6 ft knee walls still add cubic volume — use high-ceiling adjustment when peak height exceeds 10 ft. A 12,000 BTU head is common when loft volume is included on a 350 sq ft footprint.',
+          'Full-time tiny homes run long daily hours — after you pick BTU, estimate electricity with the [AC cost to run calculator](/ac-cost-to-run-calculator) using SEER, hours, and your $/kWh rate.',
         ],
       },
     ],
@@ -479,6 +487,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'After upgrading insulation, rerun the [tiny home mini-split calculator](/mini-split-for-tiny-home) — many builds drop from 12,000 BTU planning to 9,000 BTU actual load.',
+          'Lower load plus higher SEER stacks savings — estimate the bill with the [AC cost to run calculator](/ac-cost-to-run-calculator) after you lock capacity.',
         ],
       },
     ],
@@ -551,6 +560,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Enter slide-out dimensions in the [RV mini-split calculator](/mini-split-for-rv). Thin walls mean you will land at the high end of [BTU per sq ft](/guides/btu-per-square-foot-explained) ranges.',
+          'Hot-climate full-timers often run AC 10+ hours/day — compare SEER options in the [AC cost to run calculator](/ac-cost-to-run-calculator) before paying for a premium efficiency tier you will not recover on shore power rates.',
         ],
       },
     ],
@@ -700,6 +710,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'A 12×20 insulated she-shed (240 sq ft) often calculates 7,000–9,000 BTU after insulation — buy 9,000 BTU inverter. Use the [she-shed calculator](/mini-split-for-shed) with updated insulation inputs.',
+          'Part-time sheds still rack up kWh on hot Saturdays — plug your SEER and weekend hours into the [AC cost to run calculator](/ac-cost-to-run-calculator) before upgrading efficiency alone.',
         ],
       },
     ],
@@ -923,6 +934,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Walk through our [BTU per sq ft guide](/guides/btu-per-square-foot-explained) and rerun the [mini-split calculator](/mini-split-calculator) before checkout — returns on opened line-set kits are difficult.',
+          'Once capacity is settled, compare efficiency tiers with the [AC cost to run calculator](/ac-cost-to-run-calculator) so you are not paying for oversized SEER you will never recover.',
         ],
       },
     ],
@@ -989,6 +1001,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Kitchen 12×14 (168 sq ft) + living 18×16 (288 sq ft) = 456 sq ft open zone. Baseline 456 × 25 = 11,400 BTU. Kitchen load +10% → 12,540 BTU. Nine-foot ceilings +15% → ~14,400 BTU.',
           'Choose a 12,000 or 18,000 BTU head depending on sun and whether you accept the top of range — many open plans land on 12,000 BTU with good insulation. Use the [what size AC calculator](/what-size-ac-do-i-need) with kitchen toggle enabled.',
+          'Open plans often run longer afternoon hours than closed rooms — once capacity is set, compare SEER tiers with the [AC cost to run calculator](/ac-cost-to-run-calculator).',
         ],
       },
     ],
@@ -1062,6 +1075,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Many owners oversize because they skip steps 1–2. See [DIY install basics](/guides/diy-mini-split-installation-basics) for electrical planning before cutting drywall.',
+          'Workshop run hours are often longer than living rooms — check summer electricity with the [AC cost to run calculator](/ac-cost-to-run-calculator) before locking a SEER tier.',
         ],
       },
     ],
@@ -1105,6 +1119,7 @@ export const GUIDES: Guide[] = [
         heading: 'When to skip window AC',
         paragraphs: [
           'Large open rooms, sunrooms, and additions with poor insulation may need 12,000+ BTU window units that are loud and block egress windows. Compare [mini-split vs window AC](/guides/mini-split-vs-window-ac) before buying the biggest box at the store.',
+          'If you are choosing between a cheap low-SEER window unit and a higher-SEER ductless head, run both through the [AC cost to run calculator](/ac-cost-to-run-calculator) with your summer hours.',
         ],
       },
     ],
@@ -1148,7 +1163,7 @@ export const GUIDES: Guide[] = [
           'HSPF and SEER: read both on heat pump labels',
         ],
         paragraphs: [
-          'See [SEER ratings explained](/guides/seer-ratings-explained) for efficiency shopping — higher SEER saves kWh over years, not first-season comfort.',
+          'See [SEER ratings explained](/guides/seer-ratings-explained) for efficiency shopping — higher SEER saves kWh over years, not first-season comfort. Estimate the bill impact with the [AC cost to run calculator](/ac-cost-to-run-calculator).',
         ],
       },
     ],
@@ -1180,7 +1195,7 @@ export const GUIDES: Guide[] = [
         heading: 'Efficiency and hose setup',
         paragraphs: [
           'Single-hose portable ACs pull conditioned air from the room to exhaust heat — they fight themselves and use more kWh per BTU. Dual-hose models separate intake and exhaust — better, still less efficient than window units.',
-          'Window units mount half inside, half outside — heat leaves directly. Same BTU rating, window units usually cool faster and cheaper to run.',
+          'Window units mount half inside, half outside — heat leaves directly. Same BTU rating, window units usually cool faster and cheaper to run. Compare monthly kWh with the [AC cost to run calculator](/ac-cost-to-run-calculator) using each unit’s SEER/EER and your hours.',
         ],
       },
       {
@@ -1259,7 +1274,7 @@ export const GUIDES: Guide[] = [
           'Alt DIY: [Window AC sizing](/guides/window-ac-btu-sizing) · [Install window AC](/guides/how-to-install-window-ac-safely) · [Portable vs window](/guides/portable-ac-vs-window-ac)',
         ],
         paragraphs: [
-          'Calculators: [mini-split](/mini-split-calculator), [BTU](/btu-calculator), [window AC](/window-ac-calculator), [RV](/mini-split-for-rv), [tiny home](/mini-split-for-tiny-home), [shed](/mini-split-for-shed), [garage heater](/garage-heater-btu-calculator).',
+          'Calculators: [mini-split](/mini-split-calculator), [BTU](/btu-calculator), [window AC](/window-ac-calculator), [AC cost to run / SEER](/ac-cost-to-run-calculator), [RV](/mini-split-for-rv), [tiny home](/mini-split-for-tiny-home), [shed](/mini-split-for-shed), [garage heater](/garage-heater-btu-calculator).',
         ],
       },
       {
@@ -1267,6 +1282,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Week before: size with the calculator, order matched kit, schedule electrician if you are not comfortable with 220V, pull permit if required. Saturday: mount outdoor pad/bracket and indoor head, drill penetration, run line set and drain. Sunday: electrical disconnect, leak check, open valves or vacuum, test modes. Complex multi-zone or long line sets are rarely a weekend DIY.',
           'This roadmap is planning information — always follow the manufacturer manual and local code. Refrigerant work may require a license where you live.',
+          'Before checkout, run your chosen SEER through the [AC cost to run calculator](/ac-cost-to-run-calculator) so you are not paying for efficiency you will not recover in your climate.',
         ],
       },
     ],
