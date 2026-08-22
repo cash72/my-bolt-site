@@ -37,9 +37,9 @@ const HOMEPAGE_FAQ = [
 
 export default function HomePage() {
   usePageMeta({
-    title: 'Mulch Calculator — Cubic Yards, Bags & Cost',
+    title: 'Mulch Cost Estimator & Calculator — Bulk Yards vs Bags',
     description:
-      'Free mulch calculator for garden beds. Enter bed dimensions and depth to get cubic yards, bag counts, and optional cost estimates.',
+      'Free mulch cost estimator and cubic-yard calculator. Compare bulk $/yard vs bagged mulch, then get bag counts for garden beds before fall delivery wait lists stack up.',
     path: '/',
   });
 
@@ -92,8 +92,15 @@ export default function HomePage() {
 
       <p className="mb-8 text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed border-l-4 border-emerald-500 pl-4">
         A 10×10 garden bed at 3 inches deep needs about 0.93 cubic yards of mulch — roughly 14
-        standard 2 cu ft bags. Enter your bed dimensions below for cubic yards, bag counts, and a
-        copyable garden-center shopping list.
+        standard 2 cu ft bags. Enter bed dimensions below for cubic yards and bags, then compare
+        bulk vs bag spend in the{' '}
+        <Link
+          to="/mulch-cost-estimator"
+          className="font-medium text-emerald-600 dark:text-emerald-400 hover:underline"
+        >
+          bulk / bag cost estimator
+        </Link>{' '}
+        before late-summer delivery lead times stretch into fall.
       </p>
 
       <MulchCalculator />

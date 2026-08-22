@@ -234,7 +234,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'What is the cheapest mulch option?',
         answer:
-          'Bulk shredded hardwood from a local yard is often cheapest per cubic yard. Municipal leaf compost programs can be free or low-cost for residents.',
+          'Bulk shredded hardwood from a local yard is often cheapest per cubic yard. Municipal leaf compost programs can be free or low-cost for residents. Compare your local $/yard vs bag tags in the [mulch cost estimator](/mulch-cost-estimator) before you assume bulk wins after delivery.',
       },
       {
         question: 'Can I use compost instead of mulch?',
@@ -638,6 +638,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           '1) Mark bed outline. 2) Install edging. 3) Remove weeds/debris. 4) Water plants. 5) Calculate volume with target depth. 6) Spread and depth-check.',
           'Good prep means the mulch you calculated actually stays in the bed — not on the driveway.',
+          'Re-measure after edging (finished beds often shrink a few inches vs the rough outline), then lock spend in the [mulch cost estimator](/mulch-cost-estimator) so the order matches the edged bed.',
         ],
       },
     ],
@@ -779,7 +780,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'How much mulch for a fall top-up on 200 sq ft?',
         answer:
-          'At 2 inches new depth: 200 × (2/12) = 33 cu ft ≈ 1.2 cubic yards. Add 10% waste and round up. That is roughly 17–18 standard 2 cu ft bags.',
+          'At 2 inches new depth: 200 × (2/12) = 33 cu ft ≈ 1.2 cubic yards. Add 10% waste and round up. That is roughly 17–18 standard 2 cu ft bags — compare bag vs bulk totals in the [mulch cost estimator](/mulch-cost-estimator) before Labor Day delivery calendars fill.',
       },
     ],
   },
@@ -823,6 +824,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Treat each raised bed and path as a separate rectangle. A 4 ft × 8 ft bed at 2 inches depth needs about 5.3 cu ft — roughly four 2 cu ft bags.',
           'Add path length × width for total project volume. Our [mulch calculator](/mulch-calculator) handles multiple areas; set depth to 2 inches for most vegetable applications.',
+          'When paths plus beds push past a yard, compare straw/chip bag stacks to a bulk drop in the [mulch cost estimator](/mulch-cost-estimator) before you fill the car trunk twice.',
         ],
       },
     ],
@@ -885,6 +887,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Divide cubic feet by 27 for yards; multiply yards by ~13.5 for standard 2 cu ft bags (half-bags do not exist — round up).',
           'Three 6-ft-diameter rings at 3 inches total about 0.8 cubic yards — often cheaper as bags than a bulk minimum. Run all rings in our [mulch calculator](/mulch-calculator) with custom bed dimensions.',
+          'Price that sub-yard total in the [mulch cost estimator](/mulch-cost-estimator) — delivery minimums often erase bulk savings on tree-ring-only jobs.',
         ],
       },
     ],
@@ -946,6 +949,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Refresh volume is smaller than initial install. A 150 sq ft front bed at 1.5 inches new depth needs 150 × 0.125 = 18.75 cu ft ≈ 0.7 cubic yards — about 9–10 bags.',
           'Calculate refresh depth separately from total bed depth. Use our [mulch calculator](/mulch-calculator) with a 1–2 inch depth entry for cosmetic top-ups only.',
+          'Late-summer fade refreshes usually stay under a yard — run bag vs bulk dollars in the [mulch cost estimator](/mulch-cost-estimator) before booking a delivery that may sit behind Labor Day demand.',
         ],
       },
     ],
@@ -1143,7 +1147,7 @@ export const GUIDES: Guide[] = [
           'Maintain: [Refresh without removing](/guides/refresh-mulch-without-removing-old) · [Keep off foundation](/guides/mulch-too-close-to-house-foundation)',
         ],
         paragraphs: [
-          'Calculators: [mulch](/mulch-calculator), [cubic yards](/cubic-yards-calculator), [topsoil](/topsoil-calculator), [gravel](/gravel-calculator), [playground](/playground-mulch-calculator).',
+          'Calculators: [mulch cost estimator](/mulch-cost-estimator), [mulch](/mulch-calculator), [cubic yards](/cubic-yards-calculator), [topsoil](/topsoil-calculator), [gravel](/gravel-calculator), [playground](/playground-mulch-calculator).',
         ],
       },
       {

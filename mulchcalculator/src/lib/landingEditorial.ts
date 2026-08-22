@@ -163,7 +163,8 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'Seasonal pricing without new landings',
         paragraphs: [
           'Late summer into early fall is when many yards restock dyed bulk and fall colors. Measure after you pull summer weeds, order only the top-up depth you need (often 1–2 inches over existing mulch), and compare quotes while suppliers still have capacity.',
-          'August–September tip: call for delivery lead times before weekend demand stacks up — wait lists stretch faster than $/yard in many markets. Depth and timing tips live in [fall mulch application timing](/guides/fall-mulch-application-timing) and [spring mulch application](/guides/spring-mulch-application-guide).',
+          'Late-August tip (pre–Labor Day): call for delivery lead times before holiday and September demand stacks up — wait lists stretch faster than $/yard in many markets. Depth and timing tips live in [fall mulch application timing](/guides/fall-mulch-application-timing) and [spring mulch application](/guides/spring-mulch-application-guide).',
+          'If you are only restoring curb appeal after summer fade, enter 1–2 inch refresh depth here instead of a full 3-inch new-bed order — that keeps many front yards under a single yard and often tips toward bags once delivery fees land.',
         ],
       },
       {

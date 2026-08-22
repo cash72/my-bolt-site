@@ -231,6 +231,11 @@ export const LANDING_PAGES: LandingPage[] = [
         answer:
           'Late summer is a good window to price bulk before peak fall demand — measure beds after heat-stressed weeds die back, then top up 1–2 inches before frost. See [fall mulch application timing](/guides/fall-mulch-application-timing) for depth targets; run volumes here with your local yard and bag prices.',
       },
+      {
+        question: 'Should I order before Labor Day weekend?',
+        answer:
+          'If you can: late August through the week before Labor Day often has shorter delivery lead times than mid-September, when yards are booking fall bed refreshes. Price bulk vs bags here first, then call for drop dates — wait lists stretch faster than $/yard in many markets.',
+      },
     ],
   },
   {
