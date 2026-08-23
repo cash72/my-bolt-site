@@ -22,7 +22,7 @@ export const GUIDES: Guide[] = [
         heading: 'Basic rectangular rooms',
         paragraphs: [
           'Measure wall to wall at the longest points — not always at the baseboard if the room is out of square. Record length and width in feet and inches.',
-          'Multiply length × width for square footage. A 12 ft × 14 ft room is 168 sq ft. Enter each room separately in the calculator, then add them for a whole-house total.',
+          'Multiply length × width for square footage. A 12 ft × 14 ft room is 168 sq ft. Enter each room separately in the calculator, then add them for a whole-house total — and price the buy area with waste in the [flooring cost estimator](/flooring-cost-estimator) once you have a shelf $/sq ft.',
         ],
       },
       {
@@ -86,7 +86,7 @@ export const GUIDES: Guide[] = [
         heading: 'Why subfloor prep matters',
         paragraphs: [
           'New flooring telegraphs every bump, dip, and squeak underneath. Laminate clicks together and bridges small gaps — but large low spots flex and crack boards. Tile needs a flat plane or edges crack. Carpet hides minor issues but pad over humps wears faster.',
-          'Budget time for prep. It is often half the job on older homes.',
+          'Budget time for prep. It is often half the job on older homes. After you know area, price materials (and optional install) in the [flooring cost estimator](/flooring-cost-estimator) so prep labor does not blow a vague “about $X a box” guess.',
         ],
       },
       {
@@ -179,6 +179,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'After tear-out, walk the subfloor and update measurements — old flooring thickness can hide true room size. Rerun the [square footage calculator](/flooring-square-footage-calculator) if walls were previously covered differently.',
+          'Price the replacement floor separately from haul-away: lock materials + optional install in the [flooring cost estimator](/flooring-cost-estimator), then keep dumpster or trailer fees as their own line so bids stay comparable.',
         ],
       },
     ],
@@ -268,6 +269,7 @@ export const GUIDES: Guide[] = [
         heading: 'How to order transitions',
         paragraphs: [
           'Measure each doorway width and add 10% for cuts. Count height changes between rooms — each needs a reducer or T-mold. See [laminate install basics](/guides/how-to-install-laminate-flooring-beginners) for when to snap transitions before the last row.',
+          'Budget transitions after you lock plank or tile dollars in the [flooring cost estimator](/flooring-cost-estimator) — they are linear-foot extras, not part of the $/sq ft box price.',
         ],
       },
     ],
@@ -275,7 +277,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Do transitions count in square footage?',
         answer:
-          'No — they are linear feet purchased separately. Measure each doorway width and add 10% for cuts.',
+          'No — they are linear feet purchased separately. Measure each doorway width and add 10% for cuts. Price planks first in the [flooring cost estimator](/flooring-cost-estimator), then add transition pieces per doorway.',
       },
     ],
   },
@@ -327,7 +329,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Worked example: 320 sq ft living + hallway',
         paragraphs: [
-          '320 sq ft × 10% waste = 352 sq ft to buy for straight laminate. At 22 sq ft per box → 16 boxes. For 15% tile waste on the same area: 368 sq ft ÷ 15 sq ft per box ≈ 25 boxes. Use the [waste calculator](/flooring-waste-calculator) to toggle percentages without redoing math.',
+          '320 sq ft × 10% waste = 352 sq ft to buy for straight laminate. At 22 sq ft per box → 16 boxes. For 15% tile waste on the same area: 368 sq ft ÷ 15 sq ft per box ≈ 25 boxes. Use the [waste calculator](/flooring-waste-calculator) to toggle percentages without redoing math, then price the buy area in the [flooring cost estimator](/flooring-cost-estimator).',
         ],
       },
     ],
@@ -434,7 +436,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Budget planning per square foot',
         paragraphs: [
-          'Material-only rough ranges (installed varies by region): carpet often lowest per sq ft, laminate/LVP mid-tier, porcelain tile higher for product + mortar + labor. Measure total sq ft first, then compare line-item quotes per category using our [square footage calculator](/flooring-square-footage-calculator).',
+          'Material-only rough ranges (installed varies by region): carpet often lowest per sq ft, laminate/LVP mid-tier, porcelain tile higher for product + mortar + labor. Measure total sq ft first, then compare line-item quotes per category using our [square footage calculator](/flooring-square-footage-calculator) and [flooring cost estimator](/flooring-cost-estimator).',
         ],
       },
     ],
@@ -451,9 +453,9 @@ export const GUIDES: Guide[] = [
   {
     slug: 'do-i-need-underlay-for-laminate',
     category: 'laminate',
-    title: 'Do You Need Underlay for Laminate Flooring? (Yes)',
+    title: 'Do I Need Underlayment for Laminate Flooring?',
     description:
-      'Do you need underlay for laminate flooring? Almost always yes — foam, felt, cork, vapor barriers on concrete, and when attached-pad laminate is the exception.',
+      'When underlay is required, foam vs felt vs cork, vapor barriers on concrete, and attached-pad laminate exceptions.',
     readMinutes: 9,
     toolPath: '/laminate-flooring-calculator',
     toolLabel: 'Laminate calculator',
@@ -467,7 +469,7 @@ export const GUIDES: Guide[] = [
         heading: 'Short answer: almost always yes',
         paragraphs: [
           'Underlayment goes between subfloor and floating laminate. It cushions, reduces noise, smooths minor subfloor texture, and often provides the required vapor barrier on concrete.',
-          'Skipping underlay voids many warranties and makes floors loud and hollow-sounding.',
+          'Skipping underlay voids many warranties and makes floors loud and hollow-sounding. Budget underlay separately from plank $/sq ft — lock the plank total in the [flooring cost estimator](/flooring-cost-estimator), then add underlay coverage for the same buy area.',
         ],
       },
       {
@@ -585,6 +587,8 @@ export const GUIDES: Guide[] = [
     description:
       'Pick the right laminate for traffic, pets, and moisture. AC ratings, mm thickness, and when to choose LVP instead.',
     readMinutes: 9,
+    toolPath: '/flooring-cost-estimator',
+    toolLabel: 'Flooring cost estimator',
     sections: [
       {
         heading: 'AC wear rating',
@@ -620,7 +624,9 @@ export const GUIDES: Guide[] = [
           'Attached pad? — skip double underlay unless approved',
           'Batch/lot number — buy all boxes same run',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Once you shortlist a product, run room size and the shelf $/sq ft through the [flooring cost estimator](/flooring-cost-estimator) so material totals beat a vague “about $X a box” guess.',
+        ],
       },
     ],
     faqs: [
@@ -666,6 +672,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Run both material paths in the [vinyl plank calculator](/vinyl-plank-calculator) and [laminate calculator](/laminate-flooring-calculator) with the same room list to compare box counts.',
+          'Then plug each shelf $/sq ft into the [flooring cost estimator](/flooring-cost-estimator) so the cheaper-looking category does not lose once waste and optional install are included.',
         ],
       },
     ],
@@ -819,7 +826,7 @@ export const GUIDES: Guide[] = [
           'Natural stone: seal regularly; higher maintenance than porcelain',
         ],
         paragraphs: [
-          'Enter tile dimensions in the [tile calculator](/tile-flooring-calculator) with 15–20% waste for diagonal or large-format layouts.',
+          'Enter tile dimensions in the [tile calculator](/tile-flooring-calculator) with 15–20% waste for diagonal or large-format layouts, then price materials + optional install in the [flooring cost estimator](/flooring-cost-estimator) before you commit to a cart.',
         ],
       },
     ],
@@ -906,6 +913,7 @@ export const GUIDES: Guide[] = [
         heading: 'Square yard ordering example',
         paragraphs: [
           'Room 12×15 ft = 180 sq ft ÷ 9 = 20 sq yd carpet. With 10% waste → 22 sq yd. Order pad to match 22 sq yd — pad and carpet are sold separately but same area. Use the [carpet calculator](/carpet-calculator) to convert feet to yards automatically.',
+          'Price carpet face fiber separately from pad: lock the carpet $/sq ft (or convert from $/sq yd) in the [flooring cost estimator](/flooring-cost-estimator), then add pad as its own line so the soft-underfoot upgrade stays visible.',
         ],
       },
     ],
@@ -963,6 +971,7 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Measure in feet, order in square yards — the [carpet calculator](/carpet-calculator) handles conversion and waste. See [pad guide](/guides/carpet-pad-guide) before checkout.',
+          'When you have a shelf price, run the same buy area through the [flooring cost estimator](/flooring-cost-estimator) so nylon vs polyester choices include waste dollars, not just fiber feel.',
         ],
       },
     ],
@@ -1027,7 +1036,7 @@ export const GUIDES: Guide[] = [
           'Carpet branch: [Choose carpet](/guides/how-to-choose-carpet-for-rooms) · [Carpet pad](/guides/carpet-pad-guide) · [Carpet calculator](/carpet-calculator)',
         ],
         paragraphs: [
-          'Material-specific calculators: [laminate](/laminate-flooring-calculator), [vinyl plank](/vinyl-plank-calculator), [tile](/tile-flooring-calculator), [carpet](/carpet-calculator).',
+          'Material-specific calculators: [laminate](/laminate-flooring-calculator), [vinyl plank](/vinyl-plank-calculator), [tile](/tile-flooring-calculator), [carpet](/carpet-calculator). Price materials + optional install with the [flooring cost estimator](/flooring-cost-estimator) before you commit to a cart.',
         ],
       },
       {
@@ -1075,7 +1084,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Buy the kit once — finish the room',
         paragraphs: [
-          'A cheap foam block and missing pull bar turn the last row into a fight. Spend on a proper floating-floor kit and one decent saw; it costs less than an extra box of planks wasted on bad cuts. Calculate boxes first with the [laminate calculator](/laminate-flooring-calculator).',
+          'A cheap foam block and missing pull bar turn the last row into a fight. Spend on a proper floating-floor kit and one decent saw; it costs less than an extra box of planks wasted on bad cuts. Calculate boxes first with the [laminate calculator](/laminate-flooring-calculator), then lock materials + optional install dollars in the [flooring cost estimator](/flooring-cost-estimator) before you open cartons.',
         ],
       },
       {
@@ -1290,8 +1299,8 @@ export const GUIDES: Guide[] = [
     description:
       'Undercut door casings so laminate or vinyl slides under for a clean finish. Tool setup, scrap-plank height trick, and transitions at doorways.',
     readMinutes: 9,
-    toolPath: '/how-many-flooring-boxes',
-    toolLabel: 'Flooring boxes calculator',
+    toolPath: '/flooring-cost-estimator',
+    toolLabel: 'Flooring cost estimator',
     relatedGuideSlugs: [
       'how-to-install-laminate-flooring-beginners',
       'flooring-transition-strips-and-trim',
@@ -1303,7 +1312,7 @@ export const GUIDES: Guide[] = [
         heading: 'Slide under the jamb — do not caulk a gap',
         paragraphs: [
           'Leaving a chewed gap beside the door casing and filling it with caulk looks like a DIY tell. Pros undercut the jamb and casing so the plank slides underneath with a tight shadow line.',
-          'Do this before or as you reach each doorway — fighting a finished row into a square casing wastes planks.',
+          'Do this before or as you reach each doorway — fighting a finished row into a square casing wastes planks. Factor doorway waste into your buy area with the [flooring cost estimator](/flooring-cost-estimator) so short boxes mid-install do not erase a carefully planned materials budget.',
         ],
       },
       {
@@ -1377,7 +1386,7 @@ export const GUIDES: Guide[] = [
         heading: 'DIY wins on simple floating floors',
         paragraphs: [
           'Click-lock laminate or rigid vinyl in a rectangular room on a flat, dry subfloor is a classic weekend DIY. You will spend more time on prep and cuts than on clicking planks together.',
-          'Use the [DIY flooring roadmap](/guides/diy-flooring-installation-roadmap) and [boxes calculator](/how-many-flooring-boxes) even if you hire install — knowing quantities keeps bids honest.',
+          'Use the [DIY flooring roadmap](/guides/diy-flooring-installation-roadmap), [boxes calculator](/how-many-flooring-boxes), and [flooring cost estimator](/flooring-cost-estimator) even if you hire install — knowing quantities and materials cost keeps bids honest.',
         ],
       },
       {
