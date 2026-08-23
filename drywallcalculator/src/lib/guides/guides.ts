@@ -49,7 +49,7 @@ export const GUIDES: Guide[] = [
         heading: 'Multi-room projects and ordering',
         paragraphs: [
           'Add each room separately, then total sheets for one lumber-yard trip. Match sheet thickness and type (standard vs moisture-resistant) across the job so texture and paint absorb the same.',
-          'Use our [drywall calculator](/drywall-calculator) for up to five rooms, ceiling toggle, custom sheet dimensions, and a copyable shopping list with screw and compound estimates.',
+          'Use our [drywall calculator](/drywall-calculator) for up to five rooms, ceiling toggle, custom sheet dimensions, and a copyable shopping list with screw and compound estimates. Price sheets, mud, and screws with the [drywall cost estimator](/drywall-cost-estimator) before checkout.',
         ],
       },
     ],
@@ -67,7 +67,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'How much extra drywall should I buy?',
         answer:
-          'Add 10% waste for simple rectangular rooms, 12–15% for rooms with many corners, soffits, or arched openings. See our waste guide for cut-loss factors on ceilings and complex layouts.',
+          'Add 10% waste for simple rectangular rooms, 12–15% for rooms with many corners, soffits, or arched openings. See our waste guide for cut-loss factors on ceilings and complex layouts, then price the buy count in the [drywall cost estimator](/drywall-cost-estimator).',
       },
     ],
   },
@@ -111,6 +111,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Match sheet length to ceiling height and wall length. On a 24 ft basement wall with 8 ft ceilings, three sheets of 4×8 create two butt joints; two sheets of 4×12 create one. Fewer joints mean less taping labor but harder handling.',
           'Enter your actual sheet dimensions in the calculator — using 48 sq ft per sheet instead of 32 changes the buy list significantly on large jobs.',
+          'Once sheet size is locked, price panels, mud, and screws in the [drywall cost estimator](/drywall-cost-estimator) so a “fewer seams” 4×12 plan still includes the heavier board and mud dollars.',
         ],
       },
     ],
@@ -175,7 +176,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Should I buy an extra sheet beyond waste?',
         answer:
-          'The waste factor already pads the order. One extra sheet for long-term patches is smart on visible living-area walls — store it flat in a dry space.',
+          'The waste factor already pads the order. One extra sheet for long-term patches is smart on visible living-area walls — store it flat in a dry space. Price the padded sheet count in the [drywall cost estimator](/drywall-cost-estimator) so the spare board is a conscious line item, not a surprise at checkout.',
       },
     ],
   },
@@ -204,6 +205,9 @@ export const GUIDES: Guide[] = [
           '1-1/4 inch drywall screws (coarse thread for wood studs)',
           'Drywall lift or deadman for ceiling help',
           'Construction adhesive optional on ceilings',
+        ],
+        paragraphs: [
+          'Estimate sheet count with the [drywall calculator](/drywall-calculator), then price sheets, mud, and screws in the [drywall cost estimator](/drywall-cost-estimator) before you rent a lift or buy a screw gun you will only use once.',
         ],
       },
       {
@@ -294,7 +298,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Is ceiling drywall harder than walls?',
         answer:
-          'Yes — overhead work is slower, heavier, and needs more fasteners. Budget 50–100% more labor time per sheet compared to walls.',
+          'Yes — overhead work is slower, heavier, and needs more fasteners. Budget 50–100% more labor time per sheet compared to walls. Materials still price the same way — run ceiling sheets through the [drywall cost estimator](/drywall-cost-estimator) after you know count from the [ceiling calculator](/drywall-for-ceiling-calculator).',
       },
       {
         question: 'What screw spacing for ceiling drywall?',
@@ -481,7 +485,7 @@ export const GUIDES: Guide[] = [
         heading: '1/2 inch — default for most homes',
         paragraphs: [
           '1/2 inch gypsum on walls and ceilings is the residential default when joists and studs are 16 inches on center. It balances weight, cost, and rigidity. A 4×8 sheet weighs about 57 lbs.',
-          'Use 1/2 inch moisture-resistant (green board) in bathrooms behind tile backer zones per manufacturer guidance — not as a tile substrate by itself in wet showers.',
+          'Use 1/2 inch moisture-resistant (green board) in bathrooms behind tile backer zones per manufacturer guidance — not as a tile substrate by itself in wet showers. Compare sheet prices for 1/2 vs 5/8 in the [drywall cost estimator](/drywall-cost-estimator) before you commit to a full-house upgrade.',
         ],
       },
       {
@@ -569,8 +573,8 @@ export const GUIDES: Guide[] = [
     description:
       'When to use moisture-resistant board, framing on concrete walls, ceiling height loss, egress windows, and estimating materials for full basement finishing projects.',
     readMinutes: 12,
-    toolPath: '/drywall-calculator',
-    toolLabel: 'Drywall calculator',
+    toolPath: '/basement-drywall-calculator',
+    toolLabel: 'Basement drywall calculator',
     relatedGuideSlugs: [
       'half-inch-vs-five-eighth-drywall',
       'hanging-drywall-on-ceiling',
@@ -588,7 +592,7 @@ export const GUIDES: Guide[] = [
         heading: 'Framing and furring',
         paragraphs: [
           'Steel or pressure-treated bottom plates on slab, studs 16 inches on center, rigid or batt insulation in cavity, then drywall. Furring channels can save headroom versus full stud walls on perimeter concrete.',
-          'Soffits around ducts and beams eat sheet count — measure each boxed-out area separately in the calculator.',
+          'Soffits around ducts and beams eat sheet count — measure each boxed-out area separately in the [basement drywall calculator](/basement-drywall-calculator).',
         ],
       },
       {
@@ -600,7 +604,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Typical basement sheet quantities',
         paragraphs: [
-          'A 1,000 sq ft open basement (30×33 footprint, 8 ft ceilings) might need 35–45 sheets for perimeter walls plus 30–35 ceiling sheets depending on layout — use room-by-room calculator entries for accuracy.',
+          'A 1,000 sq ft open basement (30×33 footprint, 8 ft ceilings) might need 35–45 sheets for perimeter walls plus 30–35 ceiling sheets depending on layout — use room-by-room calculator entries for accuracy, then price materials in the [drywall cost estimator](/drywall-cost-estimator).',
         ],
       },
     ],
@@ -624,8 +628,8 @@ export const GUIDES: Guide[] = [
     description:
       'Boxes of screws per 1,000 sq ft, five-gallon mud buckets per hang, paper tape rolls, corner bead linear feet, and a shopping list template for your drywall finishing phase.',
     readMinutes: 10,
-    toolPath: '/how-many-drywall-sheets',
-    toolLabel: 'Sheet count calculator',
+    toolPath: '/drywall-cost-estimator',
+    toolLabel: 'Drywall cost estimator',
     relatedGuideSlugs: [
       'drywall-screw-spacing-and-pattern',
       'drywall-taping-and-mudding-guide',
@@ -656,7 +660,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Putting the list together',
         paragraphs: [
-          'Run the calculator for sheets first, then add finishing materials as multiples of sheet count. A 15-sheet bedroom job might need: 15 sheets, 1 box screws, 2 mud buckets, 1 roll tape, 3 corner beads, primer after sand.',
+          'Run the [sheet count calculator](/how-many-drywall-sheets) first, then add finishing materials as multiples of sheet count. A 15-sheet bedroom job might need: 15 sheets, 1 box screws, 2 mud buckets, 1 roll tape, 3 corner beads, primer after sand. Price sheets, mud, and screws in the [drywall cost estimator](/drywall-cost-estimator).',
         ],
       },
     ],
@@ -774,6 +778,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Level 5 adds a thin skim coat over the entire surface — often one extra 5-gallon bucket per 400–600 sq ft of wall/ceiling depending on technique (roll skim vs trowel).',
           'Budget mud and sand time when estimating the job. Sheet count from our [drywall calculator](/drywall-calculator) drives compound estimates — see [screws and compound guide](/guides/estimating-drywall-screws-and-compound) for Level 4 baselines, then add skim material for Level 5 rooms.',
+          'Level 5 skim often adds another mud bucket — price the upgraded mud volume in the [drywall cost estimator](/drywall-cost-estimator) after you know hung area so finish-level choices show up as materials dollars, not only labor hours.',
         ],
       },
     ],
@@ -896,6 +901,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Measure only separating surfaces — not all four garage walls if two are exterior cladding. A 22×24 ft two-car garage sharing one 24-ft house wall and 22-ft ceiling band under a bedroom might need 15–20 sheets of Type X depending on height and door openings.',
           'Enter separating walls and ceiling as separate calculator rooms in our [drywall calculator](/drywall-calculator). Label Type X on your order — suppliers stock it separately from standard board.',
+          'Then price Type X sheet, mud, and screw tags in the [drywall cost estimator](/drywall-cost-estimator) so the fire upgrade is a clear dollar delta versus standard board on the same planes.',
         ],
       },
     ],
@@ -1081,7 +1087,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Phase-by-phase deep links',
         bullets: [
-          'Estimate: [How much drywall](/guides/how-much-drywall-for-a-room) · [Sheet sizes](/guides/drywall-sheet-sizes-explained) · [Waste](/guides/how-much-drywall-waste-to-add) · [Screws & compound](/guides/estimating-drywall-screws-and-compound)',
+          'Estimate: [How much drywall](/guides/how-much-drywall-for-a-room) · [Sheet sizes](/guides/drywall-sheet-sizes-explained) · [Waste](/guides/how-much-drywall-waste-to-add) · [Screws & compound](/guides/estimating-drywall-screws-and-compound) · [Cost estimator](/drywall-cost-estimator)',
           'Materials: [1/2 vs 5/8](/guides/half-inch-vs-five-eighth-drywall) · [Green/purple board](/guides/green-board-purple-board-bathrooms) · [Garage fire](/guides/garage-drywall-fire-separation)',
           'Hang: [Hang step-by-step](/guides/how-to-hang-drywall-step-by-step) · [Ceilings](/guides/hanging-drywall-on-ceiling) · [Screw pattern](/guides/drywall-screw-spacing-and-pattern) · [Windows & doors](/guides/drywall-around-windows-and-doors)',
           'Finish: [Tape & mud](/guides/drywall-taping-and-mudding-guide) · [How many coats](/guides/how-many-coats-drywall-mud) · [Finish levels](/guides/drywall-finish-levels-explained)',
@@ -1138,7 +1144,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Hang tools vs finish tools',
         paragraphs: [
-          'Hanging needs lifting and fastening gear. Finishing needs knives, pans, and sanding. Buy or borrow both before mud day — driving to the store with wet mud on the walls wastes coats. Estimate sheets first with the [drywall calculator](/drywall-calculator).',
+          'Hanging needs lifting and fastening gear. Finishing needs knives, pans, and sanding. Buy or borrow both before mud day — driving to the store with wet mud on the walls wastes coats. Estimate sheets first with the [drywall calculator](/drywall-calculator), then price sheets, mud, and screws in the [drywall cost estimator](/drywall-cost-estimator) so the tool budget and materials cart stay in one plan.',
         ],
       },
       {
@@ -1364,7 +1370,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Hang yourself, finish selectively',
         paragraphs: [
-          'Many DIYers hang successfully and hire finishing for skim and texture. Labor for Level 5 under gloss paint often costs less than redoing a blotchy DIY job. Still estimate sheets with the [drywall calculator](/drywall-calculator) so material bids stay honest.',
+          'Many DIYers hang successfully and hire finishing for skim and texture. Labor for Level 5 under gloss paint often costs less than redoing a blotchy DIY job. Still estimate sheets with the [drywall calculator](/drywall-calculator) and materials dollars with the [drywall cost estimator](/drywall-cost-estimator) so material bids stay honest before you compare labor quotes.',
         ],
       },
       {

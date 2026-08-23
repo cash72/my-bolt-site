@@ -283,26 +283,42 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'flooring-cost-estimator': {
     intro:
-      'Turn square footage into a materials-plus-install budget. Enter area, product $/sq ft, and labor rate — we estimate total project cost before you shop boxes or book an installer.',
+      'How much does flooring cost? Turn square footage into a materials-plus-install budget. Enter area, product $/sq ft, and optional labor — we estimate total project cost before you shop boxes or book an installer.',
     sections: [
       {
         heading: 'Material vs installed cost',
         paragraphs: [
           'Box labels show coverage and often a per-sq-ft material price. Installed quotes add labor, underlay, transitions, and disposal. This estimator keeps those line items separate so you can compare DIY vs pro.',
+          'Worked example: 280 sq ft living room + 10% waste = 308 sq ft to buy. At $2.80/sq ft materials ≈ $862; add $3.50/sq ft install ≈ $1,078 labor → ~$1,940 before underlay and trim. Flip the prices above to match your store tags and bids.',
           'Get an accurate area first with the [flooring square footage calculator](/flooring-square-footage-calculator), then convert to boxes with [how many flooring boxes](/how-many-flooring-boxes).',
         ],
       },
       {
         heading: 'Waste and extras in the budget',
         paragraphs: [
-          'Add 10–15% waste into the square footage you price — short boxes mid-install cost more than leftover cartons. Budget separately for underlay, trim, and threshold strips; they are rarely in the plank price.',
-          'For the full DIY sequence after you know cost, follow the [DIY flooring installation roadmap](/guides/diy-flooring-installation-roadmap).',
+          'Add 10–15% waste into the square footage you price — short boxes mid-install cost more than leftover cartons. Compare waste percentages in the [waste calculator](/flooring-waste-calculator) before you lock a materials total.',
+          'Budget separately for underlay, trim, and threshold strips; they are rarely in the plank price. For the full DIY sequence after you know cost, follow the [DIY flooring installation roadmap](/guides/diy-flooring-installation-roadmap).',
         ],
       },
       {
         heading: 'When quotes differ wildly',
         paragraphs: [
           'Big gaps between store DIY totals and contractor quotes usually come from subfloor prep, furniture moving, or tear-out — ask what is included. Use this page as a materials baseline, not a final bid.',
+          'Still choosing product? Compare categories in [laminate vs tile vs carpet](/guides/laminate-vs-tile-vs-carpet-comparison), then return here with the $/sq ft you actually found on the shelf.',
+        ],
+      },
+      {
+        heading: 'Underlay and trim after the plank total',
+        paragraphs: [
+          'Once materials + optional install look right, add underlay ($0.30–$0.80/sq ft typical for foam or felt), transition strips per doorway, and base/quarter-round. These rarely sit inside the plank $/sq ft tag.',
+          'Confirm whether your product has attached pad before you double-buy underlay — see [do I need underlay for laminate](/guides/do-i-need-underlay-for-laminate) — then revisit this estimator with the plank price alone so the core materials number stays clean.',
+        ],
+      },
+      {
+        heading: 'Tear-out before the new floor budget',
+        paragraphs: [
+          'If carpet, glue-down vinyl, or old tile must come out first, price haul-away and dump fees separately from the new materials total above. A clean materials + install number makes it obvious when a “cheap” bid quietly skipped disposal.',
+          'Plan removal sequencing in [how to remove old flooring](/guides/how-to-remove-old-flooring), then return here with the replacement product $/sq ft so the cart stays honest.',
         ],
       },
     ],
