@@ -56,6 +56,20 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
+        heading: 'Pair calories with TDEE when the scale stalls',
+        paragraphs: [
+          'Macros without a calorie ceiling can stall weight loss if fat portions creep up. Run the [TDEE calorie calculator](/tdee-calorie-calculator) with the same stats for maintenance or a 300–500 calorie deficit, then return here so protein and ~20g net carbs fit inside that budget.',
+          'If you only care about ketosis (not the scale), lock carbs and protein first and let hunger guide fat — still recheck TDEE after a 10–15 lb change.',
+        ],
+      },
+      {
+        heading: 'Worked example: macros after a TDEE check',
+        paragraphs: [
+          'Example planning math (not a prescription): an adult at 180 lb with light-activity TDEE near 2,200 calories chooses a 400-calorie deficit (~1,800). Protein at ~0.8g/lb is about 144g (~576 calories). Net carbs stay near 20g (~80 calories). Remaining calories (~1,144) come from fat (~127g). Re-run after weight changes — do not keep day-one fat grams forever.',
+          'Generate your own numbers here, then confirm the calorie ceiling with the [TDEE calorie calculator](/tdee-calorie-calculator) if the scale stalls for 2–3 weeks.',
+        ],
+      },
+      {
         heading: 'First two weeks on paper',
         paragraphs: [
           'Week one is often electrolytes and sleep, not perfect logging. Read [keto flu and electrolytes](/guides/keto-flu-and-electrolytes) and [getting started keto](/guides/getting-started-keto-low-carb) before you chase a flawless macro streak.',
@@ -80,6 +94,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         paragraphs: [
           'Many clinicians and low-carb programs use 50–100g as a metabolic-health range — enough vegetables and fiber without constant glucose spikes from refined carbs. Fifty grams is a common “tight but livable” middle for people leaving a high-carb baseline.',
           'If you need induction-level restriction first, use the [keto macro calculator](/keto-macro-calculator) (~20g) for a short phase, then return here. Context: [net carbs for insulin resistance](/guides/net-carbs-for-insulin-resistance).',
+        ],
+      },
+      {
+        heading: 'When waist and weight stall',
+        paragraphs: [
+          'Carb ceilings alone do not guarantee fat loss if total calories drift up. If waist and scale stall for 2–3 weeks under clinician guidance, estimate maintenance with the [TDEE calorie calculator](/tdee-calorie-calculator), then rebuild protein and ~50g net carbs here — or temporarily tighten with the [keto macro calculator](/keto-macro-calculator).',
+          'Recheck TDEE after a 10–15 lb change so the deficit stays realistic instead of chasing day-one fat grams forever.',
         ],
       },
       {
@@ -380,7 +401,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       {
         heading: 'Pace and plateaus',
         paragraphs: [
-          'Aggressive cuts raise hunger and dropout risk. If the scale stalls for 2–3 weeks, re-check adherence and TDEE before slashing another 500 calories. Habit tools: [mindful macro tracking](/guides/mindful-macro-tracking-low-carb).',
+          'Aggressive cuts raise hunger and dropout risk. If the scale stalls for 2–3 weeks, re-check adherence with the [TDEE calorie calculator](/tdee-calorie-calculator) before slashing another 500 calories. Prefer a stricter carb ceiling? Switch to the [keto macro calculator](/keto-macro-calculator) (~20g) inside the same calorie budget. Habit tools: [mindful macro tracking](/guides/mindful-macro-tracking-low-carb).',
         ],
       },
     ],
@@ -404,6 +425,12 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
+        heading: 'Calories only with clinician oversight',
+        paragraphs: [
+          'If weight loss is also a goal and glucose-lowering meds are stable, estimate maintenance with the [TDEE calorie calculator](/tdee-calorie-calculator) before cutting — never slash calories alone on insulin or sulfonylureas. For a short, clinician-approved induction window, compare the [keto macro calculator](/keto-macro-calculator) (~20g) with this ~50g plan.',
+        ],
+      },
+      {
         heading: 'Related educational tools',
         paragraphs: [
           'If your clinician agrees on a moderate low-carb experiment, the [insulin resistance macro calculator](/insulin-resistance-macro-calculator) and [metabolic health calculator](/metabolic-health-calculator) use similar educational defaults. Always prioritize prescribed targets over website defaults.',
@@ -424,10 +451,31 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
+        heading: 'Pair TDEE with keto macros',
+        paragraphs: [
+          'TDEE answers “how many calories?” Keto answers “how are those calories split?” After you have maintenance or a deficit here, open the [keto macro calculator](/keto-macro-calculator) (~20g net carbs) or the [insulin resistance macro calculator](/insulin-resistance-macro-calculator) (~50g) so protein stays locked while fat fills the remaining calories.',
+          'New to low carb? Pair calorie targets with our [getting started keto guide](/guides/getting-started-keto-low-carb), then return here after a 10–15 lb change so the deficit stays realistic.',
+        ],
+      },
+      {
+        heading: 'Worked example: a 300–500 calorie deficit',
+        paragraphs: [
+          'If maintenance prints near 2,400 calories, a moderate cut is about 1,900–2,100. That range is usually sustainable enough to preserve training while still trending down. Pair the calorie target with the [keto macro calculator](/keto-macro-calculator) so protein stays locked near ~0.8g per pound while fat fills the rest.',
+          'Larger crash cuts raise hunger and muscle-loss risk. Recheck this calculator after a 10–15 lb change, then refresh macros instead of keeping stale fat grams.',
+        ],
+      },
+      {
         heading: 'Activity multipliers are estimates',
         paragraphs: [
           'Desk jobs with light walking differ from construction or daily training. If weight stalls for 2–3 weeks, adjust calories rather than trusting the multiplier forever — track weekly averages, not day-to-day scale noise.',
-          'New to low carb? Pair calorie targets with our [getting started keto guide](/guides/getting-started-keto-low-carb), then split macros in the [keto macro calculator](/keto-macro-calculator).',
+          'When you revisit numbers, re-run macros in the [keto macro calculator](/keto-macro-calculator) so protein grams stay current with body weight.',
+        ],
+      },
+      {
+        heading: 'Recheck after training or desk-job changes',
+        paragraphs: [
+          'Starting a lifting block or moving to a sedentary job changes burn more than day-to-day scale noise. Bump or drop the activity multiplier here, wait 2–3 weeks, then rebuild protein and ~20g net carbs in the [keto macro calculator](/keto-macro-calculator).',
+          'Still stalling after the activity update? Prefer a modest 300–500 calorie deficit over crash cuts, and verify packaged carbs with the [net carb calculator](/net-carb-calculator).',
         ],
       },
       {
