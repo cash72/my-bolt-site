@@ -63,23 +63,23 @@ export const LANDING_PAGES: LandingPage[] = [
     path: '/keto-macro-calculator',
     tool: 'macro',
     defaultPlan: 'strict_keto',
-    title: 'Keto Macro Calculator — Free Protein, Fat & Net Carbs',
-    h1: 'Keto Macro Calculator',
+    title: 'Keto Macro Calculator — Daily Protein, Fat & 20g Net Carbs',
+    h1: 'Free Keto Macro Calculator',
     description:
-      'Keto macro calculator for weight loss and strict keto. Enter age, weight, height, and activity — get daily calories, protein, fat, and 20g net carb targets. Free, no signup.',
+      'Free keto macro calculator for weight loss: enter age, weight, height, and activity to get daily calories, protein, fat, and ~20g net carb targets. Pair with TDEE when the scale stalls. No signup.',
     breadcrumbLabel: 'Keto macro calculator',
     intro:
-      'How many carbs, protein, and fat on keto? Enter your stats and get daily macro targets — about 20g net carbs for strict keto, with calories from the Mifflin-St Jeor equation.',
+      'How many carbs, protein, and fat on keto? Enter your stats and get daily macro targets — about 20g net carbs for strict keto, with calories from the Mifflin-St Jeor equation. For a maintenance or deficit ceiling first, use the [TDEE calorie calculator](/tdee-calorie-calculator), then return here to lock the split.',
     faqs: [
       {
         question: 'How many carbs on strict keto?',
         answer:
-          'Strict keto typically keeps net carbs at or below 20–25g per day. This calculator defaults to 20g net carbs for the carb macro.',
+          'Strict keto typically keeps net carbs at or below 20–25g per day. This calculator defaults to 20g net carbs for the carb macro. Verify packaged servings with the [net carb calculator](/net-carb-calculator) so label math matches the day ceiling.',
       },
       {
         question: 'How many carbs should I eat on keto per day?',
         answer:
-          'Most strict keto plans target 20–25g net carbs daily. Moderate low-carb allows more — use our low carb macro calculator if you are not in induction.',
+          'Most strict keto plans target 20–25g net carbs daily. Moderate low-carb allows more — use our [low carb macro calculator](/low-carb-macro-calculator) if you are not in induction.',
       },
       {
         question: 'Is there a free keto macro calculator?',
@@ -89,7 +89,27 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How much protein on keto?',
         answer:
-          'This calculator uses about 0.8g protein per pound of body weight — a common starting point. Adjust with a dietitian if you have kidney or other conditions.',
+          'This calculator uses about 0.8g protein per pound of body weight — a common starting point. Adjust with a dietitian if you have kidney or other conditions. See our [protein on keto guide](/guides/protein-on-keto-and-low-carb) for food examples.',
+      },
+      {
+        question: 'Should I set calories with TDEE before macros?',
+        answer:
+          'Optional but useful for weight loss. Run the [TDEE calorie calculator](/tdee-calorie-calculator) for maintenance or a modest deficit, then use this keto macro calculator to lock protein, fat, and ~20g net carbs inside that calorie budget.',
+      },
+      {
+        question: 'How do I calculate keto macros for weight loss?',
+        answer:
+          'Start with body stats and activity here for protein, fat, and ~20g net carbs. If the scale stalls, refresh total calories with the [TDEE calorie calculator](/tdee-calorie-calculator) (modest deficit), then re-run keto macros so fat grams fill the remaining budget — not crash cuts without protein.',
+      },
+      {
+        question: 'Do fat grams change after I lose weight?',
+        answer:
+          'Yes. As body weight drops, protein grams and total calories usually need a refresh. Recheck the [TDEE calorie calculator](/tdee-calorie-calculator) after a 10–15 lb change, then re-run this keto macro calculator so fat fills the new remaining budget.',
+      },
+      {
+        question: 'How often should I recalculate keto macros?',
+        answer:
+          'Recheck after a 10–15 lb change, a big activity shift, or a 2–3 week stall. Refresh calories with the [TDEE calorie calculator](/tdee-calorie-calculator), then re-run this page so protein and ~20g net carbs stay current — do not keep day-one fat grams forever.',
       },
       {
         question: 'Is this medical advice?',
@@ -97,7 +117,7 @@ export const LANDING_PAGES: LandingPage[] = [
           'No. These are estimates for education only. Talk to your doctor before changing diet, especially if you take diabetes or blood pressure medication.',
       },
     ],
-    relatedGuideSlugs: ['getting-started-keto-low-carb', 'dr-boz-ratio-explained'],
+    relatedGuideSlugs: ['getting-started-keto-low-carb', 'dr-boz-ratio-explained', 'protein-on-keto-and-low-carb'],
   },
   {
     slug: 'insulin-resistance-macro-calculator',
@@ -120,12 +140,17 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'Why 50g net carbs for this plan?',
         answer:
-          '50g is a common low-carb starting point for metabolic health — stricter than standard diets but less restrictive than strict keto. Your provider may recommend different targets.',
+          '50g is a common low-carb starting point for metabolic health — stricter than standard diets but less restrictive than strict keto. Prefer induction first? Use the [keto macro calculator](/keto-macro-calculator) (~20g), then return here. Your provider may recommend different targets.',
       },
       {
         question: 'Can I use this with PCOS?',
         answer:
           'Low-carb approaches are often discussed for PCOS and insulin resistance, but individual needs vary. Confirm targets with your healthcare team.',
+      },
+      {
+        question: 'Should I add a calorie deficit for IR weight loss?',
+        answer:
+          'Often yes over time, but start with carb quality and protein under clinician guidance. If waist and weight stall for several weeks, estimate maintenance with the [TDEE calorie calculator](/tdee-calorie-calculator), then rebuild macros here or in the [keto macro calculator](/keto-macro-calculator).',
       },
     ],
     relatedGuideSlugs: ['net-carbs-for-insulin-resistance', 'pcos-and-low-carb', 'fasting-with-insulin-resistance'],
@@ -146,12 +171,17 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How is this different from keto?',
         answer:
-          'Keto usually stays under 20–25g net carbs. This moderate low-carb plan uses about 100g net carbs — still lower than a typical diet but more flexible.',
+          'Keto usually stays under 20–25g net carbs — use the [keto macro calculator](/keto-macro-calculator) for that split. This moderate low-carb plan uses about 100g net carbs — still lower than a typical diet but more flexible.',
       },
       {
         question: 'How many net carbs on a low carb diet?',
         answer:
           'Moderate low carb is often 75–130g net carbs per day. This calculator defaults to about 100g — stricter than standard diets, more flexible than strict keto.',
+      },
+      {
+        question: 'Should I set calories with TDEE on moderate low carb?',
+        answer:
+          'Optional. Run the [TDEE calorie calculator](/tdee-calorie-calculator) when you want a maintenance or deficit ceiling, then return here for ~100g net carbs — or switch to the [keto macro calculator](/keto-macro-calculator) if you tighten to ~20g.',
       },
       {
         question: 'Does this work for Atkins?',
@@ -472,7 +502,12 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How many carbs for weight loss?',
         answer:
-          'Many people lose weight on 50–130g net carbs depending on activity and insulin sensitivity. This calculator uses ~100g as a moderate low-carb starting point.',
+          'Many people lose weight on 50–130g net carbs depending on activity and insulin sensitivity. This calculator uses ~100g as a moderate low-carb starting point. Prefer induction-level restriction? Use the [keto macro calculator](/keto-macro-calculator) (~20g).',
+      },
+      {
+        question: 'Should I use TDEE or this weight-loss calculator?',
+        answer:
+          'Use the [TDEE calorie calculator](/tdee-calorie-calculator) when you want maintenance or a custom deficit first. Use this page when you want macros (~100g net carbs) with a built-in planning deficit. Prefer strict keto splits? Lock protein and ~20g net carbs in the [keto macro calculator](/keto-macro-calculator) inside the same calorie budget.',
       },
       {
         question: 'Do I need to count macros forever?',
@@ -482,7 +517,7 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'Is low carb required for weight loss?',
         answer:
-          'No — calorie deficit matters most. Low carb helps some people control hunger and blood sugar. Pair these targets with whole foods and medical guidance if needed.',
+          'No — calorie deficit matters most. Low carb helps some people control hunger and blood sugar. Pair these targets with whole foods and medical guidance if needed. Recheck burn with [TDEE](/tdee-calorie-calculator) after a 10–15 lb change.',
       },
     ],
     relatedGuideSlugs: ['getting-started-keto-low-carb', 'visceral-fat-metabolic-health', 'atkins-phases-explained'],
@@ -508,12 +543,17 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'Why 50g net carbs here?',
         answer:
-          '50g is a common therapeutic low-carb starting point used in metabolic health programs — stricter than standard diets but more flexible than strict keto.',
+          '50g is a common therapeutic low-carb starting point used in metabolic health programs — stricter than standard diets but more flexible than strict keto. Prefer a short induction phase? Compare the [keto macro calculator](/keto-macro-calculator) (~20g) with your clinician’s plan.',
+      },
+      {
+        question: 'Should I use TDEE with diabetes macros?',
+        answer:
+          'Only with clinician oversight. If weight loss is also a goal and meds are stable, estimate maintenance with the [TDEE calorie calculator](/tdee-calorie-calculator), then rebuild protein and carbs here — never cut calories alone if you take insulin or sulfonylureas.',
       },
       {
         question: 'Should I fast while on diabetes medication?',
         answer:
-          'Fasting with glucose-lowering meds can cause dangerous lows. Read our fasting-on-medications guide and get provider approval before combining fasting with this plan.',
+          'Fasting with glucose-lowering meds can cause dangerous lows. Read our [fasting on diabetes medications](/guides/fasting-on-diabetes-medications) guide and get provider approval before combining fasting with this plan.',
       },
     ],
     relatedGuideSlugs: ['fasting-on-diabetes-medications', 'net-carbs-for-insulin-resistance', 'fasting-with-insulin-resistance'],
@@ -522,18 +562,33 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'tdee-calorie-calculator',
     path: '/tdee-calorie-calculator',
     tool: 'tdee',
-    title: 'TDEE Calorie Calculator — Free Daily Calories & BMR',
-    h1: 'TDEE Calorie Calculator',
+    title: 'TDEE Calculator — Free Daily Calories, BMR & Deficit',
+    h1: 'Free TDEE Calorie Calculator',
     description:
-      'Free TDEE calorie calculator (Mifflin-St Jeor). Estimate BMR, maintenance calories, and an optional deficit for weight loss — then pair with keto or low-carb macros.',
+      'Free TDEE calorie calculator (Mifflin-St Jeor): estimate BMR, maintenance calories, and an optional 300–500 calorie weight-loss deficit — then pair with the keto macro calculator. No signup.',
     breadcrumbLabel: 'TDEE calculator',
     intro:
-      'Total Daily Energy Expenditure (TDEE) is a planning estimate of how many calories you burn in a day. Enter age, sex, weight, height, and activity — optionally apply a mild-to-moderate deficit for fat-loss targets.',
+      'Total Daily Energy Expenditure (TDEE) is a planning estimate of how many calories you burn in a day. Enter age, sex, weight, height, and activity — optionally apply a mild-to-moderate deficit for fat-loss targets. After you have a calorie ceiling, split protein, fat, and ~20g net carbs with the [keto macro calculator](/keto-macro-calculator).',
     faqs: [
       {
         question: 'What is TDEE vs BMR?',
         answer:
           'BMR is calories burned at rest. TDEE multiplies BMR by an activity factor to estimate full-day burn including movement and exercise.',
+      },
+      {
+        question: 'How do I calculate TDEE for weight loss?',
+        answer:
+          'Estimate maintenance with this calculator, then subtract about 300–500 calories for a moderate deficit. Pair the calorie target with protein and net carbs in the [keto macro calculator](/keto-macro-calculator) — do not cut calories alone without enough protein.',
+      },
+      {
+        question: 'Can I use a TDEE calculator with keto?',
+        answer:
+          'Yes. TDEE sets total calories; keto sets the carb ceiling (often ~20g net). Run TDEE first, then split protein, fat, and net carbs with our [keto macro calculator](/keto-macro-calculator) using the same body stats.',
+      },
+      {
+        question: 'What is a good calorie deficit from TDEE?',
+        answer:
+          'A common starting point is 300–500 calories below maintenance. Larger cuts raise hunger and muscle-loss risk. Recheck TDEE after a 10–15 lb change, then refresh macros so protein stays adequate.',
       },
       {
         question: 'How accurate is Mifflin-St Jeor?',
@@ -545,6 +600,16 @@ export const LANDING_PAGES: LandingPage[] = [
         answer:
           'This tool floors targets at BMR. Very low calories can be unsafe — talk with a clinician before aggressive cuts, especially with diabetes medications.',
       },
+      {
+        question: 'Is this TDEE calorie calculator free?',
+        answer:
+          'Yes — no signup. Enter age, sex, height, weight, and activity to get BMR, maintenance calories, and an optional deficit target.',
+      },
+      {
+        question: 'Should I change activity level if I start lifting?',
+        answer:
+          'Yes — bump the activity multiplier when training becomes consistent, then re-check weight over 2–3 weeks. After the new TDEE prints, rebuild protein and ~20g net carbs in the [keto macro calculator](/keto-macro-calculator) so macros match the higher burn.',
+      },
     ],
     relatedGuideSlugs: [
       'getting-started-keto-low-carb',
@@ -555,9 +620,9 @@ export const LANDING_PAGES: LandingPage[] = [
 ];
 
 export const FEATURED_LANDING_SLUGS = [
+  'keto-macro-calculator',
   'tdee-calorie-calculator',
   'net-carb-calculator',
-  'keto-macro-calculator',
   'insulin-resistance-macro-calculator',
   'weight-loss-macro-calculator',
   'diabetes-macro-calculator',

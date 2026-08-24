@@ -9,7 +9,7 @@ export const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
 
 export const CONTACT_EMAIL = 'cashfreedom4us@gmail.com';
 
-export const SITE_CONTENT_UPDATED = '2026-07-26';
+export const SITE_CONTENT_UPDATED = '2026-08-23';
 
 /** Canonical URL with trailing slash (matches Cloudflare Pages). */
 export function canonicalUrl(path: string = '/'): string {
