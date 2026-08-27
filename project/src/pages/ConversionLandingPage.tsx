@@ -187,6 +187,26 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
           question: `How do you convert Satoshi to ${label}?`,
           answer: `Multiply the Satoshi amount by the live BTC price in ${label}, then divide by 100,000,000 because there are 100 million Satoshis in one Bitcoin.`,
         },
+        {
+          question: 'How often does this price update?',
+          answer:
+            'SatoshiCalc refreshes aggregated spot prices from CoinGecko about every 60 seconds. Spot is a mid-market estimate — your exchange may quote a slightly different price after spread and fees.',
+        },
+        {
+          question: 'Should I think in sats or BTC for this amount?',
+          answer:
+            'Wallets and Lightning apps usually show sats for amounts under 0.01 BTC. Use BTC for whole-coin or large fractions; use sats for stacking milestones, tips, and everyday balances. This page locks the sat amount and shows the live fiat label.',
+        },
+        {
+          question: 'How do network fees compare to this sat amount?',
+          answer:
+            'Compare the live fiat value above to a typical on-chain fee from the [Bitcoin fee calculator](/bitcoin-fee-calculator) (sat/vB × vBytes). If the fee is a large share of this stack — common under ~50,000 sats during congestion — prefer Lightning or wait for quieter blocks before withdrawing.',
+        },
+        {
+          question: 'Should I withdraw this stack now or batch with more buys?',
+          answer:
+            'Batch when fees are elevated: several DCA buys withdrawn once usually beats paying network cost on every $50–$100 purchase. Model sat/vB here on the [fee calculator](/bitcoin-fee-calculator), then compare fee USD to checkpoints like [100k sats](/100000-satoshi-to-usd) or [1M sats](/1000000-satoshi-to-usd).',
+        },
       ];
     }
     if (isFiatToSats) {
@@ -201,6 +221,16 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
         {
           question: `How do you convert ${label} to Satoshi?`,
           answer: `Divide your ${label} amount by the live Bitcoin price, then multiply by 100,000,000 to get the Satoshi equivalent.`,
+        },
+        {
+          question: 'Does this include exchange or network fees?',
+          answer:
+            'No — the calculator shows spot conversion only. Trading fees, card premiums, and on-chain withdrawal fees reduce the sats you actually receive. Estimate mempool cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator) before withdrawing.',
+        },
+        {
+          question: 'When should I move these sats off the exchange?',
+          answer:
+            'After you would be upset to lose the amount — often once several buys approach [100k sats](/100000-satoshi-to-usd) or [1M sats](/1000000-satoshi-to-usd). Estimate withdrawal cost first on the [Bitcoin fee calculator](/bitcoin-fee-calculator), send a small test, then move the rest to a wallet you control.',
         },
       ];
     }
@@ -265,7 +295,7 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
         name: item.question,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: item.answer,
+          text: item.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
         },
       })),
     });
@@ -451,7 +481,9 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
                     aria-hidden="true"
                   />
                 </summary>
-                <div className="px-4 pb-4 text-slate-600 dark:text-slate-300 leading-relaxed">{faq.answer}</div>
+                <div className="px-4 pb-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                  {renderEditorialText(faq.answer)}
+                </div>
               </details>
             ))}
           </div>
