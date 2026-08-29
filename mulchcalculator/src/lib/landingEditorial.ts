@@ -149,19 +149,37 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'mulch-cost-estimator': {
     intro:
-      'Volume alone does not answer “what will this cost?” Enter bed area and depth, then local bulk and bag prices to compare delivery vs bagged mulch.',
+      'How much does mulch cost? Volume alone is not enough — enter bed area and depth, then local bulk $/yard and bag prices to compare delivery vs bagged mulch before you order.',
     sections: [
       {
-        heading: 'Bulk vs bags',
+        heading: 'Bulk vs bags — the break-even',
         paragraphs: [
-          'Bulk cubic yards usually win past about one yard once you account for bag count (~14 bags per yard of 2 cu ft bags). Bags win for small refresh projects and car-trunk trips.',
-          'See [delivery vs bags](/guides/delivery-vs-bags-bulk-mulch) and [bags per yard](/guides/how-many-mulch-bags-per-yard) for planning detail.',
+          'Bulk cubic yards usually win past about one yard once you count ~14 bags per yard of 2 cu ft bags plus store trips. Bags win for half-yard cosmetic refreshes and beds far from the driveway drop point.',
+          'Worked example: 150 sq ft at 3 inches ≈ 1.4 cu yd. At $40/yard materials ≈ $56; as bags at $4.50 × ~20 ≈ $90 before tax. Flip the prices above to match your nursery and big-box tags.',
+          'See [delivery vs bags](/guides/delivery-vs-bags-bulk-mulch) and [bags per yard](/guides/how-many-mulch-bags-per-yard) for logistics detail — or get clean yardage first with the [mulch calculator](/mulch-calculator).',
         ],
       },
       {
-        heading: 'What is not included',
+        heading: 'Seasonal pricing without new landings',
         paragraphs: [
-          'Delivery fees, tax, and fabric or edging are separate. Use the materials total to compare supplier quotes, then add delivery from each yard.',
+          'Late summer into early fall is when many yards restock dyed bulk and fall colors. Measure after you pull summer weeds, order only the top-up depth you need (often 1–2 inches over existing mulch), and compare quotes while suppliers still have capacity.',
+          'Late-August tip (pre–Labor Day): call for delivery lead times before holiday and September demand stacks up — wait lists stretch faster than $/yard in many markets. Depth and timing tips live in [fall mulch application timing](/guides/fall-mulch-application-timing) and [spring mulch application](/guides/spring-mulch-application-guide).',
+          'If you are only restoring curb appeal after summer fade, enter 1–2 inch refresh depth here instead of a full 3-inch new-bed order — that keeps many front yards under a single yard and often tips toward bags once delivery fees land.',
+        ],
+      },
+      {
+        heading: 'Front + back beds as one bulk order',
+        paragraphs: [
+          'Pricing one small bed alone often tips toward bags; combining front and side or back beds usually clears a full yard and makes bulk delivery worth the fee. Add multiple beds above (or sum area) so you compare one materials total against one delivery line.',
+          'Worked example: 120 sq ft front + 180 sq ft back at 3 inches ≈ 2.8 cu yd. At $45/yard ≈ $126 materials; as bags at $4.50 × ~39 ≈ $176 before tax. Add each yard’s delivery quote once — not once per bed — before you decide.',
+          'Dyed color premium: if curb-appeal beds need black or red, enter that higher $/yard here. Natural hardwood tags understate the invoice when the truck dumps dyed product.',
+        ],
+      },
+      {
+        heading: 'What this estimate leaves out',
+        paragraphs: [
+          'Delivery fees, tax, landscape fabric, and edging are separate. Many suppliers charge a flat delivery under 3–5 yards — add that line after you lock materials totals from each quote.',
+          'Treat the result as a planning comparison between bulk and bags, not a supplier invoice. Confirm bag size (2 vs 3 cu ft) and whether dyed bulk matches the bag SKU you want.',
         ],
       },
     ],
