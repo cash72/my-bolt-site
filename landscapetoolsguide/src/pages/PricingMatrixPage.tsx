@@ -44,9 +44,9 @@ export default function PricingMatrixPage() {
   );
 
   usePageMeta({
-    title: 'Landscaping Software Pricing Matrix — Starting Prices Compared',
+    title: 'Landscaping Software Pricing Matrix — Jobber, HCP & More (2026)',
     description:
-      'Side-by-side pricing matrix for lawn care and landscaping software: starting monthly prices, crew fit, and feature checkmarks for Jobber, Housecall Pro, LMN, Aspire, and more.',
+      '2026 landscaping software pricing matrix: starting monthly prices, crew fit, and features for Jobber, Housecall Pro, LMN, Aspire, and more — plus links to head-to-head compares.',
     path: '/pricing',
   });
 
@@ -58,14 +58,21 @@ export default function PricingMatrixPage() {
       <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed max-w-3xl">
         Compare published starting prices and core features across {TOOLS.length} platforms used by
         lawn care and landscape companies. Prices change — confirm on each vendor site before you
-        buy. For crew-size guidance, see our{' '}
+        buy. Shortlist Jobber vs Housecall Pro? Read the{' '}
+        <Link
+          to="/compare/jobber-vs-housecall-pro-landscaping"
+          className="text-emerald-700 dark:text-emerald-400 hover:underline"
+        >
+          Jobber vs Housecall Pro
+        </Link>{' '}
+        compare, then see our{' '}
         <Link
           to="/guides/landscaping-software-pricing-guide"
           className="text-emerald-700 dark:text-emerald-400 hover:underline"
         >
           pricing guide
-        </Link>
-        .
+        </Link>{' '}
+        for crew-size guidance.
       </p>
 
       <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 mb-8">

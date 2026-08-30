@@ -9,7 +9,7 @@ export const CONTACT_EMAIL = 'cashfreedom4us@gmail.com';
 
 export const OG_IMAGE_URL = `${SITE_URL}/guides/images/how-to-choose-lawn-care-software.jpg`;
 
-export const SITE_CONTENT_UPDATED = '2026-07-07';
+export const SITE_CONTENT_UPDATED = '2026-08-29';
 
 /** Canonical URL with trailing slash (matches Cloudflare Pages). */
 export function canonicalUrl(path: string = '/'): string {
