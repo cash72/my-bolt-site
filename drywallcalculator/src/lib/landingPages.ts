@@ -160,10 +160,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'drywall-cost-estimator',
     path: '/drywall-cost-estimator',
     includeCeiling: false,
-    title: 'Drywall Cost Estimator — Sheets, Mud & Screws',
-    h1: 'Drywall Cost Estimator',
+    title: 'How Much Does Drywall Cost? Free Materials Estimator',
+    h1: 'How Much Does Drywall Cost?',
     description:
-      'Estimate drywall project cost: sheet price, joint compound buckets, and screw boxes. Enter room dimensions and local prices for a materials total.',
+      'How much does drywall cost for a room? Free materials estimator for sheets, joint compound, and screws from room size and local prices — materials-only total before hang-and-tape labor.',
     breadcrumbLabel: 'Cost estimator',
     intro:
       'Enter room size, then optional prices for sheets, five-gallon mud buckets, and screw boxes. We estimate quantities and add up a materials-only total before labor.',
@@ -171,25 +171,55 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How much does drywall cost for a room?',
         answer:
-          'Materials are sheets + mud + screws (and tape). Price sheets per panel, mud per five-gallon bucket (~1 bucket per 200 sq ft hung for Level 4), and screws by the box. Labor and texture are separate.',
+          'Materials are sheets + mud + screws (and tape). Price sheets per panel, mud per five-gallon bucket (~1 bucket per 200 sq ft hung for Level 4), and screws by the box. Example: 15 sheets at $14 + 2 mud buckets at $18 + one screw box ≈ $246 materials before tax for a small bedroom — flip the prices above to match your yard.',
       },
       {
         question: 'Does this include labor?',
         answer:
-          'No — this estimator covers hang-and-finish materials only. Pro hanging and taping rates vary widely by market; use the materials total to compare store quotes.',
+          'No — this estimator covers hang-and-finish materials only. Pro hanging and taping rates vary widely by market; use the materials total to compare store quotes, then get a separate labor bid if you are not finishing yourself.',
       },
       {
         question: 'How do you estimate mud and screws?',
         answer:
-          'Screws use ~32 per sheet. Mud uses roughly one five-gallon bucket per 200 sq ft of hung area for a standard three-coat Level 4 finish — bump up for Level 5 skim coats.',
+          'Screws use ~32 per sheet. Mud uses roughly one five-gallon bucket per 200 sq ft of hung area for a standard three-coat Level 4 finish — bump up for Level 5 skim coats. Detail: [estimating screws and compound](/guides/estimating-drywall-screws-and-compound).',
+      },
+      {
+        question: 'What is a typical materials cost per square foot?',
+        answer:
+          'Hang materials often land roughly $0.40–$0.90 per sq ft of hung area depending on sheet thickness, Type X, and mud brand — local tags win. Enter your sheet, mud, and screw prices here after you know area from the [drywall calculator](/drywall-calculator).',
+      },
+      {
+        question: 'Are tape, corner bead, and primer included?',
+        answer:
+          'Not in the dollar total — tape, bead, primer, and sanding supplies are small add-ons. Budget them after the sheets/mud/screws sum, then follow the [framing-to-paint roadmap](/guides/drywall-project-from-framing-to-paint) for the full shopping sequence.',
+      },
+      {
+        question: 'How much do drywall materials cost for a whole basement?',
+        answer:
+          'A 1,000 sq ft open basement can need 65–80 sheets when walls and ceiling are hung — at $13–18/sheet that is roughly $850–$1,450 in board alone before mud, screws, and bead. Run room-by-room takeoffs in the [basement drywall calculator](/basement-drywall-calculator), then price sheets, mud, and screws here so lumber-yard quotes stay honest.',
+      },
+      {
+        question: 'How much more do Type X garage fire-separation sheets cost?',
+        answer:
+          'Type X often costs a few dollars more per sheet than standard 1/2 inch board and is heavier to hang. Measure only separating garage-to-house walls and ceilings under living space, then run the same sheet count twice here with standard vs Type X sheet prices so the upgrade is a clear line item — see [garage fire separation](/guides/garage-drywall-fire-separation).',
+      },
+      {
+        question: 'How much extra mud does a Level 5 skim coat cost?',
+        answer:
+          'Level 5 often adds roughly another five-gallon mud bucket (or more) beyond a standard Level 4 takeoff on the same hung area — plus primer and sanding time. Run sheets/screws at Level 4 mud volume first, then bump the mud price/quantity here so the skim shows as materials dollars before you compare labor — detail in [finish levels](/guides/drywall-finish-levels-explained) and [how many coats of mud](/guides/how-many-coats-drywall-mud).',
+      },
+      {
+        question: 'Do moisture-resistant green or purple boards cost more than standard drywall?',
+        answer:
+          'Yes — mold-resistant board usually costs a few dollars more per sheet than plain 1/2 inch. Use it only where moisture risk is real (bathrooms outside the wet shower pan, damp basements per local practice), then price those planes alone here with the green/purple sheet tag so the upgrade is not buried in a whole-house standard-board guess — see [green board vs purple board](/guides/green-board-purple-board-bathrooms).',
       },
     ],
   },
 ];
 
 export const FEATURED_LANDING_SLUGS = [
-  'drywall-calculator',
   'drywall-cost-estimator',
+  'drywall-calculator',
   'how-many-drywall-sheets',
   'basement-drywall-calculator',
   'garage-drywall-calculator',

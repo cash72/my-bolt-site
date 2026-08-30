@@ -11,9 +11,9 @@ export interface ComparisonPage {
 export const COMPARISONS: ComparisonPage[] = [
   {
     slug: 'jobber-vs-housecall-pro-landscaping',
-    title: 'Jobber vs Housecall Pro for Landscaping',
+    title: 'Jobber vs Housecall Pro for Landscaping (2026 Pricing)',
     description:
-      'Side-by-side comparison for lawn care and landscape companies choosing between Jobber and Housecall Pro — pricing, routes, payments, and who each tool fits best.',
+      'Jobber vs Housecall Pro for lawn care and landscaping — 2026 starting prices, routing, payments, and which fits solo operators vs growing crews. See the pricing matrix for side-by-side dollars.',
     toolSlugs: ['jobber', 'housecall-pro'],
     summary:
       'Both are strong all-in-one picks for residential lawn and light landscape work. Jobber wins on simplicity and polish for small crews; Housecall Pro wins when you want payments and marketing baked in from day one.',
@@ -23,6 +23,7 @@ export const COMPARISONS: ComparisonPage[] = [
         paragraphs: [
           'Jobber Core starts around $49/mo for one user and scales with Connect/Grow tiers. Housecall Pro Basic starts around $59/mo with similar per-user scaling.',
           'For a solo operator or 2–5 person maintenance crew, total cost is often similar — compare based on which tier features you actually need (automations, marketing, CSR tools).',
+          'For a wider vendor snapshot (LMN, GorillaDesk, Aspire, and more), open the [landscaping software pricing matrix](/pricing) after you shortlist Jobber or Housecall Pro.',
         ],
       },
       {
@@ -39,17 +40,34 @@ export const COMPARISONS: ComparisonPage[] = [
           'Choose Jobber if you want the fastest onboarding. Choose Housecall Pro if reviews, marketing, and payments are equally important as scheduling.',
         ],
       },
+      {
+        heading: 'When to pick each (decision checklist)',
+        paragraphs: [
+          'Pick Jobber when quotes → invoices → routing is the daily loop and you want the least friction for a 1–5 person maintenance crew. Pick Housecall Pro when card-on-file payments, review requests, and marketing campaigns are part of how you win the next job — not optional add-ons.',
+          'Still unsure? Compare starting dollars on the [pricing matrix](/pricing), then read the deeper [landscaping software pricing guide](/guides/landscaping-software-pricing-guide) before you lock an annual plan.',
+        ],
+      },
     ],
     faqs: [
       {
         question: 'Is Jobber or Housecall Pro better for solo landscapers?',
         answer:
-          'Jobber is often easier for solos who want quotes, routes, and invoices without extra marketing modules. Housecall Pro can still work if you want integrated payments from the start.',
+          'Jobber is often easier for solos who want quotes, routes, and invoices without extra marketing modules. Housecall Pro can still work if you want integrated payments from the start. Check current tiers on the [pricing matrix](/pricing).',
       },
       {
         question: 'Can either handle snow removal routes?',
         answer:
           'Both can schedule snow routes as jobs, but neither is snow-specialized. For heavy snow + landscape hybrid shops, also evaluate LMN or Service Autopilot.',
+      },
+      {
+        question: 'Which is cheaper — Jobber or Housecall Pro?',
+        answer:
+          'List prices are close at the entry tier (Jobber often a bit lower on Core; Housecall Pro Basic is nearby). Total cost depends on seats, payment fees, and which add-ons you actually turn on — compare starting prices on the [pricing matrix](/pricing) and confirm on each vendor site before you commit.',
+      },
+      {
+        question: 'Should I choose LMN instead of Jobber or Housecall Pro?',
+        answer:
+          'Only if design-build estimating and job costing are core — not just recurring mowing. For maintenance-first shops, stay with Jobber or Housecall Pro; for estimating-heavy contractors, read [LMN vs Jobber](/compare/lmn-vs-jobber-landscaping).',
       },
     ],
   },

@@ -7,10 +7,11 @@ import { hasResultsAdUnit } from '../lib/ads/config';
 import { GuideCard } from '../components/GuideCard';
 import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 import { FEATURED_LANDING_LINKS } from '../lib/landingPages';
+import { renderEditorialText } from '../lib/renderEditorialText';
 
 const POPULAR_CALCULATORS = [
-  { to: '/how-many-flooring-boxes', label: 'Box calculator' },
   { to: '/flooring-cost-estimator', label: 'Cost estimator' },
+  { to: '/how-many-flooring-boxes', label: 'Box calculator' },
   { to: '/laminate-flooring-calculator', label: 'Laminate calculator' },
   { to: '/tile-flooring-calculator', label: 'Tile calculator' },
   { to: '/carpet-calculator', label: 'Carpet calculator' },
@@ -18,9 +19,14 @@ const POPULAR_CALCULATORS = [
 
 const HOMEPAGE_FAQS = [
   {
+    question: 'How much does flooring cost per square foot?',
+    answer:
+      'Multiply buy area (room sq ft + waste) by material $/sq ft, then add install $/sq ft if labor is quoted that way. Use the free [flooring cost estimator](/flooring-cost-estimator) with your store prices for a materials + install total.',
+  },
+  {
     question: 'How much waste should I add?',
     answer:
-      '10% is typical for laminate and LVP in simple rooms. Tile often needs 15% because of cuts and breakage. Add more for diagonal layouts or many obstacles.',
+      '10% is typical for laminate and LVP in simple rooms. Tile often needs 15% because of cuts and breakage. Add more for diagonal layouts or many obstacles. See our [waste guide](/guides/how-much-flooring-waste-to-buy) for room-by-room tips.',
   },
   {
     question: 'Where do I find sq ft per box?',
@@ -35,15 +41,15 @@ const HOMEPAGE_FAQS = [
   {
     question: 'Does this work for carpet?',
     answer:
-      'Yes. Select carpet to see square yards. Carpet pad is ordered separately in the same square yards.',
+      'Yes. Select carpet to see square yards — try the [carpet calculator](/carpet-calculator). Carpet pad is ordered separately in the same square yards.',
   },
 ];
 
 export default function HomePage() {
   usePageMeta({
-    title: 'Flooring Box Calculator — Laminate, Tile, Carpet & LVP',
+    title: 'Flooring Cost Estimator & Box Calculator — Laminate, Tile, LVP',
     description:
-      'Free flooring calculator for laminate, vinyl plank, tile, and carpet. Room square footage, waste allowance, box counts, and square yards — plus DIY prep guides.',
+      'Free flooring cost estimator and box calculator for laminate, vinyl plank, tile, and carpet. Room square footage, waste, $/sq ft materials + install, and DIY prep guides.',
     path: '/',
   });
 
@@ -63,7 +69,10 @@ export default function HomePage() {
       mainEntity: HOMEPAGE_FAQS.map((faq) => ({
         '@type': 'Question',
         name: faq.question,
-        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+        },
       })),
     });
 
@@ -182,37 +191,12 @@ export default function HomePage() {
           FAQ
         </h2>
         <div className="space-y-4 text-sm">
-          <div>
-            <h3 className="font-medium text-slate-800 dark:text-slate-200">{HOMEPAGE_FAQS[0].question}</h3>
-            <p className="text-slate-600 dark:text-slate-400 mt-1">
-              {HOMEPAGE_FAQS[0].answer} See our{' '}
-              <Link
-                to="/guides/how-much-flooring-waste-to-buy"
-                className="text-emerald-600 dark:text-emerald-400 hover:underline"
-              >
-                waste guide
-              </Link>{' '}
-              for room-by-room tips.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-medium text-slate-800 dark:text-slate-200">{HOMEPAGE_FAQS[1].question}</h3>
-            <p className="text-slate-600 dark:text-slate-400 mt-1">{HOMEPAGE_FAQS[1].answer}</p>
-          </div>
-          <div>
-            <h3 className="font-medium text-slate-800 dark:text-slate-200">{HOMEPAGE_FAQS[2].question}</h3>
-            <p className="text-slate-600 dark:text-slate-400 mt-1">{HOMEPAGE_FAQS[2].answer}</p>
-          </div>
-          <div>
-            <h3 className="font-medium text-slate-800 dark:text-slate-200">{HOMEPAGE_FAQS[3].question}</h3>
-            <p className="text-slate-600 dark:text-slate-400 mt-1">
-              {HOMEPAGE_FAQS[3].answer}{' '}
-              <Link to="/carpet-calculator" className="text-emerald-600 dark:text-emerald-400 hover:underline">
-                Carpet calculator
-              </Link>
-              .
-            </p>
-          </div>
+          {HOMEPAGE_FAQS.map((faq) => (
+            <div key={faq.question}>
+              <h3 className="font-medium text-slate-800 dark:text-slate-200">{faq.question}</h3>
+              <p className="text-slate-600 dark:text-slate-400 mt-1">{renderEditorialText(faq.answer)}</p>
+            </div>
+          ))}
         </div>
       </section>
     </main>

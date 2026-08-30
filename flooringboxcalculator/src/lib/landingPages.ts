@@ -151,28 +151,33 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'flooring-waste-calculator',
     path: '/flooring-waste-calculator',
     material: 'laminate',
-    title: 'Flooring Waste Calculator — How Much Extra to Buy',
+    title: 'Flooring Waste Calculator — Extra Sq Ft & Cost to Buy',
     h1: 'Flooring Waste Calculator',
     description:
-      'Calculate how much extra flooring to buy for waste. See waste square footage and cost for laminate and tile projects.',
+      'How much extra flooring should you buy? See waste square footage and material cost for 10% vs 15% on laminate, tile, and LVP before you order boxes.',
     breadcrumbLabel: 'Waste calculator',
     intro:
-      'Avoid short orders by adding the right waste factor. Compare 10% vs 15% and see exactly how many extra square feet you are buying.',
+      'Avoid short orders by adding the right waste factor. Compare 10% vs 15% and see exactly how many extra square feet — and dollars — you are buying.',
     faqs: [
       {
         question: 'What is a waste factor in flooring?',
         answer:
-          'It is extra material beyond your measured room area to cover cuts, mistakes, and future repairs. It is usually expressed as a percentage.',
+          'It is extra material beyond your measured room area to cover cuts, mistakes, and future repairs. It is usually expressed as a percentage of room square footage.',
       },
       {
         question: 'Is 10% waste enough?',
         answer:
-          'Often yes for simple rectangular laminate rooms. Tile and intricate layouts typically need 15% or more.',
+          'Often yes for simple rectangular laminate or LVP rooms. Tile and intricate layouts typically need 15% or more. Diagonal lays and many doorways push laminate toward 12–15%.',
       },
       {
         question: 'Should I round up boxes?',
         answer:
           'Yes. The calculator always rounds up to whole boxes so you do not run short on install day.',
+      },
+      {
+        question: 'How much does waste flooring cost?',
+        answer:
+          'Waste is real spend — you buy whole boxes. Example: 300 sq ft at $3.50/sq ft is $1,050 materials; 10% waste adds ~$105, 15% adds ~$158. Price the full buy area in the [flooring cost estimator](/flooring-cost-estimator).',
       },
     ],
     relatedGuideSlugs: ['how-much-flooring-waste-to-buy', 'how-many-flooring-boxes-guide'],
@@ -323,10 +328,10 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'flooring-cost-estimator',
     path: '/flooring-cost-estimator',
     material: 'laminate',
-    title: 'Flooring Cost Estimator — Material & Install $ per Sq Ft',
-    h1: 'Flooring Cost Estimator',
+    title: 'How Much Does Flooring Cost? Free $/Sq Ft Estimator',
+    h1: 'How Much Does Flooring Cost?',
     description:
-      'Estimate flooring project cost from room size, waste %, material $ per sq ft, and optional install $ per sq ft. Free laminate, tile, and carpet budget calculator.',
+      'How much does flooring cost per square foot? Free estimator for room size, waste %, material $/sq ft, and optional install labor — laminate, tile, vinyl, or carpet totals before you buy boxes.',
     breadcrumbLabel: 'Flooring cost estimator',
     intro:
       'Enter room dimensions, waste allowance, and the material price you saw in-store ($/sq ft). Add install $/sq ft if a contractor quoted labor. We calculate buy area with waste and a materials + install total.',
@@ -334,18 +339,53 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How do I estimate flooring cost per square foot?',
         answer:
-          'Multiply purchase area (room sq ft + waste %) by material $/sq ft. Add install $/sq ft × the same buy area if labor is quoted that way. This calculator does both.',
+          'Multiply purchase area (room sq ft + waste %) by material $/sq ft. Add install $/sq ft × the same buy area if labor is quoted that way. This calculator does both — then compare DIY materials vs installed bids.',
       },
       {
         question: 'Should waste be included in cost?',
         answer:
-          'Yes — you pay for the boxes or rolls you buy, including cut waste. Default waste is 10% for laminate/carpet and 15% for tile.',
+          'Yes — you pay for the boxes or rolls you buy, including cut waste. Default waste is 10% for laminate/carpet and 15% for tile. Toggle percentages in the [waste calculator](/flooring-waste-calculator) if you need a side-by-side.',
       },
       {
         question: 'Price per box or per sq ft?',
         answer:
-          'Use material $/sq ft when the tag shows that rate. Or enter price per box instead — $/sq ft overrides box price when both are filled.',
+          'Use material $/sq ft when the tag shows that rate. Or enter price per box instead — $/sq ft overrides box price when both are filled. Confirm coverage with [how many flooring boxes](/how-many-flooring-boxes) before checkout.',
       },
+      {
+        question: 'What is a typical DIY vs pro installed cost?',
+        answer:
+          'DIY is usually materials + underlay + trim only. Pros quote materials + labor (and often tear-out, furniture move, disposal). Use this page for the materials baseline, then ask installers what is included in their $/sq ft so apples-to-apples comparisons hold.',
+      },
+      {
+        question: 'Does material $/sq ft include underlay and transitions?',
+        answer:
+          'Usually no. Underlay, transition strips, thresholds, and tear-out are separate line items. Budget them after you lock plank or tile cost here — see the [DIY flooring roadmap](/guides/diy-flooring-installation-roadmap) for the full shopping sequence.',
+      },
+      {
+        question: 'How much does LVP or laminate cost for a 200 sq ft room?',
+        answer:
+          'Example: 200 sq ft + 10% waste = 220 sq ft to buy. At $2.50/sq ft materials ≈ $550; at $3.50/sq ft install ≈ $770 labor → about $1,320 before underlay and trim. Enter your shelf $/sq ft and waste % above for a local total — then convert to cartons with [how many flooring boxes](/how-many-flooring-boxes).',
+      },
+      {
+        question: 'Should tear-out and disposal be in the flooring cost?',
+        answer:
+          'Yes if you are replacing an existing floor — tear-out, haul-away, and dump fees are often $1–$3+/sq ft and rarely sit inside the plank $/sq ft tag. Use this estimator for the new materials + optional install baseline, then add a separate line for removal so DIY vs pro bids stay comparable.',
+      },
+      {
+        question: 'How much does flooring cost for a whole home or multiple rooms?',
+        answer:
+          'Add each room’s length × width, apply one waste %, then price the combined buy area at one $/sq ft if you are using the same SKU. Example: 900 sq ft of rooms + 10% waste = 990 sq ft to buy; at $3.00/sq ft materials ≈ $2,970 before underlay and trim. Enter rooms above (or sum them first in the [square footage calculator](/flooring-square-footage-calculator)), then convert to cartons with [how many flooring boxes](/how-many-flooring-boxes).',
+      },
+      {
+        question: 'Should stairs be priced separately from room flooring?',
+        answer:
+          'Usually yes — stair waste often runs 15–20%, bullnose and winders add linear pieces, and carpet stairs need thin dense pad. Price flat rooms here at your main product $/sq ft, then treat stairs as their own line (or use the [stair carpet calculator](/stair-carpet-calculator) for sq yd) so a “cheap” room bid does not quietly omit the flight.',
+      },
+    ],
+    relatedGuideSlugs: [
+      'laminate-vs-tile-vs-carpet-comparison',
+      'how-much-flooring-waste-to-buy',
+      'diy-flooring-installation-roadmap',
     ],
   },
 ];
