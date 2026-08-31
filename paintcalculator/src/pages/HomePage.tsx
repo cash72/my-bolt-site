@@ -6,6 +6,7 @@ import ContentMonetizationSlot from '../components/ContentMonetizationSlot';
 import { hasResultsAdUnit } from '../lib/ads/config';
 import { GuideCard } from '../components/GuideCard';
 import { getFeaturedHomeGuides } from '../lib/landingHelpers';
+import { renderEditorialText } from '../lib/renderEditorialText';
 
 const POPULAR_CALCULATORS = [
   { to: '/paint-coverage-calculator', label: 'Behr coverage calculator' },
@@ -18,19 +19,19 @@ const POPULAR_CALCULATORS = [
 const HOMEPAGE_FAQ = [
   {
     q: 'How much paint do I need for a room?',
-    a: 'Wall area = 2 × ceiling height × (length + width). Add ceiling area if needed. Multiply by coats, add waste, then divide by sq ft per gallon on your paint label. A 12×12 room with 8 ft ceilings needs about 2–3 gallons for two coats.',
+    a: 'Wall area = 2 × ceiling height × (length + width). Add ceiling area if needed. Multiply by coats, add waste, then divide by sq ft per gallon on your paint label. A 12×12 room with 8 ft ceilings needs about 2–3 gallons for two coats — confirm in [how much Behr paint do I need](/how-much-paint-do-i-need).',
   },
   {
     q: 'How many sq ft does a gallon of paint cover?',
-    a: 'Most interior latex covers 350–400 sq ft per gallon on smooth walls. Behr Premium Plus Interior often lists up to 400 sq ft/gallon — use our Behr paint coverage calculator with your exact can label for gallons to buy.',
+    a: 'Most interior latex covers 350–400 sq ft per gallon on smooth walls. Behr Premium Plus Interior often lists up to 400 sq ft/gallon — use the [Behr paint coverage calculator](/paint-coverage-calculator) with your exact can label for gallons to buy.',
   },
   {
     q: 'Is there a Behr paint calculator?',
-    a: 'Yes — use our free Behr paint coverage calculator or how much Behr paint page. Enter room size and the sq ft per gallon from your Behr can (any brand works the same way).',
+    a: 'Yes — use our free [Behr paint coverage calculator](/paint-coverage-calculator) or [how much Behr paint](/how-much-paint-do-i-need) page. Enter room size and the sq ft per gallon from your Behr can (any brand works the same way).',
   },
   {
     q: 'How much Behr paint do I need for a 12×12 room?',
-    a: 'About 2–3 gallons for walls with two coats when Behr lists ~400 sq ft/gallon. Use the how much Behr paint calculator with your exact dimensions and can label.',
+    a: 'About 2–3 gallons for walls with two coats when Behr lists ~400 sq ft/gallon. Use [how much Behr paint do I need](/how-much-paint-do-i-need) with your exact dimensions and can label.',
   },
   {
     q: 'Does this work for fence or deck stain?',
@@ -40,13 +41,17 @@ const HOMEPAGE_FAQ = [
     q: 'Can I calculate multiple rooms?',
     a: 'Yes. Add up to five rooms and the calculator totals paintable area and gallons for the whole project.',
   },
+  {
+    q: 'How much Behr paint for one accent wall?',
+    a: 'Measure width × height only. A 12×8 ft accent wall is 96 sq ft — two coats at ~400 sq ft/gallon ≈ half a gallon, so buy 1 gallon of Behr. Confirm in the [Behr paint coverage calculator](/paint-coverage-calculator).',
+  },
 ] as const;
 
 export default function HomePage() {
   usePageMeta({
     title: 'Paint Calculator Canada — Free Behr Coverage & Room Gallons',
     description:
-      'Free paint calculator Canada: room gallons, Behr paint coverage calculator, and shopping lists. 12×12 room ≈ 2–3 gallons at ~400 sq ft/gal. Walls, ceiling, fence, deck, wallpaper.',
+      'Free Behr paint coverage calculator for Canada: enter room size + label sq ft/gal → gallons to buy. 12×12 ≈ 2–3 gal at ~400 sq ft/gal. Walls, ceiling, fence, deck, cost.',
     path: '/',
   });
 
@@ -66,7 +71,11 @@ export default function HomePage() {
       mainEntity: HOMEPAGE_FAQ.map((item) => ({
         '@type': 'Question',
         name: item.q,
-        acceptedAnswer: { '@type': 'Answer', text: item.a },
+        // Strip markdown links for plain-text schema answers
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+        },
       })),
     });
 
@@ -192,7 +201,7 @@ export default function HomePage() {
           {HOMEPAGE_FAQ.map((faq) => (
             <div key={faq.q}>
               <h3 className="font-medium text-slate-800 dark:text-slate-200">{faq.q}</h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-1">{faq.a}</p>
+              <p className="text-slate-600 dark:text-slate-400 mt-1">{renderEditorialText(faq.a)}</p>
             </div>
           ))}
         </div>
