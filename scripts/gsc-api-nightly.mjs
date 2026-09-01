@@ -471,6 +471,7 @@ async function main() {
   const sitemapOk = report.sitemaps.filter((s) => s.ok).length;
   const sitemapTotal = report.sitemaps.length;
   const hardSitemapFails = report.errors.filter((e) => e.type === 'sitemap').length;
+  const sitemapCollapse = sitemapTotal > 0 && hardSitemapFails >= Math.ceil(sitemapTotal / 2);
 
   console.log('\n=== Summary ===');
   console.log(
@@ -512,9 +513,9 @@ async function main() {
     }
   }
 
-  // Fail systemd only when sitemaps mostly break or a hard (non-transient) sitemap error remains
-  const sitemapCollapse = sitemapTotal > 0 && hardSitemapFails >= Math.ceil(sitemapTotal / 2);
-  if (!dryRun && (report.errors.length > 0 || sitemapCollapse)) {
+  // Continuity is a live-site check, not a GSC write — fail even in --dry-run
+  const continuityFails = report.errors.filter((e) => e.type === 'sitemap-continuity').length;
+  if (continuityFails > 0 || (!dryRun && (report.errors.length > 0 || sitemapCollapse))) {
     process.exitCode = 1;
   }
 }
