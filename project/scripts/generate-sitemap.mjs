@@ -6,8 +6,26 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://satoshi-calc.com';
 const TODAY = new Date().toISOString().slice(0, 10);
-const CONTENT_UPDATED = '2026-07-07';
+const CONTENT_UPDATED = '2026-09-01';
 const LEGAL_LASTMOD = '2026-06-01';
+
+/**
+ * Retired indexable landings still submitted by the live Cloudflare sitemap
+ * (AUD/INR were dropped from landing-config.json). 301 them to the USD hub
+ * so GSC coverage does not accumulate soft-404s after the next deploy.
+ */
+const RETIRED_REDIRECTS = [
+  { from: '/satoshi-to-aud/', to: '/satoshi-to-usd/' },
+  { from: '/aud-to-satoshi/', to: '/usd-to-satoshi/' },
+  { from: '/10000-satoshi-to-aud/', to: '/10000-satoshi-to-usd/' },
+  { from: '/50000-satoshi-to-aud/', to: '/50000-satoshi-to-usd/' },
+  { from: '/100000-satoshi-to-aud/', to: '/100000-satoshi-to-usd/' },
+  { from: '/satoshi-to-inr/', to: '/satoshi-to-usd/' },
+  { from: '/inr-to-satoshi/', to: '/usd-to-satoshi/' },
+  { from: '/10000-satoshi-to-inr/', to: '/10000-satoshi-to-usd/' },
+  { from: '/50000-satoshi-to-inr/', to: '/50000-satoshi-to-usd/' },
+  { from: '/100000-satoshi-to-inr/', to: '/100000-satoshi-to-usd/' },
+];
 
 const landingConfig = JSON.parse(
   await fs.readFile(path.join(ROOT, 'seo/landing-config.json'), 'utf8')
@@ -154,11 +172,20 @@ await fs.writeFile(path.join(ROOT, 'public/sitemap.xml'), sitemap);
 await fs.writeFile(path.join(ROOT, 'seo/generated-routes.json'), JSON.stringify(seoConfig, null, 2));
 
 const allPaths = seoConfig.allRoutes.filter((r) => r !== '/');
-const redirects = allPaths.map((route) => `${route} ${route}/ 308`).join('\n');
+const retiredRedirectLines = RETIRED_REDIRECTS.flatMap(({ from, to }) => {
+  const dest = to.endsWith('/') ? to : `${to}/`;
+  const fromSlash = from.endsWith('/') ? from : `${from}/`;
+  const fromBare = fromSlash.replace(/\/$/, '');
+  return [`${fromSlash} ${dest} 301`, `${fromBare} ${dest} 301`];
+});
+const redirects = [
+  ...retiredRedirectLines,
+  ...allPaths.map((route) => `${route} ${route}/ 308`),
+].join('\n');
 await fs.writeFile(path.join(ROOT, 'public/_redirects'), `${redirects}\n`);
 
 console.log(`Generated sitemap with ${seoConfig.allRoutes.length} URLs`);
 console.log(`  Static: ${seoConfig.staticRoutes.length}`);
 console.log(`  Landing: ${landingPaths.length}`);
 console.log(`  Guides: ${guidePaths.length}`);
-console.log(`  Redirects: ${allPaths.length} (non-slash → trailing slash)`);
+console.log(`  Redirects: ${retiredRedirectLines.length} retired 301s + ${allPaths.length} trailing-slash 308s`);

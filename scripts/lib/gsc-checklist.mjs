@@ -114,6 +114,8 @@ export const P0_INDEX_BY_DIR = {
       { path: '/' },
       { path: '/btc-to-usd/', isNew: true },
       { path: '/usd-to-btc/', isNew: true },
+      { path: '/0.01-btc-to-usd/', isNew: true, note: 'money page missing from the live 56-URL sitemap' },
+      { path: '/conversions/', isNew: true, note: 'hub for BTC/sats conversion landings' },
       { path: '/bitcoin-fee-calculator/', isNew: true },
       { path: '/100000-satoshi-to-usd/' },
       { path: '/guides/what-is-a-satoshi/' },
