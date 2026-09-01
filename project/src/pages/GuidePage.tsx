@@ -311,17 +311,28 @@ function GuidePage({ slug }: { slug: string | undefined }) {
   const guide = getGuideBySlug(slug);
 
   if (!guide) {
-    return (
-      <main id="main-content" className="max-w-3xl mx-auto px-4 sm:px-6 py-16" role="main">
-        <h1 className="text-2xl font-bold mb-4">Guide not found</h1>
-        <Link to="/guides" className="text-orange-600 dark:text-orange-400 hover:underline">
-          Browse all guides
-        </Link>
-      </main>
-    );
+    return <GuideNotFound slug={slug} />;
   }
 
   return <GuideContent guide={guide} />;
+}
+
+function GuideNotFound({ slug }: { slug: string | undefined }) {
+  usePageMeta({
+    title: 'Guide Not Found',
+    description: 'The Bitcoin guide you requested could not be found.',
+    path: slug ? `/guides/${slug}` : '/guides',
+    robots: 'noindex, follow',
+  });
+
+  return (
+    <main id="main-content" className="max-w-3xl mx-auto px-4 sm:px-6 py-16" role="main">
+      <h1 className="text-2xl font-bold mb-4">Guide not found</h1>
+      <Link to="/guides" className="text-orange-600 dark:text-orange-400 hover:underline">
+        Browse all guides
+      </Link>
+    </main>
+  );
 }
 
 export function GuidesIndexContent() {

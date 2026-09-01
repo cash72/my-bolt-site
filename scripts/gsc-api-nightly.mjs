@@ -20,6 +20,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { GoogleAuth } from 'google-auth-library';
 import { P0_INDEX_BY_DIR, absoluteUrl } from './lib/gsc-checklist.mjs';
+import {
+  parseSitemapLocs,
+  summarizeSitemapContinuity,
+  continuityMessage,
+} from './lib/sitemap-continuity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -115,6 +120,28 @@ async function apiRequest(client, method, url, body) {
     headers: body ? { 'Content-Type': 'application/json' } : undefined,
   });
   return res.data;
+}
+
+async function fetchSitemapXml(sitemapUrl) {
+  const res = await fetch(sitemapUrl, {
+    redirect: 'follow',
+    headers: { 'user-agent': 'PortfolioHealthAudit/1.0 (+site-owner)' },
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.text();
+}
+
+async function checkSitemapContinuity(site) {
+  const sitemapUrl = `${site.url.replace(/\/$/, '')}/sitemap.xml`;
+  const generated = JSON.parse(await readFile(path.join(ROOT, site.dir, 'seo/generated-routes.json'), 'utf8'));
+  const localXml = await readFile(path.join(ROOT, site.dir, 'public/sitemap.xml'), 'utf8');
+  const liveXml = await fetchSitemapXml(sitemapUrl);
+  return summarizeSitemapContinuity({
+    siteUrl: site.url,
+    generatedRoutes: generated.allRoutes || [],
+    liveLocs: parseSitemapLocs(liveXml),
+    localSitemapLocs: parseSitemapLocs(localXml),
+  });
 }
 
 async function submitSitemap(client, siteUrl) {
@@ -269,13 +296,13 @@ async function main() {
   if (dryRun) console.log('(dry-run — no API writes)\n');
 
   const sites = await loadSites();
-  const client = dryRun ? null : await getAuthClient();
 
   const report = {
     generatedAt: new Date().toISOString(),
     dryRun,
     note:
       'URL Inspection + sitemap submit only. "Request indexing" in GSC UI is not available via API for normal pages.',
+    sitemapContinuity: [],
     sitemaps: [],
     inspections: [],
     searchPerformance: [],
@@ -287,9 +314,56 @@ async function main() {
     softErrors: [],
   };
 
+  console.log('Live sitemap vs generated-routes (does not need GSC credentials)\n');
+  for (const site of sites) {
+    const domain = new URL(site.url).hostname;
+    process.stdout.write(`  ${domain} ... `);
+    try {
+      const continuity = await checkSitemapContinuity(site);
+      report.sitemapContinuity.push({
+        domain,
+        dir: site.dir,
+        ok: continuity.ok,
+        staleDeploy: continuity.staleDeploy,
+        liveCount: continuity.liveCount,
+        generatedCount: continuity.generatedCount,
+        missingFromLive: continuity.missingFromLive.length,
+        extraOnLive: continuity.extraOnLive.length,
+        extraOnLiveUrls: continuity.extraOnLive,
+        missingFromLiveSample: continuity.missingFromLive.slice(0, 8),
+      });
+      if (continuity.ok) {
+        console.log(`ok (${continuity.generatedCount} URLs)`);
+      } else {
+        const msg = continuityMessage(continuity);
+        console.log(`FAIL: ${msg}`);
+        report.errors.push({ type: 'sitemap-continuity', domain, error: msg });
+      }
+    } catch (err) {
+      const msg = errorMessage(err);
+      console.log(`FAIL: ${msg}`);
+      report.errors.push({ type: 'sitemap-continuity', domain, error: msg });
+    }
+  }
+  console.log('');
+
+  let client = null;
+  if (!dryRun) {
+    try {
+      client = await getAuthClient();
+    } catch (err) {
+      const msg = errorMessage(err);
+      console.log(`GSC auth unavailable: ${msg}`);
+      console.log('Skipping sitemap submit / URL Inspection; continuity results are still recorded.\n');
+      report.errors.push({ type: 'auth', error: msg });
+    }
+  }
+
   for (const site of sites) {
     const domain = new URL(site.url).hostname;
     const p0 = P0_INDEX_BY_DIR[site.dir] ?? { label: site.dir, paths: [{ path: '/' }] };
+
+    if (!client && !dryRun) continue;
 
     if (!inspectOnly) {
       process.stdout.write(`Sitemap ${domain} ... `);
@@ -399,6 +473,9 @@ async function main() {
   const hardSitemapFails = report.errors.filter((e) => e.type === 'sitemap').length;
 
   console.log('\n=== Summary ===');
+  console.log(
+    `Sitemap continuity: ${report.sitemapContinuity.filter((s) => s.ok).length}/${report.sitemapContinuity.length} ok`,
+  );
   console.log(`Sitemaps: ${sitemapOk}/${sitemapTotal} ok`);
   console.log(`Inspections: ${report.inspections.length}`);
   console.log(`Search content opportunities: ${report.contentOpportunities.length}`);

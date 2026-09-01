@@ -86,6 +86,8 @@ The scheduled job runs more than the GSC API. It now:
 - writes readable Markdown and JSON reports and sends a desktop notification;
 - submits sitemaps and inspects P0 URLs through GSC after the health checks finish.
 
+It now also **fails hard** when a live sitemap is out of sync with `seo/generated-routes.json` (stale Cloudflare deploy or retired URLs still submitted). That is the usual GSC “Discovered – currently not indexed” / coverage-error cause. This check does **not** require GSC credentials.
+
 Run the complete job manually:
 
 ```bash
