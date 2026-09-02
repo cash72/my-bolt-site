@@ -7,7 +7,7 @@ export const SITE_DOMAIN = 'paint-calculator.ca';
 
 export const CONTACT_EMAIL = 'cashfreedom4us@gmail.com';
 
-export const SITE_CONTENT_UPDATED = '2026-07-07';
+export const SITE_CONTENT_UPDATED = '2026-09-01';
 
 /** Canonical URL with trailing slash (matches Cloudflare Pages). */
 export function canonicalUrl(path: string = '/'): string {
