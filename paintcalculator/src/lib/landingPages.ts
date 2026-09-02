@@ -38,7 +38,7 @@ export const LANDING_PAGES: LandingPage[] = [
     title: 'Room Paint Calculator — Walls, Ceiling & Gallons (Canada)',
     h1: 'Room Paint Calculator',
     description:
-      'Free room paint calculator. Enter room dimensions and ceiling height to estimate wall and ceiling paint in gallons.',
+      'Free room paint calculator for Canadian DIY: enter dimensions → wall/ceiling gallons. Pair with Behr label coverage (~400 sq ft/gal) for an exact buy list.',
     breadcrumbLabel: 'Room calculator',
     intro:
       'Measure a rectangular room in feet and inches. We calculate wall area from perimeter × height, add ceiling if needed, and deduct doors and windows.',
@@ -46,7 +46,7 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How do I calculate paint for a room?',
         answer:
-          'Wall area = 2 × ceiling height × (length + width). Add ceiling area (length × width) if you are painting the ceiling. Divide total coverage by sq ft per gallon on your paint can.',
+          'Wall area = 2 × ceiling height × (length + width). Add ceiling area (length × width) if you are painting the ceiling. Divide total coverage by sq ft per gallon on your paint can — or use our [Behr paint coverage calculator](/paint-coverage-calculator) with the label number.',
       },
       {
         question: 'How many coats should I plan for?',
@@ -57,6 +57,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'Should I subtract doors and windows?',
         answer:
           'Yes for a closer estimate. A standard door is about 20 sq ft and a window about 15 sq ft. The calculator deducts these automatically.',
+      },
+      {
+        question: 'I already know total wall square footage — what next?',
+        answer:
+          'Skip room dimensions and use the [paint coverage calculator](/paint-coverage-calculator) — enter total sq ft, coats, and the coverage rate from your Behr (or any brand) can.',
       },
     ],
   },
@@ -79,17 +84,17 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How many gallons for a 12×12 room?',
         answer:
-          'A 12×12 room with 8 ft ceilings has about 384 sq ft of wall area. With two coats and 350 sq ft per gallon coverage, you need roughly 2.2 gallons — buy 3 gallons to be safe.',
+          'A 12×12 room with 8 ft ceilings has about 384 sq ft of wall area. With two coats and 350 sq ft per gallon coverage, you need roughly 2.2 gallons — buy 3 gallons to be safe. Confirm with your can’s rate in the [coverage calculator](/paint-coverage-calculator).',
       },
       {
         question: 'How much does a gallon of paint cover?',
         answer:
-          'Most interior latex covers 350–400 sq ft per gallon on smooth walls. Check your can — flat and textured surfaces cover less.',
+          'Most interior latex covers 350–400 sq ft per gallon on smooth walls. Check your can — flat and textured surfaces cover less. For label-to-gallon math only, use the [Behr paint coverage calculator](/paint-coverage-calculator).',
       },
       {
         question: 'Do I need primer and paint?',
         answer:
-          'New drywall, stains, or bold color changes usually need primer first. Run the calculator twice — once for primer, once for topcoat — or switch paint type in settings.',
+          'New drywall, stains, or bold color changes usually need primer first. Run the calculator twice — once for primer, once for topcoat — or switch paint type in settings. Convert each can’s coverage rate in the [Behr paint coverage calculator](/paint-coverage-calculator).',
       },
       {
         question: 'How many square feet does a gallon of paint cover?',
@@ -99,7 +104,22 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'Is there a Behr paint calculator?',
         answer:
-          'Behr sells paint by coverage on the can label, not a room-size tool. Enter your room dimensions here and set sq ft per gallon to the number on your Behr can — same math, any brand.',
+          'Behr sells paint by coverage on the can label, not a room-size tool. Enter your room dimensions here and set sq ft per gallon to the number on your Behr can — same math, any brand. Prefer coverage-only math? Use the [paint coverage calculator](/paint-coverage-calculator).',
+      },
+      {
+        question: 'How much Behr paint for a 10×12 bedroom?',
+        answer:
+          'Walls ≈ 352 sq ft (10×12, 8 ft ceilings). Two coats at 400 sq ft/gallon ≈ 1.8 gallons — buy 2 gallons if smooth and primed; buy 3 if textured or changing colour a lot. Run exact openings and waste above, or confirm in the [coverage calculator](/paint-coverage-calculator).',
+      },
+      {
+        question: 'How much Behr paint for an open-concept living/dining area?',
+        answer:
+          'Treat shared wall runs as one continuous perimeter (or add rooms and total gallons). Open plans often need 4–6 gallons for two coats at ~350–400 sq ft/gallon. Confirm dye-lot matching by buying all gallons once — use the [Behr paint coverage calculator](/paint-coverage-calculator) with total wall sq ft if you already measured.',
+      },
+      {
+        question: 'How much Behr paint for a ceiling only?',
+        answer:
+          'Ceiling area = length × width (e.g. 12×12 = 144 sq ft). Two coats of Behr ceiling flat at ~350–400 sq ft/gallon ≈ 0.7–0.8 gallon — buy 1 gallon. Prefer label-only math? Use the [Behr paint coverage calculator](/paint-coverage-calculator) with surface set to ceiling.',
       },
     ],
   },
@@ -112,7 +132,7 @@ export const LANDING_PAGES: LandingPage[] = [
     title: 'Behr Paint Coverage Calculator (Free) | Paint Calculator',
     h1: 'Behr Paint Coverage Calculator',
     description:
-      'Free Behr paint calculator: enter room size + label coverage → gallons per coat. Typical Behr interior: up to 400 sq ft/gallon. Works for any brand.',
+      'Free Behr paint coverage calculator: room size + can label → gallons. Typical Behr interior up to 400 sq ft/gal. Works for any brand — Canada DIY.',
     breadcrumbLabel: 'Coverage calculator',
     quickAnswer:
       'How much does a gallon of Behr paint cover? Most Behr Premium Plus Interior lists up to ~400 sq ft per gallon on smooth, primed drywall (one coat). Enter that label number below with your room size to get gallons to buy — this is a free Behr paint calculator that works for any brand.',
@@ -122,32 +142,72 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'What is typical paint coverage?',
         answer:
-          'Interior latex: 350 sq ft/gallon. Primer: 300 sq ft/gallon. Exterior paint: 250 sq ft/gallon on porous siding. Always use the number on your product.',
+          'Interior latex: 350 sq ft/gallon. Primer: 300 sq ft/gallon. Exterior paint: 250 sq ft/gallon on porous siding. Always use the number on your product — then convert with this [Behr paint coverage calculator](/paint-coverage-calculator).',
       },
       {
         question: 'Why does my paint cover less than the label?',
         answer:
-          'Textured walls, dark colors, unprimed surfaces, and rolling vs spraying all reduce coverage. Add 10% waste for touch-ups and roller absorption.',
+          'Textured walls, dark colors, unprimed surfaces, and rolling vs spraying all reduce coverage. Add 10% waste for touch-ups and roller absorption. Drop sq ft/gallon toward 300–350 in the settings above when walls are rough.',
       },
       {
         question: 'Should I buy quarts or gallons?',
         answer:
-          'The calculator shows both. Small accent walls or closets may only need quarts. Whole rooms usually need at least one gallon — we round up for store quantities.',
+          'The calculator shows both. Small accent walls or closets may only need quarts. Whole rooms usually need at least one gallon — we round up for store quantities. For coats + waste as a shopping list, also try [how much Behr paint do I need](/how-much-paint-do-i-need).',
       },
       {
         question: 'How many square feet does a gallon of paint cover?',
         answer:
-          'Interior latex typically covers 350–400 sq ft per gallon on smooth walls. Primer is often 250–350 sq ft/gallon. Always use the coverage number printed on your paint can — not a generic average.',
+          'Interior latex typically covers 350–400 sq ft per gallon on smooth walls. Primer is often 250–350 sq ft/gallon. Always use the coverage number printed on your paint can — not a generic average. See [Behr paint coverage per gallon](/guides/paint-coverage-per-gallon) for product-line ranges.',
       },
       {
         question: 'Does Behr have a paint coverage calculator?',
         answer:
-          'Behr lists sq ft per gallon on each product label but does not offer a room-dimension calculator. Enter your wall measurements above and set coverage to the Behr number on your can for an accurate gallon count.',
+          'Behr lists sq ft per gallon on each product label but does not offer a room-dimension calculator. Enter your wall measurements above and set coverage to the Behr number on your can for an accurate gallon count — this free Behr paint coverage calculator does that math for you.',
       },
       {
         question: 'What is Behr paint coverage per gallon?',
         answer:
           'Behr Premium Plus Interior often lists up to 400 sq ft/gallon; Premium Plus Ultra and Marquee lines are similar on smooth drywall. Textured walls, deep colours, and unprimed surfaces cover less — use 300–350 sq ft/gallon as a realistic DIY default.',
+      },
+      {
+        question: 'How much Behr paint for a 12×12 room at label coverage?',
+        answer:
+          'Walls ≈ 384 sq ft. One coat at 400 sq ft/gallon ≈ 1 gallon; two coats ≈ 1.9 → buy 2 gallons if walls are smooth and primed. Texture or a colour change? Plan 3 gallons, or run [how much Behr paint do I need](/how-much-paint-do-i-need) with waste on.',
+      },
+      {
+        question: 'Can I use this for Benjamin Moore or Sherwin-Williams too?',
+        answer:
+          'Yes. Enter the Coverage line from any brand can — Benjamin Moore, Sherwin-Williams, Behr, or a store brand. The tool converts your label rate into gallons; only the sq ft/gallon number changes.',
+      },
+      {
+        question: 'My Behr can lists coverage per litre — what do I enter?',
+        answer:
+          'Convert to sq ft per gallon first (1 US gallon ≈ 3.785 L). Example: 10 m²/L is roughly 407 sq ft/gallon. Enter that number here, or buy by the US gallon label at Home Depot Canada and use the printed sq ft/gallon line directly.',
+      },
+      {
+        question: 'How much Behr paint for one accent wall?',
+        answer:
+          'Measure width × height of that wall only (deduct any window). Example: 12×8 ft = 96 sq ft. Two coats at 400 sq ft/gallon ≈ 0.5 gallon — buy 1 gallon (or 2 quarts) of Behr so you have touch-up left. Enter the accent wall dimensions above with your can’s Coverage line.',
+      },
+      {
+        question: 'Do I enter one coat or two coats in this Behr coverage calculator?',
+        answer:
+          'Enter the coat count you will actually roll. One coat at 400 sq ft/gallon covers ~400 sq ft; two coats doubles paint needed. For coats + waste + store rounding in one shopping list, switch to [how much Behr paint do I need](/how-much-paint-do-i-need).',
+      },
+      {
+        question: 'How much Behr paint for a hallway or stairwell?',
+        answer:
+          'Measure each wall run separately (length × height), add landings, and skip stairs treads unless you are painting them. Hallways are often 150–300 sq ft of wall; two coats at 350–400 sq ft/gallon usually means 1–2 gallons. Enter total wall sq ft above with your Behr Coverage line, or use [how much Behr paint do I need](/how-much-paint-do-i-need) for waste + store rounding.',
+      },
+      {
+        question: 'How much Behr paint for a garage or unfinished basement?',
+        answer:
+          'Bare concrete block, OSB, and dusty unfinished drywall drink paint — plan 250–300 sq ft/gallon (not the 400 sq ft/gallon smooth-wall label). Prime first when the substrate is porous, then re-run this Behr paint coverage calculator with the finish can’s Coverage line for topcoats only.',
+      },
+      {
+        question: 'Should I calculate walls and ceiling in one Behr coverage run?',
+        answer:
+          'Only if both use the same product and sheen. Ceiling flat and wall eggshell are different SKUs — run this calculator twice with each can’s Coverage line, then add gallons. For coats + waste as one shopping list, use [how much Behr paint do I need](/how-much-paint-do-i-need) per product.',
       },
     ],
   },
@@ -179,6 +239,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'Does this work for trim and doors?',
         answer:
           'This tool focuses on wall and ceiling area. Trim and doors use less paint — many DIYers buy a quart of trim paint separately.',
+      },
+      {
+        question: 'How do I use my Behr can coverage here?',
+        answer:
+          'Set sq ft per gallon to the Coverage line on your Behr can (often up to 400 sq ft/gallon for Premium Plus Interior). Prefer coverage-only math? Jump to the [Behr paint coverage calculator](/paint-coverage-calculator).',
       },
     ],
   },
@@ -441,7 +506,7 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How much does it cost to paint a room?',
         answer:
-          'Materials often run $80–$200 CAD for a typical bedroom (paint, primer, basic supplies). Enter your gallon price here for paint-only cost; add 10–15% for rollers and tape.',
+          'Materials often run $80–$200 CAD for a typical bedroom (paint, primer, basic supplies). Enter your gallon price here for paint-only cost; add 10–15% for rollers and tape. Confirm gallons first with the [Behr paint coverage calculator](/paint-coverage-calculator).',
       },
       {
         question: 'Should I include primer in the cost estimate?',
@@ -452,6 +517,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'Why is my estimate higher than one gallon?',
         answer:
           'Two coats on walls plus ceiling, waste allowance, and door/window deductions all affect gallons. We round up to whole gallons like the store sells them.',
+      },
+      {
+        question: 'How do I price Behr Premium Plus for my room?',
+        answer:
+          'Get gallons from this estimator (or the [coverage calculator](/paint-coverage-calculator) using your Behr label rate), then multiply by the shelf price at Home Depot Canada. Primer and supplies are separate line items.',
       },
     ],
   },
@@ -489,14 +559,14 @@ export const LANDING_PAGES: LandingPage[] = [
 ];
 
 export const FEATURED_LANDING_SLUGS = [
+  'paint-coverage-calculator',
   'how-much-paint-do-i-need',
+  'paint-cost-estimator',
   'cabinet-trim-paint-calculator',
   'exterior-paint-calculator',
   'ceiling-paint-calculator',
-  'paint-cost-estimator',
   'room-paint-calculator',
   'interior-paint-calculator',
-  'paint-coverage-calculator',
   'wallpaper-calculator',
   'fence-stain-calculator',
 ] as const;
