@@ -212,6 +212,11 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
           answer:
             'Use the live USD (or other fiat) figure on this page, then open the [Bitcoin fee calculator](/bitcoin-fee-calculator) with a realistic sat/vB and vByte size. If fee USD is more than a few percent of this stack, wait or use Lightning — start from the [Satoshi to USD](/satoshi-to-usd) hub for any custom amount.',
         },
+        {
+          question: 'What if my wallet shows BTC instead of sats?',
+          answer:
+            'Toggle display units in wallet settings, or convert: divide BTC by 0.00000001 (or multiply by 100,000,000) to get sats. This page locks a fixed sat amount — for any custom count, use the [Satoshi to USD](/satoshi-to-usd) hub, then check fee USD on the [Bitcoin fee calculator](/bitcoin-fee-calculator) before you send.',
+        },
       ];
     }
     if (isFiatToSats) {

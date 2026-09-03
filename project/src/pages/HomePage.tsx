@@ -230,6 +230,10 @@ export default function HomePage() {
         q: 'How do I estimate Bitcoin network fees before withdrawing?',
         a: 'Use the Bitcoin fee calculator to turn sat/vB × vBytes into sats and live USD, then compare that cost to your stack on Satoshi to USD, 100k sats, or 1M sats before you broadcast.',
       },
+      {
+        q: 'Is a quieter weekend better for withdrawing stacked sats?',
+        a: 'Often yes for non-urgent sends. Model a lower sat/vB on the Bitcoin fee calculator, then compare fee USD to 50k, 100k, or 1M sats. If waiting saves more than a few percent of what you move, delay the broadcast.',
+      },
     ];
 
     faqScript.textContent = JSON.stringify({
@@ -845,6 +849,30 @@ export default function HomePage() {
                         Satoshi to USD
                       </Link>
                       .
+                    </>
+                  ),
+                },
+                {
+                  q: 'Is a quieter weekend better for withdrawing stacked sats?',
+                  a: () => (
+                    <>
+                      Often yes for non-urgent sends. Model a lower sat/vB on the{' '}
+                      <Link to="/bitcoin-fee-calculator" className="text-orange-600 dark:text-orange-400 hover:underline">
+                        Bitcoin fee calculator
+                      </Link>
+                      , then compare fee USD to{' '}
+                      <Link to="/50000-satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                        50k
+                      </Link>
+                      ,{' '}
+                      <Link to="/100000-satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                        100k
+                      </Link>
+                      , or{' '}
+                      <Link to="/1000000-satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                        1M sats
+                      </Link>
+                      . If waiting saves more than a few percent of what you move, delay the broadcast.
                     </>
                   ),
                 },

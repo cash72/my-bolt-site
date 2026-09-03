@@ -26,6 +26,11 @@ export const FEE_NEXT_STEPS: NextStepLink[] = [
     hint: 'Compare fee sats to your stack',
   },
   {
+    to: '/50000-satoshi-to-usd',
+    label: '50k sats → USD',
+    hint: 'Common early stack size',
+  },
+  {
     to: '/100000-satoshi-to-usd',
     label: '100k sats → USD',
     hint: 'Common stack checkpoint',

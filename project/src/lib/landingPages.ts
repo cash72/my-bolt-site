@@ -91,7 +91,7 @@ function buildSatoshiHubPage(currency: FiatCurrency): LandingPageDef {
 
   const description =
     currency === 'usd'
-      ? 'How much is a Satoshi worth in USD today? Convert any sat amount to dollars at the live Bitcoin price. Free calculator — updated every 60 seconds from CoinGecko.'
+      ? 'How much is a Satoshi worth in USD today? Convert any sat amount to dollars at the live Bitcoin price — then check on-chain fees before you withdraw. Free calculator — updated every 60 seconds from CoinGecko.'
       : `Convert Satoshis to ${label} (${name}) at the live Bitcoin price. Free ${label} calculator for stackers — updated every 60 seconds.`;
 
   return {
@@ -137,8 +137,10 @@ function buildSatoshiAmountPage(amount: number, currency: FiatCurrency): Landing
         : amount === 1_000_000
           ? `How much is 1,000,000 Satoshis (1M sats / 0.01 BTC) in USD today? Live dollar value at the current Bitcoin price — plus fee context before you move it. Free calculator — updated every 60 seconds.`
           : amount === 50_000
-            ? `How much is 50,000 Satoshis (50k sats) in USD today? See the live dollar value at the current Bitcoin price. Free calculator — updated every 60 seconds.`
-            : `How much is ${formatted} Satoshis (${titleAmount}) in USD today? See the live dollar value at the current Bitcoin price. Free calculator — updated every 60 seconds.`
+            ? `How much is 50,000 Satoshis (50k sats) in USD today? Live dollar value at the current Bitcoin price — then compare tonight’s fee before you withdraw. Free calculator — updated every 60 seconds.`
+            : amount === 500_000
+              ? `How much is 500,000 Satoshis (500k sats) in USD today? Live dollar value at the current Bitcoin price — plus fee context before cold storage. Free calculator — updated every 60 seconds.`
+              : `How much is ${formatted} Satoshis (${titleAmount}) in USD today? See the live dollar value at the current Bitcoin price. Free calculator — updated every 60 seconds.`
       : `How much is ${formatted} sats in ${label}? See the live ${label} value at today's Bitcoin price. Free calculator — updated every 60 seconds.`;
 
   return {

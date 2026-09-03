@@ -104,6 +104,11 @@ export default function BitcoinFeeCalculatorPage() {
         answer:
           'Judge fee USD as a percent of what you move — not as a fixed dollar number. A $2 fee on [100k sats](/100000-satoshi-to-usd) may be fine; the same $2 on a tiny tip can be a large share. Convert the fee sats on [Satoshi to USD](/satoshi-to-usd), then decide whether to wait, use Lightning, or broadcast now.',
       },
+      {
+        question: 'Is a quiet weekend mempool worth waiting for?',
+        answer:
+          'Often yes for non-urgent withdrawals. Drop sat/vB here to model a quieter mempool, then compare fee USD to your stack on [50k](/50000-satoshi-to-usd), [100k](/100000-satoshi-to-usd), or [1M sats](/1000000-satoshi-to-usd). If waiting saves more than a few percent of what you move, delay the broadcast — or use Lightning for small tips.',
+      },
     ],
     [satPerVb, vBytes, sats, usd, btcPrice]
   );
@@ -342,6 +347,24 @@ export default function BitcoinFeeCalculatorPage() {
                 $100 in sats
               </Link>{' '}
               so withdrawal cost is obvious before you leave an exchange.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mt-0 mb-3">
+              Quiet weekends vs urgent sends
+            </h2>
+            <p>
+              Mempool pressure often eases on quieter weekends. If your withdrawal is not urgent, model a lower sat/vB
+              here and compare the USD fee to the live stack value on{' '}
+              <Link to="/satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                Satoshi to USD
+              </Link>{' '}
+              or a fixed checkpoint like{' '}
+              <Link to="/100000-satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                100k sats
+              </Link>
+              . Waiting a day is usually cheaper than overpaying to move the same stack tonight — unless you need
+              settlement now or Lightning covers a small tip.
             </p>
           </div>
         </div>

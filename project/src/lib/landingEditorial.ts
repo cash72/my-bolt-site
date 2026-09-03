@@ -72,6 +72,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
+        heading: 'Exchange flat fees vs this 50k stack',
+        paragraphs: [
+          'Many exchanges charge a flat withdrawal fee that can eat a noticeable slice of 50,000 sats during quiet markets — or feel fine when BTC is high. Model a wallet broadcast on the [Bitcoin fee calculator](/bitcoin-fee-calculator), then compare that USD figure to the live value above and to the exchange’s listed fee.',
+          'If either fee is more than a few percent of this stack, batch another buy or wait for quieter blocks before you leave the exchange.',
+        ],
+      },
+      {
         heading: 'What to do after you know the value',
         paragraphs: [
           'If you are stacking, compare this USD figure to your weekly budget and see how many sats your next buy adds. Our [stacking sats and DCA guide](/guides/stacking-sats-dca) walks through building a repeatable plan.',
@@ -105,6 +112,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         paragraphs: [
           'Run the [Bitcoin fee calculator](/bitcoin-fee-calculator) with your wallet’s sat/vB and size. If the fee USD is more than a few percent of the live value above, wait for quieter blocks or batch with other buys before withdrawing.',
           'Compare mempool sat/vB to any flat exchange withdrawal fee — exchanges often charge more than live rates. Lightning remains better for tips far below this milestone.',
+        ],
+      },
+      {
+        heading: 'Month-end DCA withdrawals at 100k',
+        paragraphs: [
+          'Many stackers withdraw once a month when several weekly buys approach 100,000 sats. One on-chain move usually beats paying network cost on every $50–$100 purchase — estimate sat/vB × vBytes on the [fee calculator](/bitcoin-fee-calculator) the day you plan to leave the exchange.',
+          'If fee USD is still high relative to the live value above, wait for a quieter weekend or add one more buy before broadcasting.',
         ],
       },
       {
@@ -262,6 +276,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
           'Model sat/vB × vBytes on the [Bitcoin fee calculator](/bitcoin-fee-calculator), then come back here (or a fixed amount page) to see whether fee USD is a tiny percent of what you move.',
         ],
       },
+      {
+        heading: 'Tips vs stacks: pick the right size page',
+        paragraphs: [
+          'Lightning tips often land near [1,000](/1000-satoshi-to-usd) or [5,000 sats](/5000-satoshi-to-usd) — on-chain fees can dwarf those amounts. Savings checkpoints like [50k](/50000-satoshi-to-usd), [100k](/100000-satoshi-to-usd), and [1M sats](/1000000-satoshi-to-usd) are where fee percent usually becomes reasonable.',
+          'Use this hub for any custom amount, then open the fee calculator before you broadcast so the dollar fee is obvious next to the live USD label.',
+        ],
+      },
     ],
   },
 
@@ -372,6 +393,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         paragraphs: [
           'On-chain withdrawal fees vary with mempool congestion. Batch moves when fees are low, or practice with a test send before transferring the full stack — estimate cost first with the [Bitcoin fee calculator](/bitcoin-fee-calculator).',
           'At 1M sats, a typical SegWit fee is usually a small percent of the stack — still verify sat/vB × vBytes so a congested mempool does not surprise you. Our [storage guide](/guides/how-to-store-bitcoin-safely) compares Blockstream Jade, BitBox02, and Coldcard.',
+        ],
+      },
+      {
+        heading: 'Cold-storage withdrawal checklist at 1M sats',
+        paragraphs: [
+          'Before you leave the exchange: (1) set up hardware wallet + metal seed backup, (2) estimate sat/vB × vBytes on the [Bitcoin fee calculator](/bitcoin-fee-calculator), (3) send a small test (often 10k–50k sats), (4) verify the receive address on the device screen, then (5) move the rest.',
+          'Check the live dollar label on this page and on [Satoshi to USD](/satoshi-to-usd) so the test fee and the full move are both a tiny percent of what you protect.',
         ],
       },
       {

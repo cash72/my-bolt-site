@@ -8,7 +8,7 @@ export const CONTACT_EMAIL = 'cashfreedom4us@gmail.com';
 export const SITE_EDITOR = 'SatoshiCalc Editorial Team';
 
 /** Visible on guides and legal pages; bump when content is materially updated. */
-export const SITE_CONTENT_UPDATED = '2026-08-30';
+export const SITE_CONTENT_UPDATED = '2026-09-02';
 
 export const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
 
