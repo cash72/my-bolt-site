@@ -25,6 +25,7 @@ import {
 } from '../lib/conversion';
 import { TX_SIZE_PRESETS, feeSats } from '../lib/fees';
 import { getGuideBySlug } from '../lib/guides';
+import { renderEditorialText } from '../lib/renderEditorialText';
 import { canonicalUrl } from '../lib/site';
 
 const DEFAULT_SAT_PER_VB = 12;
@@ -32,9 +33,9 @@ const DEFAULT_VBYTES = 140;
 
 export default function BitcoinFeeCalculatorPage() {
   usePageMeta({
-    title: 'Bitcoin Fee Calculator — sat/vB to Sats & USD',
+    title: 'Bitcoin Fee Calculator — How Much Will My TX Cost in USD?',
     description:
-      'Estimate Bitcoin transaction fees from sat/vB and transaction size (vBytes). See fee in sats, BTC, and live USD. Free mempool planning tool.',
+      'How much will a Bitcoin transaction cost in USD today? Estimate mempool fees and exchange withdrawal cost: sat/vB × vBytes → sats, BTC, and live dollars. Free planning tool before you send.',
     path: '/bitcoin-fee-calculator',
   });
 
@@ -76,7 +77,37 @@ export default function BitcoinFeeCalculatorPage() {
       {
         question: 'When should I use Lightning instead?',
         answer:
-          'For tips and small payments, Lightning fees are usually far cheaper than on-chain. Use on-chain for cold-storage moves and exchange withdrawals when you need settlement finality.',
+          'For tips and small payments, Lightning fees are usually far cheaper than on-chain — compare this calculator’s fee USD to live stack values on [1,000 sats](/1000-satoshi-to-usd) or [10,000 sats](/10000-satoshi-to-usd). Use on-chain for cold-storage moves and exchange withdrawals when you need settlement finality.',
+      },
+      {
+        question: 'Is an exchange withdrawal fee the same as the mempool fee?',
+        answer:
+          'Usually not. Exchanges often charge a flat withdrawal fee that may be higher than live mempool rates. This calculator estimates sat/vB × vBytes for wallet broadcasts — compare that USD estimate to your exchange’s listed withdrawal fee before you move stacked sats. Convert the fee sats on [Satoshi to USD](/satoshi-to-usd) if you want a second check.',
+      },
+      {
+        question: 'When does a fee eat too much of my stack?',
+        answer:
+          'Rule of thumb: if the fee USD is more than a few percent of what you are sending, wait or use Lightning. Check stack size on [50k sats](/50000-satoshi-to-usd), [100k sats](/100000-satoshi-to-usd), or [1M sats](/1000000-satoshi-to-usd), then compare to this calculator’s live fee estimate before you broadcast.',
+      },
+      {
+        question: 'Should I wait for lower fees instead of broadcasting now?',
+        answer:
+          'Often yes for non-urgent sends. Drop sat/vB here to model a quieter mempool, then compare fee USD to your stack on [Satoshi to USD](/satoshi-to-usd). If waiting costs less than a few percent of what you move, delay the broadcast — or use Lightning for small tips.',
+      },
+      {
+        question: 'Should I batch withdrawals or consolidate UTXOs first?',
+        answer:
+          'Usually yes for DCA stacks: one larger withdrawal often beats many small ones when fees are elevated. Model a typical SegWit spend here, then compare fee USD to milestones like [100k sats](/100000-satoshi-to-usd) or [1M sats](/1000000-satoshi-to-usd). Consolidate dusty UTXOs only when sat/vB is cheap — consolidating during a fee spike can cost more than you save.',
+      },
+      {
+        question: 'Is a $2 fee cheap or expensive for my send?',
+        answer:
+          'Judge fee USD as a percent of what you move — not as a fixed dollar number. A $2 fee on [100k sats](/100000-satoshi-to-usd) may be fine; the same $2 on a tiny tip can be a large share. Convert the fee sats on [Satoshi to USD](/satoshi-to-usd), then decide whether to wait, use Lightning, or broadcast now.',
+      },
+      {
+        question: 'Is a quiet weekend mempool worth waiting for?',
+        answer:
+          'Often yes for non-urgent withdrawals. Drop sat/vB here to model a quieter mempool, then compare fee USD to your stack on [50k](/50000-satoshi-to-usd), [100k](/100000-satoshi-to-usd), or [1M sats](/1000000-satoshi-to-usd). If waiting saves more than a few percent of what you move, delay the broadcast — or use Lightning for small tips.',
       },
     ],
     [satPerVb, vBytes, sats, usd, btcPrice]
@@ -97,7 +128,10 @@ export default function BitcoinFeeCalculatorPage() {
       mainEntity: faqItems.map((item) => ({
         '@type': 'Question',
         name: item.question,
-        acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+        },
       })),
     });
 
@@ -290,6 +324,49 @@ export default function BitcoinFeeCalculatorPage() {
               can see both levers.
             </p>
           </div>
+          <div>
+            <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mt-0 mb-3">
+              Compare the fee to your stack before you send
+            </h2>
+            <p>
+              A fee only feels expensive relative to what you move. Check live dollar labels on{' '}
+              <Link to="/50000-satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                50k sats
+              </Link>
+              ,{' '}
+              <Link to="/100000-satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                100k sats
+              </Link>
+              , or{' '}
+              <Link to="/1000000-satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                1M sats
+              </Link>
+              , then ask whether tonight’s sat/vB estimate is a few percent of that stack — or more. For first buys, flip
+              the math on{' '}
+              <Link to="/100-dollars-in-satoshi" className="text-orange-600 dark:text-orange-400 hover:underline">
+                $100 in sats
+              </Link>{' '}
+              so withdrawal cost is obvious before you leave an exchange.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mt-0 mb-3">
+              Quiet weekends vs urgent sends
+            </h2>
+            <p>
+              Mempool pressure often eases on quieter weekends. If your withdrawal is not urgent, model a lower sat/vB
+              here and compare the USD fee to the live stack value on{' '}
+              <Link to="/satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                Satoshi to USD
+              </Link>{' '}
+              or a fixed checkpoint like{' '}
+              <Link to="/100000-satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                100k sats
+              </Link>
+              . Waiting a day is usually cheaper than overpaying to move the same stack tonight — unless you need
+              settlement now or Lightning covers a small tip.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -319,7 +396,9 @@ export default function BitcoinFeeCalculatorPage() {
                   <span className="font-medium text-slate-800 dark:text-slate-200 pr-4">{faq.question}</span>
                   <ChevronDown className="w-4 h-4 text-slate-400 shrink-0 group-open:rotate-180" aria-hidden="true" />
                 </summary>
-                <div className="px-4 pb-4 text-slate-600 dark:text-slate-300 leading-relaxed">{faq.answer}</div>
+                <div className="px-4 pb-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                  {renderEditorialText(faq.answer)}
+                </div>
               </details>
             ))}
           </div>

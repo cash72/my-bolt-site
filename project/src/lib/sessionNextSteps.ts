@@ -21,18 +21,23 @@ export const CALCULATOR_NEXT_STEPS: NextStepLink[] = [
 
 export const FEE_NEXT_STEPS: NextStepLink[] = [
   {
-    to: '/btc-to-usd',
-    label: 'BTC to USD',
-    hint: 'Convert the fee amount to fiat',
+    to: '/satoshi-to-usd',
+    label: 'Satoshi to USD',
+    hint: 'Compare fee sats to your stack',
   },
   {
-    to: '/usd-to-btc',
-    label: 'USD to BTC',
-    hint: 'Reverse conversion hub',
+    to: '/50000-satoshi-to-usd',
+    label: '50k sats → USD',
+    hint: 'Common early stack size',
   },
   {
-    to: '/guides/what-is-a-satoshi',
-    label: 'What is a satoshi?',
-    hint: 'Understand the unit you just priced',
+    to: '/100000-satoshi-to-usd',
+    label: '100k sats → USD',
+    hint: 'Common stack checkpoint',
+  },
+  {
+    to: '/1000000-satoshi-to-usd',
+    label: '1M sats → USD',
+    hint: '0.01 BTC milestone value',
   },
 ];

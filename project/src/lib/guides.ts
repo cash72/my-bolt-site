@@ -43,7 +43,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: false,
     readTimeMinutes: 7,
     datePublished: '2026-06-01',
-    dateModified: '2026-06-29',
+    dateModified: '2026-08-23',
     sections: [
       {
         heading: 'The basics: 100 million Satoshis in one Bitcoin',
@@ -56,7 +56,7 @@ export const GUIDES: GuideDef[] = [
         heading: 'Why wallets and exchanges show sats',
         paragraphs: [
           'Many mobile wallets (Phoenix, Wallet of Satoshi, Strike) default to satoshi display for smaller balances. Lightning Network payments are often denominated in sats because they suit micropayments.',
-          'If you’re comparing prices, use a live converter. Our homepage updates every 60 seconds from CoinGecko for USD, EUR, GBP, and CAD.',
+          'If you’re comparing prices, use a live converter. Start at [Satoshi to USD](/satoshi-to-usd) — prices update every 60 seconds from CoinGecko for USD, EUR, GBP, and CAD.',
         ],
       },
       {
@@ -69,7 +69,7 @@ export const GUIDES: GuideDef[] = [
       {
         heading: 'Quick conversion links',
         paragraphs: [
-          'See live fiat values: [Satoshi to USD](/satoshi-to-usd), [100,000 sats](/100000-satoshi-to-usd), or [100 dollars in sats](/100-dollars-in-satoshi). Read [how many sats in 1 BTC](/guides/how-many-satoshis-in-a-bitcoin) for the fixed math.',
+          'See live fiat values: [Satoshi to USD](/satoshi-to-usd), [100,000 sats](/100000-satoshi-to-usd), or [100 dollars in sats](/100-dollars-in-satoshi). Before an on-chain tip or withdrawal, estimate cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator). Read [how many sats in 1 BTC](/guides/how-many-satoshis-in-a-bitcoin) for the fixed math.',
         ],
       },
     ],
@@ -80,15 +80,15 @@ export const GUIDES: GuideDef[] = [
       },
       {
         q: 'Can you send a single Satoshi?',
-        a: 'On-chain fees often make single-satoshi transfers impractical, but Lightning and some layer-2 systems handle tiny amounts efficiently.',
+        a: 'On-chain fees often make single-satoshi transfers impractical — compare fee USD on the [Bitcoin fee calculator](/bitcoin-fee-calculator) to tip-size pages like [1,000 sats](/1000-satoshi-to-usd). Lightning and some layer-2 systems handle tiny amounts efficiently.',
       },
       {
         q: 'How do I convert sats to dollars?',
-        a: 'Multiply your sats by the current BTC price in USD, then divide by 100,000,000. Use our live Satoshi to USD converter for instant results.',
+        a: 'Multiply your sats by the current BTC price in USD, then divide by 100,000,000. Use the live [Satoshi to USD](/satoshi-to-usd) converter for instant results.',
       },
     ],
     relatedGuideSlugs: ['how-many-satoshis-in-a-bitcoin', 'usd-to-satoshi', 'how-to-buy-bitcoin'],
-    relatedLandingPaths: ['/satoshi-to-usd', '/1000-satoshi-to-usd', '/100000-satoshi-to-usd'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/bitcoin-fee-calculator', '/1000-satoshi-to-usd', '/100000-satoshi-to-usd'],
   },
   {
     slug: 'how-many-satoshis-in-a-bitcoin',
@@ -103,7 +103,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: false,
     readTimeMinutes: 7,
     datePublished: '2026-06-01',
-    dateModified: '2026-06-29',
+    dateModified: '2026-08-26',
     sections: [
       {
         heading: 'The fixed ratio',
@@ -116,7 +116,7 @@ export const GUIDES: GuideDef[] = [
         heading: 'Common amounts at a glance',
         paragraphs: [
           '1,000 sats = 0.00001 BTC · 100,000 sats = 0.001 BTC · 1,000,000 sats = 0.01 BTC · 10,000,000 sats = 0.1 BTC · 100,000,000 sats = 1 BTC.',
-          'For live fiat values, use our amount pages — they update every minute with current market prices.',
+          'For live fiat values, start at the [Satoshi to USD](/satoshi-to-usd) hub or jump to amount pages — they update every minute with current market prices.',
         ],
       },
       {
@@ -148,7 +148,7 @@ export const GUIDES: GuideDef[] = [
       },
     ],
     relatedGuideSlugs: ['what-is-a-satoshi', 'stacking-sats-dca', 'how-to-store-bitcoin-safely'],
-    relatedLandingPaths: ['/100-dollars-in-satoshi', '/1000-satoshi-to-usd', '/usd-to-satoshi'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/bitcoin-fee-calculator', '/100-dollars-in-satoshi', '/1000-satoshi-to-usd', '/usd-to-satoshi'],
   },
   {
     slug: 'usd-to-satoshi',
@@ -163,26 +163,26 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: false,
     readTimeMinutes: 7,
     datePublished: '2026-06-10',
-    dateModified: '2026-06-29',
+    dateModified: '2026-08-23',
     sections: [
       {
         heading: 'The formula',
         paragraphs: [
           'Satoshis = (USD amount ÷ BTC price in USD) × 100,000,000. Example: at $60,000 BTC, $100 buys (100 ÷ 60,000) × 100,000,000 ≈ 166,667 sats.',
-          'Our reverse converter on the homepage does this instantly for USD, EUR, GBP, and CAD with prices refreshed every 60 seconds.',
+          'Our reverse converter on the homepage does this instantly for USD, EUR, GBP, and CAD with prices refreshed every 60 seconds — or open the [USD to Satoshi](/usd-to-satoshi) hub and [Satoshi to USD](/satoshi-to-usd) for dedicated pages.',
         ],
       },
       {
         heading: 'Step-by-step',
         paragraphs: [
           '1. Look up the current BTC/USD price (SatoshiCalc shows it on the homepage). 2. Divide your dollar amount by that price to get BTC. 3. Multiply by 100 million for sats. 4. Round down if buying on an exchange — you also pay fees.',
-          'For common amounts, skip the math: use /100-dollars-in-satoshi or /1000-dollars-in-satoshi for live results.',
+          'For common amounts, skip the math: use [100 dollars in satoshi](/100-dollars-in-satoshi) or [1000 dollars in satoshi](/1000-dollars-in-satoshi) for live results.',
         ],
       },
       {
         heading: 'After you convert — custody matters',
         paragraphs: [
-          'Knowing how many sats you can buy is only half the picture. Leaving Bitcoin on an exchange means you don’t hold the keys. For amounts you plan to keep, withdraw to a wallet you control.',
+          'Knowing how many sats you can buy is only half the picture. Leaving Bitcoin on an exchange means you don’t hold the keys. For amounts you plan to keep, withdraw to a wallet you control — estimate network cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator) before you send.',
           'Our hardware wallet guide compares beginner-friendly and advanced options.',
         ],
       },
@@ -200,11 +200,15 @@ export const GUIDES: GuideDef[] = [
       },
       {
         q: 'Can I convert Satoshi back to USD?',
-        a: 'Yes — multiply sats by the BTC price and divide by 100,000,000. Use our Satoshi to USD converter for live values.',
+        a: 'Yes — multiply sats by the BTC price and divide by 100,000,000. Use the live [Satoshi to USD](/satoshi-to-usd) converter for current values.',
+      },
+      {
+        q: 'Do exchange or network fees change how many sats I keep?',
+        a: 'Yes. Spot conversion is before trading fees and on-chain withdrawal fees. Estimate mempool cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator) so you know what share of a [100 dollar](/100-dollars-in-satoshi) or [$1,000](/1000-dollars-in-satoshi) buy the fee represents.',
       },
     ],
     relatedGuideSlugs: ['how-to-buy-bitcoin', 'stacking-sats-dca', 'what-is-a-satoshi', 'how-to-store-bitcoin-safely'],
-    relatedLandingPaths: ['/usd-to-satoshi', '/100-dollars-in-satoshi', '/satoshi-to-usd'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/usd-to-satoshi', '/bitcoin-fee-calculator', '/100-dollars-in-satoshi', '/1000-dollars-in-satoshi'],
   },
   {
     slug: 'how-to-store-bitcoin-safely',
@@ -219,7 +223,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: true,
     readTimeMinutes: 11,
     datePublished: '2026-06-15',
-    dateModified: '2026-06-29',
+    dateModified: '2026-08-23',
     sections: [
       {
         heading: 'Hot wallets vs cold storage',
@@ -247,7 +251,7 @@ export const GUIDES: GuideDef[] = [
         heading: 'When to move off an exchange',
         paragraphs: [
           'A practical rule: once you would be upset to lose the amount, withdraw to self-custody. For many people that’s anywhere from $100 to a few hundred dollars — but only after you understand seed phrase responsibility.',
-          'Use our converter to see how many sats you’re moving before you send. Triple-check addresses; Bitcoin transactions are irreversible.',
+          'Check the live dollar label on [Satoshi to USD](/satoshi-to-usd) before you send, then estimate network cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator). Triple-check addresses; Bitcoin transactions are irreversible.',
         ],
       },
       {
@@ -274,9 +278,13 @@ export const GUIDES: GuideDef[] = [
         q: 'Are affiliate recommendations biased?',
         a: 'We may earn a commission on some links, but we list multiple brands so you can compare. Always do your own research before buying.',
       },
+      {
+        q: 'How do I know the withdrawal fee is reasonable?',
+        a: 'Compare your exchange’s listed withdrawal fee to a live sat/vB × vBytes estimate on the [Bitcoin fee calculator](/bitcoin-fee-calculator), and check the stack’s USD value on [Satoshi to USD](/satoshi-to-usd) so the fee is a tiny percent of what you move.',
+      },
     ],
     relatedGuideSlugs: ['how-to-buy-bitcoin', 'bitcoin-self-custody-basics', 'run-your-own-bitcoin-node', 'what-is-a-satoshi'],
-    relatedLandingPaths: ['/satoshi-to-usd', '/100000-satoshi-to-usd'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/bitcoin-fee-calculator', '/100000-satoshi-to-usd'],
   },
   {
     slug: 'bitcoin-self-custody-basics',
@@ -291,7 +299,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: true,
     readTimeMinutes: 10,
     datePublished: '2026-06-18',
-    dateModified: '2026-06-29',
+    dateModified: '2026-08-23',
     sections: [
       {
         heading: 'Not your keys, not your coins',
@@ -303,7 +311,7 @@ export const GUIDES: GuideDef[] = [
       {
         heading: 'Your first self-custody setup',
         paragraphs: [
-          '1. Buy on a reputable exchange if needed. 2. Withdraw to a hardware wallet you set up yourself. 3. Verify the receive address on the device screen. 4. Start with a test transaction before moving larger amounts.',
+          '1. Buy on a reputable exchange if needed. 2. Withdraw to a hardware wallet you set up yourself. 3. Verify the receive address on the device screen. 4. Start with a test transaction before moving larger amounts — estimate the test fee with the [Bitcoin fee calculator](/bitcoin-fee-calculator).',
         ],
         productIds: ['jade', 'bitbox02'],
       },
@@ -330,7 +338,7 @@ export const GUIDES: GuideDef[] = [
     faq: [
       {
         q: 'Is self-custody safe for beginners?',
-        a: 'Yes, if you follow seed phrase rules and start small. A hardware wallet plus a metal backup is the standard path.',
+        a: 'Yes, if you follow seed phrase rules and start small. A hardware wallet plus a metal backup is the standard path. Confirm test-send size on [Satoshi to USD](/satoshi-to-usd) so you know the dollar risk of practice withdrawals.',
       },
       {
         q: 'Should I tell anyone about my Bitcoin?',
@@ -338,7 +346,7 @@ export const GUIDES: GuideDef[] = [
       },
     ],
     relatedGuideSlugs: ['how-to-buy-bitcoin', 'how-to-store-bitcoin-safely', 'run-your-own-bitcoin-node', 'usd-to-satoshi'],
-    relatedLandingPaths: ['/100-dollars-in-satoshi', '/usd-to-satoshi'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/bitcoin-fee-calculator', '/100-dollars-in-satoshi', '/usd-to-satoshi'],
   },
   {
     slug: 'run-your-own-bitcoin-node',
@@ -353,13 +361,13 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: true,
     readTimeMinutes: 12,
     datePublished: '2026-06-22',
-    dateModified: '2026-06-29',
+    dateModified: '2026-09-02',
     sections: [
       {
         heading: 'Why run a node?',
         paragraphs: [
           'Nodes enforce Bitcoin’s rules: supply cap, block size limits, valid transactions. When your wallet connects to your own node, you’re not leaking addresses and balances to a third-party server.',
-          'You don’t need a node to self-custody — but pairing a hardware wallet with your own node is the gold standard for privacy and verification.',
+          'You don’t need a node to self-custody — but pairing a hardware wallet with your own node is the gold standard for privacy and verification. Know what you are verifying with [Satoshi to USD](/satoshi-to-usd) when balances show in sats.',
         ],
       },
       {
@@ -380,6 +388,7 @@ export const GUIDES: GuideDef[] = [
         heading: 'Connect your wallet to your node',
         paragraphs: [
           'Most hardware wallets and apps (Sparrow, Specter, BlueWallet) let you point at your node’s IP or Tor address. Once connected, every balance check and send is verified against your own copy of the blockchain.',
+          'Before funding that receive address from an exchange, estimate sat/vB × vBytes on the [Bitcoin fee calculator](/bitcoin-fee-calculator) and confirm the stack’s dollar label on [Satoshi to USD](/satoshi-to-usd) so the first verified withdrawal is a tiny percent of what you move.',
         ],
       },
       {
@@ -409,9 +418,13 @@ export const GUIDES: GuideDef[] = [
         q: 'Is running a node the same as mining?',
         a: 'No. Nodes validate blocks; miners compete to create them. You can run a node without mining.',
       },
+      {
+        q: 'When should I verify a withdrawal with my own node?',
+        a: 'Anytime you move savings off an exchange — check the live stack on [Satoshi to USD](/satoshi-to-usd) or [100k sats](/100000-satoshi-to-usd), estimate fee USD on the [Bitcoin fee calculator](/bitcoin-fee-calculator), then confirm the receive on your node before and after the send.',
+      },
     ],
     relatedGuideSlugs: ['bitcoin-self-custody-basics', 'how-to-store-bitcoin-safely', 'how-to-buy-bitcoin'],
-    relatedLandingPaths: ['/satoshi-to-usd'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/bitcoin-fee-calculator', '/100000-satoshi-to-usd'],
   },
   {
     slug: 'how-to-buy-bitcoin',
@@ -426,13 +439,13 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: true,
     readTimeMinutes: 13,
     datePublished: '2026-06-29',
-    dateModified: '2026-06-29',
+    dateModified: '2026-09-02',
     sections: [
       {
         heading: 'Before you buy: know what you’re getting',
         paragraphs: [
           'Bitcoin is sold in whole BTC on most exchanges, but you can buy any fraction — often displayed in Satoshis (sats). One Bitcoin = 100,000,000 sats. At today’s prices, most first purchases are hundreds of thousands of sats, not a full coin.',
-          'Use a live converter to see how many sats your budget buys before you check out. Our homepage and pages like /100-dollars-in-satoshi update every 60 seconds from CoinGecko.',
+          'Use the live [Satoshi to USD](/satoshi-to-usd) converter (or reverse pages like [100 dollars in satoshi](/100-dollars-in-satoshi)) to see how many sats your budget buys before you check out — rates update every 60 seconds from CoinGecko.',
         ],
       },
       {
@@ -513,9 +526,13 @@ export const GUIDES: GuideDef[] = [
         q: 'Can I buy Bitcoin without ID?',
         a: 'Regulated fiat on-ramps typically require ID verification. Peer-to-peer or Bitcoin ATMs may have different rules but often charge higher fees and carry more scam risk. Beginners should prefer well-known regulated platforms.',
       },
+      {
+        q: 'How do I know the first withdrawal fee is reasonable?',
+        a: 'Convert your buy on [Satoshi to USD](/satoshi-to-usd) or a fixed page like [100 dollars in satoshi](/100-dollars-in-satoshi), then estimate sat/vB × vBytes on the [Bitcoin fee calculator](/bitcoin-fee-calculator). If fee USD is more than a few percent of what you move, batch another buy or wait for quieter blocks.',
+      },
     ],
     relatedGuideSlugs: ['stacking-sats-dca', 'usd-to-satoshi', 'how-to-store-bitcoin-safely'],
-    relatedLandingPaths: ['/100-dollars-in-satoshi', '/usd-to-satoshi', '/50000-satoshi-to-usd', '/1000-dollars-in-satoshi'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/bitcoin-fee-calculator', '/100-dollars-in-satoshi', '/usd-to-satoshi', '/50000-satoshi-to-usd', '/1000-dollars-in-satoshi'],
   },
   {
     slug: 'stacking-sats-dca',
@@ -530,7 +547,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: true,
     readTimeMinutes: 11,
     datePublished: '2026-06-29',
-    dateModified: '2026-07-07',
+    dateModified: '2026-08-26',
     sections: [
       {
         heading: 'What “stacking sats” actually means',
@@ -550,9 +567,9 @@ export const GUIDES: GuideDef[] = [
       {
         heading: 'Common sat milestones (and what they’re worth live)',
         paragraphs: [
-          'Stackers often set round sat targets — not because the numbers are magic, but because they make progress tangible. Check live fiat values on our amount pages:',
+          'Stackers often set round sat targets — not because the numbers are magic, but because they make progress tangible. Start at the [Satoshi to USD](/satoshi-to-usd) hub, then check live fiat values on our amount pages:',
           '50,000 sats (0.0005 BTC) · 100,000 sats (0.001 BTC) · 500,000 sats (0.005 BTC) · 1,000,000 sats (0.01 BTC) · 10,000,000 sats (0.1 BTC).',
-          'Use /50000-satoshi-to-usd, /100000-satoshi-to-usd, or /500000-satoshi-to-usd for current USD, EUR, GBP, and CAD equivalents — updated every 60 seconds.',
+          'Bookmark [50k](/50000-satoshi-to-usd), [100k](/100000-satoshi-to-usd), and [1M sats](/1000000-satoshi-to-usd) for current USD equivalents — updated every 60 seconds.',
         ],
       },
       {
@@ -574,7 +591,7 @@ export const GUIDES: GuideDef[] = [
         heading: 'When to withdraw stacked sats to self-custody',
         paragraphs: [
           'DCA on an exchange is fine while you learn — but stacked sats left on a platform are still someone else’s IOU. A practical rule: batch-withdraw when your stack would hurt to lose, or when fees make sense relative to the amount.',
-          'Many stackers withdraw monthly or at round milestones (500k sats, 1M sats). Send a test transaction first, verify the address on a hardware wallet screen, then move the rest.',
+          'Many stackers withdraw monthly or at round milestones (100k sats, 1M sats). Estimate sat/vB × vBytes with the [Bitcoin fee calculator](/bitcoin-fee-calculator) first, send a test transaction, verify the address on a hardware wallet screen, then move the rest.',
           'Once withdrawal becomes routine, a hardware wallet pays for itself in peace of mind.',
         ],
         productIds: ['jade', 'bitbox02'],
@@ -625,9 +642,15 @@ export const GUIDES: GuideDef[] = [
         q: 'Should I stack sats on an exchange or in a wallet?',
         a: 'Buy on an exchange, then withdraw to a wallet you control for amounts you are saving. Keep only spending money or active-trade balances on exchanges.',
       },
+      {
+        q: 'When do network fees make DCA withdrawals too expensive?',
+        a: 'If fee USD is more than a few percent of what you move, wait or batch. Model sat/vB × vBytes on the [Bitcoin fee calculator](/bitcoin-fee-calculator), then compare to [100k sats](/100000-satoshi-to-usd) or [1M sats](/1000000-satoshi-to-usd) before withdrawing every small buy.',
+      },
     ],
     relatedGuideSlugs: ['how-to-buy-bitcoin', 'how-many-satoshis-in-a-bitcoin', 'how-to-store-bitcoin-safely'],
     relatedLandingPaths: [
+      '/satoshi-to-usd',
+      '/bitcoin-fee-calculator',
       '/50000-satoshi-to-usd',
       '/100000-satoshi-to-usd',
       '/500000-satoshi-to-usd',
@@ -648,7 +671,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: false,
     readTimeMinutes: 9,
     datePublished: '2026-07-18',
-    dateModified: '2026-07-18',
+    dateModified: '2026-08-23',
     sections: [
       {
         heading: 'What Lightning is — and what it is not',
@@ -661,7 +684,7 @@ export const GUIDES: GuideDef[] = [
         heading: 'When to use Lightning vs on-chain',
         paragraphs: [
           'Use Lightning for small, frequent payments: tips, streaming sats, retail purchases under a few dollars, and moving spending money between your own wallets. Fees are often fractions of a cent instead of dollars during on-chain congestion.',
-          'Use on-chain for larger savings you plan to hold long term. Withdraw from an exchange to a hardware wallet on-chain, then optionally fund a Lightning wallet with a smaller spending balance. Our [storage guide](/guides/how-to-store-bitcoin-safely) covers cold storage; Lightning suits hot spending wallets.',
+          'Use on-chain for larger savings you plan to hold long term. Withdraw from an exchange to a hardware wallet on-chain, then optionally fund a Lightning wallet with a smaller spending balance. Estimate on-chain cost with the [Bitcoin fee calculator](/bitcoin-fee-calculator) before choosing a rail — then see our [storage guide](/guides/how-to-store-bitcoin-safely) for cold storage.',
           'Check how many sats you are moving with [Satoshi to USD](/satoshi-to-usd) or [100 dollars in sats](/100-dollars-in-satoshi) before choosing a rail — the dollar label helps sanity-check whether on-chain fees are worth it.',
         ],
       },
@@ -689,7 +712,7 @@ export const GUIDES: GuideDef[] = [
       },
     ],
     relatedGuideSlugs: ['what-is-a-satoshi', 'bitcoin-transaction-fees-explained', 'how-to-send-bitcoin-first-time', 'run-your-own-bitcoin-node'],
-    relatedLandingPaths: ['/satoshi-to-usd', '/1000-satoshi-to-usd', '/100-dollars-in-satoshi'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/bitcoin-fee-calculator', '/1000-satoshi-to-usd', '/100-dollars-in-satoshi'],
   },
   {
     slug: 'bitcoin-transaction-fees-explained',
@@ -704,7 +727,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: false,
     readTimeMinutes: 8,
     datePublished: '2026-07-18',
-    dateModified: '2026-07-18',
+    dateModified: '2026-08-26',
     sections: [
       {
         heading: 'How Bitcoin fees work',
@@ -723,9 +746,9 @@ export const GUIDES: GuideDef[] = [
       {
         heading: 'How to pay less',
         paragraphs: [
-          'Wait for low-congestion periods (often weekends) if you are not in a rush. Use fee estimation in your wallet — “economy” or “low priority” is fine for non-urgent moves to hardware storage.',
+          'Wait for low-congestion periods (often weekends) if you are not in a rush. Drop sat/vB on the [Bitcoin fee calculator](/bitcoin-fee-calculator) to model quieter blocks before you broadcast.',
           'Consolidate UTXOs during cheap fee periods if your wallet supports coin control. For first-time sends, practice with a test amount — walkthrough in [how to send Bitcoin first time](/guides/how-to-send-bitcoin-first-time).',
-          'Convert your budget to sats first with [USD to Satoshi](/usd-to-satoshi) so fee percentages are obvious before you hit send.',
+          'Convert your budget to sats first with [USD to Satoshi](/usd-to-satoshi) or [100 dollars in satoshi](/100-dollars-in-satoshi) so fee percentages are obvious before you hit send. At [1M sats](/1000000-satoshi-to-usd), the same dollar fee is usually a much smaller share of the stack.',
         ],
       },
     ],
@@ -742,9 +765,13 @@ export const GUIDES: GuideDef[] = [
         q: 'Do I pay fees when receiving Bitcoin?',
         a: 'Receivers do not pay on-chain fees — senders do. Lightning may deduct tiny routing fees from the payment amount depending on wallet settings.',
       },
+      {
+        q: 'How do I know if tonight’s fee is reasonable for my stack?',
+        a: 'Estimate sat/vB × vBytes on the [Bitcoin fee calculator](/bitcoin-fee-calculator), convert fee sats on [Satoshi to USD](/satoshi-to-usd), then compare to what you are moving — e.g. [100k](/100000-satoshi-to-usd) or [1M sats](/1000000-satoshi-to-usd). If the fee is more than a few percent, wait or use Lightning for small amounts.',
+      },
     ],
     relatedGuideSlugs: ['lightning-network-basics', 'how-to-send-bitcoin-first-time', 'how-to-store-bitcoin-safely', 'stacking-sats-dca'],
-    relatedLandingPaths: ['/satoshi-to-usd', '/100000-satoshi-to-usd', '/usd-to-satoshi'],
+    relatedLandingPaths: ['/bitcoin-fee-calculator', '/satoshi-to-usd', '/100000-satoshi-to-usd', '/1000000-satoshi-to-usd', '/usd-to-satoshi'],
   },
   {
     slug: 'bitcoin-wallet-types-compared',
@@ -759,7 +786,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: true,
     readTimeMinutes: 10,
     datePublished: '2026-07-18',
-    dateModified: '2026-07-18',
+    dateModified: '2026-09-02',
     sections: [
       {
         heading: 'Custodial vs self-custody',
@@ -780,7 +807,7 @@ export const GUIDES: GuideDef[] = [
         heading: 'Cold storage and hardware wallets',
         paragraphs: [
           'Hardware wallets keep keys offline and sign transactions on a dedicated screen you verify. They are the standard for long-term holders after their first [how to buy Bitcoin](/guides/how-to-buy-bitcoin) purchase.',
-          'Pair hardware with a metal seed backup — paper burns and digital photos leak. Full comparison of devices and backup hygiene is in [how to store Bitcoin safely](/guides/how-to-store-bitcoin-safely).',
+          'Pair hardware with a metal seed backup — paper burns and digital photos leak. Full comparison of devices and backup hygiene is in [how to store Bitcoin safely](/guides/how-to-store-bitcoin-safely). Before your first cold-storage withdrawal, estimate sat/vB × vBytes with the [Bitcoin fee calculator](/bitcoin-fee-calculator).',
         ],
         productIds: ['coldcard', 'seedplate'],
       },
@@ -798,9 +825,13 @@ export const GUIDES: GuideDef[] = [
         q: 'Are mobile wallets safe?',
         a: 'Safe enough for small amounts with a strong phone passcode and no seed photos. Not recommended for your entire stack.',
       },
+      {
+        q: 'When is a stack large enough to move to hardware?',
+        a: 'When losing it would hurt — often near [100k](/100000-satoshi-to-usd) or [1M sats](/1000000-satoshi-to-usd). Check the live dollar label on [Satoshi to USD](/satoshi-to-usd), then estimate withdrawal cost on the [Bitcoin fee calculator](/bitcoin-fee-calculator) before you leave the exchange.',
+      },
     ],
     relatedGuideSlugs: ['how-to-store-bitcoin-safely', 'bitcoin-self-custody-basics', 'how-to-buy-bitcoin', 'lightning-network-basics'],
-    relatedLandingPaths: ['/100-dollars-in-satoshi', '/500000-satoshi-to-usd', '/satoshi-to-usd'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/bitcoin-fee-calculator', '/100-dollars-in-satoshi', '/500000-satoshi-to-usd'],
   },
   {
     slug: 'how-to-send-bitcoin-first-time',
@@ -815,7 +846,7 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: false,
     readTimeMinutes: 9,
     datePublished: '2026-07-18',
-    dateModified: '2026-07-18',
+    dateModified: '2026-09-02',
     sections: [
       {
         heading: 'Before you send: amount and destination',
@@ -827,7 +858,7 @@ export const GUIDES: GuideDef[] = [
       {
         heading: 'Step-by-step on-chain send',
         paragraphs: [
-          '1. Open your wallet and tap Send. 2. Paste or scan the receive address — prefer QR codes over typed addresses. 3. Enter amount in sats or BTC — remember [100 million sats = 1 BTC](/guides/how-many-satoshis-in-a-bitcoin). 4. Select a fee tier (economy if not urgent). 5. On hardware wallets, verify address and amount on the device screen before confirming.',
+          '1. Open your wallet and tap Send. 2. Paste or scan the receive address — prefer QR codes over typed addresses. 3. Enter amount in sats or BTC — remember [100 million sats = 1 BTC](/guides/how-many-satoshis-in-a-bitcoin). 4. Select a fee tier (economy if not urgent) — estimate sat/vB × vBytes with the [Bitcoin fee calculator](/bitcoin-fee-calculator) first. 5. On hardware wallets, verify address and amount on the device screen before confirming.',
           'Send a test transaction first — 10,000–50,000 sats is common — and wait for at least one confirmation before moving the rest. Track test value on [10k sats](/10000-satoshi-to-usd) or nearby amount pages.',
         ],
       },
@@ -853,9 +884,13 @@ export const GUIDES: GuideDef[] = [
         q: 'Should my first send be on-chain or Lightning?',
         a: 'If the recipient gave a Lightning invoice and the amount is small, use Lightning. For withdrawals to your own hardware wallet, use on-chain.',
       },
+      {
+        q: 'How do I know the fee is not eating my first send?',
+        a: 'Convert the amount on [Satoshi to USD](/satoshi-to-usd), estimate sat/vB × vBytes on the [Bitcoin fee calculator](/bitcoin-fee-calculator), and compare fee USD to what you move. If the fee is more than a few percent — common under [10k](/10000-satoshi-to-usd) or [50k sats](/50000-satoshi-to-usd) during congestion — wait or use Lightning.',
+      },
     ],
     relatedGuideSlugs: ['bitcoin-transaction-fees-explained', 'bitcoin-wallet-types-compared', 'how-to-buy-bitcoin', 'what-is-a-satoshi'],
-    relatedLandingPaths: ['/satoshi-to-usd', '/10000-satoshi-to-usd', '/100-dollars-in-satoshi'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/bitcoin-fee-calculator', '/10000-satoshi-to-usd', '/100-dollars-in-satoshi'],
   },
   {
     slug: 'understanding-bitcoin-price-volatility',
@@ -870,12 +905,12 @@ export const GUIDES: GuideDef[] = [
     hasAffiliateLinks: false,
     readTimeMinutes: 8,
     datePublished: '2026-07-18',
-    dateModified: '2026-07-18',
+    dateModified: '2026-09-02',
     sections: [
       {
         heading: 'Sats are fixed; dollars are not',
         paragraphs: [
-          'You own a count of satoshis — 500,000 sats today is 500,000 sats tomorrow. What changes is how many dollars those sats trade for on exchanges. See [how many sats in 1 BTC](/guides/how-many-satoshis-in-a-bitcoin) — that ratio never moves.',
+          'You own a count of satoshis — 500,000 sats today is 500,000 sats tomorrow. What changes is how many dollars those sats trade for on exchanges. See [how many sats in 1 BTC](/guides/how-many-satoshis-in-a-bitcoin) — that ratio never moves. Bookmark [Satoshi to USD](/satoshi-to-usd) for the live dollar label without doomscrolling charts.',
           'Track progress in sats when stacking, not daily portfolio screenshots. [100 dollars in sats](/100-dollars-in-satoshi) buys different sat counts each week — that is DCA working, not failure.',
         ],
       },
@@ -891,7 +926,7 @@ export const GUIDES: GuideDef[] = [
         paragraphs: [
           'Dollar-cost averaging removes timing stress — fixed fiat buys on a schedule through up and down weeks. Full playbook in [stacking sats & DCA](/guides/stacking-sats-dca).',
           'Separate “investment stack” sats in self-custody from spending wallets so red days do not tempt panic sells of long-term savings. Storage guidance: [how to store Bitcoin safely](/guides/how-to-store-bitcoin-safely).',
-          'Use live converters ([USD to sats](/usd-to-satoshi), [1,000 dollars in sats](/1000-dollars-in-satoshi)) for planning buys — not for hourly price checking. Quarterly reviews beat daily charts for multi-year holders.',
+          'Use live converters ([USD to sats](/usd-to-satoshi), [1,000 dollars in sats](/1000-dollars-in-satoshi), [Satoshi to USD](/satoshi-to-usd)) for planning buys — not for hourly price checking. When busy markets also spike fees, estimate sat/vB × vBytes on the [Bitcoin fee calculator](/bitcoin-fee-calculator) before withdrawing. Quarterly reviews beat daily charts for multi-year holders.',
         ],
       },
     ],
@@ -902,15 +937,15 @@ export const GUIDES: GuideDef[] = [
       },
       {
         q: 'Does volatility affect transaction fees?',
-        a: 'Indirectly — busy mempool periods often coincide with price spikes. Fee mechanics are covered in [Bitcoin transaction fees explained](/guides/bitcoin-transaction-fees-explained).',
+        a: 'Indirectly — busy mempool periods often coincide with price spikes. Estimate live sat/vB × vBytes on the [Bitcoin fee calculator](/bitcoin-fee-calculator); fee mechanics are covered in [Bitcoin transaction fees explained](/guides/bitcoin-transaction-fees-explained).',
       },
       {
         q: 'Should I stop DCA during downturns?',
-        a: 'Down weeks often buy more sats per dollar — pausing DCA defeats its purpose. Consistency over 12+ months matters more than any single purchase.',
+        a: 'Down weeks often buy more sats per dollar — pausing DCA defeats its purpose. Consistency over 12+ months matters more than any single purchase. Track progress on [Satoshi to USD](/satoshi-to-usd) in sats, not daily portfolio screenshots.',
       },
     ],
     relatedGuideSlugs: ['stacking-sats-dca', 'how-to-buy-bitcoin', 'what-is-a-satoshi', 'usd-to-satoshi'],
-    relatedLandingPaths: ['/100-dollars-in-satoshi', '/1000-dollars-in-satoshi', '/satoshi-to-usd', '/usd-to-satoshi'],
+    relatedLandingPaths: ['/satoshi-to-usd', '/bitcoin-fee-calculator', '/100-dollars-in-satoshi', '/1000-dollars-in-satoshi', '/usd-to-satoshi'],
   },
 ];
 

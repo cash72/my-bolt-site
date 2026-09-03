@@ -152,19 +152,19 @@ export default function HomePage() {
   usePageMeta({
     title:
       sats50kUsd !== null
-        ? `Satoshi to USD Calculator — 50,000 Sats ≈ ${formatCurrency(sats50kUsd, 'usd')} Today`
-        : 'Satoshi to USD Calculator — Live Bitcoin Price in EUR, GBP & CAD',
+        ? `How Much Is a Satoshi in USD? 50k Sats ≈ ${formatCurrency(sats50kUsd, 'usd')} Today`
+        : 'How Much Is a Satoshi in USD? Live Sats Converter',
     description: homepageDescription,
     path: '/',
   });
 
   const popularConversions = [
+    { to: '/satoshi-to-usd', label: 'Satoshi → USD' },
     { to: '/50000-satoshi-to-usd', label: '50,000 sats → USD' },
     { to: '/100000-satoshi-to-usd', label: '100,000 sats → USD' },
+    { to: '/1000000-satoshi-to-usd', label: '1M sats → USD' },
     { to: '/100-dollars-in-satoshi', label: '100 USD → sats' },
-    { to: '/satoshi-to-eur', label: 'Satoshi → EUR' },
-    { to: '/satoshi-to-gbp', label: 'Satoshi → GBP' },
-    { to: '/usd-to-satoshi', label: 'USD → Satoshi' },
+    { to: '/bitcoin-fee-calculator', label: 'Fee calculator' },
   ] as const;
 
   useEffect(() => {
@@ -225,6 +225,14 @@ export default function HomePage() {
       {
         q: 'How often are prices updated?',
         a: 'Prices refresh automatically every 60 seconds from the CoinGecko API to keep conversions as accurate as possible.',
+      },
+      {
+        q: 'How do I estimate Bitcoin network fees before withdrawing?',
+        a: 'Use the Bitcoin fee calculator to turn sat/vB × vBytes into sats and live USD, then compare that cost to your stack on Satoshi to USD, 100k sats, or 1M sats before you broadcast.',
+      },
+      {
+        q: 'Is a quieter weekend better for withdrawing stacked sats?',
+        a: 'Often yes for non-urgent sends. Model a lower sat/vB on the Bitcoin fee calculator, then compare fee USD to 50k, 100k, or 1M sats. If waiting saves more than a few percent of what you move, delay the broadcast.',
       },
     ];
 
@@ -764,16 +772,26 @@ export default function HomePage() {
                   <h3 className="font-semibold text-slate-900 dark:text-slate-100">How many Satoshis in 100 dollars?</h3>
                   <p className="mt-1 text-slate-600 dark:text-slate-300 leading-relaxed">
                     {satsIn100Usd !== null
-                      ? `At current prices, 100 USD buys about ${satsIn100Usd.toLocaleString()} sats.`
-                      : 'Divide 100 by the live BTC/USD price, then multiply by 100,000,000.'}
+                      ? `At current prices, 100 USD buys about ${satsIn100Usd.toLocaleString()} sats. `
+                      : 'Divide 100 by the live BTC/USD price, then multiply by 100,000,000. '}
+                    See the live page for{' '}
+                    <Link to="/100-dollars-in-satoshi" className="text-orange-600 dark:text-orange-400 hover:underline">
+                      $100 in sats
+                    </Link>
+                    .
                   </p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-slate-900 dark:text-slate-100">How much is 1000 Satoshis?</h3>
                   <p className="mt-1 text-slate-600 dark:text-slate-300 leading-relaxed">
                     {thousandSatsUsd !== null
-                      ? `At current prices, 1,000 sats = ${thousandSatsUsd} USD (${thousandSatsEur} EUR).`
-                      : 'Multiply 1,000 by the current BTC price, then divide by 100,000,000.'}
+                      ? `At current prices, 1,000 sats = ${thousandSatsUsd} USD (${thousandSatsEur} EUR). `
+                      : 'Multiply 1,000 by the current BTC price, then divide by 100,000,000. '}
+                    Convert any amount on{' '}
+                    <Link to="/satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                      Satoshi to USD
+                    </Link>
+                    .
                   </p>
                 </div>
               </div>
@@ -817,6 +835,46 @@ export default function HomePage() {
                 {
                   q: 'How often are prices updated?',
                   a: 'Prices refresh automatically every 60 seconds from the CoinGecko API to keep conversions as accurate as possible.',
+                },
+                {
+                  q: 'How do I estimate Bitcoin network fees before withdrawing?',
+                  a: () => (
+                    <>
+                      Use the{' '}
+                      <Link to="/bitcoin-fee-calculator" className="text-orange-600 dark:text-orange-400 hover:underline">
+                        Bitcoin fee calculator
+                      </Link>{' '}
+                      to turn sat/vB × vBytes into sats and live USD, then compare that cost to your stack on{' '}
+                      <Link to="/satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                        Satoshi to USD
+                      </Link>
+                      .
+                    </>
+                  ),
+                },
+                {
+                  q: 'Is a quieter weekend better for withdrawing stacked sats?',
+                  a: () => (
+                    <>
+                      Often yes for non-urgent sends. Model a lower sat/vB on the{' '}
+                      <Link to="/bitcoin-fee-calculator" className="text-orange-600 dark:text-orange-400 hover:underline">
+                        Bitcoin fee calculator
+                      </Link>
+                      , then compare fee USD to{' '}
+                      <Link to="/50000-satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                        50k
+                      </Link>
+                      ,{' '}
+                      <Link to="/100000-satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                        100k
+                      </Link>
+                      , or{' '}
+                      <Link to="/1000000-satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+                        1M sats
+                      </Link>
+                      . If waiting saves more than a few percent of what you move, delay the broadcast.
+                    </>
+                  ),
                 },
               ].slice(3).map((faq, i) => {
                 const id = `faq-${i + 3}`;
