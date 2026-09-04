@@ -142,7 +142,7 @@ export default function Layout() {
                 {SITE_NAME}
               </div>
               <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
-                Free live Satoshi to USD, EUR, GBP &amp; CAD converter. Prices refresh every 60 seconds from
+                Free live Satoshi to USD, EUR, GBP, CAD, AUD &amp; INR converter. Prices refresh every 60 seconds from
                 CoinGecko.
               </p>
             </div>

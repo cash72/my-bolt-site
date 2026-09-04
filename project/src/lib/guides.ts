@@ -56,7 +56,7 @@ export const GUIDES: GuideDef[] = [
         heading: 'Why wallets and exchanges show sats',
         paragraphs: [
           'Many mobile wallets (Phoenix, Wallet of Satoshi, Strike) default to satoshi display for smaller balances. Lightning Network payments are often denominated in sats because they suit micropayments.',
-          'If you’re comparing prices, use a live converter. Our homepage updates every 60 seconds from CoinGecko for USD, EUR, GBP, and CAD.',
+          'If you’re comparing prices, use a live converter. Our homepage updates every 60 seconds from CoinGecko for USD, EUR, GBP, CAD, AUD, and INR.',
         ],
       },
       {
@@ -155,7 +155,7 @@ export const GUIDES: GuideDef[] = [
     path: '/guides/usd-to-satoshi',
     title: 'How to Convert USD to Satoshi (Step-by-Step)',
     description:
-      'Learn the USD to Satoshi formula with examples. Use our free live converter for USD, EUR, GBP, and CAD.',
+      'Learn the USD to Satoshi formula with examples. Use our free live converter for USD, EUR, GBP, CAD, AUD, and INR.',
     h1: 'How to Convert USD to Satoshi',
     intro:
       'Converting dollars to sats is a two-step calculation using the live Bitcoin price. Once you know the formula, you can sanity-check any wallet or exchange quote.',
@@ -169,7 +169,7 @@ export const GUIDES: GuideDef[] = [
         heading: 'The formula',
         paragraphs: [
           'Satoshis = (USD amount ÷ BTC price in USD) × 100,000,000. Example: at $60,000 BTC, $100 buys (100 ÷ 60,000) × 100,000,000 ≈ 166,667 sats.',
-          'Our reverse converter on the homepage does this instantly for USD, EUR, GBP, and CAD with prices refreshed every 60 seconds.',
+          'Our reverse converter on the homepage does this instantly for USD, EUR, GBP, CAD, AUD, and INR with prices refreshed every 60 seconds.',
         ],
       },
       {
@@ -189,7 +189,7 @@ export const GUIDES: GuideDef[] = [
       {
         heading: 'Multi-currency converters',
         paragraphs: [
-          'Same math works for EUR, GBP, and CAD — use [USD to sats](/usd-to-satoshi), [EUR hub](/eur-to-satoshi), [GBP hub](/gbp-to-satoshi), or [CAD hub](/cad-to-satoshi). After buying, move sats off exchanges per our [storage guide](/guides/how-to-store-bitcoin-safely).',
+          'Same math works for EUR, GBP, CAD, AUD, and INR — use [USD to sats](/usd-to-satoshi), [EUR hub](/eur-to-satoshi), [GBP hub](/gbp-to-satoshi), [CAD hub](/cad-to-satoshi), [AUD hub](/aud-to-satoshi), or [INR hub](/inr-to-satoshi). After buying, move sats off exchanges per our [storage guide](/guides/how-to-store-bitcoin-safely).',
         ],
       },
     ],
@@ -440,7 +440,7 @@ export const GUIDES: GuideDef[] = [
         paragraphs: [
           'For your first buy, pick a regulated platform available in your country with a track record of allowing withdrawals. Popular options include Coinbase, Kraken, and River (US-focused) — availability varies by region.',
           'Avoid platforms that promise guaranteed returns, hide withdrawal fees, or pressure you to “act now.” If you cannot withdraw to your own wallet, you do not yet own Bitcoin — you have an IOU.',
-          'SatoshiCalc does not endorse a single exchange. Compare fees, supported payment methods, and withdrawal minimums for your currency (USD, EUR, GBP, or CAD).',
+          'SatoshiCalc does not endorse a single exchange. Compare fees, supported payment methods, and withdrawal minimums for your currency (USD, EUR, GBP, CAD, AUD, or INR).',
         ],
       },
       {
@@ -552,7 +552,7 @@ export const GUIDES: GuideDef[] = [
         paragraphs: [
           'Stackers often set round sat targets — not because the numbers are magic, but because they make progress tangible. Check live fiat values on our amount pages:',
           '50,000 sats (0.0005 BTC) · 100,000 sats (0.001 BTC) · 500,000 sats (0.005 BTC) · 1,000,000 sats (0.01 BTC) · 10,000,000 sats (0.1 BTC).',
-          'Use /50000-satoshi-to-usd, /100000-satoshi-to-usd, or /500000-satoshi-to-usd for current USD, EUR, GBP, and CAD equivalents — updated every 60 seconds.',
+          'Use /50000-satoshi-to-usd, /100000-satoshi-to-usd, or /500000-satoshi-to-usd for current USD, EUR, GBP, CAD, AUD, and INR equivalents — updated every 60 seconds.',
         ],
       },
       {

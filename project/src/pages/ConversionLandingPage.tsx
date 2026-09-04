@@ -8,6 +8,7 @@ import {
   CircleDollarSign,
   DollarSign,
   Euro,
+  IndianRupee,
   MessageCircleQuestion,
   PoundSterling,
   RefreshCw,
@@ -51,6 +52,8 @@ const currencyIcons: Record<FiatCurrency, React.ReactNode> = {
   eur: <Euro className="w-4 h-4" aria-hidden="true" />,
   gbp: <PoundSterling className="w-4 h-4" aria-hidden="true" />,
   cad: <CircleDollarSign className="w-4 h-4" aria-hidden="true" />,
+  aud: <CircleDollarSign className="w-4 h-4" aria-hidden="true" />,
+  inr: <IndianRupee className="w-4 h-4" aria-hidden="true" />,
 };
 
 function LandingNotFound() {
@@ -100,6 +103,7 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
     title: page.title,
     description: page.description,
     path: page.path,
+    noIndex: page.noIndex,
   });
 
   const { priceData, loading, error, lastUpdated, countdown } = useBitcoinPrice();
@@ -501,7 +505,7 @@ function LandingPageContent({ page }: { page: LandingPageDef }) {
           <ArrowRight className="w-4 h-4" aria-hidden="true" />
         </Link>
         <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
-          Convert any amount across USD, EUR, GBP, and CAD with live rates and quick reference tables.
+          Convert any amount across USD, EUR, GBP, CAD, AUD, and INR with live rates and quick reference tables.
         </p>
       </section>
     </main>
