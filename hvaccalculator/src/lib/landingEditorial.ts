@@ -227,6 +227,12 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
           'For room-level BTU without tonnage framing, use the [BTU calculator](/btu-calculator) or [mini-split calculator](/mini-split-calculator).',
         ],
       },
+      {
+        heading: 'Tonnage to electricity cost',
+        paragraphs: [
+          'Each extra half-ton is +6,000 BTU/hr of compressor load. After you lock tons, convert to BTU and estimate the bill with the [AC cost to run calculator](/ac-cost-to-run-calculator) using SEER, hours, and your $/kWh — upsizing “just in case” often costs more every summer than a mid-tier SEER upgrade.',
+        ],
+      },
     ],
   },
 
@@ -292,13 +298,21 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'ac-cost-to-run-calculator': {
     intro:
-      'Estimate what it costs to run an air conditioner from SEER (or EER), capacity, hours, and your electric rate. Useful for comparing window units, portable ACs, and mini-splits before you buy.',
+      'How much does AC cost to run? Estimate electricity from SEER (or SEER2), capacity, hours, and your $/kWh rate — then compare two efficiency levels before you buy a window unit, portable AC, or mini-split.',
     sections: [
       {
         heading: 'How SEER turns into a bill estimate',
         paragraphs: [
           'Cooling energy use scales with BTU capacity and hours of operation, then divides by efficiency (SEER/EER). Higher SEER means fewer kWh for the same cooling — enter your utility $/kWh for a local monthly estimate.',
           'Size the unit first with the [BTU calculator](/btu-calculator) or [mini-split calculator](/mini-split-calculator); an oversized short-cycling unit can cost more than a right-sized efficient one.',
+          'For label shopping and SEER vs SEER2, read [SEER ratings explained](/guides/seer-ratings-explained) — then plug both ratings into the compare field above.',
+        ],
+      },
+      {
+        heading: 'Worked example: 1-ton mini-split vs window AC',
+        paragraphs: [
+          'A 12,000 BTU (1 ton) load at 8 hours/day and $0.16/kWh: SEER 22 ductless ≈ 4.4 kWh/day (~$21/month), while a SEER 11 window unit ≈ 8.7 kWh/day (~$42/month). That gap compounds over a long cooling season.',
+          'Your numbers change with climate and thermostat habits — use the calculator with honest daily hours, not “worst day ever” runtime.',
         ],
       },
       {
@@ -309,9 +323,51 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
+        heading: 'Peak-summer hours vs shoulder months',
+        paragraphs: [
+          'July–August bills spike because run hours jump, not because the equipment suddenly got less efficient. Model a peak month with 10–14 hours/day, then a shoulder month with 4–6 hours — the same SEER looks very different on the bill.',
+          'If your utility uses time-of-use or tiered rates, enter the rate you actually pay during afternoon cooling. A mid-SEER unit on expensive peak kWh can cost more than a higher-SEER unit on the same hours.',
+        ],
+      },
+      {
+        heading: 'Overnight bedroom cooling vs daytime living spaces',
+        paragraphs: [
+          'Bedrooms often run steadily for 6–10 hours at night while living rooms spike in the afternoon. A right-sized 9k head at SEER 20 can cost less overnight than an oversized window unit cycling on SEER 10–12 — compare both SEER values with your real sleep hours.',
+          'Size the room first with the [bedroom BTU guide](/guides/how-many-btu-for-bedroom) or [BTU calculator](/btu-calculator), then lock monthly cost here before you buy for efficiency alone.',
+        ],
+      },
+      {
+        heading: 'Late-summer hours still matter (August–September)',
+        paragraphs: [
+          'Peak July is not the whole bill. In humid climates, August evenings and early September still push 8–12 hour days — especially overnight bedroom cooling. Model those weeks with honest hours before you decide a mid-SEER window unit is “cheap enough.”',
+          'If you are shopping end-of-season clearance units, compare the sticker SEER against your remaining cooling days plus next summer — the [SEER ratings guide](/guides/seer-ratings-explained) pairs with the compare field above.',
+        ],
+      },
+      {
+        heading: 'Time-of-use rates: enter peak $/kWh, not the bill average',
+        paragraphs: [
+          'Utilities with afternoon peak pricing punish long 2–7 pm cooling runs. Enter your peak $/kWh when modeling weekday living-space hours, then try overnight bedroom hours at the off-peak rate — the same SEER looks very different on each schedule.',
+          'If your bill only shows a blended rate, check the tariff sheet for on-peak and off-peak numbers. Comparing two SEER levels at the wrong rate understates (or overstates) the upgrade payback.',
+        ],
+      },
+      {
+        heading: '1.5-ton (18k) worked example vs upsizing',
+        paragraphs: [
+          'Many living rooms and open studios land near 1–1.5 tons. At 18,000 BTU, 8 hours/day, and $0.16/kWh: SEER 14 ≈ 10.3 kWh/day (~$49/month) while SEER 20 ≈ 7.2 kWh/day (~$35/month). That ~$14/month gap is often larger than the bill hit from a mild thermostat setback — and smaller than the hit from jumping to a 2-ton head that short-cycles.',
+          'Convert tons with the [tonnage calculator](/tonnage-calculator), lock capacity with the [BTU calculator](/btu-calculator), then compare SEER tiers here before you pay for “more tons just in case.”',
+        ],
+      },
+      {
+        heading: 'Thermostat setbacks vs leaving AC on all day',
+        paragraphs: [
+          'Leaving the unit at a cold setpoint all day maximizes hours — the biggest lever in this calculator. Raising 2–3°F when you are away usually cuts run time more than switching from SEER 18 to SEER 20 on the same hours. Model your occupied hours and away hours separately, then add them for a realistic month.',
+          'Early September still needs overnight cooling in humid climates even when afternoons feel milder — do not zero out shoulder-season hours just because peak July is over. Fan-only circulates air; cool mode is what drives most of the kWh.',
+        ],
+      },
+      {
         heading: 'What this estimate leaves out',
         paragraphs: [
-          'We model compressor energy for planning — not standby power, fans on other equipment, or time-of-use rate tiers. Treat the result as a comparison tool between units, not a utility bill guarantee.',
+          'We model compressor energy for planning — not standby power, fans on other equipment, or every TOU tier nuance. Treat the result as a comparison tool between units, not a utility bill guarantee.',
         ],
       },
     ],
