@@ -1,30 +1,32 @@
 export const SATOSHI_PER_BTC = 100_000_000;
 
-export const COINGECKO_URL =
-  'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,eur,gbp,cad&include_24hr_change=true';
+export type FiatCurrency = 'usd' | 'eur' | 'gbp' | 'cad' | 'aud' | 'inr';
 
-export type FiatCurrency = 'usd' | 'eur' | 'gbp' | 'cad';
+export const FIAT_CURRENCIES: FiatCurrency[] = ['usd', 'eur', 'gbp', 'cad', 'aud', 'inr'];
+
+const COINGECKO_VS = FIAT_CURRENCIES.join(',');
+
+export const COINGECKO_URL =
+  `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=${COINGECKO_VS}&include_24hr_change=true`;
 
 export interface PriceData {
-  bitcoin: {
-    usd: number;
+  bitcoin: Record<FiatCurrency, number> & {
     usd_24h_change?: number;
-    eur: number;
     eur_24h_change?: number;
-    gbp: number;
     gbp_24h_change?: number;
-    cad: number;
     cad_24h_change?: number;
+    aud_24h_change?: number;
+    inr_24h_change?: number;
   };
 }
-
-export const FIAT_CURRENCIES: FiatCurrency[] = ['usd', 'eur', 'gbp', 'cad'];
 
 export const CURRENCY_LABELS: Record<FiatCurrency, string> = {
   usd: 'USD',
   eur: 'EUR',
   gbp: 'GBP',
   cad: 'CAD',
+  aud: 'AUD',
+  inr: 'INR',
 };
 
 export const CURRENCY_NAMES: Record<FiatCurrency, string> = {
@@ -32,6 +34,8 @@ export const CURRENCY_NAMES: Record<FiatCurrency, string> = {
   eur: 'Euro',
   gbp: 'British Pound',
   cad: 'Canadian Dollar',
+  aud: 'Australian Dollar',
+  inr: 'Indian Rupee',
 };
 
 export const CURRENCY_SLUG_NAMES: Record<FiatCurrency, string> = {
@@ -39,6 +43,8 @@ export const CURRENCY_SLUG_NAMES: Record<FiatCurrency, string> = {
   eur: 'euros',
   gbp: 'pounds',
   cad: 'cad',
+  aud: 'aud',
+  inr: 'inr',
 };
 
 export function getBtcPrice(priceData: PriceData | null, currency: FiatCurrency): number {

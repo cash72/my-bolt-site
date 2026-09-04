@@ -36,9 +36,9 @@ const HOMEPAGE_FAQ = [
 
 export default function HomePage() {
   usePageMeta({
-    title: 'Mulch Calculator — Cubic Yards, Bags & Cost',
+    title: 'Mulch Calculators Hub — Cubic Yards, Bags & Cost',
     description:
-      'Free mulch calculator for garden beds. Enter bed dimensions and depth to get cubic yards, bag counts, and optional cost estimates.',
+      'A 10×10 bed at 3 inches needs about 0.93 cubic yards. Free mulch, gravel, sod, and topsoil calculators for cubic yards, bags, and cost.',
     path: '/',
   });
 

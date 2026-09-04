@@ -44,9 +44,9 @@ const HOMEPAGE_FAQ = [
 
 export default function HomePage() {
   usePageMeta({
-    title: 'Paint Calculator Canada — Free Behr Coverage & Room Gallons',
+    title: 'Free Behr Paint Calculator Canada — Enter Room Size',
     description:
-      'Free paint calculator Canada: room gallons, Behr paint coverage calculator, and shopping lists. 12×12 room ≈ 2–3 gallons at ~400 sq ft/gal. Walls, ceiling, fence, deck, wallpaper.',
+      'Free paint calculator for Canadian DIY — enter room size, coats, and label coverage for gallons to buy (Behr or any brand). 12×12 room ≈ 2–3 gallons at ~400 sq ft/gal.',
     path: '/',
   });
 

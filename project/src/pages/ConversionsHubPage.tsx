@@ -27,7 +27,7 @@ function AmountLinkGrid({ pages }: { pages: typeof LANDING_PAGES }) {
 
 export default function ConversionsHubPage() {
   usePageMeta({
-    title: 'All Satoshi Conversions — USD, EUR, GBP & CAD',
+    title: 'All Satoshi Conversions — USD, EUR, GBP, CAD, AUD & INR',
     description:
       'Browse every SatoshiCalc conversion: currency hubs, common satoshi amounts, and reverse fiat-to-satoshi calculators with live Bitcoin prices.',
     path: '/conversions',
@@ -105,7 +105,7 @@ export default function ConversionsHubPage() {
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Satoshi Conversion Directory</h1>
         <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl mb-6">
           Every live calculator on SatoshiCalc — {LANDING_PAGES.length} conversion pages across Satoshis, Bitcoin
-          (BTC), USD, EUR, GBP, and CAD. Prices refresh every 60 seconds from CoinGecko.
+          (BTC), USD, EUR, GBP, CAD, AUD, and INR. Prices refresh every 60 seconds from CoinGecko.
         </p>
         <div className="max-w-3xl space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed">
           <p>

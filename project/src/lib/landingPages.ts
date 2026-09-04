@@ -8,6 +8,7 @@ import {
   formatSatoshiAmount,
   type FiatCurrency,
 } from './conversion';
+import { isLandingIndexable } from './landingSeo';
 
 export type LandingPageKind =
   | 'satoshi-to-fiat-hub'
@@ -37,6 +38,7 @@ export interface LandingPageDef {
   h1: string;
   intro: string;
   breadcrumbLabel: string;
+  noIndex?: boolean;
 }
 
 const DEFAULT_SATOSHI_HUB_AMOUNT = 100_000;
@@ -87,7 +89,11 @@ function buildSatoshiHubPage(currency: FiatCurrency): LandingPageDef {
         ? 'Satoshi to EUR — Live Euro Conversion (2026)'
         : currency === 'gbp'
           ? 'Satoshi to GBP — Live Pound Conversion Today'
-          : 'Satoshi to CAD — Live Canadian Dollar Price';
+          : currency === 'cad'
+            ? 'Satoshi to CAD — Live Canadian Dollar Price'
+            : currency === 'aud'
+              ? 'Satoshi to AUD — Free Live Calculator'
+              : 'Satoshi to INR — Free Live Calculator';
 
   const description =
     currency === 'usd'
@@ -113,6 +119,20 @@ function buildSatoshiAmountPage(amount: number, currency: FiatCurrency): Landing
   const label = CURRENCY_LABELS[currency];
   const slug = `${amount}-satoshi-to-${currency}`;
   const formatted = formatSatoshiAmount(amount);
+  const isTenKAud = amount === 10000 && currency === 'aud';
+  const isTenKInr = amount === 10000 && currency === 'inr';
+
+  const title = isTenKAud
+    ? '10000 Satoshi to AUD — Free Live Calculator'
+    : isTenKInr
+      ? '10000 Satoshi to INR — Free Live Calculator'
+      : `${formatted} Satoshi to ${label} — Live Price Today`;
+
+  const description = isTenKAud
+    ? '10000 satoshi to AUD at the live Bitcoin price. Free calculator for Australian dollars — updated every 60 seconds.'
+    : isTenKInr
+      ? '10000 satoshi to INR at the live Bitcoin price. Free calculator for Indian rupees — updated every 60 seconds.'
+      : `How much is ${formatted} Satoshis in ${label}? See the live ${label} value at today's Bitcoin price. Free calculator — updated every 60 seconds.`;
 
   return {
     slug,
@@ -121,8 +141,8 @@ function buildSatoshiAmountPage(amount: number, currency: FiatCurrency): Landing
     direction: 'satoshi-to-fiat',
     amount,
     currency,
-    title: `${formatted} Satoshi to ${label} — Live Price Today`,
-    description: `How much is ${formatted} Satoshis in ${label}? See the live ${label} value at today's Bitcoin price. Free calculator — updated every 60 seconds.`,
+    title,
+    description,
     h1: `${formatted} Satoshi to ${label}`,
     intro: satoshiAmountIntro(amount, label, formatted),
     breadcrumbLabel: `${formatted} sats → ${label}`,
@@ -143,7 +163,11 @@ function buildFiatHubPage(currency: FiatCurrency): LandingPageDef {
           ? 'GBP to Satoshi — How Many Sats per Pound? (Live 2026)'
           : currency === 'cad'
             ? 'CAD to Satoshi — How Many Sats per Dollar? (Live 2026)'
-            : `${label} to Satoshi Converter — Live Sats Calculator`;
+            : currency === 'aud'
+              ? 'AUD to Satoshi — How Many Sats per Australian Dollar?'
+              : currency === 'inr'
+                ? 'INR to Satoshi — How Many Sats per Indian Rupee?'
+                : `${label} to Satoshi Converter — Live Sats Calculator`;
 
   const description =
     currency === 'usd'
@@ -154,7 +178,11 @@ function buildFiatHubPage(currency: FiatCurrency): LandingPageDef {
           ? 'How many Satoshis is £100 GBP? Convert any pound amount to sats at the live BTC price. Free calculator — updated every 60 seconds.'
           : currency === 'cad'
             ? 'How many Satoshis is $100 CAD? Convert any Canadian dollar amount to sats at the live BTC price. Free calculator — updated every 60 seconds.'
-            : `Convert ${label} (${name}) to Satoshis at the live Bitcoin price. Free reverse calculator — updated every 60 seconds.`;
+            : currency === 'aud'
+              ? 'How many Satoshis is $100 AUD? Convert Australian dollars to sats at the live BTC price. Free calculator — updated every 60 seconds.'
+              : currency === 'inr'
+                ? 'How many Satoshis is ₹100 INR? Convert Indian rupees to sats at the live BTC price. Free calculator — updated every 60 seconds.'
+                : `Convert ${label} (${name}) to Satoshis at the live Bitcoin price. Free reverse calculator — updated every 60 seconds.`;
 
   return {
     slug,
@@ -342,10 +370,23 @@ function generateLandingPages(): LandingPageDef[] {
     }
   }
 
+  const heroCurrencies: FiatCurrency[] = ['aud', 'inr'];
+  const heroMilestones = [10_000, 50_000, 100_000];
+  for (const currency of heroCurrencies) {
+    pages.push(buildSatoshiHubPage(currency));
+    pages.push(buildFiatHubPage(currency));
+    for (const amount of heroMilestones) {
+      pages.push(buildSatoshiAmountPage(amount, currency));
+    }
+  }
+
   return pages;
 }
 
-export const LANDING_PAGES = generateLandingPages();
+export const LANDING_PAGES: LandingPageDef[] = generateLandingPages().map((page) => ({
+  ...page,
+  noIndex: !isLandingIndexable(page.slug),
+}));
 
 export const LANDING_PAGE_BY_SLUG = new Map(LANDING_PAGES.map((page) => [page.slug, page]));
 
@@ -426,11 +467,12 @@ export const FEATURED_LANDING_LINKS: LandingPageDef[] = [
   'btc-to-usd',
   'usd-to-btc',
   'satoshi-to-usd',
+  'satoshi-to-aud',
+  'satoshi-to-inr',
   'satoshi-to-eur',
   '1-btc-to-usd',
   '0.1-btc-to-usd',
   '0.01-btc-to-usd',
-  '100-dollars-in-btc',
   'usd-to-satoshi',
   '100000-satoshi-to-usd',
   '100-dollars-in-satoshi',

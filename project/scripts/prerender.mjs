@@ -22,6 +22,10 @@ const MOCK_PRICE_BODY = JSON.stringify({
     gbp_24h_change: 1.0,
     cad: 130_000,
     cad_24h_change: 1.3,
+    aud: 145_000,
+    aud_24h_change: 1.25,
+    inr: 7_900_000,
+    inr_24h_change: 1.15,
   },
 });
 

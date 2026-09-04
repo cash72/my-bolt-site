@@ -41,9 +41,9 @@ const HOMEPAGE_FAQS = [
 
 export default function HomePage() {
   usePageMeta({
-    title: 'Flooring Box Calculator — Laminate, Tile, Carpet & LVP',
+    title: 'Flooring Calculators Hub — Laminate, Tile, Carpet & LVP',
     description:
-      'Free flooring calculator for laminate, vinyl plank, tile, and carpet. Room square footage, waste allowance, box counts, and square yards — plus DIY prep guides.',
+      'A 12×12 room is 144 sq ft — at 10% waste and 20 sq ft per box, that is roughly 8 cartons of laminate. Use dedicated calculators for laminate, tile, LVP, and carpet.',
     path: '/',
   });
 
