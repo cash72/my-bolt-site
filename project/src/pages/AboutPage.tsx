@@ -7,7 +7,7 @@ export default function AboutPage() {
   usePageMeta({
     title: `About ${SITE_NAME}`,
     description:
-      'Learn about SatoshiCalc — a free live Satoshi to USD, EUR, GBP and CAD converter powered by CoinGecko market data.',
+      'Learn about SatoshiCalc — a free live Satoshi to USD, EUR, GBP, CAD, AUD and INR converter powered by CoinGecko market data.',
     path: '/about',
   });
 
@@ -55,6 +55,8 @@ export default function AboutPage() {
         <li>Euro (EUR)</li>
         <li>British Pound (GBP)</li>
         <li>Canadian Dollar (CAD)</li>
+        <li>Australian Dollar (AUD)</li>
+        <li>Indian Rupee (INR)</li>
       </ul>
       <p>
         Questions or corrections?{' '}

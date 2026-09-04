@@ -8,9 +8,11 @@ import { hasResultsAdUnit } from '../lib/ads/config';
 import AdSlot from '../components/AdSlot';
 import {
   COINGECKO_URL,
+  FIAT_CURRENCIES,
   SATOSHI_PER_BTC,
   formatCurrency,
   formatNumber,
+  type FiatCurrency,
   type PriceData,
 } from '../lib/conversion';
 import { FEATURED_LANDING_LINKS } from '../lib/landingPages';
@@ -31,15 +33,18 @@ import {
   Copy,
   Check,
   CircleDollarSign,
+  IndianRupee,
   MessageCircleQuestion,
   Wallet,
 } from 'lucide-react';
 
-const currencyIcons: Record<string, React.ReactNode> = {
+const currencyIcons: Record<FiatCurrency, React.ReactNode> = {
   usd: <DollarSign className="w-4 h-4" aria-hidden="true" />,
   eur: <Euro className="w-4 h-4" aria-hidden="true" />,
   gbp: <PoundSterling className="w-4 h-4" aria-hidden="true" />,
   cad: <CircleDollarSign className="w-4 h-4" aria-hidden="true" />,
+  aud: <CircleDollarSign className="w-4 h-4" aria-hidden="true" />,
+  inr: <IndianRupee className="w-4 h-4" aria-hidden="true" />,
 };
 
 export default function HomePage() {
@@ -51,7 +56,7 @@ export default function HomePage() {
 
   const [satoshiInput, setSatoshiInput] = useState('100000');
   const [usdInput, setUsdInput] = useState('');
-  const [reverseCurrency, setReverseCurrency] = useState('usd');
+  const [reverseCurrency, setReverseCurrency] = useState<FiatCurrency>('usd');
   const [mode, setMode] = useState<'satoshi' | 'reverse'>('satoshi');
   const [copied, setCopied] = useState<string | null>(null);
 
@@ -92,26 +97,23 @@ export default function HomePage() {
     };
   }, []);
 
-  const btcPriceUsd = priceData?.bitcoin?.usd ?? 0;
-  const btcPriceEur = priceData?.bitcoin?.eur ?? 0;
-  const btcPriceGbp = priceData?.bitcoin?.gbp ?? 0;
-  const btcPriceCad = priceData?.bitcoin?.cad ?? 0;
+  const btcPrices = Object.fromEntries(
+    FIAT_CURRENCIES.map((currency) => [currency, priceData?.bitcoin?.[currency] ?? 0])
+  ) as Record<FiatCurrency, number>;
+  const btcPriceUsd = btcPrices.usd;
+  const btcPriceEur = btcPrices.eur;
+  const btcPriceGbp = btcPrices.gbp;
+  const btcPriceCad = btcPrices.cad;
+  const btcPriceAud = btcPrices.aud;
+  const btcPriceInr = btcPrices.inr;
 
   const satoshiValue = parseFloat(satoshiInput) || 0;
-  const usdValue = satoshiValue * (btcPriceUsd / SATOSHI_PER_BTC);
-  const eurValue = satoshiValue * (btcPriceEur / SATOSHI_PER_BTC);
-  const gbpValue = satoshiValue * (btcPriceGbp / SATOSHI_PER_BTC);
-  const cadValue = satoshiValue * (btcPriceCad / SATOSHI_PER_BTC);
+  const satoshiFiat = Object.fromEntries(
+    FIAT_CURRENCIES.map((currency) => [currency, satoshiValue * (btcPrices[currency] / SATOSHI_PER_BTC)])
+  ) as Record<FiatCurrency, number>;
 
   const usdInputValue = parseFloat(usdInput) || 0;
-  const reverseBtcPrice =
-    reverseCurrency === 'usd'
-      ? btcPriceUsd
-      : reverseCurrency === 'eur'
-        ? btcPriceEur
-        : reverseCurrency === 'gbp'
-          ? btcPriceGbp
-          : btcPriceCad;
+  const reverseBtcPrice = btcPrices[reverseCurrency];
   const reverseSatoshiValue =
     reverseBtcPrice > 0 ? (usdInputValue / reverseBtcPrice) * SATOSHI_PER_BTC : 0;
 
@@ -142,18 +144,18 @@ export default function HomePage() {
   const answerLead =
     sats100kUsd !== null
       ? `One Bitcoin equals exactly 100,000,000 Satoshis. At the current BTC price, 100,000 sats ≈ ${formatCurrency(sats100kUsd, 'usd')} USD (${formatCurrency(sats100kEur!, 'eur')} EUR), and 1,000 sats ≈ ${formatCurrency(sats1kUsd!, 'usd')} USD. Prices refresh every 60 seconds from CoinGecko.`
-      : 'One Bitcoin equals exactly 100,000,000 Satoshis. Use the live converter below for current USD, EUR, GBP, and CAD values — updated every 60 seconds from CoinGecko.';
+      : 'One Bitcoin equals exactly 100,000,000 Satoshis. Use the live converter below for current USD, EUR, GBP, CAD, AUD, and INR values — updated every 60 seconds from CoinGecko.';
 
   const homepageDescription =
     sats50kUsd !== null
-      ? `Convert satoshis to USD, EUR, GBP & CAD instantly. 50,000 sats ≈ ${formatCurrency(sats50kUsd, 'usd')} USD at today's live BTC price. Free calculator — updated every 60 seconds.`
-      : 'Convert satoshis to USD, EUR, GBP & CAD instantly with live Bitcoin prices. Free calculator — updated every 60 seconds.';
+      ? `Free satoshi to USD converter with live BTC price in EUR, GBP, CAD, AUD & INR. 50,000 sats ≈ ${formatCurrency(sats50kUsd, 'usd')} USD today — updated every 60 seconds.`
+      : 'Free satoshi to USD converter with live Bitcoin prices in EUR, GBP, CAD, AUD & INR. Updated every 60 seconds from CoinGecko.';
 
   usePageMeta({
     title:
       sats50kUsd !== null
-        ? `Satoshi to USD Calculator — 50,000 Sats ≈ ${formatCurrency(sats50kUsd, 'usd')} Today`
-        : 'Satoshi to USD Calculator — Live Bitcoin Price in EUR, GBP & CAD',
+        ? `Satoshi to USD Converter — 50,000 Sats ≈ ${formatCurrency(sats50kUsd, 'usd')} Today`
+        : 'Satoshi to USD Converter — Live Bitcoin Price in EUR, GBP, CAD, AUD & INR',
     description: homepageDescription,
     path: '/',
   });
@@ -162,8 +164,8 @@ export default function HomePage() {
     { to: '/50000-satoshi-to-usd', label: '50,000 sats → USD' },
     { to: '/100000-satoshi-to-usd', label: '100,000 sats → USD' },
     { to: '/100-dollars-in-satoshi', label: '100 USD → sats' },
-    { to: '/satoshi-to-eur', label: 'Satoshi → EUR' },
-    { to: '/satoshi-to-gbp', label: 'Satoshi → GBP' },
+    { to: '/satoshi-to-aud', label: 'Satoshi → AUD' },
+    { to: '/satoshi-to-inr', label: 'Satoshi → INR' },
     { to: '/usd-to-satoshi', label: 'USD → Satoshi' },
   ] as const;
 
@@ -205,14 +207,14 @@ export default function HomePage() {
         a:
           satsIn100Usd !== null
             ? `At current prices, 100 USD buys about ${satsIn100Usd.toLocaleString()} sats. 100 EUR buys about ${satsIn100Eur?.toLocaleString()} sats. 100 GBP buys about ${satsIn100Gbp?.toLocaleString()} sats. 100 CAD buys about ${satsIn100Cad?.toLocaleString()} sats.`
-            : 'Divide 100 by the current Bitcoin price in USD, then multiply by 100,000,000. SatoshiCalc shows live results for USD, EUR, GBP, and CAD in the FAQ section.',
+            : 'Divide 100 by the current Bitcoin price in USD, then multiply by 100,000,000. SatoshiCalc shows live results for USD, EUR, GBP, CAD, AUD, and INR in the FAQ section.',
       },
       {
         q: 'How much is 1000 Satoshis in dollars?',
         a:
           thousandSatsUsd !== null
             ? `At current prices, 1000 sats = ${thousandSatsUsd} USD, ${thousandSatsEur} EUR, ${thousandSatsGbp} GBP, ${thousandSatsCad} CAD.`
-            : 'Multiply 1000 by the current BTC price in USD, then divide by 100,000,000. Use the live converter on SatoshiCalc for up-to-date values in USD, EUR, GBP, and CAD.',
+            : 'Multiply 1000 by the current BTC price in USD, then divide by 100,000,000. Use the live converter on SatoshiCalc for up-to-date values in USD, EUR, GBP, CAD, AUD, and INR.',
       },
       {
         q: 'Why use Satoshis instead of Bitcoin?',
@@ -220,7 +222,7 @@ export default function HomePage() {
       },
       {
         q: 'What currencies does SatoshiCalc support?',
-        a: 'SatoshiCalc supports conversion to and from USD, EUR, GBP, and CAD using live rates from CoinGecko.',
+        a: 'SatoshiCalc supports USD, EUR, GBP, CAD, AUD, and INR using live rates from CoinGecko — with dedicated hubs for Satoshi to USD, AUD, and INR.',
       },
       {
         q: 'How often are prices updated?',
@@ -241,16 +243,20 @@ export default function HomePage() {
     return () => {
       document.getElementById(faqId)?.remove();
     };
-  }, [btcPriceUsd, btcPriceEur, btcPriceGbp, btcPriceCad]);
+  }, [btcPriceUsd, btcPriceEur, btcPriceGbp, btcPriceCad, btcPriceAud, btcPriceInr]);
 
   return (
       <main id="main-content" className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12" role="main">
         <header className="mb-8 animate-fade-in">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2">
-            Satoshi to USD, EUR, GBP &amp; CAD Converter
+            Satoshi to USD Converter
           </h1>
           <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base mb-3">
-            Live Bitcoin prices in USD, EUR, GBP, and CAD. Convert satoshis instantly — updated every 60 seconds.
+            Live Bitcoin prices in USD, EUR, GBP, CAD, AUD &amp; INR. Multi-currency hub — for USD-only math, use{' '}
+            <Link to="/satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+              Satoshi to USD
+            </Link>
+            .
           </p>
           <p className="text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed border-l-4 border-orange-500 pl-4">
             {answerLead}
@@ -338,6 +344,16 @@ export default function HomePage() {
                 <div className="text-right hidden sm:block">
                   <div className="text-sm text-slate-500 dark:text-slate-400">CAD</div>
                   <div className="font-semibold">{btcPriceCad > 0 ? formatCurrency(btcPriceCad, 'cad') : '--'}</div>
+                </div>
+                <div className="w-px h-8 bg-slate-200 dark:bg-slate-700 hidden lg:block" />
+                <div className="text-right hidden lg:block">
+                  <div className="text-sm text-slate-500 dark:text-slate-400">AUD</div>
+                  <div className="font-semibold">{btcPriceAud > 0 ? formatCurrency(btcPriceAud, 'aud') : '--'}</div>
+                </div>
+                <div className="w-px h-8 bg-slate-200 dark:bg-slate-700 hidden lg:block" />
+                <div className="text-right hidden lg:block">
+                  <div className="text-sm text-slate-500 dark:text-slate-400">INR</div>
+                  <div className="font-semibold">{btcPriceInr > 0 ? formatCurrency(btcPriceInr, 'inr') : '--'}</div>
                 </div>
               </div>
             </div>
@@ -429,16 +445,9 @@ export default function HomePage() {
                     <div className="mt-2 text-sm text-slate-500 dark:text-slate-400">= {formatNumber(satoshiValue / SATOSHI_PER_BTC)} BTC</div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {(['usd', 'eur', 'gbp', 'cad'] as const).map((currency) => {
-                      const value =
-                        currency === 'usd'
-                          ? usdValue
-                          : currency === 'eur'
-                            ? eurValue
-                            : currency === 'gbp'
-                              ? gbpValue
-                              : cadValue;
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {FIAT_CURRENCIES.map((currency) => {
+                      const value = satoshiFiat[currency];
                       return (
                         <div
                           key={currency}
@@ -493,7 +502,7 @@ export default function HomePage() {
                       <div className="relative">
                         <select
                           value={reverseCurrency}
-                          onChange={(e) => setReverseCurrency(e.target.value)}
+                          onChange={(e) => setReverseCurrency(e.target.value as FiatCurrency)}
                           className="h-full pl-4 pr-10 py-4 bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 font-semibold text-slate-700 dark:text-slate-300 appearance-none cursor-pointer"
                           aria-label="Select fiat currency"
                         >
@@ -501,6 +510,8 @@ export default function HomePage() {
                           <option value="eur">EUR</option>
                           <option value="gbp">GBP</option>
                           <option value="cad">CAD</option>
+                          <option value="aud">AUD</option>
+                          <option value="inr">INR</option>
                         </select>
                         <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" aria-hidden="true" />
                       </div>
@@ -731,7 +742,7 @@ export default function HomePage() {
                 <p>
                   <strong>USD to Satoshi:</strong> Divide your USD amount by the
                   current BTC price, then multiply by 100,000,000. Our reverse
-                  converter handles this instantly for USD, EUR, GBP, and CAD.
+                  converter handles this instantly for USD, EUR, GBP, CAD, AUD, and INR.
                 </p>
               </div>
             </div>
@@ -789,8 +800,10 @@ export default function HomePage() {
                     const eurSats = btcPriceEur > 0 ? Math.floor((100 / btcPriceEur) * SATOSHI_PER_BTC) : 0;
                     const gbpSats = btcPriceGbp > 0 ? Math.floor((100 / btcPriceGbp) * SATOSHI_PER_BTC) : 0;
                     const cadSats = btcPriceCad > 0 ? Math.floor((100 / btcPriceCad) * SATOSHI_PER_BTC) : 0;
+                    const audSats = btcPriceAud > 0 ? Math.floor((100 / btcPriceAud) * SATOSHI_PER_BTC) : 0;
+                    const inrSats = btcPriceInr > 0 ? Math.floor((100 / btcPriceInr) * SATOSHI_PER_BTC) : 0;
                     return btcPriceUsd > 0
-                      ? `At current prices, 100 USD buys about ${sats.toLocaleString()} sats. 100 EUR buys about ${eurSats.toLocaleString()} sats. 100 GBP buys about ${gbpSats.toLocaleString()} sats. 100 CAD buys about ${cadSats.toLocaleString()} sats.`
+                      ? `At current prices, 100 USD buys about ${sats.toLocaleString()} sats. 100 EUR buys about ${eurSats.toLocaleString()} sats. 100 GBP buys about ${gbpSats.toLocaleString()} sats. 100 CAD buys about ${cadSats.toLocaleString()} sats. 100 AUD buys about ${audSats.toLocaleString()} sats. 100 INR buys about ${inrSats.toLocaleString()} sats.`
                       : 'Loading live conversion...';
                   },
                 },
@@ -801,8 +814,10 @@ export default function HomePage() {
                     const eur = btcPriceEur > 0 ? 1000 * (btcPriceEur / SATOSHI_PER_BTC) : 0;
                     const gbp = btcPriceGbp > 0 ? 1000 * (btcPriceGbp / SATOSHI_PER_BTC) : 0;
                     const cad = btcPriceCad > 0 ? 1000 * (btcPriceCad / SATOSHI_PER_BTC) : 0;
+                    const aud = btcPriceAud > 0 ? 1000 * (btcPriceAud / SATOSHI_PER_BTC) : 0;
+                    const inr = btcPriceInr > 0 ? 1000 * (btcPriceInr / SATOSHI_PER_BTC) : 0;
                     return btcPriceUsd > 0
-                      ? `At current prices, 1000 sats = ${formatCurrency(usd, 'usd')} USD, ${formatCurrency(eur, 'eur')} EUR, ${formatCurrency(gbp, 'gbp')} GBP, ${formatCurrency(cad, 'cad')} CAD.`
+                      ? `At current prices, 1000 sats = ${formatCurrency(usd, 'usd')} USD, ${formatCurrency(eur, 'eur')} EUR, ${formatCurrency(gbp, 'gbp')} GBP, ${formatCurrency(cad, 'cad')} CAD, ${formatCurrency(aud, 'aud')} AUD, ${formatCurrency(inr, 'inr')} INR.`
                       : 'Loading live conversion...';
                   },
                 },
@@ -812,7 +827,7 @@ export default function HomePage() {
                 },
                 {
                   q: 'What currencies does SatoshiCalc support?',
-                  a: 'SatoshiCalc supports conversion to and from USD, EUR, GBP, and CAD using live rates from CoinGecko.',
+                  a: 'SatoshiCalc supports USD, EUR, GBP, CAD, AUD, and INR using live rates from CoinGecko — with dedicated hubs for Satoshi to USD, AUD, and INR.',
                 },
                 {
                   q: 'How often are prices updated?',
@@ -852,6 +867,8 @@ export default function HomePage() {
                     <th className="text-right py-3 px-4 font-medium text-slate-500 dark:text-slate-400">EUR</th>
                     <th className="text-right py-3 px-4 font-medium text-slate-500 dark:text-slate-400">GBP</th>
                     <th className="text-right py-3 px-4 font-medium text-slate-500 dark:text-slate-400">CAD</th>
+                    <th className="text-right py-3 px-4 font-medium text-slate-500 dark:text-slate-400">AUD</th>
+                    <th className="text-right py-3 px-4 font-medium text-slate-500 dark:text-slate-400">INR</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -879,6 +896,12 @@ export default function HomePage() {
                       </td>
                       <td className="py-3 px-4 text-right">
                         {btcPriceCad > 0 ? formatCurrency(sats * (btcPriceCad / SATOSHI_PER_BTC), 'cad') : '--'}
+                      </td>
+                      <td className="py-3 px-4 text-right">
+                        {btcPriceAud > 0 ? formatCurrency(sats * (btcPriceAud / SATOSHI_PER_BTC), 'aud') : '--'}
+                      </td>
+                      <td className="py-3 px-4 text-right">
+                        {btcPriceInr > 0 ? formatCurrency(sats * (btcPriceInr / SATOSHI_PER_BTC), 'inr') : '--'}
                       </td>
                     </tr>
                   ))}

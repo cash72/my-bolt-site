@@ -57,6 +57,18 @@ const CURRENCY_CONTEXT: Record<
     hubPath: '/cad-to-satoshi',
     fiat100Path: '/100-cad-in-satoshi',
   },
+  aud: {
+    region: 'Australia',
+    onRamp: 'Australian exchanges such as CoinJar, Independent Reserve, or Swyftx',
+    hubPath: '/aud-to-satoshi',
+    fiat100Path: '/aud-to-satoshi',
+  },
+  inr: {
+    region: 'India',
+    onRamp: 'Indian platforms such as CoinDCX, WazirX, or international exchanges that support INR',
+    hubPath: '/inr-to-satoshi',
+    fiat100Path: '/inr-to-satoshi',
+  },
 };
 
 function btcFraction(amount: number): string {

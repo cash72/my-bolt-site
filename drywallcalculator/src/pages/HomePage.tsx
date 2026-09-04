@@ -35,9 +35,9 @@ const HOMEPAGE_FAQ = [
 
 export default function HomePage() {
   usePageMeta({
-    title: 'Drywall Calculator — Room Size, Sheets & Waste',
+    title: 'Drywall Calculators Hub — Sheets, Waste & Room Size',
     description:
-      'Free drywall calculator for walls and ceilings. Enter room dimensions, sheet size, and waste to get sheet counts plus a copyable shopping list.',
+      'A 12×12 room with 8 ft ceilings is about 14 sheets of 4×8 drywall after doors and waste. Free sheet-count, cost, and basement drywall calculators.',
     path: '/',
   });
 

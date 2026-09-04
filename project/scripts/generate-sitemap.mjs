@@ -12,6 +12,10 @@ const LEGAL_LASTMOD = '2026-06-01';
 const landingConfig = JSON.parse(
   await fs.readFile(path.join(ROOT, 'seo/landing-config.json'), 'utf8')
 );
+const indexableLandings = JSON.parse(
+  await fs.readFile(path.join(ROOT, 'seo/indexable-landings.json'), 'utf8')
+);
+const INDEXABLE_SLUGS = new Set(indexableLandings.slugs);
 
 const STATIC_ROUTES = [
   { path: '/', changefreq: 'hourly', priority: '1.0', lastmod: TODAY },
@@ -49,11 +53,16 @@ const SATOSHI_AMOUNTS = landingConfig.satoshiAmounts;
 const FIAT_AMOUNTS = landingConfig.fiatAmounts;
 const BTC_AMOUNTS = landingConfig.btcAmounts ?? [0.01, 0.1, 1];
 
+const HERO_EXPANSION_CURRENCIES = ['aud', 'inr'];
+const HERO_MILESTONES = [10000, 50000, 100000];
+
 const FIAT_SLUG_NAMES = {
   usd: 'dollars',
   eur: 'euros',
   gbp: 'pounds',
   cad: 'cad',
+  aud: 'aud',
+  inr: 'inr',
 };
 
 function formatBtcSlugAmount(amount) {
@@ -103,7 +112,19 @@ function buildLandingPaths() {
     }
   }
 
-  return paths;
+  for (const currency of HERO_EXPANSION_CURRENCIES) {
+    paths.push(`/satoshi-to-${currency}`);
+    paths.push(`/${currency}-to-satoshi`);
+    for (const amount of HERO_MILESTONES) {
+      paths.push(`/${amount}-satoshi-to-${currency}`);
+    }
+  }
+
+  return [...new Set(paths)];
+}
+
+function pathToSlug(route) {
+  return route.replace(/^\//, '').replace(/\/$/, '');
 }
 
 function sitemapLoc(route) {
@@ -120,7 +141,8 @@ function urlEntry(loc, changefreq, priority, lastmod) {
   </url>`;
 }
 
-const landingPaths = buildLandingPaths();
+const allLandingPaths = buildLandingPaths();
+const indexableLandingPaths = allLandingPaths.filter((route) => INDEXABLE_SLUGS.has(pathToSlug(route)));
 const guidePaths = GUIDE_SLUGS.map((slug) => `/guides/${slug}`);
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -133,7 +155,7 @@ ${STATIC_ROUTES.map((route) =>
     route.lastmod
   )
 ).join('\n')}
-${landingPaths.map((route) => urlEntry(sitemapLoc(route), 'daily', '0.8', TODAY)).join('\n')}
+${indexableLandingPaths.map((route) => urlEntry(sitemapLoc(route), 'daily', '0.8', TODAY)).join('\n')}
 ${guidePaths
   .map((route) => {
     const slug = route.replace('/guides/', '');
@@ -145,9 +167,10 @@ ${guidePaths
 
 const seoConfig = {
   staticRoutes: STATIC_ROUTES.map((r) => r.path),
-  landingPaths,
+  landingPaths: allLandingPaths,
+  indexableLandingPaths,
   guidePaths,
-  allRoutes: [...STATIC_ROUTES.map((r) => r.path), ...landingPaths, ...guidePaths],
+  allRoutes: [...STATIC_ROUTES.map((r) => r.path), ...allLandingPaths, ...guidePaths],
 };
 
 await fs.writeFile(path.join(ROOT, 'public/sitemap.xml'), sitemap);
@@ -157,8 +180,9 @@ const allPaths = seoConfig.allRoutes.filter((r) => r !== '/');
 const redirects = allPaths.map((route) => `${route} ${route}/ 308`).join('\n');
 await fs.writeFile(path.join(ROOT, 'public/_redirects'), `${redirects}\n`);
 
-console.log(`Generated sitemap with ${seoConfig.allRoutes.length} URLs`);
+console.log(`Generated sitemap with ${STATIC_ROUTES.length + indexableLandingPaths.length + guidePaths.length} indexed URLs`);
 console.log(`  Static: ${seoConfig.staticRoutes.length}`);
-console.log(`  Landing: ${landingPaths.length}`);
+console.log(`  Landing (all): ${allLandingPaths.length}`);
+console.log(`  Landing (indexable in sitemap): ${indexableLandingPaths.length}`);
 console.log(`  Guides: ${guidePaths.length}`);
 console.log(`  Redirects: ${allPaths.length} (non-slash → trailing slash)`);

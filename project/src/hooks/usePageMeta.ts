@@ -7,6 +7,7 @@ interface PageMeta {
   path?: string;
   image?: string;
   ogType?: 'website' | 'article';
+  noIndex?: boolean;
 }
 
 function upsertMeta(name: string, content: string, attr: 'name' | 'property' = 'name') {
@@ -29,13 +30,21 @@ function upsertCanonical(href: string) {
   el.href = href;
 }
 
-export function usePageMeta({ title, description, path = '/', image = OG_IMAGE_URL, ogType = 'website' }: PageMeta) {
+export function usePageMeta({
+  title,
+  description,
+  path = '/',
+  image = OG_IMAGE_URL,
+  ogType = 'website',
+  noIndex = false,
+}: PageMeta) {
   useEffect(() => {
     const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
     const normalizedUrl = canonicalUrl(path);
 
     document.title = fullTitle;
     upsertMeta('description', description);
+    upsertMeta('robots', noIndex ? 'noindex, follow' : 'index, follow, max-image-preview:large');
     upsertMeta('og:type', ogType, 'property');
     upsertMeta('og:title', fullTitle, 'property');
     upsertMeta('og:description', description, 'property');
@@ -47,5 +56,5 @@ export function usePageMeta({ title, description, path = '/', image = OG_IMAGE_U
     upsertMeta('twitter:url', normalizedUrl);
     upsertMeta('twitter:image', image);
     upsertCanonical(normalizedUrl);
-  }, [title, description, path, image, ogType]);
+  }, [title, description, path, image, ogType, noIndex]);
 }

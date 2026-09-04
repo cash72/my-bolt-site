@@ -263,7 +263,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       {
         heading: 'Other fiat entry points',
         paragraphs: [
-          'We also support EUR, GBP, and CAD with the same live pipeline. See [100 dollars in satoshi](/100-dollars-in-satoshi), [100 euros in satoshi](/100-euros-in-satoshi), and parallel pages for each currency.',
+          'We also support EUR, GBP, CAD, AUD, and INR with the same live pipeline. See [100 dollars in satoshi](/100-dollars-in-satoshi), [100 euros in satoshi](/100-euros-in-satoshi), and the [AUD](/aud-to-satoshi) and [INR](/inr-to-satoshi) hubs.',
           'For a full list of amount pages, open the [SatoshiCalc conversions directory](/conversions).',
         ],
       },
