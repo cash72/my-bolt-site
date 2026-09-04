@@ -7,13 +7,14 @@ import { hasResultsAdUnit } from '../lib/ads/config';
 import { GuideCard } from '../components/GuideCard';
 import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 import { LANDING_PAGES } from '../lib/landingPages';
+import { renderEditorialText } from '../lib/renderEditorialText';
 
 const POPULAR_CALCULATORS = [
+  { to: '/ac-cost-to-run-calculator', label: 'SEER / AC cost to run' },
   { to: '/btu-calculator', label: 'BTU calculator' },
-  { to: '/ac-cost-to-run-calculator', label: 'AC cost to run' },
   { to: '/mini-split-calculator', label: 'Mini-split sizing' },
+  { to: '/tonnage-calculator', label: 'BTU to tons' },
   { to: '/window-ac-calculator', label: 'Window AC' },
-  { to: '/garage-heater-btu-calculator', label: 'Garage heater' },
 ] as const;
 
 const HOMEPAGE_FAQ = [
@@ -22,12 +23,16 @@ const HOMEPAGE_FAQ = [
     a: 'Most cooled rooms need 20–30 BTU per sq ft. RVs and uninsulated sheds need more; well-insulated tiny homes need less. Sun exposure, ceiling height, and occupants adjust the result.',
   },
   {
-    q: 'What size mini-split for an RV?',
-    a: 'Most full-time RVers use 9,000–12,000 BTU depending on length and insulation. A 30 ft RV with 200–250 sq ft of living space often needs a 9k minimum; 12k is common in hot climates.',
+    q: 'How much does it cost to run an AC?',
+    a: 'Roughly kWh = (BTU/hr × hours) ÷ (SEER × 1,000), then multiply by your $/kWh rate. Use the [SEER / AC cost to run calculator](/ac-cost-to-run-calculator) with your capacity, hours, and utility rate — then compare two SEER levels before you buy.',
   },
   {
-    q: 'Can I size a whole tiny home with one calculator?',
-    a: 'Yes — add up to five spaces or enter the main living footprint as one zone. Most tiny homes use a single 9k–18k BTU ductless head.',
+    q: 'How much does a 1.5 ton AC cost to run?',
+    a: '1.5 tons = 18,000 BTU/hr. At SEER 16, 8 hours/day, and $0.15/kWh, expect roughly ~$40/month of compressor energy in planning math — less at higher SEER, more at longer peak-summer hours. Run the [AC cost to run calculator](/ac-cost-to-run-calculator) with your rate before upsizing from a 1-ton head.',
+  },
+  {
+    q: 'What size mini-split for an RV?',
+    a: 'Most full-time RVers use 9,000–12,000 BTU depending on length and insulation. A 30 ft RV with 200–250 sq ft of living space often needs a 9k minimum; 12k is common in hot climates.',
   },
   {
     q: 'Is this a Manual J calculation?',
@@ -37,9 +42,9 @@ const HOMEPAGE_FAQ = [
 
 export default function HomePage() {
   usePageMeta({
-    title: 'BTU & Mini-Split Calculator — AC Sizing for Rooms, RVs & Tiny Homes',
+    title: 'AC Cost to Run, BTU & Mini-Split Calculators — SEER & Sizing',
     description:
-      'Free BTU and mini-split calculator at HVACCalculators.net. Size ductless AC for bedrooms, RVs, tiny homes, she-sheds, and cottages — cooling load, tonnage, and heat pump planning.',
+      'Free SEER electricity cost, BTU, and mini-split calculators at HVACCalculators.net. Estimate how much AC costs to run, then size ductless for bedrooms, RVs, tiny homes, and sheds.',
     path: '/',
   });
 
@@ -59,7 +64,10 @@ export default function HomePage() {
       mainEntity: HOMEPAGE_FAQ.map((item) => ({
         '@type': 'Question',
         name: item.q,
-        acceptedAnswer: { '@type': 'Answer', text: item.a },
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+        },
       })),
     });
 
@@ -109,8 +117,11 @@ export default function HomePage() {
 
       <p className="mb-8 text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed border-l-4 border-sky-500 pl-4">
         A 12×12 bedroom (144 sq ft) typically needs 3,600–4,300 BTU calculated — retail mini-splits start at
-        9,000 BTU. Enter your exact dimensions below for cooling load, heating estimate, and recommended ductless
-        head size.
+        9,000 BTU. Size the load below, then estimate monthly electricity with the{' '}
+        <Link to="/ac-cost-to-run-calculator" className="text-sky-700 dark:text-sky-400 font-medium hover:underline">
+          SEER / AC cost to run calculator
+        </Link>{' '}
+        before you buy on efficiency alone.
       </p>
 
       <HvacCalculator />
@@ -200,7 +211,7 @@ export default function HomePage() {
           {HOMEPAGE_FAQ.map((faq) => (
             <div key={faq.q}>
               <h3 className="font-medium text-slate-800 dark:text-slate-200">{faq.q}</h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-1">{faq.a}</p>
+              <p className="text-slate-600 dark:text-slate-400 mt-1">{renderEditorialText(faq.a)}</p>
             </div>
           ))}
         </div>
