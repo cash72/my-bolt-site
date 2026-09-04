@@ -295,7 +295,10 @@ async function auditSite(site, report) {
 
   try {
     const routes = JSON.parse(await readFile(path.join(ROOT, site.dir, 'seo/generated-routes.json'), 'utf8'));
-    const localRoutes = new Set((routes.allRoutes || []).map((route) => normalizeUrl(`${base}${route}`)));
+    const routePaths = routes.indexableLandingPaths
+      ? [...(routes.staticRoutes || []), ...(routes.indexableLandingPaths || []), ...(routes.guidePaths || [])]
+      : routes.allRoutes || [];
+    const localRoutes = new Set(routePaths.map((route) => normalizeUrl(`${base}${route}`)));
     for (const route of localRoutes) {
       if (!sitemapUrls.includes(route)) addIssue('error', 'sitemap', route, 'Generated route is missing from live sitemap');
     }
