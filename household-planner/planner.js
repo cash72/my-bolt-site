@@ -31,8 +31,6 @@ const DEFAULT_EXPENSES = [
   { id: 'medical', name: 'Medical / prescriptions', amount: '', spent: '', cadence: 'monthly' },
   { id: 'clothing', name: 'Clothing', amount: '', spent: '', cadence: 'monthly' },
   { id: 'personal', name: 'Personal care', amount: '', spent: '', cadence: 'monthly' },
-  { id: 'kids', name: 'Kids / childcare', amount: '', spent: '', cadence: 'monthly' },
-  { id: 'pets', name: 'Pets', amount: '', spent: '', cadence: 'monthly' },
   { id: 'subscriptions', name: 'Subscriptions', amount: '', spent: '', cadence: 'monthly' },
   { id: 'gifts', name: 'Gifts / charity', amount: '', spent: '', cadence: 'monthly' },
   { id: 'other', name: 'Other living costs', amount: '', spent: '', cadence: 'monthly' },
@@ -45,9 +43,15 @@ function normalizeName(name) {
     .trim();
 }
 
+function isDroppedExpense(row) {
+  if (row.id === 'kids' || row.id === 'pets') return true;
+  const n = normalizeName(row.name);
+  return n === 'pets' || n === 'kids childcare';
+}
+
 function mergeExpenses(saved) {
   if (!Array.isArray(saved) || !saved.length) return DEFAULT_EXPENSES.map((row) => ({ ...row }));
-  const remaining = [...saved];
+  const remaining = saved.filter((row) => !isDroppedExpense(row));
   const merged = [];
   for (const def of DEFAULT_EXPENSES) {
     const idx = remaining.findIndex(
