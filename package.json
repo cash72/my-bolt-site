@@ -28,7 +28,8 @@
     "audit:portfolio": "node scripts/portfolio-health-audit.mjs",
     "audit:portfolio:build": "node scripts/portfolio-health-audit.mjs --build",
     "portfolio:nightly": "node scripts/nightly-portfolio.mjs",
-    "portfolio:nightly:dry": "node scripts/nightly-portfolio.mjs --dry-run --skip-build"
+    "portfolio:nightly:dry": "node scripts/nightly-portfolio.mjs --dry-run --skip-build",
+    "planner": "python3 -m http.server 4177 --directory household-planner"
   },
   "dependencies": {
     "cheerio": "^1.0.0",
