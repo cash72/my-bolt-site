@@ -50,6 +50,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Enter up to five beds with feet-and-inch dimensions. Set depth (default 3 inches), material type, and waste %. You get cubic yards, standard 2 cu ft bag counts, and a copyable shopping list.',
           'Use our [mulch calculator](/mulch-calculator) for instant totals, or read our [cubic yards guide](/guides/cubic-yards-mulch-explained) if you prefer pencil-and-paper math.',
+          'Once you have yardage, compare bulk vs bag dollars with the [mulch cost estimator](/mulch-cost-estimator) using your local $/yard and bag prices.',
         ],
       },
     ],
@@ -57,7 +58,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'How much mulch for a 10×10 bed at 3 inches?',
         answer:
-          '100 sq ft × 0.25 ft depth = 25 cu ft ≈ 0.93 cubic yards. That is about 13–14 standard 2 cu ft bags. Round up to 1 cubic yard for bulk delivery.',
+          '100 sq ft × 0.25 ft depth = 25 cu ft ≈ 0.93 cubic yards. That is about 13–14 standard 2 cu ft bags. Round up to 1 cubic yard for bulk delivery — then price it in the [mulch cost estimator](/mulch-cost-estimator).',
       },
       {
         question: 'Do I need new mulch if old mulch is still there?',
@@ -111,6 +112,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Doubling depth doubles volume. A bed that needs 1 cubic yard at 3 inches needs 2 cubic yards at 6 inches — a common ordering mistake when switching from “looks right” to measured depth.',
           'Enter exact depth in the calculator. Convert inches to feet (divide by 12) when doing manual math: 4 inches = 0.333 ft.',
+          'Once depth is locked, price bulk vs bags for the same beds in the [mulch cost estimator](/mulch-cost-estimator) — late-summer top-ups at 1–2 inches often stay under a yard and tip toward bags.',
         ],
       },
     ],
@@ -118,7 +120,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Is 2 inches of mulch enough?',
         answer:
-          'Yes for maintenance top-ups on beds that already have a mulch base. For new beds or bare soil, start with 3 inches for better weed suppression.',
+          'Yes for maintenance top-ups on beds that already have a mulch base. For new beds or bare soil, start with 3 inches for better weed suppression — then compare spend in the [mulch cost estimator](/mulch-cost-estimator).',
       },
       {
         question: 'How deep should mulch be around trees?',
@@ -172,6 +174,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'A full-size pickup holds roughly 1.5–2 cubic yards level with the bed sides — less if the material is wet or heavy (stone vs mulch). Many suppliers enforce 2-yard minimums for delivery.',
           'Mulch weighs about 400–800 lbs per cubic yard depending on moisture. Gravel can exceed 2,500 lbs per yard — check payload limits before DIY hauling.',
+          'After you lock cubic yards, run bulk $/yard vs bag prices in the [mulch cost estimator](/mulch-cost-estimator) so delivery minimums do not erase the savings.',
         ],
       },
     ],
@@ -231,7 +234,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'What is the cheapest mulch option?',
         answer:
-          'Bulk shredded hardwood from a local yard is often cheapest per cubic yard. Municipal leaf compost programs can be free or low-cost for residents.',
+          'Bulk shredded hardwood from a local yard is often cheapest per cubic yard. Municipal leaf compost programs can be free or low-cost for residents. Compare your local $/yard vs bag tags in the [mulch cost estimator](/mulch-cost-estimator) before you assume bulk wins after delivery.',
       },
       {
         question: 'Can I use compost instead of mulch?',
@@ -434,8 +437,8 @@ export const GUIDES: Guide[] = [
     description:
       'Bag sizes (2 cu ft, 3 cu ft), bags per cubic yard, when bagged beats bulk, and how to convert your bed estimate to a store shopping list.',
     readMinutes: 7,
-    toolPath: '/mulch-calculator',
-    toolLabel: 'Mulch calculator',
+    toolPath: '/mulch-cost-estimator',
+    toolLabel: 'Mulch cost estimator',
     relatedGuideSlugs: [
       'cubic-yards-mulch-explained',
       'delivery-vs-bags-bulk-mulch',
@@ -466,14 +469,15 @@ export const GUIDES: Guide[] = [
         heading: 'When bags make sense vs bulk',
         paragraphs: [
           'Bagged mulch wins for small beds, remote beds far from the driveway drop point, and when you lack a truck. Bulk wins above ~2 cubic yards on price and labor.',
-          'See [delivery vs bags](/guides/delivery-vs-bags-bulk-mulch) for a full cost comparison.',
+          'See [delivery vs bags](/guides/delivery-vs-bags-bulk-mulch) for a full cost comparison, or plug both prices into the [mulch cost estimator](/mulch-cost-estimator) with your bed dimensions.',
         ],
       },
     ],
     faqs: [
       {
         question: 'How many 2 cu ft bags for 2 cubic yards?',
-        answer: 'About 27 bags (14 per yard × 2). Add 1–2 extras for waste.',
+        answer:
+          'About 27 bags (14 per yard × 2). Add 1–2 extras for waste — then compare bag vs bulk totals in the [mulch cost estimator](/mulch-cost-estimator).',
       },
       {
         question: 'Why does my receipt show fewer bags than calculated?',
@@ -522,6 +526,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Dump piles in sections, rake to uniform depth using a hard rake or hands. Use a yardstick or stake marked at 3 inches to spot-check depth. Keep mulch pulled back from trunks and building siding.',
           'On slopes, shredded mulch outperforms nuggets. Water lightly after spreading to settle dust and help knit fibers on dyed products.',
+          'Before you schedule the drop, price bulk vs bags for the same beds with the [mulch cost estimator](/mulch-cost-estimator) — especially useful when spring suppliers still have dyed bulk in stock.',
         ],
       },
     ],
@@ -550,6 +555,8 @@ export const GUIDES: Guide[] = [
     description:
       'Compare rubber mulch and wood mulch for playgrounds, longevity, cost per cubic yard, heat retention, and when each material fits residential landscaping.',
     readMinutes: 8,
+    toolPath: '/mulch-cost-estimator',
+    toolLabel: 'Mulch cost estimator',
     relatedGuideSlugs: [
       'mulch-vs-bark-vs-compost',
       'mulch-depth-how-deep',
@@ -574,6 +581,7 @@ export const GUIDES: Guide[] = [
         heading: 'Volume planning is the same',
         paragraphs: [
           'Whether rubber or wood, order by cubic yards from area × depth. Playground specs may require deeper fill than garden beds — recalculate volume before ordering.',
+          'For decorative wood beds (not certified playground fill), compare local $/yard vs bags in the [mulch cost estimator](/mulch-cost-estimator) — rubber’s higher per-yard price often changes the bulk-vs-bag break-even vs hardwood.',
         ],
       },
     ],
@@ -591,7 +599,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Which lasts longer?',
         answer:
-          'Rubber lasts many years. Wood replenishes annually as it decomposes — a feature for soil health in planting beds.',
+          'Rubber lasts many years. Wood replenishes annually as it decomposes — a feature for soil health in planting beds. Price a wood refresh separately in the [mulch cost estimator](/mulch-cost-estimator) when comparing lifetime cost to rubber.',
       },
     ],
   },
@@ -602,6 +610,8 @@ export const GUIDES: Guide[] = [
     description:
       'Install plastic, steel, or trench edging to contain mulch. Weed barriers, slope tips, and prep checklist so your cubic yard estimate matches a clean finished bed.',
     readMinutes: 9,
+    toolPath: '/mulch-cost-estimator',
+    toolLabel: 'Mulch cost estimator',
     relatedGuideSlugs: [
       'edging-options-for-mulch-beds',
       'weeding-before-mulch-how-to',
@@ -633,6 +643,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           '1) Mark bed outline. 2) Install edging. 3) Remove weeds/debris. 4) Water plants. 5) Calculate volume with target depth. 6) Spread and depth-check.',
           'Good prep means the mulch you calculated actually stays in the bed — not on the driveway.',
+          'Re-measure after edging (finished beds often shrink a few inches vs the rough outline), then lock spend in the [mulch cost estimator](/mulch-cost-estimator) so the order matches the edged bed.',
         ],
       },
     ],
@@ -661,8 +672,8 @@ export const GUIDES: Guide[] = [
     description:
       'When to order bulk mulch by the cubic yard vs buying bagged product. Delivery fees, minimums, DIY truck hauling, and storage tips for weekend landscaping projects.',
     readMinutes: 8,
-    toolPath: '/mulch-calculator',
-    toolLabel: 'Mulch calculator',
+    toolPath: '/mulch-cost-estimator',
+    toolLabel: 'Mulch cost estimator',
     relatedGuideSlugs: [
       'how-many-mulch-bags-per-yard',
       'cubic-yards-mulch-explained',
@@ -680,7 +691,7 @@ export const GUIDES: Guide[] = [
         heading: 'Bagged mulch from retailers',
         paragraphs: [
           'Higher per-yard cost but no delivery wait, easier carry to backyards, and exact returns of unopened bags. Ideal for 0.5–2 yard projects split across weekends.',
-          'Calculate bags with our [bags per yard guide](/guides/how-many-mulch-bags-per-yard) before loading the cart.',
+          'Calculate bags with our [bags per yard guide](/guides/how-many-mulch-bags-per-yard) before loading the cart — then price both paths in the [mulch cost estimator](/mulch-cost-estimator).',
         ],
         bullets: [
           'Under ~1.5 cu yd: bags often competitive with delivery fee',
@@ -693,6 +704,7 @@ export const GUIDES: Guide[] = [
         heading: 'Hidden costs to compare',
         paragraphs: [
           'Include: material, tax, delivery, tarp, wheelbarrow time, and fuel for self-haul. Bulk mistakes (ordering short) cost a second delivery minimum — calculate with 10% waste up front.',
+          'Run materials only in the [mulch cost estimator](/mulch-cost-estimator), then add each supplier’s delivery fee on top so the cheaper yardage option still wins after the truck rolls.',
         ],
       },
     ],
@@ -700,7 +712,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'What is a typical mulch delivery minimum?',
         answer:
-          'Often 2–3 cubic yards for local nurseries; big-box bulk programs vary. Call before assuming single-yard delivery.',
+          'Often 2–3 cubic yards for local nurseries; big-box bulk programs vary. Call before assuming single-yard delivery — then compare that quote to bags in the [mulch cost estimator](/mulch-cost-estimator).',
       },
       {
         question: 'How long can a mulch pile sit?',
@@ -721,8 +733,8 @@ export const GUIDES: Guide[] = [
     description:
       'When to mulch in fall, how late is too late, ideal depth before frost, protecting perennials and shrubs, and how autumn top-ups affect your cubic yard order.',
     readMinutes: 9,
-    toolPath: '/mulch-calculator',
-    toolLabel: 'Mulch calculator',
+    toolPath: '/mulch-cost-estimator',
+    toolLabel: 'Mulch cost estimator',
     relatedGuideSlugs: [
       'spring-mulch-application-guide',
       'mulch-depth-how-deep',
@@ -755,6 +767,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Measure only the depth you need to restore — not full new-bed depth if 1–2 inches of mulch remains. Subtract existing depth from your 3-inch target before running numbers.',
           'Fall projects often combine several beds after leaf cleanup. Use our [mulch calculator](/mulch-calculator) for cubic yards and bag counts, or see [how much mulch do I need](/guides/how-much-mulch-do-i-need) for manual math on irregular beds.',
+          'Price the same top-up in the [mulch cost estimator](/mulch-cost-estimator) while late-summer bulk still has capacity — fall demand often raises delivery wait times more than material $/yard.',
         ],
       },
     ],
@@ -762,7 +775,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Is fall or spring better for mulching?',
         answer:
-          'Both work. Spring mulch supports weed suppression during active growth; fall mulch protects soil over winter and reduces heaving on shallow-rooted plants. Many gardeners do a light fall touch-up and a fuller spring refresh.',
+          'Both work. Spring mulch supports weed suppression during active growth; fall mulch protects soil over winter and reduces heaving on shallow-rooted plants. Many gardeners do a light fall touch-up and a fuller spring refresh — compare bulk vs bag spend for either season in the [mulch cost estimator](/mulch-cost-estimator).',
       },
       {
         question: 'Can I mulch over fallen leaves?',
@@ -772,7 +785,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'How much mulch for a fall top-up on 200 sq ft?',
         answer:
-          'At 2 inches new depth: 200 × (2/12) = 33 cu ft ≈ 1.2 cubic yards. Add 10% waste and round up. That is roughly 17–18 standard 2 cu ft bags.',
+          'At 2 inches new depth: 200 × (2/12) = 33 cu ft ≈ 1.2 cubic yards. Add 10% waste and round up. That is roughly 17–18 standard 2 cu ft bags — compare bag vs bulk totals in the [mulch cost estimator](/mulch-cost-estimator) before Labor Day delivery calendars fill.',
       },
     ],
   },
@@ -816,6 +829,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Treat each raised bed and path as a separate rectangle. A 4 ft × 8 ft bed at 2 inches depth needs about 5.3 cu ft — roughly four 2 cu ft bags.',
           'Add path length × width for total project volume. Our [mulch calculator](/mulch-calculator) handles multiple areas; set depth to 2 inches for most vegetable applications.',
+          'When paths plus beds push past a yard, compare straw/chip bag stacks to a bulk drop in the [mulch cost estimator](/mulch-cost-estimator) before you fill the car trunk twice.',
         ],
       },
     ],
@@ -878,6 +892,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Divide cubic feet by 27 for yards; multiply yards by ~13.5 for standard 2 cu ft bags (half-bags do not exist — round up).',
           'Three 6-ft-diameter rings at 3 inches total about 0.8 cubic yards — often cheaper as bags than a bulk minimum. Run all rings in our [mulch calculator](/mulch-calculator) with custom bed dimensions.',
+          'Price that sub-yard total in the [mulch cost estimator](/mulch-cost-estimator) — delivery minimums often erase bulk savings on tree-ring-only jobs.',
         ],
       },
     ],
@@ -906,8 +921,8 @@ export const GUIDES: Guide[] = [
     description:
       'Why dyed mulch fades, how long color lasts, refresh vs full replacement, stain risks on pavement, and volume for a cosmetic top-up layer.',
     readMinutes: 8,
-    toolPath: '/mulch-calculator',
-    toolLabel: 'Mulch calculator',
+    toolPath: '/mulch-cost-estimator',
+    toolLabel: 'Mulch cost estimator',
     relatedGuideSlugs: [
       'rubber-mulch-vs-wood-mulch',
       'spring-mulch-application-guide',
@@ -939,6 +954,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Refresh volume is smaller than initial install. A 150 sq ft front bed at 1.5 inches new depth needs 150 × 0.125 = 18.75 cu ft ≈ 0.7 cubic yards — about 9–10 bags.',
           'Calculate refresh depth separately from total bed depth. Use our [mulch calculator](/mulch-calculator) with a 1–2 inch depth entry for cosmetic top-ups only.',
+          'Late-summer fade refreshes usually stay under a yard — run bag vs bulk dollars in the [mulch cost estimator](/mulch-cost-estimator) before booking a delivery that may sit behind Labor Day demand.',
         ],
       },
     ],
@@ -957,6 +973,11 @@ export const GUIDES: Guide[] = [
         question: 'Will fresh dyed mulch stain my driveway?',
         answer:
           'Yes, when wet. Keep piles on tarp, avoid spreading in rain, and rinse pavement promptly. Let mulch dry slightly after delivery if staining is a concern.',
+      },
+      {
+        question: 'Should I refresh faded dyed mulch over Labor Day weekend?',
+        answer:
+          'Yes for under ~1 yard of cosmetic top-up — holiday bag runs often beat waiting on September bulk delivery. Enter 1–2 inch refresh depth in the [mulch cost estimator](/mulch-cost-estimator) with your bag price; if bags land close to bulk-plus-delivery, finish the front beds this weekend.',
       },
     ],
   },
@@ -999,7 +1020,7 @@ export const GUIDES: Guide[] = [
         heading: 'Fabric and your mulch depth estimate',
         paragraphs: [
           'Fabric does not change volume math — depth and area stay the same. You may need slightly more mulch the first year as fabric prevents some settling into soil.',
-          'Plan for future refresh without adding fabric layers — double layers trap debris and roots. Calculate top-up mulch with our [mulch calculator](/mulch-calculator) at normal 2–3 inch depth.',
+          'Plan for future refresh without adding fabric layers — double layers trap debris and roots. Calculate top-up mulch with our [mulch calculator](/mulch-calculator) at normal 2–3 inch depth, then compare bulk vs bag spend in the [mulch cost estimator](/mulch-cost-estimator) before you book delivery.',
         ],
       },
     ],
@@ -1017,7 +1038,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'How long does landscape fabric last under mulch?',
         answer:
-          'Quality non-woven fabric often lasts 5–10 years under 3 inches of mulch before breakdown and weed breakthrough. Cheaper thin fabric fails sooner — invest in 3–4 oz weight for longevity.',
+          'Quality non-woven fabric often lasts 5–10 years under 3 inches of mulch before breakdown and weed breakthrough. Cheaper thin fabric fails sooner — invest in 3–4 oz weight for longevity. After fabric is down, lock materials spend in the [mulch cost estimator](/mulch-cost-estimator) so fabric + delivery fees do not erase bulk savings.',
       },
     ],
   },
@@ -1090,8 +1111,8 @@ export const GUIDES: Guide[] = [
     description:
       'Complete DIY mulch project map: measure cubic yards, choose material, weed and edge beds, fabric decisions, spread depth, and yearly refresh. Links every phase to free calculators.',
     readMinutes: 12,
-    toolPath: '/mulch-calculator',
-    toolLabel: 'Mulch calculator',
+    toolPath: '/mulch-cost-estimator',
+    toolLabel: 'Mulch cost estimator',
     relatedGuideSlugs: [
       'how-much-mulch-do-i-need',
       'weeding-before-mulch-how-to',
@@ -1104,6 +1125,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Thin spots, volcanoes at tree trunks, fabric poking through, and mulch piled against siding all come from skipped planning — not from the brand of bark. This roadmap walks bed refresh from measure to maintain with calculator links so you order yards once.',
           'Jump to the phase you need. Vegetable beds, playgrounds, and gravel paths branch after you estimate volume.',
+          'Before you schedule delivery, run the same bed measurements through the [mulch cost estimator](/mulch-cost-estimator) so Phase 3 (bags vs bulk) is a dollar decision, not a guess.',
         ],
       },
       {
@@ -1127,7 +1149,7 @@ export const GUIDES: Guide[] = [
         bullets: [
           'Measure: [How much mulch](/guides/how-much-mulch-do-i-need) · [Depth](/guides/mulch-depth-how-deep) · [Cubic yards](/guides/cubic-yards-mulch-explained) · [Bags per yard](/guides/how-many-mulch-bags-per-yard)',
           'Choose: [Mulch vs bark vs compost](/guides/mulch-vs-bark-vs-compost) · [Rubber vs wood](/guides/rubber-mulch-vs-wood-mulch) · [Colored mulch](/guides/colored-mulch-fade-and-refresh)',
-          'Buy: [Delivery vs bags](/guides/delivery-vs-bags-bulk-mulch)',
+          'Buy: [Delivery vs bags](/guides/delivery-vs-bags-bulk-mulch) · [Mulch cost estimator](/mulch-cost-estimator)',
           'Prep: [Edge and prep beds](/guides/edging-and-prepping-beds-before-mulch) · [Weed first](/guides/weeding-before-mulch-how-to) · [Edging options](/guides/edging-options-for-mulch-beds)',
           'Fabric: [Landscape fabric under mulch](/guides/landscape-fabric-under-mulch)',
           'Apply: [Spread evenly](/guides/how-to-spread-mulch-evenly) · [Spring timing](/guides/spring-mulch-application-guide) · [Fall timing](/guides/fall-mulch-application-timing)',
@@ -1135,7 +1157,7 @@ export const GUIDES: Guide[] = [
           'Maintain: [Refresh without removing](/guides/refresh-mulch-without-removing-old) · [Keep off foundation](/guides/mulch-too-close-to-house-foundation)',
         ],
         paragraphs: [
-          'Calculators: [mulch](/mulch-calculator), [cubic yards](/cubic-yards-calculator), [topsoil](/topsoil-calculator), [gravel](/gravel-calculator), [playground](/playground-mulch-calculator).',
+          'Calculators: [mulch cost estimator](/mulch-cost-estimator), [mulch](/mulch-calculator), [cubic yards](/cubic-yards-calculator), [topsoil](/topsoil-calculator), [gravel](/gravel-calculator), [playground](/playground-mulch-calculator).',
         ],
       },
       {
@@ -1206,7 +1228,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'After weeds are gone',
         paragraphs: [
-          'Edge the bed, decide on fabric, then spread. Continue with [edging and prep](/guides/edging-and-prepping-beds-before-mulch), [fabric guide](/guides/landscape-fabric-under-mulch), and [how to spread mulch evenly](/guides/how-to-spread-mulch-evenly).',
+          'Edge the bed, decide on fabric, then spread. Continue with [edging and prep](/guides/edging-and-prepping-beds-before-mulch), [fabric guide](/guides/landscape-fabric-under-mulch), and [how to spread mulch evenly](/guides/how-to-spread-mulch-evenly). Price the finished bed area in the [mulch cost estimator](/mulch-cost-estimator) before late-summer delivery calendars fill.',
         ],
       },
     ],
@@ -1224,7 +1246,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Do I weed again after mulching?',
         answer:
-          'Yes — spot pull anything that germinates in the mulch surface. It is much faster than weeding bare soil.',
+          'Yes — spot pull anything that germinates in the mulch surface. It is much faster than weeding bare soil. Once beds are clear, compare bag vs bulk totals in the [mulch cost estimator](/mulch-cost-estimator) so you order once.',
       },
     ],
   },
@@ -1247,7 +1269,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Stage small piles — do not bury one corner',
         paragraphs: [
-          'Dump or wheelbarrow mulch in small mounds along the bed, then rake out. One giant pile at the driveway end means the far border gets starved. Order enough with the [mulch calculator](/mulch-calculator) using your target depth from [how deep mulch should be](/guides/mulch-depth-how-deep).',
+          'Dump or wheelbarrow mulch in small mounds along the bed, then rake out. One giant pile at the driveway end means the far border gets starved. Order enough with the [mulch calculator](/mulch-calculator) using your target depth from [how deep mulch should be](/guides/mulch-depth-how-deep), then lock bag vs bulk dollars in the [mulch cost estimator](/mulch-cost-estimator) before the truck arrives.',
         ],
       },
       {
@@ -1291,7 +1313,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Can I use a blower to spread mulch?',
         answer:
-          'Blowers help clean hardscape and move light chips. Heavy bulk bark is still a rake-and-fork job for even depth.',
+          'Blowers help clean hardscape and move light chips. Heavy bulk bark is still a rake-and-fork job for even depth. If you are short after the first pass, re-check volume and price a top-up in the [mulch cost estimator](/mulch-cost-estimator) before a second store run.',
       },
     ],
   },
@@ -1302,8 +1324,8 @@ export const GUIDES: Guide[] = [
     description:
       'How to top up faded mulch beds without hauling everything out: when to fluff, when to add an inch, and when old mulch should be removed.',
     readMinutes: 8,
-    toolPath: '/mulch-calculator',
-    toolLabel: 'Mulch calculator',
+    toolPath: '/mulch-cost-estimator',
+    toolLabel: 'Mulch cost estimator',
     relatedGuideSlugs: [
       'colored-mulch-fade-and-refresh',
       'mulch-depth-how-deep',
@@ -1346,6 +1368,7 @@ export const GUIDES: Guide[] = [
         heading: 'How much for a top-up',
         paragraphs: [
           'If beds still have ~2 inches and you want 3, order about one-third of a full re-mulch volume. Example: a bed that needed 3 yards new might need ~1 yard refresh. Spread with [even spreading tips](/guides/how-to-spread-mulch-evenly).',
+          'Price that smaller refresh in the [mulch cost estimator](/mulch-cost-estimator) — under ~1.5 yards, bags often beat a second delivery minimum after late-summer heat fades the dye.',
         ],
       },
     ],
@@ -1363,7 +1386,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'How often should I refresh mulch?',
         answer:
-          'Many beds need a light top-up every 1–2 years. High-sun dyed mulch may need color refresh sooner.',
+          'Many beds need a light top-up every 1–2 years. High-sun dyed mulch may need color refresh sooner — price the smaller volume in the [mulch cost estimator](/mulch-cost-estimator) before you assume bulk delivery still wins.',
       },
     ],
   },
@@ -1405,7 +1428,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'How this changes your yardage',
         paragraphs: [
-          'A clearance strip slightly reduces bed area — measure the planting bed, not the entire strip to the wall. Recalculate in the [mulch calculator](/mulch-calculator) if you carve out a rock border along the house.',
+          'A clearance strip slightly reduces bed area — measure the planting bed, not the entire strip to the wall. Recalculate in the [mulch calculator](/mulch-calculator) if you carve out a rock border along the house, then compare bulk vs bag spend for the trimmed area in the [mulch cost estimator](/mulch-cost-estimator).',
         ],
       },
       {
@@ -1452,7 +1475,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Edging keeps depth honest',
         paragraphs: [
-          'Without an edge, mulch migrates into lawn and you overspread forever. Choose an edge before you order yards so the bed area is final — then run the [mulch calculator](/mulch-calculator).',
+          'Without an edge, mulch migrates into lawn and you overspread forever. Choose an edge before you order yards so the bed area is final — then run the [mulch calculator](/mulch-calculator) and price the order in the [mulch cost estimator](/mulch-cost-estimator).',
         ],
       },
       {
@@ -1490,7 +1513,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Does edging change how much mulch I buy?',
         answer:
-          'Slightly — a precise edge defines area. Soft, overgrown beds are larger than you think until you cut them back. Remeasure after edging.',
+          'Slightly — a precise edge defines area. Soft, overgrown beds are larger than you think until you cut them back. Remeasure after edging, then lock spend in the [mulch cost estimator](/mulch-cost-estimator) so you do not over-order for the old fuzzy outline.',
       },
       {
         question: 'Can I edge after mulching?',
