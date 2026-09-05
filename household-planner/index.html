@@ -40,7 +40,15 @@
         </div>
         <div class="stat">
           <div class="value" id="stat-spend">$0</div>
-          <div class="label">Living costs (same period)</div>
+          <div class="label">Budgeted living costs</div>
+        </div>
+        <div class="stat">
+          <div class="value" id="stat-actual">$0</div>
+          <div class="label">Spent this period</div>
+        </div>
+        <div class="stat">
+          <div class="value" id="stat-variance">$0</div>
+          <div class="label" id="stat-variance-label">Under / over budget</div>
         </div>
         <div class="stat">
           <div class="value" id="stat-left">$0</div>
@@ -48,7 +56,7 @@
         </div>
         <div class="stat">
           <div class="value" id="stat-debtfree">—</div>
-          <div class="label">Debt-free date on current method</div>
+          <div class="label">Debt-free on current method</div>
         </div>
       </section>
 
@@ -77,13 +85,11 @@
                 4-week month (3rd paycheque = snowflake)
               </label>
             </div>
-            <div class="grid-3">
+            <div class="grid-2">
               <label class="field">Your take-home<input id="you-amount" type="number" min="0" step="1" placeholder="0" /></label>
               <label class="field">How often<select id="you-cadence"></select></label>
-              <div></div>
               <label class="field">Spouse assistance<input id="spouse-amount" type="number" min="0" step="1" placeholder="0" /></label>
               <label class="field">How often<select id="spouse-cadence"></select></label>
-              <div></div>
               <label class="field">Other income<input id="other-amount" type="number" min="0" step="1" placeholder="0" /></label>
               <label class="field">How often<select id="other-cadence"></select></label>
             </div>
@@ -91,13 +97,16 @@
 
           <section class="card">
             <h2>Living costs</h2>
-            <p class="lede">Unknowns can stay blank. Add rows as you discover them.</p>
+            <p class="lede">
+              Budget is the plan. Spent is what actually went out this period. Debt leftover uses the budget so a cheap week does not quietly change the payoff plan.
+            </p>
             <div style="overflow-x: auto">
               <table>
                 <thead>
                   <tr>
                     <th>Category</th>
-                    <th>Amount</th>
+                    <th>Budget</th>
+                    <th>Spent this period</th>
                     <th>Cadence</th>
                     <th></th>
                   </tr>
@@ -107,6 +116,31 @@
             </div>
             <div class="row-actions">
               <button class="btn" id="add-expense" type="button">Add cost</button>
+              <button class="btn ghost" id="reset-spent" type="button">Clear spent this period</button>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Spending tracker</h2>
+            <p class="lede">Where the budgeted money is going, and whether this period is running hot.</p>
+            <div class="quick-add">
+              <label class="field">Add a spend
+                <select id="spend-cat"></select>
+              </label>
+              <label class="field">Amount
+                <input id="spend-amt" type="number" min="0" step="1" placeholder="0" />
+              </label>
+              <label class="field">Note
+                <input id="spend-note" type="text" placeholder="optional" />
+              </label>
+              <button class="btn primary" id="add-spend" type="button">Add spend</button>
+            </div>
+            <div class="tracker-head">
+              <svg class="pie" id="spend-pie" aria-label="Budget mix"></svg>
+              <div>
+                <div class="spend-bars" id="spend-bars"></div>
+                <p class="chart-caption" id="spend-caption"></p>
+              </div>
             </div>
           </section>
 

@@ -17,6 +17,69 @@ const DEBOUNCE_MS = 450;
 
 const uid = () => `id-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
 
+const DEFAULT_EXPENSES = [
+  { id: 'housing', name: 'Housing (rent or mortgage)', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'utilities', name: 'Utilities (hydro, heat, water)', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'groceries', name: 'Groceries', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'sundries', name: 'Sundries / household / toiletries', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'hardware', name: 'Hardware / home maintenance', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'entertainment', name: 'Entertainment', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'dining', name: 'Dining out / coffee', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'transport', name: 'Transport / fuel / transit', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'insurance', name: 'Insurance', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'phone', name: 'Phone / internet', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'medical', name: 'Medical / prescriptions', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'clothing', name: 'Clothing', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'personal', name: 'Personal care', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'kids', name: 'Kids / childcare', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'pets', name: 'Pets', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'subscriptions', name: 'Subscriptions', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'gifts', name: 'Gifts / charity', amount: '', spent: '', cadence: 'monthly' },
+  { id: 'other', name: 'Other living costs', amount: '', spent: '', cadence: 'monthly' },
+];
+
+function normalizeName(name) {
+  return String(name || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function mergeExpenses(saved) {
+  if (!Array.isArray(saved) || !saved.length) return DEFAULT_EXPENSES.map((row) => ({ ...row }));
+  const remaining = [...saved];
+  const merged = [];
+  for (const def of DEFAULT_EXPENSES) {
+    const idx = remaining.findIndex(
+      (row) => row.id === def.id || normalizeName(row.name) === normalizeName(def.name) ||
+        (def.id === 'groceries' && /grocer/i.test(row.name || '')) ||
+        (def.id === 'housing' && /housing|rent|mortgage/i.test(row.name || '')) ||
+        (def.id === 'transport' && /transport|fuel|transit/i.test(row.name || '')) ||
+        (def.id === 'phone' && /phone|internet/i.test(row.name || '')) ||
+        (def.id === 'medical' && /medical|prescription/i.test(row.name || '')) ||
+        (def.id === 'utilities' && /utilit|hydro/i.test(row.name || '')) ||
+        (def.id === 'other' && /^other/i.test(row.name || '')),
+    );
+    if (idx >= 0) {
+      const hit = remaining.splice(idx, 1)[0];
+      merged.push({
+        ...def,
+        ...hit,
+        id: def.id,
+        name: hit.name || def.name,
+        spent: hit.spent ?? '',
+        cadence: hit.cadence || def.cadence,
+      });
+    } else {
+      merged.push({ ...def });
+    }
+  }
+  for (const extra of remaining) {
+    merged.push({ cadence: 'monthly', amount: '', spent: '', ...extra });
+  }
+  return merged;
+}
+
 const defaultState = () => ({
   currency: 'CAD',
   autoUpdate: true,
@@ -24,16 +87,7 @@ const defaultState = () => ({
   you: { amount: '', cadence: 'biweekly' },
   spouse: { amount: '', cadence: 'biweekly' },
   other: { amount: '', cadence: 'monthly' },
-  expenses: [
-    { id: 'housing', name: 'Housing (rent or mortgage)', amount: '', cadence: 'monthly' },
-    { id: 'utilities', name: 'Utilities', amount: '', cadence: 'monthly' },
-    { id: 'groceries', name: 'Groceries', amount: '', cadence: 'monthly' },
-    { id: 'transport', name: 'Transport / fuel / transit', amount: '', cadence: 'monthly' },
-    { id: 'insurance', name: 'Insurance', amount: '', cadence: 'monthly' },
-    { id: 'phone', name: 'Phone / internet', amount: '', cadence: 'monthly' },
-    { id: 'medical', name: 'Medical / prescriptions', amount: '', cadence: 'monthly' },
-    { id: 'other', name: 'Other living costs', amount: '', cadence: 'monthly' },
-  ],
+  expenses: DEFAULT_EXPENSES.map((row) => ({ ...row })),
   debts: [
     { id: uid(), name: '', balance: '', apr: '', min: '', limit: '', type: 'card', order: 1 },
   ],
@@ -72,7 +126,7 @@ function load() {
     if (!raw) return;
     const parsed = JSON.parse(raw);
     state = { ...defaultState(), ...parsed, you: { ...defaultState().you, ...parsed.you }, spouse: { ...defaultState().spouse, ...parsed.spouse }, other: { ...defaultState().other, ...parsed.other } };
-    if (Array.isArray(parsed.expenses)) state.expenses = parsed.expenses;
+    state.expenses = mergeExpenses(parsed.expenses);
     if (Array.isArray(parsed.debts) && parsed.debts.length) state.debts = parsed.debts;
     if (Array.isArray(parsed.openItems)) state.openItems = parsed.openItems;
   } catch {
@@ -99,9 +153,13 @@ function incomeMonthly(conservative) {
   );
 }
 
-function expensesMonthly(conservative) {
+function categoryRows(conservative) {
   const conv = conservative ? toFourWeek : toMonthly;
-  return state.expenses.reduce((s, row) => s + conv(row.amount, row.cadence), 0);
+  return state.expenses.map((row) => {
+    const budget = conv(row.amount, row.cadence);
+    const spent = parseMoney(row.spent);
+    return { ...row, budget, spent, variance: budget - spent };
+  });
 }
 
 function snowflakeMonths() {
@@ -116,7 +174,9 @@ function snowflakeMonths() {
 function buildModel() {
   const conservative = state.conservativePaycheques;
   const income = incomeMonthly(conservative);
-  const spend = expensesMonthly(conservative);
+  const categories = categoryRows(conservative);
+  const spend = categories.reduce((s, row) => s + row.budget, 0);
+  const actual = categories.reduce((s, row) => s + row.spent, 0);
   const leftover = income - spend;
   const debts = state.debts.filter((d) => parseMoney(d.balance) > 0);
   const minTotal = debts.reduce((s, d) => s + parseMoney(d.min), 0);
@@ -141,7 +201,7 @@ function buildModel() {
         snowflakeMonths: snowflakeMonths(),
       })
     : [];
-  return { income, spend, leftover, debts, minTotal, monthlyBudget, result, comparison, conservative };
+  return { income, spend, actual, leftover, debts, minTotal, monthlyBudget, result, comparison, conservative, categories };
 }
 
 function money(n) {
@@ -171,14 +231,93 @@ function drawChart(series) {
   svg.innerHTML = `<polyline fill="none" stroke="currentColor" stroke-width="2.5" points="${pts}" />`;
 }
 
+const SLICE_COLORS = ['#2563eb', '#0ea5e9', '#1e3a8a', '#334155', '#64748b', '#0369a1', '#475569', '#38bdf8'];
+
+function drawPie(slices) {
+  const svg = $('spend-pie');
+  if (!svg) return;
+  const total = slices.reduce((s, row) => s + row.value, 0);
+  if (total <= 0) {
+    svg.innerHTML = '';
+    return;
+  }
+  const cx = 80;
+  const cy = 80;
+  const r = 70;
+  let angle = -Math.PI / 2;
+  const parts = [];
+  slices.forEach((slice, i) => {
+    const color = SLICE_COLORS[i % SLICE_COLORS.length];
+    if (slice.value >= total - 0.0001) {
+      parts.push(`<circle cx="${cx}" cy="${cy}" r="${r}" fill="${color}" />`);
+      angle += Math.PI * 2;
+      return;
+    }
+    const next = angle + (slice.value / total) * Math.PI * 2;
+    const large = next - angle > Math.PI ? 1 : 0;
+    const x1 = cx + r * Math.cos(angle);
+    const y1 = cy + r * Math.sin(angle);
+    const x2 = cx + r * Math.cos(next);
+    const y2 = cy + r * Math.sin(next);
+    parts.push(
+      `<path d="M ${cx} ${cy} L ${x1.toFixed(1)} ${y1.toFixed(1)} A ${r} ${r} 0 ${large} 1 ${x2.toFixed(1)} ${y2.toFixed(1)} Z" fill="${color}" />`,
+    );
+    angle = next;
+  });
+  svg.setAttribute('viewBox', '0 0 160 160');
+  svg.innerHTML = parts.join('');
+}
+
+function renderTracker(categories) {
+  const active = categories.filter((row) => row.budget > 0 || row.spent > 0);
+  const bars = $('spend-bars');
+  const caption = $('spend-caption');
+  const select = $('spend-cat');
+  if (select) {
+    select.innerHTML = state.expenses
+      .map((row) => `<option value="${escapeAttr(row.id)}">${escapeHtml(row.name || 'Untitled')}</option>`)
+      .join('');
+  }
+  if (!active.length) {
+    bars.innerHTML = '';
+    drawPie([]);
+    caption.textContent = 'Enter a budget or a spent amount to see the mix.';
+    return;
+  }
+  const top = [...active].sort((a, b) => b.budget + b.spent - (a.budget + a.spent)).slice(0, 8);
+  bars.innerHTML = top
+    .map((row) => {
+      const cap = Math.max(row.budget, row.spent, 1);
+      const pct = Math.min(100, (row.spent / cap) * 100);
+      const over = row.spent > row.budget + 0.005 && row.budget > 0;
+      return `<div class="spend-row">
+        <div class="name" title="${escapeAttr(row.name)}">${escapeHtml(row.name)}</div>
+        <div class="bar"><span class="${over ? 'over' : ''}" style="width:${pct.toFixed(1)}%"></span></div>
+        <div class="amt">${money(row.spent)} / ${money(row.budget)}</div>
+      </div>`;
+    })
+    .join('');
+  drawPie(active.filter((row) => row.budget > 0).map((row) => ({ label: row.name, value: row.budget })));
+  const overCount = active.filter((row) => row.budget > 0 && row.spent > row.budget + 0.005).length;
+  caption.textContent = overCount
+    ? `${overCount} categor${overCount === 1 ? 'y is' : 'ies are'} over budget this period. Bars are spent vs budget.`
+    : 'Bars are spent vs budget this period. Pie is the budget mix.';
+}
+
 function renderResults() {
   const model = buildModel();
   lastModel = model;
-  const { income, spend, leftover, debts, minTotal, result, comparison } = model;
+  const { income, spend, actual, leftover, debts, minTotal, result, comparison, categories } = model;
   const short = leftover + 0.01 < minTotal && debts.length > 0;
+  const variance = spend - actual;
 
   $('stat-income').textContent = money(income);
   $('stat-spend').textContent = money(spend);
+  $('stat-actual').textContent = money(actual);
+  $('stat-variance').textContent = money(variance);
+  $('stat-variance').parentElement.classList.toggle('danger', variance < -0.5);
+  $('stat-variance').parentElement.classList.toggle('ok', actual > 0 && variance >= 0);
+  $('stat-variance-label').textContent = variance >= 0 ? 'Under budget this period' : 'Over budget this period';
   $('stat-left').textContent = money(leftover);
   $('stat-left').parentElement.classList.toggle('danger', leftover < 0 || short);
   $('stat-left').parentElement.classList.toggle('ok', leftover > minTotal && debts.length > 0);
@@ -238,6 +377,7 @@ function renderResults() {
       : `Remaining total debt by month for the first ${result.remainingSeries.length} months.`;
   }
   $('interest-stat').textContent = debts.length ? money(result.totalInterest) : '—';
+  renderTracker(categories);
 }
 
 function renderForm() {
@@ -261,6 +401,7 @@ function renderForm() {
       (row) => `<tr data-id="${row.id}">
         <td><input type="text" data-k="name" value="${escapeAttr(row.name)}" /></td>
         <td><input type="number" inputmode="decimal" data-k="amount" value="${escapeAttr(row.amount)}" min="0" step="1" /></td>
+        <td><input type="number" inputmode="decimal" data-k="spent" value="${escapeAttr(row.spent ?? '')}" min="0" step="1" /></td>
         <td><select data-k="cadence">${cadenceOptions(row.cadence)}</select></td>
         <td><button class="btn ghost" data-act="del-exp" title="Remove">Remove</button></td>
       </tr>`,
@@ -411,9 +552,35 @@ function bind() {
     scheduleUpdate(true);
   });
   $('add-expense').addEventListener('click', () => {
-    state.expenses.push({ id: uid(), name: '', amount: '', cadence: 'monthly' });
+    state.expenses.push({ id: uid(), name: '', amount: '', spent: '', cadence: 'monthly' });
     renderForm();
     bindTables();
+    scheduleUpdate(true);
+  });
+  $('reset-spent').addEventListener('click', () => {
+    state.expenses = state.expenses.map((row) => ({ ...row, spent: '' }));
+    renderForm();
+    bindTables();
+    scheduleUpdate(true);
+  });
+  $('add-spend').addEventListener('click', () => {
+    const id = $('spend-cat').value;
+    const amt = parseMoney($('spend-amt').value);
+    if (!id || amt <= 0) return;
+    const row = state.expenses.find((item) => item.id === id);
+    if (!row) return;
+    row.spent = String(parseMoney(row.spent) + amt);
+    const note = $('spend-note').value.trim();
+    if (note) {
+      state.notes = state.notes
+        ? `${state.notes}\n${row.name}: ${amt}${state.currency === 'USD' ? ' USD' : ''} — ${note}`
+        : `${row.name}: ${amt} — ${note}`;
+    }
+    $('spend-amt').value = '';
+    $('spend-note').value = '';
+    renderForm();
+    bindTables();
+    scheduleUpdate(true);
   });
   $('add-debt').addEventListener('click', () => {
     state.debts.push({
@@ -458,7 +625,10 @@ function bind() {
     if (!file) return;
     try {
       const parsed = JSON.parse(await file.text());
-      state = { ...defaultState(), ...parsed };
+      const debts = Array.isArray(parsed.debts) && parsed.debts.length ? parsed.debts : defaultState().debts;
+      state = { ...defaultState(), ...parsed, you: { ...defaultState().you, ...parsed.you }, spouse: { ...defaultState().spouse, ...parsed.spouse }, other: { ...defaultState().other, ...parsed.other } };
+      state.expenses = mergeExpenses(parsed.expenses);
+      state.debts = debts;
       renderForm();
       bindTables();
       scheduleUpdate(true);
