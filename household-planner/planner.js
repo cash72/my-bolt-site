@@ -682,7 +682,13 @@ function parseDebtPaste(raw) {
   const rows = [];
   for (const line of lines) {
     if (/^name/i.test(line)) continue;
-    const parts = line.split(/[\t,]+/).map((p) => p.trim());
+    let parts;
+    if (/[\t,]/.test(line)) {
+      parts = line.split(/[\t,]+/).map((p) => p.trim());
+    } else {
+      const m = line.match(/^(.+?)\s+(-?[\d,]+(?:\.\d+)?)\s+(-?[\d.]+)\s+(-?[\d,]+(?:\.\d+)?)(?:\s+(-?[\d,]+(?:\.\d+)?))?(?:\s+(\S+))?$/);
+      parts = m ? m.slice(1).filter((p) => p != null) : [];
+    }
     if (parts.length < 3) continue;
     rows.push({
       id: uid(),
