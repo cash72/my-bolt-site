@@ -226,6 +226,16 @@ td input, td select { min-width: 0; }
 }
 .bar > span.over { background: var(--danger); }
 .spend-row .amt { text-align: right; font-variant-numeric: tabular-nums; }
+.spend-table td.num { font-weight: 700; white-space: nowrap; }
+.spend-table td.num.over, .spend-table tfoot .over { color: var(--danger); }
+.spend-mini { min-width: 56px; width: 72px; }
+.bar > span.warn { background: var(--warn); }
+.spend-table tfoot th, .spend-table tfoot td { border-bottom: none; font-weight: 700; padding-top: 10px; }
+#expense-body input[data-k="amount"],
+#expense-body input[data-k="spent"] {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
 .quick-add {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) 120px minmax(0, 1fr) auto;

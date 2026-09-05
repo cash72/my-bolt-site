@@ -153,10 +153,9 @@ function incomeMonthly(conservative) {
   );
 }
 
-function categoryRows(conservative) {
-  const conv = conservative ? toFourWeek : toMonthly;
+function categoryRows() {
   return state.expenses.map((row) => {
-    const budget = conv(row.amount, row.cadence);
+    const budget = toMonthly(row.amount, row.cadence);
     const spent = parseMoney(row.spent);
     return { ...row, budget, spent, variance: budget - spent };
   });
@@ -174,7 +173,7 @@ function snowflakeMonths() {
 function buildModel() {
   const conservative = state.conservativePaycheques;
   const income = incomeMonthly(conservative);
-  const categories = categoryRows(conservative);
+  const categories = categoryRows();
   const spend = categories.reduce((s, row) => s + row.budget, 0);
   const actual = categories.reduce((s, row) => s + row.spent, 0);
   const leftover = income - spend;
@@ -231,77 +230,76 @@ function drawChart(series) {
   svg.innerHTML = `<polyline fill="none" stroke="currentColor" stroke-width="2.5" points="${pts}" />`;
 }
 
-const SLICE_COLORS = ['#2563eb', '#0ea5e9', '#1e3a8a', '#334155', '#64748b', '#0369a1', '#475569', '#38bdf8'];
+function barTone(budget, spent) {
+  if (budget > 0 && spent > budget + 0.005) return 'over';
+  if (budget > 0 && spent / budget > 0.85) return 'warn';
+  return '';
+}
 
-function drawPie(slices) {
-  const svg = $('spend-pie');
-  if (!svg) return;
-  const total = slices.reduce((s, row) => s + row.value, 0);
-  if (total <= 0) {
-    svg.innerHTML = '';
-    return;
-  }
-  const cx = 80;
-  const cy = 80;
-  const r = 70;
-  let angle = -Math.PI / 2;
-  const parts = [];
-  slices.forEach((slice, i) => {
-    const color = SLICE_COLORS[i % SLICE_COLORS.length];
-    if (slice.value >= total - 0.0001) {
-      parts.push(`<circle cx="${cx}" cy="${cy}" r="${r}" fill="${color}" />`);
-      angle += Math.PI * 2;
-      return;
-    }
-    const next = angle + (slice.value / total) * Math.PI * 2;
-    const large = next - angle > Math.PI ? 1 : 0;
-    const x1 = cx + r * Math.cos(angle);
-    const y1 = cy + r * Math.sin(angle);
-    const x2 = cx + r * Math.cos(next);
-    const y2 = cy + r * Math.sin(next);
-    parts.push(
-      `<path d="M ${cx} ${cy} L ${x1.toFixed(1)} ${y1.toFixed(1)} A ${r} ${r} 0 ${large} 1 ${x2.toFixed(1)} ${y2.toFixed(1)} Z" fill="${color}" />`,
-    );
-    angle = next;
-  });
-  svg.setAttribute('viewBox', '0 0 160 160');
-  svg.innerHTML = parts.join('');
+function spentPct(budget, spent) {
+  if (budget > 0) return (spent / budget) * 100;
+  return spent > 0 ? 100 : 0;
 }
 
 function renderTracker(categories) {
-  const active = categories.filter((row) => row.budget > 0 || row.spent > 0);
-  const bars = $('spend-bars');
   const caption = $('spend-caption');
   const select = $('spend-cat');
   if (select) {
-    select.innerHTML = state.expenses
-      .map((row) => `<option value="${escapeAttr(row.id)}">${escapeHtml(row.name || 'Untitled')}</option>`)
-      .join('');
+    const current = select.value;
+    const ids = state.expenses.map((row) => row.id);
+    const labels = state.expenses.map((row) => row.name || 'Untitled');
+    const existingIds = [...select.options].map((opt) => opt.value);
+    const existingLabels = [...select.options].map((opt) => opt.textContent);
+    const same =
+      ids.length === existingIds.length &&
+      ids.every((id, i) => id === existingIds[i] && labels[i] === existingLabels[i]);
+    if (!same) {
+      select.innerHTML = state.expenses
+        .map((row) => `<option value="${escapeAttr(row.id)}">${escapeHtml(row.name || 'Untitled')}</option>`)
+        .join('');
+      if (current && [...select.options].some((opt) => opt.value === current)) select.value = current;
+    }
   }
-  if (!active.length) {
-    bars.innerHTML = '';
-    drawPie([]);
-    caption.textContent = 'Enter a budget or a spent amount to see the mix.';
-    return;
+
+  const byId = new Map(categories.map((row) => [row.id, row]));
+  document.querySelectorAll('#expense-body tr[data-id]').forEach((tr) => {
+    const row = byId.get(tr.dataset.id);
+    if (!row) return;
+    const left = row.budget - row.spent;
+    const pct = spentPct(row.budget, row.spent);
+    const leftEl = tr.querySelector('[data-left]');
+    const bar = tr.querySelector('[data-bar]');
+    if (leftEl) {
+      leftEl.textContent = money(left);
+      leftEl.classList.toggle('over', left < -0.005);
+    }
+    if (bar) {
+      bar.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+      bar.className = barTone(row.budget, row.spent);
+    }
+  });
+
+  const spend = categories.reduce((s, row) => s + row.budget, 0);
+  const actual = categories.reduce((s, row) => s + row.spent, 0);
+  const left = spend - actual;
+  const totBudget = $('exp-total-budget');
+  const totSpent = $('exp-total-spent');
+  const totLeft = $('exp-total-left');
+  if (totBudget) totBudget.textContent = money(spend);
+  if (totSpent) totSpent.textContent = money(actual);
+  if (totLeft) {
+    totLeft.textContent = money(left);
+    totLeft.classList.toggle('over', left < -0.005);
   }
-  const top = [...active].sort((a, b) => b.budget + b.spent - (a.budget + a.spent)).slice(0, 8);
-  bars.innerHTML = top
-    .map((row) => {
-      const cap = Math.max(row.budget, row.spent, 1);
-      const pct = Math.min(100, (row.spent / cap) * 100);
-      const over = row.spent > row.budget + 0.005 && row.budget > 0;
-      return `<div class="spend-row">
-        <div class="name" title="${escapeAttr(row.name)}">${escapeHtml(row.name)}</div>
-        <div class="bar"><span class="${over ? 'over' : ''}" style="width:${pct.toFixed(1)}%"></span></div>
-        <div class="amt">${money(row.spent)} / ${money(row.budget)}</div>
-      </div>`;
-    })
-    .join('');
-  drawPie(active.filter((row) => row.budget > 0).map((row) => ({ label: row.name, value: row.budget })));
-  const overCount = active.filter((row) => row.budget > 0 && row.spent > row.budget + 0.005).length;
+
+  if (!caption) return;
+  const overCount = categories.filter((row) => row.budget > 0 && row.spent > row.budget + 0.005).length;
+  const billsNote = state.conservativePaycheques
+    ? 'Paycheques are counted as two per 4-week month; bills stay as typed.'
+    : 'Left = budget − spent. Debt leftover uses Budget, not Spent.';
   caption.textContent = overCount
-    ? `${overCount} categor${overCount === 1 ? 'y is' : 'ies are'} over budget this period. Bars are spent vs budget.`
-    : 'Bars are spent vs budget this period. Pie is the budget mix.';
+    ? `${overCount} categor${overCount === 1 ? 'y is' : 'ies are'} over budget. ${billsNote}`
+    : billsNote;
 }
 
 function renderResults() {
@@ -397,15 +395,21 @@ function renderForm() {
   $('notes').value = state.notes;
 
   $('expense-body').innerHTML = state.expenses
-    .map(
-      (row) => `<tr data-id="${row.id}">
+    .map((row) => {
+      const budget = toMonthly(row.amount, row.cadence);
+      const spent = parseMoney(row.spent);
+      const left = budget - spent;
+      const pct = spentPct(budget, spent);
+      return `<tr data-id="${escapeAttr(row.id)}">
         <td><input type="text" data-k="name" value="${escapeAttr(row.name)}" /></td>
-        <td><input type="number" inputmode="decimal" data-k="amount" value="${escapeAttr(row.amount)}" min="0" step="1" /></td>
-        <td><input type="number" inputmode="decimal" data-k="spent" value="${escapeAttr(row.spent ?? '')}" min="0" step="1" /></td>
+        <td><input type="number" inputmode="decimal" data-k="amount" value="${escapeAttr(row.amount)}" min="0" step="0.01" placeholder="0" /></td>
+        <td><input type="number" inputmode="decimal" data-k="spent" value="${escapeAttr(row.spent ?? '')}" min="0" step="0.01" placeholder="0" /></td>
+        <td class="num${left < -0.005 ? ' over' : ''}" data-left>${money(left)}</td>
+        <td><div class="bar spend-mini"><span data-bar class="${barTone(budget, spent)}" style="width:${Math.min(100, Math.max(0, pct))}%"></span></div></td>
         <td><select data-k="cadence">${cadenceOptions(row.cadence)}</select></td>
         <td><button class="btn ghost" data-act="del-exp" title="Remove">Remove</button></td>
-      </tr>`,
-    )
+      </tr>`;
+    })
     .join('');
 
   $('debt-body').innerHTML = state.debts
@@ -569,7 +573,7 @@ function bind() {
     if (!id || amt <= 0) return;
     const row = state.expenses.find((item) => item.id === id);
     if (!row) return;
-    row.spent = String(parseMoney(row.spent) + amt);
+    row.spent = String(Math.round((parseMoney(row.spent) + amt) * 100) / 100);
     const note = $('spend-note').value.trim();
     if (note) {
       state.notes = state.notes
@@ -578,8 +582,10 @@ function bind() {
     }
     $('spend-amt').value = '';
     $('spend-note').value = '';
-    renderForm();
-    bindTables();
+    const spentInput = document.querySelector(`#expense-body tr[data-id="${CSS.escape(id)}"] [data-k="spent"]`);
+    if (spentInput) spentInput.value = row.spent;
+    const notesEl = $('notes');
+    if (notesEl) notesEl.value = state.notes;
     scheduleUpdate(true);
   });
   $('add-debt').addEventListener('click', () => {

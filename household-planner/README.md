@@ -23,10 +23,10 @@ Or open `household-planner/index.html` directly in a browser (some browsers rest
 
 ## Conservative paycheques
 
-With “4-week month” on, biweekly income is counted as two pays per month. The two extra pays per year are applied as snowflakes in months 6 and 12 so lean months are not over-committed.
+With that checkbox on, **only paycheques** are counted as two pays per 4-week month. The two extra pays per year are applied as snowflakes in months 6 and 12 so lean months are not over-committed. **Bills stay as you typed them** — $1,500 rent is $1,500, not scaled to a 4-week month (~$1,385).
 
 ## Spending tracker
 
-Each living-cost row has a **budget** and **spent this period**. Quick-add posts a spend onto that category. The tracker pie is the budget mix; the bars are spent vs budget. Debts are unchanged.
+One table: type the category name, **Budget**, **Spent**, and cadence. **Left** and the used bar update as you type. **Add spend** is a shortcut for a receipt. Leftover-for-debt still uses Budget, not Spent. Debts are unchanged.
 
 Reloading after this update **keeps existing amounts and debts** and fills in any missing usual categories (groceries, sundries, hardware, entertainment, dining, clothing, and so on).

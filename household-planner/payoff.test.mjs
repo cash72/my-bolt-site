@@ -1,4 +1,4 @@
-import { simulate, parseMoney, toMonthly } from './payoff.mjs';
+import { simulate, parseMoney, toMonthly, toFourWeek } from './payoff.mjs';
 import assert from 'node:assert/strict';
 
 const debts = [
@@ -20,6 +20,8 @@ assert.ok(snow.months > 0 && snow.months < 60);
 const monthly = toMonthly(500, 'biweekly');
 assert.ok(Math.abs(monthly - ((500 * 26) / 12)) < 0.001);
 assert.equal(parseMoney('$1,200.50'), 1200.5);
+assert.equal(toMonthly(1500, 'monthly'), 1500);
+assert.ok(Math.abs(toFourWeek(1500, 'monthly') - (1500 * 12) / 13) < 0.01);
 
 console.log('payoff engine ok', {
   snowballMonths: snow.months,

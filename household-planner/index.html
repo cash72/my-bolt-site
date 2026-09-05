@@ -69,8 +69,8 @@
           <section class="card">
             <h2>Income</h2>
             <p class="lede">
-              Your pay is treated as steady. Spouse assistance defaults to every two weeks. Conservative mode budgets
-              two pays per month and treats the two extra pays a year as snowflakes.
+              Your pay is treated as steady. Spouse assistance defaults to every two weeks. Conservative mode counts two
+              pays per month and treats the two extra pays a year as snowflakes. Rent and other bills are never scaled.
             </p>
             <div class="grid-2" style="margin-bottom: 12px">
               <label class="field">
@@ -82,7 +82,7 @@
               </label>
               <label class="toggle" style="align-self: end; padding-bottom: 8px">
                 <input id="conservative" type="checkbox" checked />
-                4-week month (3rd paycheque = snowflake)
+                Count only 2 paycheques (rent and other bills stay as typed)
               </label>
             </div>
             <div class="grid-2">
@@ -96,52 +96,55 @@
           </section>
 
           <section class="card">
-            <h2>Living costs</h2>
-            <p class="lede">
-              Budget is the plan. Spent is what actually went out this period. Debt leftover uses the budget so a cheap week does not quietly change the payoff plan.
-            </p>
-            <div style="overflow-x: auto">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Category</th>
-                    <th>Budget</th>
-                    <th>Spent this period</th>
-                    <th>Cadence</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody id="expense-body"></tbody>
-              </table>
-            </div>
-            <div class="row-actions">
-              <button class="btn" id="add-expense" type="button">Add cost</button>
-              <button class="btn ghost" id="reset-spent" type="button">Clear spent this period</button>
-            </div>
-          </section>
-
-          <section class="card">
             <h2>Spending tracker</h2>
-            <p class="lede">Where the budgeted money is going, and whether this period is running hot.</p>
+            <p class="lede">
+              Type each category’s budget and what you have spent. Figures stay as entered — $1,500 rent stays $1,500.
+              Use Add spend for a receipt, or type in the Spent box.
+            </p>
             <div class="quick-add">
               <label class="field">Add a spend
                 <select id="spend-cat"></select>
               </label>
               <label class="field">Amount
-                <input id="spend-amt" type="number" min="0" step="1" placeholder="0" />
+                <input id="spend-amt" type="number" min="0" step="0.01" placeholder="0" />
               </label>
               <label class="field">Note
                 <input id="spend-note" type="text" placeholder="optional" />
               </label>
               <button class="btn primary" id="add-spend" type="button">Add spend</button>
             </div>
-            <div class="tracker-head">
-              <svg class="pie" id="spend-pie" aria-label="Budget mix"></svg>
-              <div>
-                <div class="spend-bars" id="spend-bars"></div>
-                <p class="chart-caption" id="spend-caption"></p>
-              </div>
+            <div style="overflow-x: auto">
+              <table class="spend-table">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Budget</th>
+                    <th>Spent</th>
+                    <th>Left</th>
+                    <th>Used</th>
+                    <th>Cadence</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="expense-body"></tbody>
+                <tfoot>
+                  <tr>
+                    <th>Total</th>
+                    <td class="num" id="exp-total-budget">$0</td>
+                    <td class="num" id="exp-total-spent">$0</td>
+                    <td class="num" id="exp-total-left">$0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
             </div>
+            <div class="row-actions">
+              <button class="btn" id="add-expense" type="button">Add category</button>
+              <button class="btn ghost" id="reset-spent" type="button">Clear spent</button>
+            </div>
+            <p class="chart-caption" id="spend-caption"></p>
           </section>
 
           <section class="card">
