@@ -29,6 +29,11 @@ import {
   getP0ForDir,
   absoluteUrl,
 } from './lib/gsc-checklist.mjs';
+import {
+  parseSitemapLocs,
+  summarizeSitemapContinuity,
+  continuityMessage,
+} from './lib/sitemap-continuity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -58,8 +63,10 @@ if (positional.length > 0) {
   // default: all sites in registry
 }
 
+const FETCH_HEADERS = { 'user-agent': 'PortfolioHealthAudit/1.0 (+site-owner)' };
+
 async function fetchStatus(url, method = 'GET') {
-  const res = await fetch(url, { redirect: 'follow', method });
+  const res = await fetch(url, { redirect: 'follow', method, headers: FETCH_HEADERS });
   return { status: res.status, ok: res.ok };
 }
 
@@ -67,16 +74,6 @@ async function pingBing(sitemapUrl) {
   const pingUrl = `https://www.bing.com/webmaster/ping.aspx?siteMap=${encodeURIComponent(sitemapUrl)}`;
   const res = await fetch(pingUrl);
   return { status: res.status, ok: res.ok };
-}
-
-function parseSitemapLocs(xml) {
-  const locs = [];
-  const re = /<loc>([^<]+)<\/loc>/g;
-  let m;
-  while ((m = re.exec(xml)) !== null) {
-    locs.push(m[1].trim());
-  }
-  return locs;
 }
 
 function printGlobalChecklist() {
@@ -142,7 +139,7 @@ async function run() {
     process.stdout.write(`  ${site.domain}\n`);
 
     try {
-      const res = await fetch(sitemapUrl, { redirect: 'follow' });
+      const res = await fetch(sitemapUrl, { redirect: 'follow', headers: FETCH_HEADERS });
       if (!res.ok) {
         console.log(`    ✗ sitemap fetch HTTP ${res.status} — ${sitemapUrl}`);
         anyFail = true;
@@ -154,6 +151,33 @@ async function run() {
       const locs = parseSitemapLocs(xml);
       sitemapUrlCount = locs.length;
       console.log(`    ✓ sitemap live (${res.status}) — ${sitemapUrlCount} URLs`);
+
+      try {
+        const generated = JSON.parse(
+          fs.readFileSync(path.join(ROOT, site.dir, 'seo/generated-routes.json'), 'utf8'),
+        );
+        const localXml = fs.readFileSync(path.join(ROOT, site.dir, 'public/sitemap.xml'), 'utf8');
+        const continuity = summarizeSitemapContinuity({
+          siteUrl: site.siteUrl,
+          generatedRoutes: generated.allRoutes || [],
+          liveLocs: locs,
+          localSitemapLocs: parseSitemapLocs(localXml),
+        });
+        if (!continuity.ok) {
+          console.log(`    ✗ ${continuityMessage(continuity)}`);
+          if (continuity.extraOnLive.length) {
+            for (const url of continuity.extraOnLive.slice(0, 12)) {
+              console.log(`      extra: ${url}`);
+            }
+          }
+          anyFail = true;
+        } else {
+          console.log(`    ✓ generated-routes match live sitemap (${continuity.generatedCount} URLs)`);
+        }
+      } catch (err) {
+        console.log(`    ✗ could not compare generated routes: ${err.message}`);
+        anyFail = true;
+      }
 
       const bing = await pingBing(sitemapUrl);
       if (bing.ok) {

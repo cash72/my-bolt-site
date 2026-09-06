@@ -54,10 +54,12 @@ const currencyIcons: Record<FiatCurrency, React.ReactNode> = {
 };
 
 function LandingNotFound() {
+  const { slug } = useParams<{ slug: string }>();
   usePageMeta({
     title: 'Page Not Found',
     description: 'The conversion page you requested could not be found.',
-    path: '/404',
+    path: slug ? `/${slug}` : '/404',
+    robots: 'noindex, follow',
   });
 
   return (

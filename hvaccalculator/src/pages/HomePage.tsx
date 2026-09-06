@@ -37,9 +37,9 @@ const HOMEPAGE_FAQ = [
 
 export default function HomePage() {
   usePageMeta({
-    title: 'BTU & Mini-Split Calculator — AC Sizing for Rooms, RVs & Tiny Homes',
+    title: 'HVAC Calculators Hub — BTU, Mini-Split & AC Cost Tools',
     description:
-      'Free BTU and mini-split calculator at HVACCalculators.net. Size ductless AC for bedrooms, RVs, tiny homes, she-sheds, and cottages — cooling load, tonnage, and heat pump planning.',
+      'A 12×12 bedroom typically needs 3,600–4,300 BTU calculated — retail mini-splits start at 9,000 BTU. Free BTU, mini-split, window AC, and garage heater tools.',
     path: '/',
   });
 

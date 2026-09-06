@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 import * as cheerio from 'cheerio';
+import { parseSitemapLocs, summarizeSitemapContinuity, continuityMessage } from './lib/sitemap-continuity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -151,7 +152,7 @@ function runCommand(command, commandArgs, cwd, timeoutMs = 10 * 60_000) {
 }
 
 function parseSitemap(xml) {
-  return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1].trim());
+  return parseSitemapLocs(xml);
 }
 
 function parseJsonLd($, site, pageUrl, addIssue) {
@@ -295,12 +296,54 @@ async function auditSite(site, report) {
 
   try {
     const routes = JSON.parse(await readFile(path.join(ROOT, site.dir, 'seo/generated-routes.json'), 'utf8'));
-    const localRoutes = new Set((routes.allRoutes || []).map((route) => normalizeUrl(`${base}${route}`)));
-    for (const route of localRoutes) {
-      if (!sitemapUrls.includes(route)) addIssue('error', 'sitemap', route, 'Generated route is missing from live sitemap');
+    const generatedRoutes = routes.allRoutes || [];
+    let localSitemapLocs = [];
+    try {
+      localSitemapLocs = parseSitemap(await readFile(path.join(ROOT, site.dir, 'public/sitemap.xml'), 'utf8'));
+    } catch (error) {
+      addIssue('error', 'sitemap', null, `Could not read committed sitemap.xml: ${error.message}`);
     }
-    for (const url of sitemapUrls) {
-      if (!localRoutes.has(url)) addIssue('warning', 'sitemap', url, 'Live sitemap URL is absent from generated route inventory');
+    const continuity = summarizeSitemapContinuity({
+      siteUrl: site.siteUrl,
+      generatedRoutes,
+      liveLocs: sitemapUrls,
+      localSitemapLocs,
+    });
+    siteResult.sitemapGeneratedUrls = continuity.generatedCount;
+    if (!continuity.ok) {
+      addIssue('error', 'sitemap-continuity', `${base}/sitemap.xml`, continuityMessage(continuity), {
+        liveCount: continuity.liveCount,
+        generatedCount: continuity.generatedCount,
+        localCount: continuity.localCount,
+        missingFromLiveSample: continuity.missingFromLive.slice(0, 8),
+        extraOnLive: continuity.extraOnLive.slice(0, 20),
+      });
+    }
+    const missingCap = continuity.staleDeploy ? 8 : 40;
+    for (const url of continuity.missingFromLive.slice(0, missingCap)) {
+      addIssue('error', 'sitemap', url, 'Generated route is missing from live sitemap');
+    }
+    if (continuity.missingFromLive.length > missingCap) {
+      addIssue(
+        'error',
+        'sitemap',
+        `${base}/sitemap.xml`,
+        `${continuity.missingFromLive.length - missingCap} additional generated routes are missing from the live sitemap`,
+      );
+    }
+    for (const url of continuity.extraOnLive) {
+      addIssue(
+        'error',
+        'sitemap',
+        url,
+        'Live sitemap still submits a URL that is not in generated-routes.json (retired or orphan). Add a 301 or drop it on the next deploy.',
+      );
+    }
+    for (const url of continuity.missingFromLocalSitemap.slice(0, 8)) {
+      addIssue('error', 'sitemap', url, 'Generated route is missing from committed public/sitemap.xml');
+    }
+    for (const url of continuity.extraInLocalSitemap.slice(0, 8)) {
+      addIssue('error', 'sitemap', url, 'Committed public/sitemap.xml has a URL that is not in generated-routes.json');
     }
   } catch (error) {
     addIssue('error', 'sitemap', null, `Could not compare generated routes: ${error.message}`);
