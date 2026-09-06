@@ -30,7 +30,7 @@ const HOMEPAGE_FAQ = [
 
 export default function HomePage() {
   usePageMeta({
-    title: `Best Landscaping & Lawn Care Software (2026)`,
+    title: `Best Landscaping & Lawn Care Software (2026) — Compare Tools`,
     description:
       'Compare Jobber, Housecall Pro, LMN, and more for lawn care and landscape companies — pricing, features, and honest picks by crew size.',
     path: '/',
