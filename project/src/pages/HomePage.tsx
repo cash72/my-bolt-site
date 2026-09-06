@@ -187,6 +187,10 @@ export default function HomePage() {
       btcPriceGbp > 0 ? Math.floor((100 / btcPriceGbp) * SATOSHI_PER_BTC) : null;
     const satsIn100Cad =
       btcPriceCad > 0 ? Math.floor((100 / btcPriceCad) * SATOSHI_PER_BTC) : null;
+    const satsIn100Aud =
+      btcPriceAud > 0 ? Math.floor((100 / btcPriceAud) * SATOSHI_PER_BTC) : null;
+    const satsIn100Inr =
+      btcPriceInr > 0 ? Math.floor((100 / btcPriceInr) * SATOSHI_PER_BTC) : null;
 
     const thousandSatsUsd =
       btcPriceUsd > 0 ? formatCurrency(1000 * (btcPriceUsd / SATOSHI_PER_BTC), 'usd') : null;
@@ -196,6 +200,10 @@ export default function HomePage() {
       btcPriceGbp > 0 ? formatCurrency(1000 * (btcPriceGbp / SATOSHI_PER_BTC), 'gbp') : null;
     const thousandSatsCad =
       btcPriceCad > 0 ? formatCurrency(1000 * (btcPriceCad / SATOSHI_PER_BTC), 'cad') : null;
+    const thousandSatsAud =
+      btcPriceAud > 0 ? formatCurrency(1000 * (btcPriceAud / SATOSHI_PER_BTC), 'aud') : null;
+    const thousandSatsInr =
+      btcPriceInr > 0 ? formatCurrency(1000 * (btcPriceInr / SATOSHI_PER_BTC), 'inr') : null;
 
     const faqItems = [
       {
@@ -206,14 +214,14 @@ export default function HomePage() {
         q: 'How many Satoshis in 100 dollars?',
         a:
           satsIn100Usd !== null
-            ? `At current prices, 100 USD buys about ${satsIn100Usd.toLocaleString()} sats. 100 EUR buys about ${satsIn100Eur?.toLocaleString()} sats. 100 GBP buys about ${satsIn100Gbp?.toLocaleString()} sats. 100 CAD buys about ${satsIn100Cad?.toLocaleString()} sats.`
+            ? `At current prices, 100 USD buys about ${satsIn100Usd.toLocaleString()} sats. 100 EUR buys about ${satsIn100Eur?.toLocaleString()} sats. 100 GBP buys about ${satsIn100Gbp?.toLocaleString()} sats. 100 CAD buys about ${satsIn100Cad?.toLocaleString()} sats. 100 AUD buys about ${satsIn100Aud?.toLocaleString()} sats. 100 INR buys about ${satsIn100Inr?.toLocaleString()} sats.`
             : 'Divide 100 by the current Bitcoin price in USD, then multiply by 100,000,000. SatoshiCalc shows live results for USD, EUR, GBP, CAD, AUD, and INR in the FAQ section.',
       },
       {
         q: 'How much is 1000 Satoshis in dollars?',
         a:
           thousandSatsUsd !== null
-            ? `At current prices, 1000 sats = ${thousandSatsUsd} USD, ${thousandSatsEur} EUR, ${thousandSatsGbp} GBP, ${thousandSatsCad} CAD.`
+            ? `At current prices, 1000 sats = ${thousandSatsUsd} USD, ${thousandSatsEur} EUR, ${thousandSatsGbp} GBP, ${thousandSatsCad} CAD, ${thousandSatsAud} AUD, ${thousandSatsInr} INR.`
             : 'Multiply 1000 by the current BTC price in USD, then divide by 100,000,000. Use the live converter on SatoshiCalc for up-to-date values in USD, EUR, GBP, CAD, AUD, and INR.',
       },
       {
