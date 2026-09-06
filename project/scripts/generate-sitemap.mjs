@@ -6,8 +6,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://satoshi-calc.com';
 const TODAY = new Date().toISOString().slice(0, 10);
-const CONTENT_UPDATED = '2026-07-07';
-const LEGAL_LASTMOD = '2026-06-01';
+const CONTENT_UPDATED = '2026-09-06';
+const LEGAL_LASTMOD = '2026-09-06';
 
 const landingConfig = JSON.parse(
   await fs.readFile(path.join(ROOT, 'seo/landing-config.json'), 'utf8')

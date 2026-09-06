@@ -42,7 +42,7 @@ const PATCHES = [
     section: `      {
         heading: 'Multi-currency converters',
         paragraphs: [
-          'Same math works for EUR, GBP, and CAD — use [USD to sats](/usd-to-satoshi), [EUR hub](/eur-to-satoshi), [GBP hub](/gbp-to-satoshi), or [CAD hub](/cad-to-satoshi). After buying, move sats off exchanges per our [storage guide](/guides/how-to-store-bitcoin-safely).',
+          'Same math works for EUR, GBP, CAD, AUD, and INR — use [USD to sats](/usd-to-satoshi), [EUR hub](/eur-to-satoshi), [GBP hub](/gbp-to-satoshi), [CAD hub](/cad-to-satoshi), [AUD hub](/aud-to-satoshi), or [INR hub](/inr-to-satoshi). After buying, move sats off exchanges per our [storage guide](/guides/how-to-store-bitcoin-safely).',
         ],
       },
 `,
