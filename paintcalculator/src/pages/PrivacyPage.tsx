@@ -80,13 +80,14 @@ export default function PrivacyPage() {
       </ul>
       <p>
         Third-party vendors, including Google, use cookies to serve ads based on a user’s prior visits to this website or
-        other websites. We do not control those cookies once ads are active.
+        other websites. We do not control those cookies once ads are active. Display ads stay off until we enable them
+        after Google review.
       </p>
 
       <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Email you send us</h2>
       <p>
         If you email {CONTACT_EMAIL}, we keep the message long enough to respond and handle your request. Do not send
-        passwords or sensitive personal records.
+        passwords or payment details.
       </p>
 
       <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Children</h2>
