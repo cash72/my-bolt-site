@@ -22,7 +22,9 @@ export default function TermsPage() {
 
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">What this site provides</h2>
       <p>
-        {SITE_NAME} offers free Bitcoin and satoshi conversion calculators, guides, and educational tools for understanding BTC amounts in USD and other currencies. Content is for general information and estimating only.
+        {SITE_NAME} offers free Bitcoin and satoshi conversion calculators, guides, and educational tools for
+        understanding BTC amounts in USD, EUR, GBP, CAD, AUD, and INR. Content is for general information and
+        estimating only.
       </p>
 
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Not professional advice</h2>

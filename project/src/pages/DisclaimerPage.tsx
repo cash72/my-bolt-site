@@ -12,7 +12,7 @@ export default function DisclaimerPage() {
   return (
     <LegalPageLayout title="Disclaimer">
       <p>
-        <strong>Last updated:</strong> June 2026
+        <strong>Last updated:</strong> September 6, 2026
       </p>
       <p>
         The information provided on {SITE_NAME} is for <strong>general educational and informational purposes
@@ -26,9 +26,9 @@ export default function DisclaimerPage() {
       </p>
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Price accuracy</h2>
       <p>
-        Bitcoin prices change constantly. While we refresh data every 60 seconds from CoinGecko, displayed values
-        may differ from exchange prices, include delays, or contain errors. Do not rely on this site for
-        time-sensitive trades or accounting.
+        Bitcoin prices change constantly. While we refresh USD, EUR, GBP, CAD, AUD, and INR data every 60 seconds
+        from CoinGecko, displayed values may differ from exchange prices, include delays, or contain errors. Do not
+        rely on this site for time-sensitive trades or accounting.
       </p>
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Risk disclosure</h2>
       <p>

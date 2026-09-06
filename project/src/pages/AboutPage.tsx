@@ -47,17 +47,80 @@ export default function AboutPage() {
         >
           CoinGecko API
         </a>{' '}
-        and refresh automatically every 60 seconds.
+        and refresh automatically every 60 seconds. The figure shown is a mid-market spot estimate — exchanges may
+        quote a slightly different price after spread and fees.
       </p>
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Supported currencies</h2>
+      <p>
+        The homepage converter and reverse converter both support six fiat currencies. Dedicated hubs are also
+        available when you want a shareable URL:
+      </p>
       <ul className="list-disc pl-6 space-y-1">
-        <li>US Dollar (USD)</li>
-        <li>Euro (EUR)</li>
-        <li>British Pound (GBP)</li>
-        <li>Canadian Dollar (CAD)</li>
-        <li>Australian Dollar (AUD)</li>
-        <li>Indian Rupee (INR)</li>
+        <li>
+          US Dollar (USD) —{' '}
+          <Link to="/satoshi-to-usd" className="text-orange-600 dark:text-orange-400 hover:underline">
+            Satoshi to USD
+          </Link>
+        </li>
+        <li>
+          Euro (EUR) —{' '}
+          <Link to="/satoshi-to-eur" className="text-orange-600 dark:text-orange-400 hover:underline">
+            Satoshi to EUR
+          </Link>
+        </li>
+        <li>
+          British Pound (GBP) —{' '}
+          <Link to="/satoshi-to-gbp" className="text-orange-600 dark:text-orange-400 hover:underline">
+            Satoshi to GBP
+          </Link>
+        </li>
+        <li>
+          Canadian Dollar (CAD) —{' '}
+          <Link to="/satoshi-to-cad" className="text-orange-600 dark:text-orange-400 hover:underline">
+            Satoshi to CAD
+          </Link>
+        </li>
+        <li>
+          Australian Dollar (AUD) —{' '}
+          <Link to="/satoshi-to-aud" className="text-orange-600 dark:text-orange-400 hover:underline">
+            Satoshi to AUD
+          </Link>
+        </li>
+        <li>
+          Indian Rupee (INR) —{' '}
+          <Link to="/satoshi-to-inr" className="text-orange-600 dark:text-orange-400 hover:underline">
+            Satoshi to INR
+          </Link>
+        </li>
       </ul>
+      <p>
+        Browse the full set of amount pages in the{' '}
+        <Link to="/conversions" className="text-orange-600 dark:text-orange-400 hover:underline">
+          conversions directory
+        </Link>
+        .
+      </p>
+      <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">How conversion works</h2>
+      <p>
+        Satoshis to fiat: multiply the sat count by the live Bitcoin price in that currency, then divide by
+        100,000,000. Fiat to Satoshis: divide the fiat amount by the Bitcoin price, then multiply by 100,000,000.
+        The same formula applies to USD, EUR, GBP, CAD, AUD, and INR — only the market pair changes.
+      </p>
+      <p>
+        We also publish educational{' '}
+        <Link to="/guides" className="text-orange-600 dark:text-orange-400 hover:underline">
+          Bitcoin guides
+        </Link>{' '}
+        and a{' '}
+        <Link to="/bitcoin-fee-calculator" className="text-orange-600 dark:text-orange-400 hover:underline">
+          Bitcoin fee calculator
+        </Link>{' '}
+        for on-chain cost estimates. Conversion results are for planning only — see our{' '}
+        <Link to="/disclaimer" className="text-orange-600 dark:text-orange-400 hover:underline">
+          Disclaimer
+        </Link>
+        .
+      </p>
       <p>
         Questions or corrections?{' '}
         <Link to="/contact" className="text-orange-600 dark:text-orange-400 hover:underline">
