@@ -9,41 +9,41 @@ import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 import { FEATURED_LANDING_LINKS } from '../lib/landingPages';
 
 const POPULAR_CALCULATORS = [
-  { to: '/how-many-flooring-boxes', label: 'Box calculator' },
-  { to: '/flooring-cost-estimator', label: 'Cost estimator' },
-  { to: '/laminate-flooring-calculator', label: 'Laminate calculator' },
+  { to: '/how-many-flooring-boxes', label: 'How many boxes?' },
+  { to: '/laminate-flooring-calculator', label: 'Laminate boxes' },
+  { to: '/flooring-cost-estimator', label: 'How much does flooring cost?' },
+  { to: '/flooring-square-footage-calculator', label: 'How much flooring?' },
   { to: '/tile-flooring-calculator', label: 'Tile calculator' },
-  { to: '/carpet-calculator', label: 'Carpet calculator' },
 ] as const;
 
 const HOMEPAGE_FAQS = [
+  {
+    question: 'How many flooring boxes for a 12×12 room?',
+    answer:
+      '144 sq ft + 10% waste ≈ 158 sq ft. At 20 sq ft per box that is 8 cartons of laminate or LVP. Use the box calculator with the coverage printed on your carton.',
+  },
   {
     question: 'How much waste should I add?',
     answer:
       '10% is typical for laminate and LVP in simple rooms. Tile often needs 15% because of cuts and breakage. Add more for diagonal layouts or many obstacles.',
   },
   {
+    question: 'How much does flooring cost for a 12×12?',
+    answer:
+      'You buy about 158 sq ft with waste. At $3/sq ft material that is ~$475 before tax and install. Open the flooring cost estimator with your store price.',
+  },
+  {
     question: 'Where do I find sq ft per box?',
     answer:
       'Check the product box or listing — coverage is usually printed as square feet per carton. Laminate and LVP boxes often cover 18–24 sq ft; tile varies widely by tile size.',
-  },
-  {
-    question: 'Can I use this for multiple rooms?',
-    answer:
-      'Yes. Add up to five rooms and the calculator totals everything into one box count for the whole project.',
-  },
-  {
-    question: 'Does this work for carpet?',
-    answer:
-      'Yes. Select carpet to see square yards. Carpet pad is ordered separately in the same square yards.',
   },
 ];
 
 export default function HomePage() {
   usePageMeta({
-    title: 'Flooring Box Calculator — Laminate, Tile, Carpet & LVP',
+    title: 'How Many Flooring Boxes Do I Need? Free 12×12 Calculator',
     description:
-      'Free flooring calculator for laminate, vinyl plank, tile, and carpet. Room square footage, waste allowance, box counts, and square yards — plus DIY prep guides.',
+      'A 12×12 room is 144 sq ft — at 10% waste and 20 sq ft per box, that is 8 cartons of laminate. Free box, laminate, tile, and cost calculators.',
     path: '/',
   });
 

@@ -103,6 +103,20 @@ export default function MaterialLandingPage() {
     <main id="main-content" className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12" role="main">
       <Breadcrumbs label={page.breadcrumbLabel} />
 
+      {page.quickAnswer && (
+        <aside
+          className="mb-6 rounded-xl border border-sky-200 dark:border-sky-900/50 bg-sky-50 dark:bg-sky-950/30 px-4 py-3 sm:px-5 sm:py-4"
+          aria-label="Quick answer"
+        >
+          <p className="text-xs font-semibold uppercase tracking-wide text-sky-800 dark:text-sky-300 mb-1">
+            Quick answer
+          </p>
+          <p className="text-sm sm:text-[15px] text-slate-800 dark:text-slate-200 leading-relaxed">
+            {page.quickAnswer}
+          </p>
+        </aside>
+      )}
+
       {page.kind === 'cost' ? (
         <SeerCostCalculator heading={page.h1} subheading={pageIntro ?? page.intro} />
       ) : (

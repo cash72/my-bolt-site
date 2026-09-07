@@ -1,0 +1,11 @@
+{
+  "pauseNightlyPortfolioGrowth": true,
+  "reason": "Concentrate ranking on the only sites with (or nearest) search demand. Eight-site nightly title churn is paused.",
+  "focusSites": ["paintcalculator", "hvaccalculator", "flooringboxcalculator"],
+  "pausedUntil": "GSC shows HVAC and Flooring with impressions, then clicks, comparable to Paint",
+  "doNot": [
+    "Rotate a different portfolio site each night",
+    "Open deepen PRs for Metabolic, Mulch, Drywall, Satoshi, or Landscape",
+    "Change Paint Behr coverage / how-much SERP titles that already get clicks"
+  ]
+}

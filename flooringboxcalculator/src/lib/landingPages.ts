@@ -10,6 +10,8 @@ export interface LandingPage {
   description: string;
   breadcrumbLabel: string;
   intro: string;
+  /** Above-the-fold numeric answer for striking-distance queries (prerendered). */
+  quickAnswer?: string;
   faqs: { question: string; answer: string }[];
   relatedGuideSlugs?: string[];
 }
@@ -19,13 +21,15 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'laminate-flooring-calculator',
     path: '/laminate-flooring-calculator',
     material: 'laminate',
-    title: 'Laminate Flooring Calculator — Sq Ft, Waste & Boxes',
+    title: 'Laminate Flooring Calculator — How Many Boxes for My Room?',
     h1: 'Laminate Flooring Calculator',
     description:
-      'Free laminate flooring calculator. Enter room dimensions in feet and inches, add waste, and get box counts for your project.',
+      'Free laminate flooring calculator: 12×12 room at 10% waste and 20 sq ft/box ≈ 8 cartons. Enter room size for box counts, waste, and a shopping list.',
     breadcrumbLabel: 'Laminate calculator',
+    quickAnswer:
+      'A 12×12 room is 144 sq ft. Add 10% waste (158 sq ft) and divide by coverage per box — at 20 sq ft per carton that is 8 boxes of laminate. Enter your exact rooms and the sq ft printed on the box below.',
     intro:
-      'Plan laminate flooring for one or more rectangular rooms. Default waste is 10% for cuts and mistakes — adjust if your layout needs more.',
+      'Plan laminate for one or more rectangular rooms. Default waste is 10% for straight layouts — raise it for doorways, closets, or diagonal installs.',
     faqs: [
       {
         question: 'How much waste should I add for laminate?',
@@ -41,6 +45,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'Can I calculate multiple rooms at once?',
         answer:
           'Yes. Add up to five rooms and the calculator totals the area, waste, and boxes for the whole project.',
+      },
+      {
+        question: 'How many boxes of laminate for a 12×12 room?',
+        answer:
+          '144 sq ft + 10% waste = 158 sq ft. At 20 sq ft per box that is 8 boxes; at 18 sq ft per box it is 9. Enter the coverage on your specific carton — box sizes vary by brand.',
       },
     ],
     relatedGuideSlugs: [
@@ -87,11 +96,13 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'flooring-square-footage-calculator',
     path: '/flooring-square-footage-calculator',
     material: 'laminate',
-    title: 'Flooring Square Footage Calculator — How Much Flooring? (Free)',
-    h1: 'Flooring Square Footage Calculator',
+    title: 'How Much Flooring Do I Need? Free Sq Ft Calculator',
+    h1: 'How Much Flooring Do I Need?',
     description:
-      'Free flooring square footage calculator. Enter room dimensions — get total sq ft with waste for laminate, vinyl, tile, or carpet before you buy boxes.',
+      'Free flooring square footage calculator. A 12×12 room is 144 sq ft — add 10% waste before you divide by box coverage. Laminate, vinyl, tile, or carpet.',
     breadcrumbLabel: 'Sq ft calculator',
+    quickAnswer:
+      'Multiply length × width for each room. A 12×12 is 144 sq ft; with 10% waste you buy 158 sq ft. Then divide by sq ft per box (laminate/LVP/tile) or by 9 for carpet square yards.',
     intro:
       'Start with accurate square footage — then convert to boxes using coverage per carton. This calculator totals all rooms and adds your waste percentage.',
     faqs: [
@@ -109,6 +120,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'Can I use this for carpet?',
         answer:
           'Yes — switch material to carpet to see square yards, or use our carpet calculator for sq yd ordering.',
+      },
+      {
+        question: 'How much flooring for a 12×12 room?',
+        answer:
+          '144 sq ft of raw area. With 10% waste buy 158 sq ft of laminate or LVP; with 15% waste for tile buy 166 sq ft. Carpet: 144 ÷ 9 = 16 sq yd before waste, about 18 sq yd with 10%.',
       },
     ],
     relatedGuideSlugs: ['how-to-measure-rooms-for-flooring', 'how-much-flooring-waste-to-buy'],
@@ -181,13 +197,15 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'how-many-flooring-boxes',
     path: '/how-many-flooring-boxes',
     material: 'laminate',
-    title: 'How Many Flooring Boxes Do I Need?',
-    h1: 'How Many Flooring Boxes Do I Need?',
+    title: 'How Many Boxes of Flooring Do I Need? Free Calculator',
+    h1: 'How Many Boxes of Flooring Do I Need?',
     description:
-      'Enter room size and box coverage to find how many flooring boxes to buy. Includes waste and rounds up automatically.',
+      'Free flooring box calculator: 12×12 at 10% waste and 20 sq ft/box ≈ 8 cartons. Enter room size and box coverage — we round up so you do not run short.',
     breadcrumbLabel: 'Box calculator',
+    quickAnswer:
+      'Box count = (room sq ft × 1.10 waste) ÷ sq ft per box, then round up. A 12×12 (144 sq ft) with 10% waste and 20 sq ft per box is 8 boxes. A 10×12 at the same coverage is 7 boxes.',
     intro:
-      'Box counts depend on total square footage (with waste) divided by coverage per box. We round up so you never buy too few.',
+      'Box counts depend on total square footage (with waste) divided by coverage per box. Enter the number printed on your carton — we round up so you never buy too few.',
     faqs: [
       {
         question: 'How are flooring boxes calculated?',
@@ -203,6 +221,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'Can I enter price per box?',
         answer:
           'Yes. Optional price per box gives an estimated total and shows roughly how much of your spend goes to waste material.',
+      },
+      {
+        question: 'How many flooring boxes for a 12×12 room?',
+        answer:
+          '144 sq ft + 10% waste = 158.4 sq ft to buy. At 20 sq ft per box that is 8 boxes; at 24 sq ft per box it is 7 boxes. Enter your carton coverage above — do not guess from a generic average.',
       },
     ],
     relatedGuideSlugs: ['how-many-flooring-boxes-guide', 'how-to-measure-rooms-for-flooring'],
@@ -323,11 +346,13 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'flooring-cost-estimator',
     path: '/flooring-cost-estimator',
     material: 'laminate',
-    title: 'Flooring Cost Estimator — Material & Install $ per Sq Ft',
-    h1: 'Flooring Cost Estimator',
+    title: 'How Much Does Flooring Cost? Free $/Sq Ft Estimator',
+    h1: 'How Much Does Flooring Cost?',
     description:
-      'Estimate flooring project cost from room size, waste %, material $ per sq ft, and optional install $ per sq ft. Free laminate, tile, and carpet budget calculator.',
+      'Free flooring cost estimator: 12×12 at $3/sq ft material + 10% waste ≈ $475 in materials. Add optional install $/sq ft for a project budget.',
     breadcrumbLabel: 'Flooring cost estimator',
+    quickAnswer:
+      'A 12×12 room (144 sq ft) with 10% waste is 158 sq ft to buy. At $3/sq ft laminate that is about $475 in material before tax. Add install at $2–$8/sq ft if a contractor quoted labor that way.',
     intro:
       'Enter room dimensions, waste allowance, and the material price you saw in-store ($/sq ft). Add install $/sq ft if a contractor quoted labor. We calculate buy area with waste and a materials + install total.',
     faqs: [
@@ -345,6 +370,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'Price per box or per sq ft?',
         answer:
           'Use material $/sq ft when the tag shows that rate. Or enter price per box instead — $/sq ft overrides box price when both are filled.',
+      },
+      {
+        question: 'How much does it cost to floor a 12×12 room?',
+        answer:
+          'Materials: 158 sq ft (with 10% waste) × your $/sq ft. Example: $2.50 laminate ≈ $395; $5 vinyl plank ≈ $790. Labor, if quoted per sq ft, uses the same buy area. Transitions, underlay, and trim are extra.',
       },
     ],
   },

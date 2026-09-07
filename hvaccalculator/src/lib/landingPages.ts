@@ -11,6 +11,8 @@ export interface LandingPage {
   description: string;
   breadcrumbLabel: string;
   intro: string;
+  /** Above-the-fold numeric answer for striking-distance queries (prerendered). */
+  quickAnswer?: string;
   faqs: { question: string; answer: string }[];
 }
 
@@ -19,13 +21,15 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'btu-calculator',
     path: '/btu-calculator',
     applicationType: 'standard_room',
-    title: 'Free BTU Calculator — Room Size & AC Heating Load',
-    h1: 'BTU Calculator',
+    title: 'How Many BTU Per Square Foot? Free BTU Calculator',
+    h1: 'How Many BTU Per Square Foot?',
     description:
-      'Free BTU calculator for room cooling and heating. Enter dimensions, insulation, and climate — get recommended BTU for window AC, mini-split, or portable units.',
+      'Most rooms need 20–30 BTU per sq ft. Enter room size for cooling load and the next standard mini-split or window AC size. Free BTU calculator.',
     breadcrumbLabel: 'BTU calculator',
+    quickAnswer:
+      'Most cooled rooms need 20–30 BTU per square foot. A 12×12 bedroom (144 sq ft) is about 3,600–4,300 BTU calculated — retail mini-splits and window units start at 9,000 BTU. Enter your dimensions below to size the next standard head or window unit.',
     intro:
-      'Measure your space in feet and inches. Pick the application type that matches your building — standard room, tiny home, RV, shed, or cottage — for accurate BTU estimates.',
+      'Searching how many BTU per square foot? Measure the space in feet and inches, then pick insulation and sun. We estimate cooling load and round up to common 9k / 12k / 18k / 24k sizes.',
     faqs: [
       {
         question: 'How many BTU per square foot?',
@@ -40,6 +44,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'Is this a substitute for a Manual J load calculation?',
         answer:
           'No. This tool gives planning estimates for DIY sizing. Licensed HVAC pros use Manual J for final equipment selection and permit work.',
+      },
+      {
+        question: 'How many BTU for a 12×12 room?',
+        answer:
+          '144 sq ft × 25 BTU = 3,600 BTU calculated. Retail mini-splits and window units start at 9,000 BTU, which is the practical bedroom size. Use this BTU calculator with your insulation and sun settings for a tighter number.',
       },
     ],
   },
@@ -108,10 +117,12 @@ export const LANDING_PAGES: LandingPage[] = [
     title: 'What Size AC Do I Need? Free BTU Calculator by Room',
     h1: 'What Size AC Do I Need?',
     description:
-      'Free AC size calculator — enter room sq ft, ceiling height, sun exposure, and occupants to get recommended BTU for window units and mini-splits.',
+      'Free answer for “what size AC do I need”: enter room size → BTU for window units and mini-splits. 12×12 bedroom ≈ 9,000 BTU practical minimum.',
     breadcrumbLabel: 'What size AC',
+    quickAnswer:
+      'A 12×12 bedroom (144 sq ft) calculates to about 3,600 BTU — but store units start at 6,000–9,000 BTU. Buy a 9,000 BTU window AC or mini-split for most bedrooms. A 400 sq ft living room is typically a 12,000 BTU (1 ton) head.',
     intro:
-      'Living rooms and open areas need more BTU per sq ft than bedrooms because of windows, electronics, and people. Toggle kitchen load if the space includes cooking appliances.',
+      'Living rooms need more BTU per sq ft than bedrooms because of windows, electronics, and people. Enter dimensions below and toggle kitchen load if the space includes cooking appliances.',
     faqs: [
       {
         question: 'How many BTU for 500 square feet?',
@@ -134,13 +145,15 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'mini-split-for-rv',
     path: '/mini-split-for-rv',
     applicationType: 'rv',
-    title: 'Mini-Split for RV — BTU Sizing Calculator',
-    h1: 'Mini-Split Sizing for RVs & Campers',
+    title: 'What Size Mini-Split for an RV? Free BTU Calculator',
+    h1: 'What Size Mini-Split for an RV?',
     description:
-      'Calculate mini-split BTU for RVs, travel trailers, and campers. Accounts for thin walls, limited insulation, and sunny exposure.',
+      'Free RV mini-split calculator: 30 ft RV with 200–250 sq ft of living space typically needs 9,000–12,000 BTU. Accounts for thin walls and poor insulation.',
     breadcrumbLabel: 'RV mini-split',
+    quickAnswer:
+      'Most 25–30 ft travel trailers need a 9,000 BTU mini-split minimum; 12,000 BTU is the usual full-time / hot-climate pick. A 30 ft RV with about 220 sq ft of living space calculates to roughly 7,000–9,000 BTU because of thin walls — buy the next standard size up.',
     intro:
-      'RVs and campers lose heat fast through thin walls and single-pane windows. We apply a higher BTU-per-sq-ft factor and default to poor insulation — typical for ductless installs in skoolies and fifth-wheels.',
+      'RVs lose heat through thin walls and single-pane windows. This calculator defaults to poor insulation and a higher BTU-per-sq-ft factor — typical for skoolies, fifth-wheels, and travel trailers.',
     faqs: [
       {
         question: 'What size mini-split for a 30 ft RV?',
@@ -156,6 +169,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'RV roof AC vs mini-split — which is better?',
         answer:
           'Roof units are easier to install but noisier and less efficient. Mini-splits are quieter and dehumidify better but need custom mounting and 110V/220V planning.',
+      },
+      {
+        question: 'What size mini-split for a 25 ft travel trailer?',
+        answer:
+          'A 25 ft trailer often has 160–200 sq ft of cooled space. At RV insulation factors that is about 6,000–8,000 BTU calculated — a 9,000 BTU head is the practical buy; go 12,000 BTU if you boondock in the Southwest.',
       },
     ],
   },
@@ -306,13 +324,15 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'window-ac-calculator',
     path: '/window-ac-calculator',
     applicationType: 'bedroom',
-    title: 'Window AC Calculator — BTU Size for Window Units',
-    h1: 'Window AC Calculator',
+    title: 'What Size Window AC Do I Need? BTU by Room',
+    h1: 'What Size Window AC Do I Need?',
     description:
-      'Calculate BTU for window air conditioners by room size. Enter bedroom or office dimensions for right-sized window unit shopping.',
+      'Free window AC calculator: 12×12 bedroom ≈ 9,000–10,000 BTU practical size. Enter room dimensions for 5k / 8k / 10k / 12k shopping.',
     breadcrumbLabel: 'Window AC calculator',
+    quickAnswer:
+      'A 12×12 bedroom (144 sq ft) calculates to about 3,600 BTU — buy a 8,000–10,000 BTU window unit, not a 5,000 BTU “small room” model if you want humidity control. A 20×20 living room is typically a 12,000 BTU window unit.',
     intro:
-      'Window AC units are sold in fixed BTU steps — 5,000, 8,000, 10,000, 12,000 BTU and up. We calculate your load so you pick a unit that cools without short-cycling.',
+      'Window AC units are sold in fixed BTU steps — 5,000, 8,000, 10,000, 12,000 BTU and up. Enter bedroom or office dimensions so you pick a unit that cools without short-cycling.',
     faqs: [
       {
         question: 'What size window AC for a bedroom?',
@@ -328,6 +348,11 @@ export const LANDING_PAGES: LandingPage[] = [
         question: 'Window AC vs mini-split BTU — same math?',
         answer:
           'Room load calculation is the same. Mini-splits are quieter and more efficient but cost more. Use the same BTU result when comparing types.',
+      },
+      {
+        question: 'What size window AC for a 12×12 room?',
+        answer:
+          '144 sq ft at 25 BTU/sq ft is 3,600 BTU calculated. The practical window-unit size is 8,000–10,000 BTU so the compressor runs long enough to dehumidify. A 5,000 BTU unit is usually too small for a 12×12 with sun.',
       },
     ],
   },

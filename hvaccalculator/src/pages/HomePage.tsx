@@ -9,37 +9,37 @@ import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 import { LANDING_PAGES } from '../lib/landingPages';
 
 const POPULAR_CALCULATORS = [
-  { to: '/btu-calculator', label: 'BTU calculator' },
+  { to: '/mini-split-for-rv', label: 'RV mini-split size' },
+  { to: '/window-ac-calculator', label: 'Window AC BTU' },
+  { to: '/btu-calculator', label: 'BTU per sq ft' },
+  { to: '/what-size-ac-do-i-need', label: 'What size AC?' },
   { to: '/ac-cost-to-run-calculator', label: 'AC cost to run' },
-  { to: '/mini-split-calculator', label: 'Mini-split sizing' },
-  { to: '/window-ac-calculator', label: 'Window AC' },
-  { to: '/garage-heater-btu-calculator', label: 'Garage heater' },
 ] as const;
 
 const HOMEPAGE_FAQ = [
   {
     q: 'How many BTU per square foot?',
-    a: 'Most cooled rooms need 20–30 BTU per sq ft. RVs and uninsulated sheds need more; well-insulated tiny homes need less. Sun exposure, ceiling height, and occupants adjust the result.',
+    a: 'Most cooled rooms need 20–30 BTU per sq ft. A 12×12 bedroom is about 3,600–4,300 BTU calculated — retail mini-splits start at 9,000 BTU. Use the BTU calculator with insulation and sun settings.',
   },
   {
     q: 'What size mini-split for an RV?',
-    a: 'Most full-time RVers use 9,000–12,000 BTU depending on length and insulation. A 30 ft RV with 200–250 sq ft of living space often needs a 9k minimum; 12k is common in hot climates.',
+    a: 'Most 25–30 ft trailers use 9,000–12,000 BTU. A 30 ft RV with 200–250 sq ft of living space often needs a 9k minimum; 12k is common in hot climates. Open the RV mini-split calculator.',
   },
   {
-    q: 'Can I size a whole tiny home with one calculator?',
-    a: 'Yes — add up to five spaces or enter the main living footprint as one zone. Most tiny homes use a single 9k–18k BTU ductless head.',
+    q: 'What size window AC for a 12×12 room?',
+    a: 'Calculated load is about 3,600 BTU; buy an 8,000–10,000 BTU window unit so it dehumidifies. Use the window AC calculator for other room sizes.',
   },
   {
-    q: 'Is this a Manual J calculation?',
-    a: 'No. This is a DIY planning tool. For permits and whole-house central HVAC, hire a licensed pro for Manual J and Manual S equipment selection.',
+    q: 'What size AC do I need?',
+    a: 'Bedrooms under 200 sq ft typically take a 9,000 BTU unit. A 400 sq ft living room is usually 12,000 BTU (1 ton). Enter dimensions in what size AC do I need — this is not a Manual J permit calc.',
   },
 ] as const;
 
 export default function HomePage() {
   usePageMeta({
-    title: 'BTU & Mini-Split Calculator — AC Sizing for Rooms, RVs & Tiny Homes',
+    title: 'What Size Mini-Split or Window AC? Free BTU Calculator',
     description:
-      'Free BTU and mini-split calculator at HVACCalculators.net. Size ductless AC for bedrooms, RVs, tiny homes, she-sheds, and cottages — cooling load, tonnage, and heat pump planning.',
+      'A 12×12 bedroom needs about 3,600 BTU calculated — buy 9,000 BTU retail. Free tools for RV mini-splits, window AC size, and BTU per square foot.',
     path: '/',
   });
 
