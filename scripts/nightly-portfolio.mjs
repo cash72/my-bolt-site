@@ -3,6 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
+import { loadGrowthFocus } from './lib/growth-focus.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -76,6 +77,15 @@ async function main() {
   const actions = [];
 
   console.log('=== Nightly portfolio maintenance ===\n');
+  const growthFocus = loadGrowthFocus();
+  if (growthFocus.pauseNightlyPortfolioGrowth) {
+    console.log(
+      `Ranking pause on. Health audit still checks all sites; GSC crawl/index defaults to ${growthFocus.focusSites.join(', ')}.`,
+    );
+    console.log(
+      'Do not open eight-site title/deepen PRs. Disable Cursor automation “Nightly SEO growth sprint”.\n',
+    );
+  }
   const healthArgs = skipBuild ? [] : ['--build'];
   const healthRun = await runNode('portfolio-health-audit.mjs', healthArgs);
   actions.push({

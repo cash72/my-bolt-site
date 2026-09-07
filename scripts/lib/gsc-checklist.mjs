@@ -71,6 +71,7 @@ export const P0_INDEX_BY_DIR = {
   paintcalculator: {
     label: 'Paint Calculator (CA)',
     paths: [
+      { path: '/', note: 'homepage title that already gets clicks — do not churn' },
       { path: '/how-much-paint-do-i-need/' },
       { path: '/paint-coverage-calculator/' },
       { path: '/cabinet-trim-paint-calculator/', isNew: true },

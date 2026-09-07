@@ -13,6 +13,7 @@
  *   npm run gsc:nightly -- --dry-run
  *   npm run gsc:nightly -- --inspect-only
  *   npm run gsc:nightly -- --sitemaps-only
+ *   npm run gsc:nightly -- --all   # inspect every registry site even when growth focus is on
  */
 
 import { mkdir, writeFile, access, readFile } from 'node:fs/promises';
@@ -20,6 +21,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { GoogleAuth } from 'google-auth-library';
 import { P0_INDEX_BY_DIR, absoluteUrl } from './lib/gsc-checklist.mjs';
+import { applyGrowthFocus } from './lib/growth-focus.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -34,11 +36,18 @@ function gscSiteUrl(siteUrl) {
 
 async function loadSites() {
   const registry = JSON.parse(await readFile(path.join(ROOT, 'sites.registry.json'), 'utf8'));
-  return (registry.sites || []).map((s) => ({
+  const mapped = (registry.sites || []).map((s) => ({
     dir: s.dir,
     domain: s.domain,
     url: s.siteUrl,
   }));
+  const focused = applyGrowthFocus(mapped, { forceAll: args.has('--all') });
+  if (focused.filtered) {
+    console.log(
+      `Growth focus: inspecting ${focused.focus.focusSites.join(', ')} only. Use --all to override.\n`,
+    );
+  }
+  return focused.sites;
 }
 
 const args = new Set(process.argv.slice(2));

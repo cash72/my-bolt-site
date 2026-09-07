@@ -10,8 +10,8 @@
  *   4. Prints per-domain GSC links + P0 "Request indexing" checklist
  *
  * Usage:
- *   node scripts/ping-sitemaps.mjs                 # all 8 sites (default)
- *   node scripts/ping-sitemaps.mjs --all           # same as default
+ *   node scripts/ping-sitemaps.mjs                 # focus sites when pause is on; else all
+ *   node scripts/ping-sitemaps.mjs --all           # all 8 sites
  *   node scripts/ping-sitemaps.mjs drywallcalculator
  *   node scripts/ping-sitemaps.mjs --checklist-only   # no network; print GSC steps
  *   node scripts/ping-sitemaps.mjs --verify-p0     # also HEAD/GET each P0 URL
@@ -29,6 +29,7 @@ import {
   getP0ForDir,
   absoluteUrl,
 } from './lib/gsc-checklist.mjs';
+import { applyGrowthFocus } from './lib/growth-focus.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -54,8 +55,14 @@ if (positional.length > 0) {
   }
 } else if (legacyFlag) {
   sites = sites.filter((s) => LEGACY_DIRS.includes(s.dir));
-} else if (!allFlag) {
-  // default: all sites in registry
+} else {
+  const focused = applyGrowthFocus(sites, { forceAll: allFlag });
+  sites = focused.sites;
+  if (focused.filtered) {
+    console.log(
+      `Growth focus: ${focused.focus.focusSites.join(', ')} (${focused.focus.reason})\n`,
+    );
+  }
 }
 
 async function fetchStatus(url, method = 'GET') {
