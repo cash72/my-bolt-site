@@ -99,12 +99,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      <p className="mb-8 text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed border-l-4 border-emerald-500 pl-4">
-        A 12×12 room is 144 sq ft — at 10% waste and 20 sq ft per box, that is roughly 8 cartons of laminate.
-        Enter your dimensions below for an exact box count, plus tile, LVP, and carpet square-yard estimates.
-      </p>
+      <aside
+        className="mb-6 rounded-xl border border-emerald-200 dark:border-emerald-900/50 bg-emerald-50 dark:bg-emerald-950/30 px-4 py-3 sm:px-5 sm:py-4"
+        aria-label="Quick answer"
+      >
+        <p className="text-xs font-semibold uppercase tracking-wide text-emerald-800 dark:text-emerald-300 mb-1">
+          Quick answer
+        </p>
+        <p className="text-sm sm:text-[15px] text-slate-800 dark:text-slate-200 leading-relaxed">
+          A 12×12 room is 144 sq ft — at 10% waste and 20 sq ft per box, that is roughly 8 cartons of laminate.
+          Enter your dimensions below for an exact box count, plus tile, LVP, and carpet square-yard estimates.
+        </p>
+      </aside>
 
-      <FlooringCalculator />
+      <FlooringCalculator
+        heading="How Many Flooring Boxes Do I Need?"
+        subheading="Enter room sizes in feet and inches. Get square footage, waste, and how many boxes to buy."
+      />
 
       <ContentMonetizationSlot placement="content" guides={featuredGuides} showAd={!hasResultsAdUnit()} />
 

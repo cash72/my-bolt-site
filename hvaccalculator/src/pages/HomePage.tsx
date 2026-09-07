@@ -107,13 +107,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      <p className="mb-8 text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed border-l-4 border-sky-500 pl-4">
-        A 12×12 bedroom (144 sq ft) typically needs 3,600–4,300 BTU calculated — retail mini-splits start at
-        9,000 BTU. Enter your exact dimensions below for cooling load, heating estimate, and recommended ductless
-        head size.
-      </p>
+      <aside
+        className="mb-6 rounded-xl border border-sky-200 dark:border-sky-900/50 bg-sky-50 dark:bg-sky-950/30 px-4 py-3 sm:px-5 sm:py-4"
+        aria-label="Quick answer"
+      >
+        <p className="text-xs font-semibold uppercase tracking-wide text-sky-800 dark:text-sky-300 mb-1">
+          Quick answer
+        </p>
+        <p className="text-sm sm:text-[15px] text-slate-800 dark:text-slate-200 leading-relaxed">
+          A 12×12 bedroom (144 sq ft) typically needs 3,600–4,300 BTU calculated — retail mini-splits start at
+          9,000 BTU. Enter your exact dimensions below for cooling load, heating estimate, and recommended ductless
+          head size.
+        </p>
+      </aside>
 
-      <HvacCalculator />
+      <HvacCalculator
+        heading="What Size Mini-Split or Window AC?"
+        subheading="Enter room or RV living-area dimensions. Get cooling BTU, heating estimate, and the next standard 9k / 12k / 18k / 24k size."
+      />
 
       <ContentMonetizationSlot placement="content" guides={featuredGuides} showAd={!hasResultsAdUnit()} />
 
