@@ -1,4 +1,5 @@
 import type { PaintType, SurfaceType } from './paint/types';
+import { CANADIAN_PAINT_BRANDS } from './canadianPaintBrands';
 
 export type CalculatorKind = 'paint' | 'wallpaper';
 
@@ -14,6 +15,9 @@ interface LandingPageBase {
   /** Above-the-fold answer for striking-distance queries (prerendered). */
   quickAnswer?: string;
   faqs: { question: string; answer: string }[];
+  showBrandDisclaimer?: boolean;
+  showBrandCoverageTable?: boolean;
+  showDiyStarter?: boolean;
 }
 
 export interface PaintLandingPage extends LandingPageBase {
@@ -66,15 +70,17 @@ export const LANDING_PAGES: LandingPage[] = [
     kind: 'paint',
     paintType: 'interior',
     surface: 'walls',
-    title: 'How Much Behr Paint Do I Need? | Paint Calculator',
-    h1: 'How Much Behr Paint Do I Need?',
+    title: 'How Much Paint Do I Need? Behr & Any Brand | Canada',
+    h1: 'How Much Paint Do I Need?',
     description:
-      'Free answer for “how much Behr paint do I need”: enter room size → gallons to buy. 12×12 room ≈ 2–3 gallons at ~400 sq ft/gal. Works for any brand — Canadian DIY.',
+      'Free answer for how much paint you need: enter room size → gallons to buy. 12×12 room ≈ 2–3 gallons at ~400 sq ft/gal. Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux — Canadian DIY.',
     breadcrumbLabel: 'How much paint',
+    showBrandDisclaimer: true,
+    showDiyStarter: true,
     quickAnswer:
-      'A 12×12 room with 8 ft ceilings needs about 2–3 gallons of Behr interior paint for two coats (≈384 sq ft walls × 2 ÷ ~350–400 sq ft/gallon). Enter your room size below and set coverage from your Behr can label for an exact count.',
+      'A 12×12 room with 8 ft ceilings needs about 2–3 gallons of interior paint for two coats (≈384 sq ft walls × 2 ÷ ~350–400 sq ft/gallon). That math is the same for Behr at Home Depot, Benjamin Moore, Sherwin-Williams, Cloverdale, or Dulux — enter the Coverage line from the can you actually bought.',
     intro:
-      'Searching how much Behr paint you need? Enter your room size, set sq ft per gallon from your Behr can (or any brand), and we round up so you do not run short mid-project.',
+      'Enter your room size, set sq ft per gallon from your can (Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux, or any brand), and we round up so you do not run short mid-project.',
     faqs: [
       {
         question: 'How many gallons for a 12×12 room?',
@@ -94,12 +100,12 @@ export const LANDING_PAGES: LandingPage[] = [
       {
         question: 'How many square feet does a gallon of paint cover?',
         answer:
-          'Most interior latex covers 350–400 sq ft per gallon on smooth, primed walls. Behr Premium Plus Interior lists up to 400 sq ft/gallon on the can — enter your exact label number in project settings for the best estimate.',
+          'Most interior latex covers 350–400 sq ft per gallon on smooth, primed walls. Behr Premium Plus, Benjamin Moore Regal Select, Dulux Diamond, and similar lines often list up to ~400 sq ft/gallon — enter your exact label number in project settings.',
       },
       {
-        question: 'Is there a Behr paint calculator?',
+        question: 'Does this work for Behr, Benjamin Moore, and Sherwin-Williams?',
         answer:
-          'Behr sells paint by coverage on the can label, not a room-size tool. Enter your room dimensions here and set sq ft per gallon to the number on your Behr can — same math, any brand.',
+          'Yes. Coverage is printed on every Canadian can. Use this page for a shopping-list gallon count, or open the brand calculator that matches your lid: Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux, Sico, Beauti-Tone, CIL, or Valspar. We are not affiliated with any of them.',
       },
     ],
   },
@@ -109,15 +115,16 @@ export const LANDING_PAGES: LandingPage[] = [
     kind: 'paint',
     paintType: 'interior',
     surface: 'walls',
-    title: 'Behr Paint Coverage Calculator (Free) | Paint Calculator',
-    h1: 'Behr Paint Coverage Calculator',
+    title: 'Paint Coverage Calculator (Free) — Any Brand in Canada',
+    h1: 'Paint Coverage Calculator',
     description:
-      'Free Behr paint calculator: enter room size + label coverage → gallons per coat. Typical Behr interior: up to 400 sq ft/gallon. Works for any brand.',
+      'Free paint coverage calculator: enter room size + label coverage → gallons per coat. Typical Canadian interiors (Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux): up to ~400 sq ft/gallon.',
     breadcrumbLabel: 'Coverage calculator',
+    showBrandDisclaimer: true,
     quickAnswer:
-      'How much does a gallon of Behr paint cover? Most Behr Premium Plus Interior lists up to ~400 sq ft per gallon on smooth, primed drywall (one coat). Enter that label number below with your room size to get gallons to buy — this is a free Behr paint calculator that works for any brand.',
+      'How much does a gallon of paint cover? Most Canadian interior latex — Behr Premium Plus, Benjamin Moore Regal Select, Sherwin-Williams SuperPaint, Cloverdale, Dulux Diamond — lists about 350–400 sq ft per gallon on smooth primed drywall (one coat). Enter the number from your can with room size below.',
     intro:
-      'Need a Behr paint coverage calculator? Enter room size and the sq ft per gallon from your can — we convert label coverage into gallons to buy. Same tool for Benjamin Moore, Sherwin-Williams, or store brands.',
+      'Enter room size and the sq ft per gallon from your can — we convert label coverage into gallons to buy. Same tool whether the lid says Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux, or another Canadian brand.',
     faqs: [
       {
         question: 'What is typical paint coverage?',
@@ -140,14 +147,14 @@ export const LANDING_PAGES: LandingPage[] = [
           'Interior latex typically covers 350–400 sq ft per gallon on smooth walls. Primer is often 250–350 sq ft/gallon. Always use the coverage number printed on your paint can — not a generic average.',
       },
       {
-        question: 'Does Behr have a paint coverage calculator?',
+        question: 'Does Behr or Benjamin Moore have a coverage calculator?',
         answer:
-          'Behr lists sq ft per gallon on each product label but does not offer a room-dimension calculator. Enter your wall measurements above and set coverage to the Behr number on your can for an accurate gallon count.',
+          'Manufacturers print sq ft (or m²) per gallon on the can. This independent room-dimension calculator turns that label number into gallons. We are not affiliated with Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux, or the other brands listed on our Canadian coverage chart.',
       },
       {
-        question: 'What is Behr paint coverage per gallon?',
+        question: 'What is typical paint coverage per gallon in Canada?',
         answer:
-          'Behr Premium Plus Interior often lists up to 400 sq ft/gallon; Premium Plus Ultra and Marquee lines are similar on smooth drywall. Textured walls, deep colours, and unprimed surfaces cover less — use 300–350 sq ft/gallon as a realistic DIY default.',
+          'Interior latex often lists 350–400 sq ft/gallon on smooth drywall. Primer and exterior lines are lower. Textured walls, deep colours, and unprimed surfaces cover less — use 300–350 sq ft/gallon as a realistic DIY default if the room is not ideal.',
       },
     ],
   },
@@ -486,19 +493,107 @@ export const LANDING_PAGES: LandingPage[] = [
       },
     ],
   },
+  {
+    slug: 'first-paint-job',
+    path: '/first-paint-job',
+    kind: 'paint',
+    paintType: 'interior',
+    surface: 'walls',
+    title: 'First Paint Job? Gallons, Roller, Brush & Tape (Canada)',
+    h1: 'First Paint Job Checklist',
+    description:
+      'New to DIY painting? 12×12 room ≈ 2–3 gallons, 3/8″ roller nap, 2½″ angled brush, canvas drop cloth plus painter’s tape. Free gallon calculator for Canadian beginners.',
+    breadcrumbLabel: 'First paint job',
+    showBrandDisclaimer: true,
+    showDiyStarter: true,
+    quickAnswer:
+      'A 12×12 room needs about 2–3 gallons for two coats. Buy a 9-inch roller with 3/8″ nap, one 2–2½″ angled sash brush, canvas (or taped plastic) on the floor, and painter’s tape on trim — not instead of a drop cloth. Enter room size below, then read the short DIY cards.',
+    intro:
+      'Gallons first so you do not run short mid-wall. Then roller, brush, and floor protection. This page is the beginner stack — not a manufacturer how-to.',
+    faqs: [
+      {
+        question: 'What do I need for my first paint job?',
+        answer:
+          'Enough paint (use the calculator), a 9-inch roller and 3/8″ cover, one good angled brush, tray + liners, extension pole, drop cloths, painter’s tape, sandpaper, and a putty knife. Remove outlet covers before you start.',
+      },
+      {
+        question: 'Do I tape off or just use drop cloths?',
+        answer:
+          'Both. Cloths protect floors. Tape protects trim and glass. Tape is not a floor covering.',
+      },
+      {
+        question: 'What roller and brush should a beginner buy?',
+        answer:
+          '9-inch frame, 3/8″ nap for smooth walls; 2–2½″ angled synthetic sash brush for cutting in. Skip cheap foam kits for whole rooms.',
+      },
+    ],
+  },
+  {
+    slug: 'canadian-paint-coverage',
+    path: '/canadian-paint-coverage',
+    kind: 'paint',
+    paintType: 'interior',
+    surface: 'walls',
+    title: 'Paint Coverage by Brand in Canada — BM, SW, Cloverdale, Dulux',
+    h1: 'Paint Coverage by Brand in Canada',
+    description:
+      'Typical sq ft per gallon for Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux, Sico, Beauti-Tone, CIL, and Valspar. 12×12 room ≈ 2–3 gallons. Independent calculator — not affiliated with any brand.',
+    breadcrumbLabel: 'Coverage by brand',
+    showBrandDisclaimer: true,
+    showBrandCoverageTable: true,
+    quickAnswer:
+      'Most interior latex sold in Canada lists 350–400 sq ft per gallon on smooth primed drywall. A 12×12 room (384 sq ft of walls) needs about 2–3 gallons for two coats whether the can says Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, or Dulux. Use the table below, then enter your can’s Coverage number in the calculator.',
+    intro:
+      'Pick the brand on your lid, then enter room size. The table is a planning range — the can in your hand is the source of truth. This site is not affiliated with any manufacturer or retailer.',
+    faqs: [
+      {
+        question: 'Which paint brand covers the most per gallon in Canada?',
+        answer:
+          'Premium interiors from Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux, Behr, and others cluster around 350–400 sq ft/gallon on ideal walls. Differences show up on primer, exterior, and cheap contractor lines — read each can rather than picking a “winner.”',
+      },
+      {
+        question: 'Are you affiliated with these brands?',
+        answer:
+          'No. Brand names are used only to match typical Canadian label coverage so you can enter the right sq ft per gallon. See the disclaimer on this page.',
+      },
+      {
+        question: 'Why do Canadian cans show m² instead of sq ft?',
+        answer:
+          'Bilingual labels often list square metres per 3.78 L. About 37 m² per gallon ≈ 400 sq ft. Convert before entering sq ft per gallon, or use the imperial line if both are printed.',
+      },
+    ],
+  },
+  ...CANADIAN_PAINT_BRANDS.map(
+    (brand): PaintLandingPage => ({
+      slug: brand.slug,
+      path: brand.path,
+      kind: 'paint',
+      paintType: 'interior',
+      surface: 'walls',
+      title: brand.title,
+      h1: brand.h1,
+      description: brand.description,
+      breadcrumbLabel: brand.breadcrumbLabel,
+      intro: brand.intro,
+      quickAnswer: brand.quickAnswer,
+      faqs: brand.faqs,
+      showBrandDisclaimer: true,
+    })
+  ),
 ];
 
 export const FEATURED_LANDING_SLUGS = [
+  'first-paint-job',
+  'canadian-paint-coverage',
   'how-much-paint-do-i-need',
+  'benjamin-moore-paint-calculator',
+  'sherwin-williams-paint-calculator',
+  'cloverdale-paint-calculator',
+  'dulux-paint-calculator',
+  'paint-coverage-calculator',
   'cabinet-trim-paint-calculator',
   'exterior-paint-calculator',
-  'ceiling-paint-calculator',
-  'paint-cost-estimator',
-  'room-paint-calculator',
-  'interior-paint-calculator',
-  'paint-coverage-calculator',
   'wallpaper-calculator',
-  'fence-stain-calculator',
 ] as const;
 
 export const FEATURED_LANDING_LINKS = FEATURED_LANDING_SLUGS.map((slug) =>

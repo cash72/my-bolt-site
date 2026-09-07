@@ -136,19 +136,19 @@ export const GUIDES: Guide[] = [
   {
     slug: 'paint-coverage-per-gallon',
     category: 'paint',
-    title: 'Behr Paint Coverage per Gallon — Free Chart | Paint Calculator',
+    title: 'Paint Coverage per Gallon in Canada — Brand Chart',
     description:
-      'How many sq ft does a gallon of Behr paint cover? Interior ~350–400 sq ft/gal; primer & exterior lower. Chart + free Behr coverage calculator.',
+      'How many sq ft does a gallon of paint cover? Interior ~350–400 sq ft/gal for Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux. Primer & exterior lower. Independent chart.',
     readMinutes: 8,
-    toolPath: '/paint-coverage-calculator',
-    toolLabel: 'Behr paint coverage calculator',
-    relatedGuideSlugs: ['how-much-paint-for-a-room', 'how-many-coats-of-paint'],
+    toolPath: '/canadian-paint-coverage',
+    toolLabel: 'Coverage by brand',
+    relatedGuideSlugs: ['how-much-paint-for-a-room', 'how-many-coats-of-paint', 'how-to-choose-a-paint-roller'],
     sections: [
       {
-        heading: 'Quick answer: Behr coverage per gallon',
+        heading: 'Quick answer: coverage per gallon in Canada',
         paragraphs: [
-          'Most Behr Premium Plus Interior lists up to about 400 sq ft per gallon on smooth, primed drywall for one coat. Primer and exterior products are lower — always use the Coverage line on your specific can.',
-          'To turn that into gallons for your room, use our free [Behr paint coverage calculator](/paint-coverage-calculator) or [how much Behr paint do I need](/how-much-paint-do-i-need) with your wall measurements.',
+          'Most interior latex sold in Canada lists about 350–400 sq ft per gallon on smooth, primed drywall for one coat — Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux, Sico, Beauti-Tone, CIL, and Valspar all cluster there. Primer and exterior products are lower. Always use the Coverage line on your specific can.',
+          'Turn that into gallons with the [paint coverage calculator](/paint-coverage-calculator) or [how much paint](/how-much-paint-do-i-need). Compare labels on the [Canadian brand chart](/canadian-paint-coverage). This site is not affiliated with any manufacturer.',
         ],
       },
       {
@@ -184,29 +184,32 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        heading: 'Behr paint coverage per gallon (typical ranges)',
+        heading: 'Typical ranges by brand (planning only)',
         paragraphs: [
-          'Behr does not publish one coverage number for all products — each can lists its own sq ft per gallon. These ranges help you sanity-check the label before you enter the number in our calculator.',
+          'No brand publishes one coverage number for every product. These ranges help you sanity-check the label before you enter it in the calculator.',
         ],
         bullets: [
-          'Behr Premium Plus Interior (walls): often up to 400 sq ft/gallon on smooth, primed drywall',
-          'Behr Premium Plus Ultra / Marquee: similar on flat walls; deep colours may need more product',
-          'Behr ceiling flat: commonly 350–400 sq ft/gallon',
-          'Behr primer: typically 250–350 sq ft/gallon — lower than finish paint',
-          'Behr exterior: often 200–300 sq ft/gallon on wood siding',
+          'Behr Premium Plus Interior (Home Depot): often up to 400 sq ft/gallon on smooth primed drywall',
+          'Benjamin Moore Regal Select / Aura: commonly 350–400 sq ft/gallon',
+          'Sherwin-Williams SuperPaint / Duration: commonly 350–400 sq ft/gallon',
+          'Cloverdale interiors (Western Canada): often ~400 sq ft/gallon — confirm the can',
+          'Dulux Diamond / Lifemaster (Canadian Tire): often ~400 sq ft per 3.78 L',
+          'Sico, Beauti-Tone, CIL, Valspar: same 350–400 cluster on ideal walls',
+          'Primer: typically 250–350 sq ft/gallon — lower than finish paint',
+          'Exterior: often 200–300 sq ft/gallon on wood siding',
         ],
       },
       {
-        heading: 'Use Behr label numbers in our calculator',
+        heading: 'Use the number on your can',
         paragraphs: [
-          'If you searched “Behr paint coverage calculator,” enter your room dimensions in the [paint coverage calculator](/paint-coverage-calculator) and set sq ft per gallon to the exact figure on your Behr can. That matches what a brand-specific tool would do — without tying you to one manufacturer.',
+          'Enter room dimensions in the [paint coverage calculator](/paint-coverage-calculator) and set sq ft per gallon to the figure on the can in your hand — Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux, or another brand. That matches what a brand-specific tool would do without tying you to one manufacturer.',
         ],
       },
       {
-        heading: 'How much Behr paint do I need from coverage?',
+        heading: 'How much paint from coverage?',
         paragraphs: [
-          'Take paintable sq ft × coats ÷ label coverage. Example: 384 sq ft walls × 2 coats ÷ 400 sq ft/gallon ≈ 1.9 → buy 2 gallons of Behr interior. Prefer a tool that also adds waste and rounds to store sizes? Use [how much Behr paint do I need](/how-much-paint-do-i-need).',
-          'Prefer coverage-only math (one coat at a time)? Stay on the [Behr paint coverage calculator](/paint-coverage-calculator). Both pages share the same Canadian DIY defaults.',
+          'Take paintable sq ft × coats ÷ label coverage. Example: 384 sq ft walls × 2 coats ÷ 400 sq ft/gallon ≈ 1.9 → buy 2 gallons. Prefer coats, waste, and store quantities in one pass? Use [how much paint do I need](/how-much-paint-do-i-need).',
+          'Prefer coverage-only math (one coat at a time)? Stay on the [coverage calculator](/paint-coverage-calculator). Brand table: [coverage by brand](/canadian-paint-coverage).',
         ],
       },
     ],
@@ -222,19 +225,19 @@ export const GUIDES: Guide[] = [
           'On smooth, primed drywall with a quality roller and one coat — yes, for many premium paints. Real-world DIY projects with two coats plan closer to 350 sq ft per gallon per coat.',
       },
       {
-        question: 'What is Behr paint coverage per gallon?',
+        question: 'What is typical coverage per gallon in Canada?',
         answer:
-          'Check your specific Behr product label. Premium Plus Interior often lists up to 400 sq ft/gallon on ideal surfaces; primer and exterior lines are lower. Enter that number in our calculator with your room size for gallons to buy.',
+          'Check your product label. Premium interiors often list up to 400 sq ft/gallon on ideal surfaces; primer and exterior lines are lower. Enter that number with your room size for gallons to buy.',
       },
       {
-        question: 'How much Behr paint do I need?',
+        question: 'How much paint do I need for a 12×12?',
         answer:
-          'A 12×12 room with 8 ft ceilings is about 384 sq ft of walls. Two coats at Behr’s ~400 sq ft/gallon rate ≈ 1.9 gallons — buy 2–3 gallons depending on texture and colour change. Use our how much Behr paint calculator with your room size and can label.',
+          'A 12×12 room with 8 ft ceilings is about 384 sq ft of walls. Two coats at ~400 sq ft/gallon ≈ 1.9 gallons — buy 2–3 gallons depending on texture and colour change.',
       },
       {
-        question: 'Does Behr have an online paint calculator?',
+        question: 'Are you affiliated with Behr or Benjamin Moore?',
         answer:
-          'Behr focuses on product specs and colour tools rather than a room gallon estimator. Use our free calculator with your wall measurements and the sq ft/gallon from your Behr can — the math is the same for any brand.',
+          'No. Brand names are used only to match typical Canadian label coverage. Use our free calculator with your wall measurements and the sq ft/gallon from your can.',
       },
     ],
   },
@@ -553,10 +556,10 @@ export const GUIDES: Guide[] = [
     toolPath: '/how-much-paint-do-i-need',
     toolLabel: 'How much paint calculator',
     relatedGuideSlugs: [
+      'how-to-choose-a-paint-roller',
+      'how-to-choose-a-paint-brush',
+      'painters-tape-vs-drop-cloths',
       'interior-painting-tools-and-supplies-list',
-      'how-to-prep-walls-for-painting',
-      'how-long-between-paint-coats',
-      'interior-painting-project-guide',
     ],
     sections: [
       {
@@ -1825,6 +1828,217 @@ export const GUIDES: Guide[] = [
         question: 'How much paint for trim only?',
         answer:
           'Enter zero cabinets and doors in the calculator and only linear feet of trim. Many DIYers buy a quart for small trim jobs and a gallon when casing every room.',
+      },
+    ],
+  },
+  {
+    slug: 'how-to-choose-a-paint-roller',
+    category: 'prep',
+    title: 'How to Choose a Paint Roller — Nap Size for Walls & Ceilings',
+    description:
+      '9-inch frame, 3/8″ nap for smooth drywall, 1/2–3/4″ for texture. How to pick roller covers so you do not leave fuzz or orange-peel stripes.',
+    readMinutes: 7,
+    toolPath: '/first-paint-job',
+    toolLabel: 'First paint job hub',
+    relatedGuideSlugs: [
+      'how-to-choose-a-paint-brush',
+      'painters-tape-vs-drop-cloths',
+      'interior-painting-tools-and-supplies-list',
+      'how-to-paint-a-room-step-by-step',
+    ],
+    sections: [
+      {
+        heading: 'Quick answer',
+        paragraphs: [
+          'For a typical Canadian interior wall (smooth or light orange peel): a 9-inch roller frame and a 3/8 inch nap cover. Bump to 1/2 or 3/4 inch nap only if the wall is obviously textured. Mini rollers are for doors and cabinets, not whole rooms.',
+        ],
+      },
+      {
+        heading: 'Frame vs cover — spend on the cover',
+        bullets: [
+          'Frame: metal cage that locks so the cover cannot slip sideways',
+          'Cover: the fabric that holds paint and sets texture — this is what you replace',
+          'Extension pole: screws into the handle; buy one, your shoulders will thank you',
+        ],
+        paragraphs: [
+          'A $12 frame and $8 covers beats a $4 foam kit that sheds. Foam rollers are for cabinets and ultra-smooth doors, not drywall.',
+        ],
+      },
+      {
+        heading: 'Nap size cheat sheet',
+        bullets: [
+          '1/4″ (very short) — cabinets, doors, ultra-smooth trim panels',
+          '3/8″ — most interior walls and ceilings on newish drywall',
+          '1/2″ — light knockdown or heavier orange peel',
+          '3/4″+ — heavy texture, masonry, stucco-style interiors',
+        ],
+        paragraphs: [
+          'If you are not sure, start at 3/8″. Too-long nap on smooth walls leaves an orange-peel look you did not want. Too-short nap on texture misses the valleys and looks starved.',
+        ],
+      },
+      {
+        heading: 'How to load and roll (so you do not get stripes)',
+        paragraphs: [
+          'Dip, then roll off excess on the tray ramp until the cover is even, not dripping. Start in the middle of the wall and roll a W or M, then fill in. Overlap each pass about a third. Keep a wet edge: finish a wall before you stop.',
+          'When the cover starts to mat or spit fuzz, swap it. One spare cover per colour is cheaper than sanding bits out of a dried wall. Calculate gallons first with the [how much paint calculator](/how-much-paint-do-i-need) so you are not changing covers mid-colour with an empty can.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What roller nap for smooth walls?',
+        answer:
+          '3/8 inch is the DIY default for smooth or lightly orange-peeled drywall in Canadian homes. Use 1/4 inch only on cabinets and doors.',
+      },
+      {
+        question: 'Do I need a special ceiling roller?',
+        answer:
+          'Same nap as the walls is fine. Use a dedicated cover so lint from walls does not speckle the ceiling, and use an extension pole so you are not painting over your head with a short handle.',
+      },
+      {
+        question: 'Can I wash and reuse roller covers?',
+        answer:
+          'Yes for latex if you rinse until the water runs clear before the paint dries. Many beginners still buy a fresh cover for the final coat — leftover paint in a matted nap shows as stipple.',
+      },
+    ],
+  },
+  {
+    slug: 'how-to-choose-a-paint-brush',
+    category: 'prep',
+    title: 'How to Choose a Paint Brush — Size, Angle & Bristle Type',
+    description:
+      'Use a 2–2½ inch angled sash brush to cut in walls and ceilings. Synthetic bristles for latex. Why cheap foam brushes streak on walls.',
+    readMinutes: 6,
+    toolPath: '/first-paint-job',
+    toolLabel: 'First paint job hub',
+    relatedGuideSlugs: [
+      'how-to-choose-a-paint-roller',
+      'painters-tape-vs-drop-cloths',
+      'how-to-paint-a-room-step-by-step',
+      'interior-painting-tools-and-supplies-list',
+    ],
+    sections: [
+      {
+        heading: 'Quick answer',
+        paragraphs: [
+          'Buy one 2 to 2½ inch angled sash brush with synthetic bristles. That is the cutting-in tool for walls, ceilings, and around trim. A second 1½ inch angled brush is optional for tight window sash. Do not use a wide square wall brush to cut a ceiling line.',
+        ],
+      },
+      {
+        heading: 'Why angled, not square',
+        paragraphs: [
+          'The angle lets you rest the long side against trim or the ceiling while the tip lays a 2–3 inch band. Square brushes dump too much paint into the corner and wobble off the line.',
+          'Cutting in is the band you brush before the roller. Roll into that band while it is still wet so you do not see a picture-frame of brush marks.',
+        ],
+      },
+      {
+        heading: 'Bristle type (Canada, latex walls)',
+        bullets: [
+          'Synthetic (nylon/polyester) — latex and acrylic, which is almost every interior wall can',
+          'Natural bristle — oil-based / alkyd only; they splay in water-based paint',
+          'Foam — small furniture and crafts, not a 12×12 bedroom',
+        ],
+        paragraphs: [
+          'If the can says latex, water-based, or acrylic, you want synthetic. That is the default at Home Depot, Canadian Tire, Cloverdale, and Benjamin Moore dealers.',
+        ],
+      },
+      {
+        heading: 'How to tell a decent brush in the aisle',
+        bullets: [
+          'Bristles are flagged (split tips) and spring back when you bend them',
+          'The ferrule (metal band) is tight — no rattling',
+          'A chisel edge, not a chopped-off square',
+        ],
+        paragraphs: [
+          'Wash latex out with soap and water before it skins. Hang or lay flat to dry. A $15 brush that lasts ten rooms beats three $4 brushes that streak on room one. Pair it with the right [roller](/guides/how-to-choose-a-paint-roller) and [tape vs drop cloths](/guides/painters-tape-vs-drop-cloths).',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What size paint brush for cutting in?',
+        answer:
+          '2 to 2½ inches, angled sash, is the standard for walls and ceilings. Larger brushes hold more paint but are harder to steer along trim.',
+      },
+      {
+        question: 'Do I need a separate trim brush?',
+        answer:
+          'The same 2½ inch angled brush can do baseboards if you load it lightly. A 1½ inch helps on narrow window bars. You do not need a whole brush set for one bedroom.',
+      },
+      {
+        question: 'Why does my brush leave streaks?',
+        answer:
+          'Usually a cheap foam or flared bristle pack, or too much paint on the tips. Load the first third of the bristles, wipe the ferrule, and lay off (a light finishing stroke) in one direction.',
+      },
+    ],
+  },
+  {
+    slug: 'painters-tape-vs-drop-cloths',
+    category: 'prep',
+    title: 'Painter’s Tape vs Drop Cloths — Do You Need Both?',
+    description:
+      'Yes: drop cloths protect floors and furniture; painter’s tape protects trim and glass. Canvas vs plastic, when to skip tape, and when to pull it.',
+    readMinutes: 7,
+    toolPath: '/first-paint-job',
+    toolLabel: 'First paint job hub',
+    relatedGuideSlugs: [
+      'how-to-paint-a-room-step-by-step',
+      'how-to-choose-a-paint-roller',
+      'how-to-choose-a-paint-brush',
+      'interior-painting-tools-and-supplies-list',
+    ],
+    sections: [
+      {
+        heading: 'Quick answer',
+        paragraphs: [
+          'Use both. A drop cloth (canvas on hard floors, or plastic taped on carpet) catches roller spray and tray spills. Painter’s tape keeps paint off baseboards, window glass, and fixtures. Tape is not a floor covering. A cloth is not a sharp trim line.',
+        ],
+      },
+      {
+        heading: 'Drop cloths — canvas vs plastic',
+        bullets: [
+          'Canvas: stays put, absorbs drips, safer on hardwood and stairs',
+          'Plastic (poly): cheap furniture cover; slippery underfoot on hard floors — tape it down on carpet',
+          'Roving: cover everything you cannot move, including the heating register if it is in the floor',
+        ],
+        paragraphs: [
+          'Roller spray travels farther than you think. Cover a few feet of floor beyond the wall you are working, not a postage stamp under the ladder.',
+        ],
+      },
+      {
+        heading: 'When to tape (and when to skip it)',
+        bullets: [
+          'Tape: baseboards, window sash, door casings, ceiling if you are not confident cutting in',
+          'Skip tape: if you can cut a clean line with a 2½″ angled brush and your hand is steady — many pros skip wall-to-trim tape',
+          'Never skip: covering the floor, and masking hardware you cannot remove',
+        ],
+        paragraphs: [
+          'Press the tape edge with a putty knife or credit card so paint cannot seep. Cheap tape on dusty trim leaks. Wipe the trim first.',
+        ],
+      },
+      {
+        heading: 'When to pull the tape',
+        paragraphs: [
+          'Best: after the last coat, while it is still slightly tacky, at a 45° angle back on itself. Waiting until the paint is rock-hard can peel a skin of wall paint off with the tape.',
+          'If you must leave tape overnight, score the edge with a utility knife before pulling. Pair this with [how to paint a room](/guides/how-to-paint-a-room-step-by-step) so ceiling → walls → trim order matches what you taped.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I paint a room with only tape and no drop cloth?',
+        answer:
+          'You will almost certainly drip on the floor. Tape does not catch roller spray. Use a cloth (or taped plastic on carpet) even if you are “being careful.”',
+      },
+      {
+        question: 'Blue tape or green tape?',
+        answer:
+          'Both are painter’s tape. Green (FrogTape-style) often seals a bit tighter on trim if you press it well. Blue is fine for most DIY bedrooms. Avoid beige masking tape — it tears paint when it comes off.',
+      },
+      {
+        question: 'Should I tape the ceiling or cut it in freehand?',
+        answer:
+          'Beginners often tape the ceiling-wall joint for the first room. Once your angled brush is steady, cutting in is faster than taping every corner. Either is valid; rushing freehand on day one is how you get a wavy ceiling line.',
       },
     ],
   },

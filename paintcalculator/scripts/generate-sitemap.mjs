@@ -32,6 +32,16 @@ const LANDING_SLUGS = [
   'ceiling-paint-calculator',
   'paint-cost-estimator',
   'cabinet-trim-paint-calculator',
+  'canadian-paint-coverage',
+  'benjamin-moore-paint-calculator',
+  'sherwin-williams-paint-calculator',
+  'cloverdale-paint-calculator',
+  'dulux-paint-calculator',
+  'sico-paint-calculator',
+  'beauti-tone-paint-calculator',
+  'cil-paint-calculator',
+  'valspar-paint-calculator',
+  'first-paint-job',
 ];
 
 /** Keep in sync with src/lib/guides/guides.ts */
@@ -61,6 +71,9 @@ const GUIDE_SLUGS = [
   'how-long-between-paint-coats',
   'painting-over-oil-based-paint',
   'how-to-paint-cabinets-and-trim',
+  'how-to-choose-a-paint-roller',
+  'how-to-choose-a-paint-brush',
+  'painters-tape-vs-drop-cloths',
 ];
 
 function toSitemapLoc(routePath) {

@@ -33,6 +33,9 @@ const GUIDE_PHOTOS = {
   'how-long-between-paint-coats': '1571432',
   'painting-over-oil-based-paint': '1571435',
   'how-to-paint-cabinets-and-trim': '1571440',
+  'how-to-choose-a-paint-roller': '1571432',
+  'how-to-choose-a-paint-brush': '1571440',
+  'painters-tape-vs-drop-cloths': '1571425',
 };
 
 const FALLBACK_POOL = [

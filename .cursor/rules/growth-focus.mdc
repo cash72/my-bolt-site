@@ -10,7 +10,7 @@ alwaysApply: true
 If this run is a nightly SEO / portfolio growth / deepen sprint:
 
 1. **Stop.** Do not open a new growth PR. Do not rotate to Metabolic, Mulch, Drywall, Satoshi, or Landscape. Do not change titles, H1s, or FAQs on those sites.
-2. Paint Behr titles that already get clicks (`How Much Behr Paint Do I Need?`, `Behr Paint Coverage Calculator (Free)`, homepage `Free Behr Paint Calculator Canada — Enter Room Size`) are locked. Do not rewrite them.
-3. Allowed work only: Paint / HVAC / Flooring crawl, index, deploy, or GSC follow-up for URLs already in the latest ranking PR. No new thin landing pages.
+2. Paint is a **multi-brand** Canadian calculator (Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux, and others) plus beginner DIY facts (roller, brush, tape vs drop cloths). Do not revert the homepage to Behr-only.
+3. Allowed work only: Paint / HVAC / Flooring crawl, index, deploy, or GSC follow-up. No new thin landing pages for unused portfolio sites.
 
 The Cursor automation “Nightly SEO growth sprint” must stay **disabled** in Automations until HVAC and Flooring show GSC impressions.

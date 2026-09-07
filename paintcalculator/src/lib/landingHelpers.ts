@@ -41,6 +41,17 @@ export function getGuidesForLanding(page: LandingPage): Guide[] {
       .filter((g): g is Guide => g !== undefined);
   }
 
+  if (page.slug === 'first-paint-job' || page.slug === 'how-much-paint-do-i-need') {
+    return [
+      'how-to-choose-a-paint-roller',
+      'how-to-choose-a-paint-brush',
+      'painters-tape-vs-drop-cloths',
+      'how-to-paint-a-room-step-by-step',
+    ]
+      .map((slug) => getGuideBySlug(slug))
+      .filter((g): g is Guide => g !== undefined);
+  }
+
   if (page.slug === 'paint-cost-estimator') {
     return ['how-much-paint-for-a-room', 'paint-coverage-calculator', 'primer-before-painting']
       .map((slug) => getGuideBySlug(slug))
@@ -58,8 +69,56 @@ export function getGuidesForLanding(page: LandingPage): Guide[] {
 }
 
 const P0_CROSS_LINK_SLUGS: Partial<Record<string, string[]>> = {
-  'how-much-paint-do-i-need': ['paint-coverage-calculator', 'room-paint-calculator', 'interior-paint-calculator'],
-  'paint-coverage-calculator': ['how-much-paint-do-i-need', 'room-paint-calculator'],
+  'first-paint-job': [
+    'how-much-paint-do-i-need',
+    'canadian-paint-coverage',
+    'room-paint-calculator',
+  ],
+  'how-much-paint-do-i-need': [
+    'first-paint-job',
+    'canadian-paint-coverage',
+    'paint-coverage-calculator',
+    'benjamin-moore-paint-calculator',
+  ],
+  'paint-coverage-calculator': [
+    'canadian-paint-coverage',
+    'how-much-paint-do-i-need',
+    'dulux-paint-calculator',
+  ],
+  'canadian-paint-coverage': [
+    'benjamin-moore-paint-calculator',
+    'sherwin-williams-paint-calculator',
+    'cloverdale-paint-calculator',
+    'dulux-paint-calculator',
+  ],
+  'benjamin-moore-paint-calculator': [
+    'canadian-paint-coverage',
+    'sherwin-williams-paint-calculator',
+    'how-much-paint-do-i-need',
+  ],
+  'sherwin-williams-paint-calculator': [
+    'canadian-paint-coverage',
+    'cloverdale-paint-calculator',
+    'benjamin-moore-paint-calculator',
+  ],
+  'cloverdale-paint-calculator': [
+    'canadian-paint-coverage',
+    'sherwin-williams-paint-calculator',
+    'how-much-paint-do-i-need',
+  ],
+  'dulux-paint-calculator': ['canadian-paint-coverage', 'sico-paint-calculator', 'cil-paint-calculator'],
+  'sico-paint-calculator': ['canadian-paint-coverage', 'dulux-paint-calculator', 'how-much-paint-do-i-need'],
+  'beauti-tone-paint-calculator': [
+    'canadian-paint-coverage',
+    'dulux-paint-calculator',
+    'how-much-paint-do-i-need',
+  ],
+  'cil-paint-calculator': ['canadian-paint-coverage', 'dulux-paint-calculator', 'how-much-paint-do-i-need'],
+  'valspar-paint-calculator': [
+    'canadian-paint-coverage',
+    'how-much-paint-do-i-need',
+    'sherwin-williams-paint-calculator',
+  ],
   'room-paint-calculator': ['how-much-paint-do-i-need', 'interior-paint-calculator'],
   'interior-paint-calculator': ['how-much-paint-do-i-need', 'room-paint-calculator'],
   'wallpaper-calculator': ['how-many-rolls-of-wallpaper', 'accent-wall-wallpaper-calculator'],
@@ -94,9 +153,9 @@ export function getRelatedLandingPages(page: LandingPage, limit = 4): LandingPag
 }
 
 export const FEATURED_HOME_GUIDES = [
-  'interior-painting-project-guide',
-  'identify-oil-vs-latex-paint-on-walls',
-  'how-to-choose-primer-interior-walls',
+  'how-to-choose-a-paint-roller',
+  'how-to-choose-a-paint-brush',
+  'painters-tape-vs-drop-cloths',
   'how-to-paint-a-room-step-by-step',
 ] as const;
 

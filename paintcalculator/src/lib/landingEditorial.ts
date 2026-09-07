@@ -1,3 +1,5 @@
+import { BRAND_AFFILIATION_DISCLAIMER, CANADIAN_PAINT_BRANDS } from './canadianPaintBrands';
+
 export interface LandingEditorialSection {
   heading: string;
   paragraphs: string[];
@@ -11,14 +13,14 @@ export interface LandingEditorial {
 export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
   'how-much-paint-do-i-need': {
     intro:
-      'Standing at the paint counter with a Behr can (or any brand), the question is always: how many gallons? This calculator turns your room dimensions into a gallon count — with coats, waste, and coverage from your paint can label.',
+      'Standing at the paint counter — Home Depot, a Benjamin Moore dealer, Sherwin-Williams, Cloverdale, Canadian Tire — the question is always: how many gallons? This calculator turns your room dimensions into a gallon count using the Coverage line on the can you bought.',
     sections: [
       {
-        heading: 'How much Behr paint do I need? Worked examples',
+        heading: 'How much paint for a 12×12? Worked examples',
         paragraphs: [
-          '12×12 room, 8 ft ceilings, walls only ≈ 384 sq ft. Two coats at Behr’s 400 sq ft/gallon label rate = 768 ÷ 400 ≈ 1.9 gallons — buy 2 gallons if walls are smooth and primed. Texture or a big colour change? Use 350 sq ft/gallon and buy 3.',
-          '10×12 bedroom with two doors and one window: deduct openings in the calculator, keep two coats, and expect roughly 2 gallons of Behr Premium Plus Interior for walls. Always confirm with the exact “Coverage” line on your can.',
-          'For coverage-only math (sq ft ÷ label rate), use the [Behr paint coverage calculator](/paint-coverage-calculator). Stay here when you want coats, waste, and store quantities in one pass.',
+          '12×12 room, 8 ft ceilings, walls only ≈ 384 sq ft. Two coats at 400 sq ft/gallon = 768 ÷ 400 ≈ 1.9 gallons — buy 2 gallons if walls are smooth and primed. Texture or a big colour change? Use 350 sq ft/gallon and buy 3.',
+          'That 400 sq ft/gallon figure is typical of Behr Premium Plus, Benjamin Moore Regal Select, Dulux Diamond, Cloverdale interiors, and similar lines — but your can wins. 10×12 bedroom with two doors and one window: deduct openings, keep two coats, expect roughly 2 gallons.',
+          'For coverage-only math (sq ft ÷ label rate), use the [paint coverage calculator](/paint-coverage-calculator). Brand-specific pages: [Benjamin Moore](/benjamin-moore-paint-calculator), [Sherwin-Williams](/sherwin-williams-paint-calculator), [Cloverdale](/cloverdale-paint-calculator), [Dulux](/dulux-paint-calculator). Full chart: [paint coverage by brand in Canada](/canadian-paint-coverage).',
         ],
       },
       {
@@ -38,7 +40,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       {
         heading: 'Canadian paint labels and coverage',
         paragraphs: [
-          'Coverage on Canadian cans is listed in square feet per litre or per gallon depending on the brand. Benjamin Moore, Sherwin-Williams, and Behr Canada all print coverage on the back — enter that number in project settings for the most accurate result.',
+          'Coverage on Canadian cans is listed in square feet per litre or per gallon depending on the brand. Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux, Sico, Beauti-Tone, CIL, Valspar, and Behr all print coverage on the back — enter that number in project settings.',
           'Flat and ceiling paints often cover more than high-gloss trim. Textured walls and deep colours cover less — the 10% waste setting helps, but add extra for orange peel or knockdown texture.',
         ],
       },
@@ -156,22 +158,20 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
 
   'paint-coverage-calculator': {
     intro:
-      'How many square feet does a gallon of Behr paint cover? It depends on your can label — not a single universal number. Enter your room dimensions and the sq ft per gallon from Behr, Benjamin Moore, or any brand to get an accurate gallon count per coat.',
+      'How many square feet does a gallon of paint cover in Canada? It depends on your can label — not a single brand. Enter room dimensions and the sq ft per gallon from Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux, or any other lid.',
     sections: [
       {
-        heading: 'Behr paint calculator — how to use this tool',
+        heading: 'How to use this coverage calculator',
         paragraphs: [
-          'If you searched “Behr paint calculator” or “Behr paint coverage calculator,” you are in the right place. Read the Coverage line on your Behr can, enter room size above, set sq ft per gallon to that number, and get gallons per coat.',
-          'Typical Behr interior ranges (one coat, smooth primed drywall): Premium Plus Interior up to ~400 sq ft/gallon; Premium Plus Ultra and Marquee similar on flat walls; ceiling flat often 350–400 sq ft/gallon. Exterior and primer lines list lower numbers — always use your exact can.',
-          'This calculator is brand-neutral: the same workflow works for Sherwin-Williams, Benjamin Moore, or store brands at Home Depot Canada. Need coats and waste as a shopping list? Use [how much Behr paint do I need](/how-much-paint-do-i-need).',
+          'Read the Coverage line on your can, enter room size above, set sq ft per gallon to that number, and get gallons per coat. Typical Canadian interiors on smooth primed drywall: about 350–400 sq ft/gallon for Behr Premium Plus, Benjamin Moore Regal Select / Aura, Sherwin-Williams SuperPaint / Duration, Cloverdale interiors, and Dulux Diamond / Lifemaster.',
+          'Need coats and waste as a shopping list? Use [how much paint do I need](/how-much-paint-do-i-need). Comparing brands side by side? Use the [Canadian paint coverage chart](/canadian-paint-coverage).',
         ],
       },
       {
-        heading: 'How much does a gallon of Behr paint cover? Worked examples',
+        heading: 'How much does a gallon cover? Worked examples',
         paragraphs: [
-          'One gallon of Behr Premium Plus Interior at the common 400 sq ft/gallon label covers about 400 sq ft of smooth wall in one coat — roughly the walls of a small 10×10 room (320 sq ft) with product left over, or most of a 12×12 room’s walls (384 sq ft) in a single coat.',
-          'Two coats doubles the paint: that same 12×12 room needs ~768 ÷ 400 ≈ 1.9 gallons — buy 2 gallons if walls are smooth and primed. Texture, primer, or a dark-to-light colour change? Drop to 350 sq ft/gallon and plan 3 gallons.',
-          'For a full chart by Behr product type, see [Behr paint coverage per gallon](/guides/paint-coverage-per-gallon). For coats + waste as a store list, stay with [how much Behr paint do I need](/how-much-paint-do-i-need).',
+          'One gallon at 400 sq ft/gallon covers about 400 sq ft of smooth wall in one coat — most of a 12×12 room’s walls (384 sq ft) in a single coat. Two coats doubles the paint: ~1.9 gallons, buy 2 if walls are easy, 3 if textured or a dark-to-light change.',
+          'For brand-specific pages see [Benjamin Moore](/benjamin-moore-paint-calculator), [Sherwin-Williams](/sherwin-williams-paint-calculator), [Cloverdale](/cloverdale-paint-calculator), and [Dulux](/dulux-paint-calculator). Home Depot cans: [how much paint](/how-much-paint-do-i-need). Full chart: [coverage per gallon guide](/guides/paint-coverage-per-gallon).',
         ],
       },
       {
@@ -388,8 +388,58 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       },
     ],
   },
+
+  'first-paint-job': {
+    intro:
+      'First room? Measure, buy gallons, then kit: roller, brush, cloths, tape. The cards below are the aisle answers. The calculator above keeps you from running out mid-wall.',
+    sections: [
+      {
+        heading: 'The order that saves beginners',
+        paragraphs: [
+          '1) Calculate gallons. 2) Patch and clean. 3) Prime if the wall needs it. 4) Ceiling, then walls, then trim. 5) Pull tape while the last coat is still a bit tacky.',
+          'Deep dives: [how to choose a roller](/guides/how-to-choose-a-paint-roller), [how to choose a brush](/guides/how-to-choose-a-paint-brush), [tape vs drop cloths](/guides/painters-tape-vs-drop-cloths), [step-by-step room](/guides/how-to-paint-a-room-step-by-step).',
+        ],
+      },
+    ],
+  },
+
+  'canadian-paint-coverage': {
+    intro:
+      'Canadian paint aisles are not one brand. Home Depot is usually Behr, Lowe’s is usually Valspar, Canadian Tire is Dulux or CIL, Home Hardware is Beauti-Tone, dealers carry Benjamin Moore, Sherwin-Williams stores carry Duration and SuperPaint, and Cloverdale is the Western Canada staple. Coverage still comes from the can.',
+    sections: [
+      {
+        heading: 'How to use the brand chart',
+        paragraphs: [
+          'The table on this page is a planning range for interior latex on smooth primed drywall. Click a brand for a 12×12 worked example, then enter your room size in the calculator with the Coverage number from that specific can.',
+          'We are an independent calculator — not a manufacturer colour tool, not a store affiliate page. See the disclaimer under the table.',
+        ],
+      },
+      {
+        heading: '12×12 room (any of these brands)',
+        paragraphs: [
+          '384 sq ft of walls × two coats = 768 sq ft to cover. At 400 sq ft/gallon that is 1.9 gallons (buy 2). At 350 sq ft/gallon that is 2.2 gallons (buy 3). Texture, primer, and colour change are why two brands with the same label rate still need different carts.',
+        ],
+      },
+    ],
+  },
 };
 
+const BRAND_EDITORIAL: Record<string, LandingEditorial> = Object.fromEntries(
+  CANADIAN_PAINT_BRANDS.map((brand) => [
+    brand.slug,
+    {
+      intro: brand.intro,
+      sections: [
+        ...brand.editorial,
+        {
+          heading: 'Independent calculator — not a brand site',
+          paragraphs: [BRAND_AFFILIATION_DISCLAIMER],
+        },
+      ],
+    },
+  ]),
+);
+
 export function getLandingEditorial(slug: string): LandingEditorial | undefined {
-  return LANDING_EDITORIAL[slug];
+  return LANDING_EDITORIAL[slug] ?? BRAND_EDITORIAL[slug];
 }

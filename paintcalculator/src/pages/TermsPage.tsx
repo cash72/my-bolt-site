@@ -13,7 +13,7 @@ export default function TermsPage() {
   return (
     <LegalPageLayout title="Terms of Use">
       <p>
-        <strong>Last updated:</strong> July 26, 2026
+        <strong>Last updated:</strong> September 7, 2026
       </p>
       <p>
         Welcome to {SITE_NAME} ({SITE_URL}). By using this website you agree to these Terms of Use. If you do not
@@ -48,6 +48,13 @@ export default function TermsPage() {
         Site design, original writing, and compilation of tools and guides are owned by {SITE_NAME} or its licensors.
         Stock photos are credited where shown and remain the property of their photographers / providers. You may link
         to our pages; you may not frame the site or present our content as your own.
+      </p>
+
+      <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Trademarks</h2>
+      <p>
+        Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux, Sico, Beauti-Tone, CIL, Valspar, and related product
+        names are trademarks of their respective owners. We use those names only to identify typical coverage printed on
+        Canadian product labels. {SITE_NAME} is not affiliated with, endorsed by, or sponsored by those companies.
       </p>
 
       <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Advertising and affiliates</h2>

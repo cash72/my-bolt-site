@@ -21,6 +21,16 @@
     "/ceiling-paint-calculator",
     "/paint-cost-estimator",
     "/cabinet-trim-paint-calculator",
+    "/canadian-paint-coverage",
+    "/benjamin-moore-paint-calculator",
+    "/sherwin-williams-paint-calculator",
+    "/cloverdale-paint-calculator",
+    "/dulux-paint-calculator",
+    "/sico-paint-calculator",
+    "/beauti-tone-paint-calculator",
+    "/cil-paint-calculator",
+    "/valspar-paint-calculator",
+    "/first-paint-job",
     "/guides/primer-before-painting",
     "/guides/how-to-repair-walls-before-painting",
     "/guides/how-to-patch-drywall-holes",
@@ -45,7 +55,10 @@
     "/guides/interior-painting-tools-and-supplies-list",
     "/guides/how-long-between-paint-coats",
     "/guides/painting-over-oil-based-paint",
-    "/guides/how-to-paint-cabinets-and-trim"
+    "/guides/how-to-paint-cabinets-and-trim",
+    "/guides/how-to-choose-a-paint-roller",
+    "/guides/how-to-choose-a-paint-brush",
+    "/guides/painters-tape-vs-drop-cloths"
   ],
   "landingPaths": [
     "/room-paint-calculator",
@@ -61,7 +74,17 @@
     "/exterior-paint-calculator",
     "/ceiling-paint-calculator",
     "/paint-cost-estimator",
-    "/cabinet-trim-paint-calculator"
+    "/cabinet-trim-paint-calculator",
+    "/canadian-paint-coverage",
+    "/benjamin-moore-paint-calculator",
+    "/sherwin-williams-paint-calculator",
+    "/cloverdale-paint-calculator",
+    "/dulux-paint-calculator",
+    "/sico-paint-calculator",
+    "/beauti-tone-paint-calculator",
+    "/cil-paint-calculator",
+    "/valspar-paint-calculator",
+    "/first-paint-job"
   ],
   "guidePaths": [
     "/guides/primer-before-painting",
@@ -88,6 +111,9 @@
     "/guides/interior-painting-tools-and-supplies-list",
     "/guides/how-long-between-paint-coats",
     "/guides/painting-over-oil-based-paint",
-    "/guides/how-to-paint-cabinets-and-trim"
+    "/guides/how-to-paint-cabinets-and-trim",
+    "/guides/how-to-choose-a-paint-roller",
+    "/guides/how-to-choose-a-paint-brush",
+    "/guides/painters-tape-vs-drop-cloths"
   ]
 }

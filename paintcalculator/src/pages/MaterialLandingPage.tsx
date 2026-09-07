@@ -11,6 +11,9 @@ import { getGuidesForLanding, getRelatedLandingPages } from '../lib/landingHelpe
 import { getLandingPageBySlug } from '../lib/landingPages';
 import { renderEditorialText } from '../lib/renderEditorialText';
 import { canonicalUrl, SITE_NAME } from '../lib/site';
+import BrandCoverageTable from '../components/BrandCoverageTable';
+import BrandDisclaimer from '../components/BrandDisclaimer';
+import DiyStarterSection from '../components/DiyStarterSection';
 
 function Breadcrumbs({ label }: { label: string }) {
   return (
@@ -125,6 +128,16 @@ export default function MaterialLandingPage() {
         </aside>
       )}
 
+      {page.showBrandCoverageTable && (
+        <section className="mb-8" aria-labelledby="brand-coverage-heading">
+          <h2 id="brand-coverage-heading" className="text-lg font-semibold mb-3">
+            Typical coverage by brand (Canada)
+          </h2>
+          <BrandCoverageTable />
+          <BrandDisclaimer className="mt-3" />
+        </section>
+      )}
+
       {page.kind === 'wallpaper' ? (
         <WallpaperCalculator
           heading={page.h1}
@@ -138,6 +151,8 @@ export default function MaterialLandingPage() {
           subheading={pageIntro ?? page.intro}
         />
       )}
+
+      {page.showDiyStarter && <DiyStarterSection hideHubLink={page.slug === 'first-paint-job'} />}
 
       {editorial && (
         <section className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800">
@@ -219,6 +234,8 @@ export default function MaterialLandingPage() {
           </ul>
         </section>
       )}
+
+      {page.showBrandDisclaimer && !page.showBrandCoverageTable && <BrandDisclaimer className="mt-6" />}
 
       <p className="mt-10 text-xs text-slate-400">
         {SITE_NAME} · {canonicalUrl(page.path)}
