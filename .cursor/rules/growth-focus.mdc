@@ -14,3 +14,22 @@ If this run is a nightly SEO / portfolio growth / deepen sprint:
 3. Allowed work only: Paint / HVAC / Flooring crawl, index, deploy, or GSC follow-up. No new thin landing pages for unused portfolio sites.
 
 The Cursor automation “Nightly SEO growth sprint” must stay **disabled** in Automations until HVAC and Flooring show GSC impressions.
+
+## Freeze starts now — do not slide the clock
+
+Do **not** tell the operator to wait 2–4 weeks and then ship another title, H1, brand, or DIY batch. That 2–4 week figure is Google recrawling a **stable** URL. It is not a reason to delay freeze, add homepage splash, or reset CTR.
+
+Each new title batch restarts measurement and **slides** the original compounding window. Titles and H1s on Paint / HVAC / Flooring money pages are frozen as of this PR. Request indexing once after deploy. Then leave them.
+
+## Earnings framework (do not invert)
+
+Repo start: **2026-06-22**. Today (~2026-09-07) is about **month 2.5**, not month 6.
+
+| Horizon | What it is | Number |
+| --- | --- | --- |
+| Month 6 (~Dec 2026) | Compounding model **if** search impressions grow | up to **~$300/mo** |
+| Months 12–24 (peak ~month 18, late 2027) | Original time-to-peak | still the plan |
+| Peak RPM model in `adsense-growth.mjs` | Later stretch at ~135k PV | **$1,500–$2,000/mo** |
+| Current GSC (~20 Paint clicks / 28 days, ads off) | Snapshot of traffic **today**, not a revised ceiling | a few dollars/mo **if** ads were on |
+
+Do not replace the month-6 **$300** model with the current-click snapshot. The snapshot is evidence compounding has not started (eight-site split, nightly title churn, HVAC/Flooring near-zero impressions). The fix is freeze + get crawled — not another 4-week wait, and not a new earnings ceiling of $3.

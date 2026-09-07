@@ -2,10 +2,19 @@
   "pauseNightlyPortfolioGrowth": true,
   "reason": "Concentrate ranking on the only sites with (or nearest) search demand. Eight-site nightly title churn is paused.",
   "focusSites": ["paintcalculator", "hvaccalculator", "flooringboxcalculator"],
-  "pausedUntil": "GSC shows HVAC and Flooring with impressions, then clicks, comparable to Paint",
+  "titleFreezeStarted": "2026-09-07",
+  "compoundingClockStart": "2026-06-22",
+  "month6Target": {
+    "around": "2026-12",
+    "upToUsdPerMonth": 300,
+    "note": "Original framework if impressions compound. Not replaced by today's ~20-click snapshot."
+  },
+  "pausedUntil": "Titles stay frozen. Measure through month 6 (Dec 2026). Do not add another 2–4 week wait then ship a splash.",
   "doNot": [
     "Rotate a different portfolio site each night",
     "Open deepen PRs for Metabolic, Mulch, Drywall, Satoshi, or Landscape",
-    "Change Paint titles back to Behr-only showcasing"
+    "Change Paint titles back to Behr-only showcasing",
+    "Tell the operator to wait 2–4 weeks and then change titles again",
+    "Treat current-click dollars (~$3/mo) as a revised earnings ceiling instead of the month-6 $300 model"
   ]
 }
