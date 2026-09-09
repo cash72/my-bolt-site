@@ -209,6 +209,35 @@ async function auditSite(site, report) {
     }
   }
 
+  const indexHtmlPath = path.join(ROOT, site.dir, 'index.html');
+  if (await exists(indexHtmlPath)) {
+    const indexHtml = await readFile(indexHtmlPath, 'utf8');
+    if (!/<title>[^<]+<\/title>/i.test(indexHtml)) {
+      addIssue('error', 'metadata', null, 'index.html is missing a <title> element');
+    }
+    if (/^\s*title:\s*'/m.test(indexHtml)) {
+      addIssue(
+        'error',
+        'metadata',
+        null,
+        'index.html contains a TypeScript title property instead of a <title> tag',
+      );
+    }
+  }
+
+  const privacyPagePath = path.join(ROOT, site.dir, 'src/pages/PrivacyPage.tsx');
+  if (await exists(privacyPagePath)) {
+    const privacySrc = await readFile(privacyPagePath, 'utf8');
+    if (!privacySrc.includes('Ads Settings') || !privacySrc.includes('aboutads.info')) {
+      addIssue(
+        'error',
+        'ads',
+        `${base}/privacy/`,
+        'Privacy policy source is missing AdSense Ads Settings / aboutads disclosures',
+      );
+    }
+  }
+
   if (runBuilds) {
     const buildStarted = Date.now();
     const typecheck = await runCommand('npm', ['run', 'typecheck'], path.join(ROOT, site.dir));
@@ -273,6 +302,15 @@ async function auditSite(site, report) {
   const adsBody = essentialBodies.get('ads')?.body || '';
   if (!adsBody.includes(`google.com, pub-${PUBLISHER_ID.replace('ca-pub-', '')}`)) {
     addIssue('error', 'ads', `${base}/ads.txt`, 'ads.txt is missing the expected AdSense publisher record');
+  }
+  const homeBody = essentialBodies.get('home')?.body || '';
+  if (/\btitle:\s*'/.test(homeBody.slice(0, 5000))) {
+    addIssue(
+      'error',
+      'metadata',
+      `${base}/`,
+      'Homepage HTML contains a leaked TypeScript title property; the document <title> tag is broken',
+    );
   }
   const robotsBody = essentialBodies.get('robots')?.body || '';
   if (!robotsBody.includes(`${base}/sitemap.xml`)) {
