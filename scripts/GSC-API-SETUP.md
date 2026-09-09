@@ -130,9 +130,16 @@ systemctl --user daemon-reload
 systemctl --user enable --now gsc-nightly.timer
 ```
 
-## Pairing with the Cursor nightly SEO automation
-1. **This PC script (8pm PT):** build, crawl, SEO/contracts audit, readable report, sitemap submission, and P0 inspection.
-2. **Same-day follow-up:** fix any item marked `ACTION NEEDED` in `reports/nightly-latest.md`.
+## Pairing with Cursor
+
+The 8pm PC job is **report-only**. It does not edit files, commit, open pull requests, or deploy.
+
+Keep the Cursor automation **“Nightly SEO growth sprint” disabled** while `sites.growth-focus.json` has `pauseNightlyPortfolioGrowth: true`. That automation is what opened a new deepen PR every night. The systemd timer is a different thing (audit + GSC).
+
+Deploy live sites only from **merged `main`**. Do not npm-deploy `main` while privacy/title fixes still sit on an unmerged branch — that republishes the old tree and looks like the same bugs came back.
+
+1. **This PC script (8pm PT):** build, crawl, SEO/contracts audit, readable report, sitemap submission, and P0 inspection. No site edits.
+2. **If the report says ACTION NEEDED:** fix on a branch, merge to `main`, then deploy from that `main`. Do not patch live from a stale checkout.
 3. **You (weekly):** for URLs listed as needing manual indexing, open GSC → URL Inspection → Request indexing.
 
 After credentials are in place, tell the agent “GSC API is connected” so future cloud runs can assume `npm run gsc:nightly` works on this machine or via secrets in Cloud Agents.

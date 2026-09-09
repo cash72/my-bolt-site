@@ -12,6 +12,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { loadRepoEnv } from './lib/env.mjs';
 import { createClient, ensurePagesProject } from './lib/cloudflare.mjs';
+import { checkSiteShellContracts } from './lib/shell-contracts.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -58,6 +59,15 @@ function run(cmd, opts = {}) {
 
 console.log(`\nDeploying ${site.dir} → Cloudflare Pages project "${site.pagesProject}"`);
 console.log(`Site URL: ${site.siteUrl}\n`);
+
+const shell = await checkSiteShellContracts(site.dir);
+if (!shell.ok) {
+  console.error('Deploy blocked: shell contracts failed. Fix these before publishing:');
+  for (const error of shell.errors) {
+    console.error(`  • ${error.file}: ${error.message}`);
+  }
+  process.exit(1);
+}
 
 run('npm ci', { cwd: sitePath });
 run('npx puppeteer browsers install chrome', { cwd: sitePath });

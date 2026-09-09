@@ -28,6 +28,7 @@
     "gsc:nightly:dry": "node scripts/gsc-api-nightly.mjs --dry-run",
     "audit:portfolio": "node scripts/portfolio-health-audit.mjs",
     "audit:portfolio:build": "node scripts/portfolio-health-audit.mjs --build",
+    "audit:contracts": "node scripts/check-shell-contracts.mjs",
     "portfolio:nightly": "node scripts/nightly-portfolio.mjs",
     "portfolio:nightly:dry": "node scripts/nightly-portfolio.mjs --dry-run --skip-build"
   },
