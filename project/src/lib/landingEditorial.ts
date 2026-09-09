@@ -236,7 +236,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'Popular USD satoshi lookups',
         paragraphs: [
           'Fixed-amount pages load faster for SEO and sharing: [1,000 sats](/1000-satoshi-to-usd), [50,000 sats](/50000-satoshi-to-usd), [100,000 sats](/100000-satoshi-to-usd), [500,000 sats](/500000-satoshi-to-usd), and [10,000,000 sats](/10000000-satoshi-to-usd) each have dedicated live pages with extra context.',
-          'For euros, pounds, or Canadian dollars, use the [Satoshi to EUR](/satoshi-to-eur), [GBP](/satoshi-to-gbp), or [CAD](/satoshi-to-cad) hubs in our [conversions directory](/conversions).',
+          'For euros, pounds, Canadian or Australian dollars, or Indian rupees, use the [Satoshi to EUR](/satoshi-to-eur), [GBP](/satoshi-to-gbp), [CAD](/satoshi-to-cad), [AUD](/satoshi-to-aud), or [INR](/satoshi-to-inr) hubs in our [conversions directory](/conversions).',
         ],
       },
     ],
@@ -263,7 +263,7 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
       {
         heading: 'Other fiat entry points',
         paragraphs: [
-          'We also support EUR, GBP, and CAD with the same live pipeline. See [100 dollars in satoshi](/100-dollars-in-satoshi), [100 euros in satoshi](/100-euros-in-satoshi), and parallel pages for each currency.',
+          'We also support EUR, GBP, CAD, AUD, and INR with the same live pipeline. See [100 dollars in satoshi](/100-dollars-in-satoshi), [100 euros in satoshi](/100-euros-in-satoshi), and the [AUD](/aud-to-satoshi) and [INR](/inr-to-satoshi) hubs.',
           'For a full list of amount pages, open the [SatoshiCalc conversions directory](/conversions).',
         ],
       },

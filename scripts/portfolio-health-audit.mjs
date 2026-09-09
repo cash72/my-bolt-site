@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile, access } from 'node:fs/promises';
+import { checkSiteShellContracts } from './lib/shell-contracts.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
@@ -209,6 +210,13 @@ async function auditSite(site, report) {
     }
   }
 
+  const shell = await checkSiteShellContracts(site.dir);
+  for (const error of shell.errors) {
+    const category = error.message.includes('AdSense') ? 'ads' : 'metadata';
+    const url = error.file.includes('PrivacyPage') ? `${base}/privacy/` : null;
+    addIssue('error', category, url, error.message);
+  }
+
   if (runBuilds) {
     const buildStarted = Date.now();
     const typecheck = await runCommand('npm', ['run', 'typecheck'], path.join(ROOT, site.dir));
@@ -274,6 +282,15 @@ async function auditSite(site, report) {
   if (!adsBody.includes(`google.com, pub-${PUBLISHER_ID.replace('ca-pub-', '')}`)) {
     addIssue('error', 'ads', `${base}/ads.txt`, 'ads.txt is missing the expected AdSense publisher record');
   }
+  const homeBody = essentialBodies.get('home')?.body || '';
+  if (/\btitle:\s*'/.test(homeBody.slice(0, 5000))) {
+    addIssue(
+      'error',
+      'metadata',
+      `${base}/`,
+      'Homepage HTML contains a leaked TypeScript title property; the document <title> tag is broken',
+    );
+  }
   const robotsBody = essentialBodies.get('robots')?.body || '';
   if (!robotsBody.includes(`${base}/sitemap.xml`)) {
     addIssue('warning', 'robots', `${base}/robots.txt`, 'robots.txt does not advertise the canonical sitemap URL');
@@ -295,7 +312,10 @@ async function auditSite(site, report) {
 
   try {
     const routes = JSON.parse(await readFile(path.join(ROOT, site.dir, 'seo/generated-routes.json'), 'utf8'));
-    const localRoutes = new Set((routes.allRoutes || []).map((route) => normalizeUrl(`${base}${route}`)));
+    const routePaths = routes.indexableLandingPaths
+      ? [...(routes.staticRoutes || []), ...(routes.indexableLandingPaths || []), ...(routes.guidePaths || [])]
+      : routes.allRoutes || [];
+    const localRoutes = new Set(routePaths.map((route) => normalizeUrl(`${base}${route}`)));
     for (const route of localRoutes) {
       if (!sitemapUrls.includes(route)) addIssue('error', 'sitemap', route, 'Generated route is missing from live sitemap');
     }

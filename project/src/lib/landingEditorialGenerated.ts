@@ -57,6 +57,18 @@ const CURRENCY_CONTEXT: Record<
     hubPath: '/cad-to-satoshi',
     fiat100Path: '/100-cad-in-satoshi',
   },
+  aud: {
+    region: 'Australia',
+    onRamp: 'Australian exchanges such as CoinJar, Independent Reserve, or Swyftx',
+    hubPath: '/aud-to-satoshi',
+    fiat100Path: '/aud-to-satoshi',
+  },
+  inr: {
+    region: 'India',
+    onRamp: 'Indian platforms such as CoinDCX, WazirX, or international exchanges that support INR',
+    hubPath: '/inr-to-satoshi',
+    fiat100Path: '/inr-to-satoshi',
+  },
 };
 
 function btcFraction(amount: number): string {
@@ -169,7 +181,7 @@ function satoshiTierSections(amount: number, currency: FiatCurrency): LandingEdi
   sections.push({
     heading: `More ${label} conversion tools`,
     paragraphs: [
-      `Use the [Satoshi → ${label} hub](/${hubSlug}) for any custom amount, or browse [all conversions](/conversions) for EUR, GBP, CAD, and fixed-amount pages.`,
+      `Use the [Satoshi → ${label} hub](/${hubSlug}) for any custom amount, or browse [all conversions](/conversions) for USD, EUR, GBP, CAD, AUD, INR, and fixed-amount pages.`,
       `New to sats? Start with [what is a Satoshi](/guides/what-is-a-satoshi) or the [${label} to Satoshi hub](${ctx.hubPath}) to plan your next buy.`,
     ],
   });
@@ -253,20 +265,20 @@ function satoshiHubSections(currency: FiatCurrency): LandingEditorialSection[] {
   const name = CURRENCY_NAMES[currency];
   const ctx = CURRENCY_CONTEXT[currency];
 
-  const regionalNote =
-    currency === 'eur'
-      ? 'Eurozone wallets and exchanges often default to EUR display even when the underlying asset is global Bitcoin. Converting sats to EUR helps stackers compare against rent, groceries, and SEPA transfer sizes.'
-      : currency === 'gbp'
-        ? 'UK holders frequently track stacks in sats while budgeting in pounds. Post-Brexit, GBP/BTC liquidity on major exchanges remains strong — this hub uses the same live CoinGecko feed as our USD tools.'
-        : currency === 'cad'
-          ? 'Canadian stackers face unique on-ramp choices — Interac e-Transfer, CAD bank wires, and local exchanges. Converting sats to CAD puts Lightning tips and exchange balances in familiar dollar terms.'
-          : 'US stackers popularized "sats" language as whole Bitcoin prices climbed. This hub bridges wallet balances (sats) and everyday budgeting (USD).';
+  const regionalNote: Record<FiatCurrency, string> = {
+    usd: 'US stackers popularized "sats" language as whole Bitcoin prices climbed. This hub bridges wallet balances (sats) and everyday budgeting (USD).',
+    eur: 'Eurozone wallets and exchanges often default to EUR display even when the underlying asset is global Bitcoin. Converting sats to EUR helps stackers compare against rent, groceries, and SEPA transfer sizes.',
+    gbp: 'UK holders frequently track stacks in sats while budgeting in pounds. Post-Brexit, GBP/BTC liquidity on major exchanges remains strong — this hub uses the same live CoinGecko feed as our USD tools.',
+    cad: 'Canadian stackers face unique on-ramp choices — Interac e-Transfer, CAD bank wires, and local exchanges. Converting sats to CAD puts Lightning tips and exchange balances in familiar dollar terms.',
+    aud: 'Australian wallets and exchanges typically quote Bitcoin in AUD. Converting sats to Australian dollars helps compare Lightning tips and exchange balances against groceries, rent, and PayID transfer sizes.',
+    inr: 'Indian holders often think in rupees while wallets display sats. Converting sats to INR puts Lightning tips and exchange balances next to familiar UPI, grocery, and EMI-scale amounts.',
+  };
 
   return [
     {
       heading: `Satoshi to ${label} in ${ctx.region}`,
       paragraphs: [
-        regionalNote,
+        regionalNote[currency],
         `One Bitcoin equals exactly 100,000,000 Satoshis. Multiply your sat count by the live BTC/${label} price, then divide by 100 million for the ${label} equivalent.`,
       ],
     },
@@ -274,7 +286,9 @@ function satoshiHubSections(currency: FiatCurrency): LandingEditorialSection[] {
       heading: 'When to use this hub vs fixed-amount pages',
       paragraphs: [
         `Type any sat count in the calculator above for one-off lookups. Fixed-amount pages like [50,000 sats](/50000-satoshi-to-${currency}) and [100,000 sats](/100000-satoshi-to-${currency}) load faster for sharing and include stacking context.`,
-        `To buy more sats with ${label}, flip to our [${label} → Satoshi hub](${ctx.hubPath}) or [100 ${label} in satoshi](${ctx.fiat100Path}) page.`,
+        ctx.fiat100Path === ctx.hubPath
+          ? `To buy more sats with ${label}, flip to our [${label} → Satoshi hub](${ctx.hubPath}) and type any amount.`
+          : `To buy more sats with ${label}, flip to our [${label} → Satoshi hub](${ctx.hubPath}) or [100 ${label} in satoshi](${ctx.fiat100Path}) page.`,
       ],
     },
     {
@@ -285,11 +299,18 @@ function satoshiHubSections(currency: FiatCurrency): LandingEditorialSection[] {
       ],
     },
     {
+      heading: `Worked ${label} example`,
+      paragraphs: [
+        `The formula is always the same: sats × (BTC price in ${label}) ÷ 100,000,000. If Bitcoin is priced at 100,000 ${label}, then 50,000 sats equals 50 ${label}. Only the live market input changes.`,
+        `Bookmark [50,000 sats to ${label}](/50000-satoshi-to-${currency}) and [100,000 sats to ${label}](/100000-satoshi-to-${currency}) if you track round stacking milestones instead of typing amounts each visit.`,
+      ],
+    },
+    {
       heading: 'Other currencies and guides',
       paragraphs: [
         currency !== 'usd'
           ? `We also support USD with the same pipeline — see [Satoshi to USD](/satoshi-to-usd) for the most popular hub. Browse [all conversions](/conversions) for the full directory.`
-          : `For euros, pounds, or Canadian dollars, use [Satoshi to EUR](/satoshi-to-eur), [GBP](/satoshi-to-gbp), or [CAD](/satoshi-to-cad). Every currency has matching reverse converters.`,
+          : `For euros, pounds, Canadian or Australian dollars, or Indian rupees, use [Satoshi to EUR](/satoshi-to-eur), [GBP](/satoshi-to-gbp), [CAD](/satoshi-to-cad), [AUD](/satoshi-to-aud), or [INR](/satoshi-to-inr). Every currency has matching reverse converters.`,
         `Learn the unit behind the math in [what is a Satoshi](/guides/what-is-a-satoshi), or plan buys with [stacking sats and DCA](/guides/stacking-sats-dca).`,
       ],
     },
@@ -307,20 +328,20 @@ function fiatHubSections(currency: FiatCurrency): LandingEditorialSection[] {
   const name = CURRENCY_NAMES[currency];
   const slugName = CURRENCY_SLUG_NAMES[currency];
 
-  const regionalBuy =
-    currency === 'eur'
-      ? 'SEPA bank transfers on EU exchanges often settle in 1–2 business days with lower fees than card buys. Many Eurozone stackers DCA with €25–€100 weekly via apps like Relai or Bitvavo.'
-      : currency === 'gbp'
-        ? 'UK Faster Payments and debit cards fund most GBP buys. FCA oversight means reputable exchanges verify identity — plan KYC before your first withdrawal.'
-        : currency === 'cad'
-          ? 'Interac e-Transfer is the dominant CAD on-ramp for Canadian exchanges. Watch for spread on small buys; larger transfers often get better effective rates.'
-          : 'US buyers use ACH, wire, or debit through Strike, Cash App, Coinbase, and others. Card purchases carry a premium — bank transfer is cheaper for recurring DCA.';
+  const regionalBuy: Record<FiatCurrency, string> = {
+    usd: 'US buyers use ACH, wire, or debit through Strike, Cash App, Coinbase, and others. Card purchases carry a premium — bank transfer is cheaper for recurring DCA.',
+    eur: 'SEPA bank transfers on EU exchanges often settle in 1–2 business days with lower fees than card buys. Many Eurozone stackers DCA with €25–€100 weekly via apps like Relai or Bitvavo.',
+    gbp: 'UK Faster Payments and debit cards fund most GBP buys. FCA oversight means reputable exchanges verify identity — plan KYC before your first withdrawal.',
+    cad: 'Interac e-Transfer is the dominant CAD on-ramp for Canadian exchanges. Watch for spread on small buys; larger transfers often get better effective rates.',
+    aud: 'PayID and AUD bank transfers fund most Australian Bitcoin buys on CoinJar, Independent Reserve, or Swyftx. Card purchases often carry a premium — bank transfer or PayID is usually cheaper for recurring DCA.',
+    inr: 'INR on-ramps include local exchanges such as CoinDCX and international platforms that accept rupee deposits. UPI and INR bank transfers are common first-buy rails — compare KYC, P2P, and withdrawal rules before you stack.',
+  };
 
   return [
     {
       heading: `Buying Bitcoin with ${label}`,
       paragraphs: [
-        regionalBuy,
+        regionalBuy[currency],
         `The formula: divide your ${label} budget by the live BTC price, then multiply by 100,000,000 for Satoshis. This hub highlights round numbers people search for directly.`,
       ],
     },
@@ -334,7 +355,9 @@ function fiatHubSections(currency: FiatCurrency): LandingEditorialSection[] {
     {
       heading: `Common ${name.toLowerCase()} amounts`,
       paragraphs: [
-        `Fixed pages for quick sharing: [1 ${slugName}](/1-${slugName}-in-satoshi), [10 ${slugName}](/10-${slugName}-in-satoshi), [100 ${slugName}](/100-${slugName}-in-satoshi), and [1,000 ${slugName}](/1000-${slugName}-in-satoshi) — each with live sat counts.`,
+        currency === 'aud' || currency === 'inr'
+          ? `Type any ${label} amount in the calculator above. For satoshi milestones in ${label}, see [10,000 sats](/10000-satoshi-to-${currency}), [50,000 sats](/50000-satoshi-to-${currency}), and [100,000 sats](/100000-satoshi-to-${currency}).`
+          : `Fixed pages for quick sharing: [1 ${slugName}](/1-${slugName}-in-satoshi), [10 ${slugName}](/10-${slugName}-in-satoshi), [100 ${slugName}](/100-${slugName}-in-satoshi), and [1,000 ${slugName}](/1000-${slugName}-in-satoshi) — each with live sat counts.`,
         `For satoshi → ${label} lookups, use the [Satoshi to ${label} hub](/satoshi-to-${currency}). Full directory: [all conversions](/conversions).`,
       ],
     },
@@ -343,6 +366,7 @@ function fiatHubSections(currency: FiatCurrency): LandingEditorialSection[] {
       paragraphs: [
         `Our [${label.toLowerCase()} to Satoshi guide](/guides/usd-to-satoshi) walks through the math with examples (USD-focused but the formula applies to all fiat).`,
         `Ready to buy? [How to buy Bitcoin](/guides/how-to-buy-bitcoin) covers exchange setup, first purchase, and withdrawal in plain language.`,
+        `Compare the reverse lookup on [Satoshi to ${label}](/satoshi-to-${currency}) when a wallet already shows sats and you want the ${label} label.`,
       ],
     },
   ];

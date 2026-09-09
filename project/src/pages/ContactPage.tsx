@@ -12,7 +12,8 @@ export default function ContactPage() {
   return (
     <LegalPageLayout title="Contact Us">
       <p>
-        We welcome questions, bug reports, and suggestions for {SITE_NAME}. We typically respond within a few
+        We welcome questions, bug reports, and suggestions for {SITE_NAME}. That includes conversion corrections,
+        currency-hub issues (USD, EUR, GBP, CAD, AUD, or INR), and guide feedback. We typically respond within a few
         business days.
       </p>
       <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 pt-2">Email</h2>

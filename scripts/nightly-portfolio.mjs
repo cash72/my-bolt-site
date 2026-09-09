@@ -77,6 +77,7 @@ async function main() {
   const actions = [];
 
   console.log('=== Nightly portfolio maintenance ===\n');
+  console.log('This job reports and inspects. It does not edit source, commit, open PRs, or deploy.\n');
   const growthFocus = loadGrowthFocus();
   if (growthFocus.pauseNightlyPortfolioGrowth) {
     console.log(
@@ -164,6 +165,7 @@ async function main() {
     '## Summary',
     '',
     `- ${text}`,
+    '- This job does not edit source, commit, open PRs, or deploy sites',
     `- Pages crawled: ${result.portfolio?.pagesChecked ?? 'unknown'}`,
     `- Production contracts: ${result.portfolio?.contractsChecked ?? 'unknown'}`,
     `- Existing pages below the editorial depth target: ${result.portfolio?.contentDepthOpportunities ?? 'unknown'}`,
