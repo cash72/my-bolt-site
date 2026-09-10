@@ -63,7 +63,7 @@ console.log(`Prerender server at http://127.0.0.1:${PORT}${BASE || ''}/`);
 
 const browserOptions = {
   headless: true,
-  protocolTimeout: 30_000,
+  protocolTimeout: 180_000,
   args: ['--no-sandbox', '--disable-setuid-sandbox'],
 };
 let browser = await puppeteer.launch(browserOptions);
@@ -115,8 +115,8 @@ try {
     const url = `http://127.0.0.1:${PORT}${BASE}${suffix}`;
     for (let attempt = 1; attempt <= 3; attempt += 1) {
       try {
-        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15_000 });
-        await page.waitForSelector('#main-content', { timeout: 8_000 });
+        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        await page.waitForSelector('#main-content', { timeout: 15_000 });
         await page
           .waitForFunction(
             () => {
