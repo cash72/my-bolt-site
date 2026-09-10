@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "node scripts/generate-sitemap.mjs && node scripts/download-guide-images.mjs && node scripts/generate-ads-txt.mjs && vite build && node scripts/prerender.mjs",
-    "build:app": "node scripts/generate-sitemap.mjs && node scripts/generate-ads-txt.mjs && vite build",
+    "build:app": "node scripts/generate-sitemap.mjs && node scripts/download-guide-images.mjs && node scripts/generate-ads-txt.mjs && vite build",
     "postinstall": "npx puppeteer browsers install chrome || true",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -21,7 +21,7 @@
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.18.0"
+    "react-router-dom": "^7.18.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
@@ -31,7 +31,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.18",
     "eslint": "^9.9.1",
-    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.11",
     "globals": "^15.9.0",
     "postcss": "^8.4.35",
