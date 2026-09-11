@@ -61,6 +61,7 @@ function LandingNotFound() {
     title: 'Page Not Found',
     description: 'The conversion page you requested could not be found.',
     path: '/404',
+    noIndex: true,
   });
 
   return (

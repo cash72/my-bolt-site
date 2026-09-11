@@ -155,7 +155,7 @@ export default function HomePage() {
     title:
       sats50kUsd !== null
         ? `Satoshi to USD Converter — 50,000 Sats ≈ ${formatCurrency(sats50kUsd, 'usd')} Today`
-        : 'Satoshi to USD Converter — Live Bitcoin Price in EUR, GBP, CAD, AUD & INR',
+        : 'Satoshi to USD Converter — Live Bitcoin Price (EUR, GBP, CAD, AUD, INR)',
     description: homepageDescription,
     path: '/',
   });

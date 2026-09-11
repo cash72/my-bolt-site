@@ -13,11 +13,11 @@ export default function PrivacyPage() {
   return (
     <LegalPageLayout title="Privacy Policy">
       <p>
-        <strong>Last updated:</strong> July 26, 2026
+        <strong>Last updated:</strong> September 4, 2026
       </p>
       <p>
         {SITE_NAME} ({SITE_URL}) respects your privacy. This policy explains what information is collected when you use
-        our calculators, recipes, and guides, and how advertising partners may use cookies.
+        our calculators, recipes, and guides, and how advertising partners may use cookies when ads are enabled.
       </p>
 
       <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Information you enter in tools</h2>
