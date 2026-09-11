@@ -49,7 +49,6 @@ export function usePageMeta({
     upsertMeta('og:title', fullTitle, 'property');
     upsertMeta('og:description', description, 'property');
     upsertMeta('og:url', normalizedUrl, 'property');
-    upsertMeta('og:site_name', SITE_NAME, 'property');
     upsertMeta('og:image', image, 'property');
     upsertMeta('twitter:card', 'summary_large_image');
     upsertMeta('twitter:title', fullTitle);

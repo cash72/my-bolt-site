@@ -59,7 +59,7 @@ export default function HomePage() {
   usePageMeta({
     title: 'Free Paint Calculator Canada — Enter Room Size',
     description:
-      'Free Canadian paint calculator: room gallons plus roller, brush, and tape vs drop cloths. Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux.',
+      'Free paint calculator for Canadian DIY: room gallons plus roller, brush, and tape vs drop cloths for first-timers. Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux. Not affiliated with any manufacturer.',
     path: '/',
   });
 

@@ -13,7 +13,7 @@ export default function TermsPage() {
   return (
     <LegalPageLayout title="Terms of Use">
       <p>
-        <strong>Last updated:</strong> September 6, 2026
+        <strong>Last updated:</strong> July 26, 2026
       </p>
       <p>
         Welcome to {SITE_NAME} ({SITE_URL}). By using this website you agree to these Terms of Use. If you do not

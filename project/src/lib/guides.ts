@@ -552,7 +552,7 @@ export const GUIDES: GuideDef[] = [
         paragraphs: [
           'Stackers often set round sat targets — not because the numbers are magic, but because they make progress tangible. Check live fiat values on our amount pages:',
           '50,000 sats (0.0005 BTC) · 100,000 sats (0.001 BTC) · 500,000 sats (0.005 BTC) · 1,000,000 sats (0.01 BTC) · 10,000,000 sats (0.1 BTC).',
-          'Use /50000-satoshi-to-usd, /100000-satoshi-to-usd, or /500000-satoshi-to-usd for current USD, EUR, GBP, CAD, AUD, and INR equivalents — updated every 60 seconds.',
+          'USD, EUR, GBP, and CAD have dedicated 50k, 100k, and 500k pages (for example /500000-satoshi-to-usd). AUD and INR currently have 10k, 50k, and 100k live pages plus the /satoshi-to-aud and /satoshi-to-inr hubs.',
         ],
       },
       {
