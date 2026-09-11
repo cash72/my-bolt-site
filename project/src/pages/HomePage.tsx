@@ -73,7 +73,7 @@ export default function HomePage() {
       setPriceData(data);
       setLastUpdated(new Date());
       setCountdown(60);
-    } catch (e) {
+    } catch {
       setError('Unable to fetch live Bitcoin price. Please try again later.');
     } finally {
       setLoading(false);

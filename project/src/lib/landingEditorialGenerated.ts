@@ -154,7 +154,9 @@ function satoshiTierSections(amount: number, currency: FiatCurrency): LandingEdi
         amount === 50_000
           ? `Halfway to [100,000 sats](/100000-satoshi-to-${currency}); five times [10,000 sats](/10000-satoshi-to-${currency}). Each has a dedicated live page.`
           : amount === 100_000
-            ? `Half of [50,000 sats](/50000-satoshi-to-${currency}); one-fifth of [500,000 sats](/500000-satoshi-to-${currency}). Bookmark the milestones that match your DCA plan.`
+            ? currency === 'aud' || currency === 'inr'
+              ? `Double [50,000 sats](/50000-satoshi-to-${currency}); ten times [10,000 sats](/10000-satoshi-to-${currency}). Bookmark the milestones that match your DCA plan.`
+              : `Double [50,000 sats](/50000-satoshi-to-${currency}); one-fifth of [500,000 sats](/500000-satoshi-to-${currency}). Bookmark the milestones that match your DCA plan.`
             : `Compare against other round amounts on our [${label} satoshi hub](${hubSlug.startsWith('/') ? hubSlug : `/${hubSlug}`}) or flip to [${label} → sats](${ctx.hubPath}).`,
         `To add more sats with ${label}, see [100 ${label} in satoshi](${ctx.fiat100Path}) or use the reverse converter on the homepage.`,
       ],

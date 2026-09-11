@@ -73,7 +73,7 @@ export const LANDING_PAGES: LandingPage[] = [
     title: 'How Much Paint Do I Need? Behr & Any Brand | Canada',
     h1: 'How Much Paint Do I Need?',
     description:
-      'Free answer for how much paint you need: enter room size → gallons to buy. 12×12 room ≈ 2–3 gallons at ~400 sq ft/gal. Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux — Canadian DIY.',
+      'How much paint do you need? Enter room size for gallons to buy. 12×12 ≈ 2–3 gallons. Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux.',
     breadcrumbLabel: 'How much paint',
     showBrandDisclaimer: true,
     showDiyStarter: true,
@@ -118,7 +118,7 @@ export const LANDING_PAGES: LandingPage[] = [
     title: 'Paint Coverage Calculator (Free) — Any Brand in Canada',
     h1: 'Paint Coverage Calculator',
     description:
-      'Free paint coverage calculator: enter room size + label coverage → gallons per coat. Typical Canadian interiors (Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux): up to ~400 sq ft/gallon.',
+      'Free paint coverage calculator: room size + label coverage → gallons per coat. Typical Canadian interiors: up to ~400 sq ft/gallon.',
     breadcrumbLabel: 'Coverage calculator',
     showBrandDisclaimer: true,
     quickAnswer:
@@ -537,7 +537,7 @@ export const LANDING_PAGES: LandingPage[] = [
     title: 'Paint Coverage by Brand in Canada — BM, SW, Cloverdale, Dulux',
     h1: 'Paint Coverage by Brand in Canada',
     description:
-      'Typical sq ft per gallon for Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux, Sico, Beauti-Tone, CIL, and Valspar. 12×12 room ≈ 2–3 gallons. Independent calculator — not affiliated with any brand.',
+      'Typical coverage for Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux, and other Canadian brands. 12×12 room ≈ 2–3 gallons.',
     breadcrumbLabel: 'Coverage by brand',
     showBrandDisclaimer: true,
     showBrandCoverageTable: true,
