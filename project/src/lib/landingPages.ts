@@ -395,6 +395,11 @@ export function getLandingPageBySlug(slug: string | undefined): LandingPageDef |
   return LANDING_PAGE_BY_SLUG.get(slug);
 }
 
+/** Path for a fixed satoshi amount page, or undefined when that currency has no such route. */
+export function getSatoshiAmountPath(amount: number, currency: FiatCurrency): string | undefined {
+  return LANDING_PAGE_BY_SLUG.get(`${amount}-satoshi-to-${currency}`)?.path;
+}
+
 export function getRelatedLandingPages(page: LandingPageDef, limit = 8): LandingPageDef[] {
   const hubPriorityAmounts = [1_000, 10_000, 50_000, 100_000, 1_000_000];
   const btcPriorityAmounts = [0.01, 0.1, 1, 10];

@@ -7,7 +7,7 @@ import {
   type FiatCurrency,
 } from './conversion';
 import type { LandingEditorial, LandingEditorialSection } from './landingEditorial';
-import type { LandingPageDef } from './landingPages';
+import { getSatoshiAmountPath, type LandingPageDef } from './landingPages';
 
 const SATOSHI_PER_BTC = 100_000_000;
 
@@ -99,6 +99,52 @@ function satoshiTierIntro(amount: number, label: string, currency: FiatCurrency)
   }
 }
 
+function satoshiAmountMarkdownLink(
+  amount: number,
+  currency: FiatCurrency,
+  text: string,
+): string | undefined {
+  const path = getSatoshiAmountPath(amount, currency);
+  return path ? `[${text}](${path})` : undefined;
+}
+
+function nearbySatoshiMilestoneCopy(
+  amount: number,
+  currency: FiatCurrency,
+  label: string,
+  hubSlug: string,
+  ctx: (typeof CURRENCY_CONTEXT)[FiatCurrency],
+): string {
+  const hubPath = hubSlug.startsWith('/') ? hubSlug : `/${hubSlug}`;
+  const fallback = `Compare against other round amounts on our [${label} satoshi hub](${hubPath}) or flip to [${label} → sats](${ctx.hubPath}).`;
+  const link = (sats: number, text: string) => satoshiAmountMarkdownLink(sats, currency, text);
+
+  if (amount === 50_000) {
+    const to100 = link(100_000, '100,000 sats');
+    const to10 = link(10_000, '10,000 sats');
+    const bits = [
+      to100 ? `Halfway to ${to100}` : undefined,
+      to10 ? `five times ${to10}` : undefined,
+    ].filter((bit): bit is string => Boolean(bit));
+    return bits.length ? `${bits.join('; ')}. Each has a dedicated live page.` : fallback;
+  }
+
+  if (amount === 100_000) {
+    const to50 = link(50_000, '50,000 sats');
+    const to500 = link(500_000, '500,000 sats');
+    const to10 = link(10_000, '10,000 sats');
+    const bits = [
+      to50 ? `Double ${to50}` : undefined,
+      to500 ? `one-fifth of ${to500}` : to10 ? `ten times ${to10}` : undefined,
+    ].filter((bit): bit is string => Boolean(bit));
+    return bits.length
+      ? `${bits.join('; ')}. Bookmark the milestones that match your DCA plan.`
+      : fallback;
+  }
+
+  return fallback;
+}
+
 function satoshiTierSections(amount: number, currency: FiatCurrency): LandingEditorialSection[] {
   const label = CURRENCY_LABELS[currency];
   const formatted = formatSatoshiAmount(amount);
@@ -151,13 +197,7 @@ function satoshiTierSections(amount: number, currency: FiatCurrency): LandingEdi
     sections.push({
       heading: 'Nearby milestones to compare',
       paragraphs: [
-        amount === 50_000
-          ? `Halfway to [100,000 sats](/100000-satoshi-to-${currency}); five times [10,000 sats](/10000-satoshi-to-${currency}). Each has a dedicated live page.`
-          : amount === 100_000
-            ? currency === 'aud' || currency === 'inr'
-              ? `Double [50,000 sats](/50000-satoshi-to-${currency}); ten times [10,000 sats](/10000-satoshi-to-${currency}). Bookmark the milestones that match your DCA plan.`
-              : `Double [50,000 sats](/50000-satoshi-to-${currency}); one-fifth of [500,000 sats](/500000-satoshi-to-${currency}). Bookmark the milestones that match your DCA plan.`
-            : `Compare against other round amounts on our [${label} satoshi hub](${hubSlug.startsWith('/') ? hubSlug : `/${hubSlug}`}) or flip to [${label} → sats](${ctx.hubPath}).`,
+        nearbySatoshiMilestoneCopy(amount, currency, label, hubSlug, ctx),
         `To add more sats with ${label}, see [100 ${label} in satoshi](${ctx.fiat100Path}) or use the reverse converter on the homepage.`,
       ],
     });

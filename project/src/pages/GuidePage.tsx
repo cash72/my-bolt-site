@@ -311,7 +311,7 @@ function GuideNotFound() {
   usePageMeta({
     title: 'Guide not found',
     description: 'That Bitcoin guide does not exist. Browse the SatoshiCalc guide library instead.',
-    path: '/guides',
+    path: '/404',
     noIndex: true,
   });
 
