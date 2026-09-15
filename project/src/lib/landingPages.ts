@@ -400,6 +400,12 @@ export function getSatoshiAmountPath(amount: number, currency: FiatCurrency): st
   return LANDING_PAGE_BY_SLUG.get(`${amount}-satoshi-to-${currency}`)?.path;
 }
 
+/** Path for a fixed fiat→sats page, or undefined when that currency has no such route. */
+export function getFiatToSatoshiAmountPath(amount: number, currency: FiatCurrency): string | undefined {
+  const slugName = CURRENCY_SLUG_NAMES[currency];
+  return LANDING_PAGE_BY_SLUG.get(`${amount}-${slugName}-in-satoshi`)?.path;
+}
+
 export function getRelatedLandingPages(page: LandingPageDef, limit = 8): LandingPageDef[] {
   const hubPriorityAmounts = [1_000, 10_000, 50_000, 100_000, 1_000_000];
   const btcPriorityAmounts = [0.01, 0.1, 1, 10];

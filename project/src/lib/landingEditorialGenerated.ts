@@ -7,7 +7,7 @@ import {
   type FiatCurrency,
 } from './conversion';
 import type { LandingEditorial, LandingEditorialSection } from './landingEditorial';
-import { getSatoshiAmountPath, type LandingPageDef } from './landingPages';
+import { getFiatToSatoshiAmountPath, getSatoshiAmountPath, type LandingPageDef } from './landingPages';
 
 const SATOSHI_PER_BTC = 100_000_000;
 
@@ -106,6 +106,35 @@ function satoshiAmountMarkdownLink(
 ): string | undefined {
   const path = getSatoshiAmountPath(amount, currency);
   return path ? `[${text}](${path})` : undefined;
+}
+
+function joinMarkdownLinks(items: string[]): string {
+  if (items.length === 0) return '';
+  if (items.length === 1) return items[0];
+  if (items.length === 2) return `${items[0]} and ${items[1]}`;
+  return `${items.slice(0, -1).join(', ')}, and ${items[items.length - 1]}`;
+}
+
+function fiatHubFixedAmountCopy(currency: FiatCurrency, label: string, slugName: string): string {
+  const fiatLinks = [1, 10, 100, 1000].flatMap((amount) => {
+    const path = getFiatToSatoshiAmountPath(amount, currency);
+    if (!path) return [];
+    const display = amount >= 1000 ? amount.toLocaleString('en-US') : String(amount);
+    return [`[${display} ${slugName}](${path})`];
+  });
+  if (fiatLinks.length) {
+    return `Fixed pages for quick sharing: ${joinMarkdownLinks(fiatLinks)} — each with live sat counts.`;
+  }
+
+  const satLinks = [10_000, 50_000, 100_000].flatMap((amount) => {
+    const md = satoshiAmountMarkdownLink(amount, currency, `${amount.toLocaleString('en-US')} sats`);
+    return md ? [md] : [];
+  });
+  if (satLinks.length) {
+    return `Type any ${label} amount in the calculator above. For satoshi milestones in ${label}, see ${joinMarkdownLinks(satLinks)}.`;
+  }
+
+  return `Type any ${label} amount in the calculator above.`;
 }
 
 function nearbySatoshiMilestoneCopy(
@@ -397,9 +426,7 @@ function fiatHubSections(currency: FiatCurrency): LandingEditorialSection[] {
     {
       heading: `Common ${name.toLowerCase()} amounts`,
       paragraphs: [
-        currency === 'aud' || currency === 'inr'
-          ? `Type any ${label} amount in the calculator above. For satoshi milestones in ${label}, see [10,000 sats](/10000-satoshi-to-${currency}), [50,000 sats](/50000-satoshi-to-${currency}), and [100,000 sats](/100000-satoshi-to-${currency}).`
-          : `Fixed pages for quick sharing: [1 ${slugName}](/1-${slugName}-in-satoshi), [10 ${slugName}](/10-${slugName}-in-satoshi), [100 ${slugName}](/100-${slugName}-in-satoshi), and [1,000 ${slugName}](/1000-${slugName}-in-satoshi) — each with live sat counts.`,
+        fiatHubFixedAmountCopy(currency, label, slugName),
         `For satoshi → ${label} lookups, use the [Satoshi to ${label} hub](/satoshi-to-${currency}). Full directory: [all conversions](/conversions).`,
       ],
     },
