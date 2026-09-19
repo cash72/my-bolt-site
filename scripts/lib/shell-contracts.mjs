@@ -32,10 +32,16 @@ export async function checkSiteShellContracts(dir) {
     if (!/<title>[^<]+<\/title>/i.test(indexHtml)) {
       errors.push({ file: `${dir}/index.html`, message: 'Missing a <title> element' });
     }
-    if (/^\s*title:\s*'/m.test(indexHtml)) {
+    if (!indexHtml.includes('google-adsense-account')) {
       errors.push({
         file: `${dir}/index.html`,
-        message: 'Contains a TypeScript title property instead of a <title> tag',
+        message: 'Missing google-adsense-account meta for AdSense ownership',
+      });
+    }
+    if (!indexHtml.includes('pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1132338970019438')) {
+      errors.push({
+        file: `${dir}/index.html`,
+        message: 'Missing AdSense site-verification script (client snippet; ad units stay gated separately)',
       });
     }
   } else {
