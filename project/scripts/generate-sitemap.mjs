@@ -177,8 +177,18 @@ await fs.writeFile(path.join(ROOT, 'public/sitemap.xml'), sitemap);
 await fs.writeFile(path.join(ROOT, 'seo/generated-routes.json'), JSON.stringify(seoConfig, null, 2));
 
 const allPaths = seoConfig.allRoutes.filter((r) => r !== '/');
-const redirects = allPaths.map((route) => `${route} ${route}/ 308`).join('\n');
-await fs.writeFile(path.join(ROOT, 'public/_redirects'), `${redirects}\n`);
+const trailingSlashRedirects = allPaths.map((route) => `${route} ${route}/ 308`);
+// AUD/INR never shipped 500k amount pages; 100k templates used to link them.
+const missingAmountRedirects = [
+  '/500000-satoshi-to-aud /satoshi-to-aud/ 301',
+  '/500000-satoshi-to-aud/ /satoshi-to-aud/ 301',
+  '/500000-satoshi-to-inr /satoshi-to-inr/ 301',
+  '/500000-satoshi-to-inr/ /satoshi-to-inr/ 301',
+];
+await fs.writeFile(
+  path.join(ROOT, 'public/_redirects'),
+  `${[...trailingSlashRedirects, ...missingAmountRedirects].join('\n')}\n`
+);
 
 console.log(`Generated sitemap with ${STATIC_ROUTES.length + indexableLandingPaths.length + guidePaths.length} indexed URLs`);
 console.log(`  Static: ${seoConfig.staticRoutes.length}`);

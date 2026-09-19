@@ -136,6 +136,18 @@ async function checkSatoshiInterpolatedLinkContracts() {
     });
   }
 
+  const redirectsSrc = await readFile(path.join(ROOT, 'project/public/_redirects'), 'utf8');
+  for (const currency of ['aud', 'inr']) {
+    const from = `/500000-satoshi-to-${currency}`;
+    const to = `/satoshi-to-${currency}/`;
+    if (!redirectsSrc.includes(`${from} ${to} 301`) || !redirectsSrc.includes(`${from}/ ${to} 301`)) {
+      errors.push({
+        file: 'project/public/_redirects',
+        message: `Missing 301 from ghost ${from} to ${to} (AUD/INR never shipped a 500k page)`,
+      });
+    }
+  }
+
   return errors;
 }
 
