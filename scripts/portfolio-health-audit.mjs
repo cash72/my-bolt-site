@@ -2,6 +2,7 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile, access } from 'node:fs/promises';
 import { checkSiteShellContracts } from './lib/shell-contracts.mjs';
+import { ensureSiteDeps } from './lib/site-deps.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
@@ -219,18 +220,41 @@ async function auditSite(site, report) {
 
   if (runBuilds) {
     const buildStarted = Date.now();
-    const typecheck = await runCommand('npm', ['run', 'typecheck'], path.join(ROOT, site.dir));
-    const build = typecheck.ok
-      ? await runCommand('npm', ['run', 'build'], path.join(ROOT, site.dir), 15 * 60_000)
-      : { ok: false, code: null, durationMs: 0, output: 'Skipped because typecheck failed' };
+    const deps = await ensureSiteDeps(site.dir, runCommand);
+    let typecheck = { ok: false, durationMs: 0, output: 'Skipped because site dependencies are missing' };
+    let build = { ok: false, durationMs: 0, output: 'Skipped because site dependencies are missing' };
+    if (!deps.ok) {
+      addIssue(
+        'error',
+        'build',
+        null,
+        'Could not install site dependencies for typecheck/build',
+        (deps.output || '').slice(-4000),
+      );
+    } else {
+      typecheck = await runCommand('npm', ['run', 'typecheck'], path.join(ROOT, site.dir));
+      if (typecheck.ok) {
+        build = await runCommand('npm', ['run', 'build'], path.join(ROOT, site.dir), 15 * 60_000);
+      } else {
+        build = { ok: false, durationMs: 0, output: 'Skipped because typecheck failed' };
+      }
+      if (!typecheck.ok) addIssue('error', 'build', null, 'TypeScript check failed', typecheck.output.slice(-4000));
+      // Do not also count "skipped because typecheck failed" as a second error.
+      else if (!build.ok) addIssue('error', 'build', null, 'Production build or prerender failed', build.output.slice(-4000));
+    }
     siteResult.build = {
-      ok: typecheck.ok && build.ok,
-      typecheck: { ok: typecheck.ok, durationMs: typecheck.durationMs },
-      production: { ok: build.ok, durationMs: build.durationMs },
+      ok: Boolean(deps.ok && typecheck.ok && build.ok),
+      install: { ok: deps.ok, skipped: Boolean(deps.skipped), durationMs: deps.durationMs || 0 },
+      typecheck: { ok: typecheck.ok, durationMs: typecheck.durationMs || 0 },
+      production: { ok: build.ok, durationMs: build.durationMs || 0 },
       durationMs: Date.now() - buildStarted,
     };
     const buildLog = [
       `# ${site.domain} nightly build`,
+      `Dependencies: ${deps.ok ? (deps.skipped ? 'already installed' : 'npm ci PASS') : 'npm ci FAIL'}`,
+      '',
+      deps.skipped ? '' : deps.output || '',
+      '',
       `Typecheck: ${typecheck.ok ? 'PASS' : 'FAIL'}`,
       '',
       typecheck.output,
@@ -240,9 +264,7 @@ async function auditSite(site, report) {
       build.output,
     ].join('\n');
     await writeFile(path.join(REPORT_DIR, `build-${site.dir}-latest.log`), buildLog, 'utf8');
-    if (!typecheck.ok) addIssue('error', 'build', null, 'TypeScript check failed', typecheck.output.slice(-4000));
-    if (!build.ok) addIssue('error', 'build', null, 'Production build or prerender failed', build.output.slice(-4000));
-    if (build.ok) {
+    if (deps.ok && build.ok) {
       const dist = path.join(ROOT, site.dir, 'dist');
       if (await exists(path.join(dist, '__spa-shell.html'))) {
         addIssue('error', 'prerender', null, 'Temporary __spa-shell.html leaked into production output');
