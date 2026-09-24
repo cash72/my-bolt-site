@@ -43,11 +43,17 @@ const PORT = address.port;
 
 console.log(`Prerender server at http://127.0.0.1:${PORT}${BASE || ''}/`);
 
-const browser = await puppeteer.launch({
+const browserOptions = {
   headless: true,
   protocolTimeout: 30_000,
   args: ['--no-sandbox', '--disable-setuid-sandbox'],
-});
+};
+let browser = await puppeteer.launch(browserOptions);
+
+async function relaunchBrowser() {
+  await browser.close().catch(() => {});
+  browser = await puppeteer.launch(browserOptions);
+}
 
 async function setupPage(page) {
   await page.evaluateOnNewDocument(() => {
@@ -71,9 +77,10 @@ try {
   for (const route of ROUTES) {
     const suffix = route === '/' ? '/' : route;
     const url = `http://127.0.0.1:${PORT}${BASE}${suffix}`;
-    for (let attempt = 1; attempt <= 2; attempt += 1) {
-      const page = await browser.newPage();
+    for (let attempt = 1; attempt <= 3; attempt += 1) {
+      let page;
       try {
+        page = await browser.newPage();
         await setupPage(page);
         await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await page.waitForSelector('#main-content', { timeout: 15_000 });
@@ -88,10 +95,13 @@ try {
         console.log(`Prerendered ${url} -> ${outPath}`);
         break;
       } catch (error) {
-        if (attempt === 2) throw error;
+        if (/Session with given id not found|Target closed|Protocol error/i.test(error.message)) {
+          await relaunchBrowser();
+        }
+        if (attempt === 3) throw error;
         console.warn(`Retrying ${route} after prerender failure: ${error.message}`);
       } finally {
-        await page.close().catch(() => {});
+        if (page) await page.close().catch(() => {});
       }
     }
   }
