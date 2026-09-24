@@ -26,6 +26,7 @@
     "gsc:checklist": "node scripts/ping-sitemaps.mjs --checklist-only --all",
     "gsc:nightly": "node scripts/gsc-api-nightly.mjs",
     "gsc:nightly:dry": "node scripts/gsc-api-nightly.mjs --dry-run",
+    "setup:sites": "node scripts/ensure-site-deps.mjs",
     "audit:portfolio": "node scripts/portfolio-health-audit.mjs",
     "audit:portfolio:build": "node scripts/portfolio-health-audit.mjs --build",
     "audit:contracts": "node scripts/check-shell-contracts.mjs",
