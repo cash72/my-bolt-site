@@ -8,6 +8,7 @@ import { hasResultsAdUnit } from '../lib/ads/config';
 import AdSlot from '../components/AdSlot';
 import {
   COINGECKO_URL,
+  CURRENCY_LABELS,
   FIAT_CURRENCIES,
   SATOSHI_PER_BTC,
   formatCurrency,
@@ -299,71 +300,51 @@ export default function HomePage() {
           <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm" itemScope itemType="https://schema.org/ExchangeRateSpecification">
             <meta itemProp="currency" content="BTC" />
             <meta itemProp="targetCurrency" content="USD" />
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-1">
-                  <TrendingUp className="w-4 h-4" aria-hidden="true" />
-                  <p className="text-sm font-normal">Live Bitcoin Price</p>
-                </div>
-                <div className="flex items-baseline gap-3">
-                  <span className="text-3xl sm:text-4xl font-bold tracking-tight" itemProp="value">
-                    {btcPriceUsd > 0 ? formatCurrency(btcPriceUsd, 'usd') : '--'}
-                  </span>
-                  <span
-                    className={`inline-flex items-center gap-1 text-sm font-medium px-2.5 py-0.5 rounded-full ${
-                      priceChange === null
-                        ? 'bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400'
-                        : isUp
-                          ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-400'
-                          : 'bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400'
-                    }`}
-                    aria-label={
-                      priceChange === null
-                        ? '24 hour price change loading'
-                        : `24 hour price change ${priceChangeLabel}`
-                    }
-                  >
-                    {priceChange !== null &&
-                      (isUp ? (
-                        <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
-                      ) : (
-                        <ArrowDownRight className="w-3.5 h-3.5" aria-hidden="true" />
-                      ))}
-                    {priceChangeLabel}
-                  </span>
-                </div>
+            <div>
+              <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-1">
+                <TrendingUp className="w-4 h-4" aria-hidden="true" />
+                <p className="text-sm font-normal">Live Bitcoin Price</p>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="text-right">
-                  <div className="text-sm text-slate-500 dark:text-slate-400">USD</div>
-                  <div className="font-semibold">{btcPriceUsd > 0 ? formatCurrency(btcPriceUsd, 'usd') : '--'}</div>
-                </div>
-                <div className="w-px h-8 bg-slate-200 dark:bg-slate-700" />
-                <div className="text-right">
-                  <div className="text-sm text-slate-500 dark:text-slate-400">EUR</div>
-                  <div className="font-semibold">{btcPriceEur > 0 ? formatCurrency(btcPriceEur, 'eur') : '--'}</div>
-                </div>
-                <div className="w-px h-8 bg-slate-200 dark:bg-slate-700" />
-                <div className="text-right">
-                  <div className="text-sm text-slate-500 dark:text-slate-400">GBP</div>
-                  <div className="font-semibold">{btcPriceGbp > 0 ? formatCurrency(btcPriceGbp, 'gbp') : '--'}</div>
-                </div>
-                <div className="w-px h-8 bg-slate-200 dark:bg-slate-700 hidden sm:block" />
-                <div className="text-right hidden sm:block">
-                  <div className="text-sm text-slate-500 dark:text-slate-400">CAD</div>
-                  <div className="font-semibold">{btcPriceCad > 0 ? formatCurrency(btcPriceCad, 'cad') : '--'}</div>
-                </div>
-                <div className="w-px h-8 bg-slate-200 dark:bg-slate-700 hidden lg:block" />
-                <div className="text-right hidden lg:block">
-                  <div className="text-sm text-slate-500 dark:text-slate-400">AUD</div>
-                  <div className="font-semibold">{btcPriceAud > 0 ? formatCurrency(btcPriceAud, 'aud') : '--'}</div>
-                </div>
-                <div className="w-px h-8 bg-slate-200 dark:bg-slate-700 hidden lg:block" />
-                <div className="text-right hidden lg:block">
-                  <div className="text-sm text-slate-500 dark:text-slate-400">INR</div>
-                  <div className="font-semibold">{btcPriceInr > 0 ? formatCurrency(btcPriceInr, 'inr') : '--'}</div>
-                </div>
+              <div className="flex flex-wrap items-baseline gap-3">
+                <span className="text-3xl sm:text-4xl font-bold tracking-tight" itemProp="value">
+                  {btcPriceUsd > 0 ? formatCurrency(btcPriceUsd, 'usd') : '--'}
+                </span>
+                <span
+                  className={`inline-flex items-center gap-1 text-sm font-medium px-2.5 py-0.5 rounded-full ${
+                    priceChange === null
+                      ? 'bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400'
+                      : isUp
+                        ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-400'
+                        : 'bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400'
+                  }`}
+                  aria-label={
+                    priceChange === null
+                      ? '24 hour price change loading'
+                      : `24 hour price change ${priceChangeLabel}`
+                  }
+                >
+                  {priceChange !== null &&
+                    (isUp ? (
+                      <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+                    ) : (
+                      <ArrowDownRight className="w-3.5 h-3.5" aria-hidden="true" />
+                    ))}
+                  {priceChangeLabel}
+                </span>
               </div>
+            </div>
+            <div
+              className="mt-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-4 min-w-0"
+              aria-label="Live Bitcoin prices by currency"
+            >
+              {FIAT_CURRENCIES.map((currency) => (
+                <div key={currency} className="min-w-0">
+                  <div className="text-sm text-slate-500 dark:text-slate-400">{CURRENCY_LABELS[currency]}</div>
+                  <div className="font-semibold tabular-nums break-words">
+                    {btcPrices[currency] > 0 ? formatCurrency(btcPrices[currency], currency) : '--'}
+                  </div>
+                </div>
+              ))}
             </div>
             <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-sm">
               <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400">
