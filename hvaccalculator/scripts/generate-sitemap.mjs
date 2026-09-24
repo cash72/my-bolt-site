@@ -5,7 +5,8 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://hvaccalculators.net';
-const TODAY = new Date().toISOString().slice(0, 10);
+/** Frozen with money-page titles (2026-09-07). Do not stamp TODAY on every deploy. */
+const CONTENT_LASTMOD = '2026-09-07';
 
 const STATIC_ROUTES = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
@@ -71,7 +72,7 @@ function toSitemapLoc(routePath) {
 function urlEntry(loc, changefreq, priority) {
   return `  <url>
     <loc>${loc}</loc>
-    <lastmod>${TODAY}</lastmod>
+    <lastmod>${CONTENT_LASTMOD}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`;
