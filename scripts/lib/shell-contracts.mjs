@@ -60,6 +60,17 @@ export async function checkSiteShellContracts(dir) {
     errors.push({ file: `${dir}/src/pages/PrivacyPage.tsx`, message: 'File is missing' });
   }
 
+  const prerenderPath = path.join(ROOT, dir, 'scripts/prerender.mjs');
+  if (await exists(prerenderPath)) {
+    const prerenderSrc = await readFile(prerenderPath, 'utf8');
+    if (!prerenderSrc.includes('sanitizePrerenderHtml')) {
+      errors.push({
+        file: `${dir}/scripts/prerender.mjs`,
+        message: 'Prerender must restore the AdSense verification snippet via sanitizePrerenderHtml',
+      });
+    }
+  }
+
   errors.push(...(await checkEditorialMarkdownLinkContracts(dir)));
   if (dir === 'project') {
     errors.push(...(await checkSatoshiInterpolatedLinkContracts()));
