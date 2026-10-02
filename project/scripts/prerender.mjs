@@ -4,6 +4,7 @@ import http from 'http';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { sanitizePrerenderHtml } from '../../scripts/lib/prerender-adsense.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, '../dist');
@@ -132,9 +133,7 @@ try {
 
         let html = await getPageHtml(page);
         if (route !== '/') html = html.replace(/<script id="homepage-faq-schema"[^>]*>[\s\S]*?<\/script>/g, '');
-        html = html
-          .replace(/<script async="" src="https:\/\/pagead2\.googlesyndication\.com[^"]*"[^>]*><\/script>/g, '')
-          .replace(/<script async="" src="https:\/\/www\.googletagmanager\.com[^"]*"[^>]*><\/script>/g, '');
+        html = sanitizePrerenderHtml(html);
         const outPath = routeToOutput(route);
         await fs.mkdir(path.dirname(outPath), { recursive: true });
         await fs.writeFile(outPath, html);
