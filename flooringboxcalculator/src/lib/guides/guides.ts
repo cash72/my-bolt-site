@@ -366,6 +366,13 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
+        heading: 'Worked room sizes (10% waste)',
+        paragraphs: [
+          'At 20 sq ft per box: 10×10 → 6 boxes; 12×12 → 8 boxes; 12×15 → 10 boxes; 15×20 → 17 boxes. Change coverage on the label and the count moves — always enter the carton number in the [box calculator](/how-many-flooring-boxes).',
+          'Tile at 15% waste needs more cartons for the same room. Run the calculator twice if you are comparing laminate vs tile on one floor plan.',
+        ],
+      },
+      {
         heading: 'Where to find sq ft per box',
         bullets: [
           'Printed on the carton front — "Coverage: 20.06 sq ft"',
@@ -373,7 +380,9 @@ export const GUIDES: Guide[] = [
           'Tile: pieces per box × (tile length × width ÷ 144)',
           'Never assume — box sizes vary even within the same brand line',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Online listings sometimes round coverage. Trust the physical carton at pickup if the numbers disagree.',
+        ],
       },
       {
         heading: 'Store pickup checklist',
@@ -384,7 +393,7 @@ export const GUIDES: Guide[] = [
           'Buy underlay and transitions in same trip when possible',
         ],
         paragraphs: [
-          'Combine rooms in the [box count calculator](/how-many-flooring-boxes) only when every room uses the identical product code.',
+          'Combine rooms in the [box count calculator](/how-many-flooring-boxes) only when every room uses the identical product code. Need a materials budget? Use the [flooring cost estimator](/flooring-cost-estimator) with the same buy area.',
         ],
       },
     ],
@@ -594,12 +603,15 @@ export const GUIDES: Guide[] = [
           'AC5: heavy residential / light commercial',
           'Higher AC = harder wear layer — better for dogs and kids',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'If the label skips AC rating, ask the store or pick another line — traffic class is the fastest filter for pets and kids.',
+        ],
       },
       {
         heading: 'Thickness and underfoot feel',
         paragraphs: [
           '7–8 mm: budget, needs flat subfloor. 10–12 mm: quieter, more forgiving of minor dips. Thickness does not equal durability — wear layer AC rating matters more.',
+          'Attached pad feels softer but can hide an uneven subfloor. Flatten first; pad does not fix dips that cause click failures.',
         ],
       },
       {
@@ -609,7 +621,15 @@ export const GUIDES: Guide[] = [
           'Water-resistant core: waxed edges, short exposure OK',
           'Waterproof laminate / LVP: for kitchens and mudrooms — read warranty limits',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Basements and ground-level slabs with moisture risk often favor LVP over standard laminate. Compare options in [laminate vs vinyl plank](/guides/laminate-vs-vinyl-plank-which-to-buy).',
+        ],
+      },
+      {
+        heading: 'How many boxes after you pick a product',
+        paragraphs: [
+          'Once you choose a SKU, enter room size and the carton coverage in the [laminate flooring calculator](/laminate-flooring-calculator). Default 10% waste covers straight layouts; bump waste for hallways and diagonals.',
+        ],
       },
       {
         heading: 'Retail label checklist',

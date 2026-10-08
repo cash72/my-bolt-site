@@ -1102,9 +1102,17 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
+        heading: 'ENERGY STAR charts vs this calculator',
+        paragraphs: [
+          'ENERGY STAR room-AC tables map square footage to BTU bands for average rooms. Use them as a baseline, then adjust for ceiling height, sun, occupants, and kitchen load with the [window AC calculator](/window-ac-calculator).',
+          'A west-facing room with tall ceilings often needs one retail step above the chart. A shaded, well-insulated bedroom may sit at the low end.',
+        ],
+      },
+      {
         heading: 'When to skip window AC',
         paragraphs: [
           'Large open rooms, sunrooms, and additions with poor insulation may need 12,000+ BTU window units that are loud and block egress windows. Compare [mini-split vs window AC](/guides/mini-split-vs-window-ac) before buying the biggest box at the store.',
+          'Rentals that ban brackets, or HOAs that ban visible units, may force a portable — size with the same BTU math, then expect a higher nominal rating. See [portable AC vs window AC](/guides/portable-ac-vs-window-ac).',
         ],
       },
     ],
@@ -1149,6 +1157,14 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'See [SEER ratings explained](/guides/seer-ratings-explained) for efficiency shopping — higher SEER saves kWh over years, not first-season comfort.',
+          'Plan winter load with the [heat pump cold climate calculator](/heat-pump-cold-climate-calculator) or [furnace BTU calculator](/furnace-btu-calculator) before you rip out working heat.',
+        ],
+      },
+      {
+        heading: 'Design temperature vs nameplate BTU',
+        paragraphs: [
+          'Nameplate heating BTU is often rated near 47°F. Your home’s design temperature may be 10°F, 0°F, or lower. Ask for capacity tables at that outdoor temp — that number decides backup heat, not the brochure headline.',
+          'Oversizing cooling to chase winter capacity causes sticky summer short-cycling. Right-size each season, then choose dual fuel or strips for the gap.',
         ],
       },
     ],
@@ -1184,6 +1200,13 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
+        heading: 'SACC vs ASHRAE ratings on the box',
+        paragraphs: [
+          'Portable ACs often print two BTU numbers. ASHRAE is lab-style; SACC (seasonally adjusted) is closer to real-room performance and is usually lower. Shop and size with SACC when both appear.',
+          'If a portable lists only ASHRAE, treat the effective cooling as lower than a same-BTU window unit — bump one retail step or prefer dual-hose.',
+        ],
+      },
+      {
         heading: 'When portable still makes sense',
         bullets: [
           'Rental leases banning window brackets',
@@ -1192,7 +1215,7 @@ export const GUIDES: Guide[] = [
           'Rooms where drilling is impossible',
         ],
         paragraphs: [
-          'Size portables with the same room BTU math — then expect to buy a higher nominal BTU than a window unit for the same room.',
+          'Size portables with the same room BTU math — then expect to buy a higher nominal BTU than a window unit for the same room. Start with the [room AC calculator](/room-ac-calculator) or [window AC calculator](/window-ac-calculator).',
         ],
       },
     ],

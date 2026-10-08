@@ -35,6 +35,11 @@ export function getGuidesForLanding(page: LandingPage): Guide[] {
       .map((slug) => getGuideBySlug(slug))
       .filter((g): g is Guide => g !== undefined);
   }
+  if (page.slug === 'furnace-btu-calculator' || page.slug === 'heat-pump-cold-climate-calculator') {
+    return ['heat-pump-vs-air-conditioner', 'seer-ratings-explained', 'btu-per-square-foot-explained']
+      .map((slug) => getGuideBySlug(slug))
+      .filter((g): g is Guide => g !== undefined);
+  }
   if (page.slug === 'whole-house-btu-calculator') {
     return ['how-to-size-ac-for-open-floor-plan', 'btu-per-square-foot-explained', 'single-zone-vs-multi-zone-mini-split']
       .map((slug) => getGuideBySlug(slug))
@@ -52,8 +57,22 @@ const P0_CROSS_LINK_SLUGS: Partial<Record<string, string[]>> = {
   'btu-calculator': ['mini-split-calculator', 'what-size-ac-do-i-need', 'mini-split-for-rv'],
   'mini-split-calculator': ['btu-calculator', 'mini-split-for-rv', 'mini-split-for-tiny-home'],
   'window-ac-calculator': ['ac-size-calculator', 'room-ac-calculator', 'what-size-ac-do-i-need'],
-  'garage-heater-btu-calculator': ['btu-calculator', 'mini-split-for-shed', 'tonnage-calculator'],
-  'whole-house-btu-calculator': ['btu-calculator', 'what-size-ac-do-i-need', 'tonnage-calculator'],
+  'garage-heater-btu-calculator': [
+    'furnace-btu-calculator',
+    'heat-pump-cold-climate-calculator',
+    'mini-split-for-shed',
+  ],
+  'furnace-btu-calculator': [
+    'heat-pump-cold-climate-calculator',
+    'garage-heater-btu-calculator',
+    'whole-house-btu-calculator',
+  ],
+  'heat-pump-cold-climate-calculator': [
+    'furnace-btu-calculator',
+    'mini-split-calculator',
+    'garage-heater-btu-calculator',
+  ],
+  'whole-house-btu-calculator': ['btu-calculator', 'what-size-ac-do-i-need', 'furnace-btu-calculator'],
   'ac-cost-to-run-calculator': ['btu-calculator', 'mini-split-calculator', 'tonnage-calculator'],
 };
 

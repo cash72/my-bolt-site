@@ -60,10 +60,10 @@ export function getRelatedLandingPages(page: LandingPage, limit = 4): LandingPag
 }
 
 export const FEATURED_HOME_GUIDES = [
-  'diy-flooring-installation-roadmap',
-  'laminate-flooring-tools-you-need',
-  'first-row-laminate-flooring-layout',
-  'how-to-install-laminate-flooring-beginners',
+  'how-many-flooring-boxes-guide',
+  'how-to-measure-rooms-for-flooring',
+  'how-much-flooring-waste-to-buy',
+  'how-to-choose-laminate-flooring',
 ] as const;
 
 export function getFeaturedHomeGuides(): Guide[] {

@@ -15,6 +15,8 @@ const POPULAR_CALCULATORS = [
   { to: '/first-paint-job', label: 'First paint job' },
   { to: '/canadian-paint-coverage', label: 'Coverage by brand' },
   { to: '/how-much-paint-do-i-need', label: 'How much paint?' },
+  { to: '/ceiling-paint-calculator', label: 'Ceiling paint' },
+  { to: '/paint-cost-estimator', label: 'Paint cost' },
   { to: '/benjamin-moore-paint-calculator', label: 'Benjamin Moore' },
   { to: '/sherwin-williams-paint-calculator', label: 'Sherwin-Williams' },
   { to: '/cloverdale-paint-calculator', label: 'Cloverdale' },
@@ -59,7 +61,7 @@ export default function HomePage() {
   usePageMeta({
     title: 'Free Paint Calculator Canada — Enter Room Size',
     description:
-      'Free paint calculator for Canadian DIY: room gallons plus roller, brush, and tape vs drop cloths for first-timers. Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux. Not affiliated with any manufacturer.',
+      'Free Canadian paint calculator: room gallons, roller, brush, and tape vs drop cloths. Behr, Benjamin Moore, Sherwin-Williams, Cloverdale, Dulux. Not affiliated.',
     path: '/',
   });
 
@@ -226,7 +228,15 @@ export default function HomePage() {
           Paint, stain & wallpaper
         </h2>
         <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
-          Use the calculator above for paint and stain. For wallpaper rolls, pattern repeat, and accent walls, try our{' '}
+          Use the calculator above for paint and stain. For cabinets and full-room plans, see the{' '}
+          <Link to="/guides/how-to-paint-cabinets-and-trim" className="text-blue-600 dark:text-blue-400 hover:underline">
+            cabinet and trim guide
+          </Link>{' '}
+          and{' '}
+          <Link to="/guides/interior-painting-project-guide" className="text-blue-600 dark:text-blue-400 hover:underline">
+            interior painting project guide
+          </Link>
+          . For wallpaper rolls, pattern repeat, and accent walls, try our{' '}
           <Link to="/wallpaper-calculator" className="text-violet-600 dark:text-violet-400 hover:underline">
             wallpaper calculator
           </Link>{' '}
