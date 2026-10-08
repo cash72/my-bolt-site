@@ -13,7 +13,7 @@ import AdSlot from '../components/AdSlot';
 import { getRecipeImagePath, getRecipeImageUrl } from '../lib/recipes/images';
 import imageManifest from '../lib/recipes/imageManifest.json';
 import { breadcrumbSchema, pageUrl } from '../lib/schema/jsonLd';
-import { SITE_URL } from '../lib/site';
+import { SITE_NAME, SITE_URL } from '../lib/site';
 import { getRecipeArticle } from '../lib/recipes/recipeArticles';
 import { getRelatedRecipes } from '../lib/recipes/recipeHubs';
 import SessionDeepener from '../components/SessionDeepener';
@@ -35,6 +35,16 @@ function recipeSchema(recipe: Recipe): Record<string, unknown> {
     description: recipe.description,
     image: [getRecipeImageUrl(recipe)],
     url: pageUrl(`/recipes/${recipe.slug}`),
+    author: {
+      '@type': 'Organization',
+      name: 'Metabolic Low Carb Editorial Team',
+      url: `${SITE_URL}/`,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: `${SITE_URL}/`,
+    },
     recipeCategory: RECIPE_CATEGORY_LABEL[recipe.category],
     recipeYield: `${recipe.servings} ${recipe.servings === 1 ? 'serving' : 'servings'}`,
     prepTime: `PT${recipe.prepMinutes}M`,
