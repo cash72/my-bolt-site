@@ -9,9 +9,12 @@ import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 import { LANDING_PAGES } from '../lib/landingPages';
 
 const POPULAR_CALCULATORS = [
-  { to: '/mini-split-for-rv', label: 'RV mini-split size' },
-  { to: '/window-ac-calculator', label: 'Window AC BTU' },
+  { to: '/furnace-btu-calculator', label: 'Furnace BTU' },
+  { to: '/heat-pump-cold-climate-calculator', label: 'Cold-climate heat pump' },
+  { to: '/garage-heater-btu-calculator', label: 'Garage heater BTU' },
   { to: '/btu-calculator', label: 'BTU per sq ft' },
+  { to: '/window-ac-calculator', label: 'Window AC BTU' },
+  { to: '/mini-split-for-rv', label: 'RV mini-split size' },
   { to: '/what-size-ac-do-i-need', label: 'What size AC?' },
   { to: '/ac-cost-to-run-calculator', label: 'AC cost to run' },
 ] as const;

@@ -21,6 +21,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
+        heading: 'Room → boxes examples (10% waste, 20 sq ft/box)',
+        paragraphs: [
+          '10×10 (100 sq ft) → 110 sq ft with waste → 6 boxes. 12×12 (144 sq ft) → 158 sq ft → 8 boxes. 12×15 (180 sq ft) → 198 sq ft → 10 boxes. 15×20 (300 sq ft) → 330 sq ft → 17 boxes.',
+          'Your carton coverage may be 18–24 sq ft — enter the label number above. For multi-room same-SKU jobs, add each room and buy one lot together.',
+        ],
+      },
+      {
         heading: 'Underlay and acclimation — plan before you click',
         paragraphs: [
           'Laminate floats over underlayment — order pad separately in the same square footage as your floor. See [do I need underlay for laminate](/guides/do-i-need-underlay-for-laminate) for foam vs cork choices.',
@@ -28,10 +35,10 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
-        heading: 'Waste allowance for straight layouts',
+        heading: 'Waste allowance for straight, diagonal, and doorway-heavy rooms',
         paragraphs: [
-          'Default 10% covers end cuts, mistakes, and future plank repairs. Hallways with many doorways, closets, or diagonal layouts may need 12–15%. The [flooring waste guide](/guides/how-much-flooring-waste-to-buy) walks through room-by-room factors.',
-          'Keep one spare box from the same lot for patches. Store it flat in a climate-controlled space — not the garage if temperatures swing.',
+          'Default 10% covers end cuts, mistakes, and future plank repairs on a simple rectangle. Hallways with many doorways, closets, or diagonal layouts may need 12–15%. Herringbone-style patterns (when using angle-cut laminate) push toward 18–20%.',
+          'The [flooring waste guide](/guides/how-much-flooring-waste-to-buy) walks through room-by-room factors. Keep one spare box from the same lot for patches — store it flat in a climate-controlled space.',
         ],
       },
     ],
@@ -160,17 +167,24 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
-        heading: 'Where to find sq ft per box',
+        heading: 'Multi-room same-SKU shopping',
         paragraphs: [
-          'Every laminate, LVP, and tile carton prints coverage on the label — usually 18–24 sq ft for laminate, 15–20 sq ft for tile. Big-box listings sometimes round; trust the physical box at the store.',
-          'See our [how many flooring boxes guide](/guides/how-many-flooring-boxes-guide) for worked examples across room sizes.',
+          'Add every room that shares one product code, then apply waste once to the combined area. Mixing dye lots across a continuous sightline (open kitchen-living) shows as colour shifts in sunlight.',
+          'Different products per room (tile bath, laminate hall) need separate calculator runs — do not average coverage across SKUs.',
         ],
       },
       {
-        heading: 'Leftover planks and future repairs',
+        heading: 'Where to find sq ft per box',
+        paragraphs: [
+          'Every laminate, LVP, and tile carton prints coverage on the label — usually 18–24 sq ft for laminate, 15–20 sq ft for tile. Big-box listings sometimes round; trust the physical box at the store.',
+          'See our [how many flooring boxes guide](/guides/how-many-flooring-boxes-guide) for worked examples across room sizes. Need a materials budget too? Use the [flooring cost estimator](/flooring-cost-estimator).',
+        ],
+      },
+      {
+        heading: 'Leftover planks, dye lots, and future repairs',
         paragraphs: [
           'A partly used last box is normal — that is your waste allowance plus remainder. Keep extra planks or tiles from the same dye lot for future patches.',
-          'Dye lots change between production runs. Buy all boxes from the same lot number printed on the carton wrapper.',
+          'Dye lots change between production runs. Buy all boxes from the same lot number printed on the carton wrapper. Photograph the lot stamp before you recycle cartons.',
         ],
       },
     ],
@@ -293,16 +307,24 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
-        heading: 'Waste and extras in the budget',
+        heading: 'Price bands by material (planning ranges)',
         paragraphs: [
-          'Add 10–15% waste into the square footage you price — short boxes mid-install cost more than leftover cartons. Budget separately for underlay, trim, and threshold strips; they are rarely in the plank price.',
-          'For the full DIY sequence after you know cost, follow the [DIY flooring installation roadmap](/guides/diy-flooring-installation-roadmap).',
+          'Budget laminate often lands near $1.50–$3/sq ft material. Mid LVP ~$3–$6. Porcelain tile ~$2–$8 before thinset and membrane. Premium hardwood and stone run higher — always use the tag in your cart.',
+          'Example: 12×12 (158 sq ft with 10% waste) at $3 laminate ≈ $474 materials. Same area at $5 LVP ≈ $790. Add install at $2–$8/sq ft if a contractor quoted labor that way.',
         ],
       },
       {
-        heading: 'When quotes differ wildly',
+        heading: 'Waste dollars and extras in the budget',
+        paragraphs: [
+          'Add 10–15% waste into the square footage you price — short boxes mid-install cost more than leftover cartons. On a $5/sq ft product, 15% waste on 200 sq ft is $150 of “extra” material you still need.',
+          'Budget separately for underlay, trim, and threshold strips; they are rarely in the plank price. See [how much flooring waste to buy](/guides/how-much-flooring-waste-to-buy) and the [how many flooring boxes guide](/guides/how-many-flooring-boxes-guide).',
+        ],
+      },
+      {
+        heading: 'DIY vs pro — what quotes leave out',
         paragraphs: [
           'Big gaps between store DIY totals and contractor quotes usually come from subfloor prep, furniture moving, or tear-out — ask what is included. Use this page as a materials baseline, not a final bid.',
+          'For the full DIY sequence after you know cost, follow the [DIY flooring installation roadmap](/guides/diy-flooring-installation-roadmap).',
         ],
       },
     ],

@@ -6,6 +6,8 @@ export interface LandingPage {
   applicationType: ApplicationType;
   /** Default 'btu'. Cost landings use SeerCostCalculator instead of HvacCalculator. */
   kind?: 'btu' | 'cost';
+  /** Emphasize heating BTU results (furnace, garage heater, cold-climate heat pump). */
+  resultMode?: 'standard' | 'heating';
   title: string;
   h1: string;
   description: string;
@@ -360,6 +362,7 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'garage-heater-btu-calculator',
     path: '/garage-heater-btu-calculator',
     applicationType: 'garage_workshop',
+    resultMode: 'heating',
     title: 'Garage Heater BTU Calculator — Workshop & Garage Heating',
     h1: 'Garage Heater BTU Calculator',
     description:
@@ -444,11 +447,77 @@ export const LANDING_PAGES: LandingPage[] = [
       },
     ],
   },
+  {
+    slug: 'furnace-btu-calculator',
+    path: '/furnace-btu-calculator',
+    applicationType: 'living_room',
+    resultMode: 'heating',
+    title: 'Furnace BTU Calculator — Heating Size by Square Foot',
+    h1: 'Furnace BTU Calculator',
+    description:
+      'Free furnace BTU calculator: estimate heating load by room size, insulation, and climate. Plan furnace or boiler capacity before Manual J — DIY planning only.',
+    breadcrumbLabel: 'Furnace BTU',
+    quickAnswer:
+      'Heating load depends on shell and climate more than a single multiplier. Enter heated square footage below for a planning BTU estimate, then compare to furnace output (input × AFUE) — not marketing input alone.',
+    intro:
+      'Enter the heated zone dimensions, insulation level, and climate. We estimate heating BTU for furnace, boiler, or electric heat planning. For garages use the garage heater tool; for cold-climate heat pumps use the dedicated heat pump page.',
+    faqs: [
+      {
+        question: 'How many BTU furnace for a 1,200 sq ft house?',
+        answer:
+          'Cold-climate planning often lands near 40,000–60,000 BTU of heating capacity depending on insulation and windows — not a fixed rule. Enter your layout here, then confirm with Manual J before buying equipment.',
+      },
+      {
+        question: 'Is furnace input BTU the same as output?',
+        answer:
+          'No. Output ≈ input × AFUE. An 80,000 BTU input furnace at 95% AFUE delivers about 76,000 BTU of heat. Match output to load.',
+      },
+      {
+        question: 'Can I replace a furnace with a heat pump?',
+        answer:
+          'Often in mild climates. Cold-climate heat pumps need capacity at your design temperature — use the heat pump cold climate calculator and talk to an installer about dual fuel or backup heat.',
+      },
+    ],
+  },
+  {
+    slug: 'heat-pump-cold-climate-calculator',
+    path: '/heat-pump-cold-climate-calculator',
+    applicationType: 'living_room',
+    resultMode: 'heating',
+    title: 'Heat Pump Cold Climate Calculator — Winter BTU Planning',
+    h1: 'Heat Pump Cold Climate Calculator',
+    description:
+      'Size cold-climate heat pump heating BTU by room or zone. Plan HSPF capacity, backup heat, and dual-fuel decisions — free DIY planning calculator.',
+    breadcrumbLabel: 'Cold-climate heat pump',
+    quickAnswer:
+      'Cold-climate heat pumps are rated for capacity at low outdoor temps — not just nominal BTU at 47°F. Enter your space below for a planning load, then check the manufacturer table at your design temperature.',
+    intro:
+      'Estimate heating load for cold-climate and hyper-heat mini-splits or ducted heat pumps. Use results to decide whether you need electric strips, dual fuel, or a furnace backup — Manual J still required for permits.',
+    faqs: [
+      {
+        question: 'Do heat pumps work below freezing?',
+        answer:
+          'Yes — modern cold-climate models operate well below 0°F with reduced capacity. Always verify published capacity at your design temperature.',
+      },
+      {
+        question: 'What is HSPF vs HSPF2?',
+        answer:
+          'Both measure seasonal heating efficiency; HSPF2 uses updated test methods. Higher is more efficient. Capacity at design temp still decides comfort.',
+      },
+      {
+        question: 'When do I need backup heat?',
+        answer:
+          'When heating load at design temperature exceeds the heat pump’s published capacity. Dual fuel, strips, or a furnace cover the gap — do not oversize cooling to chase winter heat.',
+      },
+    ],
+  },
 ];
 
 export const FEATURED_LANDING_SLUGS = [
   'btu-calculator',
   'ac-cost-to-run-calculator',
+  'furnace-btu-calculator',
+  'heat-pump-cold-climate-calculator',
   'mini-split-calculator',
   'window-ac-calculator',
   'garage-heater-btu-calculator',

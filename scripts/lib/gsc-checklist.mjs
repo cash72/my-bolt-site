@@ -51,9 +51,13 @@ export const P0_INDEX_BY_DIR = {
       { path: '/what-size-ac-do-i-need/', note: 'what size AC query' },
       { path: '/', note: 'hub title aligned to BTU / mini-split / window AC queries' },
       { path: '/ac-cost-to-run-calculator/' },
+      { path: '/furnace-btu-calculator/', note: 'winter heating long-tail', isNew: true },
+      { path: '/heat-pump-cold-climate-calculator/', note: 'winter heat pump long-tail', isNew: true },
+      { path: '/garage-heater-btu-calculator/', note: 'winter garage heating' },
       { path: '/guides/diy-mini-split-project-roadmap/' },
       { path: '/guides/seer-ratings-explained/' },
       { path: '/guides/btu-per-square-foot-explained/' },
+      { path: '/guides/heat-pump-vs-air-conditioner/' },
     ],
   },
   flooringboxcalculator: {

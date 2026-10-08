@@ -99,6 +99,21 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'Occupants and kitchen load',
         paragraphs: [
           'Each person beyond the first two adds sensible heat. A range or oven running during dinner adds spike load — enable kitchen load in settings for combined kitchen-living spaces.',
+          'Electronics, TVs, and game consoles add smaller but real loads in media rooms — if the space feels warm with people and screens on, bump sun exposure or occupants rather than doubling BTU “just in case.”',
+        ],
+      },
+      {
+        heading: 'Room-size examples (planning only)',
+        paragraphs: [
+          '12×12 living nook (~144 sq ft): often 9,000 BTU retail after load math. 15×20 open living (~300 sq ft) with kitchen load: commonly 12,000–18,000 BTU. 20×25 great room (~500 sq ft) with west glass: often 18,000–24,000 BTU or two heads.',
+          'These are DIY planning ranges. Whole-house permits and equipment selection need a Manual J from a licensed pro — use this page to shortlist sizes before you shop.',
+        ],
+      },
+      {
+        heading: 'Climate and when Manual J is required',
+        paragraphs: [
+          'Hot-humid zones need longer run time for dehumidification — prefer right-sized inverter equipment over oversized window boxes. Dry desert heat is more about peak BTU than moisture.',
+          'If you are replacing a central system, adding a heat pump, or pulling a permit, stop at this estimate and hire Manual J. For winter heating load in a garage or furnace zone, see the [garage heater BTU calculator](/garage-heater-btu-calculator) or [furnace BTU calculator](/furnace-btu-calculator).',
         ],
       },
     ],
@@ -116,15 +131,25 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
-        heading: 'Power planning',
+        heading: 'Power planning — 30A vs 50A and soft start',
         paragraphs: [
           '9k–12k BTU units typically need 15–20A at 110V or 220V depending on model. Full-timing requires 30A shore power or adequate inverter/generator capacity — electrical planning is as important as BTU sizing.',
+          'Soft-start kits lower compressor inrush so a 30A pedestal or generator can start a 12k unit that would otherwise trip. Confirm amp draw on the nameplate and whether your kit is 120V or 240V before you buy.',
+          'Boondocking on solar/inverter? Size continuous inverter watts above running load and surge above locked-rotor amps — or stick with a roof AC that matches your existing converter wiring.',
         ],
       },
       {
         heading: 'Roof AC vs ductless',
         paragraphs: [
           'Roof units are easier to install but noisier and less efficient at dehumidifying. Mini-splits are quieter and perform better in humid climates but need custom condenser mounting and line-set routing.',
+          'Condenser placement must stay clear of road spray, propane tanks, and slide-outs. Frame mounts and vibration isolation matter as much as BTU — poorly mounted outdoor units fail early on travel days.',
+        ],
+      },
+      {
+        heading: 'Climate upsizing for full-timers',
+        paragraphs: [
+          'Desert and Gulf Coast full-timers often upsizing one retail step above calculated cooling load for peak afternoon heat. Do not double capacity — humidity control still needs run time.',
+          'Winter camping below freezing needs a cold-climate heat pump rating or supplemental heat. See [heat pump vs air conditioner](/guides/heat-pump-vs-air-conditioner) and the [heat pump cold climate calculator](/heat-pump-cold-climate-calculator) for heating-side planning.',
         ],
       },
     ],
@@ -242,9 +267,17 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
-        heading: 'Fitting the window opening',
+        heading: 'Fitting the window opening and egress',
         paragraphs: [
           'Rated BTU must match calculated load — do not buy the largest unit that fits the sash. Oversized window units cool fast but leave humidity high.',
+          'Bedrooms used for sleeping must keep an egress path. Measure clear opening height and width after the bracket is installed — some jurisdictions treat a blocked sash as a safety issue.',
+        ],
+      },
+      {
+        heading: 'Humidity, dual-hose portables, and ENERGY STAR charts',
+        paragraphs: [
+          'Window units usually dehumidify better than single-hose portables because heat leaves through the exterior half of the chassis. Dual-hose portables are closer but still noisier with the compressor indoors — see [portable vs window AC](/guides/portable-ac-vs-window-ac).',
+          'ENERGY STAR room-AC charts are a solid starting table; this calculator adjusts for ceiling height, sun, occupants, and kitchen load beyond a flat sq-ft chart. For a deeper walkthrough, read [window AC BTU sizing](/guides/window-ac-btu-sizing).',
         ],
       },
     ],
@@ -265,6 +298,20 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'Propane, electric, and infrared',
         paragraphs: [
           'BTU output is comparable when rated equally. Ventilation and carbon monoxide safety matter for fuel-burning units — follow manufacturer clearance requirements.',
+          'Infrared heaters warm objects and people, not just air — useful for spot work zones. Forced-air units heat the whole volume faster but need more fuel when the door opens frequently.',
+        ],
+      },
+      {
+        heading: 'Insulate before you upsize',
+        paragraphs: [
+          'A poorly sealed overhead door and uninsulated ceiling can double the heater BTU you need. Rigid foam on the door, weatherstripping, and attic/ceiling insulation often pay back faster than a larger burner.',
+          'Attached garages next to living space should keep combustion appliances code-compliant and sealed from living air. When in doubt, use electric or a heat pump and follow local clearances.',
+        ],
+      },
+      {
+        heading: 'Related winter sizing tools',
+        paragraphs: [
+          'Planning whole-home furnace capacity? Use the [furnace BTU calculator](/furnace-btu-calculator). Comparing cold-climate heat pumps vs backup heat? Open the [heat pump cold climate calculator](/heat-pump-cold-climate-calculator).',
         ],
       },
     ],
@@ -302,6 +349,13 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         ],
       },
       {
+        heading: 'SEER vs SEER2 on the label',
+        paragraphs: [
+          'SEER2 uses updated test conditions and usually prints a lower number than legacy SEER for the same hardware. Enter the rating printed on your equipment — do not mix SEER and SEER2 in one comparison without converting.',
+          'When shopping, compare SEER2-to-SEER2 (or SEER-to-SEER). The compare field on this page is for same-scale ratings so monthly savings stay honest.',
+        ],
+      },
+      {
         heading: 'Hours and climate matter more than sticker SEER',
         paragraphs: [
           'A high-SEER unit in a mild climate with short cooling seasons may cost less annually than a mid-SEER unit run 12 hours a day in a hot region. Use realistic daily hours for your home, not nameplate maximum.',
@@ -312,6 +366,74 @@ export const LANDING_EDITORIAL: Record<string, LandingEditorial> = {
         heading: 'What this estimate leaves out',
         paragraphs: [
           'We model compressor energy for planning — not standby power, fans on other equipment, or time-of-use rate tiers. Treat the result as a comparison tool between units, not a utility bill guarantee.',
+        ],
+      },
+    ],
+  },
+
+  'furnace-btu-calculator': {
+    intro:
+      'Furnace and heating BTU planning starts with heated square footage, insulation, and climate. Enter the zone you want warm — we estimate heating load for DIY comparison before you talk to a HVAC pro.',
+    sections: [
+      {
+        heading: 'Heating BTU is not cooling BTU',
+        paragraphs: [
+          'Cooling load removes heat and moisture; heating load replaces heat lost through walls, windows, and air leaks. Cold climates and leaky shells need more heating BTU per sq ft than the cooling number for the same room.',
+          'Use this page for furnace, boiler, or electric heat planning. For ductless winter performance, pair results with the [heat pump cold climate calculator](/heat-pump-cold-climate-calculator).',
+        ],
+      },
+      {
+        heading: 'Worked examples',
+        paragraphs: [
+          'A 1,200 sq ft ranch with average insulation in a cold climate often lands near 40,000–60,000 BTU input for whole-home planning — layout and windows swing that range. A finished basement zone of 400 sq ft may need its own 15,000–25,000 BTU of capacity depending on below-grade losses.',
+          'Garages and workshops are worse: large doors and thin walls dominate. Size those with the [garage heater BTU calculator](/garage-heater-btu-calculator) instead of a living-room factor.',
+        ],
+      },
+      {
+        heading: 'AFUE, input vs output, and Manual J',
+        paragraphs: [
+          'Furnace nameplates list input BTU and AFUE. Output ≈ input × AFUE. An 80,000 BTU input furnace at 95% AFUE delivers about 76,000 BTU of heat — shop output against your load, not marketing input alone.',
+          'This tool is a DIY planning estimate. Permits, gas-line sizing, and final equipment selection need Manual J / Manual S from a licensed contractor.',
+        ],
+      },
+      {
+        heading: 'When a heat pump replaces the furnace',
+        paragraphs: [
+          'Mild climates often run heat pumps as primary heat. Cold-climate models still need honest design temperatures — see [heat pump vs air conditioner](/guides/heat-pump-vs-air-conditioner) before you rip out a working furnace.',
+        ],
+      },
+    ],
+  },
+
+  'heat-pump-cold-climate-calculator': {
+    intro:
+      'Cold-climate heat pumps keep capacity longer as outdoor temperatures drop — but design temperature still decides whether you need backup heat. Enter your space for a planning BTU estimate, then check HSPF / HSPF2 on the label.',
+    sections: [
+      {
+        heading: 'Why cold-climate ratings matter',
+        paragraphs: [
+          'Standard heat pumps lose capacity below freezing. Cold-climate and hyper-heat models are tested to deliver more of their rated heat at 5°F / −15°C and below. Always read capacity tables at your design temperature — not just nominal 47°F ratings.',
+          'HSPF (and HSPF2) measure seasonal heating efficiency. Higher is better for bills; capacity at design temp decides whether the house stays warm without strips or a furnace.',
+        ],
+      },
+      {
+        heading: 'Backup heat decision tree',
+        paragraphs: [
+          'If calculated heating load at design temp exceeds the heat pump’s published capacity, you need dual fuel, electric strips, or a furnace backup. Oversizing cooling to chase winter heat causes summer short-cycling — size for both seasons honestly.',
+          'Compare cooling-side math on the [mini-split calculator](/mini-split-calculator) and winter furnace planning on the [furnace BTU calculator](/furnace-btu-calculator).',
+        ],
+      },
+      {
+        heading: 'Mini-split vs ducted cold-climate systems',
+        paragraphs: [
+          'Ductless heads are common for additions, cottages, and zone upgrades. Whole-home cold-climate heat pumps may be ducted. Either way, Manual J still applies for permits and rebates that require load calculations.',
+          'Cottages and seasonal homes: see the [cottage mini-split guide](/guides/cottage-mini-split-guide). Garages: [mini-split for garage workshop](/guides/mini-split-for-garage-workshop).',
+        ],
+      },
+      {
+        heading: 'Planning vs installer design',
+        paragraphs: [
+          'Use this calculator to shortlist equipment class and talk to installers with numbers. Final selection needs site design temperature, envelope details, and manufacturer capacity tables — not a single online multiplier.',
         ],
       },
     ],

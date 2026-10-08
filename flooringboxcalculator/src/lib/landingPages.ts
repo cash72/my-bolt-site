@@ -377,6 +377,11 @@ export const LANDING_PAGES: LandingPage[] = [
           'Materials: 158 sq ft (with 10% waste) × your $/sq ft. Example: $2.50 laminate ≈ $395; $5 vinyl plank ≈ $790. Labor, if quoted per sq ft, uses the same buy area. Transitions, underlay, and trim are extra.',
       },
     ],
+    relatedGuideSlugs: [
+      'how-many-flooring-boxes-guide',
+      'how-much-flooring-waste-to-buy',
+      'diy-flooring-installation-roadmap',
+    ],
   },
 ];
 
