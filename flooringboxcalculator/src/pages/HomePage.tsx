@@ -173,7 +173,14 @@ export default function HomePage() {
           ))}
         </div>
         <p className="text-sm text-slate-600 dark:text-slate-400 mt-4">
-          Not sure which floor to buy? Read our{' '}
+          Need a worked box-count example first? Read the{' '}
+          <Link
+            to="/guides/how-many-flooring-boxes-guide"
+            className="text-emerald-600 dark:text-emerald-400 hover:underline"
+          >
+            how many flooring boxes guide
+          </Link>
+          . Not sure which floor to buy? See our{' '}
           <Link
             to="/guides/laminate-vs-tile-vs-carpet-comparison"
             className="text-emerald-600 dark:text-emerald-400 hover:underline"
