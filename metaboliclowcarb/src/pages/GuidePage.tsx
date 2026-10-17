@@ -13,7 +13,7 @@ import { renderEditorialText } from '../lib/renderEditorialText';
 import { SITE_NAME, SITE_URL } from '../lib/site';
 
 const GUIDE_DATE_PUBLISHED = '2026-07-12';
-const GUIDE_DATE_MODIFIED = '2026-07-26';
+const GUIDE_DATE_MODIFIED = '2026-08-11';
 
 export default function GuidePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -46,7 +46,10 @@ export default function GuidePage() {
           mainEntity: guide.faqs.map((faq) => ({
             '@type': 'Question',
             name: faq.question,
-            acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: faq.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+            },
           })),
         }
       : null
@@ -173,7 +176,9 @@ export default function GuidePage() {
           {guide.faqs.map((faq) => (
             <article key={faq.question}>
               <h3 className="font-medium text-slate-800 dark:text-slate-200 text-sm">{faq.question}</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">{faq.answer}</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                {renderEditorialText(faq.answer)}
+              </p>
             </article>
           ))}
         </div>

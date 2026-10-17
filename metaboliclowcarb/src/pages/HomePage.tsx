@@ -10,14 +10,15 @@ import { GuideCard } from '../components/GuideCard';
 import { getFeaturedRecipes } from '../lib/recipes/recipes';
 import { getFeaturedHomeGuides } from '../lib/landingHelpers';
 import { LANDING_PAGES } from '../lib/landingPages';
+import { renderEditorialText } from '../lib/renderEditorialText';
 import type { ToolId } from '../lib/metabolic/types';
 
 const POPULAR_TOOLS = [
-  { to: '/net-carb-calculator', label: 'Net carb calculator' },
   { to: '/keto-macro-calculator', label: 'Keto macro calculator' },
+  { to: '/tdee-calorie-calculator', label: 'TDEE calorie calculator' },
+  { to: '/net-carb-calculator', label: 'Net carb calculator' },
   { to: '/weight-loss-macro-calculator', label: 'Weight loss macros' },
   { to: '/diabetes-macro-calculator', label: 'Diabetes macros' },
-  { to: '/intermittent-fasting-timer', label: 'Intermittent fasting timer' },
 ] as const;
 
 const TOOL_TABS: { id: ToolId; label: string; sub: string }[] = [
@@ -30,7 +31,7 @@ const HOMEPAGE_FAQS = [
   {
     question: 'What are net carbs?',
     answer:
-      'Net carbs are total carbohydrates minus fiber and often sugar alcohols. Keto and low-carb diets use them to track daily carb intake.',
+      'Net carbs are total carbohydrates minus fiber and often sugar alcohols. Keto and low-carb diets use them to track daily carb intake. Practice with the [net carb calculator](/net-carb-calculator), then lock a day budget in the [keto macro calculator](/keto-macro-calculator).',
   },
   {
     question: 'Is this medical advice?',
@@ -45,7 +46,12 @@ const HOMEPAGE_FAQS = [
   {
     question: 'Which calculator should I use first?',
     answer:
-      'Use the net carb calculator when reading a food label. Use the macro calculator for daily targets. Use the fasting clock when you are ready to track fasts after low-carb eating feels stable.',
+      'Use the [net carb calculator](/net-carb-calculator) when reading a food label. Use the [keto macro calculator](/keto-macro-calculator) for daily protein, fat, and ~20g net carbs. Use the [TDEE calorie calculator](/tdee-calorie-calculator) when you need a maintenance or deficit calorie baseline. Use the [fasting clock](/fasting-clock) when you are ready to track fasts after low-carb eating feels stable.',
+  },
+  {
+    question: 'How do keto macros and TDEE work together?',
+    answer:
+      'TDEE answers how many calories you burn; keto macros answer how those calories split. Run the [TDEE calorie calculator](/tdee-calorie-calculator) for maintenance or a 300–500 calorie deficit, then lock protein, fat, and ~20g net carbs in the [keto macro calculator](/keto-macro-calculator).',
   },
 ];
 
@@ -53,9 +59,9 @@ export default function HomePage() {
   const [activeTool, setActiveTool] = useState<ToolId>('net-carb');
 
   usePageMeta({
-    title: 'Metabolic Low Carb Calculator — Net Carbs, Macros & Fasting Clock',
+    title: 'Metabolic Low Carb Calculator — Keto Macros, TDEE & Net Carbs',
     description:
-      'Free net carb calculator, keto macro calculator, and fasting clock for insulin resistance, PCOS, metabolic health, and low-carb diets. Plus recipes and guides.',
+      'Free keto macro calculator (~20g net carbs), TDEE calorie calculator, net carb tool, and fasting clock for insulin resistance, PCOS, metabolic health, and low-carb diets. Plus recipes and guides.',
     path: '/',
   });
 
@@ -75,7 +81,10 @@ export default function HomePage() {
       mainEntity: HOMEPAGE_FAQS.map((faq) => ({
         '@type': 'Question',
         name: faq.question,
-        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+        },
       })),
     });
 
@@ -237,7 +246,7 @@ export default function HomePage() {
           <div>
             <h3 className="font-medium text-slate-800 dark:text-slate-200">{HOMEPAGE_FAQS[0].question}</h3>
             <p className="text-slate-600 dark:text-slate-400 mt-1">
-              {HOMEPAGE_FAQS[0].answer}{' '}
+              {renderEditorialText(HOMEPAGE_FAQS[0].answer)}{' '}
               <Link to="/guides/how-to-read-nutrition-labels-net-carbs" className="text-teal-600 dark:text-teal-400 hover:underline">
                 Label reading guide
               </Link>
@@ -246,12 +255,12 @@ export default function HomePage() {
           </div>
           <div>
             <h3 className="font-medium text-slate-800 dark:text-slate-200">{HOMEPAGE_FAQS[1].question}</h3>
-            <p className="text-slate-600 dark:text-slate-400 mt-1">{HOMEPAGE_FAQS[1].answer}</p>
+            <p className="text-slate-600 dark:text-slate-400 mt-1">{renderEditorialText(HOMEPAGE_FAQS[1].answer)}</p>
           </div>
           <div>
             <h3 className="font-medium text-slate-800 dark:text-slate-200">{HOMEPAGE_FAQS[2].question}</h3>
             <p className="text-slate-600 dark:text-slate-400 mt-1">
-              {HOMEPAGE_FAQS[2].answer}{' '}
+              {renderEditorialText(HOMEPAGE_FAQS[2].answer)}{' '}
               <Link to="/guides/intermittent-fasting-16-8-vs-18-6" className="text-teal-600 dark:text-teal-400 hover:underline">
                 16:8 vs 18:6 guide
               </Link>{' '}
@@ -264,7 +273,11 @@ export default function HomePage() {
           </div>
           <div>
             <h3 className="font-medium text-slate-800 dark:text-slate-200">{HOMEPAGE_FAQS[3].question}</h3>
-            <p className="text-slate-600 dark:text-slate-400 mt-1">{HOMEPAGE_FAQS[3].answer}</p>
+            <p className="text-slate-600 dark:text-slate-400 mt-1">{renderEditorialText(HOMEPAGE_FAQS[3].answer)}</p>
+          </div>
+          <div>
+            <h3 className="font-medium text-slate-800 dark:text-slate-200">{HOMEPAGE_FAQS[4].question}</h3>
+            <p className="text-slate-600 dark:text-slate-400 mt-1">{renderEditorialText(HOMEPAGE_FAQS[4].answer)}</p>
           </div>
         </div>
       </section>
