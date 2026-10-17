@@ -50,6 +50,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Enter up to five beds with feet-and-inch dimensions. Set depth (default 3 inches), material type, and waste %. You get cubic yards, standard 2 cu ft bag counts, and a copyable shopping list.',
           'Use our [mulch calculator](/mulch-calculator) for instant totals, or read our [cubic yards guide](/guides/cubic-yards-mulch-explained) if you prefer pencil-and-paper math.',
+          'Once you have yardage, compare bulk vs bag dollars with the [mulch cost estimator](/mulch-cost-estimator) using your local $/yard and bag prices.',
         ],
       },
     ],
@@ -57,7 +58,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'How much mulch for a 10×10 bed at 3 inches?',
         answer:
-          '100 sq ft × 0.25 ft depth = 25 cu ft ≈ 0.93 cubic yards. That is about 13–14 standard 2 cu ft bags. Round up to 1 cubic yard for bulk delivery.',
+          '100 sq ft × 0.25 ft depth = 25 cu ft ≈ 0.93 cubic yards. That is about 13–14 standard 2 cu ft bags. Round up to 1 cubic yard for bulk delivery — then price it in the [mulch cost estimator](/mulch-cost-estimator).',
       },
       {
         question: 'Do I need new mulch if old mulch is still there?',
@@ -172,6 +173,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'A full-size pickup holds roughly 1.5–2 cubic yards level with the bed sides — less if the material is wet or heavy (stone vs mulch). Many suppliers enforce 2-yard minimums for delivery.',
           'Mulch weighs about 400–800 lbs per cubic yard depending on moisture. Gravel can exceed 2,500 lbs per yard — check payload limits before DIY hauling.',
+          'After you lock cubic yards, run bulk $/yard vs bag prices in the [mulch cost estimator](/mulch-cost-estimator) so delivery minimums do not erase the savings.',
         ],
       },
     ],
@@ -466,14 +468,15 @@ export const GUIDES: Guide[] = [
         heading: 'When bags make sense vs bulk',
         paragraphs: [
           'Bagged mulch wins for small beds, remote beds far from the driveway drop point, and when you lack a truck. Bulk wins above ~2 cubic yards on price and labor.',
-          'See [delivery vs bags](/guides/delivery-vs-bags-bulk-mulch) for a full cost comparison.',
+          'See [delivery vs bags](/guides/delivery-vs-bags-bulk-mulch) for a full cost comparison, or plug both prices into the [mulch cost estimator](/mulch-cost-estimator) with your bed dimensions.',
         ],
       },
     ],
     faqs: [
       {
         question: 'How many 2 cu ft bags for 2 cubic yards?',
-        answer: 'About 27 bags (14 per yard × 2). Add 1–2 extras for waste.',
+        answer:
+          'About 27 bags (14 per yard × 2). Add 1–2 extras for waste — then compare bag vs bulk totals in the [mulch cost estimator](/mulch-cost-estimator).',
       },
       {
         question: 'Why does my receipt show fewer bags than calculated?',
@@ -522,6 +525,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Dump piles in sections, rake to uniform depth using a hard rake or hands. Use a yardstick or stake marked at 3 inches to spot-check depth. Keep mulch pulled back from trunks and building siding.',
           'On slopes, shredded mulch outperforms nuggets. Water lightly after spreading to settle dust and help knit fibers on dyed products.',
+          'Before you schedule the drop, price bulk vs bags for the same beds with the [mulch cost estimator](/mulch-cost-estimator) — especially useful when spring suppliers still have dyed bulk in stock.',
         ],
       },
     ],
@@ -661,8 +665,8 @@ export const GUIDES: Guide[] = [
     description:
       'When to order bulk mulch by the cubic yard vs buying bagged product. Delivery fees, minimums, DIY truck hauling, and storage tips for weekend landscaping projects.',
     readMinutes: 8,
-    toolPath: '/mulch-calculator',
-    toolLabel: 'Mulch calculator',
+    toolPath: '/mulch-cost-estimator',
+    toolLabel: 'Mulch cost estimator',
     relatedGuideSlugs: [
       'how-many-mulch-bags-per-yard',
       'cubic-yards-mulch-explained',
@@ -680,7 +684,7 @@ export const GUIDES: Guide[] = [
         heading: 'Bagged mulch from retailers',
         paragraphs: [
           'Higher per-yard cost but no delivery wait, easier carry to backyards, and exact returns of unopened bags. Ideal for 0.5–2 yard projects split across weekends.',
-          'Calculate bags with our [bags per yard guide](/guides/how-many-mulch-bags-per-yard) before loading the cart.',
+          'Calculate bags with our [bags per yard guide](/guides/how-many-mulch-bags-per-yard) before loading the cart — then price both paths in the [mulch cost estimator](/mulch-cost-estimator).',
         ],
         bullets: [
           'Under ~1.5 cu yd: bags often competitive with delivery fee',
@@ -693,6 +697,7 @@ export const GUIDES: Guide[] = [
         heading: 'Hidden costs to compare',
         paragraphs: [
           'Include: material, tax, delivery, tarp, wheelbarrow time, and fuel for self-haul. Bulk mistakes (ordering short) cost a second delivery minimum — calculate with 10% waste up front.',
+          'Run materials only in the [mulch cost estimator](/mulch-cost-estimator), then add each supplier’s delivery fee on top so the cheaper yardage option still wins after the truck rolls.',
         ],
       },
     ],
@@ -700,7 +705,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'What is a typical mulch delivery minimum?',
         answer:
-          'Often 2–3 cubic yards for local nurseries; big-box bulk programs vary. Call before assuming single-yard delivery.',
+          'Often 2–3 cubic yards for local nurseries; big-box bulk programs vary. Call before assuming single-yard delivery — then compare that quote to bags in the [mulch cost estimator](/mulch-cost-estimator).',
       },
       {
         question: 'How long can a mulch pile sit?',
@@ -755,6 +760,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           'Measure only the depth you need to restore — not full new-bed depth if 1–2 inches of mulch remains. Subtract existing depth from your 3-inch target before running numbers.',
           'Fall projects often combine several beds after leaf cleanup. Use our [mulch calculator](/mulch-calculator) for cubic yards and bag counts, or see [how much mulch do I need](/guides/how-much-mulch-do-i-need) for manual math on irregular beds.',
+          'Price the same top-up in the [mulch cost estimator](/mulch-cost-estimator) while late-summer bulk still has capacity — fall demand often raises delivery wait times more than material $/yard.',
         ],
       },
     ],
@@ -762,7 +768,7 @@ export const GUIDES: Guide[] = [
       {
         question: 'Is fall or spring better for mulching?',
         answer:
-          'Both work. Spring mulch supports weed suppression during active growth; fall mulch protects soil over winter and reduces heaving on shallow-rooted plants. Many gardeners do a light fall touch-up and a fuller spring refresh.',
+          'Both work. Spring mulch supports weed suppression during active growth; fall mulch protects soil over winter and reduces heaving on shallow-rooted plants. Many gardeners do a light fall touch-up and a fuller spring refresh — compare bulk vs bag spend for either season in the [mulch cost estimator](/mulch-cost-estimator).',
       },
       {
         question: 'Can I mulch over fallen leaves?',
