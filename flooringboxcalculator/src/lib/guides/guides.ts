@@ -229,6 +229,20 @@ export const GUIDES: Guide[] = [
           'After acclimation, confirm box counts with the [laminate calculator](/laminate-flooring-calculator) before cutting the first row.',
         ],
       },
+      {
+        heading: 'How to stack and stage cartons',
+        paragraphs: [
+          'Keep boxes flat — never on edge for long periods. Leave a few inches of air between stacks and walls so conditioned air reaches every carton. Do not open bags or wrappers until install day unless the manufacturer says otherwise.',
+          'If you bought multiple dye lots by mistake, separate them by room before acclimation so continuous sightlines stay on one lot. Photograph lot stamps before recycling cartons.',
+        ],
+      },
+      {
+        heading: 'Winter and summer installs',
+        paragraphs: [
+          'In winter, run heat for several days before delivery so the home is stable — do not dump cold boxes into a just-warmed empty house. In humid summers, run AC or a dehumidifier so RH stays in the product’s range before you start clicking planks.',
+          'New construction and major remodels: wait until drywall mud, paint, and wet trades are finished and the space is occupied-temperature. Wet trades raise humidity that wood cores absorb during a rushed “acclimate overnight” schedule.',
+        ],
+      },
     ],
     faqs: [
       {
@@ -255,19 +269,29 @@ export const GUIDES: Guide[] = [
           'Stair nose: bullnose profile on top stair tread for laminate/LVP',
           'Carpet gripper transition: metal strip where carpet meets hard flooring',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Pick the profile from the height change, not the brand brochure. A laminate-to-tile doorway almost always wants a reducer; same-thickness LVP across a hall opening wants a T-mold.',
+        ],
       },
       {
         heading: 'Expansion gaps and baseboards',
         paragraphs: [
           'Floating floors need a 1/4–3/8 inch gap at walls — hidden by baseboard or quarter round. Do not caulk the floating edge to the wall.',
-          'Match transition color to flooring or trim. Buy one extra piece for miscuts.',
+          'Match transition color to flooring or trim. Buy one extra piece for miscuts. If baseboards stay in place, use shoe molding that covers the gap without pinning the floor.',
         ],
       },
       {
         heading: 'How to order transitions',
         paragraphs: [
           'Measure each doorway width and add 10% for cuts. Count height changes between rooms — each needs a reducer or T-mold. See [laminate install basics](/guides/how-to-install-laminate-flooring-beginners) for when to snap transitions before the last row.',
+          'Write a doorway list before store day: “kitchen→hall T-mold 32″,” “bath reducer 28″.” Transitions are linear feet, not square footage — they never appear in the [box calculator](/how-many-flooring-boxes).',
+        ],
+      },
+      {
+        heading: 'Door undercuts and flush installs',
+        paragraphs: [
+          'Many DIY jobs look unfinished because doors drag on new flooring. Undercut door jambs with a flush-cut saw so planks slide under the casing — then the transition sits centered in the opening, not jammed against the trim.',
+          'For flush tile-to-tile or glued LVP at the same height, a schluter or metal edge strip can replace a bulky T-mold. Floating floors still need a break at doorways when rooms exceed the manufacturer’s maximum continuous run.',
         ],
       },
     ],
@@ -427,7 +451,9 @@ export const GUIDES: Guide[] = [
           'Tile: best moisture and durability, harder install, cold underfoot without heat',
           'Carpet: warm and quiet, poor in wet areas, professional stretch recommended',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Think in trade-offs: tile wins on water and longevity, carpet on comfort and noise, floating planks on DIY speed. LVP sits between laminate and tile for wet-adjacent rooms.',
+        ],
       },
       {
         heading: 'Room-by-room picks',
@@ -438,12 +464,22 @@ export const GUIDES: Guide[] = [
           'Basement: tile or LVP with moisture-rated underlay; test concrete moisture first',
           'Stairs: carpet common; laminate with stair nose or hardwood',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Open kitchen-living plans look best with one continuous hard surface and a soft carpet only in bedrooms. Mixing three materials in one sightline needs careful transition planning.',
+        ],
       },
       {
         heading: 'Budget planning per square foot',
         paragraphs: [
           'Material-only rough ranges (installed varies by region): carpet often lowest per sq ft, laminate/LVP mid-tier, porcelain tile higher for product + mortar + labor. Measure total sq ft first, then compare line-item quotes per category using our [square footage calculator](/flooring-square-footage-calculator).',
+          'Add underlay, thinset, transitions, and tear-out before you crown a “cheapest” winner. A $2 laminate job with bad subfloor prep costs more than a $4 LVP install on a flat slab. Run materials through the [flooring cost estimator](/flooring-cost-estimator) with waste included.',
+        ],
+      },
+      {
+        heading: 'DIY difficulty and time',
+        paragraphs: [
+          'Click-lock laminate/LVP: weekend-friendly for rectangles after subfloor prep. Carpet: stretch and seam work is usually pro territory. Tile: slowest DIY — layout, mortar, grout, and curing add days even for a small bath.',
+          'If you only have one free weekend, pick floating planks for living areas and save tile for a bathroom you can stage over multiple evenings.',
         ],
       },
     ],
@@ -632,6 +668,13 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
+        heading: 'Pets, kids, and scratch reality',
+        paragraphs: [
+          'AC4+ with a textured or matte finish hides claw marks better than glossy AC3. Felt pads on chair legs matter more than another millimetre of thickness. Dark floors show dust; mid-tone wood looks hide everyday traffic.',
+          'If you have large dogs and a history of standing water near bowls, skip standard laminate and go waterproof LVP — swelling at seams is the #1 laminate complaint in pet homes.',
+        ],
+      },
+      {
         heading: 'Retail label checklist',
         bullets: [
           'AC rating matches room traffic (AC4+ for hallways)',
@@ -640,7 +683,9 @@ export const GUIDES: Guide[] = [
           'Attached pad? — skip double underlay unless approved',
           'Batch/lot number — buy all boxes same run',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Bring a phone photo of the label home. Coverage and AC rating are the two numbers you will enter later — not the marketing name on the endcap.',
+        ],
       },
     ],
     faqs: [
@@ -668,12 +713,15 @@ export const GUIDES: Guide[] = [
           'Both float over underlay except glue-down LVP',
           'LVP tolerates basements and kitchens better',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'WPC (wood-plastic composite) LVP feels warmer and quieter; SPC (stone-plastic) is denser and more dent-resistant under fridge feet and pet claws. Both are waterproof at the core — seams and perimeter still need good install practice.',
+        ],
       },
       {
         heading: 'When laminate still wins',
         paragraphs: [
           'Dry rooms where you prefer a more rigid feel underfoot and sharper click-lock. Premium laminate with AC5 can outwear budget LVP. Compare specific products, not categories alone.',
+          'If resale buyers in your area expect a “wood-like” click and you have no basement moisture history, mid-grade laminate often costs less per room than comparable LVP.',
         ],
       },
       {
@@ -686,6 +734,20 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Run both material paths in the [vinyl plank calculator](/vinyl-plank-calculator) and [laminate calculator](/laminate-flooring-calculator) with the same room list to compare box counts.',
+        ],
+      },
+      {
+        heading: 'Underlay and attached pad',
+        paragraphs: [
+          'Many LVP lines ship with attached pad — do not add a second foam layer unless the manufacturer allows it. Laminate usually needs separate underlay; on concrete, use a vapor-barrier product. See [do I need underlay for laminate](/guides/do-i-need-underlay-for-laminate).',
+          'Budget the underlay square footage to match buy area with waste. It is a separate line item from boxes at most big-box stores.',
+        ],
+      },
+      {
+        heading: 'Cost and box-count reality check',
+        paragraphs: [
+          'Entry laminate often wins on price per sq ft, but waterproof LVP can win total project cost when you avoid future swell repairs in kitchens. Compare the same room list in both calculators, then price the actual cartons — not category averages.',
+          'After you pick a winner, buy one dye lot for every continuous sightline. Transitions hide material changes between rooms better than mid-room seams.',
         ],
       },
     ],
@@ -721,12 +783,15 @@ export const GUIDES: Guide[] = [
           'Uncoupling membrane (e.g. DITRA): mortar to subfloor, tile to membrane — great on plywood',
           'Waterproof membrane: shower floors and wet rooms — liquid or sheet',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Match mortar type to the product: some membranes require unmodified thinset while porcelain on backer board wants modified. Mixing the wrong bag is a common DIY failure.',
+        ],
       },
       {
         heading: 'Concrete slab installs',
         paragraphs: [
           'Direct bond possible with proper primer and thinset if slab is flat and cured. Crack isolation membrane over control joints prevents cracks telegraphing through tile.',
+          'Test moisture before you commit — a damp slab can blow thinset bonds months later. If readings are high, fix the moisture source or use a manufacturer-approved moisture mitigation system.',
         ],
       },
       {
@@ -739,6 +804,13 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Pair substrate choice with [tile prep steps](/guides/how-to-prep-for-tile-floor) before ordering tile boxes.',
+        ],
+      },
+      {
+        heading: 'Height build-up and transitions',
+        paragraphs: [
+          'Backer board plus thinset plus tile can raise the floor enough to need door undercuts and reducers into adjacent laminate. Measure finished height before you order transitions.',
+          'Uncoupling membranes are thinner than 1/2″ board — useful when you need to keep door clearances. Plan the stack-up in the doorway, not after the first row is set.',
         ],
       },
     ],
@@ -768,12 +840,15 @@ export const GUIDES: Guide[] = [
           'Have correct thinset (modified vs unmodified) for substrate and tile type',
           'Mix thinset to peanut butter consistency — slake 10 minutes, remix',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Skip any step here and you will fight lippage or hollow spots later. Flatness and the right mortar matter more than expensive tile.',
+        ],
       },
       {
         heading: 'Layout strategy',
         paragraphs: [
           'Centered grid looks formal; start from main entry for fewer small cuts in the sightline. Hide narrow cut tiles under cabinets if kitchen tile stops at toe kick.',
+          'Dry-lay the first two rows fully before mixing mortar. If end cuts are under 2 inches, shift the starting line so both walls get balanced pieces.',
         ],
       },
       {
@@ -785,7 +860,16 @@ export const GUIDES: Guide[] = [
           '1/2 × 1/2 notch: large format 12×24 and bigger',
           'Back-butter large tile — full coverage on back, no voids',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Comb thinset in one direction, then set the tile with a slight slide perpendicular to the ridges. Pull a tile occasionally to confirm coverage — aim for 80%+ indoors, 95%+ wet areas.',
+        ],
+      },
+      {
+        heading: 'Tools and box counts before mortar day',
+        paragraphs: [
+          'Have spacers, leveling clips (for large format), a wet saw, and enough tile on site before you mix. Running short mid-layout forces a dye-lot scramble. Confirm cartons with the [tile calculator](/tile-flooring-calculator) at 15% waste minimum.',
+          'Read [large format tile tips](/guides/large-format-tile-tips) if any side is 15 inches or longer — prep tolerances tighten fast.',
+        ],
       },
     ],
     faqs: [
@@ -813,7 +897,9 @@ export const GUIDES: Guide[] = [
           'Ceramic: fine for light residential floors; verify floor-rated',
           'Glazed porcelain: easy clean; through-body hides chips better on unglazed edge',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'When the box is unclear, check water absorption: porcelain is typically ≤0.5%. If a “ceramic look” is floor-rated porcelain, buy it — looks are marketing, density is performance.',
+        ],
       },
       {
         heading: 'PEI wear rating (glazed tile)',
@@ -822,12 +908,15 @@ export const GUIDES: Guide[] = [
           'PEI 4: general residential including kitchen',
           'PEI 5: heavy traffic commercial — overkill at home but durable',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Unglazed or through-body porcelain may not use PEI the same way — rely on the manufacturer’s floor rating and abrasion claims for those products.',
+        ],
       },
       {
         heading: 'Slip and size',
         paragraphs: [
           'Bath and entry: look for DCOF ≥ 0.42 wet or textured surface. Large format (12×24, 24×24) means fewer grout lines but demands flatter subfloor and more waste.',
+          'Polished tile in a wet bath is a slip hazard even when it photographs well. Matte or structured surfaces are safer for kids and pets.',
         ],
       },
       {
@@ -840,6 +929,13 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Enter tile dimensions in the [tile calculator](/tile-flooring-calculator) with 15–20% waste for diagonal or large-format layouts.',
+        ],
+      },
+      {
+        heading: 'Grout color and maintenance',
+        paragraphs: [
+          'Mid-tone grout hides stains better than pure white in kitchens. Epoxy grout costs more and resists staining in heavy-use floors; cement grout needs sealing. Plan grout joint width from the tile rectification rating — rectified tile allows tighter joints.',
+          'Order 10–15% extra tile from the same shade lot for future repairs. Dye lots shift between production runs.',
         ],
       },
     ],
@@ -867,18 +963,35 @@ export const GUIDES: Guide[] = [
           'Heavier sheets — consider hiring for overhead or heavy porcelain',
           'Use large-format thinset and 1/2 inch notched trowel (follow tile size chart)',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Large format amplifies every substrate mistake. A floor that feels “pretty flat” under 12×12 can look wavy under 24×24 in afternoon light.',
+        ],
       },
       {
         heading: 'Waste factor',
         paragraphs: [
           'Set waste to 18–20% in the calculator for large format or diagonal layouts. Keep two spare tiles stored flat after install.',
+          'Confirm coverage with the [how many tiles calculator](/how-many-tiles-do-i-need) using the carton sq ft from your box — large formats often have fewer pieces and odd coverage numbers.',
         ],
       },
       {
         heading: 'Leveling clip systems',
         paragraphs: [
           'Clips and wedges hold tile edges flush while mortar sets — essential for 12×24+ on walls and floors. Budget clips per tile perimeter. Remove clips after 24 hours before grouting. Flat substrate still required — clips do not fix wavy subfloor.',
+        ],
+      },
+      {
+        heading: 'Handling, cutting, and layout',
+        paragraphs: [
+          'Carry porcelain on edge with two people when possible. Score-and-snap cutters usually fail on thick large-format — rent a wet saw with a continuous rim blade. Support the tile fully on the saw table to avoid mid-cut snaps.',
+          'Stagger joints at 33% or follow the manufacturer — 50% brick patterns can stress some long planks and increase lippage. Dry-lay the pattern in the main sightline before mortar day.',
+        ],
+      },
+      {
+        heading: 'Mortar coverage and cure',
+        paragraphs: [
+          'Large format needs near-full thinset coverage — voids under the middle of a 24×24 tile sound hollow and crack later. Back-butter plus a deep notch trowel is standard, not optional.',
+          'Keep foot traffic off until thinset cures per the bag. Grout only after the floor is firm; early walking rolls tiles and ruins clip alignment. Pair prep with [how to prep for tile](/guides/how-to-prep-for-tile-floor).',
         ],
       },
     ],
@@ -914,18 +1027,28 @@ export const GUIDES: Guide[] = [
           'Rubber: dense, durable — good on stairs and high traffic',
           'Moisture barrier pad: basements or slab-on-grade — not a substitute for fixing leaks',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Density (lb) matters more than thickness for durability. Soft thick pad feels plush on day one but can crush and wrinkle carpet in hallways.',
+        ],
       },
       {
         heading: 'Thickness rules',
         paragraphs: [
           'Too thick pad on stairs or with some carpets causes wrinkling. Many carpets specify max 7/16 inch pad. Check carpet warranty before buying thick plush pad.',
+          'Stairs and landings: thinner, denser pad (often rubber) so treads stay firm underfoot. Matching living-room plush pad on stairs is a common comfort mistake.',
         ],
       },
       {
         heading: 'Square yard ordering example',
         paragraphs: [
           'Room 12×15 ft = 180 sq ft ÷ 9 = 20 sq yd carpet. With 10% waste → 22 sq yd. Order pad to match 22 sq yd — pad and carpet are sold separately but same area. Use the [carpet calculator](/carpet-calculator) to convert feet to yards automatically.',
+        ],
+      },
+      {
+        heading: 'Seams, tape, and install notes',
+        paragraphs: [
+          'Pad seams should be taped and should not line up directly under carpet seams. Installers stagger them on purpose — if you are DIY stretching, plan pad layout before cutting carpet.',
+          'On concrete, a moisture-barrier pad helps vapor, not floods. Fix drainage and leaks first. See [how to choose carpet](/guides/how-to-choose-carpet-for-rooms) for fiber picks by room.',
         ],
       },
     ],
@@ -955,7 +1078,9 @@ export const GUIDES: Guide[] = [
           'Triexta (SmartStrand): stain resistance, good for kids and pets',
           'Wool: premium, natural — professional clean only',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Solution-dyed fibers resist bleach and sunlight fading better than yarn-dyed budget lines — worth it for sunrooms and rentals.',
+        ],
       },
       {
         heading: 'Pile style',
@@ -964,12 +1089,15 @@ export const GUIDES: Guide[] = [
           'Loop (Berber): durable, casual — snags on pets claws',
           'Pattern cut-loop: hides wear — good living rooms',
         ],
-        paragraphs: [],
+        paragraphs: [
+          'Textured cut pile is the modern default for family rooms: it hides footprints better than plush saxony while staying soft underfoot.',
+        ],
       },
       {
         heading: 'Room tips',
         paragraphs: [
           'Stairs: low profile, dense pad, professional stretch install. Bedrooms: softer pile OK. Basement: synthetic only, moisture pad if needed — avoid carpet if water history.',
+          'Pets that scratch favor short cut pile over loop berber. Light colors show less contrast from shed hair of the same color — dark carpet with light pets shows every tumbleweed.',
         ],
       },
       {
@@ -983,6 +1111,13 @@ export const GUIDES: Guide[] = [
         ],
         paragraphs: [
           'Measure in feet, order in square yards — the [carpet calculator](/carpet-calculator) handles conversion and waste. See [pad guide](/guides/carpet-pad-guide) before checkout.',
+        ],
+      },
+      {
+        heading: 'Face weight and density (label decoder)',
+        paragraphs: [
+          'Higher face weight is not automatically better if the pile is loose. Ask for density or “ounces and twist” — tight twist holds texture longer in traffic lanes.',
+          'Bring room measurements and roll-width questions to the store: 12 ft rolls waste less in many bedrooms than 15 ft, or the reverse for wide living rooms. Patterned goods need extra waste for matching.',
         ],
       },
     ],
