@@ -743,6 +743,13 @@ export const GUIDES: Guide[] = [
           'Budget the underlay square footage to match buy area with waste. It is a separate line item from boxes at most big-box stores.',
         ],
       },
+      {
+        heading: 'Cost and box-count reality check',
+        paragraphs: [
+          'Entry laminate often wins on price per sq ft, but waterproof LVP can win total project cost when you avoid future swell repairs in kitchens. Compare the same room list in both calculators, then price the actual cartons — not category averages.',
+          'After you pick a winner, buy one dye lot for every continuous sightline. Transitions hide material changes between rooms better than mid-room seams.',
+        ],
+      },
     ],
     faqs: [
       {
