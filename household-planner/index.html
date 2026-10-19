@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Household budget &amp; debt planner</title>
+    <meta
+      name="description"
+      content="Private household budget and debt repayment planner. Numbers stay in this browser unless you export them."
+    />
+    <link rel="stylesheet" href="./styles.css?v=drop-kids-pets" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <h1>Household budget planner</h1>
+          <p>Fill as you go. Auto-updates while you type. Numbers stay in this browser.</p>
+        </div>
+        <div class="controls">
+          <label class="toggle">
+            <input id="auto-update" type="checkbox" checked />
+            Auto-update
+          </label>
+          <span class="status" id="status">Ready</span>
+          <button class="btn primary" id="update-btn" type="button">Update now</button>
+          <button class="btn" id="export-btn" type="button">Export JSON</button>
+          <label class="btn file-btn">Import JSON<input id="import-file" type="file" accept="application/json" /></label>
+          <button class="btn ghost" id="reset-btn" type="button">Reset</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="stats" aria-label="Household snapshot">
+        <div class="stat">
+          <div class="value" id="stat-income">$0</div>
+          <div class="label" id="stat-income-label">Operating income (4-week month)</div>
+        </div>
+        <div class="stat">
+          <div class="value" id="stat-spend">$0</div>
+          <div class="label">Budgeted living costs</div>
+        </div>
+        <div class="stat">
+          <div class="value" id="stat-actual">$0</div>
+          <div class="label">Spent this period</div>
+        </div>
+        <div class="stat">
+          <div class="value" id="stat-variance">$0</div>
+          <div class="label" id="stat-variance-label">Under / over budget</div>
+        </div>
+        <div class="stat">
+          <div class="value" id="stat-left">$0</div>
+          <div class="label" id="stat-left-label">Left for debt / buffer</div>
+        </div>
+        <div class="stat">
+          <div class="value" id="stat-debtfree">—</div>
+          <div class="label">Debt-free on current method</div>
+        </div>
+      </section>
+
+      <p class="callout info" id="budget-alert">
+        Start with take-home and assistance, then paste debts from Undebt.it. The repayment table fills in on the right.
+      </p>
+
+      <div class="layout">
+        <div>
+          <section class="card">
+            <h2>Income</h2>
+            <p class="lede">
+              Your pay is treated as steady. Spouse assistance defaults to every two weeks. Conservative mode counts two
+              pays per month and treats the two extra pays a year as snowflakes. Rent and other bills are never scaled.
+            </p>
+            <div class="grid-2" style="margin-bottom: 12px">
+              <label class="field">
+                Currency
+                <select id="currency">
+                  <option value="CAD">CAD</option>
+                  <option value="USD">USD</option>
+                </select>
+              </label>
+              <label class="toggle" style="align-self: end; padding-bottom: 8px">
+                <input id="conservative" type="checkbox" checked />
+                Count only 2 paycheques (rent and other bills stay as typed)
+              </label>
+            </div>
+            <div class="grid-2">
+              <label class="field">Your take-home<input id="you-amount" type="number" min="0" step="1" placeholder="0" /></label>
+              <label class="field">How often<select id="you-cadence"></select></label>
+              <label class="field">Spouse assistance<input id="spouse-amount" type="number" min="0" step="1" placeholder="0" /></label>
+              <label class="field">How often<select id="spouse-cadence"></select></label>
+              <label class="field">Other income<input id="other-amount" type="number" min="0" step="1" placeholder="0" /></label>
+              <label class="field">How often<select id="other-cadence"></select></label>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Spending tracker</h2>
+            <p class="lede">
+              Type each category’s budget and what you have spent. Figures stay as entered — $1,500 rent stays $1,500.
+              Use Add spend for a receipt, or type in the Spent box.
+            </p>
+            <div class="quick-add">
+              <label class="field">Add a spend
+                <select id="spend-cat"></select>
+              </label>
+              <label class="field">Amount
+                <input id="spend-amt" type="number" min="0" step="0.01" placeholder="0" />
+              </label>
+              <label class="field">Note
+                <input id="spend-note" type="text" placeholder="optional" />
+              </label>
+              <button class="btn primary" id="add-spend" type="button">Add spend</button>
+            </div>
+            <div style="overflow-x: auto">
+              <table class="spend-table">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Budget</th>
+                    <th>Spent</th>
+                    <th>Left</th>
+                    <th>Used</th>
+                    <th>Cadence</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="expense-body"></tbody>
+                <tfoot>
+                  <tr>
+                    <th>Total</th>
+                    <td class="num" id="exp-total-budget">$0</td>
+                    <td class="num" id="exp-total-spent">$0</td>
+                    <td class="num" id="exp-total-left">$0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <div class="row-actions">
+              <button class="btn" id="add-expense" type="button">Add category</button>
+              <button class="btn ghost" id="reset-spent" type="button">Clear spent</button>
+            </div>
+            <p class="chart-caption" id="spend-caption"></p>
+          </section>
+
+          <section class="card">
+            <h2>Debts</h2>
+            <p class="lede">
+              Paste from Undebt.it or a spreadsheet: Name, Balance, APR, Min, Limit. Order is only used by Custom.
+            </p>
+            <label class="field">
+              Paste table
+              <textarea id="debt-paste" placeholder="Visa	4200	20.99	85	5000&#10;Car	8120	7.9	265"></textarea>
+            </label>
+            <div class="row-actions">
+              <button class="btn" id="paste-debts" type="button">Load pasted debts</button>
+              <button class="btn" id="add-debt" type="button">Add debt row</button>
+            </div>
+            <div style="overflow-x: auto; margin-top: 12px">
+              <table>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Balance</th>
+                    <th>APR %</th>
+                    <th>Min</th>
+                    <th>Limit</th>
+                    <th>Type</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="debt-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Payoff method</h2>
+            <p class="lede">All eight Undebt.it orderings. Extra cash always rolls from one paid-off debt to the next.</p>
+            <div class="methods" id="methods"></div>
+            <div class="grid-2" style="margin-top: 14px">
+              <label class="toggle" style="padding-top: 8px">
+                <input id="blaster" type="checkbox" />
+                Debt Blaster (add this $ after each payoff)
+              </label>
+              <label class="field">Blaster amount<input id="blaster-amt" type="number" min="0" step="1" /></label>
+              <label class="field">
+                Override extra (optional)
+                <input id="extra-override" type="number" min="0" step="1" placeholder="Leave blank to use leftover" />
+              </label>
+              <label class="field">
+                One-time extra this month
+                <input id="snowflake" type="number" min="0" step="1" placeholder="0" />
+              </label>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Still to discover</h2>
+            <ul class="checks" id="open-items"></ul>
+            <label class="field" style="margin-top: 12px">
+              Notes
+              <textarea id="notes" placeholder="Promo expiry, CRA account, insurance renewal…"></textarea>
+            </label>
+          </section>
+        </div>
+
+        <div class="results-col">
+          <section class="card">
+            <h2>Repayment snapshot</h2>
+            <p class="lede">Interest over the selected plan: <strong id="interest-stat">—</strong></p>
+            <svg class="chart" id="balance-chart" aria-label="Remaining debt over time"></svg>
+            <p class="chart-caption" id="chart-caption"></p>
+          </section>
+
+          <section class="card" id="compare-wrap">
+            <h2>All methods compared</h2>
+            <p class="lede">Same budget, different attack order. Switch methods on the left to restage the schedule.</p>
+            <div style="overflow-x: auto">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>Debt-free</th>
+                    <th>Interest</th>
+                    <th>First win</th>
+                  </tr>
+                </thead>
+                <tbody id="compare-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card" id="schedule-wrap">
+            <h2>Payment schedule</h2>
+            <p class="lede">First 24 months. Extra goes to the current target after every minimum is paid.</p>
+            <div style="overflow-x: auto">
+              <table>
+                <thead>
+                  <tr>
+                    <th>When</th>
+                    <th>Target</th>
+                    <th>Extra</th>
+                    <th>Total left</th>
+                    <th>Paid off</th>
+                  </tr>
+                </thead>
+                <tbody id="schedule-body"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <p class="footer-note">
+        This is a household planning worksheet, not a bank, not advice, and not deployed as a public calculator. Export
+        JSON if you want the agent to run numbers with you. Data never leaves this browser unless you export or import a
+        file.
+      </p>
+    </main>
+    <script type="module" src="./planner.js?v=drop-kids-pets"></script>
+  </body>
+</html>
