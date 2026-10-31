@@ -3,9 +3,12 @@ import { Leaf, Moon, Sun } from 'lucide-react';
 import { useDarkMode } from '../context/DarkModeContext';
 import { FEATURED_LANDING_LINKS } from '../lib/landingPages';
 import { CONTACT_EMAIL, SITE_NAME } from '../lib/site';
+import { diySisterSitesExcept } from '../lib/diySisterSites';
 import ScrollToTop from './ScrollToTop';
 import AdSenseSiteScript from './AdSenseSiteScript';
 import AdSlot from './AdSlot';
+
+const DIY_SISTER_SITES = diySisterSitesExcept('mulch');
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `text-sm transition-colors ${
@@ -153,6 +156,25 @@ export default function Layout() {
               </Link>
             </div>
           </div>
+          <nav
+            aria-label="More DIY calculators"
+            className="mb-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-sm"
+          >
+            <p className="font-semibold text-slate-800 dark:text-slate-200 mb-2">More DIY calculators</p>
+            <ul className="flex flex-wrap gap-x-4 gap-y-2">
+              {DIY_SISTER_SITES.map((site) => (
+                <li key={site.id}>
+                  <a
+                    href={site.href}
+                    className="text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400"
+                    rel="noopener noreferrer"
+                  >
+                    {site.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
           <AdSlot placement="footer" className="mb-6" />
           <div className="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500 dark:text-slate-400">
             <p className="text-center sm:text-left">
